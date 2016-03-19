@@ -1,0 +1,14 @@
+**/.DS_Store
+.fuse_hidden*
+
+logs/
+
+*.pro.*
+*.autosave
+Makefile*
+*.o
+moc_*
+.tags*
+build*
+*.user*
+*.orig
