@@ -112,14 +112,14 @@ namespace JsonFormat
     const QString BATTERYFAULTS_CELLUNDERVOLTAGE = "CellUnderVoltage";
     const QString BATTERYFAULTS_CELLOVERTEMP = "CellOverTemp";
     const QString BATTERYFAULTS_MEASUREMENTUNTRUSTED = "MeasurementUntrusted";
-    const QString BATTERYFAULTS_CmuCOMMTIMEOUT = "CmuCommTimeout";
+    const QString BATTERYFAULTS_CMUCOMMTIMEOUT = "CMUCommTimeout";
     const QString BATTERYFAULTS_BMUSETUPMODE = "BMUSetupMode";
-    const QString BATTERYFAULTS_CmuCANBUSPOWERSTATUS = "CmuCANBusPowerStatus";
+    const QString BATTERYFAULTS_CMUCANBUSPOWERSTATUS = "CMUCANBusPowerStatus";
     const QString BATTERYFAULTS_PACKISOLATIONFAILURE = "PackIsolationFailure";
     const QString BATTERYFAULTS_SOFTWAREOVERCURRENT = "SoftwareOverCurrent";
     const QString BATTERYFAULTS_CAN12VSUPPLYLOW = "CAN12VSupplyLow";
     const QString BATTERYFAULTS_CONTACTORSTUCK = "ContactorStuck";
-    const QString BATTERYFAULTS_CmuDETECTEDEXTRACELL = "CmuDetectedExtraCell";
+    const QString BATTERYFAULTS_CMUDETECTEDEXTRACELL = "CMUDetectedExtraCell";
 
 
     const QString BATTERY = "Battery";
@@ -145,22 +145,22 @@ namespace JsonFormat
 
     const QString BATTERY_LOWESTCELLVOLTAGE = "LowestCellVoltage";
     const QString BATTERY_LOWESTCELLVOLTAGE_VOLTAGE = "Voltage";
-    const QString BATTERY_LOWESTCELLVOLTAGE_CmuNUMBER = "CmuNumber";
+    const QString BATTERY_LOWESTCELLVOLTAGE_CMUNUMBER = "CMUNumber";
     const QString BATTERY_LOWESTCELLVOLTAGE_CELLNUMBER = "CellNumber";
 
     const QString BATTERY_LOWESTCELLTEMP = "LowestCellTemp";
     const QString BATTERY_LOWESTCELLTEMP_TEMPERATURE = "Temperature";
-    const QString BATTERY_LOWESTCELLTEMP_CmuNUMBER = "CmuNumber";
+    const QString BATTERY_LOWESTCELLTEMP_CMUNUMBER = "CMUNumber";
     const QString BATTERY_LOWESTCELLTEMP_CELLNUMBER = "CellNumber";
 
     const QString BATTERY_HIGHESTCELLVOLTAGE = "HighestCellVoltage";
     const QString BATTERY_HIGHESTCELLVOLTAGE_VOLTAGE = "Voltage";
-    const QString BATTERY_HIGHESTCELLVOLTAGE_CmuNUMBER = "CmuNumber";
+    const QString BATTERY_HIGHESTCELLVOLTAGE_CMUNUMBER = "CMUNumber";
     const QString BATTERY_HIGHESTCELLVOLTAGE_CELLNUMBER = "CellNumber";
 
     const QString BATTERY_HIGHESTCELLTEMP = "HighestCellTemp";
     const QString BATTERY_HIGHESTCELLTEMP_TEMPERATURE = "Temperature";
-    const QString BATTERY_HIGHESTCELLTEMP_CmuNUMBER = "CmuNumber";
+    const QString BATTERY_HIGHESTCELLTEMP_CMUNUMBER = "CMUNumber";
     const QString BATTERY_HIGHESTCELLTEMP_CELLNUMBER = "CellNumber";
 
     const QString BATTERY_VOLTAGE = "Voltage";
@@ -168,19 +168,19 @@ namespace JsonFormat
     const QString BATTERY_FAN0SPEED = "Fan0Speed";
     const QString BATTERY_FAN1SPEED = "Fan1Speed";
     const QString BATTERY_FANCONTACTORSCURRENT = "FanContactorsCurrent";
-    const QString BATTERY_CmuCURRENT = "CmuCurrent";
+    const QString BATTERY_CMUCURRENT = "CMUCurrent";
 
-    const QString Cmu = "Cmu";
-    const QString Cmu_VOLTAGES = "Voltages";
-    const QString Cmu_PCBTEMP = "PcbTemp";
-    const QString Cmu_CELLTEMPS = "CellTemps";
+    const QString CMU = "CMU";
+    const QString CMU_VOLTAGES = "Voltages";
+    const QString CMU_PCBTEMP = "PcbTemp";
+    const QString CMU_CELLTEMPS = "CellTemps";
 
-    const QString Mppt = "Mppt";
-    const QString Mppt_ALIVE = "Alive";
-    const QString Mppt_ARRAYVOLTAGE = "ArrayVoltage";
-    const QString Mppt_ARRAYCURRENT = "ArrayCurrent";
-    const QString Mppt_BATTERYVOLTAGE = "BatteryVoltage";
-    const QString Mppt_TEMPERATURE = "Temperature";
+    const QString MPPT = "MPPT";
+    const QString MPPT_ALIVE = "Alive";
+    const QString MPPT_ARRAYVOLTAGE = "ArrayVoltage";
+    const QString MPPT_ARRAYCURRENT = "ArrayCurrent";
+    const QString MPPT_BATTERYVOLTAGE = "BatteryVoltage";
+    const QString MPPT_TEMPERATURE = "Temperature";
 
 
     const QString LIGHTS = "Lights";

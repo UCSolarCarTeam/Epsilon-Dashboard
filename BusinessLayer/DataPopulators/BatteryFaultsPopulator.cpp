@@ -48,13 +48,13 @@ void BatteryFaultsPopulator::populateData(const QJsonObject& data)
     batteryFaults.setCellUnderVoltage(value.toObject().value(JsonFormat::BATTERYFAULTS_CELLUNDERVOLTAGE).toBool());
     batteryFaults.setCellOverTemperature(value.toObject().value(JsonFormat::BATTERYFAULTS_CELLOVERTEMP).toBool());
     batteryFaults.setMeasurementUntrusted(value.toObject().value(JsonFormat::BATTERYFAULTS_MEASUREMENTUNTRUSTED).toBool());
-    batteryFaults.setCmuCommTimeout(value.toObject().value(JsonFormat::BATTERYFAULTS_CmuCOMMTIMEOUT).toBool());
+    batteryFaults.setCMUCOMMTIMEOUT(value.toObject().value(JsonFormat::BATTERYFAULTS_CMUCOMMTIMEOUT).toBool());
     batteryFaults.setBmuIsInSetupMode(value.toObject().value(JsonFormat::BATTERYFAULTS_BMUSETUPMODE).toBool());
-    batteryFaults.setCmuCanBusPowerStatus(value.toObject().value(JsonFormat::BATTERYFAULTS_CmuCANBUSPOWERSTATUS).toBool());
+    batteryFaults.setCmuCanBusPowerStatus(value.toObject().value(JsonFormat::BATTERYFAULTS_CMUCANBUSPOWERSTATUS).toBool());
     batteryFaults.setPackIsolationTestFailure(value.toObject().value(JsonFormat::BATTERYFAULTS_PACKISOLATIONFAILURE).toBool());
     batteryFaults.setSoftwareOverCurrentMeasured(value.toObject().value(JsonFormat::BATTERYFAULTS_SOFTWAREOVERCURRENT).toBool());
     batteryFaults.setCanSupplyIsLow(value.toObject().value(JsonFormat::BATTERYFAULTS_CAN12VSUPPLYLOW).toBool());
     batteryFaults.setContactorIsStuck(value.toObject().value(JsonFormat::BATTERYFAULTS_CONTACTORSTUCK).toBool());
-    batteryFaults.setCmuDetectedExtraCellPresent(value.toObject().value(JsonFormat::BATTERYFAULTS_CmuDETECTEDEXTRACELL).toBool());
+    batteryFaults.setCmuDetectedExtraCellPresent(value.toObject().value(JsonFormat::BATTERYFAULTS_CMUDETECTEDEXTRACELL).toBool());
     batteryFaultsData_.setBatteryFaults(batteryFaults);
 }

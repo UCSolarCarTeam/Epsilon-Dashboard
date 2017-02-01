@@ -50,16 +50,16 @@ void MpptPopulator::populateData(const QJsonObject& data)
     QList<double> arrayCurrentList;
     QList<double> batteryVoltageList;
     QList<double> temperatureList;
-    QJsonValue value = data.value(JsonFormat::Mppt);
+    QJsonValue value = data.value(JsonFormat::MPPT);
     QJsonArray array = value.toArray();
 
     foreach (const QJsonValue& v, array)
     {
-        aliveList.append(v.toObject().value(JsonFormat::Mppt_ALIVE).toBool());
-        arrayVoltageList.append(v.toObject().value(JsonFormat::Mppt_ARRAYVOLTAGE).toDouble());
-        arrayCurrentList.append(v.toObject().value(JsonFormat::Mppt_ARRAYCURRENT).toDouble());
-        batteryVoltageList.append(v.toObject().value(JsonFormat::Mppt_BATTERYVOLTAGE).toDouble());
-        temperatureList.append(v.toObject().value(JsonFormat::Mppt_TEMPERATURE).toDouble());
+        aliveList.append(v.toObject().value(JsonFormat::MPPT_ALIVE).toBool());
+        arrayVoltageList.append(v.toObject().value(JsonFormat::MPPT_ARRAYVOLTAGE).toDouble());
+        arrayCurrentList.append(v.toObject().value(JsonFormat::MPPT_ARRAYCURRENT).toDouble());
+        batteryVoltageList.append(v.toObject().value(JsonFormat::MPPT_BATTERYVOLTAGE).toDouble());
+        temperatureList.append(v.toObject().value(JsonFormat::MPPT_TEMPERATURE).toDouble());
     }
 
     mpptZero.setAlive(aliveList.value(0));
