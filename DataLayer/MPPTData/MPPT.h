@@ -2,12 +2,12 @@
 
 #include <QString>
 
-class MPPT
+class Mppt
 {
 public:
-    MPPT();
+    Mppt();
 
-    virtual ~MPPT();
+    virtual ~Mppt();
 
     bool alive() const;
     double arrayVoltage() const;

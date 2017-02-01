@@ -3,11 +3,11 @@
 
 DisplayDashboardView::DisplayDashboardView(BatteryPresenter& batteryPresenter,
         BatteryFaultsPresenter& batteryFaultsPresenter,
-        CMUPresenter& cmuPresenter,
+        CmuPresenter& cmuPresenter,
         DriverControlsPresenter& driverControlsPresenter,
         KeyMotorPresenter& keyMotorPresenter,
         LightsPresenter& lightsPresenter,
-        MPPTPresenter& mpptPresenter,
+        MpptPresenter& mpptPresenter,
         MotorDetailsPresenter& motorDetailsPresenter,
         MotorFaultsPresenter& motorFaultsPresenter,
         I_DisplayDashboardUI& ui)
@@ -24,11 +24,11 @@ DisplayDashboardView::DisplayDashboardView(BatteryPresenter& batteryPresenter,
 {
     connectBattery(batteryPresenter_);
     connectBatteryFaults(batteryFaultsPresenter_);
-    connectCMU(cmuPresenter_);
+    connectCmu(cmuPresenter_);
     connectDriverControls(driverControlsPresenter_);
     connectKeyMotor(keyMotorPresenter_);
     connectLights(lightsPresenter_);
-    connectMPPT(mpptPresenter_);
+    connectMppt(mpptPresenter_);
     connectMotorDetails(motorDetailsPresenter_);
     connectMotorFaults(motorFaultsPresenter_);
     //ui_.showMaximized();
@@ -60,7 +60,7 @@ void DisplayDashboardView::connectBatteryFaults(BatteryFaultsPresenter& batteryF
             this, SLOT(batteryFaultsReceived(BatteryFaults)));
 }
 
-void DisplayDashboardView::connectCMU(CMUPresenter& cmuPresenter)
+void DisplayDashboardView::connectCmu(CmuPresenter& cmuPresenter)
 {
     connect(&cmuPresenter, SIGNAL(cmuMaxCellTempReceived(double)),
             this, SLOT(cmuMaxCellTempReceived(double)));
@@ -102,14 +102,14 @@ void DisplayDashboardView::connectLights(LightsPresenter& lightsPresenter)
             this, SLOT(rightSignalReceived(bool)));
 }
 
-void DisplayDashboardView::connectMPPT(MPPTPresenter& mpptPresenter)
+void DisplayDashboardView::connectMppt(MpptPresenter& mpptPresenter)
 {
-    connect(&mpptPresenter, SIGNAL(mpptZeroReceived(MPPT)),
-            this, SLOT(mpptZeroReceived(MPPT)));
-    connect(&mpptPresenter, SIGNAL(mpptOneReceived(MPPT)),
-            this, SLOT(mpptOneReceived(MPPT)));
-    connect(&mpptPresenter, SIGNAL(mpptTwoReceived(MPPT)),
-            this, SLOT(mpptTwoReceived(MPPT)));
+    connect(&mpptPresenter, SIGNAL(mpptZeroReceived(Mppt)),
+            this, SLOT(mpptZeroReceived(Mppt)));
+    connect(&mpptPresenter, SIGNAL(mpptOneReceived(Mppt)),
+            this, SLOT(mpptOneReceived(Mppt)));
+    connect(&mpptPresenter, SIGNAL(mpptTwoReceived(Mppt)),
+            this, SLOT(mpptTwoReceived(Mppt)));
     connect(&mpptPresenter, SIGNAL(mpptPowerReceived(double)),
             this, SLOT(mpptPowerReceived(double)));
 }
@@ -275,17 +275,17 @@ void DisplayDashboardView::rightSignalReceived(bool rightSignal)
         ui_.rightTurnSignalWidget().setStyleSheet("");
     }
 }
-void DisplayDashboardView::mpptZeroReceived(MPPT mpptZero)
+void DisplayDashboardView::mpptZeroReceived(Mppt mpptZero)
 {
     ui_.array0CurrentLabel().setNum(mpptZero.arrayCurrent());
     ui_.array0VoltageLabel().setNum(mpptZero.arrayVoltage());
 }
-void DisplayDashboardView::mpptOneReceived(MPPT mpptOne)
+void DisplayDashboardView::mpptOneReceived(Mppt mpptOne)
 {
     ui_.array1CurrentLabel().setNum(mpptOne.arrayCurrent());
     ui_.array1VoltageLabel().setNum(mpptOne.arrayVoltage());
 }
-void DisplayDashboardView::mpptTwoReceived(MPPT mpptTwo)
+void DisplayDashboardView::mpptTwoReceived(Mppt mpptTwo)
 {
     ui_.array2CurrentLabel().setNum(mpptTwo.arrayCurrent());
     ui_.array2VoltageLabel().setNum(mpptTwo.arrayVoltage());

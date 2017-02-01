@@ -1,35 +1,35 @@
-#include "CMU.h"
+#include "Cmu.h"
 
-CMU::CMU()
+Cmu::Cmu()
 {
 }
 
-CMU::~CMU()
+Cmu::~Cmu()
 {
 }
 
-QList<double> CMU::voltages() const
+QList<double> Cmu::voltages() const
 {
     return voltages_;
 }
-double CMU::pcbTemp() const
+double Cmu::pcbTemp() const
 {
     return pcbTemp_;
 }
-QList<double> CMU::cellTemps() const
+QList<double> Cmu::cellTemps() const
 {
     return cellTemps_;
 }
 
-void CMU::setVoltages(QList<double> voltages)
+void Cmu::setVoltages(QList<double> voltages)
 {
     voltages_ = voltages;
 }
-void CMU::setPcbTemp(double pcbTemp)
+void Cmu::setPcbTemp(double pcbTemp)
 {
     pcbTemp_ = pcbTemp;
 }
-void CMU::setCellTemps(QList<double> cellTemps)
+void Cmu::setCellTemps(QList<double> cellTemps)
 {
     cellTemps_ = cellTemps;
 }

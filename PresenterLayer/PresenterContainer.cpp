@@ -3,22 +3,22 @@
 
 #include "BatteryPresenter/BatteryPresenter.h"
 #include "BatteryFaultsPresenter/BatteryFaultsPresenter.h"
-#include "CMUPresenter/CMUPresenter.h"
+#include "CmuPresenter/CmuPresenter.h"
 #include "DriverControlsPresenter/DriverControlsPresenter.h"
 #include "KeyMotorPresenter/KeyMotorPresenter.h"
 #include "LightsPresenter/LightsPresenter.h"
-#include "MPPTPresenter/MPPTPresenter.h"
+#include "MpptPresenter/MpptPresenter.h"
 #include "MotorDetailsPresenter/MotorDetailsPresenter.h"
 #include "MotorFaultsPresenter/MotorFaultsPresenter.h"
 
 PresenterContainer::PresenterContainer(DataContainer& dataContainer)
     : batteryPresenter_(new BatteryPresenter(dataContainer.batteryData()))
     , batteryFaultsPresenter_(new BatteryFaultsPresenter(dataContainer.batteryFaultsData()))
-    , cmuPresenter_(new CMUPresenter(dataContainer.cmuData()))
+    , cmuPresenter_(new CmuPresenter(dataContainer.cmuData()))
     , driverControlsPresenter_(new DriverControlsPresenter(dataContainer.driverControlsData()))
     , keyMotorPresenter_(new KeyMotorPresenter(dataContainer.keyMotorData()))
     , lightsPresenter_(new LightsPresenter(dataContainer.lightsData()))
-    , mpptPresenter_(new MPPTPresenter(dataContainer.mpptData()))
+    , mpptPresenter_(new MpptPresenter(dataContainer.mpptData()))
     , motorDetailsPresenter_(new MotorDetailsPresenter(dataContainer.motorDetailsData()))
     , motorFaultsPresenter_(new MotorFaultsPresenter(dataContainer.motorFaultsData()))
 {
@@ -36,7 +36,7 @@ BatteryFaultsPresenter& PresenterContainer::batteryFaultsPresenter()
 {
     return *batteryFaultsPresenter_;
 }
-CMUPresenter& PresenterContainer::cmuPresenter()
+CmuPresenter& PresenterContainer::cmuPresenter()
 {
     return *cmuPresenter_;
 }
@@ -52,7 +52,7 @@ LightsPresenter& PresenterContainer::lightsPresenter()
 {
     return *lightsPresenter_;
 }
-MPPTPresenter& PresenterContainer::mpptPresenter()
+MpptPresenter& PresenterContainer::mpptPresenter()
 {
     return *mpptPresenter_;
 }

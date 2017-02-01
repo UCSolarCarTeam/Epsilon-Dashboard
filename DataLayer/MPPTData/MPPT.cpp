@@ -1,51 +1,51 @@
-#include "MPPT.h"
+#include "Mppt.h"
 
-MPPT::MPPT()
+Mppt::Mppt()
 {
 }
 
-MPPT::~MPPT()
+Mppt::~Mppt()
 {
 }
 
-bool MPPT::alive() const
+bool Mppt::alive() const
 {
     return alive_;
 }
-double MPPT::arrayVoltage() const
+double Mppt::arrayVoltage() const
 {
     return arrayVoltage_;
 }
-double MPPT::arrayCurrent() const
+double Mppt::arrayCurrent() const
 {
     return arrayCurrent_;
 }
-double MPPT::batteryVoltage() const
+double Mppt::batteryVoltage() const
 {
     return batteryVoltage_;
 }
-double MPPT::temperature() const
+double Mppt::temperature() const
 {
     return temperature_;
 }
 
-void MPPT::setAlive(bool alive)
+void Mppt::setAlive(bool alive)
 {
     alive_ = alive;
 }
-void MPPT::setArrayVoltage(double arrayVoltage)
+void Mppt::setArrayVoltage(double arrayVoltage)
 {
     arrayVoltage_ = arrayVoltage;
 }
-void MPPT::setArrayCurrent(double arrayCurrent)
+void Mppt::setArrayCurrent(double arrayCurrent)
 {
     arrayCurrent_ = arrayCurrent;
 }
-void MPPT::setBatteryVoltage(double batteryVoltage)
+void Mppt::setBatteryVoltage(double batteryVoltage)
 {
     batteryVoltage_ = batteryVoltage;
 }
-void MPPT::setTemperature(double temperature)
+void Mppt::setTemperature(double temperature)
 {
     temperature_ = temperature;
 }

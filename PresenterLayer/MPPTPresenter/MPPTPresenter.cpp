@@ -1,19 +1,19 @@
-#include "MPPTPresenter.h"
+#include "MpptPresenter.h"
 
-MPPTPresenter::MPPTPresenter(const I_MPPTData& mpptData)
+MpptPresenter::MpptPresenter(const I_MpptData& mpptData)
     : mpptData_(mpptData)
 {
-    relayMPPTData();
+    relayMpptData();
 }
 
-void MPPTPresenter::relayMPPTData()
+void MpptPresenter::relayMpptData()
 {
-    connect(&mpptData_, SIGNAL(mpptZeroReceived(MPPT)),
-            this, SIGNAL(mpptZeroReceived(MPPT)));
-    connect(&mpptData_, SIGNAL(mpptOneReceived(MPPT)),
-            this, SIGNAL(mpptOneReceived(MPPT)));
-    connect(&mpptData_, SIGNAL(mpptTwoReceived(MPPT)),
-            this, SIGNAL(mpptTwoReceived(MPPT)));
+    connect(&mpptData_, SIGNAL(mpptZeroReceived(Mppt)),
+            this, SIGNAL(mpptZeroReceived(Mppt)));
+    connect(&mpptData_, SIGNAL(mpptOneReceived(Mppt)),
+            this, SIGNAL(mpptOneReceived(Mppt)));
+    connect(&mpptData_, SIGNAL(mpptTwoReceived(Mppt)),
+            this, SIGNAL(mpptTwoReceived(Mppt)));
     connect(&mpptData_, SIGNAL(mpptPowerReceived(double)),
             this, SIGNAL(mpptPowerReceived(double)));
 }

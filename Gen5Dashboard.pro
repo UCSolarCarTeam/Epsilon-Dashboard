@@ -23,11 +23,11 @@ SOURCES += \
     BusinessLayer/CommunicationsMonitoringService/CommunicationsMonitoringService.cpp \
     BusinessLayer/DataPopulators/BatteryPopulator.cpp \
     BusinessLayer/DataPopulators/BatteryFaultsPopulator.cpp \
-    BusinessLayer/DataPopulators/CMUPopulator.cpp \
+    BusinessLayer/DataPopulators/CmuPopulator.cpp \
     BusinessLayer/DataPopulators/DriverControlsPopulator.cpp \
     BusinessLayer/DataPopulators/KeyMotorPopulator.cpp \
     BusinessLayer/DataPopulators/LightsPopulator.cpp \
-    BusinessLayer/DataPopulators/MPPTPopulator.cpp \
+    BusinessLayer/DataPopulators/MpptPopulator.cpp \
     BusinessLayer/DataPopulators/MotorDetailsPopulator.cpp \
     BusinessLayer/DataPopulators/MotorFaultsPopulator.cpp \
     CommunicationLayer/CommDeviceControl/CommDeviceManager.cpp \
@@ -38,14 +38,14 @@ SOURCES += \
     DataLayer/BatteryData/BatteryData.cpp \
     DataLayer/BatteryFaultsData/BatteryFaultsData.cpp \
     DataLayer/BatteryFaultsData/BatteryFaults.cpp \
-    DataLayer/CMUData/CMUData.cpp \
-    DataLayer/CMUData/CMU.cpp \
+    DataLayer/CmuData/CmuData.cpp \
+    DataLayer/CmuData/Cmu.cpp \
     DataLayer/DriverControlsData/DriverControlsData.cpp \
     DataLayer/KeyMotorData/KeyMotorData.cpp \
     DataLayer/KeyMotorData/KeyMotor.cpp \
     DataLayer/LightsData/LightsData.cpp \
-    DataLayer/MPPTData/MPPTData.cpp \
-    DataLayer/MPPTData/MPPT.cpp \
+    DataLayer/MpptData/MpptData.cpp \
+    DataLayer/MpptData/Mppt.cpp \
     DataLayer/MotorDetailsData/MotorDetailsData.cpp \
     DataLayer/MotorDetailsData/MotorDetails.cpp \
     DataLayer/MotorFaultsData/MotorFaultsData.cpp \
@@ -54,11 +54,11 @@ SOURCES += \
     DataLayer/DataContainer.cpp \
     PresenterLayer/BatteryPresenter/BatteryPresenter.cpp \
     PresenterLayer/BatteryFaultsPresenter/BatteryFaultsPresenter.cpp \
-    PresenterLayer/CMUPresenter/CMUPresenter.cpp \
+    PresenterLayer/CmuPresenter/CmuPresenter.cpp \
     PresenterLayer/DriverControlsPresenter/DriverControlsPresenter.cpp \
     PresenterLayer/KeyMotorPresenter/KeyMotorPresenter.cpp \
     PresenterLayer/LightsPresenter/LightsPresenter.cpp \
-    PresenterLayer/MPPTPresenter/MPPTPresenter.cpp \
+    PresenterLayer/MpptPresenter/MpptPresenter.cpp \
     PresenterLayer/MotorDetailsPresenter/MotorDetailsPresenter.cpp \
     PresenterLayer/MotorFaultsPresenter/MotorFaultsPresenter.cpp \
     PresenterLayer/PresenterContainer.cpp \
@@ -74,11 +74,11 @@ HEADERS  += \
     BusinessLayer/CommunicationsMonitoringService/I_CommunicationsMonitoringService.h \
     BusinessLayer/DataPopulators/BatteryPopulator.h \
     BusinessLayer/DataPopulators/BatteryFaultsPopulator.h \
-    BusinessLayer/DataPopulators/CMUPopulator.h \
+    BusinessLayer/DataPopulators/CmuPopulator.h \
     BusinessLayer/DataPopulators/DriverControlsPopulator.h \
     BusinessLayer/DataPopulators/KeyMotorPopulator.h \
     BusinessLayer/DataPopulators/LightsPopulator.h \
-    BusinessLayer/DataPopulators/MPPTPopulator.h \
+    BusinessLayer/DataPopulators/MpptPopulator.h \
     BusinessLayer/DataPopulators/MotorDetailsPopulator.h \
     BusinessLayer/DataPopulators/MotorFaultsPopulator.h \
     BusinessLayer/DataPopulators/JsonDefines.h \
@@ -96,34 +96,34 @@ HEADERS  += \
     DataLayer/BatteryFaultsData/BatteryFaultsData.h \
     DataLayer/BatteryFaultsData/BatteryFaults.h \
     DataLayer/BatteryFaultsData/I_BatteryFaultsData.h \
-    DataLayer/CMUData/CMUData.h \
-    DataLayer/CMUData/I_CMUData.h \
+    DataLayer/CmuData/CmuData.h \
+    DataLayer/CmuData/I_CmuData.h \
     DataLayer/DriverControlsData/DriverControlsData.h \
     DataLayer/DriverControlsData/I_DriverControlsData.h \
     DataLayer/KeyMotorData/KeyMotorData.h \
     DataLayer/KeyMotorData/I_KeyMotorData.h \
     DataLayer/LightsData/LightsData.h \
     DataLayer/LightsData/I_LightsData.h \
-    DataLayer/MPPTData/MPPTData.h \
-    DataLayer/MPPTData/I_MPPTData.h \
+    DataLayer/MpptData/MpptData.h \
+    DataLayer/MpptData/I_MpptData.h \
     DataLayer/MotorDetailsData/MotorDetailsData.h \
     DataLayer/MotorDetailsData/I_MotorDetailsData.h \
     DataLayer/MotorFaultsData/MotorFaultsData.h \
     DataLayer/MotorFaultsData/I_MotorFaultsData.h \
     DataLayer/DataContainer.h \
-    DataLayer/CMUData/CMU.h \
+    DataLayer/CmuData/Cmu.h \
     DataLayer/KeyMotorData/KeyMotor.h \
-    DataLayer/MPPTData/MPPT.h \
+    DataLayer/MpptData/Mppt.h \
     DataLayer/MotorDetailsData/MotorDetails.h \
     DataLayer/MotorFaultsData/ErrorFlags.h \
     DataLayer/MotorFaultsData/LimitFlags.h \
     PresenterLayer/BatteryPresenter/BatteryPresenter.h \ 
     PresenterLayer/BatteryFaultsPresenter/BatteryFaultsPresenter.h \ 
-    PresenterLayer/CMUPresenter/CMUPresenter.h \ 
+    PresenterLayer/CmuPresenter/CmuPresenter.h \
     PresenterLayer/DriverControlsPresenter/DriverControlsPresenter.h \ 
     PresenterLayer/KeyMotorPresenter/KeyMotorPresenter.h \ 
     PresenterLayer/LightsPresenter/LightsPresenter.h \ 
-    PresenterLayer/MPPTPresenter/MPPTPresenter.h \ 
+    PresenterLayer/MpptPresenter/MpptPresenter.h \
     PresenterLayer/MotorDetailsPresenter/MotorDetailsPresenter.h \ 
     PresenterLayer/MotorFaultsPresenter/MotorFaultsPresenter.h \ 
     PresenterLayer/PresenterContainer.h \

@@ -1,23 +1,23 @@
 #pragma once
-#include "../../DataLayer/MPPTData/I_MPPTData.h"
+#include "../../DataLayer/MpptData/I_MpptData.h"
 
 #include <QObject>
-class I_MPPTData;
+class I_MpptData;
 
-class MPPTPresenter : public QObject
+class MpptPresenter : public QObject
 {
     Q_OBJECT
 public:
-    explicit MPPTPresenter(const I_MPPTData& mpptData);
+    explicit MpptPresenter(const I_MpptData& mpptData);
 
 private:
-    void relayMPPTData();
+    void relayMpptData();
 
-    const I_MPPTData& mpptData_;
+    const I_MpptData& mpptData_;
 
 signals:
-    void mpptZeroReceived(MPPT mpptZero);
-    void mpptOneReceived(MPPT mpptOne);
-    void mpptTwoReceived(MPPT mpptTwo);
+    void mpptZeroReceived(Mppt mpptZero);
+    void mpptOneReceived(Mppt mpptOne);
+    void mpptTwoReceived(Mppt mpptTwo);
     void mpptPowerReceived(double mpptPower);
 };

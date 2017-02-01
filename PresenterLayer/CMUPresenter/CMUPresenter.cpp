@@ -1,21 +1,21 @@
-#include "CMUPresenter.h"
+#include "CmuPresenter.h"
 
-CMUPresenter::CMUPresenter(const I_CMUData& cmuData)
+CmuPresenter::CmuPresenter(const I_CmuData& cmuData)
     : cmuData_(cmuData)
 {
-    relayCMUData();
+    relayCmuData();
 }
 
-void CMUPresenter::relayCMUData()
+void CmuPresenter::relayCmuData()
 {
-    connect(&cmuData_, SIGNAL(cmuZeroReceived(CMU)),
-            this, SIGNAL(cmuZeroReceived(CMU)));
-    connect(&cmuData_, SIGNAL(cmuOneReceived(CMU)),
-            this, SIGNAL(cmuOneReceived(CMU)));
-    connect(&cmuData_, SIGNAL(cmuTwoReceived(CMU)),
-            this, SIGNAL(cmuTwoReceived(CMU)));
-    connect(&cmuData_, SIGNAL(cmuThreeReceived(CMU)),
-            this, SIGNAL(cmuThreeReceived(CMU)));
+    connect(&cmuData_, SIGNAL(cmuZeroReceived(Cmu)),
+            this, SIGNAL(cmuZeroReceived(Cmu)));
+    connect(&cmuData_, SIGNAL(cmuOneReceived(Cmu)),
+            this, SIGNAL(cmuOneReceived(Cmu)));
+    connect(&cmuData_, SIGNAL(cmuTwoReceived(Cmu)),
+            this, SIGNAL(cmuTwoReceived(Cmu)));
+    connect(&cmuData_, SIGNAL(cmuThreeReceived(Cmu)),
+            this, SIGNAL(cmuThreeReceived(Cmu)));
     connect(&cmuData_, SIGNAL(cmuMaxCellTempReceived(double)),
             this, SIGNAL(cmuMaxCellTempReceived(double)));
     connect(&cmuData_, SIGNAL(cmuLowestCellVoltageReceived(double)),

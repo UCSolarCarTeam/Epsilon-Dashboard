@@ -26,13 +26,13 @@
 #include <QJsonObject>
 #include <QJsonArray>
 
-#include "CMUPopulator.h"
+#include "CmuPopulator.h"
 
 #include "CommunicationLayer/JsonReceiver/I_JsonReceiver.h"
 #include "BusinessLayer/DataPopulators/JsonDefines.h"
 
-CMUPopulator::CMUPopulator(I_JsonReceiver& jsonReceiver,
-                           I_CMUData& cmuData)
+CmuPopulator::CmuPopulator(I_JsonReceiver& jsonReceiver,
+                           I_CmuData& cmuData)
     : jsonReceiver_(jsonReceiver)
     , cmuData_(cmuData)
 {
@@ -40,12 +40,12 @@ CMUPopulator::CMUPopulator(I_JsonReceiver& jsonReceiver,
             this, SLOT(populateData(const QJsonObject&)));
 }
 
-void CMUPopulator::populateData(const QJsonObject& data)
+void CmuPopulator::populateData(const QJsonObject& data)
 {
-    CMU cmuZero;
-    CMU cmuOne;
-    CMU cmuTwo;
-    CMU cmuThree;
+    Cmu cmuZero;
+    Cmu cmuOne;
+    Cmu cmuTwo;
+    Cmu cmuThree;
     QList<double> cmuZeroVoltages;
     QList<double> cmuOneVoltages;
     QList<double> cmuTwoVoltages;
@@ -57,12 +57,12 @@ void CMUPopulator::populateData(const QJsonObject& data)
     QList<double> cmuVoltages [4] = {cmuZeroVoltages, cmuOneVoltages, cmuTwoVoltages, cmuThreeVoltages};
     QList<double> cmuPcbTemps;
     QList<double> cmuCellTemps [4] = {cmuZeroCellTemps, cmuOneCellTemps, cmuTwoCellTemps, cmuThreeCellTemps};
-    QJsonValue value = data.value(JsonFormat::CMU);
+    QJsonValue value = data.value(JsonFormat::Cmu);
     QJsonArray array = value.toArray();
 
     for (int i = 0 ; i < 3 ; i++)
     {
-        QJsonValue voltages = array.at(i).toObject().value(JsonFormat::CMU_VOLTAGES);
+        QJsonValue voltages = array.at(i).toObject().value(JsonFormat::Cmu_VOLTAGES);
         QJsonArray voltagesArray = voltages.toArray();
 
         foreach (const QJsonValue& v, voltagesArray)
@@ -70,9 +70,9 @@ void CMUPopulator::populateData(const QJsonObject& data)
             cmuVoltages[i].append(v.toDouble());
         }
 
-        QJsonValue pcbTemp = array.at(i).toObject().value(JsonFormat::CMU_PCBTEMP);
+        QJsonValue pcbTemp = array.at(i).toObject().value(JsonFormat::Cmu_PCBTEMP);
         cmuPcbTemps.append(pcbTemp.toDouble());
-        QJsonValue cellTemps = array.at(i).toObject().value(JsonFormat::CMU_CELLTEMPS);
+        QJsonValue cellTemps = array.at(i).toObject().value(JsonFormat::Cmu_CELLTEMPS);
         QJsonArray cellTempsArray = cellTemps.toArray();
 
         foreach (const QJsonValue& c, cellTempsArray)

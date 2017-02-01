@@ -4,28 +4,28 @@
 #include <QLabel>
 
 #include "DataLayer/BatteryFaultsData/BatteryFaults.h"
-#include "DataLayer/MPPTData/MPPT.h"
+#include "DataLayer/MpptData/Mppt.h"
 #include "DataLayer/MotorFaultsData/ErrorFlags.h"
 #include "DataLayer/MotorFaultsData/LimitFlags.h"
 #include "PresenterLayer/BatteryPresenter/BatteryPresenter.h"
 #include "PresenterLayer/BatteryFaultsPresenter/BatteryFaultsPresenter.h"
-#include "PresenterLayer/CMUPresenter/CMUPresenter.h"
+#include "PresenterLayer/CmuPresenter/CmuPresenter.h"
 #include "PresenterLayer/DriverControlsPresenter/DriverControlsPresenter.h"
 #include "PresenterLayer/KeyMotorPresenter/KeyMotorPresenter.h"
 #include "PresenterLayer/LightsPresenter/LightsPresenter.h"
-#include "PresenterLayer/MPPTPresenter/MPPTPresenter.h"
+#include "PresenterLayer/MpptPresenter/MpptPresenter.h"
 #include "PresenterLayer/MotorDetailsPresenter/MotorDetailsPresenter.h"
 #include "PresenterLayer/MotorFaultsPresenter/MotorFaultsPresenter.h"
 #include "ViewLayer/DisplayDashboardUI/I_DisplayDashboardUI.h"
 
 class BatteryPresenter;
 class BatteryFaultsPresenter;
-class CMUPresenter;
+class CmuPresenter;
 class DriverControlsPresenter;
 class I_DisplayDashboardUI;
 class KeyMotorPresenter;
 class LightsPresenter;
-class MPPTPresenter;
+class MpptPresenter;
 class MotorDetailsPresenter;
 class MotorFaultsPresenter;
 
@@ -35,11 +35,11 @@ class DisplayDashboardView : public QObject
 public:
     DisplayDashboardView(BatteryPresenter& batteryPresenter,
                          BatteryFaultsPresenter& batteryFaultsPresenter,
-                         CMUPresenter& cmuPresenter,
+                         CmuPresenter& cmuPresenter,
                          DriverControlsPresenter& driverControlsPresenter,
                          KeyMotorPresenter& keyMotorPresenter,
                          LightsPresenter& lightsPresenter,
-                         MPPTPresenter& mpptPresenter,
+                         MpptPresenter& mpptPresenter,
                          MotorDetailsPresenter& motorDetailsPresenter,
                          MotorFaultsPresenter& motorFaultsPresenter,
                          I_DisplayDashboardUI& ui);
@@ -48,21 +48,21 @@ public:
 private:
     void connectBattery(BatteryPresenter&);
     void connectBatteryFaults(BatteryFaultsPresenter&);
-    void connectCMU(CMUPresenter&);
+    void connectCmu(CmuPresenter&);
     void connectDriverControls(DriverControlsPresenter&);
     void connectKeyMotor(KeyMotorPresenter&);
     void connectLights(LightsPresenter&);
-    void connectMPPT(MPPTPresenter&);
+    void connectMppt(MpptPresenter&);
     void connectMotorDetails(MotorDetailsPresenter&);
     void connectMotorFaults(MotorFaultsPresenter&);
 
     BatteryPresenter& batteryPresenter_;
     BatteryFaultsPresenter& batteryFaultsPresenter_;
-    CMUPresenter& cmuPresenter_;
+    CmuPresenter& cmuPresenter_;
     DriverControlsPresenter& driverControlsPresenter_;
     KeyMotorPresenter& keyMotorPresenter_;
     LightsPresenter& lightsPresenter_;
-    MPPTPresenter& mpptPresenter_;
+    MpptPresenter& mpptPresenter_;
     MotorDetailsPresenter& motorDetailsPresenter_;
     MotorFaultsPresenter& motorFaultsPresenter_;
 
@@ -95,9 +95,9 @@ private slots:
     void leftSignalReceived(bool);
     void rightSignalReceived(bool);
 
-    void mpptZeroReceived(MPPT);
-    void mpptOneReceived(MPPT);
-    void mpptTwoReceived(MPPT);
+    void mpptZeroReceived(Mppt);
+    void mpptOneReceived(Mppt);
+    void mpptTwoReceived(Mppt);
     void mpptPowerReceived(double);
 
     void motorOneErrorFlagsReceived(ErrorFlags);

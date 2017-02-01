@@ -1,10 +1,10 @@
 #include "BatteryData/BatteryData.h"
 #include "BatteryFaultsData/BatteryFaultsData.h"
-#include "CMUData/CMUData.h"
+#include "CmuData/CmuData.h"
 #include "DriverControlsData/DriverControlsData.h"
 #include "KeyMotorData/KeyMotorData.h"
 #include "LightsData/LightsData.h"
-#include "MPPTData/MPPTData.h"
+#include "MpptData/MpptData.h"
 #include "MotorDetailsData/MotorDetailsData.h"
 #include "MotorFaultsData/MotorFaultsData.h"
 #include "DataContainer.h"
@@ -12,11 +12,11 @@
 DataContainer::DataContainer()
     : batteryData_(new BatteryData())
     , batteryFaultsData_(new BatteryFaultsData())
-    , cmuData_(new CMUData())
+    , cmuData_(new CmuData())
     , driverControlsData_(new DriverControlsData())
     , keyMotorData_(new KeyMotorData())
     , lightsData_(new LightsData())
-    , mpptData_(new MPPTData())
+    , mpptData_(new MpptData())
     , motorDetailsData_(new MotorDetailsData())
     , motorFaultsData_(new MotorFaultsData())
 {
@@ -36,7 +36,7 @@ I_BatteryFaultsData& DataContainer::batteryFaultsData()
     return *batteryFaultsData_;
 }
 
-I_CMUData& DataContainer::cmuData()
+I_CmuData& DataContainer::cmuData()
 {
     return *cmuData_;
 }
@@ -56,7 +56,7 @@ I_LightsData& DataContainer::lightsData()
     return *lightsData_;
 }
 
-I_MPPTData& DataContainer::mpptData()
+I_MpptData& DataContainer::mpptData()
 {
     return *mpptData_;
 }

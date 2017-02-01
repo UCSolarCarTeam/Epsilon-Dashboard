@@ -3,12 +3,12 @@
 #include <QString>
 #include <QList>
 
-class CMU
+class Cmu
 {
 public:
-    CMU();
+    Cmu();
 
-    virtual ~CMU();
+    virtual ~Cmu();
 
     QList<double> voltages() const;
     double pcbTemp() const;

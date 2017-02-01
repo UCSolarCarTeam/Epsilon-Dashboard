@@ -8,11 +8,11 @@ class DataContainer;
 
 class BatteryPresenter;
 class BatteryFaultsPresenter;
-class CMUPresenter;
+class CmuPresenter;
 class DriverControlsPresenter;
 class KeyMotorPresenter;
 class LightsPresenter;
-class MPPTPresenter;
+class MpptPresenter;
 class MotorDetailsPresenter;
 class MotorFaultsPresenter;
 
@@ -23,11 +23,11 @@ public:
     ~PresenterContainer();
     BatteryPresenter& batteryPresenter();
     BatteryFaultsPresenter& batteryFaultsPresenter();
-    CMUPresenter& cmuPresenter();
+    CmuPresenter& cmuPresenter();
     DriverControlsPresenter& driverControlsPresenter();
     KeyMotorPresenter& keyMotorPresenter();
     LightsPresenter& lightsPresenter();
-    MPPTPresenter& mpptPresenter();
+    MpptPresenter& mpptPresenter();
     MotorDetailsPresenter& motorDetailsPresenter();
     MotorFaultsPresenter& motorFaultsPresenter();
 
@@ -35,11 +35,11 @@ public:
 private:
     QScopedPointer<BatteryPresenter> batteryPresenter_;
     QScopedPointer<BatteryFaultsPresenter> batteryFaultsPresenter_;
-    QScopedPointer<CMUPresenter> cmuPresenter_;
+    QScopedPointer<CmuPresenter> cmuPresenter_;
     QScopedPointer<DriverControlsPresenter> driverControlsPresenter_;
     QScopedPointer<KeyMotorPresenter> keyMotorPresenter_;
     QScopedPointer<LightsPresenter> lightsPresenter_;
-    QScopedPointer<MPPTPresenter> mpptPresenter_;
+    QScopedPointer<MpptPresenter> mpptPresenter_;
     QScopedPointer<MotorDetailsPresenter> motorDetailsPresenter_;
     QScopedPointer<MotorFaultsPresenter> motorFaultsPresenter_;
 };

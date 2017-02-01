@@ -1,24 +1,24 @@
 #pragma once
 
-#include "I_MPPTData.h"
+#include "I_MpptData.h"
 
-class MPPTData : public I_MPPTData
+class MpptData : public I_MpptData
 {
 public:
-    MPPTData();
-    virtual ~MPPTData();
+    MpptData();
+    virtual ~MpptData();
 
-    MPPT mpptZero() const;
-    MPPT mpptOne() const;
-    MPPT mpptTwo() const;
+    Mppt mpptZero() const;
+    Mppt mpptOne() const;
+    Mppt mpptTwo() const;
 
-    void setMpptZero(MPPT mpptZero);
-    void setMpptOne(MPPT mpptZero);
-    void setMpptTwo(MPPT mpptZero);
+    void setMpptZero(Mppt mpptZero);
+    void setMpptOne(Mppt mpptZero);
+    void setMpptTwo(Mppt mpptZero);
 
 private:
-    MPPT mpptZero_;
-    MPPT mpptOne_;
-    MPPT mpptTwo_;
+    Mppt mpptZero_;
+    Mppt mpptOne_;
+    Mppt mpptTwo_;
 };
 

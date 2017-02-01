@@ -5,11 +5,11 @@
 #include "DataLayer/DataContainer.h"
 #include "DataPopulators/BatteryFaultsPopulator.h"
 #include "DataPopulators/BatteryPopulator.h"
-#include "DataPopulators/CMUPopulator.h"
+#include "DataPopulators/CmuPopulator.h"
 #include "DataPopulators/DriverControlsPopulator.h"
 #include "DataPopulators/KeyMotorPopulator.h"
 #include "DataPopulators/LightsPopulator.h"
-#include "DataPopulators/MPPTPopulator.h"
+#include "DataPopulators/MpptPopulator.h"
 #include "DataPopulators/MotorDetailsPopulator.h"
 #include "DataPopulators/MotorFaultsPopulator.h"
 
@@ -50,11 +50,11 @@ public:
     I_JsonReceiver& jsonReceiver_;
     BatteryPopulator batteryPopulator_;
     BatteryFaultsPopulator batteryFaultsPopulator_;
-    CMUPopulator cmuPopulator_;
+    CmuPopulator cmuPopulator_;
     DriverControlsPopulator driverControlsPopulator_;
     KeyMotorPopulator keyMotorPopulator_;
     LightsPopulator lightsPopulator_;
-    MPPTPopulator mpptPopulator_;
+    MpptPopulator mpptPopulator_;
     MotorDetailsPopulator motorDetailsPopulator_;
     MotorFaultsPopulator motorFaultsPopulator_;
 };

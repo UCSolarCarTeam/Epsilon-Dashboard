@@ -1,30 +1,30 @@
 #pragma once
 
 #include <QObject>
-#include "DataLayer/CMUData/CMU.h"
+#include "DataLayer/CmuData/Cmu.h"
 
-class I_CMUData : public QObject
+class I_CmuData : public QObject
 {
     Q_OBJECT
 
 public:
-    virtual ~I_CMUData() {}
+    virtual ~I_CmuData() {}
 
-    virtual CMU cmuZero() const = 0;
-    virtual CMU cmuOne() const = 0;
-    virtual CMU cmuTwo() const = 0;
-    virtual CMU cmuThree() const = 0;
+    virtual Cmu cmuZero() const = 0;
+    virtual Cmu cmuOne() const = 0;
+    virtual Cmu cmuTwo() const = 0;
+    virtual Cmu cmuThree() const = 0;
 
-    virtual void setCmuZero(CMU cmuZero) = 0;
-    virtual void setCmuOne(CMU cmuOne) = 0;
-    virtual void setCmuTwo(CMU cmuTwo) = 0;
-    virtual void setCmuThree(CMU cmuThree) = 0;
+    virtual void setCmuZero(Cmu cmuZero) = 0;
+    virtual void setCmuOne(Cmu cmuOne) = 0;
+    virtual void setCmuTwo(Cmu cmuTwo) = 0;
+    virtual void setCmuThree(Cmu cmuThree) = 0;
 
 signals:
-    void cmuZeroReceived(CMU cmuZero);
-    void cmuOneReceived(CMU cmuOne);
-    void cmuTwoReceived(CMU cmuTwo);
-    void cmuThreeReceived(CMU cmuThree);
+    void cmuZeroReceived(Cmu cmuZero);
+    void cmuOneReceived(Cmu cmuOne);
+    void cmuTwoReceived(Cmu cmuTwo);
+    void cmuThreeReceived(Cmu cmuThree);
     void cmuMaxCellTempReceived(double maxCellTemp);
     void cmuLowestCellVoltageReceived(double lowestCellVoltage);
     void cmuAverageCellTempReceived(double averageCellTemp);

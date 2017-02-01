@@ -1,25 +1,25 @@
 #pragma once
 
 #include <QObject>
-#include "DataLayer/MPPTData/MPPT.h"
+#include "DataLayer/MpptData/Mppt.h"
 
-class I_MPPTData : public QObject
+class I_MpptData : public QObject
 {
     Q_OBJECT
 
 public:
-    virtual ~I_MPPTData() {}
+    virtual ~I_MpptData() {}
 
-    virtual MPPT mpptZero() const = 0;
-    virtual MPPT mpptOne() const = 0;
-    virtual MPPT mpptTwo() const = 0;
+    virtual Mppt mpptZero() const = 0;
+    virtual Mppt mpptOne() const = 0;
+    virtual Mppt mpptTwo() const = 0;
 
-    virtual void setMpptZero(MPPT mpptZero) = 0;
-    virtual void setMpptOne(MPPT mpptOne) = 0;
-    virtual void setMpptTwo(MPPT mpptTwo) = 0;
+    virtual void setMpptZero(Mppt mpptZero) = 0;
+    virtual void setMpptOne(Mppt mpptOne) = 0;
+    virtual void setMpptTwo(Mppt mpptTwo) = 0;
 
 signals:
-    void mpptZeroReceived(MPPT mpptZero);
-    void mpptOneReceived(MPPT mpptOne);
-    void mpptTwoReceived(MPPT mpptTwo);
+    void mpptZeroReceived(Mppt mpptZero);
+    void mpptOneReceived(Mppt mpptOne);
+    void mpptTwoReceived(Mppt mpptTwo);
 };
