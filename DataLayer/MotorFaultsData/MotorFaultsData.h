@@ -12,20 +12,20 @@ public:
     virtual ~MotorFaultsData();
 
     /* FaultData Gets */
+    ErrorFlags motorZeroErrorFlags() const;
+    LimitFlags motorZeroLimitFlags() const;
     ErrorFlags motorOneErrorFlags() const;
     LimitFlags motorOneLimitFlags() const;
-    ErrorFlags motorTwoErrorFlags() const;
-    LimitFlags motorTwoLimitFlags() const;
 
     /* FaultData Sets */
+    void setMotorZeroErrorFlags(ErrorFlags errorFlags);
+    void setMotorZeroLimitFlags(LimitFlags limitFlags);
     void setMotorOneErrorFlags(ErrorFlags errorFlags);
     void setMotorOneLimitFlags(LimitFlags limitFlags);
-    void setMotorTwoErrorFlags(ErrorFlags errorFlags);
-    void setMotorTwoLimitFlags(LimitFlags limitFlags);
 
 private:
+    ErrorFlags motorZeroErrorFlags_;
+    LimitFlags motorZeroLimitFlags_;
     ErrorFlags motorOneErrorFlags_;
     LimitFlags motorOneLimitFlags_;
-    ErrorFlags motorTwoErrorFlags_;
-    LimitFlags motorTwoLimitFlags_;
 };
