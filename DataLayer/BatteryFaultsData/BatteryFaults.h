@@ -13,7 +13,7 @@ public:
     bool cellUnderVoltage() const;
     bool cellOverTemperature() const;
     bool measurementUntrusted() const;
-    bool CMUCOMMTIMEOUT() const;
+    bool cmuCommTimeout() const;
     bool vehicleCommTimeout() const;
     bool bmuIsInSetupMode() const;
     bool cmuCanBusPowerStatus() const;
@@ -27,7 +27,7 @@ public:
     void setCellUnderVoltage(bool cellUnderVoltage);
     void setCellOverTemperature(bool cellOverTemperature);
     void setMeasurementUntrusted(bool measurementUntrusted);
-    void setCMUCOMMTIMEOUT(bool CMUCOMMTIMEOUT);
+    void setCmuCommTimeout(bool cmuCommTimeout);
     void setVehicleCommTimeout(bool vehicleCommTimeout);
     void setBmuIsInSetupMode(bool bmuIsInSetupMode);
     void setCmuCanBusPowerStatus(bool cmuCanBusPowerStatus);
@@ -42,7 +42,7 @@ private:
     bool cellUnderVoltage_;
     bool cellOverTemperature_;
     bool measurementUntrusted_;
-    bool CMUCOMMTIMEOUT_;
+    bool cmuCommTimeout_;
     bool vehicleCommTimeout_;
     bool bmuIsInSetupMode_;
     bool cmuCanBusPowerStatus_;

@@ -29,9 +29,9 @@ bool BatteryFaults::measurementUntrusted() const
     return measurementUntrusted_;
 }
 
-bool BatteryFaults::CMUCOMMTIMEOUT() const
+bool BatteryFaults::cmuCommTimeout() const
 {
-    return CMUCOMMTIMEOUT_;
+    return cmuCommTimeout_;
 }
 
 bool BatteryFaults::vehicleCommTimeout() const
@@ -95,9 +95,9 @@ void BatteryFaults::setMeasurementUntrusted(bool measurementUntrusted)
     measurementUntrusted_ = measurementUntrusted;
 }
 
-void BatteryFaults::setCMUCOMMTIMEOUT(bool CMUCOMMTIMEOUT)
+void BatteryFaults::setCmuCommTimeout(bool cmuCommTimeout)
 {
-    CMUCOMMTIMEOUT_ = CMUCOMMTIMEOUT;
+    cmuCommTimeout_ = cmuCommTimeout;
 }
 
 void BatteryFaults::setVehicleCommTimeout(bool vehicleCommTimeout)

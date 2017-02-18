@@ -48,7 +48,7 @@ void BatteryFaultsPopulator::populateData(const QJsonObject& data)
     batteryFaults.setCellUnderVoltage(value.toObject().value(JsonFormat::BATTERYFAULTS_CELLUNDERVOLTAGE).toBool());
     batteryFaults.setCellOverTemperature(value.toObject().value(JsonFormat::BATTERYFAULTS_CELLOVERTEMP).toBool());
     batteryFaults.setMeasurementUntrusted(value.toObject().value(JsonFormat::BATTERYFAULTS_MEASUREMENTUNTRUSTED).toBool());
-    batteryFaults.setCMUCOMMTIMEOUT(value.toObject().value(JsonFormat::BATTERYFAULTS_CMUCOMMTIMEOUT).toBool());
+    batteryFaults.setCmuCommTimeout(value.toObject().value(JsonFormat::BATTERYFAULTS_CMUCOMMTIMEOUT).toBool());
     batteryFaults.setBmuIsInSetupMode(value.toObject().value(JsonFormat::BATTERYFAULTS_BMUSETUPMODE).toBool());
     batteryFaults.setCmuCanBusPowerStatus(value.toObject().value(JsonFormat::BATTERYFAULTS_CMUCANBUSPOWERSTATUS).toBool());
     batteryFaults.setPackIsolationTestFailure(value.toObject().value(JsonFormat::BATTERYFAULTS_PACKISOLATIONFAILURE).toBool());
