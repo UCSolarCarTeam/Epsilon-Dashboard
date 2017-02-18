@@ -10,7 +10,7 @@ class PresenterContainer;
 class ViewContainer
 {
 public:
-    explicit ViewContainer(PresenterContainer& presenterContainer, int mode);
+    explicit ViewContainer(PresenterContainer& presenterContainer, char mode);
     ~ViewContainer();
 
 private:

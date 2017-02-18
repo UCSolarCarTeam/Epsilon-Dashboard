@@ -18,7 +18,7 @@ public:
     ~Gen5Dashboard();
 
 private:
-    void parseCommandLineArgs(int& argc, char** argv);
+    char parseCommandLineArgs(int& argc, char** argv);
 
 private:
     QScopedPointer<DataContainer> dataContainer_;
