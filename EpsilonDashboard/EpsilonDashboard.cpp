@@ -21,16 +21,22 @@ EpsilonDashboard::~EpsilonDashboard()
 {
 }
 
-char Gen5Dashboard::parseCommandLineArgs(int &argc, char **argv)
+char Gen5Dashboard::parseCommandLineArgs(int& argc, char** argv)
 {
     //This function returns 'd' for display mode and 'r' for race mode
     //The default mode is display mode
-    if(argc == 2)
+    if (argc == 2)
     {
-        if(QString(argv[1]) == "-d" || QString(argv[1]) == "-D")
+        if (QString(argv[1]) == "-d" || QString(argv[1]) == "-D")
+        {
             return 'd';
-        if(QString(argv[1]) == "-r" || QString(argv[1]) == "-R")
+        }
+
+        if (QString(argv[1]) == "-r" || QString(argv[1]) == "-R")
+        {
             return 'r';
+        }
     }
+
     return 'd';
 }
