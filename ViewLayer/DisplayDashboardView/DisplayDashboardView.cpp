@@ -1,6 +1,12 @@
 #include "DisplayDashboardView.h"
 
-
+namespace {
+    const double SLOPE_R = -1;
+    const double Y_INT_R = 250;
+    const double SLOPE_G = 1.75;
+    const double Y_INT_G = 50;
+    const QString BLUE = "55";
+}
 DisplayDashboardView::DisplayDashboardView(BatteryPresenter& batteryPresenter,
         BatteryFaultsPresenter& batteryFaultsPresenter,
         CmuPresenter& cmuPresenter,
@@ -33,6 +39,7 @@ DisplayDashboardView::DisplayDashboardView(BatteryPresenter& batteryPresenter,
     connectMotorFaults(motorFaultsPresenter_);
     //ui_.showMaximized();
     ui_.show();
+    packSocPercentageReceived(100);
 }
 DisplayDashboardView::~DisplayDashboardView()
 {
@@ -104,12 +111,12 @@ void DisplayDashboardView::connectLights(LightsPresenter& lightsPresenter)
 
 void DisplayDashboardView::connectMppt(MpptPresenter& mpptPresenter)
 {
-    connect(&mpptPresenter, SIGNAL(mpptZeroReceived(Mppt)),
-            this, SLOT(mpptZeroReceived(Mppt)));
-    connect(&mpptPresenter, SIGNAL(mpptOneReceived(Mppt)),
-            this, SLOT(mpptOneReceived(Mppt)));
-    connect(&mpptPresenter, SIGNAL(mpptTwoReceived(Mppt)),
-            this, SLOT(mpptTwoReceived(Mppt)));
+    connect(&mpptPresenter, SIGNAL(mpptZeroReceived(MPPT)),
+            this, SLOT(mpptZeroReceived(MPPT)));
+    connect(&mpptPresenter, SIGNAL(mpptOneReceived(MPPT)),
+            this, SLOT(mpptOneReceived(MPPT)));
+    connect(&mpptPresenter, SIGNAL(mpptTwoReceived(MPPT)),
+            this, SLOT(mpptTwoReceived(MPPT)));
     connect(&mpptPresenter, SIGNAL(mpptPowerReceived(double)),
             this, SLOT(mpptPowerReceived(double)));
 }
@@ -137,34 +144,14 @@ void DisplayDashboardView::packSocPercentageReceived(double packSocPercentage)
 {
     ui_.stateOfChargeCapacityWidget().setValue(packSocPercentage);
 
-    if (packSocPercentage > 85)
-    {
-        ui_.stateOfChargeCapacityWidget().setStyleSheet("QProgressBar::chunk:horizontal{background: rgb(20,180,20)");
-    }
-    else if ((packSocPercentage > 70) && (packSocPercentage <= 85))
-    {
-        ui_.stateOfChargeCapacityWidget().setStyleSheet("QProgressBar::chunk:horizontal{background: rgb(90,190,20)");
-    }
-    else if ((packSocPercentage > 55) && (packSocPercentage <= 70))
-    {
-        ui_.stateOfChargeCapacityWidget().setStyleSheet("QProgressBar::chunk:horizontal{background: rgb(160,200,20)");
-    }
-    else if ((packSocPercentage > 40) && (packSocPercentage <= 55))
-    {
-        ui_.stateOfChargeCapacityWidget().setStyleSheet("QProgressBar::chunk:horizontal{background: rgb(240,210,20)");
-    }
-    else if ((packSocPercentage > 25) && (packSocPercentage <= 40))
-    {
-        ui_.stateOfChargeCapacityWidget().setStyleSheet("QProgressBar::chunk:horizontal{background: rgb(240,150,20)");
-    }
-    else if ((packSocPercentage > 10) && (packSocPercentage <= 25))
-    {
-        ui_.stateOfChargeCapacityWidget().setStyleSheet("QProgressBar::chunk:horizontal{background: rgb(240,90,20)");
-    }
-    else
-    {
-        ui_.stateOfChargeCapacityWidget().setStyleSheet("QProgressBar::chunk:horizontal{background: rgb(240,20,20)");
-    }
+    QString r = QString::number(SLOPE_R*packSocPercentage + Y_INT_R);
+    QString g = QString::number(SLOPE_G*packSocPercentage + Y_INT_G);
+
+    QString rgb = "rgb(" + r + "," + g + "," + BLUE + ")";
+    QString progressBarColour = "QProgressBar::chunk:horizontal{background: " + rgb + "}";
+
+    ui_.stateOfChargeCapacityWidget().setStyleSheet(progressBarColour);
+
 }
 void DisplayDashboardView::prechargeStateReceived(QString prechargeState)
 {
