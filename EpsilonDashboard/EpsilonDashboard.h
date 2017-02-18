@@ -2,6 +2,8 @@
 
 #include <QApplication>
 #include <QScopedPointer>
+#include <QDebug>
+#include <QString>
 
 class CommunicationContainer;
 class DataContainer;
@@ -14,6 +16,9 @@ class EpsilonDashboard : public QApplication
 public:
     EpsilonDashboard(int& argc, char** argv);
     ~EpsilonDashboard();
+
+private:
+    void parseCommandLineArgs(int& argc, char** argv);
 
 private:
     QScopedPointer<DataContainer> dataContainer_;
