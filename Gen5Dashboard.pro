@@ -66,7 +66,8 @@ SOURCES += \
     Gen5Dashboard/Gen5Dashboard.cpp \
     ViewLayer/ViewContainer.cpp \
     ViewLayer/DisplayDashboardUI/DisplayDashboardUI.cpp \
-    ViewLayer/DisplayDashboardView/DisplayDashboardView.cpp
+    ViewLayer/DisplayDashboardView/DisplayDashboardView.cpp \
+    ViewLayer/DisplayDashboardUI/RaceModeDashboardUI.cpp
 
 HEADERS  += \
     BusinessLayer/BusinessContainer.h \
@@ -131,10 +132,11 @@ HEADERS  += \
     ViewLayer/ViewContainer.h \
     ViewLayer/DisplayDashboardView/DisplayDashboardView.h \
     ViewLayer/DisplayDashboardUI/DisplayDashboardUI.h \
-    ViewLayer/DisplayDashboardUI/I_DisplayDashboardUI.h
+    ViewLayer/DisplayDashboardUI/RaceModeDashboardUI.h
 
 FORMS    += \
-    DisplayDashboardUI.ui
+    DisplayDashboardUI.ui \
+    RaceModeDashboardUI.ui
 
 RESOURCES += \
     uiresources.qrc

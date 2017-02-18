@@ -2,6 +2,8 @@
 
 #include <QApplication>
 #include <QScopedPointer>
+#include <QDebug>
+#include <QString>
 
 class CommunicationContainer;
 class DataContainer;
@@ -14,6 +16,9 @@ class Gen5Dashboard : public QApplication
 public:
     Gen5Dashboard(int& argc, char** argv);
     ~Gen5Dashboard();
+
+private:
+    void parseCommandLineArgs(int& argc, char** argv);
 
 private:
     QScopedPointer<DataContainer> dataContainer_;
