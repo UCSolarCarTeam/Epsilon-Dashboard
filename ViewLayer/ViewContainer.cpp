@@ -4,9 +4,9 @@
 #include "PresenterLayer/PresenterContainer.h"
 #include "ViewContainer.h"
 
-ViewContainer::ViewContainer(PresenterContainer& presenterContainer, char mode)
+ViewContainer::ViewContainer(PresenterContainer& presenterContainer,char mode)
 {
-    if (mode == 'd')
+    if(mode == 'd')
     {
         DisplayDashboardUI_ = new DisplayDashboardUI();
         DisplayDashboardView_.reset(new DisplayDashboardView(
@@ -21,7 +21,7 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, char mode)
                                         presenterContainer.motorFaultsPresenter(),
                                         *DisplayDashboardUI_));
     }
-    else if (mode == 'r')
+    else if(mode == 'r')
     {
         //TODO: Set up race mode UI here
         RaceModeDashboardUI_ = new RaceModeDashboardUI();
