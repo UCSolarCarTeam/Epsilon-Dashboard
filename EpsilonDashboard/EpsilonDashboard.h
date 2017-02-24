@@ -21,6 +21,9 @@ private:
     char parseCommandLineArgs(int& argc, char** argv);
 
 private:
+    char parseCommandLineArgs(int& argc, char** argv);
+
+private:
     QScopedPointer<DataContainer> dataContainer_;
     QScopedPointer<CommunicationContainer> communicationContainer_;
     QScopedPointer<BusinessContainer> businessContainer_;
