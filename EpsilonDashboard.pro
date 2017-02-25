@@ -132,7 +132,8 @@ HEADERS  += \
     ViewLayer/ViewContainer.h \
     ViewLayer/DisplayDashboardView/DisplayDashboardView.h \
     ViewLayer/DisplayDashboardUI/DisplayDashboardUI.h \
-    ViewLayer/DisplayDashboardUI/RaceModeDashboardUI.h
+    ViewLayer/DisplayDashboardUI/RaceModeDashboardUI.h \
+    ViewLayer/DisplayDashboardUI/I_DisplayDashboardUI.h
 
 FORMS    += \
     DisplayDashboardUI.ui \

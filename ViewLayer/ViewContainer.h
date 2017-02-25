@@ -2,10 +2,10 @@
 
 #include <QScopedPointer>
 
-class DisplayDashboardUI;
-class RaceModeDashboardUI;
+class I_DisplayDashboardUI;
 class DisplayDashboardView;
 class PresenterContainer;
+class RaceModeDashboardUI;
 
 class ViewContainer
 {
@@ -14,7 +14,7 @@ public:
     ~ViewContainer();
 
 private:
-    DisplayDashboardUI* DisplayDashboardUI_;
+    I_DisplayDashboardUI* DisplayDashboardUI_;
     RaceModeDashboardUI* RaceModeDashboardUI_;
     QScopedPointer<DisplayDashboardView> DisplayDashboardView_;
 };

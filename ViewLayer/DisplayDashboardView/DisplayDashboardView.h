@@ -16,7 +16,7 @@
 #include "PresenterLayer/MpptPresenter/MpptPresenter.h"
 #include "PresenterLayer/MotorDetailsPresenter/MotorDetailsPresenter.h"
 #include "PresenterLayer/MotorFaultsPresenter/MotorFaultsPresenter.h"
-#include "ViewLayer/DisplayDashboardUI/DisplayDashboardUI.h"
+#include "ViewLayer/DisplayDashboardUI/I_DisplayDashboardUI.h"
 
 class BatteryPresenter;
 class BatteryFaultsPresenter;
@@ -42,7 +42,7 @@ public:
                          MpptPresenter& mpptPresenter,
                          MotorDetailsPresenter& motorDetailsPresenter,
                          MotorFaultsPresenter& motorFaultsPresenter,
-                         DisplayDashboardUI& ui);
+                         I_DisplayDashboardUI& ui);
     ~DisplayDashboardView();
 
 private:
@@ -66,7 +66,7 @@ private:
     MotorDetailsPresenter& motorDetailsPresenter_;
     MotorFaultsPresenter& motorFaultsPresenter_;
 
-    DisplayDashboardUI& ui_;
+    I_DisplayDashboardUI& ui_;
 
 private slots:
     void aliveReceived(bool);

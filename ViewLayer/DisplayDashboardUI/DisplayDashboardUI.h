@@ -1,13 +1,12 @@
 #pragma once
 
-#include <QLabel>
-#include <QProgressBar>
+#include "I_DisplayDashboardUI.h"
 
 namespace Ui
 {
     class DisplayDashboardUI;
 }
-class DisplayDashboardUI : public QWidget
+class DisplayDashboardUI : public I_DisplayDashboardUI
 {
     Q_OBJECT
 

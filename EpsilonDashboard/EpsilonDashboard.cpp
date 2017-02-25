@@ -4,6 +4,8 @@
 #include "PresenterLayer/PresenterContainer.h"
 #include "ViewLayer/ViewContainer.h"
 
+#include <QCommandLineParser>
+
 #include "EpsilonDashboard.h"
 
 EpsilonDashboard::EpsilonDashboard(int& argc, char** argv)
@@ -13,7 +15,7 @@ EpsilonDashboard::EpsilonDashboard(int& argc, char** argv)
     , businessContainer_(new BusinessContainer(*communicationContainer_, *dataContainer_))
     , presenterContainer_(new PresenterContainer(*dataContainer_))
 {
-    char mode = parseCommandLineArgs(argc, argv);
+    char mode = parseCommandLineArgs();
     viewContainer_.reset(new ViewContainer(*presenterContainer_, mode));
 }
 
@@ -21,22 +23,20 @@ EpsilonDashboard::~EpsilonDashboard()
 {
 }
 
-char Gen5Dashboard::parseCommandLineArgs(int& argc, char** argv)
+char EpsilonDashboard::parseCommandLineArgs()
 {
     //This function returns 'd' for display mode and 'r' for race mode
     //The default mode is display mode
-    if (argc == 2)
-    {
-        if (QString(argv[1]) == "-d" || QString(argv[1]) == "-D")
-        {
-            return 'd';
-        }
+    QCommandLineParser parser;
 
-        if (QString(argv[1]) == "-r" || QString(argv[1]) == "-R")
-        {
-            return 'r';
-        }
-    }
+    QCommandLineOption raceModeOption("r");
+    parser.addOption(raceModeOption);
 
-    return 'd';
+    parser.process(*this);
+
+    char mode = 'd';
+    if(parser.isSet(raceModeOption))
+         mode = 'r';
+    return mode;
+
 }

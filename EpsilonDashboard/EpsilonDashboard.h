@@ -18,10 +18,7 @@ public:
     ~EpsilonDashboard();
 
 private:
-    char parseCommandLineArgs(int& argc, char** argv);
-
-private:
-    char parseCommandLineArgs(int& argc, char** argv);
+    char parseCommandLineArgs();
 
 private:
     QScopedPointer<DataContainer> dataContainer_;

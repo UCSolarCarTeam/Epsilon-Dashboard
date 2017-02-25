@@ -10,7 +10,7 @@ DisplayDashboardView::DisplayDashboardView(BatteryPresenter& batteryPresenter,
         MpptPresenter& mpptPresenter,
         MotorDetailsPresenter& motorDetailsPresenter,
         MotorFaultsPresenter& motorFaultsPresenter,
-        DisplayDashboardUI &ui)
+        I_DisplayDashboardUI& ui)
     : batteryPresenter_(batteryPresenter)
     , batteryFaultsPresenter_(batteryFaultsPresenter)
     , cmuPresenter_(cmuPresenter)
