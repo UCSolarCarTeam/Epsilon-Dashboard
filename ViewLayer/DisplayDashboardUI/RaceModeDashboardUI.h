@@ -2,9 +2,6 @@
 
 #include "I_RaceModeDashboardUI.h"
 
-#include <QLabel>
-#include <QProgressBar>
-
 namespace Ui
 {
     class RaceModeDashboardUI;

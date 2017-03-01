@@ -1,7 +1,6 @@
 #pragma once
 
 #include <QLabel>
-#include <QProgressBar>
 
 class I_RaceModeDashboardUI : public QWidget
 {
