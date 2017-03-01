@@ -35,8 +35,12 @@ char EpsilonDashboard::parseCommandLineArgs()
     parser.process(*this);
 
     char mode = 'd';
-    if(parser.isSet(raceModeOption))
-         mode = 'r';
+
+    if (parser.isSet(raceModeOption))
+    {
+        mode = 'r';
+    }
+
     return mode;
 
 }
