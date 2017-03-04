@@ -2,6 +2,8 @@
 
 #include <QApplication>
 #include <QScopedPointer>
+#include <QDebug>
+#include <QString>
 
 class CommunicationContainer;
 class DataContainer;
@@ -21,4 +23,6 @@ private:
     QScopedPointer<BusinessContainer> businessContainer_;
     QScopedPointer<PresenterContainer> presenterContainer_;
     QScopedPointer<ViewContainer> viewContainer_;
+
+    char parseCommandLineArgs();
 };
