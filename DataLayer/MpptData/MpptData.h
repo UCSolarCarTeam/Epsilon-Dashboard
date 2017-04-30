@@ -17,6 +17,6 @@ public:
     void setMpptTwo(Mppt mpptZero);
 
 private:
-    Mppt mpptList [3];
+    QList<Mppt> mpptList_;
 };
 
