@@ -5,5 +5,5 @@ class I_MotorFaultUi: public QWidget
 {
 public:
     virtual ~I_MotorFaultUi() {}
-    virtual QLabel& titleLabel() = 0;
+
 };

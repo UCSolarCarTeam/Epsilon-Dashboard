@@ -4,6 +4,12 @@ MotorFaultUi::MotorFaultUi():
     ui_(new Ui::MotorFaultUi)
 {
     ui_->setupUi(this);
+    QPixmap bkgnd(":/Resources/Background.png");
+    bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
+    QPalette background;
+    background.setBrush(QPalette::Background, bkgnd);
+    this->setPalette(background);
+
 }
 
 MotorFaultUi::~MotorFaultUi()
@@ -11,7 +17,3 @@ MotorFaultUi::~MotorFaultUi()
     delete ui_;
 }
 
-QLabel& MotorFaultUi::titleLabel()
-{
-    return *ui_->title;
-}

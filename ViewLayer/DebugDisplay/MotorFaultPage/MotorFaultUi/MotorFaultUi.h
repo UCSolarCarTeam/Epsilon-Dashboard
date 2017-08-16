@@ -10,7 +10,7 @@ class MotorFaultUi : public I_MotorFaultUi
 public:
     explicit MotorFaultUi();
     ~MotorFaultUi();
-    QLabel& titleLabel();
+
 private:
     Ui::MotorFaultUi* ui_;
 };
