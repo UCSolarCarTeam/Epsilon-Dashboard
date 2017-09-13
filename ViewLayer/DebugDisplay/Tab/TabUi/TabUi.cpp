@@ -6,6 +6,13 @@ TabUi::TabUi() :
     ui_(new Ui::TabUi)
 {
     ui_->setupUi(this);
+    QPixmap bkgnd(":/Resources/Background.png");
+    bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
+    QPalette background = palette();
+    background.setBrush(QPalette::Background, bkgnd);
+    this->setAutoFillBackground(true);
+    this->setPalette(background);
+    this->show();
 }
 TabUi::~TabUi()
 {
