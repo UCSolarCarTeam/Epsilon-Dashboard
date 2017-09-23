@@ -28,16 +28,11 @@
 
 #include "KeyMotorPopulator.h"
 
-#include "../CommunicationLayer/JsonReceiver/I_JsonReceiver.h"
 #include "../BusinessLayer/DataPopulators/JsonDefines.h"
 
-KeyMotorPopulator::KeyMotorPopulator(I_JsonReceiver& jsonReceiver,
-                                     I_KeyMotorData& keyMotorData)
-    : jsonReceiver_(jsonReceiver)
-    , keyMotorData_(keyMotorData)
+KeyMotorPopulator::KeyMotorPopulator(I_KeyMotorData& keyMotorData)
+    : keyMotorData_(keyMotorData)
 {
-    connect(&jsonReceiver_, SIGNAL(dataReceived(const QJsonObject&)),
-            this, SLOT(populateData(const QJsonObject&)));
 }
 
 void KeyMotorPopulator::populateData(const QJsonObject& data)

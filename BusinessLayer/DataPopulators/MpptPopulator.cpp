@@ -28,16 +28,11 @@
 
 #include "MpptPopulator.h"
 
-#include "../CommunicationLayer/JsonReceiver/I_JsonReceiver.h"
 #include "../BusinessLayer/DataPopulators/JsonDefines.h"
 
-MpptPopulator::MpptPopulator(I_JsonReceiver& jsonReceiver,
-                             I_MpptData& mpptData)
-    : jsonReceiver_(jsonReceiver)
-    , mpptData_(mpptData)
+MpptPopulator::MpptPopulator(I_MpptData& mpptData)
+    : mpptData_(mpptData)
 {
-    connect(&jsonReceiver_, SIGNAL(dataReceived(const QJsonObject&)),
-            this, SLOT(populateData(const QJsonObject&)));
 }
 
 void MpptPopulator::populateData(const QJsonObject& data)

@@ -28,21 +28,18 @@
 #include "../DataLayer/MotorDetailsData/I_MotorDetailsData.h"
 #include <QObject>
 
-class I_JsonReceiver;
 class I_MotorDetailsData;
 
 class MotorDetailsPopulator : public QObject
 {
     Q_OBJECT
 public:
-    MotorDetailsPopulator(I_JsonReceiver& jsonReceiver,
-                          I_MotorDetailsData& motorDetailsData);
+    MotorDetailsPopulator(I_MotorDetailsData& motorDetailsData);
     virtual ~MotorDetailsPopulator() {}
 
 public slots:
     void populateData(const QJsonObject&);
 
 private:
-    I_JsonReceiver& jsonReceiver_;
     I_MotorDetailsData& motorDetailsData_;
 };

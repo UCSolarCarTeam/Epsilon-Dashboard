@@ -28,16 +28,11 @@
 
 #include "MotorFaultsPopulator.h"
 
-#include "../CommunicationLayer/JsonReceiver/I_JsonReceiver.h"
 #include "../BusinessLayer/DataPopulators/JsonDefines.h"
 
-MotorFaultsPopulator::MotorFaultsPopulator(I_JsonReceiver& jsonReceiver,
-        I_MotorFaultsData& motorFaultsData)
-    : jsonReceiver_(jsonReceiver)
-    , motorFaultsData_(motorFaultsData)
+MotorFaultsPopulator::MotorFaultsPopulator(I_MotorFaultsData& motorFaultsData)
+    : motorFaultsData_(motorFaultsData)
 {
-    connect(&jsonReceiver_, SIGNAL(dataReceived(const QJsonObject&)),
-            this, SLOT(populateData(const QJsonObject&)));
 }
 
 void MotorFaultsPopulator::populateData(const QJsonObject& data)

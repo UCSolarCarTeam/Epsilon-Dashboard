@@ -28,16 +28,11 @@
 
 #include "LightsPopulator.h"
 
-#include "../CommunicationLayer/JsonReceiver/I_JsonReceiver.h"
 #include "../BusinessLayer/DataPopulators/JsonDefines.h"
 
-LightsPopulator::LightsPopulator(I_JsonReceiver& jsonReceiver,
-                                 I_LightsData& lightsData)
-    : jsonReceiver_(jsonReceiver)
-    , lightsData_(lightsData)
+LightsPopulator::LightsPopulator(I_LightsData& lightsData)
+    : lightsData_(lightsData)
 {
-    connect(&jsonReceiver_, SIGNAL(dataReceived(const QJsonObject&)),
-            this, SLOT(populateData(const QJsonObject&)));
 }
 
 void LightsPopulator::populateData(const QJsonObject& data)

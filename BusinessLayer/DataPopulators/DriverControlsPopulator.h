@@ -28,21 +28,18 @@
 #include "../DataLayer/DriverControlsData/I_DriverControlsData.h"
 #include <QObject>
 
-class I_JsonReceiver;
 class I_DriverControlsData;
 
 class DriverControlsPopulator : public QObject
 {
     Q_OBJECT
 public:
-    DriverControlsPopulator(I_JsonReceiver& jsonReceiver,
-                            I_DriverControlsData& driverControlsData);
+    DriverControlsPopulator(I_DriverControlsData& driverControlsData);
     virtual ~DriverControlsPopulator() {}
 
 public slots:
     void populateData(const QJsonObject&);
 
 private:
-    I_JsonReceiver& jsonReceiver_;
     I_DriverControlsData& driverControlsData_;
 };
