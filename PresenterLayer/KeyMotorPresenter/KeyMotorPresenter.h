@@ -18,7 +18,7 @@ signals:
     void motorZeroReceived(KeyMotor motorZero);
     void motorOneReceived(KeyMotor motorOne);
     void motorSetCurrentReceived(double setCurrent);
-    void motorActualSpeedReceived(double actualSpeed);
-    void motorBusVoltageReceived(double busVoltage);
+    void motorActualSpeedReceived(double);
+    void motorBusVoltageReceived(double);
     void motorBusCurrentReceived(double busVoltage);
 };

@@ -33,8 +33,8 @@ void MpptView::connectMppt(MpptPresenter& mpptPresenter)
 {
     connect(&mpptPresenter, SIGNAL(mpptReceived(int, Mppt)),
             this, SLOT(mpptReceived(int, Mppt)));
-    connect(&mpptPresenter, SIGNAL(mpptPowerReceived(double)),
-            this, SLOT(mpptPowerReceived(double)));
+    //connect(&mpptPresenter, SIGNAL(mpptPowerReceived(double)),
+      //      this, SLOT(mpptPowerReceived(double)));
 }
 
 void MpptView::mpptReceived(int i, Mppt mppt)
