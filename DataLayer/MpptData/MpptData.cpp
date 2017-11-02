@@ -12,6 +12,6 @@ MpptData::~MpptData()
 
 void MpptData::setMppt(int i, Mppt mppt)
 {
-    mpptList_.replace(i, mppt);
-    emit mpptReceived(i, mpptList_.at(i));
+    //  mpptList_.replace(i, mppt);
+    // emit mpptReceived(i, mpptList_.at(i));
 }

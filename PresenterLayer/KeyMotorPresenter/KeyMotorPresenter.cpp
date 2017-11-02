@@ -13,12 +13,12 @@ void KeyMotorPresenter::relayKeyMotorData()
             this, SIGNAL(motorZeroReceived(KeyMotor)));
     connect(&keyMotorData_, SIGNAL(motorOneReceived(KeyMotor)),
             this, SIGNAL(motorOneReceived(KeyMotor)));
-    connect(&keyMotorData_, SIGNAL(motorSetCurrentReceived(double setCurrent)),
-            this, SIGNAL(motorSetCurrentReceived(double setCurrent)));
-    connect(&keyMotorData_, SIGNAL(motorActualSpeedReceived(double actualSpeed)),
-            this, SIGNAL(motorActualSpeedReceived(double actualSpeed)));
-    connect(&keyMotorData_, SIGNAL(motorBusVoltageReceived(double busVoltage)),
-            this, SIGNAL(motorBusVoltageReceived(double busVoltage)));
-    connect(&keyMotorData_, SIGNAL(motorBusCurrentReceived(double busCurrent)),
-            this, SIGNAL(motorBusCurrentReceived(double busCurrent)));
+    connect(&keyMotorData_, SIGNAL(motorSetCurrentReceived(double)),
+            this, SIGNAL(motorSetCurrentReceived(double)));
+    connect(&keyMotorData_, SIGNAL(motorActualSpeedReceived(double)),
+            this, SIGNAL(motorActualSpeedReceived(double)));
+    connect(&keyMotorData_, SIGNAL(motorBusVoltageReceived(double)),
+            this, SIGNAL(motorBusVoltageReceived(double)));
+    connect(&keyMotorData_, SIGNAL(motorBusCurrentReceived(double)),
+            this, SIGNAL(motorBusCurrentReceived(double)));
 }

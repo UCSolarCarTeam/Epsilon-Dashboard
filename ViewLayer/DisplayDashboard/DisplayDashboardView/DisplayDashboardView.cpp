@@ -78,14 +78,14 @@ void DisplayDashboardView::connectDriverControls(DriverControlsPresenter& driver
 
 void DisplayDashboardView::connectKeyMotor(KeyMotorPresenter& keyMotorPresenter)
 {
-    connect(&keyMotorPresenter, SIGNAL(motorSetCurrentReceived(double setCurrent)),
-            this, SLOT(motorSetCurrentReceived(double setCurrent)));
-    connect(&keyMotorPresenter, SIGNAL(motorActualSpeedReceived(double actualSpeed)),
-            this, SLOT(motorActualSpeedReceived(double actualSpeed)));
-    connect(&keyMotorPresenter, SIGNAL(motorBusVoltageReceived(double busVoltage)),
-            this, SLOT(motorBusVoltageReceived(double busVoltage)));
-    connect(&keyMotorPresenter, SIGNAL(motorBusCurrentReceived(double busCurrent)),
-            this, SLOT(motorBusCurrentReceived(double busCurrent)));
+    connect(&keyMotorPresenter, SIGNAL(motorSetCurrentReceived(double)),
+            this, SLOT(motorSetCurrentReceived(double)));
+    connect(&keyMotorPresenter, SIGNAL(motorActualSpeedReceived(double)),
+            this, SLOT(motorActualSpeedReceived(double)));
+    connect(&keyMotorPresenter, SIGNAL(motorBusVoltageReceived(double)),
+            this, SLOT(motorBusVoltageReceived(double)));
+    connect(&keyMotorPresenter, SIGNAL(motorBusCurrentReceived(double)),
+            this, SLOT(motorBusCurrentReceived(double)));
 }
 
 void DisplayDashboardView::connectLights(LightsPresenter& lightsPresenter)
