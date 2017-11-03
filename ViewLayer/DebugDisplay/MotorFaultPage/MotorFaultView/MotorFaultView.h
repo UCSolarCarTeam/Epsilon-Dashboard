@@ -2,6 +2,7 @@
 
 #include <QObject>
 #include <QLabel>
+#include <QLayout>
 
 #include "../../../../DataLayer/MotorFaultsData/ErrorFlags.h"
 #include "../../../../DataLayer/MotorFaultsData/LimitFlags.h"
@@ -30,6 +31,14 @@ private:
     BatteryFaultsPresenter& batteryFaultsPresenter_;
 
     I_MotorFaultUi& ui_;
+
+    QLabel badMotorPositionHallSequenceFault_;
+    QLabel configReadErrorFault_;
+    QLabel dcBusOverVoltageFault_;
+    QLabel desaturationFaultFault_;
+    QLabel motorOverSpeedFault_;
+    QLabel railUnderVoltageLockOutFault_;
+    QLabel watchdogCausedLastResetFault_;
 
 private slots:
     // battery faults slots

@@ -30,5 +30,3 @@ QWidget& MotorFaultUi::batteryContentsWidget()
 {
     return *ui_->batteryContentsWidget;
 }
-
-
