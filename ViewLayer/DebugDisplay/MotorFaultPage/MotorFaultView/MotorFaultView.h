@@ -41,13 +41,14 @@ private:
     QLabel railUnderVoltageLockOut0Fault_;
     QLabel watchdogCausedLastReset0Fault_;
     QLabel softwareOverCurrent0Fault_;
+
     QLabel busCurrentLimit0Fault_;
     QLabel busVoltageUpperLimit0Fault_;
     QLabel busVoltageLowerLimit0Fault_;
     QLabel ipmOrMotorTelemetryLimit0Fault_;
-    QLabel motorCurrentLimit0Fault;
-    QLabel outputVoltagePwmLimit0Fault;
-    QLabel velocityLimit0Fault;
+    QLabel motorCurrentLimit0Fault_;
+    QLabel outputVoltagePwmLimit0Fault_;
+    QLabel velocityLimit0Fault_;
 
     int label0Count_;
 
@@ -59,13 +60,14 @@ private:
     QLabel railUnderVoltageLockOut1Fault_;
     QLabel watchdogCausedLastReset1Fault_;
     QLabel softwareOverCurrent1Fault_;
+
     QLabel busCurrentLimit1Fault_;
     QLabel busVoltageUpperLimit1Fault_;
     QLabel busVoltageLowerLimit1Fault_;
     QLabel ipmOrMotorTelemetryLimit1Fault_;
-    QLabel motorCurrentLimit1Fault;
-    QLabel outputVoltagePwmLimit1Fault;
-    QLabel velocityLimit1Fault;
+    QLabel motorCurrentLimit1Fault_;
+    QLabel outputVoltagePwmLimit1Fault_;
+    QLabel velocityLimit1Fault_;
     int label1Count_;
 
 private slots:

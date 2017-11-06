@@ -4,6 +4,7 @@
 namespace {
     int height = 25;
     QString errorStyleSheet = "font: 20px 'Arial';\nfont-weight:500;color:red; margin-left: 10px;";
+    QString limitStyleSheet = "font: 20px 'Arial';\nfont-weight:500;color:yellow; margin-left: 10px;";
     int labelResizeLimit = 5;
 }
 MotorFaultView::MotorFaultView(MotorFaultsPresenter& motorFaultsPresenter,
@@ -20,6 +21,13 @@ MotorFaultView::MotorFaultView(MotorFaultsPresenter& motorFaultsPresenter,
     , railUnderVoltageLockOut0Fault_(new QLabel())
     , watchdogCausedLastReset0Fault_(new QLabel())
     , softwareOverCurrent0Fault_(new QLabel())
+    , busCurrentLimit0Fault_(new QLabel())
+    , busVoltageUpperLimit0Fault_(new QLabel())
+    , busVoltageLowerLimit0Fault_ (new QLabel())
+    , ipmOrMotorTelemetryLimit0Fault_ (new QLabel())
+    , motorCurrentLimit0Fault_ (new QLabel())
+    , outputVoltagePwmLimit0Fault_ (new QLabel())
+    , velocityLimit0Fault_ (new QLabel())
     , label0Count_(0)
     , badMotorPositionHallSequence1Fault_(new QLabel())
     , configReadError1Fault_(new QLabel())
@@ -29,6 +37,13 @@ MotorFaultView::MotorFaultView(MotorFaultsPresenter& motorFaultsPresenter,
     , railUnderVoltageLockOut1Fault_(new QLabel())
     , watchdogCausedLastReset1Fault_(new QLabel())
     , softwareOverCurrent1Fault_(new QLabel())
+    , busCurrentLimit1Fault_(new QLabel())
+    , busVoltageUpperLimit1Fault_(new QLabel())
+    , busVoltageLowerLimit1Fault_ (new QLabel())
+    , ipmOrMotorTelemetryLimit1Fault_ (new QLabel())
+    , motorCurrentLimit1Fault_ (new QLabel())
+    , outputVoltagePwmLimit1Fault_ (new QLabel())
+    , velocityLimit1Fault_ (new QLabel())
     , label1Count_(0)
 {
 
@@ -95,6 +110,55 @@ MotorFaultView::MotorFaultView(MotorFaultsPresenter& motorFaultsPresenter,
     layout0->addWidget(&softwareOverCurrent0Fault_);
     softwareOverCurrent0Fault_.hide();
 
+    busCurrentLimit0Fault_.resize(current_width0, height);
+    busCurrentLimit0Fault_.setText("Bus Current Limit");
+    busCurrentLimit0Fault_.setStyleSheet(limitStyleSheet);
+    busCurrentLimit0Fault_.setFixedSize(current_width0, height);
+    layout0->addWidget(&busCurrentLimit0Fault_);
+    busCurrentLimit0Fault_.hide();
+
+    busVoltageLowerLimit0Fault_.resize(current_width0, height);
+    busVoltageLowerLimit0Fault_.setText("Bus Voltage Lower Limit");
+    busVoltageLowerLimit0Fault_.setStyleSheet(limitStyleSheet);
+    busVoltageLowerLimit0Fault_.setFixedSize(current_width0, height);
+    layout0->addWidget(&busVoltageLowerLimit0Fault_);
+    busVoltageLowerLimit0Fault_.hide();
+
+    busVoltageUpperLimit0Fault_.resize(current_width0, height);
+    busVoltageUpperLimit0Fault_.setText("Bus Voltage Upper Limit");
+    busVoltageUpperLimit0Fault_.setStyleSheet(limitStyleSheet);
+    busVoltageUpperLimit0Fault_.setFixedSize(current_width0, height);
+    layout0->addWidget(&busVoltageUpperLimit0Fault_);
+    busVoltageUpperLimit0Fault_.hide();
+
+    ipmOrMotorTelemetryLimit0Fault_.resize(current_width0, height);
+    ipmOrMotorTelemetryLimit0Fault_.setText("IPM or Motor Telemetry Limit");
+    ipmOrMotorTelemetryLimit0Fault_.setStyleSheet(limitStyleSheet);
+    ipmOrMotorTelemetryLimit0Fault_.setFixedSize(current_width0, height);
+    layout0->addWidget(&ipmOrMotorTelemetryLimit0Fault_);
+    ipmOrMotorTelemetryLimit0Fault_.hide();
+
+    motorCurrentLimit0Fault_.resize(current_width0, height);
+    motorCurrentLimit0Fault_.setText("Motor Current Limit");
+    motorCurrentLimit0Fault_.setStyleSheet(limitStyleSheet);
+    motorCurrentLimit0Fault_.setFixedSize(current_width0, height);
+    layout0->addWidget(&motorCurrentLimit0Fault_);
+    motorCurrentLimit0Fault_.hide();
+
+    outputVoltagePwmLimit0Fault_.resize(current_width0, height);
+    outputVoltagePwmLimit0Fault_.setText("Output Voltage PWM Limit");
+    outputVoltagePwmLimit0Fault_.setStyleSheet(limitStyleSheet);
+    outputVoltagePwmLimit0Fault_.setFixedSize(current_width0, height);
+    layout0->addWidget(&outputVoltagePwmLimit0Fault_);
+    outputVoltagePwmLimit0Fault_.hide();
+
+    velocityLimit0Fault_.resize(current_width0, height);
+    velocityLimit0Fault_.setText("Velocity Limit");
+    velocityLimit0Fault_.setStyleSheet(limitStyleSheet);
+    velocityLimit0Fault_.setFixedSize(current_width0, height);
+    layout0->addWidget(&velocityLimit0Fault_);
+    velocityLimit0Fault_.hide();
+
     // Motor 1
     badMotorPositionHallSequence1Fault_.resize(current_width1, height );
     badMotorPositionHallSequence1Fault_.setText("Bad Motor Position Hall Sequence");
@@ -152,6 +216,55 @@ MotorFaultView::MotorFaultView(MotorFaultsPresenter& motorFaultsPresenter,
     layout1->addWidget(&softwareOverCurrent1Fault_);
     softwareOverCurrent1Fault_.hide();
 
+    busCurrentLimit1Fault_.resize(current_width1, height);
+    busCurrentLimit1Fault_.setText("Bus Current Limit");
+    busCurrentLimit1Fault_.setStyleSheet(limitStyleSheet);
+    busCurrentLimit1Fault_.setFixedSize(current_width1, height);
+    layout1->addWidget(&busCurrentLimit1Fault_);
+    busCurrentLimit1Fault_.hide();
+
+    busVoltageLowerLimit1Fault_.resize(current_width1, height);
+    busVoltageLowerLimit1Fault_.setText("Bus Voltage Lower Limit");
+    busVoltageLowerLimit1Fault_.setStyleSheet(limitStyleSheet);
+    busVoltageLowerLimit1Fault_.setFixedSize(current_width1, height);
+    layout1->addWidget(&busVoltageLowerLimit1Fault_);
+    busVoltageLowerLimit1Fault_.hide();
+
+    busVoltageUpperLimit1Fault_.resize(current_width1, height);
+    busVoltageUpperLimit1Fault_.setText("Bus Voltage Upper Limit");
+    busVoltageUpperLimit1Fault_.setStyleSheet(limitStyleSheet);
+    busVoltageUpperLimit1Fault_.setFixedSize(current_width1, height);
+    layout1->addWidget(&busVoltageUpperLimit1Fault_);
+    busVoltageUpperLimit1Fault_.hide();
+
+    ipmOrMotorTelemetryLimit1Fault_.resize(current_width1, height);
+    ipmOrMotorTelemetryLimit1Fault_.setText("IPM or Motor Telemetry Limit");
+    ipmOrMotorTelemetryLimit1Fault_.setStyleSheet(limitStyleSheet);
+    ipmOrMotorTelemetryLimit1Fault_.setFixedSize(current_width1, height);
+    layout1->addWidget(&ipmOrMotorTelemetryLimit1Fault_);
+    ipmOrMotorTelemetryLimit1Fault_.hide();
+
+    motorCurrentLimit1Fault_.resize(current_width1, height);
+    motorCurrentLimit1Fault_.setText("Motor Current Limit");
+    motorCurrentLimit1Fault_.setStyleSheet(limitStyleSheet);
+    motorCurrentLimit1Fault_.setFixedSize(current_width1, height);
+    layout1->addWidget(&motorCurrentLimit1Fault_);
+    motorCurrentLimit1Fault_.hide();
+
+    outputVoltagePwmLimit1Fault_.resize(current_width1, height);
+    outputVoltagePwmLimit1Fault_.setText("Output Voltage PWM Limit");
+    outputVoltagePwmLimit1Fault_.setStyleSheet(limitStyleSheet);
+    outputVoltagePwmLimit1Fault_.setFixedSize(current_width1, height);
+    layout1->addWidget(&outputVoltagePwmLimit1Fault_);
+    outputVoltagePwmLimit1Fault_.hide();
+
+    velocityLimit1Fault_.resize(current_width1, height);
+    velocityLimit1Fault_.setText("Velocity Limit");
+    velocityLimit1Fault_.setStyleSheet(limitStyleSheet);
+    velocityLimit1Fault_.setFixedSize(current_width1, height);
+    layout1->addWidget(&velocityLimit1Fault_);
+    velocityLimit1Fault_.hide();
+
     ui_.motor0ContentsWidget().setLayout(layout0);
     ui_.motor1ContentsWidget().setLayout(layout1);
 
@@ -181,6 +294,28 @@ MotorFaultView::MotorFaultView(MotorFaultsPresenter& motorFaultsPresenter,
     errorflags1.setSoftwareOverCurrent(true);
     errorflags1.setWatchdogCausedLastReset(true);
     motorOneErrorFlagsReceived(errorflags1);
+
+    LimitFlags limitflags0; LimitFlags limitflags1;
+    limitflags0.setBusCurrentLimit(true);
+    limitflags0.setBusVoltageLowerLimit(true);
+    limitflags0.setBusVoltageUpperLimit(true);
+    limitflags0.setIpmOrMotorTelemetryLimit(true);
+    limitflags0.setMotorCurrentLimit(true);
+    limitflags0.setOutputVoltagePwmLimit(true);
+    limitflags0.setVelocityLimit(true);
+    motorZeroLimitFlagsReceived(limitflags0);
+
+    limitflags1.setBusCurrentLimit(true);
+    limitflags1.setBusVoltageLowerLimit(true);
+    limitflags1.setBusVoltageUpperLimit(true);
+    limitflags1.setIpmOrMotorTelemetryLimit(true);
+    limitflags1.setMotorCurrentLimit(true);
+    limitflags1.setOutputVoltagePwmLimit(true);
+    limitflags1.setVelocityLimit(true);
+    motorOneLimitFlagsReceived(limitflags1);
+
+    qDebug()<<ui_.motor0ContentsWidget().size();
+    qDebug() << ui_.motor1ContentsWidget().size();
 }
 
 MotorFaultView::~MotorFaultView()
@@ -410,6 +545,177 @@ void MotorFaultView::motorZeroErrorFlagsReceived(ErrorFlags motorZeroErrorFlags)
 
 void MotorFaultView::motorZeroLimitFlagsReceived(LimitFlags motorZeroLimitFlags)
 {
+    static bool busCurrentLimit = false;
+    static bool busVoltageLowerLimit = false;
+    static bool busVoltageUpperLimit = false;
+    static bool ipmOrMotorTelemetryLimit = false;
+    static bool motorCurrentLimit = false;
+    static bool outputVoltagePwmLimit = false;
+    static bool velocityLimit = false;
+
+    int current_width = ui_.motor0ContentsWidget().size().width();
+    int current_height = ui_.motor0ContentsWidget().size().height();
+
+    if (motorZeroLimitFlags.busCurrentLimit())
+    {
+        if (!busCurrentLimit)
+        {
+            label0Count_++;
+            if (label0Count_ >= labelResizeLimit)
+                ui_.motor0ContentsWidget().setFixedSize(current_width, current_height + height);
+            busCurrentLimit = true;
+            busCurrentLimit0Fault_.show();
+        }
+    }
+    else if (!motorZeroLimitFlags.busCurrentLimit())
+    {
+        if (busCurrentLimit)
+        {
+            if (label0Count_ >= labelResizeLimit)
+                ui_.motor0ContentsWidget().setFixedSize(current_width, current_height - height);
+            label0Count_--;
+            busCurrentLimit = false;
+            busCurrentLimit0Fault_.hide();
+        }
+    }
+
+    if (motorZeroLimitFlags.busVoltageLowerLimit())
+    {
+        if (!busVoltageLowerLimit)
+        {
+            label0Count_++;
+            if (label0Count_ >= labelResizeLimit)
+                ui_.motor0ContentsWidget().setFixedSize(current_width, current_height + height);
+            busVoltageLowerLimit = true;
+            busVoltageLowerLimit0Fault_.show();
+        }
+    }
+    else if (!motorZeroLimitFlags.busVoltageLowerLimit())
+    {
+        if (busVoltageLowerLimit)
+        {
+            if (label0Count_ >= labelResizeLimit)
+                ui_.motor0ContentsWidget().setFixedSize(current_width, current_height - height);
+            label0Count_--;
+            busVoltageLowerLimit = false;
+            busVoltageLowerLimit0Fault_.hide();
+        }
+    }
+
+    if (motorZeroLimitFlags.busVoltageUpperLimit())
+    {
+        if (!busVoltageUpperLimit)
+        {
+            label0Count_++;
+            if (label0Count_ >= labelResizeLimit)
+                ui_.motor0ContentsWidget().setFixedSize(current_width, current_height + height);
+            busVoltageUpperLimit = true;
+            busVoltageUpperLimit0Fault_.show();
+        }
+    }
+    else if (!motorZeroLimitFlags.busVoltageUpperLimit())
+    {
+        if (busVoltageUpperLimit)
+        {
+            if (label0Count_ >= labelResizeLimit)
+                ui_.motor0ContentsWidget().setFixedSize(current_width, current_height - height);
+            label0Count_--;
+            busVoltageUpperLimit = false;
+            busVoltageUpperLimit0Fault_.hide();
+        }
+    }
+
+    if (motorZeroLimitFlags.ipmOrMotorTelemetryLimit())
+    {
+        if (!ipmOrMotorTelemetryLimit)
+        {
+            label0Count_++;
+            if (label0Count_ >= labelResizeLimit)
+                ui_.motor0ContentsWidget().setFixedSize(current_width, current_height + height);
+            ipmOrMotorTelemetryLimit = true;
+            ipmOrMotorTelemetryLimit0Fault_.show();
+        }
+    }
+    else if (!motorZeroLimitFlags.ipmOrMotorTelemetryLimit())
+    {
+        if (ipmOrMotorTelemetryLimit)
+        {
+            if (label0Count_ >= labelResizeLimit)
+                ui_.motor0ContentsWidget().setFixedSize(current_width, current_height - height);
+            label0Count_--;
+            ipmOrMotorTelemetryLimit = false;
+            ipmOrMotorTelemetryLimit0Fault_.hide();
+        }
+    }
+
+    if (motorZeroLimitFlags.motorCurrentLimit())
+    {
+        if (!motorCurrentLimit)
+        {
+            label0Count_++;
+            if (label0Count_ >= labelResizeLimit)
+                ui_.motor0ContentsWidget().setFixedSize(current_width, current_height + height);
+            motorCurrentLimit = true;
+            motorCurrentLimit0Fault_.show();
+        }
+    }
+    else if (!motorZeroLimitFlags.motorCurrentLimit())
+    {
+        if (motorCurrentLimit)
+        {
+            if (label0Count_ >= labelResizeLimit)
+                ui_.motor0ContentsWidget().setFixedSize(current_width, current_height - height);
+            label0Count_--;
+            motorCurrentLimit = false;
+            motorCurrentLimit0Fault_.hide();
+        }
+    }
+
+    if (motorZeroLimitFlags.outputVoltagePwmLimit())
+    {
+        if (!outputVoltagePwmLimit)
+        {
+            label0Count_++;
+            if (label0Count_ >= labelResizeLimit)
+                ui_.motor0ContentsWidget().setFixedSize(current_width, current_height + height);
+            outputVoltagePwmLimit = true;
+            outputVoltagePwmLimit0Fault_.show();
+        }
+    }
+    else if (!motorZeroLimitFlags.outputVoltagePwmLimit())
+    {
+        if (outputVoltagePwmLimit)
+        {
+            if (label0Count_ >= labelResizeLimit)
+                ui_.motor0ContentsWidget().setFixedSize(current_width, current_height - height);
+            label0Count_--;
+            outputVoltagePwmLimit = false;
+            outputVoltagePwmLimit0Fault_.hide();
+        }
+    }
+
+    if (motorZeroLimitFlags.velocityLimit())
+    {
+        if (!velocityLimit)
+        {
+            label0Count_++;
+            if (label0Count_ >= labelResizeLimit)
+                ui_.motor0ContentsWidget().setFixedSize(current_width, current_height + height);
+            velocityLimit = true;
+            velocityLimit0Fault_.show();
+        }
+    }
+    else if (!motorZeroLimitFlags.velocityLimit())
+    {
+        if (velocityLimit)
+        {
+            if (label0Count_ >= labelResizeLimit)
+                ui_.motor0ContentsWidget().setFixedSize(current_width, current_height - height);
+            label0Count_--;
+            velocityLimit = false;
+            velocityLimit0Fault_.hide();
+        }
+    }
 }
 
 void MotorFaultView::motorOneErrorFlagsReceived(ErrorFlags motorOneErrorFlags)
@@ -614,6 +920,177 @@ void MotorFaultView::motorOneErrorFlagsReceived(ErrorFlags motorOneErrorFlags)
 
 void MotorFaultView::motorOneLimitFlagsReceived(LimitFlags motorOneLimitFlags)
 {
+    static bool busCurrentLimit = false;
+    static bool busVoltageLowerLimit = false;
+    static bool busVoltageUpperLimit = false;
+    static bool ipmOrMotorTelemetryLimit = false;
+    static bool motorCurrentLimit = false;
+    static bool outputVoltagePwmLimit = false;
+    static bool velocityLimit = false;
+
+    int current_width = ui_.motor1ContentsWidget().size().width();
+    int current_height = ui_.motor1ContentsWidget().size().height();
+
+    if (motorOneLimitFlags.busCurrentLimit())
+    {
+        if (!busCurrentLimit)
+        {
+            label1Count_++;
+            if (label1Count_ >= labelResizeLimit)
+                ui_.motor1ContentsWidget().setFixedSize(current_width, current_height + height);
+            busCurrentLimit = true;
+            busCurrentLimit1Fault_.show();
+        }
+    }
+    else if (!motorOneLimitFlags.busCurrentLimit())
+    {
+        if (busCurrentLimit)
+        {
+            if (label1Count_ >= labelResizeLimit)
+                ui_.motor1ContentsWidget().setFixedSize(current_width, current_height - height);
+            label1Count_--;
+            busCurrentLimit = false;
+            busCurrentLimit1Fault_.hide();
+        }
+    }
+
+    if (motorOneLimitFlags.busVoltageLowerLimit())
+    {
+        if (!busVoltageLowerLimit)
+        {
+            label1Count_++;
+            if (label1Count_ >= labelResizeLimit)
+                ui_.motor1ContentsWidget().setFixedSize(current_width, current_height + height);
+            busVoltageLowerLimit = true;
+            busVoltageLowerLimit1Fault_.show();
+        }
+    }
+    else if (!motorOneLimitFlags.busVoltageLowerLimit())
+    {
+        if (busVoltageLowerLimit)
+        {
+            if (label1Count_ >= labelResizeLimit)
+                ui_.motor1ContentsWidget().setFixedSize(current_width, current_height - height);
+            label1Count_--;
+            busVoltageLowerLimit = false;
+            busVoltageLowerLimit1Fault_.hide();
+        }
+    }
+
+    if (motorOneLimitFlags.busVoltageUpperLimit())
+    {
+        if (!busVoltageUpperLimit)
+        {
+            label1Count_++;
+            if (label1Count_ >= labelResizeLimit)
+                ui_.motor1ContentsWidget().setFixedSize(current_width, current_height + height);
+            busVoltageUpperLimit = true;
+            busVoltageUpperLimit1Fault_.show();
+        }
+    }
+    else if (!motorOneLimitFlags.busVoltageUpperLimit())
+    {
+        if (busVoltageUpperLimit)
+        {
+            if (label1Count_ >= labelResizeLimit)
+                ui_.motor1ContentsWidget().setFixedSize(current_width, current_height - height);
+            label1Count_--;
+            busVoltageUpperLimit = false;
+            busVoltageUpperLimit1Fault_.hide();
+        }
+    }
+
+    if (motorOneLimitFlags.ipmOrMotorTelemetryLimit())
+    {
+        if (!ipmOrMotorTelemetryLimit)
+        {
+            label1Count_++;
+            if (label1Count_ >= labelResizeLimit)
+                ui_.motor1ContentsWidget().setFixedSize(current_width, current_height + height);
+            ipmOrMotorTelemetryLimit = true;
+            ipmOrMotorTelemetryLimit1Fault_.show();
+        }
+    }
+    else if (!motorOneLimitFlags.ipmOrMotorTelemetryLimit())
+    {
+        if (ipmOrMotorTelemetryLimit)
+        {
+            if (label1Count_ >= labelResizeLimit)
+                ui_.motor1ContentsWidget().setFixedSize(current_width, current_height - height);
+            label1Count_--;
+            ipmOrMotorTelemetryLimit = false;
+            ipmOrMotorTelemetryLimit1Fault_.hide();
+        }
+    }
+
+    if (motorOneLimitFlags.motorCurrentLimit())
+    {
+        if (!motorCurrentLimit)
+        {
+            label1Count_++;
+            if (label1Count_ >= labelResizeLimit)
+                ui_.motor1ContentsWidget().setFixedSize(current_width, current_height + height);
+            motorCurrentLimit = true;
+            motorCurrentLimit1Fault_.show();
+        }
+    }
+    else if (!motorOneLimitFlags.motorCurrentLimit())
+    {
+        if (motorCurrentLimit)
+        {
+            if (label1Count_ >= labelResizeLimit)
+                ui_.motor1ContentsWidget().setFixedSize(current_width, current_height - height);
+            label1Count_--;
+            motorCurrentLimit = false;
+            motorCurrentLimit1Fault_.hide();
+        }
+    }
+
+    if (motorOneLimitFlags.outputVoltagePwmLimit())
+    {
+        if (!outputVoltagePwmLimit)
+        {
+            label1Count_++;
+            if (label1Count_ >= labelResizeLimit)
+                ui_.motor1ContentsWidget().setFixedSize(current_width, current_height + height);
+            outputVoltagePwmLimit = true;
+            outputVoltagePwmLimit1Fault_.show();
+        }
+    }
+    else if (!motorOneLimitFlags.outputVoltagePwmLimit())
+    {
+        if (outputVoltagePwmLimit)
+        {
+            if (label1Count_ >= labelResizeLimit)
+                ui_.motor1ContentsWidget().setFixedSize(current_width, current_height - height);
+            label1Count_--;
+            outputVoltagePwmLimit = false;
+            outputVoltagePwmLimit1Fault_.hide();
+        }
+    }
+
+    if (motorOneLimitFlags.velocityLimit())
+    {
+        if (!velocityLimit)
+        {
+            label1Count_++;
+            if (label1Count_ >= labelResizeLimit)
+                ui_.motor1ContentsWidget().setFixedSize(current_width, current_height + height);
+            velocityLimit = true;
+            velocityLimit1Fault_.show();
+        }
+    }
+    else if (!motorOneLimitFlags.velocityLimit())
+    {
+        if (velocityLimit)
+        {
+            if (label1Count_ >= labelResizeLimit)
+                ui_.motor1ContentsWidget().setFixedSize(current_width, current_height - height);
+            label1Count_--;
+            velocityLimit = false;
+            velocityLimit1Fault_.hide();
+        }
+    }
 }
 
 void MotorFaultView::errorFlagsReceived(BatteryErrorFlags batteryErrorFlags)
