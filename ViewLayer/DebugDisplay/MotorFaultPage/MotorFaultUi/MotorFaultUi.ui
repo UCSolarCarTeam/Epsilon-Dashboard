@@ -32,9 +32,6 @@
    <string notr="true"/>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
-   <property name="topMargin">
-    <number>20</number>
-   </property>
    <item>
     <widget class="QLabel" name="motor0Label">
      <property name="styleSheet">
@@ -109,7 +106,7 @@ color:white;</string>
       <property name="sizePolicy">
        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
         <horstretch>0</horstretch>
-        <verstretch>10</verstretch>
+        <verstretch>12</verstretch>
        </sizepolicy>
       </property>
       <property name="minimumSize">
@@ -134,13 +131,22 @@ background-color:rgba(45,45,45,150);
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <property name="spacing">
-        <number>0</number>
+        <number>5</number>
        </property>
        <property name="sizeConstraint">
         <enum>QLayout::SetDefaultConstraint</enum>
        </property>
+       <property name="leftMargin">
+        <number>10</number>
+       </property>
        <property name="topMargin">
+        <number>10</number>
+       </property>
+       <property name="rightMargin">
         <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>10</number>
        </property>
       </layout>
      </widget>
@@ -312,8 +318,14 @@ color:white;</string>
      <property name="verticalScrollBarPolicy">
       <enum>Qt::ScrollBarAsNeeded</enum>
      </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+     <property name="sizeAdjustPolicy">
+      <enum>QAbstractScrollArea::AdjustToContents</enum>
+     </property>
      <property name="widgetResizable">
-      <bool>true</bool>
+      <bool>false</bool>
      </property>
      <widget class="QWidget" name="motor1ContentsWidget">
       <property name="geometry">
@@ -324,11 +336,46 @@ color:white;</string>
         <height>162</height>
        </rect>
       </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>665</width>
+        <height>162</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>665</width>
+        <height>162</height>
+       </size>
+      </property>
       <property name="styleSheet">
        <string notr="true">QWidget#motor1ContentsWidget{
 background-color:rgba(45,45,45,150);
 }</string>
       </property>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <property name="spacing">
+        <number>5</number>
+       </property>
+       <property name="leftMargin">
+        <number>10</number>
+       </property>
+       <property name="topMargin">
+        <number>10</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>10</number>
+       </property>
+      </layout>
      </widget>
     </widget>
    </item>
@@ -413,7 +460,8 @@ background-color:rgba(45,45,45,150);
      <property name="styleSheet">
       <string notr="true">font: 18px 'Arial';
 font-weight:500;
-color:rgb(186, 186, 186);</string>
+color:rgb(186, 186, 186);
+</string>
      </property>
      <property name="text">
       <string>Show history</string>

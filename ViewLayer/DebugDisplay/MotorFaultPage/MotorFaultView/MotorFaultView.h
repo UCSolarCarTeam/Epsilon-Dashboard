@@ -3,6 +3,7 @@
 #include <QObject>
 #include <QLabel>
 #include <QLayout>
+#include <QDebug>
 
 #include "../../../../DataLayer/MotorFaultsData/ErrorFlags.h"
 #include "../../../../DataLayer/MotorFaultsData/LimitFlags.h"
@@ -32,13 +33,40 @@ private:
 
     I_MotorFaultUi& ui_;
 
-    QLabel badMotorPositionHallSequenceFault_;
-    QLabel configReadErrorFault_;
-    QLabel dcBusOverVoltageFault_;
-    QLabel desaturationFaultFault_;
-    QLabel motorOverSpeedFault_;
-    QLabel railUnderVoltageLockOutFault_;
-    QLabel watchdogCausedLastResetFault_;
+    QLabel badMotorPositionHallSequence0Fault_;
+    QLabel configReadError0Fault_;
+    QLabel dcBusOverVoltage0Fault_;
+    QLabel desaturationFault0Fault_;
+    QLabel motorOverSpeed0Fault_;
+    QLabel railUnderVoltageLockOut0Fault_;
+    QLabel watchdogCausedLastReset0Fault_;
+    QLabel softwareOverCurrent0Fault_;
+    QLabel busCurrentLimit0Fault_;
+    QLabel busVoltageUpperLimit0Fault_;
+    QLabel busVoltageLowerLimit0Fault_;
+    QLabel ipmOrMotorTelemetryLimit0Fault_;
+    QLabel motorCurrentLimit0Fault;
+    QLabel outputVoltagePwmLimit0Fault;
+    QLabel velocityLimit0Fault;
+
+    int label0Count_;
+
+    QLabel badMotorPositionHallSequence1Fault_;
+    QLabel configReadError1Fault_;
+    QLabel dcBusOverVoltage1Fault_;
+    QLabel desaturationFault1Fault_;
+    QLabel motorOverSpeed1Fault_;
+    QLabel railUnderVoltageLockOut1Fault_;
+    QLabel watchdogCausedLastReset1Fault_;
+    QLabel softwareOverCurrent1Fault_;
+    QLabel busCurrentLimit1Fault_;
+    QLabel busVoltageUpperLimit1Fault_;
+    QLabel busVoltageLowerLimit1Fault_;
+    QLabel ipmOrMotorTelemetryLimit1Fault_;
+    QLabel motorCurrentLimit1Fault;
+    QLabel outputVoltagePwmLimit1Fault;
+    QLabel velocityLimit1Fault;
+    int label1Count_;
 
 private slots:
     // battery faults slots
