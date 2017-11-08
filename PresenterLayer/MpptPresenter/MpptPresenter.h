@@ -17,5 +17,5 @@ private:
 
 signals:
     void mpptReceived(int i, Mppt mppt);
-    void mpptPowerReceived(double mpptPower);
+    //void mpptPowerReceived(double mpptPower);
 };

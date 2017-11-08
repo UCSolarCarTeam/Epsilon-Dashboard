@@ -106,8 +106,8 @@ void DisplayDashboardView::connectMppt(MpptPresenter& mpptPresenter)
 {
     connect(&mpptPresenter, SIGNAL(mpptReceived(int, Mppt)),
             this, SLOT(mpptReceived(int, Mppt)));
-    connect(&mpptPresenter, SIGNAL(mpptPowerReceived(double)),
-            this, SLOT(mpptPowerReceived(double)));
+    //connect(&mpptPresenter, SIGNAL(mpptPowerReceived(double)),
+    //  this, SLOT(mpptPowerReceived(double)));
 }
 
 void DisplayDashboardView::connectMotorDetails(MotorDetailsPresenter& motorDetailsPresenter)
@@ -296,11 +296,12 @@ void DisplayDashboardView::mpptReceived(int i, Mppt mppt)
     }
 }
 
+/*This does not appear to be used
 void DisplayDashboardView::mpptPowerReceived(double mpptPower)
 {
     ui_.powerInLabel().setNum(mpptPower);
     ui_.powerOutLabel().setNum(ui_.netPowerLabel().text().toDouble() - mpptPower);
-}
+}*/
 
 void DisplayDashboardView::motorZeroErrorFlagsReceived(ErrorFlags motorZeroErrorFlags)
 {
