@@ -28,8 +28,16 @@
      <property name="minimumSize">
       <size>
        <width>0</width>
-       <height>700</height>
+       <height>628</height>
       </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QWidget#scrollArea
+{
+border: 2px black;
+background-color: black;
+}
+</string>
      </property>
      <property name="widgetResizable">
       <bool>true</bool>
@@ -39,13 +47,16 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>693</width>
-        <height>1040</height>
+        <width>695</width>
+        <height>1023</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_5">
-       <item row="2" column="0">
-        <widget class="QWidget" name="widget_2" native="true">
+       <property name="spacing">
+        <number>10</number>
+       </property>
+       <item row="3" column="0">
+        <widget class="QWidget" name="block2" native="true">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -59,7 +70,10 @@
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">border: 10 px;</string>
+          <string notr="true">QWidget#block2
+{
+border: 1px solid grey;
+}</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_3">
           <item row="6" column="0">
@@ -1212,23 +1226,7 @@ background: transparent;</string>
         </widget>
        </item>
        <item row="1" column="0">
-        <spacer name="verticalSpacer">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Fixed</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>10</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="0" column="0">
-        <widget class="QWidget" name="widget" native="true">
+        <widget class="QWidget" name="block1" native="true">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -1238,7 +1236,7 @@ background: transparent;</string>
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>300</height>
+           <height>275</height>
           </size>
          </property>
          <property name="maximumSize">
@@ -1248,7 +1246,10 @@ background: transparent;</string>
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true"/>
+          <string notr="true">QWidget#block1
+{
+border: 1px solid grey;
+}</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_2">
           <item row="1" column="0">
@@ -1645,17 +1646,6 @@ background: transparent;</string>
                </property>
               </spacer>
              </item>
-             <item row="0" column="1" alignment="Qt::AlignHCenter">
-              <widget class="QLabel" name="label_39">
-               <property name="styleSheet">
-                <string notr="true">color: white;
-background: transparent;</string>
-               </property>
-               <property name="text">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;LEFT&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-               </property>
-              </widget>
-             </item>
              <item row="0" column="2" alignment="Qt::AlignHCenter">
               <widget class="QLabel" name="label_38">
                <property name="styleSheet">
@@ -1667,7 +1657,7 @@ background: transparent;</string>
                </property>
               </widget>
              </item>
-             <item row="0" column="3" alignment="Qt::AlignHCenter">
+             <item row="0" column="4" alignment="Qt::AlignHCenter">
               <widget class="QLabel" name="label_37">
                <property name="styleSheet">
                 <string notr="true">color:white;
@@ -1678,11 +1668,38 @@ background: transparent;</string>
                </property>
               </widget>
              </item>
+             <item row="0" column="1" alignment="Qt::AlignHCenter">
+              <widget class="QLabel" name="label_39">
+               <property name="styleSheet">
+                <string notr="true">color: white;
+background: transparent;</string>
+               </property>
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;LEFT&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+              </widget>
+             </item>
             </layout>
            </widget>
           </item>
          </layout>
         </widget>
+       </item>
+       <item row="2" column="0">
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>10</height>
+          </size>
+         </property>
+        </spacer>
        </item>
       </layout>
      </widget>
