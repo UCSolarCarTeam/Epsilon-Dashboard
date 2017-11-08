@@ -4,7 +4,11 @@
 MpptData::MpptData()
 {
     mpptList_.reserve(3);
-    mpptList_.append(Mppt());
+
+    for (int i  =  0; i < 3; i++)
+    {
+        mpptList_.append(Mppt());
+    }
 }
 
 MpptData::~MpptData()
