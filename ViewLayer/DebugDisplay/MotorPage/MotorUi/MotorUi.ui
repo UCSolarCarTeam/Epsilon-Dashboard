@@ -32,11 +32,7 @@
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">QWidget#scrollArea
-{
-border: 2px black;
-background-color: black;
-}
+      <string notr="true">
 </string>
      </property>
      <property name="widgetResizable">
@@ -46,8 +42,8 @@ background-color: black;
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>0</y>
-        <width>695</width>
+        <y>-395</y>
+        <width>693</width>
         <height>1023</height>
        </rect>
       </property>
