@@ -28,21 +28,18 @@
 #include "../DataLayer/LightsData/I_LightsData.h"
 #include <QObject>
 
-class I_JsonReceiver;
 class I_LightsData;
 
 class LightsPopulator : public QObject
 {
     Q_OBJECT
 public:
-    LightsPopulator(I_JsonReceiver& jsonReceiver,
-                    I_LightsData& lightsData);
+    LightsPopulator(I_LightsData& lightsData);
     virtual ~LightsPopulator() {}
 
 public slots:
     void populateData(const QJsonObject&);
 
 private:
-    I_JsonReceiver& jsonReceiver_;
     I_LightsData& lightsData_;
 };

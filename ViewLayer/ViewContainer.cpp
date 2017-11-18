@@ -1,5 +1,5 @@
 #include "DisplayDashboard/DisplayDashboardUI/DisplayDashboardUI.h"
-#include "DisplayDashboard/DisplayDashboardUI/RaceModeDashboardUI.h"
+#include "RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.h"
 #include "DisplayDashboard/DisplayDashboardView/DisplayDashboardView.h"
 #include "RaceModeDisplay/RaceModeDashboardView.h"
 #include "../PresenterLayer/PresenterContainer.h"
@@ -12,6 +12,7 @@
 #include "DebugDisplay/OverlordWidget/OverlordWidget.h"
 #include "DebugDisplay/Tab/TabUi/TabUi.h"
 #include "DebugDisplay/MPPTPage/MPPTUi/MpptUi.h"
+#include "DebugDisplay/MPPTPage/MPPTView/MpptView.h"
 ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
 {
     if (mode == Mode::DISPLAY)
@@ -54,6 +55,8 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
         overlordWidget_.reset(new OverlordWidget(*batteryUi_, *controlUi_,
                               *homepageUi_, *motorFaultUi_,
                               *motorUi_, *mpptUi_, *tabUi_));
+        MpptView_.reset(new MpptView(presenterContainer.mpptPresenter(), *mpptUi_));
+
     }
 }
 

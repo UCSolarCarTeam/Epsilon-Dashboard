@@ -12,3 +12,10 @@ To run the application in display mode, run the command:
   
 To run the application in race mode, add the -r flag at the end:
   `./EpsilonDashboard -r`
+
+## Setting up Rabbitmq
+
+In this repo, there are dependencies needed for Rabbitmq before you will be able to build or run anything.
+
+To install these dependencies, run the command:
+	`./EpsilonDashboardSetup.sh`

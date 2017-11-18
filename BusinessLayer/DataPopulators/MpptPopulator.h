@@ -28,21 +28,18 @@
 #include "../DataLayer/MpptData/I_MpptData.h"
 #include <QObject>
 
-class I_JsonReceiver;
 class I_MpptData;
 
 class MpptPopulator : public QObject
 {
     Q_OBJECT
 public:
-    MpptPopulator(I_JsonReceiver& jsonReceiver,
-                  I_MpptData& mpptData);
+    MpptPopulator(I_MpptData& mpptData);
     virtual ~MpptPopulator() {}
 
 public slots:
     void populateData(const QJsonObject&);
 
 private:
-    I_JsonReceiver& jsonReceiver_;
     I_MpptData& mpptData_;
 };

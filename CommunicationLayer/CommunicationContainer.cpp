@@ -14,14 +14,24 @@ class CommunicationContainerPrivate
 {
 
 public:
-    CommunicationContainerPrivate(InfrastructureContainer& infrastructureContainer)
+    CommunicationContainerPrivate(BusinessContainer& businessContainer,
+                                  InfrastructureContainer& infrastructureContainer)
         : internetConnectionService_(infrastructureContainer.settings().exchange(),
                                      infrastructureContainer.settings().queue(),
                                      infrastructureContainer.settings().ipAddress(),
                                      infrastructureContainer.settings().port())
         , commDeviceManager_(udpSocket_)
         , connectionController_(internetConnectionService_)
-        , jsonReceiver_(commDeviceManager_)
+        , jsonReceiver_(commDeviceManager_,
+                        businessContainer.batteryPopulator(),
+                        businessContainer.batteryFaultsPopulator(),
+                        businessContainer.driverControlsPopulator(),
+                        businessContainer.keyMotorPopulator(),
+                        businessContainer.lightsPopulator(),
+                        businessContainer.mpptPopulator(),
+                        businessContainer.motorDetailsPopulator(),
+                        businessContainer.motorFaultsPopulator(),
+                        businessContainer.communicationsMonitoringService())
     {
     }
     QUdpSocket udpSocket_;
@@ -31,8 +41,8 @@ public:
     JsonReceiver jsonReceiver_;
 };
 
-CommunicationContainer::CommunicationContainer(InfrastructureContainer& infrastructureContainer)
-    : impl_(new CommunicationContainerPrivate(infrastructureContainer))
+CommunicationContainer::CommunicationContainer(BusinessContainer& businessContainer, InfrastructureContainer& infrastructureContainer)
+    : impl_(new CommunicationContainerPrivate(businessContainer, infrastructureContainer))
 {
 }
 

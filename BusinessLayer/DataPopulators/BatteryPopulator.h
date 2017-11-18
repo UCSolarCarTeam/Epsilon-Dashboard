@@ -27,21 +27,18 @@
 
 #include <QObject>
 
-class I_JsonReceiver;
 class I_BatteryData;
 
 class BatteryPopulator : public QObject
 {
     Q_OBJECT
 public:
-    BatteryPopulator(I_JsonReceiver& jsonReceiver,
-                     I_BatteryData& batteryData);
+    BatteryPopulator(I_BatteryData& batteryData);
     virtual ~BatteryPopulator() {}
 
 public slots:
     void populateData(const QJsonObject&);
 
 private:
-    I_JsonReceiver& jsonReceiver_;
     I_BatteryData& batteryData_;
 };
