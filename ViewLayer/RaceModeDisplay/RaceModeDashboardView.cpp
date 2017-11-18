@@ -1,4 +1,12 @@
 #include "RaceModeDashboardView.h"
+#include "../../PresenterLayer/BatteryPresenter/BatteryPresenter.h"
+#include "../../PresenterLayer/DriverControlsPresenter/DriverControlsPresenter.h"
+#include "../../PresenterLayer/KeyMotorPresenter/KeyMotorPresenter.h"
+#include "../../PresenterLayer/LightsPresenter/LightsPresenter.h"
+#include "../../PresenterLayer/MpptPresenter/MpptPresenter.h"
+#include "../../PresenterLayer/MotorDetailsPresenter/MotorDetailsPresenter.h"
+#include "../../PresenterLayer/MotorFaultsPresenter/MotorFaultsPresenter.h"
+#include "../RaceModeDisplay/RaceModeDisplayUI/I_RaceModeDashboardUI.h"
 
 namespace
 {
@@ -78,14 +86,14 @@ void RaceModeDashboardView::connectDriverControls(DriverControlsPresenter& drive
 
 void RaceModeDashboardView::connectKeyMotor(KeyMotorPresenter& keyMotorPresenter)
 {
-    connect(&keyMotorPresenter, SIGNAL(motorSetCurrentReceived(double setCurrent)),
-            this, SLOT(motorSetCurrentReceived(double setCurrent)));
-    connect(&keyMotorPresenter, SIGNAL(motorActualSpeedReceived(double actualSpeed)),
-            this, SLOT(motorActualSpeedReceived(double actualSpeed)));
-    connect(&keyMotorPresenter, SIGNAL(motorBusVoltageReceived(double busVoltage)),
-            this, SLOT(motorBusVoltageReceived(double busVoltage)));
-    connect(&keyMotorPresenter, SIGNAL(motorBusCurrentReceived(double busCurrent)),
-            this, SLOT(motorBusCurrentReceived(double busCurrent)));
+    connect(&keyMotorPresenter, SIGNAL(motorSetCurrentReceived(double)),
+            this, SLOT(motorSetCurrentReceived(double)));
+    connect(&keyMotorPresenter, SIGNAL(motorActualSpeedReceived(double)),
+            this, SLOT(motorActualSpeedReceived(double)));
+    connect(&keyMotorPresenter, SIGNAL(motorBusVoltageReceived(double)),
+            this, SLOT(motorBusVoltageReceived(double)));
+    connect(&keyMotorPresenter, SIGNAL(motorBusCurrentReceived(double)),
+            this, SLOT(motorBusCurrentReceived(double)));
 }
 
 void RaceModeDashboardView::connectLights(LightsPresenter& lightsPresenter)
@@ -179,7 +187,7 @@ void RaceModeDashboardView::lowBeamsReceived(bool lowBeams)
 {
     if (lowBeams)
     {
-        ui_.lowHeadlightIndicatorWidget().setStyleSheet("background: url(:/Resources/LowHeadlightIndicator.png)");
+        ui_.lowHeadlightIndicatorWidget().setStyleSheet("border-image: url(:/Resources/LowHeadlightIndicator.png) 0 0 0 0 stretch stretch");
     }
     else
     {
@@ -190,7 +198,7 @@ void RaceModeDashboardView::highBeamsReceived(bool highBeams)
 {
     if (highBeams)
     {
-        ui_.highHeadlightIndicatorWidget().setStyleSheet("background: url(:/Resources/HighHeadlightIndicator.png)");
+        ui_.highHeadlightIndicatorWidget().setStyleSheet("border-image: url(:/Resources/HighHeadlightIndicator.png) 0 0 0 0 stretch stretch");
     }
     else
     {
@@ -201,7 +209,7 @@ void RaceModeDashboardView::leftSignalReceived(bool leftSignal)
 {
     if (leftSignal)
     {
-        ui_.leftTurnSignalWidget().setStyleSheet("background: url(:/Resources/TurnSignaLeft.png);");
+        ui_.leftTurnSignalWidget().setStyleSheet("border-image: url(:/Resources/TurnSignaLeft.png) 0 0 0 0 stretch stretch;");
     }
     else
     {
@@ -212,7 +220,7 @@ void RaceModeDashboardView::rightSignalReceived(bool rightSignal)
 {
     if (rightSignal)
     {
-        ui_.rightTurnSignalWidget().setStyleSheet("background: url(:/Resources/TurnSignaRight.png);");
+        ui_.rightTurnSignalWidget().setStyleSheet("border-image: url(:/Resources/TurnSignaRight.png) 0 0 0 0 stretch stretch;");
     }
     else
     {
