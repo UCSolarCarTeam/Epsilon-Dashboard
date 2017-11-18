@@ -8,6 +8,7 @@
 #include "DebugDisplay/HomePage/HomePageUi/HomePageUi.h"
 #include "DebugDisplay/MotorFaultPage/MotorFaultUi/MotorFaultUi.h"
 #include "DebugDisplay/MotorPage/MotorUi/MotorUi.h"
+#include "DebugDisplay/MotorPage/MotorUi/MotorView.h"
 #include "DebugDisplay/OverlordWidget/OverlordWidget.h"
 #include "DebugDisplay/Tab/TabUi/TabUi.h"
 #include "DebugDisplay/MPPTPage/MPPTUi/MpptUi.h"
