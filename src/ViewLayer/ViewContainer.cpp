@@ -5,6 +5,7 @@
 #include "ViewContainer.h"
 #include "DebugDisplay/BatteryPage/BatteryUi/BatteryUi.h"
 #include "DebugDisplay/ControlPage/ControlUi/ControlUi.h"
+#include "DebugDisplay/ControlPage/ControlView/ControlView.h"
 #include "DebugDisplay/HomePage/HomePageUi/HomePageUi.h"
 #include "DebugDisplay/MotorFaultPage/MotorFaultUi/MotorFaultUi.h"
 #include "DebugDisplay/MotorPage/MotorUi/MotorUi.h"
@@ -47,7 +48,7 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
                               *homepageUi_, *motorFaultUi_,
                               *motorUi_, *mpptUi_, *tabUi_));
         MpptView_.reset(new MpptView(presenterContainer.mpptPresenter(), *mpptUi_));
-
+        ControlView_.reset(new ControlView(presenterContainer.driverControlsPresenter(), *controlUi_));
     }
 }
 
