@@ -1,13 +1,13 @@
 <RCC>
     <qresource prefix="/">
-    	<file>../Resources/TabBackground</file>
-		<file>../Resources/Background.png</file>
-		<file>../Resources/SteeringIcon.png</file>
-		<file>../Resources/MPPTIcon.png</file>
-		<file>../Resources/HomeIcon.png</file>
-		<file>../Resources/GearIcon.png</file>
-		<file>../Resources/EngineIcon.png</file>
-		<file>../Resources/BatteryIcon.png</file>
+        <file>../Resources/TabBackground</file>
+        <file>../Resources/Background.png</file>
+        <file>../Resources/SteeringIcon.png</file>
+        <file>../Resources/MPPTIcon.png</file>
+        <file>../Resources/HomeIcon.png</file>
+        <file>../Resources/GearIcon.png</file>
+        <file>../Resources/EngineIcon.png</file>
+        <file>../Resources/BatteryIcon.png</file>
         <file>../Resources/Fonts/AvenirLTStd-Black.otf</file>
         <file>../Resources/Fonts/AvenirLTStd-BlackOblique.otf</file>
         <file>../Resources/Fonts/AvenirLTStd-Book.otf</file>
@@ -39,5 +39,7 @@
         <file>../Resources/ArrayOneBackground.png</file>
         <file>../Resources/ArrayTwoBackground.png</file>
         <file>../Resources/ArrayZeroBackground.png</file>
+        <file>Resource/Pause-Play.png</file>
+        <file>../Resources/Alive Icon.png</file>
     </qresource>
 </RCC>
