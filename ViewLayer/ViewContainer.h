@@ -7,11 +7,13 @@ class I_DisplayDashboardUI;
 class I_RaceModeDashboardUI;
 class BatteryUi;
 class ControlUi;
+class ControlView;
 class HomePageUi;
 class MotorFaultUi;
 class MotorFaultView;
 class MotorUi;
 class MpptUi;
+class MpptView;
 class OverlordWidget;
 class TabUi;
 class PresenterContainer;
@@ -35,7 +37,12 @@ private:
     MotorUi* motorUi_;
     MpptUi* mpptUi_;
     TabUi* tabUi_;
+
     QScopedPointer<MotorFaultView> MotorFaultView_;
+
+    QScopedPointer<ControlView> ControlView_;
+    QScopedPointer<MpptView> MpptView_;
+
     QScopedPointer<DisplayDashboardView> DisplayDashboardView_;
     QScopedPointer<OverlordWidget> overlordWidget_;
 };

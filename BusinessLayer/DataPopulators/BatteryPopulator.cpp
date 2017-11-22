@@ -28,17 +28,12 @@
 
 #include "BatteryPopulator.h"
 
-#include "../CommunicationLayer/JsonReceiver/I_JsonReceiver.h"
 #include "../BusinessLayer/DataPopulators/JsonDefines.h"
 #include "../DataLayer/BatteryData/I_BatteryData.h"
 
-BatteryPopulator::BatteryPopulator(I_JsonReceiver& jsonReceiver,
-                                   I_BatteryData& batteryData)
-    : jsonReceiver_(jsonReceiver)
-    , batteryData_(batteryData)
+BatteryPopulator::BatteryPopulator(I_BatteryData& batteryData)
+    : batteryData_(batteryData)
 {
-    connect(&jsonReceiver_, SIGNAL(dataReceived(const QJsonObject&)),
-            this, SLOT(populateData(const QJsonObject&)));
 }
 
 void BatteryPopulator::populateData(const QJsonObject& data)

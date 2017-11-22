@@ -28,21 +28,18 @@
 #include "../DataLayer/BatteryFaultsData/I_BatteryFaultsData.h"
 #include <QObject>
 
-class I_JsonReceiver;
 class I_BatteryFaultsData;
 
 class BatteryFaultsPopulator : public QObject
 {
     Q_OBJECT
 public:
-    BatteryFaultsPopulator(I_JsonReceiver& jsonReceiver,
-                           I_BatteryFaultsData& batteryFaultsData);
+    BatteryFaultsPopulator(I_BatteryFaultsData& batteryFaultsData);
     virtual ~BatteryFaultsPopulator() {}
 
 public slots:
     void populateData(const QJsonObject&);
 
 private:
-    I_JsonReceiver& jsonReceiver_;
     I_BatteryFaultsData& batteryFaultsData_;
 };

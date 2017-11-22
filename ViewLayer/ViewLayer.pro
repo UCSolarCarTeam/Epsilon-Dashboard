@@ -29,7 +29,9 @@ HEADERS += \
     DebugDisplay/Tab/TabUi/TabUi.h \
     DebugDisplay/Tab/TabUi/I_TabUi.h \
     DebugDisplay/MPPTPage/MPPTUi/MpptUi.h \
-    DebugDisplay/MPPTPage/MPPTUi/I_MpptUi.h
+    DebugDisplay/MPPTPage/MPPTUi/I_MpptUi.h \
+    DebugDisplay/ControlPage/ControlView/ControlView.h \
+    DebugDisplay/MPPTPage/MPPTView/MpptView.h
 
 SOURCES += \ 
     ViewContainer.cpp \
@@ -44,7 +46,10 @@ SOURCES += \
     DebugDisplay/OverlordWidget/OverlordWidget.cpp \
     DebugDisplay/MotorPage/MotorUi/MotorUi.cpp \
     DebugDisplay/Tab/TabUi/TabUi.cpp \
-    DebugDisplay/MPPTPage/MPPTUi/MpptUi.cpp
+    DebugDisplay/MPPTPage/MPPTUi/MpptUi.cpp \
+    DebugDisplay/ControlPage/ControlView/ControlView.cpp \
+    DebugDisplay/MPPTPage/MPPTView/MpptView.cpp
+
 
 FORMS += \
     DisplayDashboard/DisplayDashboardUI.ui \
