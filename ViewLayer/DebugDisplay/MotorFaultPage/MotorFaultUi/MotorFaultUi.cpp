@@ -30,3 +30,18 @@ QWidget& MotorFaultUi::batteryContentsWidget()
 {
     return *ui_->batteryContentsWidget;
 }
+
+QScrollArea& MotorFaultUi::motor0ScrollArea()
+{
+    return *ui_->motor0ScrollArea;
+}
+
+QScrollArea& MotorFaultUi::motor1ScrollArea()
+{
+    return *ui_->motor1ScrollArea;
+}
+
+QScrollArea& MotorFaultUi::batteryScrollArea()
+{
+    return *ui_->batteryScrollArea;
+}

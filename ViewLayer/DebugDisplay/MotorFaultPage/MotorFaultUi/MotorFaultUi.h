@@ -15,6 +15,10 @@ public:
     QWidget& motor1ContentsWidget();
     QWidget& batteryContentsWidget();
 
+    QScrollArea& motor0ScrollArea();
+    QScrollArea& motor1ScrollArea();
+    QScrollArea& batteryScrollArea();
+
 private:
     Ui::MotorFaultUi* ui_;
 };
