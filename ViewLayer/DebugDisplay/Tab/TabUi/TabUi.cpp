@@ -1,11 +1,15 @@
 #include "TabUi.h"
 #include "ui_TabUi.h"
 #include <QDebug>
+#include <QTimer>
+#include <QDateTime>
 
-TabUi::TabUi() :
-    ui_(new Ui::TabUi)
+TabUi::TabUi(QWidget *parent) :
+    I_TabUi(parent),
+    ui_(new Ui::TabUi())
 {
     ui_->setupUi(this);
+    showTime();
     QPixmap bkgnd(":/Resources/Background.png");
     bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette background = palette();
@@ -13,6 +17,7 @@ TabUi::TabUi() :
     this->setAutoFillBackground(true);
     this->setPalette(background);
     this->show();
+
 }
 TabUi::~TabUi()
 {
@@ -41,4 +46,10 @@ QPushButton& TabUi::motorButton()
 QPushButton& TabUi::mpptButton()
 {
     return *ui_->mpptButton;
+}
+void TabUi::showTime()
+{
+    QTime time = QTime::currentTime();
+    QString time_text = time.toString("hh : mm : ss");
+    ui_->Digital_Clock->setText(time_text);
 }

@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>683</width>
-    <height>50</height>
+    <width>864</width>
+    <height>238</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>Form</string>
@@ -16,20 +22,63 @@
   <property name="styleSheet">
    <string notr="true"/>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout_2">
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
    <item>
-    <widget class="QPushButton" name="homepageButton">
-     <property name="autoFillBackground">
-      <bool>false</bool>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <property name="spacing">
+      <number>0</number>
      </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton{
-color: rgb(125,255,255);
+     <property name="rightMargin">
+      <number>100</number>
+     </property>
+     <item>
+      <widget class="QPushButton" name="homepageButton">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>30</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+color: rgb(255,255,255);
 background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 rgb(100,100,100), stop: 1 rgb(100,100,100));
+                                      stop: 0 rgb(100,100,100), stop: 1 black);
 image: url(:/Resources/HomeIcon.png);
 image-position: 1,1;
 font-size: 18px;
+
+border:grey;
 }
 QPushButton:hover{
 color: rgb(255,255,255);
@@ -42,55 +91,126 @@ color: rgb(255,255,255);
 background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
                                       stop: 0 rgb(120,120,120), stop: 1 rgb(80,80,80));
 }</string>
-     </property>
-     <property name="text">
-      <string>      HomePage</string>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>32</width>
-       <height>32</height>
-      </size>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QPushButton" name="batteryButton">
-     <property name="styleSheet">
-      <string notr="true">QPushButton{
-color: rgb(125,255,255);
-background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 rgb(100,100,100), stop: 1 rgb(100,100,100));
-image: url(:/Resources/BatteryIcon.png);
-image-position: 1,1;
-font-size: 18px;
-}
-QPushButton:hover{
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>32</width>
+         <height>32</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_5">
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>520</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>1000</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel{
 color: rgb(255,255,255);
 background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 rgb(160,160,160), stop: 1 rgb(120,120,120));
+                                      stop: 0 rgb(100,100,100), stop: 1 black);
+
+QWidget::move(40, 2);
 }
-QPushButton:pressed{
-color: rgb(255,255,255);
-background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 rgb(120,120,120), stop: 1 rgb(80,80,80));
-}</string>
-     </property>
-     <property name="text">
-      <string>      Battery</string>
-     </property>
-    </widget>
+</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Plain</enum>
+         </property>
+         <property name="text">
+          <string>                                            Calgary Solar Car Team</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+         </property>
+         <property name="margin">
+          <number>0</number>
+         </property>
+         <property name="indent">
+          <number>-1</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QLabel" name="Digital_Clock">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
    <item>
-    <widget class="QPushButton" name="controlButton">
-     <property name="styleSheet">
-      <string notr="true">QPushButton{
-color: rgb(125,255,255);
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QPushButton" name="controlButton">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>140</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>110</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+
+color: rgb(255,255,255);
 background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 rgb(100,100,100), stop: 1 rgb(100,100,100));
+   
+                                  stop: 0 rgb(60,60,60), stop: 1 rgb(60,60,60));
 image: url(:/Resources/SteeringIcon.png);
 image-position: 1,1;
 font-size: 18px;
+
+border:grey;
 }
 QPushButton:hover{
 color: rgb(255,255,255);
@@ -102,22 +222,42 @@ color: rgb(255,255,255);
 background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
                                       stop: 0 rgb(120,120,120), stop: 1 rgb(80,80,80));
 }</string>
-     </property>
-     <property name="text">
-      <string>       Control</string>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QPushButton" name="motorFaultButton">
-     <property name="styleSheet">
-      <string notr="true">QPushButton{
-color: rgb(125,255,255);
+       </property>
+       <property name="text">
+        <string> Control</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="batteryButton">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>140</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>110</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+color: rgb(255,255,255);
 background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 rgb(100,100,100), stop: 1 rgb(100,100,100));
-image: url(:/Resources/GearIcon.png);
+                                      stop: 0 rgb(60,60,60), stop: 1 rgb(60,60,60));
+image: url(:/Resources/BatteryIcon.png);
 image-position: 1,1;
-font-size:18px;
+font-size: 18px;
+
+border: grey;
 }
 QPushButton:hover{
 color: rgb(255,255,255);
@@ -129,22 +269,42 @@ color: rgb(255,255,255);
 background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
                                       stop: 0 rgb(120,120,120), stop: 1 rgb(80,80,80));
 }</string>
-     </property>
-     <property name="text">
-      <string>     MotorFault</string>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QPushButton" name="motorButton">
-     <property name="styleSheet">
-      <string notr="true">QPushButton{
-color: rgb(125,255,255);
+       </property>
+       <property name="text">
+        <string>Battery</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="motorButton">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>140</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>110</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+color: rgb(255,255,255);
 background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 rgb(100,100,100), stop: 1 rgb(100,100,100));
+                                      stop: 0 rgb(60,60,60), stop: 1 rgb(60,60,60));
 image: url(:/Resources/EngineIcon.png);
 image-position: 1,1;
 font-size: 18px;
+
+border:grey;
 }
 QPushButton:hover{
 color: rgb(255,255,255);
@@ -156,22 +316,89 @@ color: rgb(255,255,255);
 background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
                                       stop: 0 rgb(120,120,120), stop: 1 rgb(80,80,80));
 }</string>
-     </property>
-     <property name="text">
-      <string>     Motor</string>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QPushButton" name="mpptButton">
-     <property name="styleSheet">
-      <string notr="true">QPushButton{
-color: rgb(125,255,255);
+       </property>
+       <property name="text">
+        <string>Motor</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="motorFaultButton">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>134</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>110</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+color: rgb(255,255,255);
 background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 rgb(100,100,100), stop: 1 rgb(100,100,100));
+                                      stop: 0 rgb(60,60,60), stop: 1 rgb(60,60,60));
+image: url(:/Resources/GearIcon.png);
+image-position: 1,1;
+font-size:18px;
+
+border:grey;
+}
+QPushButton:hover{
+color: rgb(255,255,255);
+background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 rgb(160,160,160), stop: 1 rgb(120,120,120));
+}
+QPushButton:pressed{
+color: rgb(255,255,255);
+background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 rgb(120,120,120), stop: 1 rgb(80,80,80));
+}</string>
+       </property>
+       <property name="text">
+        <string>Faults</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="mpptButton">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>140</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>110</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+color: rgb(255,255,255);
+background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 rgb(60,60,60), stop: 1 rgb(60,60,60));
 image: url(:/Resources/MPPTIcon.png);
 image-position: 1,1;
 font-size: 18px;
+
+border:grey;
 }
 QPushButton:hover{
 color: rgb(255,255,255);
@@ -183,11 +410,13 @@ color: rgb(255,255,255);
 background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
                                       stop: 0 rgb(120,120,120), stop: 1 rgb(80,80,80));
 }</string>
-     </property>
-     <property name="text">
-      <string>         MPPT</string>
-     </property>
-    </widget>
+       </property>
+       <property name="text">
+        <string>MPPT</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>

@@ -8,7 +8,7 @@ class TabUi : public I_TabUi
 {
     Q_OBJECT
 public:
-    explicit TabUi();
+    explicit TabUi(QWidget *parent = 0);
     ~TabUi();
     QPushButton& homepageButton();
     QPushButton& batteryButton();
@@ -16,6 +16,8 @@ public:
     QPushButton& motorFaultButton();
     QPushButton& motorButton();
     QPushButton& mpptButton();
+private slots:
+    void showTime();
 private:
     Ui::TabUi* ui_;
 };
