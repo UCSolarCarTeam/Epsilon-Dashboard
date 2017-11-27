@@ -110,9 +110,9 @@ MotorFaultView::MotorFaultView(MotorFaultsPresenter& motorFaultsPresenter,
 {
 
     // Setting up Vertical bar (wasn't letting me setup in namespace)
-    QScrollBar* verticalBar0 = new QScrollBar;
-    QScrollBar* verticalBar1 = new QScrollBar;
-    QScrollBar* verticalBarB = new QScrollBar;
+    QScrollBar* verticalBar0 = new QScrollBar();
+    QScrollBar* verticalBar1 = new QScrollBar();
+    QScrollBar* verticalBarB = new QScrollBar();
 
     verticalBar0->setStyleSheet(SCROLLBARSTYLESHEET);
     verticalBar1->setStyleSheet(SCROLLBARSTYLESHEET);
