@@ -6,31 +6,31 @@ namespace
     QString ERRORSTYLESHEET = "font: 20px 'Arial';\nfont-weight:500;color:red; margin-left: 10px;";
     QString LIMITSTYLESHEET = "font: 20px 'Arial';\nfont-weight:500;color:yellow; margin-left: 10px;";
     QString SCROLLBARSTYLESHEET = QString::fromUtf8("QScrollBar:vertical {"
-                                                    "    background:rgba(83, 83, 84);"
-                                                    "    width:10px;    "
-                                                    "    margin: 0px 0px 0px 0px;"
-                                                    "}"
-                                                    "QScrollBar::handle:vertical {"
-                                                    "    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,"
-                                                    "    stop: 0 rgb(255, 192, 33), stop: 0.5 rgb(255, 192, 33), stop:1 rgb(255, 192, 33));"
-                                                    "    min-height: 0px;"
-                                                    "    border-radius: 5px;"
-                                                    "}"
-                                                    "QScrollBar::add-line:vertical {"
-                                                    "    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,"
-                                                    "    stop: 0 rgb(255, 192, 33), stop: 0.5 rgb(255, 192, 33),  stop:1 rgb(255, 192, 33));"
-                                                    "    height: 0px;"
-                                                    "    subcontrol-position: bottom;"
-                                                    "    subcontrol-origin: margin;"
-                                                    "}"
-                                                    "QScrollBar::sub-line:vertical {"
-                                                    "    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,"
-                                                    "    stop: 0  rgb(255, 192, 33), stop: 0.5 rgb(255, 192, 33),  stop:1 rgb(255, 192, 33));"
-                                                    "    height: 0 px;"
-                                                    "    subcontrol-position: top;"
-                                                    "    subcontrol-origin: margin;"
-                                                    "}"
-                                                                     );
+                                  "    background:rgba(83, 83, 84);"
+                                  "    width:10px;    "
+                                  "    margin: 0px 0px 0px 0px;"
+                                  "}"
+                                  "QScrollBar::handle:vertical {"
+                                  "    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,"
+                                  "    stop: 0 rgb(255, 192, 33), stop: 0.5 rgb(255, 192, 33), stop:1 rgb(255, 192, 33));"
+                                  "    min-height: 0px;"
+                                  "    border-radius: 5px;"
+                                  "}"
+                                  "QScrollBar::add-line:vertical {"
+                                  "    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,"
+                                  "    stop: 0 rgb(255, 192, 33), stop: 0.5 rgb(255, 192, 33),  stop:1 rgb(255, 192, 33));"
+                                  "    height: 0px;"
+                                  "    subcontrol-position: bottom;"
+                                  "    subcontrol-origin: margin;"
+                                  "}"
+                                  "QScrollBar::sub-line:vertical {"
+                                  "    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,"
+                                  "    stop: 0  rgb(255, 192, 33), stop: 0.5 rgb(255, 192, 33),  stop:1 rgb(255, 192, 33));"
+                                  "    height: 0 px;"
+                                  "    subcontrol-position: top;"
+                                  "    subcontrol-origin: margin;"
+                                  "}"
+                                                   );
     int LABELRESIZELIMIT = 5;
 }
 MotorFaultView::MotorFaultView(MotorFaultsPresenter& motorFaultsPresenter,
@@ -123,7 +123,7 @@ MotorFaultView::MotorFaultView(MotorFaultsPresenter& motorFaultsPresenter,
     ui_.batteryScrollArea().setVerticalScrollBar(verticalBarB);
 
     QLayout* layout0 = ui_.motor0ContentsWidget().layout();
-    int current_width0= ui_.motor0ContentsWidget().size().width();
+    int current_width0 = ui_.motor0ContentsWidget().size().width();
 
     QLayout* layout1 = ui_.motor1ContentsWidget().layout();
     int current_width1 = ui_.motor1ContentsWidget().size().width();
@@ -218,7 +218,7 @@ MotorFaultView::~MotorFaultView()
 {
 }
 
-void MotorFaultView::initializeLabel(QLabel &label, QLayout *&layout, QString &styleSheet, int width)
+void MotorFaultView::initializeLabel(QLabel& label, QLayout*& layout, QString& styleSheet, int width)
 {
     label.resize(width, HEIGHT );
     label.setStyleSheet(styleSheet);
@@ -227,13 +227,14 @@ void MotorFaultView::initializeLabel(QLabel &label, QLayout *&layout, QString &s
     label.hide();
 }
 
-void MotorFaultView::updateLabel(const bool& receivedValue, QLabel &label, QWidget & contentsWidget, int &labelCount)
+void MotorFaultView::updateLabel(const bool& receivedValue, QLabel& label, QWidget& contentsWidget, int& labelCount)
 {
     if (receivedValue)
     {
         if (!label.isVisible())
         {
             labelCount++;
+
             if (labelCount >= LABELRESIZELIMIT)
             {
                 contentsWidget.setFixedSize(contentsWidget.width(), contentsWidget.height() + HEIGHT);
