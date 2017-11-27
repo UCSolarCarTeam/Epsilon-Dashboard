@@ -28,6 +28,8 @@ public:
 private:
     void connectMotorFaults(MotorFaultsPresenter&);
     void connectBatteryFaults(BatteryFaultsPresenter&);
+    void initializeLabel(QLabel &label, QLayout *&layout, QString &styleSheet, int width);
+    void updateLabel(const bool& receivedValue, QLabel &label, QWidget & contentsWidget, int &labelCount);
 
     MotorFaultsPresenter& motorFaultsPresenter_;
     BatteryFaultsPresenter& batteryFaultsPresenter_;
@@ -109,7 +111,7 @@ private:
     QLabel dclReducedDueToLowPackVoltage_;
     QLabel dclReducedDueToLowSoc_;
     QLabel dclReducedDueToTemperature_;
-    int labelBcount_;
+    int labelBCount_;
 
 private slots:
     // battery faults slots
