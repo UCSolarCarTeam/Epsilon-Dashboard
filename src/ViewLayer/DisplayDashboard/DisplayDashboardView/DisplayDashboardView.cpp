@@ -106,8 +106,6 @@ void DisplayDashboardView::connectMppt(MpptPresenter& mpptPresenter)
 {
     connect(&mpptPresenter, SIGNAL(mpptReceived(int, Mppt)),
             this, SLOT(mpptReceived(int, Mppt)));
-    //connect(&mpptPresenter, SIGNAL(mpptPowerReceived(double)),
-    //  this, SLOT(mpptPowerReceived(double)));
 }
 
 void DisplayDashboardView::connectMotorDetails(MotorDetailsPresenter& motorDetailsPresenter)

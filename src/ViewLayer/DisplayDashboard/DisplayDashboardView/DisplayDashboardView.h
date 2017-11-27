@@ -89,7 +89,6 @@ private slots:
 
     // mppt slots
     void mpptReceived(int, Mppt);
-    //void mpptPowerReceived(double);
 
     // motor faults slots
     void motorZeroErrorFlagsReceived(ErrorFlags);

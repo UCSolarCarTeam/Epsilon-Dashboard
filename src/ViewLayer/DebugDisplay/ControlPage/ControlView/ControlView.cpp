@@ -31,14 +31,14 @@ void ControlView::connectDriverControls(DriverControlsPresenter& driverControlsP
     connect(&driverControlsPresenter, SIGNAL(aliveReceived(bool)),
             this, SLOT(aliveReceived(bool)));
 
-    connect(&driverControlsPresenter, SIGNAL(headlightsLowReceived(bool)), //
+    connect(&driverControlsPresenter, SIGNAL(headlightsLowReceived(bool)),
             this, SLOT(lowHeadlightsReceived(bool)));
-    connect(&driverControlsPresenter, SIGNAL(headlightsHighReceived(bool)), //
+    connect(&driverControlsPresenter, SIGNAL(headlightsHighReceived(bool)),
             this, SLOT(highHeadlightsReceived(bool)));
 
-    connect(&driverControlsPresenter, SIGNAL(signalLeftReceived(bool)), //
+    connect(&driverControlsPresenter, SIGNAL(signalLeftReceived(bool)),
             this, SLOT(leftSignalReceived(bool)));
-    connect(&driverControlsPresenter, SIGNAL(signalRightReceived(bool)),//
+    connect(&driverControlsPresenter, SIGNAL(signalRightReceived(bool)),
             this, SLOT(rightSignalReceived(bool)));
     connect(&driverControlsPresenter, SIGNAL(hazardReceived(bool)),
             this, SLOT(hazardReceived(bool)));
