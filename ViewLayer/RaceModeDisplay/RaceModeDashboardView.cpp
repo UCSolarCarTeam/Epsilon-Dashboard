@@ -61,7 +61,6 @@ RaceModeDashboardView::~RaceModeDashboardView()
 
 void RaceModeDashboardView::connectBattery(BatteryPresenter& batteryPresenter)
 {
-    // TODO update to new battery data (depends on what should be shown in UI)
     connect(&batteryPresenter, SIGNAL(aliveReceived(bool)),
             this, SLOT(aliveReceived(bool)));
     connect(&batteryPresenter, SIGNAL(prechargeStateReceived(QString)),
@@ -137,6 +136,8 @@ void RaceModeDashboardView::connectMotorFaults(MotorFaultsPresenter& motorFaults
 void RaceModeDashboardView::aliveReceived(bool)
 {
 }
+
+//TODO
 void RaceModeDashboardView::prechargeStateReceived(QString prechargeState)
 {
 }
@@ -231,6 +232,8 @@ void RaceModeDashboardView::lightAliveReceived(bool)
 {
     // TODO
 }
+
+//TODO
 void RaceModeDashboardView::mpptReceived(int i, Mppt mppt)
 {
 }
@@ -241,15 +244,22 @@ void RaceModeDashboardView::mpptPowerReceived(double mpptPower)
     ui_.powerOutLabel().setNum(ui_.netPowerLabel().text().toDouble() - mpptPower);
 }
 
+//TODO
 void RaceModeDashboardView::motorZeroErrorFlagsReceived(ErrorFlags motorZeroErrorFlags)
 {
 }
+
+//TODO
 void RaceModeDashboardView::motorZeroLimitFlagsReceived(LimitFlags motorZeroLimitFlags)
 {
 }
+
+//TODO
 void RaceModeDashboardView::motorOneErrorFlagsReceived(ErrorFlags motorOneErrorFlags)
 {
 }
+
+//TODO
 void RaceModeDashboardView::motorOneLimitFlagsReceived(LimitFlags motorOneLimitFlags)
 {
 }
