@@ -22,6 +22,6 @@ public:
     virtual void setLimitFlags(const BatteryLimitFlags& limitFlags) = 0;
 
 signals:
-    void batteryErrorFlagsReceived(BatteryErrorFlags errorFlags);
-    void batteryLimitFlagsReceived(BatteryLimitFlags limitFlags);
+    void batteryErrorFlagsReceived(BatteryErrorFlags);
+    void batteryLimitFlagsReceived(BatteryLimitFlags);
 };

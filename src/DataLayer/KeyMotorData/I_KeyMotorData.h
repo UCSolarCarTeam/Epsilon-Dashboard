@@ -17,8 +17,8 @@ public:
     virtual void setMotorOne(KeyMotor motorOne) = 0;
 
 signals:
-    void motorZeroReceived(KeyMotor motorZero);
-    void motorOneReceived(KeyMotor motorOne);
+    void motorZeroReceived(KeyMotor);
+    void motorOneReceived(KeyMotor);
     void motorSetCurrentReceived(double);
     void motorActualSpeedReceived(double);
     void motorBusVoltageReceived(double);
