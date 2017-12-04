@@ -3,6 +3,7 @@
 #include <QScopedPointer>
 
 class DisplayDashboardView;
+class RaceModeDashboardView;
 class I_DisplayDashboardUI;
 class I_RaceModeDashboardUI;
 class BatteryUi;
@@ -39,5 +40,6 @@ private:
     QScopedPointer<ControlView> ControlView_;
     QScopedPointer<MpptView> MpptView_;
     QScopedPointer<DisplayDashboardView> DisplayDashboardView_;
+    QScopedPointer<RaceModeDashboardView> RaceModeDashboardView_;
     QScopedPointer<OverlordWidget> overlordWidget_;
 };
