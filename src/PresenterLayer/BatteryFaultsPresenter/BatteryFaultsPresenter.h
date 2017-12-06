@@ -15,6 +15,6 @@ private:
     const I_BatteryFaultsData& batteryFaultsData_;
 
 signals:
-    void errorFlagsReceived(BatteryErrorFlags errorFlags);
-    void limitFlagsReceived(BatteryLimitFlags limitFlags);
+    void errorFlagsReceived(BatteryErrorFlags);
+    void limitFlagsReceived(BatteryLimitFlags);
 };

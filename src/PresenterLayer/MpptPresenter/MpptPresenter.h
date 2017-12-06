@@ -16,5 +16,6 @@ private:
     const I_MpptData& mpptData_;
 
 signals:
-    void mpptReceived(int i, Mppt mppt);
+    void mpptReceived(int, Mppt);
+    void mpptPowerReceived(double);
 };

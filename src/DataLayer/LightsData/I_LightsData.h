@@ -26,11 +26,11 @@ public:
     virtual void setAlive(bool alive) = 0;
 
 signals:
-    void lowBeamsReceived(bool lowBeams);
-    void highBeamsReceived(bool highBeams);
-    void brakesReceived(bool brakes);
-    void leftSignalReceived(bool leftSignal);
-    void rightSignalReceived(bool rightSignal);
-    void bmsStrobeLightReceived(bool bmsStrobeLight);
-    void aliveReceived(bool alive);
+    void lowBeamsReceived(bool);
+    void highBeamsReceived(bool);
+    void brakesReceived(bool);
+    void leftSignalReceived(bool);
+    void rightSignalReceived(bool);
+    void bmsStrobeLightReceived(bool);
+    void aliveReceived(bool);
 };

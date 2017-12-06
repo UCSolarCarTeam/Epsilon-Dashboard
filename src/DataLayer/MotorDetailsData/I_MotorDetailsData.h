@@ -17,6 +17,6 @@ public:
     virtual void setMotorOneDetails(MotorDetails motorDetails) = 0;
 
 signals:
-    void motorZeroDetailsReceived(MotorDetails motorDetails);
-    void motorOneDetailsReceived(MotorDetails motorDetails);
+    void motorZeroDetailsReceived(MotorDetails);
+    void motorOneDetailsReceived(MotorDetails);
 };

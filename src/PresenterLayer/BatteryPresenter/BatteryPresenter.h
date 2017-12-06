@@ -17,7 +17,7 @@ private:
     const I_BatteryData& batteryData_;
 
 signals:
-    void aliveReceived(const bool& alive);
+    void aliveReceived(const bool&);
     void bmsRelayStatusReceived(BmsRelayStatusFlags);
     void populatedCellsReceived(const int&);
     void inputVoltage12VReceived(const double&);

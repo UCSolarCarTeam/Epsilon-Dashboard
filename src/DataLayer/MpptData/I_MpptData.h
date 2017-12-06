@@ -13,5 +13,6 @@ public:
     virtual void setMppt(int i, Mppt mppt) = 0;
 
 signals:
-    void mpptReceived(int i, Mppt mppt);
+    void mpptReceived(int, Mppt);
+    void mpptPowerReceived(double);
 };

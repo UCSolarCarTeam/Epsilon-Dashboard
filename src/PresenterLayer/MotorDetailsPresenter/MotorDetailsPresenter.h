@@ -15,6 +15,6 @@ private:
     const I_MotorDetailsData& motorDetailsData_;
 
 signals:
-    void motorZeroDetailsReceived(MotorDetails motorDetails);
-    void motorOneDetailsReceived(MotorDetails motorDetails);
+    void motorZeroDetailsReceived(MotorDetails);
+    void motorOneDetailsReceived(MotorDetails);
 };

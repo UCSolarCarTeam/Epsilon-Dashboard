@@ -15,10 +15,10 @@ private:
     const I_KeyMotorData& keyMotorData_;
 
 signals:
-    void motorZeroReceived(KeyMotor motorZero);
-    void motorOneReceived(KeyMotor motorOne);
-    void motorSetCurrentReceived(double setCurrent);
+    void motorZeroReceived(KeyMotor);
+    void motorOneReceived(KeyMotor);
+    void motorSetCurrentReceived(double);
     void motorActualSpeedReceived(double);
     void motorBusVoltageReceived(double);
-    void motorBusCurrentReceived(double busVoltage);
+    void motorBusCurrentReceived(double);
 };

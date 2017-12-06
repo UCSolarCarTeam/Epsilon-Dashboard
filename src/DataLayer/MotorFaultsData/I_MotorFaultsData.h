@@ -24,8 +24,8 @@ public:
     virtual void setMotorOneLimitFlags(LimitFlags limitFlags) = 0;
 
 signals:
-    void motorZeroErrorFlagsReceived(ErrorFlags errorFlags);
-    void motorZeroLimitFlagsReceived(LimitFlags limitFlags);
-    void motorOneErrorFlagsReceived(ErrorFlags errorFlags);
-    void motorOneLimitFlagsReceived(LimitFlags limitFlags);
+    void motorZeroErrorFlagsReceived(ErrorFlags);
+    void motorZeroLimitFlagsReceived(LimitFlags);
+    void motorOneErrorFlagsReceived(ErrorFlags);
+    void motorOneLimitFlagsReceived(LimitFlags);
 };
