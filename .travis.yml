@@ -23,8 +23,8 @@ install:
 
 script: 
     - "! (astyle *.h *.cpp -r --dry-run --options=astylerc | grep Formatted)"
+    - cd src
     - qmake
     - make
 
 language: cpp
-
