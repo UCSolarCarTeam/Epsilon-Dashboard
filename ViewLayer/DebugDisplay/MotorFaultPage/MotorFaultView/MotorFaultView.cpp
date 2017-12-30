@@ -3,35 +3,35 @@
 namespace
 {
     int HEIGHT = 25;
-    QString ERRORSTYLESHEET = "font: 20px 'Arial';\nfont-weight:500;color:red; margin-left: 10px;";
-    QString LIMITSTYLESHEET = "font: 20px 'Arial';\nfont-weight:500;color:yellow; margin-left: 10px;";
-    QString SCROLLBARSTYLESHEET = QString::fromUtf8("QScrollBar:vertical {"
-                                  "    background:rgba(83, 83, 84);"
-                                  "    width:10px;    "
-                                  "    margin: 0px 0px 0px 0px;"
-                                  "}"
-                                  "QScrollBar::handle:vertical {"
-                                  "    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,"
-                                  "    stop: 0 rgb(255, 192, 33), stop: 0.5 rgb(255, 192, 33), stop:1 rgb(255, 192, 33));"
-                                  "    min-height: 0px;"
-                                  "    border-radius: 5px;"
-                                  "}"
-                                  "QScrollBar::add-line:vertical {"
-                                  "    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,"
-                                  "    stop: 0 rgb(255, 192, 33), stop: 0.5 rgb(255, 192, 33),  stop:1 rgb(255, 192, 33));"
-                                  "    height: 0px;"
-                                  "    subcontrol-position: bottom;"
-                                  "    subcontrol-origin: margin;"
-                                  "}"
-                                  "QScrollBar::sub-line:vertical {"
-                                  "    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,"
-                                  "    stop: 0  rgb(255, 192, 33), stop: 0.5 rgb(255, 192, 33),  stop:1 rgb(255, 192, 33));"
-                                  "    height: 0 px;"
-                                  "    subcontrol-position: top;"
-                                  "    subcontrol-origin: margin;"
-                                  "}"
-                                                   );
-    int LABELRESIZELIMIT = 5;
+    int WIDTH = 665;
+    QString ERROR_STYLESHEET = "font: 20px 'Arial';\nfont-weight:500;color:#5690A1; margin-left: 10px;";
+    QString LIMIT_STYLESHEET = "font: 20px 'Arial';\nfont-weight:500;color:#8167BB; margin-left: 10px;";
+    QString SCROLLBAR_STYLESHEET = "QScrollBar:vertical {"
+                                   "    background:rgba(83, 83, 84);"
+                                   "    width:10px;    "
+                                   "    margin: 0px 0px 0px 0px;"
+                                   "}"
+                                   "QScrollBar::handle:vertical {"
+                                   "    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,"
+                                   "    stop: 0 rgb(255, 192, 33), stop: 0.5 rgb(255, 192, 33), stop:1 rgb(255, 192, 33));"
+                                   "    min-height: 0px;"
+                                   "    border-radius: 5px;"
+                                   "}"
+                                   "QScrollBar::add-line:vertical {"
+                                   "    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,"
+                                   "    stop: 0 rgb(255, 192, 33), stop: 0.5 rgb(255, 192, 33),  stop:1 rgb(255, 192, 33));"
+                                   "    height: 0px;"
+                                   "    subcontrol-position: bottom;"
+                                   "    subcontrol-origin: margin;"
+                                   "}"
+                                   "QScrollBar::sub-line:vertical {"
+                                   "    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,"
+                                   "    stop: 0  rgb(255, 192, 33), stop: 0.5 rgb(255, 192, 33),  stop:1 rgb(255, 192, 33));"
+                                   "    height: 0 px;"
+                                   "    subcontrol-position: top;"
+                                   "    subcontrol-origin: margin;"
+                                   "}";
+    int LABEL_RESIZE_LIMIT = 5;
 }
 MotorFaultView::MotorFaultView(MotorFaultsPresenter& motorFaultsPresenter,
                                BatteryFaultsPresenter& batteryFaultsPresenter,
@@ -109,102 +109,96 @@ MotorFaultView::MotorFaultView(MotorFaultsPresenter& motorFaultsPresenter,
     , labelBCount_ (0)
 {
 
-    // Setting up Vertical bar (wasn't letting me setup in namespace)
+    // Setting up Vertical bar
     QScrollBar* verticalBar0 = new QScrollBar();
     QScrollBar* verticalBar1 = new QScrollBar();
     QScrollBar* verticalBarB = new QScrollBar();
 
-    verticalBar0->setStyleSheet(SCROLLBARSTYLESHEET);
-    verticalBar1->setStyleSheet(SCROLLBARSTYLESHEET);
-    verticalBarB->setStyleSheet(SCROLLBARSTYLESHEET);
+    verticalBar0->setStyleSheet(SCROLLBAR_STYLESHEET);
+    verticalBar1->setStyleSheet(SCROLLBAR_STYLESHEET);
+    verticalBarB->setStyleSheet(SCROLLBAR_STYLESHEET);
 
     ui_.motor0ScrollArea().setVerticalScrollBar(verticalBar0);
     ui_.motor1ScrollArea().setVerticalScrollBar(verticalBar1);
     ui_.batteryScrollArea().setVerticalScrollBar(verticalBarB);
 
     QLayout* layout0 = ui_.motor0ContentsWidget().layout();
-    int current_width0 = ui_.motor0ContentsWidget().size().width();
-
     QLayout* layout1 = ui_.motor1ContentsWidget().layout();
-    int current_width1 = ui_.motor1ContentsWidget().size().width();
-
     QLayout* layoutB = ui_.batteryContentsWidget().layout();
-    int current_widthB = ui_.batteryContentsWidget().size().width();
 
     // Motor 0
-    initializeLabel(badMotorPositionHallSequence0Fault_, layout0, ERRORSTYLESHEET, current_width0);
-    initializeLabel(configReadError0Fault_, layout0, ERRORSTYLESHEET, current_width0);
-    initializeLabel(dcBusOverVoltage0Fault_, layout0, ERRORSTYLESHEET, current_width0);
-    initializeLabel(desaturationFault0Fault_, layout0, ERRORSTYLESHEET, current_width0);
-    initializeLabel(motorOverSpeed0Fault_, layout0, ERRORSTYLESHEET, current_width0);
-    initializeLabel(railUnderVoltageLockOut0Fault_, layout0, ERRORSTYLESHEET, current_width0);
-    initializeLabel(watchdogCausedLastReset0Fault_, layout0, ERRORSTYLESHEET, current_width0);
-    initializeLabel(softwareOverCurrent0Fault_, layout0, ERRORSTYLESHEET, current_width0);
+    initializeLabel(badMotorPositionHallSequence0Fault_, layout0, ERROR_STYLESHEET);
+    initializeLabel(configReadError0Fault_, layout0, ERROR_STYLESHEET);
+    initializeLabel(dcBusOverVoltage0Fault_, layout0, ERROR_STYLESHEET);
+    initializeLabel(desaturationFault0Fault_, layout0, ERROR_STYLESHEET);
+    initializeLabel(motorOverSpeed0Fault_, layout0, ERROR_STYLESHEET);
+    initializeLabel(railUnderVoltageLockOut0Fault_, layout0, ERROR_STYLESHEET);
+    initializeLabel(watchdogCausedLastReset0Fault_, layout0, ERROR_STYLESHEET);
+    initializeLabel(softwareOverCurrent0Fault_, layout0, ERROR_STYLESHEET);
 
-    initializeLabel(busCurrentLimit0Fault_, layout0, LIMITSTYLESHEET, current_width0);
-    initializeLabel(busVoltageLowerLimit0Fault_, layout0, LIMITSTYLESHEET, current_width0);
-    initializeLabel(busVoltageUpperLimit0Fault_, layout0, LIMITSTYLESHEET, current_width0);
-    initializeLabel(ipmOrMotorTelemetryLimit0Fault_, layout0, LIMITSTYLESHEET, current_width0);
-    initializeLabel(motorCurrentLimit0Fault_, layout0, LIMITSTYLESHEET, current_width0);
-    initializeLabel(outputVoltagePwmLimit0Fault_, layout0, LIMITSTYLESHEET, current_width0);
-    initializeLabel(velocityLimit0Fault_, layout0, LIMITSTYLESHEET, current_width0);
+    initializeLabel(busCurrentLimit0Fault_, layout0, LIMIT_STYLESHEET);
+    initializeLabel(busVoltageLowerLimit0Fault_, layout0, LIMIT_STYLESHEET);
+    initializeLabel(busVoltageUpperLimit0Fault_, layout0, LIMIT_STYLESHEET);
+    initializeLabel(ipmOrMotorTelemetryLimit0Fault_, layout0, LIMIT_STYLESHEET);
+    initializeLabel(motorCurrentLimit0Fault_, layout0, LIMIT_STYLESHEET);
+    initializeLabel(outputVoltagePwmLimit0Fault_, layout0, LIMIT_STYLESHEET);
+    initializeLabel(velocityLimit0Fault_, layout0, LIMIT_STYLESHEET);
 
     // Motor 1
-    initializeLabel(badMotorPositionHallSequence1Fault_, layout1, ERRORSTYLESHEET, current_width1);
-    initializeLabel(configReadError1Fault_, layout1, ERRORSTYLESHEET, current_width1);
-    initializeLabel(dcBusOverVoltage1Fault_, layout1, ERRORSTYLESHEET, current_width1);
-    initializeLabel(desaturationFault1Fault_, layout1, ERRORSTYLESHEET, current_width1);
-    initializeLabel(motorOverSpeed1Fault_, layout1, ERRORSTYLESHEET, current_width1);
-    initializeLabel(railUnderVoltageLockOut1Fault_, layout1, ERRORSTYLESHEET, current_width1);
-    initializeLabel(watchdogCausedLastReset1Fault_, layout1, ERRORSTYLESHEET, current_width1);
-    initializeLabel(softwareOverCurrent1Fault_, layout1, ERRORSTYLESHEET, current_width1);
+    initializeLabel(badMotorPositionHallSequence1Fault_, layout1, ERROR_STYLESHEET);
+    initializeLabel(configReadError1Fault_, layout1, ERROR_STYLESHEET);
+    initializeLabel(dcBusOverVoltage1Fault_, layout1, ERROR_STYLESHEET);
+    initializeLabel(desaturationFault1Fault_, layout1, ERROR_STYLESHEET);
+    initializeLabel(motorOverSpeed1Fault_, layout1, ERROR_STYLESHEET);
+    initializeLabel(railUnderVoltageLockOut1Fault_, layout1, ERROR_STYLESHEET);
+    initializeLabel(watchdogCausedLastReset1Fault_, layout1, ERROR_STYLESHEET);
+    initializeLabel(softwareOverCurrent1Fault_, layout1, ERROR_STYLESHEET);
 
-    initializeLabel(busCurrentLimit1Fault_, layout1, LIMITSTYLESHEET, current_width1);
-    initializeLabel(busVoltageLowerLimit1Fault_, layout1, LIMITSTYLESHEET, current_width1);
-    initializeLabel(busVoltageUpperLimit1Fault_, layout1, LIMITSTYLESHEET, current_width1);
-    initializeLabel(ipmOrMotorTelemetryLimit1Fault_, layout1, LIMITSTYLESHEET, current_width1);
-    initializeLabel(motorCurrentLimit1Fault_, layout1, LIMITSTYLESHEET, current_width1);
-    initializeLabel(outputVoltagePwmLimit1Fault_, layout1, LIMITSTYLESHEET, current_width1);
-    initializeLabel(velocityLimit1Fault_, layout1, LIMITSTYLESHEET, current_width1);
-
+    initializeLabel(busCurrentLimit1Fault_, layout1, LIMIT_STYLESHEET);
+    initializeLabel(busVoltageLowerLimit1Fault_, layout1, LIMIT_STYLESHEET);
+    initializeLabel(busVoltageUpperLimit1Fault_, layout1, LIMIT_STYLESHEET);
+    initializeLabel(ipmOrMotorTelemetryLimit1Fault_, layout1, LIMIT_STYLESHEET);
+    initializeLabel(motorCurrentLimit1Fault_, layout1, LIMIT_STYLESHEET);
+    initializeLabel(outputVoltagePwmLimit1Fault_, layout1, LIMIT_STYLESHEET);
+    initializeLabel(velocityLimit1Fault_, layout1, LIMIT_STYLESHEET);
 
     // Battery
-    initializeLabel(alwaysOnSupplyFault_, layoutB, ERRORSTYLESHEET, current_widthB);
-    initializeLabel(canbusCommunicationsFault_, layoutB, ERRORSTYLESHEET, current_widthB);
-    initializeLabel(chargeLimitEnforcementFault_, layoutB, ERRORSTYLESHEET, current_widthB);
-    initializeLabel(chargerSafetyRelayFault_, layoutB, ERRORSTYLESHEET, current_widthB);
-    initializeLabel(currentSensorFault_, layoutB, ERRORSTYLESHEET, current_widthB);
-    initializeLabel(dischargeLimitEnforcementFault_, layoutB, ERRORSTYLESHEET, current_widthB);
-    initializeLabel(fanMonitorFault_, layoutB, ERRORSTYLESHEET, current_widthB);
-    initializeLabel(highVoltageIsolationFault_, layoutB, ERRORSTYLESHEET, current_widthB);
-    initializeLabel(internalCommununicationFault_, layoutB, ERRORSTYLESHEET, current_widthB);
-    initializeLabel(internalConversionFault_, layoutB, ERRORSTYLESHEET, current_widthB);
-    initializeLabel(internalLogicFault_, layoutB, ERRORSTYLESHEET, current_widthB);
-    initializeLabel(internalMemoryFault_, layoutB, ERRORSTYLESHEET, current_widthB);
-    initializeLabel(internalThermistorFault_, layoutB, ERRORSTYLESHEET, current_widthB);
-    initializeLabel(lowCellVoltageFault_, layoutB, ERRORSTYLESHEET, current_widthB);
-    initializeLabel(openWiringFault_, layoutB, ERRORSTYLESHEET, current_widthB);
-    initializeLabel(packVoltageSensorFault_, layoutB, ERRORSTYLESHEET, current_widthB);
-    initializeLabel(powerSupplyFault12V_, layoutB, ERRORSTYLESHEET, current_widthB);
-    initializeLabel(thermistorFault_, layoutB, ERRORSTYLESHEET, current_widthB);
-    initializeLabel(voltageRedundancyFault_, layoutB, ERRORSTYLESHEET, current_widthB);
-    initializeLabel(weakCellFault_, layoutB, ERRORSTYLESHEET, current_widthB);
-    initializeLabel(weakPackFault_, layoutB, ERRORSTYLESHEET, current_widthB);
+    initializeLabel(alwaysOnSupplyFault_, layoutB, ERROR_STYLESHEET);
+    initializeLabel(canbusCommunicationsFault_, layoutB, ERROR_STYLESHEET);
+    initializeLabel(chargeLimitEnforcementFault_, layoutB, ERROR_STYLESHEET);
+    initializeLabel(chargerSafetyRelayFault_, layoutB, ERROR_STYLESHEET);
+    initializeLabel(currentSensorFault_, layoutB, ERROR_STYLESHEET);
+    initializeLabel(dischargeLimitEnforcementFault_, layoutB, ERROR_STYLESHEET);
+    initializeLabel(fanMonitorFault_, layoutB, ERROR_STYLESHEET);
+    initializeLabel(highVoltageIsolationFault_, layoutB, ERROR_STYLESHEET);
+    initializeLabel(internalCommununicationFault_, layoutB, ERROR_STYLESHEET);
+    initializeLabel(internalConversionFault_, layoutB, ERROR_STYLESHEET);
+    initializeLabel(internalLogicFault_, layoutB, ERROR_STYLESHEET);
+    initializeLabel(internalMemoryFault_, layoutB, ERROR_STYLESHEET);
+    initializeLabel(internalThermistorFault_, layoutB, ERROR_STYLESHEET);
+    initializeLabel(lowCellVoltageFault_, layoutB, ERROR_STYLESHEET);
+    initializeLabel(openWiringFault_, layoutB, ERROR_STYLESHEET);
+    initializeLabel(packVoltageSensorFault_, layoutB, ERROR_STYLESHEET);
+    initializeLabel(powerSupplyFault12V_, layoutB, ERROR_STYLESHEET);
+    initializeLabel(thermistorFault_, layoutB, ERROR_STYLESHEET);
+    initializeLabel(voltageRedundancyFault_, layoutB, ERROR_STYLESHEET);
+    initializeLabel(weakCellFault_, layoutB, ERROR_STYLESHEET);
+    initializeLabel(weakPackFault_, layoutB, ERROR_STYLESHEET);
 
-    initializeLabel(cclReducedDueToAlternateCurrentLimit_, layoutB, LIMITSTYLESHEET, current_widthB);
-    initializeLabel(cclReducedDueToChargerLatch_, layoutB, LIMITSTYLESHEET, current_widthB);
-    initializeLabel(cclReducedDueToHighCellResistance_, layoutB, LIMITSTYLESHEET, current_widthB);
-    initializeLabel(cclReducedDueToHighCellVoltage_, layoutB, LIMITSTYLESHEET, current_widthB);
-    initializeLabel(cclReducedDueToHighPackVoltage_, layoutB, LIMITSTYLESHEET, current_widthB);
-    initializeLabel(cclReducedDueToHighSoc_, layoutB, LIMITSTYLESHEET, current_widthB);
-    initializeLabel(cclReducedDueToTemperature_, layoutB, LIMITSTYLESHEET, current_widthB);
-    initializeLabel(dclandCclReducedDueToCommunicationFailsafe_, layoutB, LIMITSTYLESHEET, current_widthB);
-    initializeLabel(dclandCclReducedDueToVoltageFailsafe_, layoutB, LIMITSTYLESHEET, current_widthB);
-    initializeLabel(dclReducedDueToHighCellResistance_, layoutB, LIMITSTYLESHEET, current_widthB);
-    initializeLabel(dclReducedDueToLowCellVoltage_, layoutB, LIMITSTYLESHEET, current_widthB);
-    initializeLabel(dclReducedDueToLowPackVoltage_, layoutB, LIMITSTYLESHEET, current_widthB);
-    initializeLabel(dclReducedDueToLowSoc_, layoutB, LIMITSTYLESHEET, current_widthB);
-    initializeLabel(dclReducedDueToTemperature_, layoutB, LIMITSTYLESHEET, current_widthB);
+    initializeLabel(cclReducedDueToAlternateCurrentLimit_, layoutB, LIMIT_STYLESHEET);
+    initializeLabel(cclReducedDueToChargerLatch_, layoutB, LIMIT_STYLESHEET);
+    initializeLabel(cclReducedDueToHighCellResistance_, layoutB, LIMIT_STYLESHEET);
+    initializeLabel(cclReducedDueToHighCellVoltage_, layoutB, LIMIT_STYLESHEET);
+    initializeLabel(cclReducedDueToHighPackVoltage_, layoutB, LIMIT_STYLESHEET);
+    initializeLabel(cclReducedDueToHighSoc_, layoutB, LIMIT_STYLESHEET);
+    initializeLabel(cclReducedDueToTemperature_, layoutB, LIMIT_STYLESHEET);
+    initializeLabel(dclandCclReducedDueToCommunicationFailsafe_, layoutB, LIMIT_STYLESHEET);
+    initializeLabel(dclandCclReducedDueToVoltageFailsafe_, layoutB, LIMIT_STYLESHEET);
+    initializeLabel(dclReducedDueToHighCellResistance_, layoutB, LIMIT_STYLESHEET);
+    initializeLabel(dclReducedDueToLowCellVoltage_, layoutB, LIMIT_STYLESHEET);
+    initializeLabel(dclReducedDueToLowPackVoltage_, layoutB, LIMIT_STYLESHEET);
+    initializeLabel(dclReducedDueToLowSoc_, layoutB, LIMIT_STYLESHEET);
+    initializeLabel(dclReducedDueToTemperature_, layoutB, LIMIT_STYLESHEET);
 
     ui_.motor0ContentsWidget().setLayout(layout0);
     ui_.motor1ContentsWidget().setLayout(layout1);
@@ -218,11 +212,11 @@ MotorFaultView::~MotorFaultView()
 {
 }
 
-void MotorFaultView::initializeLabel(QLabel& label, QLayout*& layout, QString& styleSheet, int width)
+void MotorFaultView::initializeLabel(QLabel& label, QLayout*& layout, QString& styleSheet)
 {
-    label.resize(width, HEIGHT );
+    label.resize(WIDTH, HEIGHT);
     label.setStyleSheet(styleSheet);
-    label.setFixedSize(width, HEIGHT);
+    label.setFixedSize(WIDTH, HEIGHT);
     layout->addWidget(&label);
     label.hide();
 }
@@ -235,7 +229,7 @@ void MotorFaultView::updateLabel(const bool& receivedValue, QLabel& label, QWidg
         {
             labelCount++;
 
-            if (labelCount >= LABELRESIZELIMIT)
+            if (labelCount >= LABEL_RESIZE_LIMIT)
             {
                 contentsWidget.setFixedSize(contentsWidget.width(), contentsWidget.height() + HEIGHT);
             }
@@ -248,7 +242,7 @@ void MotorFaultView::updateLabel(const bool& receivedValue, QLabel& label, QWidg
         if (label.isVisible())
         {
 
-            if (labelCount >= LABELRESIZELIMIT)
+            if (labelCount >= LABEL_RESIZE_LIMIT)
             {
                 contentsWidget.setFixedSize(contentsWidget.width(), contentsWidget.height() - HEIGHT);
             }
@@ -290,7 +284,6 @@ void MotorFaultView::motorZeroErrorFlagsReceived(ErrorFlags motorZeroErrorFlags)
     updateLabel(motorZeroErrorFlags.watchdogCausedLastReset(), watchdogCausedLastReset0Fault_, ui_.motor0ContentsWidget(), label0Count_);
     updateLabel(motorZeroErrorFlags.softwareOverCurrent(), softwareOverCurrent0Fault_, ui_.motor0ContentsWidget(), label0Count_);
 }
-
 
 void MotorFaultView::motorZeroLimitFlagsReceived(LimitFlags motorZeroLimitFlags)
 {

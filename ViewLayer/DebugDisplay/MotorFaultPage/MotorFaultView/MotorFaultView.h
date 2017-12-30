@@ -28,7 +28,7 @@ public:
 private:
     void connectMotorFaults(MotorFaultsPresenter&);
     void connectBatteryFaults(BatteryFaultsPresenter&);
-    void initializeLabel(QLabel& label, QLayout*& layout, QString& styleSheet, int width);
+    void initializeLabel(QLabel& label, QLayout*& layout, QString& styleSheet);
     void updateLabel(const bool& receivedValue, QLabel& label, QWidget& contentsWidget, int& labelCount);
 
     MotorFaultsPresenter& motorFaultsPresenter_;
