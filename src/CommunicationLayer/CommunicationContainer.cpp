@@ -4,6 +4,7 @@
 #include "CommunicationContainer.h"
 #include "CommDeviceControl/ConnectionController.h"
 #include "CommDeviceControl/CommDeviceManager.h"
+#include "CommDeviceControl/InternetCommDevice.h"
 #include "CommDeviceControl/InternetConnectionService.h"
 #include "JsonReceiver/JsonReceiver.h"
 #include "../BusinessLayer/BusinessContainer.h"
@@ -20,9 +21,10 @@ public:
                                      infrastructureContainer.settings().queue(),
                                      infrastructureContainer.settings().ipAddress(),
                                      infrastructureContainer.settings().port())
-        , commDeviceManager_(udpSocket_)
+        , internetCommDevice_(internetConnectionService_.getChannel(),
+                              infrastructureContainer.settings().queue())//commDeviceManager_(udpSocket_)
         , connectionController_(internetConnectionService_)
-        , jsonReceiver_(commDeviceManager_,
+        , jsonReceiver_(internetCommDevice_,//commDeviceManager_,
                         businessContainer.batteryPopulator(),
                         businessContainer.batteryFaultsPopulator(),
                         businessContainer.driverControlsPopulator(),
@@ -34,9 +36,10 @@ public:
                         businessContainer.communicationsMonitoringService())
     {
     }
-    QUdpSocket udpSocket_;
+    //QUdpSocket udpSocket_;
     InternetConnectionService internetConnectionService_;
-    CommDeviceManager commDeviceManager_;
+    InternetCommDevice internetCommDevice_;
+    //CommDeviceManager commDeviceManager_;
     ConnectionController connectionController_;
     JsonReceiver jsonReceiver_;
 };
@@ -65,7 +68,8 @@ I_JsonReceiver& CommunicationContainer::jsonReceiver()
     return impl_->jsonReceiver_;
 }
 
-CommDeviceManager& CommunicationContainer::commDeviceManager()
+InternetCommDevice& CommunicationContainer::commDeviceManager()
 {
-    return impl_->commDeviceManager_;
+    //return impl_->commDeviceManager_;
+    return impl_->internetCommDevice_;
 }

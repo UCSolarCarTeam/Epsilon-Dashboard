@@ -23,12 +23,14 @@ public:
 
     void setupChannel();
     void disconnectFromDataSource();
+    AmqpClient::Channel::ptr_t getChannel();
 
 signals:
     void setupChannelSignal();
 
 public slots:
     bool connectToDataSource();
+    //void retrieveData();
 
 private:
 
@@ -38,4 +40,5 @@ private:
     QString ipAddress_;
     quint16 port_;
     QTimer connectionRetryTimer_;
+    QTimer retrieveDataTimer_;
 };

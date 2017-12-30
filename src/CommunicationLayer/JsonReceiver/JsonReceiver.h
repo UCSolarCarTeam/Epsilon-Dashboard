@@ -46,6 +46,7 @@ public slots:
     void handleIncomingData(const QByteArray&);
 
 private:
+    I_CommDevice& inputDevice_;
     BatteryPopulator& batteryPopulator_;
     BatteryFaultsPopulator& batteryFaultsPopulator_;
     DriverControlsPopulator& driverControlsPopulator_;

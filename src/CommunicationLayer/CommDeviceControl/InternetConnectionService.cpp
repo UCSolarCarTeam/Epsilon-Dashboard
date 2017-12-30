@@ -1,5 +1,6 @@
 #include <SimpleAmqpClient/SimpleAmqpClient.h>
 #include <QDebug>
+#include <QString>
 #include <QTimer>
 
 #include "../../InfrastructureLayer/Settings/I_Settings.h"
@@ -10,8 +11,7 @@ namespace
     quint32 SLEEP_TIME_MILLISECONDS = 2000;
 }
 
-InternetConnectionService::InternetConnectionService(
-    QString exchangeName
+InternetConnectionService::InternetConnectionService(QString exchangeName
     ,  QString queueName
     ,  QString ipAddress
     ,  quint16 port)
@@ -20,9 +20,9 @@ InternetConnectionService::InternetConnectionService(
     , ipAddress_(ipAddress)
     , port_(port)
     , connectionRetryTimer_(new QTimer(this))
+    , retrieveDataTimer_(new QTimer(this))
 {
     QObject::connect(this, SIGNAL(setupChannelSignal()), this, SLOT(connectToDataSource()));
-
     connectionRetryTimer_.setSingleShot(true);
     connect(&connectionRetryTimer_, SIGNAL(timeout()), this, SLOT(connectToDataSource()));
     connectToDataSource();
@@ -81,6 +81,7 @@ void InternetConnectionService::setupChannel()
         throw;
     }
 
+
     qDebug("Successful connection to RabbitMQ Server");
 }
 
@@ -102,6 +103,11 @@ bool InternetConnectionService::connectToDataSource()
 
 void InternetConnectionService::disconnectFromDataSource()
 {
+    qDebug("Resetting the channel...");
     channel_->UnbindQueue(queueName_.toStdString(), exchangeName_.toStdString());
     channel_.reset();
+}
+
+AmqpClient::Channel::ptr_t InternetConnectionService::getChannel(){
+    return channel_;
 }
