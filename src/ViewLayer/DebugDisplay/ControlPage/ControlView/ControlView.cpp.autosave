@@ -50,8 +50,7 @@ void ControlView::connectDriverControls(DriverControlsPresenter& driverControlsP
     connect(&driverControlsPresenter, SIGNAL(hornReceived(bool)),
             this, SLOT(hornReceived(bool)));
 
-    connect(&driverControlsPresenter, SIGNAL(auxReceived(bool)),
-            this, SLOT(auxReceived(bool)));
+   
     connect(&driverControlsPresenter, SIGNAL(prevSongReceived(bool)),
             this, SLOT(prevSongReceived(bool)));
     connect(&driverControlsPresenter, SIGNAL(nextSongReceived(bool)),
@@ -69,6 +68,8 @@ void ControlView::connectDriverControls(DriverControlsPresenter& driverControlsP
             this, SLOT(forwardReceived(bool)));
     connect(&driverControlsPresenter, SIGNAL(reverseReceived(bool)),
             this, SLOT(reverseReceived(bool)));
+    connect(&driverControlsPresenter, SIGNAL(auxReceived(bool)),
+            this, SLOT(auxReceived(bool)));
 
     connect(&driverControlsPresenter, SIGNAL(resetReceived(bool)),
             this, SLOT(resetReceived(bool)));
@@ -187,18 +188,6 @@ void ControlView::hornReceived(bool horn)
     }
 }
 
-void ControlView::auxReceived(bool aux)
-{
-    if (aux)
-    {
-        ui_.auxOnLabel().setStyleSheet(ON);
-    }
-    else
-    {
-        ui_.auxOnLabel().setStyleSheet(OFF);
-    }
-}
-
 void ControlView::prevSongReceived(bool prevSong)
 {
     if (prevSong)
@@ -292,6 +281,18 @@ void ControlView::reverseReceived(bool reverse)
     else
     {
         ui_.reverseOnLabel().setStyleSheet(OFF);
+    }
+}
+
+void ControlView::auxReceived(bool aux)
+{
+    if (aux)
+    {
+        ui_.auxOnLabel().setStyleSheet(ON);
+    }
+    else
+    {
+        ui_.auxOnLabel().setStyleSheet(OFF);
     }
 }
 
