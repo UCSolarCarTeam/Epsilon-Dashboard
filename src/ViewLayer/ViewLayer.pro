@@ -27,16 +27,17 @@ HEADERS += \
     DebugDisplay/Tab/TabUi/I_TabUi.h \
     DebugDisplay/MPPTPage/MPPTUi/MpptUi.h \
     DebugDisplay/MPPTPage/MPPTUi/I_MpptUi.h \
-<<<<<<< HEAD:ViewLayer/ViewLayer.pro
-    DebugDisplay/MPPTPage/MPPTView/MpptView.h \
+    DebugDisplay/MotorPage/MotorUi/I_MotorUi.h \
+    DebugDisplay/MotorPage/MotorUi/MotorUi.h \
+    DebugDisplay/MotorPage/MotorUi/MotorView.h \
     DebugDisplay/MotorPage/MotorUi/MotorView.h
-=======
+    DebugDisplay/MPPTPage/MPPTView/MpptView.h \
+    DebugDisplay/MotorPage/MotorUi/MotorView.h \
     DebugDisplay/ControlPage/ControlView/ControlView.h \
     DebugDisplay/MPPTPage/MPPTView/MpptView.h \
     RaceModeDisplay/RaceModeDashboardView.h \
     RaceModeDisplay/RaceModeDisplayUI/I_RaceModeDashboardUI.h \
     RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.h
->>>>>>> 2247104d376b5700a6d5f2bd8be91acade236c91:src/ViewLayer/ViewLayer.pro
 
 SOURCES += \ 
     ViewContainer.cpp \
@@ -50,15 +51,19 @@ SOURCES += \
     DebugDisplay/MotorPage/MotorUi/MotorUi.cpp \
     DebugDisplay/Tab/TabUi/TabUi.cpp \
     DebugDisplay/MPPTPage/MPPTUi/MpptUi.cpp \
-<<<<<<< HEAD:ViewLayer/ViewLayer.pro
-    DebugDisplay/MPPTPage/MPPTView/MpptView.cpp \
+    ../../ViewLayer/DebugDisplay/MotorPage/MotorUi/MotorView.cpp \
+    ../../ViewLayer/DebugDisplay/MotorPage/MotorUi/MotorView.cpp \
+    DebugDisplay/MotorPage/MotorView/MotorView.cpp \
+    DebugDisplay/MotorPage/MotorUi/MotorUi.cpp \
+    DebugDisplay/MotorPage/MotorUi/MotorView.cpp \
+    DebugDisplay/MotorPage/MotorUi/MotorView.cpp \
     DebugDisplay/MotorPage/MotorUi/MotorView.cpp
-=======
+    DebugDisplay/MPPTPage/MPPTView/MpptView.cpp \
+    DebugDisplay/MotorPage/MotorUi/MotorView.cpp \
     DebugDisplay/ControlPage/ControlView/ControlView.cpp \
     DebugDisplay/MPPTPage/MPPTView/MpptView.cpp \
     RaceModeDisplay/RaceModeDashboardView.cpp \
     RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.cpp
->>>>>>> 2247104d376b5700a6d5f2bd8be91acade236c91:src/ViewLayer/ViewLayer.pro
 
 FORMS += \
     DisplayDashboard/DisplayDashboardUI.ui \

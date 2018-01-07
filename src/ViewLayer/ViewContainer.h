@@ -38,11 +38,8 @@ private:
     MotorUi* motorUi_;
     MpptUi* mpptUi_;
     TabUi* tabUi_;
-<<<<<<< HEAD:ViewLayer/ViewContainer.h
     QScopedPointer<MotorView> MotorView_;
-=======
     QScopedPointer<ControlView> ControlView_;
->>>>>>> 2247104d376b5700a6d5f2bd8be91acade236c91:src/ViewLayer/ViewContainer.h
     QScopedPointer<MpptView> MpptView_;
     QScopedPointer<DisplayDashboardView> DisplayDashboardView_;
     QScopedPointer<RaceModeDashboardView> RaceModeDashboardView_;
