@@ -49,9 +49,7 @@ JsonReceiver::JsonReceiver(I_CommDevice& inputDevice,
     , motorFaultsPopulator_(motorFaultsPopulator)
     , communicationsMonitoringService_(communicationsMonitoringService)
 {
-    //Q_UNUSED(inputDevice);
     connect(&inputDevice_, SIGNAL(dataReceived(QByteArray)), this, SLOT(handleIncomingData(QByteArray)));
-
     connect(this, SIGNAL(dataReceived(const QJsonObject&)),
             &batteryPopulator_, SLOT(populateData(const QJsonObject&)));
     connect(this, SIGNAL(dataReceived(const QJsonObject&)),

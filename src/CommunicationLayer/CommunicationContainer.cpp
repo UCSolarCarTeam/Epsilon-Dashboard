@@ -22,9 +22,9 @@ public:
                                      infrastructureContainer.settings().ipAddress(),
                                      infrastructureContainer.settings().port())
         , internetCommDevice_(internetConnectionService_.getChannel(),
-                              infrastructureContainer.settings().queue())//commDeviceManager_(udpSocket_)
+                              infrastructureContainer.settings().queue())
         , connectionController_(internetConnectionService_)
-        , jsonReceiver_(internetCommDevice_,//commDeviceManager_,
+        , jsonReceiver_(internetCommDevice_,
                         businessContainer.batteryPopulator(),
                         businessContainer.batteryFaultsPopulator(),
                         businessContainer.driverControlsPopulator(),
@@ -36,10 +36,8 @@ public:
                         businessContainer.communicationsMonitoringService())
     {
     }
-    //QUdpSocket udpSocket_;
     InternetConnectionService internetConnectionService_;
     InternetCommDevice internetCommDevice_;
-    //CommDeviceManager commDeviceManager_;
     ConnectionController connectionController_;
     JsonReceiver jsonReceiver_;
 };
@@ -70,6 +68,5 @@ I_JsonReceiver& CommunicationContainer::jsonReceiver()
 
 InternetCommDevice& CommunicationContainer::commDeviceManager()
 {
-    //return impl_->commDeviceManager_;
     return impl_->internetCommDevice_;
 }

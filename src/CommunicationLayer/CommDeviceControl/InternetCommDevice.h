@@ -7,6 +7,7 @@ class QUdpSocket;
 #include "I_CommDevice.h"
 #include <SimpleAmqpClient/SimpleAmqpClient.h>
 #include <QTimer>
+#include <thread>
 
 class InternetCommDevice : public I_CommDevice
 {
@@ -21,5 +22,4 @@ private slots:
 private:
     AmqpClient::Channel::ptr_t channel_;
     QString queueName_;
-    QTimer retrieveDataTimer_;
 };

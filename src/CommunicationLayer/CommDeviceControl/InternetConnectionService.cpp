@@ -12,15 +12,14 @@ namespace
 }
 
 InternetConnectionService::InternetConnectionService(QString exchangeName
-    ,  QString queueName
-    ,  QString ipAddress
-    ,  quint16 port)
+        ,  QString queueName
+        ,  QString ipAddress
+        ,  quint16 port)
     : exchangeName_(exchangeName)
     , queueName_(queueName)
     , ipAddress_(ipAddress)
     , port_(port)
     , connectionRetryTimer_(new QTimer(this))
-    , retrieveDataTimer_(new QTimer(this))
 {
     QObject::connect(this, SIGNAL(setupChannelSignal()), this, SLOT(connectToDataSource()));
     connectionRetryTimer_.setSingleShot(true);
@@ -108,6 +107,7 @@ void InternetConnectionService::disconnectFromDataSource()
     channel_.reset();
 }
 
-AmqpClient::Channel::ptr_t InternetConnectionService::getChannel(){
+AmqpClient::Channel::ptr_t InternetConnectionService::getChannel()
+{
     return channel_;
 }

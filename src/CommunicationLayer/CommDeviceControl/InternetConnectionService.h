@@ -30,7 +30,6 @@ signals:
 
 public slots:
     bool connectToDataSource();
-    //void retrieveData();
 
 private:
 
@@ -40,5 +39,4 @@ private:
     QString ipAddress_;
     quint16 port_;
     QTimer connectionRetryTimer_;
-    QTimer retrieveDataTimer_;
 };
