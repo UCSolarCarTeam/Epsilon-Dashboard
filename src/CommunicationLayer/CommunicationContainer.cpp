@@ -3,7 +3,6 @@
 #include "../DataLayer/DataContainer.h"
 #include "CommunicationContainer.h"
 #include "CommDeviceControl/ConnectionController.h"
-#include "CommDeviceControl/CommDeviceManager.h"
 #include "CommDeviceControl/InternetCommDevice.h"
 #include "CommDeviceControl/InternetConnectionService.h"
 #include "JsonReceiver/JsonReceiver.h"

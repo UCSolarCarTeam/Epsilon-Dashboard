@@ -1,5 +1,3 @@
-#include <QUdpSocket>
-
 #include "InternetCommDevice.h"
 #include <QDebug>
 
@@ -22,6 +20,9 @@ void InternetCommDevice::handleJsonDataIncoming()
         AmqpClient::Envelope::ptr_t envelope = channel_->BasicConsumeMessage(consumer_tag);
         QString str = QString::fromStdString(envelope->Message()->Body());
         QByteArray dat = str.toUtf8();
+
+        qDebug("New data has been received");
+
         emit dataReceived(dat);
     }
 }

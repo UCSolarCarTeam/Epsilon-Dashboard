@@ -9,10 +9,7 @@ class CommunicationContainerPrivate;
 class ConnectionController;
 
 class InternetCommDevice;
-class CommDeviceManager;
 class I_JsonReceiver;
-
-
 
 class CommunicationContainer
 {
