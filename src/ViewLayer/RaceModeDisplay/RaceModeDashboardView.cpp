@@ -1,4 +1,12 @@
-#include "DisplayDashboardView.h"
+#include "RaceModeDashboardView.h"
+#include "../../PresenterLayer/BatteryPresenter/BatteryPresenter.h"
+#include "../../PresenterLayer/DriverControlsPresenter/DriverControlsPresenter.h"
+#include "../../PresenterLayer/KeyMotorPresenter/KeyMotorPresenter.h"
+#include "../../PresenterLayer/LightsPresenter/LightsPresenter.h"
+#include "../../PresenterLayer/MpptPresenter/MpptPresenter.h"
+#include "../../PresenterLayer/MotorDetailsPresenter/MotorDetailsPresenter.h"
+#include "../../PresenterLayer/MotorFaultsPresenter/MotorFaultsPresenter.h"
+#include "../RaceModeDisplay/RaceModeDisplayUI/I_RaceModeDashboardUI.h"
 
 namespace
 {
@@ -17,7 +25,7 @@ namespace
             background: ";
 }
 
-DisplayDashboardView::DisplayDashboardView(BatteryPresenter& batteryPresenter,
+RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
         BatteryFaultsPresenter& batteryFaultsPresenter,
         DriverControlsPresenter& driverControlsPresenter,
         KeyMotorPresenter& keyMotorPresenter,
@@ -25,7 +33,7 @@ DisplayDashboardView::DisplayDashboardView(BatteryPresenter& batteryPresenter,
         MpptPresenter& mpptPresenter,
         MotorDetailsPresenter& motorDetailsPresenter,
         MotorFaultsPresenter& motorFaultsPresenter,
-        I_DisplayDashboardUI& ui)
+        I_RaceModeDashboardUI& ui)
     : batteryPresenter_(batteryPresenter)
     , batteryFaultsPresenter_(batteryFaultsPresenter)
     , driverControlsPresenter_(driverControlsPresenter)
@@ -47,13 +55,12 @@ DisplayDashboardView::DisplayDashboardView(BatteryPresenter& batteryPresenter,
     //ui_.showMaximized();
     ui_.show();
 }
-DisplayDashboardView::~DisplayDashboardView()
+RaceModeDashboardView::~RaceModeDashboardView()
 {
 }
 
-void DisplayDashboardView::connectBattery(BatteryPresenter& batteryPresenter)
+void RaceModeDashboardView::connectBattery(BatteryPresenter& batteryPresenter)
 {
-    // TODO update to new battery data (depends on what should be shown in UI)
     connect(&batteryPresenter, SIGNAL(aliveReceived(bool)),
             this, SLOT(aliveReceived(bool)));
     connect(&batteryPresenter, SIGNAL(prechargeStateReceived(QString)),
@@ -62,7 +69,7 @@ void DisplayDashboardView::connectBattery(BatteryPresenter& batteryPresenter)
             this, SLOT(packNetPowerReceived(double)));
 }
 
-void DisplayDashboardView::connectBatteryFaults(BatteryFaultsPresenter& batteryFaultsPresenter)
+void RaceModeDashboardView::connectBatteryFaults(BatteryFaultsPresenter& batteryFaultsPresenter)
 {
     connect(&batteryFaultsPresenter, SIGNAL(errorFlagsReceived(BatteryErrorFlags)),
             this, SLOT(errorFlagsReceived(BatteryErrorFlags)));
@@ -70,13 +77,13 @@ void DisplayDashboardView::connectBatteryFaults(BatteryFaultsPresenter& batteryF
             this, SLOT(limitFlagsReceived(BatteryLimitFlags)));
 }
 
-void DisplayDashboardView::connectDriverControls(DriverControlsPresenter& driverControlsPresenter)
+void RaceModeDashboardView::connectDriverControls(DriverControlsPresenter& driverControlsPresenter)
 {
     connect(&driverControlsPresenter, SIGNAL(resetReceived(bool)),
             this, SLOT(resetReceived(bool)));
 }
 
-void DisplayDashboardView::connectKeyMotor(KeyMotorPresenter& keyMotorPresenter)
+void RaceModeDashboardView::connectKeyMotor(KeyMotorPresenter& keyMotorPresenter)
 {
     connect(&keyMotorPresenter, SIGNAL(motorSetCurrentReceived(double)),
             this, SLOT(motorSetCurrentReceived(double)));
@@ -88,7 +95,7 @@ void DisplayDashboardView::connectKeyMotor(KeyMotorPresenter& keyMotorPresenter)
             this, SLOT(motorBusCurrentReceived(double)));
 }
 
-void DisplayDashboardView::connectLights(LightsPresenter& lightsPresenter)
+void RaceModeDashboardView::connectLights(LightsPresenter& lightsPresenter)
 {
     connect(&lightsPresenter, SIGNAL(lowBeamsReceived(bool)),
             this, SLOT(lowBeamsReceived(bool)));
@@ -102,7 +109,7 @@ void DisplayDashboardView::connectLights(LightsPresenter& lightsPresenter)
             this, SLOT(lightAliveReceived(bool)));
 }
 
-void DisplayDashboardView::connectMppt(MpptPresenter& mpptPresenter)
+void RaceModeDashboardView::connectMppt(MpptPresenter& mpptPresenter)
 {
     connect(&mpptPresenter, SIGNAL(mpptReceived(int, Mppt)),
             this, SLOT(mpptReceived(int, Mppt)));
@@ -110,11 +117,11 @@ void DisplayDashboardView::connectMppt(MpptPresenter& mpptPresenter)
             this, SLOT(mpptPowerReceived(double)));
 }
 
-void DisplayDashboardView::connectMotorDetails(MotorDetailsPresenter& motorDetailsPresenter)
+void RaceModeDashboardView::connectMotorDetails(MotorDetailsPresenter& motorDetailsPresenter)
 {
 }
 
-void DisplayDashboardView::connectMotorFaults(MotorFaultsPresenter& motorFaultsPresenter)
+void RaceModeDashboardView::connectMotorFaults(MotorFaultsPresenter& motorFaultsPresenter)
 {
     connect(&motorFaultsPresenter, SIGNAL(motorZeroErrorFlagsReceived(ErrorFlags)),
             this, SLOT(motorZeroErrorFlagsReceived(ErrorFlags)));
@@ -126,82 +133,30 @@ void DisplayDashboardView::connectMotorFaults(MotorFaultsPresenter& motorFaultsP
             this, SLOT(motorOneLimitFlagsReceived(LimitFlags)));
 }
 
-void DisplayDashboardView::aliveReceived(bool)
-{
-}
-void DisplayDashboardView::prechargeStateReceived(QString prechargeState)
+void RaceModeDashboardView::aliveReceived(bool)
 {
 }
 
-void DisplayDashboardView::packNetPowerReceived(double netPower)
+//TODO
+void RaceModeDashboardView::prechargeStateReceived(QString prechargeState)
+{
+}
+
+void RaceModeDashboardView::packNetPowerReceived(double netPower)
 {
     ui_.netPowerLabel().setNum(netPower);
     ui_.powerOutLabel().setNum(netPower - ui_.powerInLabel().text().toDouble());
 }
 
-/*
- * TODO UI has to be updated w.r.t. the changes in the protocol
- */
-/*
-void DisplayDashboardView::packSocPercentageReceived(double packSocPercentage)
-{
-    ui_.stateOfChargeCapacityWidget().setValue(packSocPercentage);
-
-    // The rgb values for the progressbar are calculated with the intention of displaying a colour closer to red
-    // for low values and a colour closer to green for higher values. These are calculated using linear equations
-    // with a slope and intercept.
-
-    // Default colour
-    int red = RED_INITIAL;
-    int green = GREEN_INITIAL;
-    int blue = BLUE_INITIAL;
-
-    // Calculated color
-    red += int(RED_SLOPE * packSocPercentage);
-    green += int(GREEN_SLOPE * packSocPercentage);
-
-    QString r = QString::number(red);
-    QString g = QString::number(green);
-    QString b = QString::number(blue);
-
-    QString rgb = QString("rgb(%1,%2,%3);").arg(r, g, b);
-
-    ui_.stateOfChargeCapacityWidget().setStyleSheet(DEFAULT_STYLESHEET + rgb + "}");
-
-}
-void DisplayDashboardView::prechargeTimerElapsedReceived(bool prechargeTimerElapsed)
-{
-}
-void DisplayDashboardView::prechargeTimerCountReceived(double prechargeTimerCount)
-{
-}
-void DisplayDashboardView::cmuMaxCellTempReceived(double maxCellTemp)
-{
-    ui_.maxCellTemperatureLabel().setNum(maxCellTemp);
-}
-void DisplayDashboardView::cmuLowestCellVoltageReceived(double lowestCellVoltage)
-{
-    ui_.lowestCellVoltageLabel().setNum(lowestCellVoltage);
-}
-void DisplayDashboardView::cmuAverageCellTempReceived(double averageCellTemp)
-{
-    ui_.avgCellTemperatureLabel().setNum(averageCellTemp);
-}
-void DisplayDashboardView::cmuAverageVoltageReceived(double averageVoltage)
-{
-    ui_.avgCellVoltageLabel().setNum(averageVoltage);
-}
-*/
-
-void DisplayDashboardView::errorFlagsReceived(BatteryErrorFlags)
+void RaceModeDashboardView::errorFlagsReceived(BatteryErrorFlags)
 {
     // TODO
 }
-void DisplayDashboardView::limitFlagsReceived(BatteryLimitFlags)
+void RaceModeDashboardView::limitFlagsReceived(BatteryLimitFlags)
 {
     // TODO
 }
-void DisplayDashboardView::resetReceived(bool reset)
+void RaceModeDashboardView::resetReceived(bool reset)
 {
     if (reset)
     {
@@ -212,105 +167,99 @@ void DisplayDashboardView::resetReceived(bool reset)
         ui_.motorResetButtonWidget().setStyleSheet("");
     }
 }
-void DisplayDashboardView::motorSetCurrentReceived(double setCurrent)
+void RaceModeDashboardView::motorSetCurrentReceived(double setCurrent)
 {
     ui_.setCurrentLabel().setNum(setCurrent);
 }
-void DisplayDashboardView::motorActualSpeedReceived(double actualSpeed)
+void RaceModeDashboardView::motorActualSpeedReceived(double actualSpeed)
 {
     ui_.actualSpeedLabel().setNum(actualSpeed);
 }
-void DisplayDashboardView::motorBusVoltageReceived(double busVoltage)
+void RaceModeDashboardView::motorBusVoltageReceived(double busVoltage)
 {
     ui_.busVoltageLabel().setNum(busVoltage);
 }
-void DisplayDashboardView::motorBusCurrentReceived(double busCurrent)
+void RaceModeDashboardView::motorBusCurrentReceived(double busCurrent)
 {
     ui_.busCurrentLabel().setNum(busCurrent);
 }
 
-void DisplayDashboardView::lowBeamsReceived(bool lowBeams)
+void RaceModeDashboardView::lowBeamsReceived(bool lowBeams)
 {
     if (lowBeams)
     {
-        ui_.lowHeadlightIndicatorWidget().setStyleSheet("background: url(:/Resources/LowHeadlightIndicator.png)");
+        ui_.lowHeadlightIndicatorWidget().setStyleSheet("border-image: url(:/Resources/LowHeadlightIndicator.png) 0 0 0 0 stretch stretch");
     }
     else
     {
         ui_.lowHeadlightIndicatorWidget().setStyleSheet("");
     }
 }
-void DisplayDashboardView::highBeamsReceived(bool highBeams)
+void RaceModeDashboardView::highBeamsReceived(bool highBeams)
 {
     if (highBeams)
     {
-        ui_.highHeadlightIndicatorWidget().setStyleSheet("background: url(:/Resources/HighHeadlightIndicator.png)");
+        ui_.highHeadlightIndicatorWidget().setStyleSheet("border-image: url(:/Resources/HighHeadlightIndicator.png) 0 0 0 0 stretch stretch");
     }
     else
     {
         ui_.highHeadlightIndicatorWidget().setStyleSheet("");
     }
 }
-void DisplayDashboardView::leftSignalReceived(bool leftSignal)
+void RaceModeDashboardView::leftSignalReceived(bool leftSignal)
 {
     if (leftSignal)
     {
-        ui_.leftTurnSignalWidget().setStyleSheet("background: url(:/Resources/TurnSignaLeft.png);");
+        ui_.leftTurnSignalWidget().setStyleSheet("border-image: url(:/Resources/TurnSignaLeft.png) 0 0 0 0 stretch stretch;");
     }
     else
     {
         ui_.leftTurnSignalWidget().setStyleSheet("");
     }
 }
-void DisplayDashboardView::rightSignalReceived(bool rightSignal)
+void RaceModeDashboardView::rightSignalReceived(bool rightSignal)
 {
     if (rightSignal)
     {
-        ui_.rightTurnSignalWidget().setStyleSheet("background: url(:/Resources/TurnSignaRight.png);");
+        ui_.rightTurnSignalWidget().setStyleSheet("border-image: url(:/Resources/TurnSignaRight.png) 0 0 0 0 stretch stretch;");
     }
     else
     {
         ui_.rightTurnSignalWidget().setStyleSheet("");
     }
 }
-void DisplayDashboardView::lightAliveReceived(bool)
+void RaceModeDashboardView::lightAliveReceived(bool)
 {
     // TODO
 }
-void DisplayDashboardView::mpptReceived(int i, Mppt mppt)
+
+//TODO
+void RaceModeDashboardView::mpptReceived(int i, Mppt mppt)
 {
-    if (i == 0)
-    {
-        ui_.array0CurrentLabel().setNum(mppt.arrayCurrent());
-        ui_.array0VoltageLabel().setNum(mppt.arrayVoltage());
-    }
-    else if (i == 1)
-    {
-        ui_.array1CurrentLabel().setNum(mppt.arrayCurrent());
-        ui_.array1VoltageLabel().setNum(mppt.arrayVoltage());
-    }
-    else if (i == 2)
-    {
-        ui_.array2CurrentLabel().setNum(mppt.arrayCurrent());
-        ui_.array2VoltageLabel().setNum(mppt.arrayVoltage());
-    }
 }
 
-void DisplayDashboardView::mpptPowerReceived(double mpptPower)
+void RaceModeDashboardView::mpptPowerReceived(double mpptPower)
 {
     ui_.powerInLabel().setNum(mpptPower);
     ui_.powerOutLabel().setNum(ui_.netPowerLabel().text().toDouble() - mpptPower);
 }
 
-void DisplayDashboardView::motorZeroErrorFlagsReceived(ErrorFlags motorZeroErrorFlags)
+//TODO
+void RaceModeDashboardView::motorZeroErrorFlagsReceived(ErrorFlags motorZeroErrorFlags)
 {
 }
-void DisplayDashboardView::motorZeroLimitFlagsReceived(LimitFlags motorZeroLimitFlags)
+
+//TODO
+void RaceModeDashboardView::motorZeroLimitFlagsReceived(LimitFlags motorZeroLimitFlags)
 {
 }
-void DisplayDashboardView::motorOneErrorFlagsReceived(ErrorFlags motorOneErrorFlags)
+
+//TODO
+void RaceModeDashboardView::motorOneErrorFlagsReceived(ErrorFlags motorOneErrorFlags)
 {
 }
-void DisplayDashboardView::motorOneLimitFlagsReceived(LimitFlags motorOneLimitFlags)
+
+//TODO
+void RaceModeDashboardView::motorOneLimitFlagsReceived(LimitFlags motorOneLimitFlags)
 {
 }

@@ -31,15 +31,15 @@ void ControlView::connectDriverControls(DriverControlsPresenter& driverControlsP
     connect(&driverControlsPresenter, SIGNAL(aliveReceived(bool)),
             this, SLOT(aliveReceived(bool)));
 
-    connect(&driverControlsPresenter, SIGNAL(lowHeadlightsReceived(bool)),
+    connect(&driverControlsPresenter, SIGNAL(headlightsLowReceived(bool)),
             this, SLOT(lowHeadlightsReceived(bool)));
-    connect(&driverControlsPresenter, SIGNAL(highHeadlightsReceived(bool)),
+    connect(&driverControlsPresenter, SIGNAL(headlightsHighReceived(bool)),
             this, SLOT(highHeadlightsReceived(bool)));
 
-    connect(&driverControlsPresenter, SIGNAL(leftSignalReceived(bool)),
+    connect(&driverControlsPresenter, SIGNAL(signalLeftReceived(bool)),
             this, SLOT(leftSignalReceived(bool)));
-    connect(&driverControlsPresenter, SIGNAL(rightSignalReceived(bool)),
-            this, SLOT(rightsSignalReceived(bool)));
+    connect(&driverControlsPresenter, SIGNAL(signalRightReceived(bool)),
+            this, SLOT(rightSignalReceived(bool)));
     connect(&driverControlsPresenter, SIGNAL(hazardReceived(bool)),
             this, SLOT(hazardReceived(bool)));
 
@@ -56,8 +56,8 @@ void ControlView::connectDriverControls(DriverControlsPresenter& driverControlsP
             this, SLOT(prevSongReceived(bool)));
     connect(&driverControlsPresenter, SIGNAL(nextSongReceived(bool)),
             this, SLOT(nextSongReceived(bool)));
-    connect(&driverControlsPresenter, SIGNAL(playPauseReceived(bool)),
-            this, SLOT(playPauseReceived(bool)));
+    //connect(&driverControlsPresenter, SIGNAL(playPauseReceived(bool)),//
+    //      this, SLOT(playPauseReceived(bool)));
     connect(&driverControlsPresenter, SIGNAL(volumeUpReceived(bool)),
             this, SLOT(volumeUpReceived(bool)));
     connect(&driverControlsPresenter, SIGNAL(volumeDownReceived(bool)),
@@ -223,7 +223,7 @@ void ControlView::nextSongReceived(bool nextSong)
     }
 }
 
-void ControlView::playPauseReceived(bool playPause)
+/*void ControlView::playPauseReceived(bool playPause)
 {
     if (playPause)
     {
@@ -233,7 +233,7 @@ void ControlView::playPauseReceived(bool playPause)
     {
         ui_.playPauseLabel().setStyleSheet(OFF);
     }
-}
+}*/
 
 void ControlView::volumeUpReceived(bool volumeUp)
 {
