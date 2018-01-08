@@ -4,8 +4,8 @@ namespace
 {
     int HEIGHT = 25;
     int WIDTH = 665;
-    QString ERROR_STYLESHEET = "font: 20px 'Arial';\nfont-weight:500;color:#5690A1; margin-left: 10px;";
-    QString LIMIT_STYLESHEET = "font: 20px 'Arial';\nfont-weight:500;color:#8167BB; margin-left: 10px;";
+    QString ERROR_STYLESHEET = "font: 20px 'Arial';\nfont-weight:500;color:#89c2d3; margin-left: 10px;";
+    QString LIMIT_STYLESHEET = "font: 20px 'Arial';\nfont-weight:500;color:#a18cce; margin-left: 10px;";
     QString SCROLLBAR_STYLESHEET = "QScrollBar:vertical {"
                                    "    background:rgba(83, 83, 84);"
                                    "    width:10px;    "
@@ -206,6 +206,15 @@ MotorFaultView::MotorFaultView(MotorFaultsPresenter& motorFaultsPresenter,
 
     connectMotorFaults(motorFaultsPresenter_);
     connectBatteryFaults(batteryFaultsPresenter_);
+
+    ErrorFlags teste;
+    teste.setBadMotorPositionHallSequence(true);
+    LimitFlags testl;
+    testl.setBusCurrentLimit(true);
+
+    motorZeroErrorFlagsReceived(teste);
+    motorZeroLimitFlagsReceived(testl);
+
 }
 
 MotorFaultView::~MotorFaultView()
