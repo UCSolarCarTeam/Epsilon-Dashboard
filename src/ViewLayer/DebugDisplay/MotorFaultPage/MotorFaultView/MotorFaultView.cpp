@@ -110,57 +110,82 @@ MotorFaultView::MotorFaultView(MotorFaultsPresenter& motorFaultsPresenter,
 {
 
     // Setting up Vertical bar
-    QScrollBar* verticalBar0 = new QScrollBar();
-    QScrollBar* verticalBar1 = new QScrollBar();
+    QScrollBar* verticalBarM0 = new QScrollBar();
+    QScrollBar* verticalBarM1 = new QScrollBar();
     QScrollBar* verticalBarB = new QScrollBar();
 
-    verticalBar0->setStyleSheet(SCROLLBAR_STYLESHEET);
-    verticalBar1->setStyleSheet(SCROLLBAR_STYLESHEET);
+    verticalBarM0->setStyleSheet(SCROLLBAR_STYLESHEET);
+    verticalBarM1->setStyleSheet(SCROLLBAR_STYLESHEET);
     verticalBarB->setStyleSheet(SCROLLBAR_STYLESHEET);
 
-    ui_.motor0ScrollArea().setVerticalScrollBar(verticalBar0);
-    ui_.motor1ScrollArea().setVerticalScrollBar(verticalBar1);
+    ui_.motor0ScrollArea().setVerticalScrollBar(verticalBarM0);
+    ui_.motor1ScrollArea().setVerticalScrollBar(verticalBarM1);
     ui_.batteryScrollArea().setVerticalScrollBar(verticalBarB);
 
-    QLayout* layout0 = ui_.motor0ContentsWidget().layout();
-    QLayout* layout1 = ui_.motor1ContentsWidget().layout();
+    QLayout* layoutM0 = ui_.motor0ContentsWidget().layout();
+    QLayout* layoutM1 = ui_.motor1ContentsWidget().layout();
     QLayout* layoutB = ui_.batteryContentsWidget().layout();
 
-    // Motor 0
-    initializeLabel(badMotorPositionHallSequence0Fault_, layout0, ERROR_STYLESHEET);
-    initializeLabel(configReadError0Fault_, layout0, ERROR_STYLESHEET);
-    initializeLabel(dcBusOverVoltage0Fault_, layout0, ERROR_STYLESHEET);
-    initializeLabel(desaturationFault0Fault_, layout0, ERROR_STYLESHEET);
-    initializeLabel(motorOverSpeed0Fault_, layout0, ERROR_STYLESHEET);
-    initializeLabel(railUnderVoltageLockOut0Fault_, layout0, ERROR_STYLESHEET);
-    initializeLabel(watchdogCausedLastReset0Fault_, layout0, ERROR_STYLESHEET);
-    initializeLabel(softwareOverCurrent0Fault_, layout0, ERROR_STYLESHEET);
+    initializeLabels(layoutM0, layoutM1, layoutB);
 
-    initializeLabel(busCurrentLimit0Fault_, layout0, LIMIT_STYLESHEET);
-    initializeLabel(busVoltageLowerLimit0Fault_, layout0, LIMIT_STYLESHEET);
-    initializeLabel(busVoltageUpperLimit0Fault_, layout0, LIMIT_STYLESHEET);
-    initializeLabel(ipmOrMotorTelemetryLimit0Fault_, layout0, LIMIT_STYLESHEET);
-    initializeLabel(motorCurrentLimit0Fault_, layout0, LIMIT_STYLESHEET);
-    initializeLabel(outputVoltagePwmLimit0Fault_, layout0, LIMIT_STYLESHEET);
-    initializeLabel(velocityLimit0Fault_, layout0, LIMIT_STYLESHEET);
+    ui_.motor0ContentsWidget().setLayout(layoutM0);
+    ui_.motor1ContentsWidget().setLayout(layoutM1);
+    ui_.batteryContentsWidget().setLayout(layoutB);
+
+    connectMotorFaults(motorFaultsPresenter_);
+    connectBatteryFaults(batteryFaultsPresenter_);
+}
+
+MotorFaultView::~MotorFaultView()
+{
+}
+
+void MotorFaultView::initializeLabel(QLabel& label, QLayout*& layout, QString& styleSheet)
+{
+    label.resize(WIDTH, HEIGHT);
+    label.setStyleSheet(styleSheet);
+    label.setFixedSize(WIDTH, HEIGHT);
+    layout->addWidget(&label);
+    label.hide();
+}
+
+void MotorFaultView::initializeLabels(QLayout*& layoutM0, QLayout*& layoutM1, QLayout*& layoutB)
+{
+    // Motor 0
+    initializeLabel(badMotorPositionHallSequence0Fault_, layoutM0, ERROR_STYLESHEET);
+    initializeLabel(configReadError0Fault_, layoutM0, ERROR_STYLESHEET);
+    initializeLabel(dcBusOverVoltage0Fault_, layoutM0, ERROR_STYLESHEET);
+    initializeLabel(desaturationFault0Fault_, layoutM0, ERROR_STYLESHEET);
+    initializeLabel(motorOverSpeed0Fault_, layoutM0, ERROR_STYLESHEET);
+    initializeLabel(railUnderVoltageLockOut0Fault_, layoutM0, ERROR_STYLESHEET);
+    initializeLabel(watchdogCausedLastReset0Fault_, layoutM0, ERROR_STYLESHEET);
+    initializeLabel(softwareOverCurrent0Fault_, layoutM0, ERROR_STYLESHEET);
+
+    initializeLabel(busCurrentLimit0Fault_, layoutM0, LIMIT_STYLESHEET);
+    initializeLabel(busVoltageLowerLimit0Fault_, layoutM0, LIMIT_STYLESHEET);
+    initializeLabel(busVoltageUpperLimit0Fault_, layoutM0, LIMIT_STYLESHEET);
+    initializeLabel(ipmOrMotorTelemetryLimit0Fault_, layoutM0, LIMIT_STYLESHEET);
+    initializeLabel(motorCurrentLimit0Fault_, layoutM0, LIMIT_STYLESHEET);
+    initializeLabel(outputVoltagePwmLimit0Fault_, layoutM0, LIMIT_STYLESHEET);
+    initializeLabel(velocityLimit0Fault_, layoutM0, LIMIT_STYLESHEET);
 
     // Motor 1
-    initializeLabel(badMotorPositionHallSequence1Fault_, layout1, ERROR_STYLESHEET);
-    initializeLabel(configReadError1Fault_, layout1, ERROR_STYLESHEET);
-    initializeLabel(dcBusOverVoltage1Fault_, layout1, ERROR_STYLESHEET);
-    initializeLabel(desaturationFault1Fault_, layout1, ERROR_STYLESHEET);
-    initializeLabel(motorOverSpeed1Fault_, layout1, ERROR_STYLESHEET);
-    initializeLabel(railUnderVoltageLockOut1Fault_, layout1, ERROR_STYLESHEET);
-    initializeLabel(watchdogCausedLastReset1Fault_, layout1, ERROR_STYLESHEET);
-    initializeLabel(softwareOverCurrent1Fault_, layout1, ERROR_STYLESHEET);
+    initializeLabel(badMotorPositionHallSequence1Fault_, layoutM1, ERROR_STYLESHEET);
+    initializeLabel(configReadError1Fault_, layoutM1, ERROR_STYLESHEET);
+    initializeLabel(dcBusOverVoltage1Fault_, layoutM1, ERROR_STYLESHEET);
+    initializeLabel(desaturationFault1Fault_, layoutM1, ERROR_STYLESHEET);
+    initializeLabel(motorOverSpeed1Fault_, layoutM1, ERROR_STYLESHEET);
+    initializeLabel(railUnderVoltageLockOut1Fault_, layoutM1, ERROR_STYLESHEET);
+    initializeLabel(watchdogCausedLastReset1Fault_, layoutM1, ERROR_STYLESHEET);
+    initializeLabel(softwareOverCurrent1Fault_, layoutM1, ERROR_STYLESHEET);
 
-    initializeLabel(busCurrentLimit1Fault_, layout1, LIMIT_STYLESHEET);
-    initializeLabel(busVoltageLowerLimit1Fault_, layout1, LIMIT_STYLESHEET);
-    initializeLabel(busVoltageUpperLimit1Fault_, layout1, LIMIT_STYLESHEET);
-    initializeLabel(ipmOrMotorTelemetryLimit1Fault_, layout1, LIMIT_STYLESHEET);
-    initializeLabel(motorCurrentLimit1Fault_, layout1, LIMIT_STYLESHEET);
-    initializeLabel(outputVoltagePwmLimit1Fault_, layout1, LIMIT_STYLESHEET);
-    initializeLabel(velocityLimit1Fault_, layout1, LIMIT_STYLESHEET);
+    initializeLabel(busCurrentLimit1Fault_, layoutM1, LIMIT_STYLESHEET);
+    initializeLabel(busVoltageLowerLimit1Fault_, layoutM1, LIMIT_STYLESHEET);
+    initializeLabel(busVoltageUpperLimit1Fault_, layoutM1, LIMIT_STYLESHEET);
+    initializeLabel(ipmOrMotorTelemetryLimit1Fault_, layoutM1, LIMIT_STYLESHEET);
+    initializeLabel(motorCurrentLimit1Fault_, layoutM1, LIMIT_STYLESHEET);
+    initializeLabel(outputVoltagePwmLimit1Fault_, layoutM1, LIMIT_STYLESHEET);
+    initializeLabel(velocityLimit1Fault_, layoutM1, LIMIT_STYLESHEET);
 
     // Battery
     initializeLabel(alwaysOnSupplyFault_, layoutB, ERROR_STYLESHEET);
@@ -199,35 +224,6 @@ MotorFaultView::MotorFaultView(MotorFaultsPresenter& motorFaultsPresenter,
     initializeLabel(dclReducedDueToLowPackVoltage_, layoutB, LIMIT_STYLESHEET);
     initializeLabel(dclReducedDueToLowSoc_, layoutB, LIMIT_STYLESHEET);
     initializeLabel(dclReducedDueToTemperature_, layoutB, LIMIT_STYLESHEET);
-
-    ui_.motor0ContentsWidget().setLayout(layout0);
-    ui_.motor1ContentsWidget().setLayout(layout1);
-    ui_.batteryContentsWidget().setLayout(layoutB);
-
-    connectMotorFaults(motorFaultsPresenter_);
-    connectBatteryFaults(batteryFaultsPresenter_);
-
-    ErrorFlags teste;
-    teste.setBadMotorPositionHallSequence(true);
-    LimitFlags testl;
-    testl.setBusCurrentLimit(true);
-
-    motorZeroErrorFlagsReceived(teste);
-    motorZeroLimitFlagsReceived(testl);
-
-}
-
-MotorFaultView::~MotorFaultView()
-{
-}
-
-void MotorFaultView::initializeLabel(QLabel& label, QLayout*& layout, QString& styleSheet)
-{
-    label.resize(WIDTH, HEIGHT);
-    label.setStyleSheet(styleSheet);
-    label.setFixedSize(WIDTH, HEIGHT);
-    layout->addWidget(&label);
-    label.hide();
 }
 
 void MotorFaultView::updateLabel(const bool& receivedValue, QLabel& label, QWidget& contentsWidget, int& labelCount)
