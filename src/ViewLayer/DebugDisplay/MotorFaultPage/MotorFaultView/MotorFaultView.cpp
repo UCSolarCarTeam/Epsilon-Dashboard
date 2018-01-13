@@ -5,7 +5,7 @@ namespace
     int HEIGHT = 25;
     int WIDTH = 665;
     QString ERROR_STYLESHEET = "font: 20px 'Arial';\nfont-weight:500;color:#89c2d3; margin-left: 10px;";
-    QString LIMIT_STYLESHEET = "font: 20px 'Arial';\nfont-weight:500;color:#a18cce; margin-left: 10px;";
+    QString LIMIT_STYLESHEET = "font: 20px 'Arial';\nfont-weight:500;color:#CCBF14; margin-left: 10px;";
     QString SCROLLBAR_STYLESHEET = "QScrollBar:vertical {"
                                    "    background:rgba(83, 83, 84);"
                                    "    width:10px;    "
