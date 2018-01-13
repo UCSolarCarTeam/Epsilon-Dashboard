@@ -17,7 +17,7 @@ class MotorView : public QObject
     Q_OBJECT
 public:
     MotorView(KeyMotorPresenter& keyMotorPresenter, MotorDetailsPresenter& motorDetailsPresenter,
-                I_MotorUi& ui);
+              I_MotorUi& ui);
     ~MotorView();
 
 private:

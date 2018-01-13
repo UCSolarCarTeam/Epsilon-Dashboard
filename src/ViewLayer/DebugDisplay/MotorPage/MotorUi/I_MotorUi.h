@@ -10,7 +10,7 @@ public:
     virtual QLabel& setCurrentLeftLabel() = 0;
     virtual QLabel& setCurrentAvgLabel() = 0;
     virtual QLabel& setCurrentRightLabel() = 0;
-    virtual QLabel& setVelocityLeftLabel()= 0;
+    virtual QLabel& setVelocityLeftLabel() = 0;
     virtual QLabel& setVelocityAvgLabel() = 0;
     virtual QLabel& setVelocityRightLabel() = 0;
     virtual QLabel& busCurrentLeftLabel() = 0;
@@ -23,14 +23,14 @@ public:
     virtual QLabel& vehicleVelocityAvgLabel() = 0;
     virtual QLabel& vehicleVelocityRightLabel() = 0;
     virtual QLabel& phaseCCurrentLeftLabel() = 0;
-    virtual QLabel& phaseCCurrentAvgLabel()= 0;
+    virtual QLabel& phaseCCurrentAvgLabel() = 0;
     virtual QLabel& phaseCCurrentRightLabel() = 0;
     virtual QLabel& phaseBCurrentLeftLabel() = 0;
     virtual QLabel& phaseBCurrentAvgLabel() = 0;
     virtual QLabel& phaseBCurrentRightLabel() = 0;
     virtual QLabel& motorVoltageRealLeftLabel() = 0;
     virtual QLabel& motorVoltageRealAvgLabel() = 0;
-    virtual QLabel& motorVoltageRealRightLabel()= 0;
+    virtual QLabel& motorVoltageRealRightLabel() = 0;
     virtual QLabel& motorVoltageImaginaryLeftLabel() = 0;
     virtual QLabel& motorVoltageImaginaryAvgLabel() = 0;
     virtual QLabel& motorVoltageImaginaryRightLabel() = 0;

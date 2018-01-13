@@ -50,10 +50,10 @@ public:
     QLabel& voltageRail15VSupplyLeftLabel();
     QLabel& voltageRail15VSupplyAvgLabel();
     QLabel& voltageRail15VSupplyRightLabel();
-	QLabel& voltageRail3VSupplyLeftLabel();
+    QLabel& voltageRail3VSupplyLeftLabel();
     QLabel& voltageRail3VSupplyAvgLabel();
     QLabel& voltageRail3VSupplyRightLabel();
-	QLabel& voltageRail1VSupplyLeftLabel();
+    QLabel& voltageRail1VSupplyLeftLabel();
     QLabel& voltageRail1VSupplyAvgLabel();
     QLabel& voltageRail1VSupplyRightLabel();
     QLabel& heatSinkTempLeftLabel();
