@@ -1,6 +1,7 @@
 #include "DisplayDashboard/DisplayDashboardUI/DisplayDashboardUI.h"
-#include "DisplayDashboard/DisplayDashboardUI/RaceModeDashboardUI.h"
+#include "RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.h"
 #include "DisplayDashboard/DisplayDashboardView/DisplayDashboardView.h"
+#include "RaceModeDisplay/RaceModeDashboardView.h"
 #include "../PresenterLayer/PresenterContainer.h"
 #include "ViewContainer.h"
 #include "DebugDisplay/BatteryPage/BatteryUi/BatteryUi.h"
@@ -32,9 +33,17 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
     }
     else if (mode == Mode::RACE)
     {
-        //TODO: Set up race mode UI here
         RaceModeDashboardUI_ = new RaceModeDashboardUI();
-        RaceModeDashboardUI_->show();
+        RaceModeDashboardView_.reset(new RaceModeDashboardView(
+                                         presenterContainer.batteryPresenter(),
+                                         presenterContainer.batteryFaultsPresenter(),
+                                         presenterContainer.driverControlsPresenter(),
+                                         presenterContainer.keyMotorPresenter(),
+                                         presenterContainer.lightsPresenter(),
+                                         presenterContainer.mpptPresenter(),
+                                         presenterContainer.motorDetailsPresenter(),
+                                         presenterContainer.motorFaultsPresenter(),
+                                         *RaceModeDashboardUI_));
     }
     else if (mode == Mode::DEBUG)
     {
