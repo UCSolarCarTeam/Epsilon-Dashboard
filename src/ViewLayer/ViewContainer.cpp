@@ -1,7 +1,6 @@
 #include "DisplayDashboard/DisplayDashboardUI/DisplayDashboardUI.h"
-#include "RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.h"
+#include "DisplayDashboard/DisplayDashboardUI/RaceModeDashboardUI.h"
 #include "DisplayDashboard/DisplayDashboardView/DisplayDashboardView.h"
-#include "RaceModeDisplay/RaceModeDashboardView.h"
 #include "../PresenterLayer/PresenterContainer.h"
 #include "ViewContainer.h"
 #include "DebugDisplay/BatteryPage/BatteryUi/BatteryUi.h"
@@ -9,6 +8,7 @@
 #include "DebugDisplay/ControlPage/ControlView/ControlView.h"
 #include "DebugDisplay/HomePage/HomePageUi/HomePageUi.h"
 #include "DebugDisplay/MotorFaultPage/MotorFaultUi/MotorFaultUi.h"
+#include "DebugDisplay/MotorFaultPage/MotorFaultView/MotorFaultView.h"
 #include "DebugDisplay/MotorPage/MotorUi/MotorUi.h"
 #include "DebugDisplay/OverlordWidget/OverlordWidget.h"
 #include "DebugDisplay/Tab/TabUi/TabUi.h"
@@ -32,17 +32,9 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
     }
     else if (mode == Mode::RACE)
     {
+        //TODO: Set up race mode UI here
         RaceModeDashboardUI_ = new RaceModeDashboardUI();
-        RaceModeDashboardView_.reset(new RaceModeDashboardView(
-                                         presenterContainer.batteryPresenter(),
-                                         presenterContainer.batteryFaultsPresenter(),
-                                         presenterContainer.driverControlsPresenter(),
-                                         presenterContainer.keyMotorPresenter(),
-                                         presenterContainer.lightsPresenter(),
-                                         presenterContainer.mpptPresenter(),
-                                         presenterContainer.motorDetailsPresenter(),
-                                         presenterContainer.motorFaultsPresenter(),
-                                         *RaceModeDashboardUI_));
+        RaceModeDashboardUI_->show();
     }
     else if (mode == Mode::DEBUG)
     {
@@ -56,6 +48,11 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
         overlordWidget_.reset(new OverlordWidget(*batteryUi_, *controlUi_,
                               *homepageUi_, *motorFaultUi_,
                               *motorUi_, *mpptUi_, *tabUi_));
+
+        MotorFaultView_.reset(new MotorFaultView(presenterContainer.motorFaultsPresenter(),
+                              presenterContainer.batteryFaultsPresenter(),
+                              *motorFaultUi_));
+
         MpptView_.reset(new MpptView(presenterContainer.mpptPresenter(), *mpptUi_));
         ControlView_.reset(new ControlView(presenterContainer.driverControlsPresenter(), *controlUi_));
     }
