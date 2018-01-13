@@ -10,6 +10,7 @@ InternetCommDevice::InternetCommDevice(AmqpClient::Channel::ptr_t channel, QStri
 
 InternetCommDevice::~InternetCommDevice()
 {
+    std::terminate();
 }
 
 void InternetCommDevice::handleJsonDataIncoming()
