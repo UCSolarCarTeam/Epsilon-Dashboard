@@ -1,0 +1,45 @@
+<RCC>
+    <qresource prefix="/">
+        <file>../Resources/TabBackground</file>
+        <file>../Resources/Background.png</file>
+        <file>../Resources/SteeringIcon.png</file>
+        <file>../Resources/MPPTIcon.png</file>
+        <file>../Resources/HomeIcon.png</file>
+        <file>../Resources/GearIcon.png</file>
+        <file>../Resources/EngineIcon.png</file>
+        <file>../Resources/BatteryIcon.png</file>
+        <file>../Resources/Fonts/AvenirLTStd-Black.otf</file>
+        <file>../Resources/Fonts/AvenirLTStd-BlackOblique.otf</file>
+        <file>../Resources/Fonts/AvenirLTStd-Book.otf</file>
+        <file>../Resources/Fonts/AvenirLTStd-BookOblique.otf</file>
+        <file>../Resources/Fonts/AvenirLTStd-Heavy.otf</file>
+        <file>../Resources/Fonts/AvenirLTStd-HeavyOblique.otf</file>
+        <file>../Resources/Fonts/AvenirLTStd-Light.otf</file>
+        <file>../Resources/Fonts/AvenirLTStd-LightOblique.otf</file>
+        <file>../Resources/Fonts/AvenirLTStd-Medium.otf</file>
+        <file>../Resources/Fonts/AvenirLTStd-MediumOblique.otf</file>
+        <file>../Resources/Fonts/AvenirLTStd-Oblique.otf</file>
+        <file>../Resources/Fonts/AvenirLTStd-Roman.otf</file>
+        <file>../Resources/Thermometer.png</file>
+        <file>../Resources/TurnSignaLeft.png</file>
+        <file>../Resources/TurnSignalRight.png</file>
+        <file>../Resources/MotorResetButton.png</file>
+        <file>../Resources/LowHeadlightIndicator.png</file>
+        <file>../Resources/HighHeadlightIndicator.png</file>
+        <file>../Resources/Fonts/BurlingamePro-Light.otf</file>
+        <file>../Resources/Fonts/rexlia rg.ttf</file>
+        <file>../Resources/Fonts/lcd_lcd_mono/LCDMonoWinTT/LCDM2B__.TTF</file>
+        <file>../Resources/Fonts/lcd_lcd_mono/LCDMonoWinTT/LCDM2L__.TTF</file>
+        <file>../Resources/Fonts/lcd_lcd_mono/LCDMonoWinTT/LCDM2N__.TTF</file>
+        <file>../Resources/Fonts/lcd_lcd_mono/LCDMonoWinTT/LCDM2U__.TTF</file>
+        <file>../Resources/Fonts/lcd_lcd_mono/LCDMonoWinTT/LCDMB___.TTF</file>
+        <file>../Resources/Fonts/lcd_lcd_mono/LCDMonoWinTT/LCDML___.TTF</file>
+        <file>../Resources/Fonts/lcd_lcd_mono/LCDMonoWinTT/LCDMN___.TTF</file>
+        <file>../Resources/Fonts/lcd_lcd_mono/LCDMonoWinTT/LCDMU___.TTF</file>
+        <file>../Resources/ArrayOneBackground.png</file>
+        <file>../Resources/ArrayTwoBackground.png</file>
+        <file>../Resources/ArrayZeroBackground.png</file>
+        <file>Resource/Pause-Play.png</file>
+        <file>../Resources/Alive Icon.png</file>
+    </qresource>
+</RCC>
