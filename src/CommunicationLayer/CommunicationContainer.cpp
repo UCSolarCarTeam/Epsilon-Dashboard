@@ -3,7 +3,7 @@
 #include "../DataLayer/DataContainer.h"
 #include "CommunicationContainer.h"
 #include "CommDeviceControl/ConnectionController.h"
-#include "CommDeviceControl/InternetCommDevice.h"
+#include "CommDeviceControl/CommDeviceManager.h"
 #include "CommDeviceControl/InternetConnectionService.h"
 #include "JsonReceiver/JsonReceiver.h"
 #include "../BusinessLayer/BusinessContainer.h"
@@ -20,10 +20,10 @@ public:
                                      infrastructureContainer.settings().queue(),
                                      infrastructureContainer.settings().ipAddress(),
                                      infrastructureContainer.settings().port())
-        , internetCommDevice_(internetConnectionService_.getChannel(),
+        , commDeviceManager_(internetConnectionService_.getChannel(),
                               infrastructureContainer.settings().queue())
         , connectionController_(internetConnectionService_)
-        , jsonReceiver_(internetCommDevice_,
+        , jsonReceiver_(commDeviceManager_,
                         businessContainer.batteryPopulator(),
                         businessContainer.batteryFaultsPopulator(),
                         businessContainer.driverControlsPopulator(),
@@ -36,7 +36,7 @@ public:
     {
     }
     InternetConnectionService internetConnectionService_;
-    InternetCommDevice internetCommDevice_;
+    CommDeviceManager commDeviceManager_;
     ConnectionController connectionController_;
     JsonReceiver jsonReceiver_;
 };
@@ -65,7 +65,7 @@ I_JsonReceiver& CommunicationContainer::jsonReceiver()
     return impl_->jsonReceiver_;
 }
 
-InternetCommDevice& CommunicationContainer::commDeviceManager()
+CommDeviceManager& CommunicationContainer::commDeviceManager()
 {
-    return impl_->internetCommDevice_;
+    return impl_->commDeviceManager_;
 }

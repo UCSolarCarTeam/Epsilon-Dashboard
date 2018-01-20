@@ -4,6 +4,7 @@ namespace CommDefines
 {
     enum Type
     {
-        Udp
+        Udp,
+        Internet
     };
 }
