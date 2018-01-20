@@ -16,7 +16,6 @@ public:
     bool signalLeft() const;
     bool hazard() const;
     bool interior() const;
-    bool aux() const;
     bool volumeUp() const;
     bool volumeDown() const;
     bool nextSong() const;
@@ -29,6 +28,7 @@ public:
     bool pushToTalk() const;
     bool horn() const;
     bool reset() const;
+    bool aux() const;    
 
     void setAlive(bool alive);
     void setHeadlightsOff(bool headlightsOff);
@@ -38,7 +38,6 @@ public:
     void setSignalLeft(bool signalLeft);
     void setHazard(bool hazard);
     void setInterior(bool interior);
-    void setAux(bool aux);
     void setVolumeUp(bool volumeUp);
     void setVolumeDown(bool volumeDown);
     void setNextSong(bool nextSong);
@@ -51,6 +50,7 @@ public:
     void setPushToTalk(bool pushToTalk);
     void setHorn(bool horn);
     void setReset(bool reset);
+    void setAux(bool aux);
 
 private:
     bool alive_;
@@ -61,7 +61,6 @@ private:
     bool signalLeft_;
     bool hazard_;
     bool interior_;
-    bool aux_;
     bool volumeUp_;
     bool volumeDown_;
     bool nextSong_;
@@ -74,5 +73,6 @@ private:
     bool pushToTalk_;
     bool horn_;
     bool reset_;
+    bool aux_;    
 };
 

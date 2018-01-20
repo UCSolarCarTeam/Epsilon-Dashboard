@@ -49,7 +49,7 @@ void MotorDetailsPopulator::populateData(const QJsonObject& data)
     motorDetailsZero.setMotorVoltageImaginary(motorZeroJson.toObject().value(JsonFormat::MOTORDETAILS_MOTORVOLTAGEIMAGINARY).toDouble());
     motorDetailsZero.setMotorCurrentReal(motorZeroJson.toObject().value(JsonFormat::MOTORDETAILS_MOTORCURRENTREAL).toDouble());
     motorDetailsZero.setMotorCurrentImaginary(motorZeroJson.toObject().value(JsonFormat::MOTORDETAILS_MOTORCURRENTIMAGINARY).toDouble());
-    motorDetailsZero.setBackEmfReal(motorZeroJson.toObject().value(JsonFormat::MOTORDETAILS_BACKEMFREAL).toDouble());
+    motorDetailsZero.setBackEmfReal(motorZeroJson.toObject().value(JsonFormat::MOTORDETAILS_BACKEMF).toDouble());
     motorDetailsZero.setVoltageRail15VSupply(motorZeroJson.toObject().value(JsonFormat::MOTORDETAILS_VOLTAGERAIL15VSUPPLY).toDouble());
     motorDetailsZero.setVoltageRail3VSupply(motorZeroJson.toObject().value(JsonFormat::MOTORDETAILS_VOLTAGERAIL3VSUPPLY).toDouble());
     motorDetailsZero.setVoltageRail1VSupply(motorZeroJson.toObject().value(JsonFormat::MOTORDETAILS_VOLTAGERAIL1VSUPPLY).toDouble());
@@ -65,7 +65,7 @@ void MotorDetailsPopulator::populateData(const QJsonObject& data)
     motorDetailsOne.setMotorVoltageImaginary(motorOneJson.toObject().value(JsonFormat::MOTORDETAILS_MOTORVOLTAGEIMAGINARY).toDouble());
     motorDetailsOne.setMotorCurrentReal(motorOneJson.toObject().value(JsonFormat::MOTORDETAILS_MOTORCURRENTREAL).toDouble());
     motorDetailsOne.setMotorCurrentImaginary(motorOneJson.toObject().value(JsonFormat::MOTORDETAILS_MOTORCURRENTIMAGINARY).toDouble());
-    motorDetailsOne.setBackEmfReal(motorOneJson.toObject().value(JsonFormat::MOTORDETAILS_BACKEMFREAL).toDouble());
+    motorDetailsOne.setBackEmfReal(motorOneJson.toObject().value(JsonFormat::MOTORDETAILS_BACKEMF).toDouble());
     motorDetailsOne.setVoltageRail15VSupply(motorOneJson.toObject().value(JsonFormat::MOTORDETAILS_VOLTAGERAIL15VSUPPLY).toDouble());
     motorDetailsOne.setVoltageRail3VSupply(motorOneJson.toObject().value(JsonFormat::MOTORDETAILS_VOLTAGERAIL3VSUPPLY).toDouble());
     motorDetailsOne.setVoltageRail1VSupply(motorOneJson.toObject().value(JsonFormat::MOTORDETAILS_VOLTAGERAIL1VSUPPLY).toDouble());
