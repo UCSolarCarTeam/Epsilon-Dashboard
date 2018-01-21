@@ -1,0 +1,4 @@
+#ifndef BATTERYVIEW_H
+#define BATTERYVIEW_H
+
+#endif // BATTERYVIEW_H

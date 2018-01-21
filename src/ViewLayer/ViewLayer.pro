@@ -10,6 +10,7 @@ DESTDIR = ../../build/.lib
 HEADERS += \
     DebugDisplay/BatteryPage/BatteryUi/BatteryUi.h \
     DebugDisplay/BatteryPage/BatteryUi/I_BatteryUi.h \
+    DebugDisplay/BatteryPage/BatteryView/BatteryView.h \
     DebugDisplay/ControlPage/ControlUi/ControlUi.h \
     DebugDisplay/ControlPage/ControlUi/I_ControlUi.h \
     DebugDisplay/ControlPage/ControlView/ControlView.h \
@@ -35,6 +36,7 @@ HEADERS += \
 
 SOURCES += \ 
     DebugDisplay/BatteryPage/BatteryUi/BatteryUi.cpp \
+    DebugDisplay/BatteryPage/BatteryView/BatteryView.cpp \
     DebugDisplay/ControlPage/ControlUi/ControlUi.cpp \
     DebugDisplay/ControlPage/ControlView/ControlView.cpp \
     DebugDisplay/HomePage/HomePageUi/HomePageUi.cpp\ 
