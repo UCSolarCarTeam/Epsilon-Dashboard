@@ -1,8 +1,8 @@
 #include "ConnectionController.h"
 
-ConnectionController::ConnectionController(I_ConnectionService& udp)
-    : type_(CommDefines::Udp)
-    , udp_(udp)
+ConnectionController::ConnectionController(I_ConnectionService& internet)
+    : type_(CommDefines::Internet)
+    , internet_(internet)
 {
 }
 
@@ -18,14 +18,14 @@ void ConnectionController::setDeviceType(CommDefines::Type type)
 bool ConnectionController::connectToDataSource()
 {
     disconnectFromDataSource();
-    connectToConnectionService(udp_);
-    return udp_.connectToDataSource();
+    connectToConnectionService(internet_);
+    return internet_.connectToDataSource();
 }
 
 void ConnectionController::disconnectFromDataSource()
 {
-    udp_.disconnectFromDataSource();
-    disconnectFromConnectionService(udp_);
+    internet_.disconnectFromDataSource();
+    disconnectFromConnectionService(internet_);
 }
 
 void ConnectionController::connectToConnectionService(I_ConnectionService& service)

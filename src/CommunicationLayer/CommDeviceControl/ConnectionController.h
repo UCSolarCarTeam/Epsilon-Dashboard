@@ -8,7 +8,7 @@ class ConnectionController : public I_ConnectionService
     Q_OBJECT
 public:
     ConnectionController(
-        I_ConnectionService& udp);
+        I_ConnectionService& internet);
     virtual ~ConnectionController();
 
 public:
@@ -22,5 +22,5 @@ private:
 
 private:
     CommDefines::Type type_;
-    I_ConnectionService& udp_;
+    I_ConnectionService& internet_;
 };
