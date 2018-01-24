@@ -34,7 +34,6 @@ void MotorView::connectMotor(KeyMotorPresenter& keyMotorPresenter, MotorDetailsP
             this, SIGNAL(motorOneDetailsReceived(MotorDetails)));
 }
 
-
 void MotorView::setCurrentLeftReceived(double setCurrentLeft)
 {
     ui_.setCurrentLeftLabel().setNum(setCurrentLeft);
@@ -371,4 +370,5 @@ void MotorView::slipSpeedAvg(double slipSpeedLeft, double slipSpeedRight)
     double slipSpeedAvg = (slipSpeedLeft + slipSpeedRight) / 2;
     ui_.slipSpeedAvgLabel().setNum(slipSpeedAvg);
 }
+
 
