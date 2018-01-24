@@ -23,8 +23,7 @@ public:
         , commDeviceManager_(internetConnectionService_.getChannel(),
                               infrastructureContainer.settings().queue())
         , connectionController_(internetConnectionService_)
-        , jsonReceiver_(commDeviceManager_,
-                        businessContainer.batteryPopulator(),
+        , jsonReceiver_(businessContainer.batteryPopulator(),
                         businessContainer.batteryFaultsPopulator(),
                         businessContainer.driverControlsPopulator(),
                         businessContainer.keyMotorPopulator(),
@@ -34,6 +33,7 @@ public:
                         businessContainer.motorFaultsPopulator(),
                         businessContainer.communicationsMonitoringService())
     {
+        QObject::connect(&commDeviceManager_, SIGNAL(dataReceived(QByteArray)), &jsonReceiver_, SLOT(handleIncomingData(QByteArray)));
     }
     InternetConnectionService internetConnectionService_;
     CommDeviceManager commDeviceManager_;
