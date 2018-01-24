@@ -1,4 +1,4 @@
-    #include "MotorFaultsData.h"
+#include "MotorFaultsData.h"
 
 MotorFaultsData::MotorFaultsData()
 {

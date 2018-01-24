@@ -28,7 +28,7 @@ public:
     bool pushToTalk() const;
     bool horn() const;
     bool reset() const;
-    bool aux() const;    
+    bool aux() const;
 
     void setAlive(bool alive);
     void setHeadlightsOff(bool headlightsOff);
@@ -73,6 +73,6 @@ private:
     bool pushToTalk_;
     bool horn_;
     bool reset_;
-    bool aux_;    
+    bool aux_;
 };
 
