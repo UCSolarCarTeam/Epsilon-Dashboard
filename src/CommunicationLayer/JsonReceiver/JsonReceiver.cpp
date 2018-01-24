@@ -46,7 +46,7 @@ JsonReceiver::JsonReceiver(BatteryPopulator& batteryPopulator,
     , motorDetailsPopulator_(motorDetailsPopulator)
     , motorFaultsPopulator_(motorFaultsPopulator)
     , communicationsMonitoringService_(communicationsMonitoringService)
-{ 
+{
     connect(this, SIGNAL(dataReceived(const QJsonObject&)),
             &batteryPopulator_, SLOT(populateData(const QJsonObject&)));
     connect(this, SIGNAL(dataReceived(const QJsonObject&)),

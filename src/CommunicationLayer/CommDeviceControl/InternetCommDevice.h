@@ -14,9 +14,11 @@ public:
     void setQueueName(QString queueName);
     void setChannel(AmqpClient::Channel::ptr_t channel);
     virtual void run() override;
+
 private:
     AmqpClient::Channel::ptr_t channel_;
     QString queueName_;
+
 signals:
     void dataReceived(QByteArray data);
 };

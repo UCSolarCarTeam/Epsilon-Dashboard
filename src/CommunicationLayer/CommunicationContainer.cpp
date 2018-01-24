@@ -21,7 +21,7 @@ public:
                                      infrastructureContainer.settings().ipAddress(),
                                      infrastructureContainer.settings().port())
         , commDeviceManager_(internetConnectionService_.getChannel(),
-                              infrastructureContainer.settings().queue())
+                             infrastructureContainer.settings().queue())
         , connectionController_(internetConnectionService_)
         , jsonReceiver_(businessContainer.batteryPopulator(),
                         businessContainer.batteryFaultsPopulator(),

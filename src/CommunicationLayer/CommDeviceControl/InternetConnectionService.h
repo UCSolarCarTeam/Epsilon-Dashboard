@@ -3,8 +3,6 @@
 #include <SimpleAmqpClient/SimpleAmqpClient.h>
 #include <QHostAddress>
 #include <QString>
-#include <QUdpSocket>
-#include <QThread>
 #include <QTimer>
 
 #include "I_ConnectionService.h"

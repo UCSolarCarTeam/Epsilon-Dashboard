@@ -1,24 +1,13 @@
 #include "InternetCommDevice.h"
 #include <QDebug>
 
-/*InternetCommDevice::InternetCommDevice()
-    : channel_(channel), queueName_(queueName)
+void InternetCommDevice::setQueueName(QString queueName)
 {
-    //std::thread waitForData(&InternetCommDevice::handleJsonDataIncoming, this);
-    //waitForData.detach();
-    //QThread thrTest =
-}
-
-InternetCommDevice::~InternetCommDevice()
-{
-    //std::terminate();
-}*/
-
-void InternetCommDevice::setQueueName(QString queueName){
     queueName_ = queueName;
 }
 
-void InternetCommDevice::setChannel(AmqpClient::Channel::ptr_t channel){
+void InternetCommDevice::setChannel(AmqpClient::Channel::ptr_t channel)
+{
     channel_ = channel;
 }
 

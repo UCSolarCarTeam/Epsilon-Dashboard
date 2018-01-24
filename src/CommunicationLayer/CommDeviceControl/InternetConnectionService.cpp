@@ -11,10 +11,11 @@ namespace
     quint32 SLEEP_TIME_MILLISECONDS = 2000;
 }
 
-InternetConnectionService::InternetConnectionService(QString exchangeName
-        ,  QString queueName
-        ,  QString ipAddress
-        ,  quint16 port)
+InternetConnectionService::InternetConnectionService(
+    QString exchangeName
+    ,  QString queueName
+    ,  QString ipAddress
+    ,  quint16 port)
     : exchangeName_(exchangeName)
     , queueName_(queueName)
     , ipAddress_(ipAddress)
@@ -79,7 +80,6 @@ void InternetConnectionService::setupChannel()
         qWarning() << " InternetConnectionService: Error creating channel, Unknown Exception";
         throw;
     }
-
 
     qDebug("Successful connection to RabbitMQ Server");
 }

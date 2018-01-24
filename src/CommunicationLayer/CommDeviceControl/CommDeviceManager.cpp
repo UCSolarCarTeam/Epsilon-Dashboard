@@ -26,15 +26,17 @@ void CommDeviceManager::connectToDevice(CommDefines::Type type)
     {
         connect(&udpSocket_, SIGNAL(readyRead()), this, SLOT(handleUdpDataIncoming()), Qt::UniqueConnection);
     }
+
     if (type == CommDefines::Internet)
     {
-        InternetCommDevice *internetCommDevice = new InternetCommDevice();
+        InternetCommDevice* internetCommDevice = new InternetCommDevice();
         internetCommDevice->setQueueName(queueName_);
         internetCommDevice->setChannel(channel_);
         connect(internetCommDevice, &InternetCommDevice::dataReceived, this, &CommDeviceManager::handleJsonDataIncoming);
         connect(internetCommDevice, &InternetCommDevice::finished, internetCommDevice, &QObject::deleteLater);
         internetCommDevice->start();
     }
+
     // potential to add bluetooth here as a different input device
 }
 
@@ -58,8 +60,10 @@ void CommDeviceManager::handleUdpDataIncoming()
     }
 }
 
-void CommDeviceManager::handleJsonDataIncoming(QByteArray data){
-    if (!data.isEmpty()){
+void CommDeviceManager::handleJsonDataIncoming(QByteArray data)
+{
+    if (!data.isEmpty())
+    {
         emit dataReceived(data);
     }
 }
