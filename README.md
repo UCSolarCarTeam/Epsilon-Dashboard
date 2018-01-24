@@ -9,7 +9,7 @@ There are two different modes for the dashboard: Display mode and race mode. The
 To run the application in different modes, navigate to the directory where you made the executable file for the dashboard. 
 
 To run the application in display mode, run the command:
-	`./EpsilonDashboard` 
+	`./EpsilonDashboard -d`
   
 To run the application in race mode, add the -r flag at the end:
   `./EpsilonDashboard -r`
