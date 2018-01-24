@@ -5,11 +5,12 @@
 #include <QDateTime>
 
 TabUi::TabUi(QWidget *parent) :
-    I_TabUi(parent),
-    ui_(new Ui::TabUi())
+    ui_(new Ui::TabUi)
 {
     ui_->setupUi(this);
-    showTime();
+    QTimer *timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(showTime()));
+    timer->start();
     QPixmap bkgnd(":/Resources/Background.png");
     bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette background = palette();
@@ -50,6 +51,6 @@ QPushButton& TabUi::mpptButton()
 void TabUi::showTime()
 {
     QTime time = QTime::currentTime();
-    QString time_text = time.toString("hh : mm : ss");
+    QString time_text = time.toString("hh:mm:ss");
     ui_->Digital_Clock->setText(time_text);
 }
