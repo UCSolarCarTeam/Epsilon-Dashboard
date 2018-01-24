@@ -50,7 +50,7 @@ private:
     QLabel busCurrentLimit0Fault_;
     QLabel busVoltageUpperLimit0Fault_;
     QLabel busVoltageLowerLimit0Fault_;
-    QLabel ipmOrMotorTelemetryLimit0Fault_;
+    QLabel ipmOrMotorTemperatureLimit0Fault_;
     QLabel motorCurrentLimit0Fault_;
     QLabel outputVoltagePwmLimit0Fault_;
     QLabel velocityLimit0Fault_;
@@ -69,7 +69,7 @@ private:
     QLabel busCurrentLimit1Fault_;
     QLabel busVoltageUpperLimit1Fault_;
     QLabel busVoltageLowerLimit1Fault_;
-    QLabel ipmOrMotorTelemetryLimit1Fault_;
+    QLabel ipmOrMotorTemperatureLimit1Fault_;
     QLabel motorCurrentLimit1Fault_;
     QLabel outputVoltagePwmLimit1Fault_;
     QLabel velocityLimit1Fault_;
