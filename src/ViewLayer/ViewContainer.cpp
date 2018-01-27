@@ -10,7 +10,7 @@
 #include "DebugDisplay/MotorFaultPage/MotorFaultUi/MotorFaultUi.h"
 #include "DebugDisplay/MotorFaultPage/MotorFaultView/MotorFaultView.h"
 #include "DebugDisplay/MotorPage/MotorUi/MotorUi.h"
-#include "DebugDisplay/MotorPage/MotorUi/MotorView.h"
+#include "DebugDisplay/MotorPage/MotorView/MotorView.h"
 #include "DebugDisplay/OverlordWidget/OverlordWidget.h"
 #include "DebugDisplay/Tab/TabUi/TabUi.h"
 #include "DebugDisplay/MPPTPage/MPPTUi/MpptUi.h"

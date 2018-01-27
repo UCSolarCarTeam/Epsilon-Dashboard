@@ -27,7 +27,7 @@ HEADERS += \
     DebugDisplay/MotorPage/MotorUi/MotorView.h \
     DebugDisplay/MotorPage/MotorUi/MotorView.h \
     DebugDisplay/MPPTPage/MPPTView/MpptView.h \
-    DebugDisplay/MotorPage/MotorUi/MotorView.h \
+    DebugDisplay/MotorPage/MotorView/MotorView.h \
     DebugDisplay/ControlPage/ControlView/ControlView.h \
     DebugDisplay/MPPTPage/MPPTView/MpptView.h \
     DebugDisplay/OverlordWidget/OverlordWidget.h \
@@ -51,11 +51,7 @@ SOURCES += \
     DebugDisplay/MPPTPage/MPPTUi/MpptUi.cpp \
     DebugDisplay/MotorPage/MotorView/MotorView.cpp \
     DebugDisplay/MotorPage/MotorUi/MotorUi.cpp \
-    DebugDisplay/MotorPage/MotorUi/MotorView.cpp \
-    DebugDisplay/MotorPage/MotorUi/MotorView.cpp \
-    DebugDisplay/MotorPage/MotorUi/MotorView.cpp \
     DebugDisplay/MPPTPage/MPPTView/MpptView.cpp \
-    DebugDisplay/MotorPage/MotorUi/MotorView.cpp \
     DebugDisplay/ControlPage/ControlView/ControlView.cpp \
     DebugDisplay/MPPTPage/MPPTView/MpptView.cpp \
     DebugDisplay/OverlordWidget/OverlordWidget.cpp \

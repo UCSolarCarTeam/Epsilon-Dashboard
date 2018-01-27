@@ -371,4 +371,11 @@ void MotorView::slipSpeedAvg(double slipSpeedLeft, double slipSpeedRight)
     ui_.slipSpeedAvgLabel().setNum(slipSpeedAvg);
 }
 
+MotorView::setCurrentLeftReceived() = 0;
 
+//int main()
+//{
+//    MotorView motor;
+//    motor.setCurrentLeftReceived(50);
+//    return 0;
+//}
