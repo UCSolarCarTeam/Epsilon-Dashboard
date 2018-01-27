@@ -1123,7 +1123,7 @@ background: transparent;</string>
              <number>0</number>
             </property>
             <item>
-             <widget class="QLabel" name="BMSOn">
+             <widget class="QLabel" name="BMSOnLabel">
               <property name="styleSheet">
                <string notr="true">
 
@@ -1135,7 +1135,7 @@ background: transparent;</string>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="BMSCharging">
+             <widget class="QLabel" name="BMSChargingLabel">
               <property name="styleSheet">
                <string notr="true">background: transparent</string>
               </property>
@@ -1145,7 +1145,7 @@ background: transparent;</string>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="BMSReady">
+             <widget class="QLabel" name="BMSReadyLabel">
               <property name="styleSheet">
                <string notr="true">background: transparent</string>
               </property>
@@ -1155,7 +1155,7 @@ background: transparent;</string>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="BMSDischargeRelayEnabled">
+             <widget class="QLabel" name="BMSDischargeRelayEnabledLabel">
               <property name="styleSheet">
                <string notr="true">background: transparent;</string>
               </property>
@@ -1165,7 +1165,7 @@ background: transparent;</string>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="BMSChargeRelayEnabled">
+             <widget class="QLabel" name="BMSChargeRelayEnabledLabel">
               <property name="styleSheet">
                <string notr="true">background: transparent;</string>
               </property>
@@ -1432,15 +1432,21 @@ border-top-right-radius:12px;</string>
             <item row="0" column="1">
              <widget class="QWidget" name="widget_39" native="true">
               <property name="sizePolicy">
-               <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                 <horstretch>0</horstretch>
                 <verstretch>0</verstretch>
                </sizepolicy>
               </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>125</height>
+               </size>
+              </property>
               <property name="maximumSize">
                <size>
                 <width>180</width>
-                <height>160</height>
+                <height>200</height>
                </size>
               </property>
               <layout class="QGridLayout" name="gridLayout_9">
@@ -1594,7 +1600,7 @@ border-top-right-radius:12px;</string>
                  </layout>
                 </widget>
                </item>
-               <item row="1" column="0">
+               <item row="2" column="0">
                 <widget class="QWidget" name="widget_41" native="true">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
@@ -1669,7 +1675,7 @@ border-top-right-radius:12px;</string>
                  </layout>
                 </widget>
                </item>
-               <item row="1" column="1">
+               <item row="2" column="1">
                 <widget class="QWidget" name="widget_45" native="true">
                  <layout class="QVBoxLayout" name="verticalLayout_20">
                   <property name="spacing">
@@ -1744,6 +1750,80 @@ border-top-right-radius:12px;</string>
                  </layout>
                 </widget>
                </item>
+               <item row="1" column="0" colspan="2">
+                <widget class="QWidget" name="widget_22" native="true">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>18</height>
+                  </size>
+                 </property>
+                 <layout class="QHBoxLayout" name="horizontalLayout_14">
+                  <property name="spacing">
+                   <number>0</number>
+                  </property>
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="label_6">
+                    <property name="text">
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;Power&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QWidget" name="widget_23" native="true">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgba(46, 52, 54,150);</string>
+                    </property>
+                    <layout class="QHBoxLayout" name="horizontalLayout_15">
+                     <property name="spacing">
+                      <number>0</number>
+                     </property>
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <item alignment="Qt::AlignHCenter">
+                      <widget class="QLabel" name="label_8">
+                       <property name="styleSheet">
+                        <string notr="true">background: transparent;</string>
+                       </property>
+                       <property name="text">
+                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;0.01 W&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
               </layout>
              </widget>
             </item>
@@ -1762,9 +1842,9 @@ border-top-right-radius:12px;</string>
                </size>
               </property>
               <property name="styleSheet">
-               <string notr="true">
-border-radius:53px;
-border: 7px solid yellow</string>
+               <string notr="true">border-radius:53px;
+border: 7px solid rgb(250, 187, 28);
+</string>
               </property>
               <widget class="QWidget" name="widget_56" native="true">
                <property name="geometry">
@@ -1920,25 +2000,6 @@ border-top-right-radius:12px;</string>
             <property name="verticalSpacing">
              <number>0</number>
             </property>
-            <item row="2" column="0">
-             <widget class="QLabel" name="requestedSpeedLabel_2">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>20</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#555753;&quot;&gt;Requested speed:&lt;/span&gt;&lt;span style=&quot; color:#555753;&quot;/&gt;&lt;span style=&quot; font-size:14pt; color:#555753;&quot;&gt;6&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-              </property>
-             </widget>
-            </item>
             <item row="1" column="0">
              <widget class="QWidget" name="widget_31" native="true">
               <property name="sizePolicy">
@@ -1960,7 +2021,7 @@ background-color: rgba(46, 52, 54,150);
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_21">
                <property name="spacing">
-                <number>3</number>
+                <number>1</number>
                </property>
                <property name="leftMargin">
                 <number>3</number>
@@ -2025,7 +2086,8 @@ background-color: rgba(46, 52, 54,150);
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">background-color: yellow;</string>
+                     <string notr="true">
+background-color: rgb(250, 187, 28);</string>
                     </property>
                    </widget>
                   </item>
@@ -2050,7 +2112,7 @@ background-color: rgba(46, 52, 54,150);
                      </size>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">background-color: yellow;</string>
+                     <string notr="true">background-color: rgb(250, 187, 28);</string>
                     </property>
                    </widget>
                   </item>
@@ -2171,6 +2233,11 @@ background-color: rgba(46, 52, 54,150);
                       <height>10</height>
                      </size>
                     </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(64, 161, 191);
+
+</string>
+                    </property>
                    </widget>
                   </item>
                   <item>
@@ -2186,6 +2253,9 @@ background-color: rgba(46, 52, 54,150);
                       <width>16777215</width>
                       <height>10</height>
                      </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(64, 161, 191);</string>
                     </property>
                    </widget>
                   </item>
@@ -2203,6 +2273,9 @@ background-color: rgba(46, 52, 54,150);
                       <height>10</height>
                      </size>
                     </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(64, 161, 191);</string>
+                    </property>
                    </widget>
                   </item>
                   <item>
@@ -2218,6 +2291,9 @@ background-color: rgba(46, 52, 54,150);
                       <width>16777215</width>
                       <height>10</height>
                      </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(64, 161, 191);</string>
                     </property>
                    </widget>
                   </item>
@@ -2235,6 +2311,9 @@ background-color: rgba(46, 52, 54,150);
                       <height>10</height>
                      </size>
                     </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(64, 161, 191);</string>
+                    </property>
                    </widget>
                   </item>
                   <item>
@@ -2250,6 +2329,9 @@ background-color: rgba(46, 52, 54,150);
                       <width>16777215</width>
                       <height>10</height>
                      </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(64, 161, 191);</string>
                     </property>
                    </widget>
                   </item>
@@ -2341,22 +2423,73 @@ background-color: rgba(46, 52, 54,150);
              </widget>
             </item>
             <item row="0" column="0">
-             <widget class="QLabel" name="fanSpeedLabel">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>20</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;Fan Speed: &lt;/span&gt;&lt;span style=&quot; font-size:14pt; color:#ffffff;&quot;&gt;2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-              </property>
+             <widget class="QWidget" name="widget_5" native="true">
+              <layout class="QHBoxLayout" name="horizontalLayout_12">
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="label_5">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;Fan Speed:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="fanSpeedLabel">
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QWidget" name="widget_19" native="true">
+              <layout class="QHBoxLayout" name="horizontalLayout_13">
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="requestedSpeedLabel_2">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Maximum">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#555753;&quot;&gt;Requested speed:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="requestedFanSpeedLabel">
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#555753;&quot;&gt;6&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </item>
            </layout>

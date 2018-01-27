@@ -80,7 +80,7 @@ QLabel& BatteryUi::fanSpeedLabel()
 {
     return *ui_->fanSpeedLabel;
 }
-//seperate label and number on Ui
+
 QWidget& BatteryUi::fanSpeed1()
 {
     return *ui_->fanSpeed1;
