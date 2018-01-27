@@ -24,8 +24,6 @@ HEADERS += \
     DebugDisplay/MPPTPage/MPPTUi/I_MpptUi.h \
     DebugDisplay/MotorPage/MotorUi/I_MotorUi.h \
     DebugDisplay/MotorPage/MotorUi/MotorUi.h \
-    DebugDisplay/MotorPage/MotorUi/MotorView.h \
-    DebugDisplay/MotorPage/MotorUi/MotorView.h \
     DebugDisplay/MPPTPage/MPPTView/MpptView.h \
     DebugDisplay/MotorPage/MotorView/MotorView.h \
     DebugDisplay/ControlPage/ControlView/ControlView.h \
