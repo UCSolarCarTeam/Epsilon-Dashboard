@@ -19,14 +19,14 @@ void MotorView::connectMotor(KeyMotorPresenter& keyMotorPresenter, MotorDetailsP
             this, SIGNAL(motorZeroReceived(KeyMotor)));
     connect(&keyMotorPresenter, SIGNAL(motorOneReceived(KeyMotor)),
             this, SIGNAL(motorOneReceived(KeyMotor)));
-    connect(&keyMotorPresenter, SIGNAL(motorSetCurrentReceived(double setCurrent)),
-            this, SIGNAL(motorSetCurrentReceived(double setCurrent)));
-    connect(&keyMotorPresenter, SIGNAL(motorActualSpeedReceived(double actualSpeed)),
-            this, SIGNAL(motorActualSpeedReceived(double actualSpeed)));
-    connect(&keyMotorPresenter, SIGNAL(motorBusVoltageReceived(double busVoltage)),
-            this, SIGNAL(motorBusVoltageReceived(double busVoltage)));
-    connect(&keyMotorPresenter, SIGNAL(motorBusCurrentReceived(double busCurrent)),
-            this, SIGNAL(motorBusCurrentReceived(double busCurrent)));
+    connect(&keyMotorPresenter, SIGNAL(motorSetCurrentReceived(double)),
+            this, SIGNAL(motorSetCurrentReceived(double)));
+    connect(&keyMotorPresenter, SIGNAL(motorActualSpeedReceived(double)),
+            this, SIGNAL(motorActualSpeedReceived(double)));
+    connect(&keyMotorPresenter, SIGNAL(motorBusVoltageReceived(double)),
+            this, SIGNAL(motorBusVoltageReceived(double)));
+    connect(&keyMotorPresenter, SIGNAL(motorBusCurrentReceived(double)),
+            this, SIGNAL(motorBusCurrentReceived(double)));
 
     connect(&motorDetailsPresenter, SIGNAL(motorZeroDetailsReceived(MotorDetails)),
             this, SIGNAL(motorZeroDetailsReceived(MotorDetails)));
@@ -274,7 +274,6 @@ void MotorView::voltageRail1VSupplyAvg(double voltageRail1VSupplyLeft, double vo
     ui_.voltageRail1VSupplyAvgLabel().setNum(voltageRail1VSupplyAvg);
 }
 
-
 void MotorView::heatSinkTempLeftReceived(double heatSinkTempLeft)
 {
     ui_.heatSinkTempLeftLabel().setNum(heatSinkTempLeft);
@@ -370,12 +369,3 @@ void MotorView::slipSpeedAvg(double slipSpeedLeft, double slipSpeedRight)
     double slipSpeedAvg = (slipSpeedLeft + slipSpeedRight) / 2;
     ui_.slipSpeedAvgLabel().setNum(slipSpeedAvg);
 }
-
-MotorView::setCurrentLeftReceived() = 0;
-
-//int main()
-//{
-//    MotorView motor;
-//    motor.setCurrentLeftReceived(50);
-//    return 0;
-//}
