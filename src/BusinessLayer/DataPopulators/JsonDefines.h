@@ -72,7 +72,6 @@ namespace JsonFormat
     const QString DRIVERCONTROLS_SIGNALLEFT = "SignalLeft";
     const QString DRIVERCONTROLS_HAZARD = "Hazard";
     const QString DRIVERCONTROLS_INTERIOR = "Interior";
-    const QString DRIVERCONTROLS_AUX = "Aux";
     const QString DRIVERCONTROLS_VOLUMEUP = "VolumeUp";
     const QString DRIVERCONTROLS_VOLUMEDOWN = "VolumeDown";
     const QString DRIVERCONTROLS_NEXTSONG = "NextSong";
@@ -85,6 +84,7 @@ namespace JsonFormat
     const QString DRIVERCONTROLS_PUSHTOTALK = "PushToTalk";
     const QString DRIVERCONTROLS_HORN = "Horn";
     const QString DRIVERCONTROLS_RESET = "Reset";
+    const QString DRIVERCONTROLS_AUX = "Aux";
 
     // Motor faults data
     const QString MOTORFAULTS = "MotorFaults";
