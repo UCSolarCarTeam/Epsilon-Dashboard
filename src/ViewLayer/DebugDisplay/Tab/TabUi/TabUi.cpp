@@ -23,9 +23,9 @@ QPushButton& TabUi::controlButton()
 {
     return *ui_->controlButton;
 }
-QPushButton& TabUi::faultsButton()
+QPushButton& TabUi::faultButton()
 {
-    return *ui_->faultsButton;
+    return *ui_->faultButton;
 }
 QPushButton& TabUi::motorButton()
 {

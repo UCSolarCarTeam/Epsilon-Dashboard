@@ -33,8 +33,8 @@ OverlordWidget::OverlordWidget(I_BatteryUi& batteryUi, \
             this, SLOT(handleBatteryButtonClicked()));
     connect(&homepageUi_.controlButton(), SIGNAL(clicked()),
             this, SLOT(handleControlButtonClicked()));
-    connect(&homepageUi_.faultsButton(), SIGNAL(clicked()),
-            this, SLOT(handlefaultsButtonClicked()));
+    connect(&homepageUi_.faultButton(), SIGNAL(clicked()),
+            this, SLOT(handlefaultButtonClicked()));
     connect(&homepageUi_.motorButton(), SIGNAL(clicked()),
             this, SLOT(handleMotorButtonClicked()));
     connect(&homepageUi_.mpptButton(), SIGNAL(clicked()),
@@ -53,8 +53,8 @@ OverlordWidget::OverlordWidget(I_BatteryUi& batteryUi, \
             this, SLOT(handleControlButtonClicked()));
     connect(&tabUi_.motorButton(), SIGNAL(clicked()),
             this, SLOT(handleMotorButtonClicked()));
-    connect(&tabUi_.faultsButton(), SIGNAL(clicked()),
-            this, SLOT(handlefaultsButtonClicked()));
+    connect(&tabUi_.faultButton(), SIGNAL(clicked()),
+            this, SLOT(handlefaultButtonClicked()));
     connect(&tabUi_.mpptButton(), SIGNAL(clicked()),
             this, SLOT(handleMPPTButtonClicked()));
     resize(683, 768);
@@ -104,7 +104,7 @@ void OverlordWidget::handleHomepageButtonClicked()
     }
 }
 
-void OverlordWidget::handlefaultsButtonClicked()
+void OverlordWidget::handlefaultButtonClicked()
 {
     if (!tabUi_.isVisible())
     {

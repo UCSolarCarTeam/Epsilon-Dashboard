@@ -29,7 +29,7 @@ public slots:
     void handleBatteryButtonClicked();
     void handleControlButtonClicked();
     void handleHomepageButtonClicked();
-    void handlefaultsButtonClicked();
+    void handlefaultButtonClicked();
     void handleMotorButtonClicked();
     void handleMPPTButtonClicked();
 private:
