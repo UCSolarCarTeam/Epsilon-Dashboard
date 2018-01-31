@@ -34,8 +34,8 @@ namespace
     int LABEL_RESIZE_LIMIT = 5;
 }
 FaultView::FaultView(MotorFaultsPresenter& motorFaultsPresenter,
-                               BatteryFaultsPresenter& batteryFaultsPresenter,
-                               I_FaultUi& ui)
+                     BatteryFaultsPresenter& batteryFaultsPresenter,
+                     I_FaultUi& ui)
     : motorFaultsPresenter_(motorFaultsPresenter)
     , batteryFaultsPresenter_(batteryFaultsPresenter)
     , ui_(ui)

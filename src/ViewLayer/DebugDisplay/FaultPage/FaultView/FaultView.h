@@ -21,8 +21,8 @@ class FaultView : public QObject
     Q_OBJECT
 public:
     FaultView(MotorFaultsPresenter& motorFaultsPresenter,
-                   BatteryFaultsPresenter& batteryFaultsPresenter,
-                   I_FaultUi& ui);
+              BatteryFaultsPresenter& batteryFaultsPresenter,
+              I_FaultUi& ui);
     ~FaultView();
 
 private:
