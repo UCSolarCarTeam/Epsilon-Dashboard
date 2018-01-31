@@ -10,20 +10,20 @@
 #include "../../../../DataLayer/MotorFaultsData/LimitFlags.h"
 #include "../../../../PresenterLayer/BatteryFaultsPresenter/BatteryFaultsPresenter.h"
 #include "../../../../PresenterLayer/MotorFaultsPresenter/MotorFaultsPresenter.h"
-#include "../MotorFaultUi/I_MotorFaultUi.h"
+#include "../FaultUi/I_FaultUi.h"
 
 class MotorFaultsPresenter;
 class BatteryFaultsPresenter;
-class I_MotorFaultUi;
+class I_FaultUi;
 
-class MotorFaultView : public QObject
+class FaultView : public QObject
 {
     Q_OBJECT
 public:
-    MotorFaultView(MotorFaultsPresenter& motorFaultsPresenter,
+    FaultView(MotorFaultsPresenter& motorFaultsPresenter,
                    BatteryFaultsPresenter& batteryFaultsPresenter,
-                   I_MotorFaultUi& ui);
-    ~MotorFaultView();
+                   I_FaultUi& ui);
+    ~FaultView();
 
 private:
     void connectMotorFaults(MotorFaultsPresenter&);
@@ -35,7 +35,7 @@ private:
     MotorFaultsPresenter& motorFaultsPresenter_;
     BatteryFaultsPresenter& batteryFaultsPresenter_;
 
-    I_MotorFaultUi& ui_;
+    I_FaultUi& ui_;
 
     // Motor 0
     QLabel badMotorPositionHallSequence0Fault_;
@@ -50,7 +50,7 @@ private:
     QLabel busCurrentLimit0Fault_;
     QLabel busVoltageUpperLimit0Fault_;
     QLabel busVoltageLowerLimit0Fault_;
-    QLabel ipmOrMotorTelemetryLimit0Fault_;
+    QLabel ipmOrMotorTemperatureLimit0Fault_;
     QLabel motorCurrentLimit0Fault_;
     QLabel outputVoltagePwmLimit0Fault_;
     QLabel velocityLimit0Fault_;
@@ -69,7 +69,7 @@ private:
     QLabel busCurrentLimit1Fault_;
     QLabel busVoltageUpperLimit1Fault_;
     QLabel busVoltageLowerLimit1Fault_;
-    QLabel ipmOrMotorTelemetryLimit1Fault_;
+    QLabel ipmOrMotorTemperatureLimit1Fault_;
     QLabel motorCurrentLimit1Fault_;
     QLabel outputVoltagePwmLimit1Fault_;
     QLabel velocityLimit1Fault_;

@@ -1,15 +1,15 @@
 #pragma once
-#include "I_MotorFaultUi.h"
+#include "I_FaultUi.h"
 namespace Ui
 {
-    class MotorFaultUi;
+    class FaultUi;
 }
-class MotorFaultUi : public I_MotorFaultUi
+class FaultUi : public I_FaultUi
 {
     Q_OBJECT
 public:
-    explicit MotorFaultUi();
-    ~MotorFaultUi();
+    explicit FaultUi();
+    ~FaultUi();
 
     QWidget& motor0ContentsWidget();
     QWidget& motor1ContentsWidget();
@@ -20,5 +20,5 @@ public:
     QScrollArea& batteryScrollArea();
 
 private:
-    Ui::MotorFaultUi* ui_;
+    Ui::FaultUi* ui_;
 };
