@@ -1,11 +1,11 @@
-#include <QUdpSocket>
-
 #include "CommDeviceManager.h"
 #include <QDebug>
 
-CommDeviceManager::CommDeviceManager(QUdpSocket& udpSocket)
-    : udpSocket_(udpSocket)
+CommDeviceManager::CommDeviceManager(AmqpClient::Channel::ptr_t channel, QString queueName)
+    : queueName_(queueName)
+    , channel_(channel)
 {
+    connectToDevice(CommDefines::Internet);
 }
 
 CommDeviceManager::~CommDeviceManager()
@@ -14,32 +14,27 @@ CommDeviceManager::~CommDeviceManager()
 
 void CommDeviceManager::connectToDevice(CommDefines::Type type)
 {
-    disconnectFromDevices();
-
-    if (type == CommDefines::Udp)
+    if (type == CommDefines::Internet)
     {
-        connect(&udpSocket_, SIGNAL(readyRead()), this, SLOT(handleUdpDataIncoming()), Qt::UniqueConnection);
+        InternetCommDevice* internetCommDevice = new InternetCommDevice();
+        internetCommDevice->setQueueName(queueName_);
+        internetCommDevice->setChannel(channel_);
+        connect(internetCommDevice, &InternetCommDevice::dataReceived, this, &CommDeviceManager::handleJsonDataIncoming);
+        connect(internetCommDevice, &InternetCommDevice::finished, internetCommDevice, &QObject::deleteLater);
+        internetCommDevice->start();
     }
 
     // potential to add bluetooth here as a different input device
 }
 
-void CommDeviceManager::disconnectFromDevices()
+void CommDeviceManager::handleJsonDataIncoming(QByteArray data)
 {
-    disconnect(&udpSocket_, 0, this, 0);
-}
-
-void CommDeviceManager::handleUdpDataIncoming()
-{
-    while (udpSocket_.hasPendingDatagrams())
+    if (!data.isEmpty())
     {
-        QByteArray datagram;
-        datagram.resize(udpSocket_.pendingDatagramSize());
-        udpSocket_.readDatagram(datagram.data(), datagram.size());
-
-        if (!datagram.isEmpty())
-        {
-            emit dataReceived(datagram);
-        }
+        emit dataReceived(data);
+    }
+    else
+    {
+        qWarning() << "Warning: Data received is empty!";
     }
 }

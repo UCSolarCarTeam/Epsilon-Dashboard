@@ -28,8 +28,7 @@
 #include "JsonReceiver.h"
 #include "CommDeviceControl/I_CommDevice.h"
 
-JsonReceiver::JsonReceiver(I_CommDevice& inputDevice,
-                           BatteryPopulator& batteryPopulator,
+JsonReceiver::JsonReceiver(BatteryPopulator& batteryPopulator,
                            BatteryFaultsPopulator& batteryFaultsPopulator,
                            DriverControlsPopulator& driverControlsPopulator,
                            KeyMotorPopulator& keyMotorPopulator,
@@ -48,8 +47,6 @@ JsonReceiver::JsonReceiver(I_CommDevice& inputDevice,
     , motorFaultsPopulator_(motorFaultsPopulator)
     , communicationsMonitoringService_(communicationsMonitoringService)
 {
-    Q_UNUSED(inputDevice);
-
     connect(this, SIGNAL(dataReceived(const QJsonObject&)),
             &batteryPopulator_, SLOT(populateData(const QJsonObject&)));
     connect(this, SIGNAL(dataReceived(const QJsonObject&)),
