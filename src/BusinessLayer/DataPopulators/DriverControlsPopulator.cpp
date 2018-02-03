@@ -46,7 +46,6 @@ void DriverControlsPopulator::populateData(const QJsonObject& data)
     driverControlsData_.setSignalLeft(value.toObject().value(JsonFormat::DRIVERCONTROLS_SIGNALLEFT).toBool());
     driverControlsData_.setHazard(value.toObject().value(JsonFormat::DRIVERCONTROLS_HAZARD).toBool());
     driverControlsData_.setInterior(value.toObject().value(JsonFormat::DRIVERCONTROLS_INTERIOR).toBool());
-    driverControlsData_.setAux(value.toObject().value(JsonFormat::DRIVERCONTROLS_AUX).toBool());
     driverControlsData_.setVolumeUp(value.toObject().value(JsonFormat::DRIVERCONTROLS_VOLUMEUP).toBool());
     driverControlsData_.setVolumeDown(value.toObject().value(JsonFormat::DRIVERCONTROLS_VOLUMEDOWN).toBool());
     driverControlsData_.setNextSong(value.toObject().value(JsonFormat::DRIVERCONTROLS_NEXTSONG).toBool());
@@ -59,4 +58,5 @@ void DriverControlsPopulator::populateData(const QJsonObject& data)
     driverControlsData_.setPushToTalk(value.toObject().value(JsonFormat::DRIVERCONTROLS_PUSHTOTALK).toBool());
     driverControlsData_.setHorn(value.toObject().value(JsonFormat::DRIVERCONTROLS_HORN).toBool());
     driverControlsData_.setReset(value.toObject().value(JsonFormat::DRIVERCONTROLS_RESET).toBool());
+    driverControlsData_.setAux(value.toObject().value(JsonFormat::DRIVERCONTROLS_AUX).toBool());
 }

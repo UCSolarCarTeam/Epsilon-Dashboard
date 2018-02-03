@@ -13,7 +13,7 @@ public:
     double motorVoltageImaginary() const;
     double motorCurrentReal() const;
     double motorCurrentImaginary() const;
-    double backEmfReal() const;
+    double backEmf() const;
     double voltageRail15VSupply() const;
     double voltageRail3VSupply() const;
     double voltageRail1VSupply() const;
@@ -30,7 +30,7 @@ public:
     void setMotorVoltageImaginary(double motorVoltageImaginary);
     void setMotorCurrentReal(double motorCurrentReal);
     void setMotorCurrentImaginary(double motorCurrentImaginary);
-    void setBackEmfReal(double backEmfReal);
+    void setBackEmf(double backEmf);
     void setVoltageRail15VSupply(double voltageRail15VSupply);
     void setVoltageRail3VSupply(double voltageRail3VSupply);
     void setVoltageRail1VSupply(double voltageRail1VSupply);
@@ -48,7 +48,7 @@ private:
     double motorVoltageImaginary_;
     double motorCurrentReal_;
     double motorCurrentImaginary_;
-    double backEmfReal_;
+    double backEmf_;
     double voltageRail15VSupply_;
     double voltageRail3VSupply_;
     double voltageRail1VSupply_;

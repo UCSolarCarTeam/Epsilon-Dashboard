@@ -23,7 +23,6 @@ signals:
     void signalLeftReceived(bool);
     void hazardReceived(bool);
     void interiorReceived(bool);
-    void auxReceived(bool);
     void volumeUpReceived(bool);
     void volumeDownReceived(bool);
     void nextSongReceived(bool);
@@ -36,4 +35,5 @@ signals:
     void pushToTalkReceived(bool);
     void hornReceived(bool);
     void resetReceived(bool);
+    void auxReceived(bool);
 };
