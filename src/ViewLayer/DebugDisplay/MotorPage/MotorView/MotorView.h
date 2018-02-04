@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <QObject>
 #include <QLabel>
 
@@ -29,87 +29,17 @@ private:
     I_MotorUi& ui_;
 
 private slots:
+
+    void motorZeroReceived(KeyMotor);
+    void motorOneReceived(KeyMotor);
+    void motorSetCurrentReceived(double);
+    void motorActualSpeedReceived(double);
+    void motorBusVoltageReceived(double);
+    void motorBusCurrentReceived(double);
     void setCurrentLeftReceived(double);
     void setCurrentAvg(double, double);
     void setCurrentRightReceived(double);
 
-    void setVelocityLeftReceived(double);
-    void setVelocityAvg(double, double);
-    void setVelocityRightReceived(double);
-
-    void busCurrentLeftReceived(double);
-    void busCurrentAvg(double, double);
-    void busCurrentRightReceived(double);
-
-    void busVoltageLeftReceived(double);
-    void busVoltageAvg(double, double);
-    void busVoltageRightReceived(double);
-
-    void vehicleVelocityLeftReceived(double);
-    void vehicleVelocityAvg(double, double);
-    void vehicleVelocityRightReceived(double);
-
-    void phaseCCurrentLeftReceived(double);
-    void phaseCCurrentAvg(double, double);
-    void phaseCCurrentRightReceived(double);
-
-    void phaseBCurrentLeftReceived(double);
-    void phaseBCurrentAvg(double, double);
-    void phaseBCurrentRightReceived(double);
-
-    void motorVoltageRealLeftReceived(double);
-    void motorVoltageRealAvg(double, double);
-    void motorVoltageRealRightReceived(double);
-
-    void motorVoltageImaginaryLeftReceived(double);
-    void motorVoltageImaginaryAvg(double, double);
-    void motorVoltageImaginaryRightReceived(double);
-
-    void motorCurrentRealLeftReceived(double);
-    void motorCurrentRealAvg(double, double);
-    void motorCurrentRealRightReceived(double);
-
-    void motorCurrentImaginaryLeftReceived(double);
-    void motorCurrentImaginaryAvg(double, double);
-    void motorCurrentImaginaryRightReceived(double);
-
-    void backEmfRealLeftReceived(double);
-    void backEmfRealAvg(double, double);
-    void backEmfRealRightReceived(double);
-
-    void voltageRail15VSupplyLeftReceived(double);
-    void voltageRail15VSupplyAvg(double, double);
-    void voltageRail15VSupplyRightReceived(double);
-
-    void voltageRail3VSupplyLeftReceived(double);
-    void voltageRail3VSupplyAvg(double, double);
-    void voltageRail3VSupplyRightReceived(double);
-
-    void voltageRail1VSupplyLeftReceived(double);
-    void voltageRail1VSupplyAvg(double, double);
-    void voltageRail1VSupplyRightReceived(double);
-
-    void heatSinkTempLeftReceived(double);
-    void heatSinkTempAvg(double, double);
-    void heatSinkTempRightReceived(double);
-
-    void motorTempLeftReceived(double);
-    void motorTempAvg(double, double);
-    void motorTempRightReceived(double);
-
-    void dspBoardTempLeftReceived(double);
-    void dspBoardTempAvg(double, double);
-    void dspBoardTempRightReceived(double);
-
-    void dcBusAmpHoursLeftReceived(double);
-    void dcBusAmpHoursAvg(double, double);
-    void dcBusAmpHoursRightReceived(double);
-
-    void odometerLeftReceived(double);
-    void odometerAvg(double, double);
-    void odometerRightReceived(double);
-
-    void slipSpeedLeftReceived(double);
-    void slipSpeedAvg(double, double);
-    void slipSpeedRightReceived(double);
+    void motorZeroDetailsReceived(MotorDetails);
+    void motorOneDetailsReceived(MotorDetails);
 };
