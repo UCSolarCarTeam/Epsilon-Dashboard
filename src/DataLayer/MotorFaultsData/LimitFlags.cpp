@@ -7,7 +7,7 @@ LimitFlags::LimitFlags()
     , busCurrentLimit_(false)
     , busVoltageUpperLimit_(false)
     , busVoltageLowerLimit_(false)
-    , ipmOrMotorTelemetryLimit_(false)
+    , ipmOrMotorTemperatureLimit_(false)
 {
 }
 
@@ -41,9 +41,9 @@ bool LimitFlags::busVoltageLowerLimit() const
     return busVoltageLowerLimit_;
 }
 
-bool LimitFlags::ipmOrMotorTelemetryLimit() const
+bool LimitFlags::ipmOrMotorTemperatureLimit() const
 {
-    return ipmOrMotorTelemetryLimit_;
+    return ipmOrMotorTemperatureLimit_;
 }
 
 void LimitFlags::setOutputVoltagePwmLimit(bool value)
@@ -76,8 +76,8 @@ void LimitFlags::setBusVoltageLowerLimit(bool value)
     busVoltageLowerLimit_ = value;
 }
 
-void LimitFlags::setIpmOrMotorTelemetryLimit(bool value)
+void LimitFlags::setIpmOrMotorTemperatureLimit(bool value)
 {
-    ipmOrMotorTelemetryLimit_ = value;
+    ipmOrMotorTemperatureLimit_ = value;
 }
 
