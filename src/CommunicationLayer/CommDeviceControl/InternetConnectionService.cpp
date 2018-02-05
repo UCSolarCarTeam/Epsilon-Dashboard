@@ -25,7 +25,6 @@ InternetConnectionService::InternetConnectionService(
     QObject::connect(this, SIGNAL(setupChannelSignal()), this, SLOT(connectToDataSource()));
     connectionRetryTimer_.setSingleShot(true);
     connect(&connectionRetryTimer_, SIGNAL(timeout()), this, SLOT(connectToDataSource()));
-    connectToDataSource();
 }
 
 InternetConnectionService::~InternetConnectionService()

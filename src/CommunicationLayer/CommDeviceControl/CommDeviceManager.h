@@ -7,6 +7,7 @@ class QUdpSocket;
 #include "I_CommDevice.h"
 #include <SimpleAmqpClient/SimpleAmqpClient.h>
 #include "InternetCommDevice.h"
+#include "ConnectionController.h"
 
 class CommDeviceManager : public I_CommDevice
 {
