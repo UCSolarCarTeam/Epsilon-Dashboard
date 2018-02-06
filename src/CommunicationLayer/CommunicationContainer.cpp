@@ -4,7 +4,6 @@
 #include "CommunicationContainer.h"
 #include "CommDeviceControl/ConnectionController.h"
 #include "CommDeviceControl/CommDeviceManager.h"
-#include "CommDeviceControl/InternetConnectionService.h"
 #include "JsonReceiver/JsonReceiver.h"
 #include "../BusinessLayer/BusinessContainer.h"
 #include "../InfrastructureLayer/InfrastructureContainer.h"
@@ -16,8 +15,7 @@ class CommunicationContainerPrivate
 public:
     CommunicationContainerPrivate(BusinessContainer& businessContainer,
                                   InfrastructureContainer& infrastructureContainer)
-        :
-        connectionController_(infrastructureContainer.settings().exchange(),
+        : connectionController_(infrastructureContainer.settings().exchange(),
                                 infrastructureContainer.settings().queue(),
                                 infrastructureContainer.settings().ipAddress(),
                                 infrastructureContainer.settings().port())
@@ -35,7 +33,6 @@ public:
     {
         QObject::connect(&commDeviceManager_, SIGNAL(dataReceived(QByteArray)), &jsonReceiver_, SLOT(handleIncomingData(QByteArray)));
     }
-    //InternetConnectionService internetConnectionService_;
     ConnectionController connectionController_;
     CommDeviceManager commDeviceManager_;
     JsonReceiver jsonReceiver_;
