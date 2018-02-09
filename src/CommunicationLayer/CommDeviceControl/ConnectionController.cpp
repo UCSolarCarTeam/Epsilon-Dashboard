@@ -4,8 +4,7 @@ ConnectionController::ConnectionController(QString exchangeName
         ,  QString queueName
         ,  QString ipAddress
         ,  quint16 port)
-    : type_(CommDefines::Internet)
-    , exchangeName_(exchangeName)
+    : exchangeName_(exchangeName)
     , queueName_(queueName)
     , ipAddress_(ipAddress)
     , port_(port)
