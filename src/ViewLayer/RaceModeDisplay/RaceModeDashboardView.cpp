@@ -274,7 +274,7 @@ void RaceModeDashboardView::motorZeroErrorFlagsReceived(ErrorFlags flags)
 
 void RaceModeDashboardView::motorZeroLimitFlagsReceived(LimitFlags flags)
 {
-    if (flags.busCurrentLimit() || flags.busVoltageLowerLimit() || flags.busVoltageUpperLimit() || flags.ipmOrMotorTelemetryLimit()
+    if (flags.busCurrentLimit() || flags.busVoltageLowerLimit() || flags.busVoltageUpperLimit()
             || flags.motorCurrentLimit() || flags.outputVoltagePwmLimit() || flags.velocityLimit())
     {
         motorZeroLimitRecieved_ = true;
@@ -320,7 +320,7 @@ void RaceModeDashboardView::motorOneErrorFlagsReceived(ErrorFlags flags)
 
 void RaceModeDashboardView::motorOneLimitFlagsReceived(LimitFlags flags)
 {
-    if (flags.busCurrentLimit() || flags.busVoltageLowerLimit() || flags.busVoltageUpperLimit() || flags.ipmOrMotorTelemetryLimit()
+    if (flags.busCurrentLimit() || flags.busVoltageLowerLimit() || flags.busVoltageUpperLimit()
             || flags.motorCurrentLimit() || flags.outputVoltagePwmLimit() || flags.velocityLimit())
     {
         motorOneLimitRecieved_ = true;
