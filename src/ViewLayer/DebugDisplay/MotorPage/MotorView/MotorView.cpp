@@ -97,7 +97,7 @@ void MotorView::motorZeroDetailsReceived(MotorDetails)
     ui_.motorCurrentRealLeftLabel().setNum(motorDetailsLeft.motorCurrentReal());
     ui_.motorCurrentImaginaryLeftLabel().setNum(motorDetailsLeft.motorCurrentImaginary());
 
-    ui_.backEmfRealLeftLabel().setNum((motorDetailsLeft.backEmfReal()));
+    ui_.backEmfLeftLabel().setNum((motorDetailsLeft.backEmfReal()));
 
 
     ui_.voltageRail3VSupplyLeftLabel().setNum(motorDetailsLeft.voltageRail3VSupply());
@@ -130,8 +130,8 @@ void MotorView::motorZeroDetailsReceived(MotorDetails)
     ui_.motorCurrentImaginaryAvgLabel().setNum((motorDetailsLeft.motorCurrentImaginary() +
             ui_.motorCurrentImaginaryRightLabel().text().toInt()) / 2);
 
-    ui_.backEmfRealAvgLabel().setNum((motorDetailsLeft.backEmfReal() +
-                                      ui_.backEmfRealRightLabel().text().toInt()) / 2);
+    ui_.backEmfAvgLabel().setNum((motorDetailsLeft.backEmf() +
+                                      ui_.backEmfRightLabel().text().toInt()) / 2);
 
     ui_.voltageRail3VSupplyAvgLabel().setNum((motorDetailsLeft.voltageRail3VSupply() +
             ui_.voltageRail3VSupplyRightLabel().text().toInt()) / 2);
@@ -177,7 +177,7 @@ void MotorView::motorOneDetailsReceived(MotorDetails)
     ui_.motorCurrentRealRightLabel().setNum(motorDetailsRight.motorCurrentReal());
     ui_.motorCurrentImaginaryRightLabel().setNum(motorDetailsRight.motorCurrentImaginary());
 
-    ui_.backEmfRealLeftLabel().setNum((motorDetailsRight.backEmfReal()));
+    ui_.backEmfRightLabel().setNum((motorDetailsRight.backEmf()));
 
     ui_.voltageRail15VSupplyRightLabel().setNum(motorDetailsRight.voltageRail15VSupply());
     ui_.voltageRail3VSupplyRightLabel().setNum(motorDetailsRight.voltageRail3VSupply());
@@ -209,8 +209,8 @@ void MotorView::motorOneDetailsReceived(MotorDetails)
     ui_.motorCurrentImaginaryAvgLabel().setNum((motorDetailsRight.motorCurrentImaginary() +
             ui_.motorCurrentImaginaryLeftLabel().text().toInt()) / 2);
 
-    ui_.backEmfRealAvgLabel().setNum((motorDetailsRight.backEmfReal() +
-                                      ui_.backEmfRealLeftLabel().text().toInt()) / 2);
+    ui_.backEmfAvgLabel().setNum((motorDetailsRight.backEmf() +
+                                      ui_.backEmfLeftLabel().text().toInt()) / 2);
 
     ui_.voltageRail3VSupplyAvgLabel().setNum((motorDetailsRight.voltageRail3VSupply() +
             ui_.voltageRail3VSupplyLeftLabel().text().toInt()) / 2);

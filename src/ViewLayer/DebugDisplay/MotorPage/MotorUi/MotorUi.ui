@@ -822,12 +822,12 @@ background: transparent;</string>
                 <string notr="true">color: white;</string>
                </property>
                <property name="text">
-                <string>Back Emf Real</string>
+                <string>Back Emf</string>
                </property>
               </widget>
              </item>
              <item alignment="Qt::AlignHCenter">
-              <widget class="QLabel" name="backEmfRealLeftLabel">
+              <widget class="QLabel" name="backEmfLeftLabel">
                <property name="font">
                 <font>
                  <pointsize>12</pointsize>
@@ -848,7 +848,7 @@ background: transparent;</string>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_13">
                 <item alignment="Qt::AlignHCenter">
-                 <widget class="QLabel" name="backEmfRealAvgLabel">
+                 <widget class="QLabel" name="backEmfAvgLabel">
                   <property name="font">
                    <font>
                     <pointsize>12</pointsize>
@@ -867,7 +867,7 @@ background: transparent;</string>
               </widget>
              </item>
              <item alignment="Qt::AlignHCenter">
-              <widget class="QLabel" name="backEmfRealRightLabel">
+              <widget class="QLabel" name="backEmfRightLabel">
                <property name="font">
                 <font>
                  <pointsize>12</pointsize>

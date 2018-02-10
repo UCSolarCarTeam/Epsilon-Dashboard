@@ -40,9 +40,9 @@ public:
     virtual QLabel& motorCurrentImaginaryLeftLabel() = 0;
     virtual QLabel& motorCurrentImaginaryAvgLabel() = 0;
     virtual QLabel& motorCurrentImaginaryRightLabel() = 0;
-    virtual QLabel& backEmfRealLeftLabel() = 0;
-    virtual QLabel& backEmfRealAvgLabel() = 0;
-    virtual QLabel& backEmfRealRightLabel() = 0;
+    virtual QLabel& backEmfLeftLabel() = 0;
+    virtual QLabel& backEmfAvgLabel() = 0;
+    virtual QLabel& backEmfRightLabel() = 0;
     virtual QLabel& voltageRail15VSupplyLeftLabel() = 0;
     virtual QLabel& voltageRail15VSupplyAvgLabel() = 0;
     virtual QLabel& voltageRail15VSupplyRightLabel() = 0;

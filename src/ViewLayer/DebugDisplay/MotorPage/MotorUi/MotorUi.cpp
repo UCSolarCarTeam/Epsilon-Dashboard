@@ -181,19 +181,19 @@ QLabel& MotorUi::motorCurrentImaginaryRightLabel()
     return *ui_->motorCurrentImaginaryRightLabel;
 }
 
-QLabel& MotorUi::backEmfRealLeftLabel()
+QLabel& MotorUi::backEmfLeftLabel()
 {
-    return *ui_->backEmfRealLeftLabel;
+    return *ui_->backEmfLeftLabel;
 }
 
-QLabel& MotorUi::backEmfRealAvgLabel()
+QLabel& MotorUi::backEmfAvgLabel()
 {
-    return *ui_->backEmfRealAvgLabel;
+    return *ui_->backEmfAvgLabel;
 }
 
-QLabel& MotorUi::backEmfRealRightLabel()
+QLabel& MotorUi::backEmfRightLabel()
 {
-    return *ui_->backEmfRealRightLabel;
+    return *ui_->backEmfRightLabel;
 }
 
 QLabel& MotorUi::voltageRail15VSupplyLeftLabel()

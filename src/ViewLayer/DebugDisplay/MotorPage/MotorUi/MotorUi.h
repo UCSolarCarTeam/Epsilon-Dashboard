@@ -44,9 +44,9 @@ public:
     QLabel& motorCurrentImaginaryLeftLabel();
     QLabel& motorCurrentImaginaryAvgLabel();
     QLabel& motorCurrentImaginaryRightLabel();
-    QLabel& backEmfRealLeftLabel();
-    QLabel& backEmfRealAvgLabel();
-    QLabel& backEmfRealRightLabel();
+    QLabel& backEmfLeftLabel();
+    QLabel& backEmfAvgLabel();
+    QLabel& backEmfRightLabel();
     QLabel& voltageRail15VSupplyLeftLabel();
     QLabel& voltageRail15VSupplyAvgLabel();
     QLabel& voltageRail15VSupplyRightLabel();

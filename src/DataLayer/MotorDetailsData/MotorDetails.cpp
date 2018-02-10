@@ -7,7 +7,7 @@ MotorDetails::MotorDetails()
     , motorVoltageImaginary_(0)
     , motorCurrentReal_(0)
     , motorCurrentImaginary_(0)
-    , backEmfReal_(0)
+    , backEmf_(0)
     , voltageRail15VSupply_(0)
     , voltageRail3VSupply_(0)
     , voltageRail1VSupply_(0)
@@ -44,9 +44,9 @@ double MotorDetails::motorCurrentImaginary() const
 {
     return motorCurrentImaginary_;
 }
-double MotorDetails::backEmfReal() const
+double MotorDetails::backEmf() const
 {
-    return backEmfReal_;
+    return backEmf_;
 }
 double MotorDetails::voltageRail15VSupply() const
 {
