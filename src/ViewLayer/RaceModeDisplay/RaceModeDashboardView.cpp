@@ -260,6 +260,7 @@ void RaceModeDashboardView::motorZeroErrorFlagsReceived(ErrorFlags flags)
     else
     {
         motorZeroErrorRecieved_ = false;
+
         if (motorZeroLimitRecieved_)
         {
             ui_.motorZeroFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineLimitIcon.png) 0 0 0 0 stretch stretch;");
@@ -277,6 +278,7 @@ void RaceModeDashboardView::motorZeroLimitFlagsReceived(LimitFlags flags)
             || flags.motorCurrentLimit() || flags.outputVoltagePwmLimit() || flags.velocityLimit())
     {
         motorZeroLimitRecieved_ = true;
+
         if (!motorZeroErrorRecieved_)
         {
             ui_.motorZeroFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineLimitIcon.png) 0 0 0 0 stretch stretch;");
@@ -285,6 +287,7 @@ void RaceModeDashboardView::motorZeroLimitFlagsReceived(LimitFlags flags)
     else
     {
         motorZeroLimitRecieved_ = false;
+
         if (!motorZeroErrorRecieved_)
         {
             ui_.motorZeroFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineIcon.png) 0 0 0 0 stretch stretch;");
@@ -303,6 +306,7 @@ void RaceModeDashboardView::motorOneErrorFlagsReceived(ErrorFlags flags)
     else
     {
         motorOneErrorRecieved_ = false;
+
         if (motorOneLimitRecieved_)
         {
             ui_.motorOneFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineLimitIcon.png) 0 0 0 0 stretch stretch;");
@@ -320,6 +324,7 @@ void RaceModeDashboardView::motorOneLimitFlagsReceived(LimitFlags flags)
             || flags.motorCurrentLimit() || flags.outputVoltagePwmLimit() || flags.velocityLimit())
     {
         motorOneLimitRecieved_ = true;
+
         if (!motorOneErrorRecieved_)
         {
             ui_.motorOneFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineLimitIcon.png) 0 0 0 0 stretch stretch;");
@@ -328,6 +333,7 @@ void RaceModeDashboardView::motorOneLimitFlagsReceived(LimitFlags flags)
     else
     {
         motorOneLimitRecieved_ = false;
+
         if (!motorOneErrorRecieved_)
         {
             ui_.motorOneFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineIcon.png) 0 0 0 0 stretch stretch;");
