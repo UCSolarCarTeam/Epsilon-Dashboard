@@ -1,5 +1,6 @@
 #include <SimpleAmqpClient/SimpleAmqpClient.h>
 #include <QDebug>
+#include <QString>
 #include <QTimer>
 
 #include "../../InfrastructureLayer/Settings/I_Settings.h"
@@ -22,10 +23,8 @@ InternetConnectionService::InternetConnectionService(
     , connectionRetryTimer_(new QTimer(this))
 {
     QObject::connect(this, SIGNAL(setupChannelSignal()), this, SLOT(connectToDataSource()));
-
     connectionRetryTimer_.setSingleShot(true);
     connect(&connectionRetryTimer_, SIGNAL(timeout()), this, SLOT(connectToDataSource()));
-    connectToDataSource();
 }
 
 InternetConnectionService::~InternetConnectionService()
@@ -102,6 +101,12 @@ bool InternetConnectionService::connectToDataSource()
 
 void InternetConnectionService::disconnectFromDataSource()
 {
+    qDebug("Resetting the channel...");
     channel_->UnbindQueue(queueName_.toStdString(), exchangeName_.toStdString());
     channel_.reset();
+}
+
+AmqpClient::Channel::ptr_t InternetConnectionService::getChannel()
+{
+    return channel_;
 }

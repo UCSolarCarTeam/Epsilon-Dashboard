@@ -1,9 +1,18 @@
 #include "ConnectionController.h"
 
-ConnectionController::ConnectionController(I_ConnectionService& udp)
-    : type_(CommDefines::Udp)
-    , udp_(udp)
+ConnectionController::ConnectionController(QString exchangeName
+        ,  QString queueName
+        ,  QString ipAddress
+        ,  quint16 port)
+    : exchangeName_(exchangeName)
+    , queueName_(queueName)
+    , ipAddress_(ipAddress)
+    , port_(port)
 {
+    InternetConnectionService* internetConnectionService = new InternetConnectionService(exchangeName_, queueName_, ipAddress_, port_);
+    internetConnectionService_ = internetConnectionService;
+    connectToDataSource();
+    channel_ = internetConnectionService->getChannel();
 }
 
 ConnectionController::~ConnectionController()
@@ -17,26 +26,30 @@ void ConnectionController::setDeviceType(CommDefines::Type type)
 
 bool ConnectionController::connectToDataSource()
 {
-    disconnectFromDataSource();
-    connectToConnectionService(udp_);
-    return udp_.connectToDataSource();
+    connectToConnectionService(internetConnectionService_);
+    return internetConnectionService_->connectToDataSource();
 }
 
 void ConnectionController::disconnectFromDataSource()
 {
-    udp_.disconnectFromDataSource();
-    disconnectFromConnectionService(udp_);
+    internetConnectionService_->disconnectFromDataSource();
+    disconnectFromConnectionService(internetConnectionService_);
 }
 
-void ConnectionController::connectToConnectionService(I_ConnectionService& service)
+void ConnectionController::connectToConnectionService(I_ConnectionService* service)
 {
-    connect(&service, SIGNAL(connectionFailed(QString)),
+    connect(service, SIGNAL(connectionFailed(QString)),
             this, SIGNAL(connectionFailed(QString)), Qt::UniqueConnection);
-    connect(&service, SIGNAL(connectionSucceeded()),
+    connect(service, SIGNAL(connectionSucceeded()),
             this, SIGNAL(connectionSucceeded()), Qt::UniqueConnection);
 }
 
-void ConnectionController::disconnectFromConnectionService(I_ConnectionService& service)
+void ConnectionController::disconnectFromConnectionService(I_ConnectionService* service)
 {
-    disconnect(&service, 0, this, 0);
+    disconnect(service, 0, this, 0);
+}
+
+AmqpClient::Channel::ptr_t ConnectionController::getChannel()
+{
+    return channel_;
 }
