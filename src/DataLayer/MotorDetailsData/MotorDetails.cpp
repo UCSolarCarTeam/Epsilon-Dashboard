@@ -109,9 +109,9 @@ void MotorDetails::setMotorCurrentImaginary(double motorCurrentImaginary)
 {
     motorCurrentImaginary_ = motorCurrentImaginary;
 }
-void MotorDetails::setBackEmfReal(double backEmfReal)
+void MotorDetails::setBackEmf(double backEmf)
 {
-    backEmfReal_ = backEmfReal;
+    backEmf_ = backEmf;
 }
 void MotorDetails::setVoltageRail15VSupply(double voltageRail15VSupply)
 {

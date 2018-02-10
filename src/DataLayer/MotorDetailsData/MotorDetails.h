@@ -13,7 +13,7 @@ public:
     double motorVoltageImaginary() const;
     double motorCurrentReal() const;
     double motorCurrentImaginary() const;
-    double backEmfReal() const;
+    double backEmf() const;
     double voltageRail15VSupply() const;
     double voltageRail3VSupply() const;
     double voltageRail1VSupply() const;
