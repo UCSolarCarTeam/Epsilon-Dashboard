@@ -36,9 +36,6 @@ private slots:
     void motorActualSpeedReceived(double);
     void motorBusVoltageReceived(double);
     void motorBusCurrentReceived(double);
-    void setCurrentLeftReceived(double);
-    void setCurrentAvg(double, double);
-    void setCurrentRightReceived(double);
 
     void motorZeroDetailsReceived(MotorDetails);
     void motorOneDetailsReceived(MotorDetails);

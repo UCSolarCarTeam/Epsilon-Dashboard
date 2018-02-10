@@ -97,7 +97,7 @@ void MotorView::motorZeroDetailsReceived(MotorDetails)
     ui_.motorCurrentRealLeftLabel().setNum(motorDetailsLeft.motorCurrentReal());
     ui_.motorCurrentImaginaryLeftLabel().setNum(motorDetailsLeft.motorCurrentImaginary());
 
-    ui_.backEmfLeftLabel().setNum((motorDetailsLeft.backEmfReal()));
+    ui_.backEmfLeftLabel().setNum((motorDetailsLeft.backEmf()));
 
 
     ui_.voltageRail3VSupplyLeftLabel().setNum(motorDetailsLeft.voltageRail3VSupply());

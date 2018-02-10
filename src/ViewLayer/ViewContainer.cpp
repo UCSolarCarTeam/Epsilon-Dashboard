@@ -53,8 +53,8 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
         MotorFaultView_.reset(new MotorFaultView(presenterContainer.motorFaultsPresenter(),
                               presenterContainer.batteryFaultsPresenter(),
                               *motorFaultUi_));
-        MotorView_.reset(new MotorView(presenterContainer.motorDetailsPresenter(),
-                                       presenterContainer.keyMotorPresenter(), *motorUi_));
+        MotorView_.reset(new MotorView( presenterContainer.keyMotorPresenter(),
+                                        presenterContainer.motorDetailsPresenter(), *motorUi_));
 
         MpptView_.reset(new MpptView(presenterContainer.mpptPresenter(), *mpptUi_));
         ControlView_.reset(new ControlView(presenterContainer.driverControlsPresenter(), *controlUi_));
