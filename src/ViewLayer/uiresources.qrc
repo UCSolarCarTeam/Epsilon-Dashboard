@@ -7,6 +7,8 @@
         <file>../Resources/HomeIcon.png</file>
         <file>../Resources/GearIcon.png</file>
         <file>../Resources/EngineIcon.png</file>
+        <file>../Resources/EngineLimitIcon.png</file>
+        <file>../Resources/EngineErrorIcon.png</file>
         <file>../Resources/BatteryIcon.png</file>
         <file>../Resources/Fonts/AvenirLTStd-Black.otf</file>
         <file>../Resources/Fonts/AvenirLTStd-BlackOblique.otf</file>
