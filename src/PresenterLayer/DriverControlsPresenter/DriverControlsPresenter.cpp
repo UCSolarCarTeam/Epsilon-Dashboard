@@ -25,8 +25,6 @@ void DriverControlsPresenter::relayDriverControlsData()
             this, SIGNAL(hazardReceived(bool)));
     connect(&driverControlsData_, SIGNAL(interiorReceived(bool)),
             this, SIGNAL(interiorReceived(bool)));
-    connect(&driverControlsData_, SIGNAL(auxReceived(bool)),
-            this, SIGNAL(auxReceived(bool)));
     connect(&driverControlsData_, SIGNAL(volumeUpReceived(bool)),
             this, SIGNAL(volumeUpReceived(bool)));
     connect(&driverControlsData_, SIGNAL(volumeDownReceived(bool)),
@@ -51,4 +49,6 @@ void DriverControlsPresenter::relayDriverControlsData()
             this, SIGNAL(hornReceived(bool)));
     connect(&driverControlsData_, SIGNAL(resetReceived(bool)),
             this, SIGNAL(resetReceived(bool)));
+    connect(&driverControlsData_, SIGNAL(auxReceived(bool)),
+            this, SIGNAL(auxReceived(bool)));
 }

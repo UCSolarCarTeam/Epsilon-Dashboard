@@ -61,7 +61,7 @@ void MotorFaultsPopulator::populateData(const QJsonObject& data)
     motorZeroLimitFlags.setBusCurrentLimit(motorZeroLimitFlagsJson.toObject().value(JsonFormat::MOTORFAULTS_LIMITFLAGS_BUSCURRENT).toBool());
     motorZeroLimitFlags.setBusVoltageUpperLimit(motorZeroLimitFlagsJson.toObject().value(JsonFormat::MOTORFAULTS_LIMITFLAGS_BUSVOLTAGEUPPER).toBool());
     motorZeroLimitFlags.setBusVoltageLowerLimit(motorZeroLimitFlagsJson.toObject().value(JsonFormat::MOTORFAULTS_LIMITFLAGS_BUSVOLTAGELOWER).toBool());
-    motorZeroLimitFlags.setIpmOrMotorTelemetryLimit(motorZeroLimitFlagsJson.toObject().value(JsonFormat::MOTORFAULTS_LIMITFLAGS_IPMORMOTORTEMPERATURE).toBool());
+    motorZeroLimitFlags.setIpmOrMotorTemperatureLimit(motorZeroLimitFlagsJson.toObject().value(JsonFormat::MOTORFAULTS_LIMITFLAGS_IPMORMOTORTEMPERATURE).toBool());
     QJsonValue motorOneErrorFlagsJson = motorOneJson.toObject().value(JsonFormat::MOTORFAULTS_ERRORFLAGS);
     motorOneErrorFlags.setMotorOverSpeed(motorOneErrorFlagsJson.toObject().value(JsonFormat::MOTORFAULTS_ERRORFLAGS_MOTOROVERSPEED).toBool());
     motorOneErrorFlags.setSoftwareOverCurrent(motorOneErrorFlagsJson.toObject().value(JsonFormat::MOTORFAULTS_ERRORFLAGS_SOFTWAREOVERCURRENT).toBool());
@@ -78,7 +78,7 @@ void MotorFaultsPopulator::populateData(const QJsonObject& data)
     motorOneLimitFlags.setBusCurrentLimit(motorOneLimitFlagsJson.toObject().value(JsonFormat::MOTORFAULTS_LIMITFLAGS_BUSCURRENT).toBool());
     motorOneLimitFlags.setBusVoltageUpperLimit(motorOneLimitFlagsJson.toObject().value(JsonFormat::MOTORFAULTS_LIMITFLAGS_BUSVOLTAGEUPPER).toBool());
     motorOneLimitFlags.setBusVoltageLowerLimit(motorOneLimitFlagsJson.toObject().value(JsonFormat::MOTORFAULTS_LIMITFLAGS_BUSVOLTAGELOWER).toBool());
-    motorOneLimitFlags.setIpmOrMotorTelemetryLimit(motorOneLimitFlagsJson.toObject().value(JsonFormat::MOTORFAULTS_LIMITFLAGS_IPMORMOTORTEMPERATURE).toBool());
+    motorOneLimitFlags.setIpmOrMotorTemperatureLimit(motorOneLimitFlagsJson.toObject().value(JsonFormat::MOTORFAULTS_LIMITFLAGS_IPMORMOTORTEMPERATURE).toBool());
     motorFaultsData_.setMotorZeroErrorFlags(motorZeroErrorFlags);
     motorFaultsData_.setMotorZeroLimitFlags(motorZeroLimitFlags);
     motorFaultsData_.setMotorOneErrorFlags(motorOneErrorFlags);

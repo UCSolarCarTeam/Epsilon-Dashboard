@@ -50,7 +50,7 @@ MotorFaultView::MotorFaultView(MotorFaultsPresenter& motorFaultsPresenter,
     , busCurrentLimit0Fault_("Bus Current Limit")
     , busVoltageUpperLimit0Fault_("Bus Voltage Upper Limit")
     , busVoltageLowerLimit0Fault_ ("Bus Voltage Lower Limit")
-    , ipmOrMotorTelemetryLimit0Fault_ ("IPM or Motor Telemetry Limit")
+    , ipmOrMotorTemperatureLimit0Fault_ ("IPM or Motor Telemetry Limit")
     , motorCurrentLimit0Fault_ ("Motor Current Limit")
     , outputVoltagePwmLimit0Fault_ ("Output Voltage PWM Limit")
     , velocityLimit0Fault_ ("Velocity Limit")
@@ -66,7 +66,7 @@ MotorFaultView::MotorFaultView(MotorFaultsPresenter& motorFaultsPresenter,
     , busCurrentLimit1Fault_("Bus Current Limit")
     , busVoltageUpperLimit1Fault_("Bus Voltage Upper Limit")
     , busVoltageLowerLimit1Fault_ ("Bus Voltage Lower Limit")
-    , ipmOrMotorTelemetryLimit1Fault_ ("IPM or Motor Telemetry Limit")
+    , ipmOrMotorTemperatureLimit1Fault_ ("IPM or Motor Telemetry Limit")
     , motorCurrentLimit1Fault_ ("Motor Current Limit")
     , outputVoltagePwmLimit1Fault_ ("Output Voltage PWM Limit")
     , velocityLimit1Fault_ ("Velocity Limit")
@@ -164,7 +164,7 @@ void MotorFaultView::initializeLabels(QLayout*& layoutM0, QLayout*& layoutM1, QL
     initializeLabel(busCurrentLimit0Fault_, layoutM0, LIMIT_STYLESHEET);
     initializeLabel(busVoltageLowerLimit0Fault_, layoutM0, LIMIT_STYLESHEET);
     initializeLabel(busVoltageUpperLimit0Fault_, layoutM0, LIMIT_STYLESHEET);
-    initializeLabel(ipmOrMotorTelemetryLimit0Fault_, layoutM0, LIMIT_STYLESHEET);
+    initializeLabel(ipmOrMotorTemperatureLimit0Fault_, layoutM0, LIMIT_STYLESHEET);
     initializeLabel(motorCurrentLimit0Fault_, layoutM0, LIMIT_STYLESHEET);
     initializeLabel(outputVoltagePwmLimit0Fault_, layoutM0, LIMIT_STYLESHEET);
     initializeLabel(velocityLimit0Fault_, layoutM0, LIMIT_STYLESHEET);
@@ -182,7 +182,7 @@ void MotorFaultView::initializeLabels(QLayout*& layoutM0, QLayout*& layoutM1, QL
     initializeLabel(busCurrentLimit1Fault_, layoutM1, LIMIT_STYLESHEET);
     initializeLabel(busVoltageLowerLimit1Fault_, layoutM1, LIMIT_STYLESHEET);
     initializeLabel(busVoltageUpperLimit1Fault_, layoutM1, LIMIT_STYLESHEET);
-    initializeLabel(ipmOrMotorTelemetryLimit1Fault_, layoutM1, LIMIT_STYLESHEET);
+    initializeLabel(ipmOrMotorTemperatureLimit1Fault_, layoutM1, LIMIT_STYLESHEET);
     initializeLabel(motorCurrentLimit1Fault_, layoutM1, LIMIT_STYLESHEET);
     initializeLabel(outputVoltagePwmLimit1Fault_, layoutM1, LIMIT_STYLESHEET);
     initializeLabel(velocityLimit1Fault_, layoutM1, LIMIT_STYLESHEET);
@@ -295,7 +295,7 @@ void MotorFaultView::motorZeroLimitFlagsReceived(LimitFlags motorZeroLimitFlags)
     updateLabel(motorZeroLimitFlags.busCurrentLimit(), busCurrentLimit0Fault_, ui_.motor0ContentsWidget(), label0Count_);
     updateLabel(motorZeroLimitFlags.busVoltageUpperLimit(), busVoltageUpperLimit0Fault_, ui_.motor0ContentsWidget(), label0Count_);
     updateLabel(motorZeroLimitFlags.busVoltageLowerLimit(), busVoltageLowerLimit0Fault_, ui_.motor0ContentsWidget(), label0Count_);
-    updateLabel(motorZeroLimitFlags.ipmOrMotorTelemetryLimit(), ipmOrMotorTelemetryLimit0Fault_, ui_.motor0ContentsWidget(), label0Count_);
+    updateLabel(motorZeroLimitFlags.ipmOrMotorTemperatureLimit(), ipmOrMotorTemperatureLimit0Fault_, ui_.motor0ContentsWidget(), label0Count_);
     updateLabel(motorZeroLimitFlags.motorCurrentLimit(), motorCurrentLimit0Fault_, ui_.motor0ContentsWidget(), label0Count_);
     updateLabel(motorZeroLimitFlags.outputVoltagePwmLimit(), outputVoltagePwmLimit0Fault_, ui_.motor0ContentsWidget(), label0Count_);
     updateLabel(motorZeroLimitFlags.velocityLimit(), velocityLimit0Fault_, ui_.motor0ContentsWidget(), label0Count_);
@@ -318,7 +318,7 @@ void MotorFaultView::motorOneLimitFlagsReceived(LimitFlags motorOneLimitFlags)
     updateLabel(motorOneLimitFlags.busCurrentLimit(), busCurrentLimit1Fault_, ui_.motor1ContentsWidget(), label1Count_);
     updateLabel(motorOneLimitFlags.busVoltageUpperLimit(), busVoltageUpperLimit1Fault_, ui_.motor1ContentsWidget(), label1Count_);
     updateLabel(motorOneLimitFlags.busVoltageLowerLimit(), busVoltageLowerLimit1Fault_, ui_.motor1ContentsWidget(), label1Count_);
-    updateLabel(motorOneLimitFlags.ipmOrMotorTelemetryLimit(), ipmOrMotorTelemetryLimit1Fault_, ui_.motor1ContentsWidget(), label1Count_);
+    updateLabel(motorOneLimitFlags.ipmOrMotorTemperatureLimit(), ipmOrMotorTemperatureLimit1Fault_, ui_.motor1ContentsWidget(), label1Count_);
     updateLabel(motorOneLimitFlags.motorCurrentLimit(), motorCurrentLimit1Fault_, ui_.motor1ContentsWidget(), label1Count_);
     updateLabel(motorOneLimitFlags.outputVoltagePwmLimit(), outputVoltagePwmLimit1Fault_, ui_.motor1ContentsWidget(), label1Count_);
     updateLabel(motorOneLimitFlags.velocityLimit(), velocityLimit1Fault_, ui_.motor1ContentsWidget(), label1Count_);

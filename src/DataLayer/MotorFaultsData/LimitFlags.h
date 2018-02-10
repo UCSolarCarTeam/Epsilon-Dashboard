@@ -13,7 +13,7 @@ public:
     bool busCurrentLimit() const;
     bool busVoltageUpperLimit() const;
     bool busVoltageLowerLimit() const;
-    bool ipmOrMotorTelemetryLimit() const;
+    bool ipmOrMotorTemperatureLimit() const;
 
     void setOutputVoltagePwmLimit(bool value);
     void setMotorCurrentLimit(bool value);
@@ -21,7 +21,7 @@ public:
     void setBusCurrentLimit(bool value);
     void setBusVoltageUpperLimit(bool value);
     void setBusVoltageLowerLimit(bool value);
-    void setIpmOrMotorTelemetryLimit(bool value);
+    void setIpmOrMotorTemperatureLimit(bool value);
 
 private:
     bool outputVoltagePwmLimit_;
@@ -30,5 +30,5 @@ private:
     bool busCurrentLimit_;
     bool busVoltageUpperLimit_;
     bool busVoltageLowerLimit_;
-    bool ipmOrMotorTelemetryLimit_;
+    bool ipmOrMotorTemperatureLimit_;
 };
