@@ -44,7 +44,7 @@
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>0</y>
+        <y>-88</y>
         <width>693</width>
         <height>1033</height>
        </rect>
@@ -2133,7 +2133,7 @@ background: transparent;</string>
                 <string notr="true">background-color: rgb(252, 175, 62,180);</string>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_12">
-                <item>
+                <item alignment="Qt::AlignHCenter">
                  <widget class="QLabel" name="motorCurrentImaginaryAvgLabel">
                   <property name="font">
                    <font>
