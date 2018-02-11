@@ -4,15 +4,19 @@ ConnectionController::ConnectionController(QString exchangeName
         ,  QString queueName
         ,  QString ipAddress
         ,  quint16 port)
-    : exchangeName_(exchangeName)
+    : type_(CommDefines::Internet)
+    , exchangeName_(exchangeName)
     , queueName_(queueName)
     , ipAddress_(ipAddress)
     , port_(port)
 {
-    InternetConnectionService* internetConnectionService = new InternetConnectionService(exchangeName_, queueName_, ipAddress_, port_);
-    internetConnectionService_ = internetConnectionService;
-    connectToDataSource();
-    channel_ = internetConnectionService->getChannel();
+    if (type_ == CommDefines::Internet)
+    {
+        InternetConnectionService* internetConnectionService = new InternetConnectionService(exchangeName_, queueName_, ipAddress_, port_);
+        internetConnectionService_ = internetConnectionService;
+        connectToDataSource();
+        channel_ = internetConnectionService->getChannel();
+    }
 }
 
 ConnectionController::~ConnectionController()
