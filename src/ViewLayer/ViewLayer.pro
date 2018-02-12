@@ -28,9 +28,10 @@ HEADERS += \
     DebugDisplay/Tab/TabUi/I_TabUi.h \
     DisplayDashboard/DisplayDashboardUI/DisplayDashboardUI.h \
     DisplayDashboard/DisplayDashboardUI/I_DisplayDashboardUI.h \
-    DisplayDashboard/DisplayDashboardUI/I_RaceModeDashboardUI.h \
-    DisplayDashboard/DisplayDashboardUI/RaceModeDashboardUI.h \
     DisplayDashboard/DisplayDashboardView/DisplayDashboardView.h \
+    RaceModeDisplay/RaceModeDashboardView.h \
+    RaceModeDisplay/RaceModeDisplayUI/I_RaceModeDashboardUI.h \
+    RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.h \
     ViewContainer.h
 
 SOURCES += \ 
@@ -47,7 +48,8 @@ SOURCES += \
     DebugDisplay/Tab/TabUi/TabUi.cpp \
     DisplayDashboard/DisplayDashboardUI/DisplayDashboardUI.cpp \
     DisplayDashboard/DisplayDashboardView/DisplayDashboardView.cpp \
-    DisplayDashboard/DisplayDashboardUI/RaceModeDashboardUI.cpp \
+    RaceModeDisplay/RaceModeDashboardView.cpp \
+    RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.cpp \
     ViewContainer.cpp
 
 FORMS += \   
@@ -59,4 +61,4 @@ FORMS += \
     DebugDisplay/MPPTPage/MPPTUi/MpptUi.ui \
     DebugDisplay/Tab/TabUi/TabUi.ui \
     DisplayDashboard/DisplayDashboardUI.ui \
-    DisplayDashboard/RaceModeDashboardUI.ui
+    RaceModeDisplay/RaceModeDashboardUI.ui
