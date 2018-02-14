@@ -41,10 +41,6 @@ bool DriverControlsData::interior() const
 {
     return interior_;
 }
-bool DriverControlsData::aux() const
-{
-    return aux_;
-}
 bool DriverControlsData::volumeUp() const
 {
     return volumeUp_;
@@ -93,6 +89,10 @@ bool DriverControlsData::reset() const
 {
     return reset_;
 }
+bool DriverControlsData::aux() const
+{
+    return aux_;
+}
 
 void DriverControlsData::setAlive(bool alive)
 {
@@ -133,11 +133,6 @@ void DriverControlsData::setInterior(bool interior)
 {
     interior_ = interior;
     emit interiorReceived(interior_);
-}
-void DriverControlsData::setAux(bool aux)
-{
-    aux_ = aux;
-    emit auxReceived(aux_);
 }
 void DriverControlsData::setVolumeUp(bool volumeUp)
 {
@@ -198,4 +193,9 @@ void DriverControlsData::setReset(bool reset)
 {
     reset_ = reset;
     emit resetReceived(reset_);
+}
+void DriverControlsData::setAux(bool aux)
+{
+    aux_ = aux;
+    emit auxReceived(aux_);
 }

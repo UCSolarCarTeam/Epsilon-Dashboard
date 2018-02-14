@@ -25,7 +25,6 @@ InternetConnectionService::InternetConnectionService(
     QObject::connect(this, SIGNAL(setupChannelSignal()), this, SLOT(connectToDataSource()));
     connectionRetryTimer_.setSingleShot(true);
     connect(&connectionRetryTimer_, SIGNAL(timeout()), this, SLOT(connectToDataSource()));
-    connectToDataSource();
 }
 
 InternetConnectionService::~InternetConnectionService()
@@ -41,7 +40,7 @@ void InternetConnectionService::setupChannel()
     {
         channel_ = AmqpClient::Channel::Create(ipAddress_.toStdString(), port_);
         channel_->DeclareExchange(exchangeName_.toStdString(), AmqpClient::Channel::EXCHANGE_TYPE_FANOUT);
-        channel_->DeclareQueue(queueName_.toStdString());
+        channel_->DeclareQueue(queueName_.toStdString(), false, false, false, false);
         channel_->BindQueue(queueName_.toStdString(), exchangeName_.toStdString());
     }
     catch (AmqpClient::ChannelException&)

@@ -2,7 +2,8 @@
 #include <QDebug>
 
 CommDeviceManager::CommDeviceManager(AmqpClient::Channel::ptr_t channel, QString queueName)
-    : queueName_(queueName), channel_(channel)
+    : queueName_(queueName)
+    , channel_(channel)
 {
     connectToDevice(CommDefines::Internet);
 }

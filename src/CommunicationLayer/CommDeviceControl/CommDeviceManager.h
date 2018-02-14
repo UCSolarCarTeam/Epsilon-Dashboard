@@ -3,9 +3,11 @@
 class QIODevice;
 class QUdpSocket;
 
-#include "CommDefines.h"
-#include "I_CommDevice.h"
 #include <SimpleAmqpClient/SimpleAmqpClient.h>
+
+#include "CommDefines.h"
+#include "ConnectionController.h"
+#include "I_CommDevice.h"
 #include "InternetCommDevice.h"
 
 class CommDeviceManager : public I_CommDevice
