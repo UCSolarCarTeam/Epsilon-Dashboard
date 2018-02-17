@@ -61,6 +61,12 @@ void BatteryPresenter::relayBatteryData()
             this, SIGNAL(auxVoltageReceived(const int&)));
     connect(&batteryData_, SIGNAL(auxBmsAliveReceived(const bool&)),
             this, SIGNAL(auxBmsAliveReceived(bool)));
+    connect(&batteryData_, SIGNAL(strobeBmsLightRecieved(const bool&)),
+            this, SIGNAL(strobeBmsLightReceived(bool)));
+    connect(&batteryData_, SIGNAL(allowChargeRecieved(const bool&)),
+            this, SIGNAL(allowChargeReceieved(bool)));
+    connect(&batteryData_, SIGNAL(contactorErrorRecieved(const bool&)),
+            this, SIGNAL(contactorErrorReceieved(bool)));
     connect(&batteryData_, SIGNAL(packNetPowerReceived(const double&)),
             this, SIGNAL(packNetPowerReceived(const double&)));
 }
