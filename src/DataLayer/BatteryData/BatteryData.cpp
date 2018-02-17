@@ -323,19 +323,19 @@ void BatteryData::setAuxBmsAlive(const bool& auxBmsAlive)
     emit auxBmsAliveReceived(auxBmsAlive_);
 }
 
-void BatteryData::setStrobeBmsLight(const bool &strobeBmsLight)
+void BatteryData::setStrobeBmsLight(const bool& strobeBmsLight)
 {
     strobeBmsLight_ = strobeBmsLight;
     emit strobeBmsLightRecieved(strobeBmsLight_);
 }
 
-void BatteryData::setAllowCharge(const bool &allowCharge)
+void BatteryData::setAllowCharge(const bool& allowCharge)
 {
     allowCharge_ = allowCharge;
     emit allowChargeRecieved(allowCharge_);
 }
 
-void BatteryData::setContactorError(const bool &contactorError)
+void BatteryData::setContactorError(const bool& contactorError)
 {
     contactorError_ = contactorError;
     emit contactorErrorRecieved(contactorError_);
