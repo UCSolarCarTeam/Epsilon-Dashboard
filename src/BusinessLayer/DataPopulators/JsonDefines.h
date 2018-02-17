@@ -63,7 +63,7 @@ namespace JsonFormat
     const QString MOTORDETAILS_SLIPSPEED = "SlipSpeed";
 
     // Driver controls data
-    const QString DRIVERCONTROLS = "DriverControl";
+    const QString DRIVERCONTROLS = "DriverControls";
     const QString DRIVERCONTROLS_ALIVE = "Alive";
     const QString DRIVERCONTROLS_HEADLIGHTSOFF = "HeadlightsOff";
     const QString DRIVERCONTROLS_HEADLIGHTSLOW = "HeadlightsLow";
