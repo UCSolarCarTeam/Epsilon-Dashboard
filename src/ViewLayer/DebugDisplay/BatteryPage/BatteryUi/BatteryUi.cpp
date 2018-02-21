@@ -1,5 +1,6 @@
 ﻿#include "BatteryUi.h"
 #include "ui_BatteryUi.h"
+
 BatteryUi::BatteryUi() :
     ui_(new Ui::BatteryUi)
 {
@@ -38,27 +39,27 @@ QLabel& BatteryUi::packInfoDepthofDischarge()
 
 QLabel& BatteryUi::BMSOn()
 {
-    return *ui_->BMSOn;
+    return *ui_->BMSOnLabel;
 }
 
 QLabel& BatteryUi::BMSCharging()
 {
-    return *ui_->BMSCharging;
+    return *ui_->BMSChargingLabel;
 }
 
 QLabel& BatteryUi::BMSReady()
 {
-    return *ui_->BMSReady;
+    return *ui_->BMSReadyLabel;
 }
 
 QLabel& BatteryUi::BMSDischargeRelayEnabled()
 {
-    return *ui_->BMSDischargeRelayEnabled;
+    return *ui_->BMSDischargeRelayEnabledLabel;
 }
 
 QLabel& BatteryUi::BMSChargeRelayEnabled()
 {
-    return *ui_->BMSChargeRelayEnabled;
+    return *ui_->BMSChargeRelayEnabledLabel;
 }
 
 QLabel& BatteryUi::BMSChargerSafetyEnabled()
@@ -141,9 +142,9 @@ QWidget& BatteryUi::requestedSpeed6()
     return *ui_->requestedSpeed6;
 }
 
-QLabel& BatteryUi::requestedSpeedLabel()
+QLabel& BatteryUi::requestedFanSpeedLabel()
 {
-    return *ui_->requestedSpeedLabel;
+    return *ui_->requestedFanSpeedLabel;
 }
 
 QLabel& BatteryUi::tempHighLabel()
@@ -219,5 +220,10 @@ QLabel& BatteryUi::auxVoltageLabel()
 QWidget& BatteryUi::auxBmsAliveWidget()
 {
     return *ui_->auxBmsAliveWidget;
+}
+
+QVBoxLayout& BatteryUi::progressBarContainer()
+{
+    return *ui_->progressBarContainer;
 }
 

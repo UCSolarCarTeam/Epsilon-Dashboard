@@ -1,5 +1,10 @@
 #pragma once
 #include "I_BatteryUi.h"
+#include <QWidget>
+#include <QProgressBar>
+#include <QLabel>
+
+
 namespace Ui
 {
     class BatteryUi;
@@ -44,7 +49,7 @@ public:
     QWidget& requestedSpeed4();
     QWidget& requestedSpeed5();
     QWidget& requestedSpeed6();
-    QLabel& requestedSpeedLabel();
+    QLabel& requestedFanSpeedLabel();
 
     QLabel& fanVoltage();
 
@@ -67,6 +72,8 @@ public:
     QLabel& auxVoltageLabel();
 
     QWidget& auxBmsAliveWidget();
+
+    QVBoxLayout& progressBarContainer();
 
 private slots:
     void on_dial_sliderReleased();

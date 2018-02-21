@@ -1,6 +1,8 @@
 #pragma once
 #include <QWidget>
 #include <QLabel>
+#include <QProgressBar>
+#include <QVBoxLayout>
 
 class I_BatteryUi: public QWidget
 {
@@ -38,7 +40,7 @@ public:
     virtual QWidget& requestedSpeed4() = 0;
     virtual QWidget& requestedSpeed5() = 0;
     virtual QWidget& requestedSpeed6() = 0;
-    virtual QLabel& requestedSpeedLabel() = 0;
+    virtual QLabel& requestedFanSpeedLabel() = 0;
 
     virtual QLabel& fanVoltage() = 0;
 
@@ -61,4 +63,5 @@ public:
     virtual QLabel& auxVoltageLabel() = 0;
 
     virtual QWidget& auxBmsAliveWidget() = 0;
+    virtual QVBoxLayout& progressBarContainer() = 0;
 };

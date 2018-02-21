@@ -1,4 +1,5 @@
 ﻿#include "BatteryView.h"
+#include <QDebug>
 
 namespace
 {
@@ -22,13 +23,13 @@ namespace
     const QString FAN_ON = "background-color: rgb(250, 187, 28);";
     const QString REQUESTED_FAN_ON = "background-color: rgb(64, 161, 191);";
     const QString FAN_OFF = "background-color: grey;";
-
 }
 
 BatteryView::BatteryView(BatteryPresenter& batteryPresenter,
-                         I_BatteryUi& ui)
+                         I_BatteryUi& ui, ProgressBar& bar)
     : batteryPresenter_(batteryPresenter)
     , ui_(ui)
+    , bar_(bar)
 {
     connectBattery(batteryPresenter_);
 }
@@ -119,6 +120,9 @@ void BatteryView::connectBattery(BatteryPresenter& batteryPresenter)
 
     connect(&batteryPresenter, SIGNAL(packNetPowerReceived(const double)),
             this, SLOT(packNetPowerReceived(const double)));
+
+    connect(&batteryPresenter, SIGNAL(updateProgress(const double, double)), this, SLOT(updateProgress(const double, double)));
+    ui_.progressBarContainer().addWidget(&bar_);
 }
 
 
@@ -136,9 +140,9 @@ void BatteryView::aliveReceived(bool alive)
     }
 }
 
-void BatteryView::bmsRelayStatusReceived(BmsRelayStatusFlags)
+void BatteryView::bmsRelayStatusReceived(BmsRelayStatusFlags BmsRelayStatus)
 {
-    if(BmsRelayStatusFlags.alwaysOnSignalStatus())
+    if(BmsRelayStatus.alwaysOnSignalStatus())
     {
         ui_.BMSOn().setStyleSheet(ON);
     }
@@ -147,7 +151,7 @@ void BatteryView::bmsRelayStatusReceived(BmsRelayStatusFlags)
         ui_.BMSOn().setStyleSheet(OFF);
     }
 
-    if(BmsRelayStatusFlags.isChargingSignalStatus())
+    if(BmsRelayStatus.isChargingSignalStatus())
     {
         ui_.BMSCharging().setStyleSheet(ON);
     }
@@ -156,7 +160,7 @@ void BatteryView::bmsRelayStatusReceived(BmsRelayStatusFlags)
         ui_.BMSCharging().setStyleSheet(OFF);
     }
 
-    if(BmsRelayStatusFlags.isReadySignalStatus())
+    if(BmsRelayStatus.isReadySignalStatus())
     {
         ui_.BMSReady().setStyleSheet(ON);
     }
@@ -165,7 +169,7 @@ void BatteryView::bmsRelayStatusReceived(BmsRelayStatusFlags)
         ui_.BMSReady().setStyleSheet(OFF);
     }
 
-    if(BmsRelayStatusFlags.dischargeRelayEnabled())
+    if(BmsRelayStatus.dischargeRelayEnabled())
     {
         ui_.BMSDischargeRelayEnabled().setStyleSheet(ON);
     }
@@ -174,7 +178,7 @@ void BatteryView::bmsRelayStatusReceived(BmsRelayStatusFlags)
         ui_.BMSDischargeRelayEnabled().setStyleSheet(OFF);
     }
 
-    if(BmsRelayStatusFlags.chargeRelayEnabled())
+    if(BmsRelayStatus.chargeRelayEnabled())
     {
         ui_.BMSChargeRelayEnabled().setStyleSheet(ON);
     }
@@ -183,7 +187,7 @@ void BatteryView::bmsRelayStatusReceived(BmsRelayStatusFlags)
         ui_.BMSChargeRelayEnabled().setStyleSheet(OFF);
     }
 
-    if(BmsRelayStatusFlags.chargerSafetyEnabled())
+    if(BmsRelayStatus.chargerSafetyEnabled())
     {
         ui_.BMSChargerSafetyEnabled().setStyleSheet(ON);
     }
@@ -192,7 +196,7 @@ void BatteryView::bmsRelayStatusReceived(BmsRelayStatusFlags)
         ui_.BMSChargerSafetyEnabled().setStyleSheet(OFF);
     }
 
-    if(BmsRelayStatusFlags.malfunctionIndicatorActive())
+    if(BmsRelayStatus.malfunctionIndicatorActive())
     {
         ui_.malfunctionIndicatorActive().setStyleSheet(ON);
     }
@@ -201,7 +205,7 @@ void BatteryView::bmsRelayStatusReceived(BmsRelayStatusFlags)
         ui_.malfunctionIndicatorActive().setStyleSheet(OFF);
     }
 
-    if(BmsRelayStatusFlags.multiPurposeInputSignalStatus())
+    if(BmsRelayStatus.multiPurposeInputSignalStatus())
     {
         ui_.multipurposeInputSignalStatus().setStyleSheet(ON);
     }
@@ -273,15 +277,15 @@ void BatteryView::lowThermistorIdReceived(int lowThermistorId)
     ui_.tempLowThermistorIDLabel().setNum(lowThermistorId);
 }
 
-void BatteryView::averageTemperatureReceived(int averageTemperature)
+void BatteryView::averageTemperatureReceived(int lowTemperature, int highTemperature)
 {
-    averageTemperature = (lowTemperature + highTemperature) / 2;
+    int averageTemperature = (lowTemperature + highTemperature) / 2;
     ui_.tempAvgLabel().setText(QString::number(averageTemperature) + TEMPERATURE_UNIT);
 }
 
 void BatteryView::internalTemperatureReceived(int internalTemperature)
 {
-    ui_.internalTempLabel().setText(QString::number(lowTemperature) + TEMPERATURE_UNIT);
+    ui_.internalTempLabel().setText(QString::number(internalTemperature) + TEMPERATURE_UNIT);
 }
 
 void BatteryView::fanSpeedReceived(int fanSpeed)
@@ -366,7 +370,7 @@ void BatteryView::requestedFanSpeedReceived(int requestedFanSpeed)
     if(requestedFanSpeed == 0)
     {
         ui_.requestedSpeed1().setStyleSheet(FAN_OFF);
-        ui_.requqestedSpeed2().setStyleSheet(FAN_OFF);
+        ui_.requestedSpeed2().setStyleSheet(FAN_OFF);
         ui_.requestedSpeed3().setStyleSheet(FAN_OFF);
         ui_.requestedSpeed4().setStyleSheet(FAN_OFF);
         ui_.requestedSpeed5().setStyleSheet(FAN_OFF);
@@ -408,7 +412,7 @@ void BatteryView::requestedFanSpeedReceived(int requestedFanSpeed)
        ui_.requestedSpeed1().setStyleSheet(REQUESTED_FAN_ON);
        ui_.requestedSpeed1().setStyleSheet(REQUESTED_FAN_ON);
        ui_.requestedSpeed3().setStyleSheet(REQUESTED_FAN_ON);
-       ui_.requestedSpeed4().setStyleSheet(REUESTED_FAN_ON);
+       ui_.requestedSpeed4().setStyleSheet(REQUESTED_FAN_ON);
        ui_.requestedSpeed5().setStyleSheet(FAN_OFF);
        ui_.requestedSpeed6().setStyleSheet(FAN_OFF);
    }
@@ -451,7 +455,7 @@ void BatteryView::highCellVoltageReceived(int highCellVoltage)
 
 void BatteryView::highCellVoltageIdReceived(int highCellVoltageId)
 {
-    ui_.highCellVoltageIDLabel().setNum(highCellVoltageId)
+    ui_.highCellVoltageIDLabel().setNum(highCellVoltageId);
 }
 
 void BatteryView::averageCellVoltageReceived(int lowCellVoltage, int highCellVoltage)
@@ -486,6 +490,12 @@ void BatteryView::auxBmsAliveReceived(bool auxBmsAlive)
 void BatteryView::packNetPowerReceived(double packNetPower)
 {
 
+}
+
+void BatteryView::updateProgress(const double position, double totalCharge)
+{
+    bar_.progress = (const double)position/(double)totalCharge;
+    bar_.update();
 }
 
 

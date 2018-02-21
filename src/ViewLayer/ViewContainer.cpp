@@ -14,6 +14,7 @@
 #include "DebugDisplay/Tab/TabUi/TabUi.h"
 #include "DebugDisplay/MPPTPage/MPPTUi/MpptUi.h"
 #include "DebugDisplay/MPPTPage/MPPTView/MpptView.h"
+
 ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
 {
     if (mode == Mode::DISPLAY)

@@ -5,15 +5,20 @@
 #include "../../../../DataLayer/BatteryData/BatteryData.h"
 #include "../../../../PresenterLayer/BatteryPresenter/BatteryPresenter.h"
 #include "../../BatteryPage/BatteryUi/I_BatteryUi.h"
+#include "../ProgressBar.h"
 
 class BatteryPresenter;
+
+class I_BatteryUi;
+
+class ProgressBar;
 
 class BatteryView : public QObject
 {
     Q_OBJECT
 public:
     BatteryView(BatteryPresenter& batteryPresenter,
-                I_BatteryUi& ui);
+                I_BatteryUi& ui, ProgressBar& bar);
     ~BatteryView();
 
 private:
@@ -22,6 +27,10 @@ private:
     BatteryPresenter& batteryPresenter_;
 
     I_BatteryUi& ui_;
+
+    ProgressBar& bar_;
+
+
 
 private slots:
     void aliveReceived(const bool);
@@ -38,7 +47,7 @@ private slots:
     void highThermistorIdReceived(const int);
     void lowTemperatureReceived(const int);
     void lowThermistorIdReceived(const int);
-    void averageTemperatureReceived(const int);
+    void averageTemperatureReceived(const int, const int);
     void internalTemperatureReceived(const int);
     void fanSpeedReceived(const int);
     void requestedFanSpeedReceived(const int);
@@ -46,9 +55,11 @@ private slots:
     void lowCellVoltageIdReceived(const int);
     void highCellVoltageReceived(const int);
     void highCellVoltageIdReceived(const int);
-    void averageCellVoltageReceived(const int);
+    void averageCellVoltageReceived(const int, const int);
     void prechargeStateReceived(const QString);
     void auxVoltageReceived(const int);
     void auxBmsAliveReceived(const bool);
     void packNetPowerReceived(const double);
+    void updateProgress(const double position, double totalCharge);
+
 };

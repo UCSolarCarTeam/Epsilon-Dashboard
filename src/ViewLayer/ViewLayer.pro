@@ -32,7 +32,8 @@ HEADERS += \
     DisplayDashboard/DisplayDashboardUI/I_RaceModeDashboardUI.h \
     DisplayDashboard/DisplayDashboardUI/RaceModeDashboardUI.h \
     DisplayDashboard/DisplayDashboardView/DisplayDashboardView.h \
-    ViewContainer.h
+    ViewContainer.h \
+    DebugDisplay/BatteryPage/ProgressBar.h
 
 SOURCES += \ 
     DebugDisplay/BatteryPage/BatteryUi/BatteryUi.cpp \
@@ -50,7 +51,8 @@ SOURCES += \
     DisplayDashboard/DisplayDashboardUI/DisplayDashboardUI.cpp \
     DisplayDashboard/DisplayDashboardView/DisplayDashboardView.cpp \
     DisplayDashboard/DisplayDashboardUI/RaceModeDashboardUI.cpp \
-    ViewContainer.cpp
+    ViewContainer.cpp \
+    DebugDisplay/BatteryPage/ProgressBar.cpp
 
 FORMS += \   
     DebugDisplay/BatteryPage/BatteryUi/BatteryUi.ui \

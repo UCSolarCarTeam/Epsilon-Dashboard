@@ -1,5 +1,6 @@
 #pragma once
 
+#include "DebugDisplay/BatteryPage/ProgressBar.h"
 #include <QScopedPointer>
 
 class DisplayDashboardView;
@@ -17,6 +18,7 @@ class MpptView;
 class OverlordWidget;
 class TabUi;
 class PresenterContainer;
+class ProgressBar;
 
 
 enum class Mode { RACE, DISPLAY, DEBUG };
@@ -37,6 +39,7 @@ private:
     MotorUi* motorUi_;
     MpptUi* mpptUi_;
     TabUi* tabUi_;
+    ProgressBar* ProgressBar_;
 
     QScopedPointer<MotorFaultView> MotorFaultView_;
 
