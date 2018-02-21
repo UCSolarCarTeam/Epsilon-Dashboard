@@ -10,20 +10,20 @@
 #include "../../../../DataLayer/MotorFaultsData/LimitFlags.h"
 #include "../../../../PresenterLayer/BatteryFaultsPresenter/BatteryFaultsPresenter.h"
 #include "../../../../PresenterLayer/MotorFaultsPresenter/MotorFaultsPresenter.h"
-#include "../MotorFaultUi/I_MotorFaultUi.h"
+#include "../FaultUi/I_FaultUi.h"
 
 class MotorFaultsPresenter;
 class BatteryFaultsPresenter;
-class I_MotorFaultUi;
+class I_FaultUi;
 
-class MotorFaultView : public QObject
+class FaultView : public QObject
 {
     Q_OBJECT
 public:
-    MotorFaultView(MotorFaultsPresenter& motorFaultsPresenter,
-                   BatteryFaultsPresenter& batteryFaultsPresenter,
-                   I_MotorFaultUi& ui);
-    ~MotorFaultView();
+    FaultView(MotorFaultsPresenter& motorFaultsPresenter,
+              BatteryFaultsPresenter& batteryFaultsPresenter,
+              I_FaultUi& ui);
+    ~FaultView();
 
 private:
     void connectMotorFaults(MotorFaultsPresenter&);
@@ -35,7 +35,7 @@ private:
     MotorFaultsPresenter& motorFaultsPresenter_;
     BatteryFaultsPresenter& batteryFaultsPresenter_;
 
-    I_MotorFaultUi& ui_;
+    I_FaultUi& ui_;
 
     // Motor 0
     QLabel badMotorPositionHallSequence0Fault_;

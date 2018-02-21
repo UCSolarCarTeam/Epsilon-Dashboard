@@ -10,6 +10,7 @@ MpptUi::MpptUi() :
     QPalette background;
     background.setBrush(QPalette::Background, bkgnd);
     this->setPalette(background);
+
 }
 
 MpptUi::~MpptUi()

@@ -51,7 +51,7 @@ namespace JsonFormat
     const QString MOTORDETAILS_MOTORVOLTAGEIMAGINARY = "MotorVoltageImaginary";
     const QString MOTORDETAILS_MOTORCURRENTREAL = "MotorCurrentReal";
     const QString MOTORDETAILS_MOTORCURRENTIMAGINARY = "MotorCurrentImaginary";
-    const QString MOTORDETAILS_BACKEMF = "BackEMF";
+    const QString MOTORDETAILS_BACKEMF = "BackEmf";
     const QString MOTORDETAILS_VOLTAGERAIL15VSUPPLY = "VoltageRail15VSupply";
     const QString MOTORDETAILS_VOLTAGERAIL3VSUPPLY = "VoltageRail3VSupply";
     const QString MOTORDETAILS_VOLTAGERAIL1VSUPPLY = "VoltageRail1VSupply";

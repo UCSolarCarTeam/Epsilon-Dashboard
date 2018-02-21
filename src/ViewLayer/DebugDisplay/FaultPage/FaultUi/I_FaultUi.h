@@ -3,11 +3,11 @@
 #include <QLabel>
 #include <QScrollArea>
 
-class I_MotorFaultUi: public QWidget
+class I_FaultUi: public QWidget
 {
     Q_OBJECT
 public:
-    virtual ~I_MotorFaultUi() {}
+    virtual ~I_FaultUi() {}
 
 
     virtual QWidget& motor0ContentsWidget() = 0;
