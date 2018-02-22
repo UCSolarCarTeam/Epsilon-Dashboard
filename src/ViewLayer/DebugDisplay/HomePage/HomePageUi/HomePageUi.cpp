@@ -21,9 +21,9 @@ QPushButton& HomePageUi::controlButton()
     return *ui_->controlButton;
 }
 
-QPushButton& HomePageUi::motorFaultButton()
+QPushButton& HomePageUi::faultButton()
 {
-    return *ui_->motorFaultButton;
+    return *ui_->faultButton;
 }
 
 QPushButton& HomePageUi::motorButton()
