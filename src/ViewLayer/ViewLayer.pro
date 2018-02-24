@@ -15,9 +15,9 @@ HEADERS += \
     DebugDisplay/ControlPage/ControlView/ControlView.h \
     DebugDisplay/HomePage/HomePageUi/HomePageUi.h \
     DebugDisplay/HomePage/HomePageUi/I_HomePageUi.h \
-    DebugDisplay/MotorFaultPage/MotorFaultView/MotorFaultView.h \
-    DebugDisplay/MotorFaultPage/MotorFaultUi/MotorFaultUi.h \
-    DebugDisplay/MotorFaultPage/MotorFaultUi/I_MotorFaultUi.h \
+    DebugDisplay/FaultPage/FaultView/FaultView.h \
+    DebugDisplay/FaultPage/FaultUi/FaultUi.h \
+    DebugDisplay/FaultPage/FaultUi/I_FaultUi.h \
     DebugDisplay/MotorPage/MotorUi/MotorUi.h \
     DebugDisplay/MotorPage/MotorUi/I_MotorUi.h \
     DebugDisplay/MPPTPage/MPPTUi/MpptUi.h \
@@ -39,9 +39,9 @@ SOURCES += \
     DebugDisplay/ControlPage/ControlUi/ControlUi.cpp \
     DebugDisplay/ControlPage/ControlView/ControlView.cpp \
     DebugDisplay/HomePage/HomePageUi/HomePageUi.cpp\ 
-    DebugDisplay/MotorFaultPage/MotorFaultUi/MotorFaultUi.cpp \
-    DebugDisplay/MotorFaultPage/MotorFaultView/MotorFaultView.cpp \
+    DebugDisplay/FaultPage/FaultUi/FaultUi.cpp \
     DebugDisplay/MotorPage/MotorUi/MotorUi.cpp \
+    DebugDisplay/FaultPage/FaultView/FaultView.cpp \
     DebugDisplay/MPPTPage/MPPTUi/MpptUi.cpp \
     DebugDisplay/MPPTPage/MPPTView/MpptView.cpp \
     DebugDisplay/OverlordWidget/OverlordWidget.cpp \
@@ -56,7 +56,7 @@ FORMS += \
     DebugDisplay/BatteryPage/BatteryUi/BatteryUi.ui \
     DebugDisplay/ControlPage/ControlUi/ControlUi.ui \
     DebugDisplay/HomePage/HomePageUi/HomePageUi.ui \
-    DebugDisplay/MotorFaultPage/MotorFaultUi/MotorFaultUi.ui \
+    DebugDisplay/FaultPage/FaultUi/FaultUi.ui \
     DebugDisplay/MotorPage/MotorUi/MotorUi.ui \
     DebugDisplay/MPPTPage/MPPTUi/MpptUi.ui \
     DebugDisplay/Tab/TabUi/TabUi.ui \

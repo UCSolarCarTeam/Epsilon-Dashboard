@@ -1,25 +1,24 @@
 #pragma once
 
 class QIODevice;
-class QUdpSocket;
 
-#include "CommDefines.h"
-#include "I_CommDevice.h"
 #include <SimpleAmqpClient/SimpleAmqpClient.h>
-#include <QTimer>
-#include <thread>
+#include <QByteArray>
+#include <QThread>
 
-class InternetCommDevice : public I_CommDevice
+class InternetCommDevice : public QThread
 {
     Q_OBJECT
-public:
-    InternetCommDevice(AmqpClient::Channel::ptr_t channel, QString queueName);
-    virtual ~InternetCommDevice();
 
-private slots:
-    void handleJsonDataIncoming();
+public:
+    void setQueueName(QString queueName);
+    void setChannel(AmqpClient::Channel::ptr_t channel);
+    virtual void run() override;
 
 private:
     AmqpClient::Channel::ptr_t channel_;
     QString queueName_;
+
+signals:
+    void dataReceived(QByteArray data);
 };

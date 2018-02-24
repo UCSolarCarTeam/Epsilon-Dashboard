@@ -1,23 +1,22 @@
 #include "InternetCommDevice.h"
 #include <QDebug>
 
-InternetCommDevice::InternetCommDevice(AmqpClient::Channel::ptr_t channel, QString queueName)
-    : channel_(channel), queueName_(queueName)
+void InternetCommDevice::setQueueName(QString queueName)
 {
-    std::thread waitForData(&InternetCommDevice::handleJsonDataIncoming, this);
-    waitForData.detach();
+    queueName_ = queueName;
 }
 
-InternetCommDevice::~InternetCommDevice()
+void InternetCommDevice::setChannel(AmqpClient::Channel::ptr_t channel)
 {
-    std::terminate();
+    channel_ = channel;
 }
 
-void InternetCommDevice::handleJsonDataIncoming()
+void InternetCommDevice::run()
 {
+    std::string consumer_tag = channel_->BasicConsume(queueName_.toStdString(), "", true, true, false);
+
     while (1)
     {
-        std::string consumer_tag = channel_->BasicConsume(queueName_.toStdString(), "", true, true, false);
         AmqpClient::Envelope::ptr_t envelope = channel_->BasicConsumeMessage(consumer_tag);
         QString str = QString::fromStdString(envelope->Message()->Body());
         QByteArray dat = str.toUtf8();

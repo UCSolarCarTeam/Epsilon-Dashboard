@@ -3,8 +3,7 @@
 #include "../DataLayer/DataContainer.h"
 #include "CommunicationContainer.h"
 #include "CommDeviceControl/ConnectionController.h"
-#include "CommDeviceControl/InternetCommDevice.h"
-#include "CommDeviceControl/InternetConnectionService.h"
+#include "CommDeviceControl/CommDeviceManager.h"
 #include "JsonReceiver/JsonReceiver.h"
 #include "../BusinessLayer/BusinessContainer.h"
 #include "../InfrastructureLayer/InfrastructureContainer.h"
@@ -16,15 +15,13 @@ class CommunicationContainerPrivate
 public:
     CommunicationContainerPrivate(BusinessContainer& businessContainer,
                                   InfrastructureContainer& infrastructureContainer)
-        : internetConnectionService_(infrastructureContainer.settings().exchange(),
-                                     infrastructureContainer.settings().queue(),
-                                     infrastructureContainer.settings().ipAddress(),
-                                     infrastructureContainer.settings().port())
-        , internetCommDevice_(internetConnectionService_.getChannel(),
-                              infrastructureContainer.settings().queue())
-        , connectionController_(internetConnectionService_)
-        , jsonReceiver_(internetCommDevice_,
-                        businessContainer.batteryPopulator(),
+        : connectionController_(infrastructureContainer.settings().exchange(),
+                                infrastructureContainer.settings().queue(),
+                                infrastructureContainer.settings().ipAddress(),
+                                infrastructureContainer.settings().port())
+        , commDeviceManager_(connectionController_.getChannel(),
+                             infrastructureContainer.settings().queue())
+        , jsonReceiver_(businessContainer.batteryPopulator(),
                         businessContainer.batteryFaultsPopulator(),
                         businessContainer.driverControlsPopulator(),
                         businessContainer.keyMotorPopulator(),
@@ -34,10 +31,10 @@ public:
                         businessContainer.motorFaultsPopulator(),
                         businessContainer.communicationsMonitoringService())
     {
+        QObject::connect(&commDeviceManager_, SIGNAL(dataReceived(QByteArray)), &jsonReceiver_, SLOT(handleIncomingData(QByteArray)));
     }
-    InternetConnectionService internetConnectionService_;
-    InternetCommDevice internetCommDevice_;
     ConnectionController connectionController_;
+    CommDeviceManager commDeviceManager_;
     JsonReceiver jsonReceiver_;
 };
 
@@ -55,17 +52,12 @@ ConnectionController& CommunicationContainer::connectionController()
     return impl_->connectionController_;
 }
 
-InternetConnectionService& CommunicationContainer::internetConnectionService()
-{
-    return impl_->internetConnectionService_;
-}
-
 I_JsonReceiver& CommunicationContainer::jsonReceiver()
 {
     return impl_->jsonReceiver_;
 }
 
-InternetCommDevice& CommunicationContainer::commDeviceManager()
+CommDeviceManager& CommunicationContainer::commDeviceManager()
 {
-    return impl_->internetCommDevice_;
+    return impl_->commDeviceManager_;
 }

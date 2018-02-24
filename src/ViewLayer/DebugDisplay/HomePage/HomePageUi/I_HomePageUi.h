@@ -11,6 +11,6 @@ public:
     virtual QPushButton& batteryButton() = 0;
     virtual QPushButton& controlButton() = 0;
     virtual QPushButton& motorButton() = 0;
-    virtual QPushButton& motorFaultButton() = 0;
+    virtual QPushButton& faultButton() = 0;
     virtual QPushButton& mpptButton() = 0;
 };

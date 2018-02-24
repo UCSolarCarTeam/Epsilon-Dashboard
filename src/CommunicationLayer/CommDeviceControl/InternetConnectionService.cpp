@@ -11,10 +11,11 @@ namespace
     quint32 SLEEP_TIME_MILLISECONDS = 2000;
 }
 
-InternetConnectionService::InternetConnectionService(QString exchangeName
-        ,  QString queueName
-        ,  QString ipAddress
-        ,  quint16 port)
+InternetConnectionService::InternetConnectionService(
+    QString exchangeName
+    ,  QString queueName
+    ,  QString ipAddress
+    ,  quint16 port)
     : exchangeName_(exchangeName)
     , queueName_(queueName)
     , ipAddress_(ipAddress)
@@ -24,7 +25,6 @@ InternetConnectionService::InternetConnectionService(QString exchangeName
     QObject::connect(this, SIGNAL(setupChannelSignal()), this, SLOT(connectToDataSource()));
     connectionRetryTimer_.setSingleShot(true);
     connect(&connectionRetryTimer_, SIGNAL(timeout()), this, SLOT(connectToDataSource()));
-    connectToDataSource();
 }
 
 InternetConnectionService::~InternetConnectionService()
@@ -40,7 +40,7 @@ void InternetConnectionService::setupChannel()
     {
         channel_ = AmqpClient::Channel::Create(ipAddress_.toStdString(), port_);
         channel_->DeclareExchange(exchangeName_.toStdString(), AmqpClient::Channel::EXCHANGE_TYPE_FANOUT);
-        channel_->DeclareQueue(queueName_.toStdString());
+        channel_->DeclareQueue(queueName_.toStdString(), false, false, false, false);
         channel_->BindQueue(queueName_.toStdString(), exchangeName_.toStdString());
     }
     catch (AmqpClient::ChannelException&)
@@ -79,7 +79,6 @@ void InternetConnectionService::setupChannel()
         qWarning() << " InternetConnectionService: Error creating channel, Unknown Exception";
         throw;
     }
-
 
     qDebug("Successful connection to RabbitMQ Server");
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MotorFaultUi</class>
- <widget class="QWidget" name="MotorFaultUi">
+ <class>FaultUi</class>
+ <widget class="QWidget" name="FaultUi">
   <property name="geometry">
    <rect>
     <x>0</x>
