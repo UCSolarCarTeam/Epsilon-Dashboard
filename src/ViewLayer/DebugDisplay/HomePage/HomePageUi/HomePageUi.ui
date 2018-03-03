@@ -35,12 +35,12 @@
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>400</x>
+     <x>410</x>
      <y>120</y>
-     <width>231</width>
+     <width>221</width>
      <height>461</height>
     </rect>
    </property>
@@ -86,6 +86,16 @@ color: white;
       <property name="text">
        <string notr="true">MPPT</string>
       </property>
+      <property name="icon">
+       <iconset resource="../../../uiresources.qrc">
+        <normaloff>:/Resource/MPPT Icon.png</normaloff>:/Resource/MPPT Icon.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>40</width>
+        <height>40</height>
+       </size>
+      </property>
      </widget>
     </item>
     <item row="1" column="0">
@@ -113,6 +123,16 @@ color: white;
       </property>
       <property name="text">
        <string>Control</string>
+      </property>
+      <property name="icon">
+       <iconset resource="../../../uiresources.qrc">
+        <normaloff>:/Resource/Steering Icon.png</normaloff>:/Resource/Steering Icon.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>32</width>
+        <height>32</height>
+       </size>
       </property>
      </widget>
     </item>
@@ -142,6 +162,16 @@ color: white;
       <property name="text">
        <string>Faults</string>
       </property>
+      <property name="icon">
+       <iconset resource="../../../uiresources.qrc">
+        <normaloff>:/Resource/Fault Icon.png</normaloff>:/Resource/Fault Icon.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>40</width>
+        <height>40</height>
+       </size>
+      </property>
      </widget>
     </item>
     <item row="3" column="0">
@@ -170,6 +200,16 @@ color: white;
       <property name="text">
        <string>Motor</string>
       </property>
+      <property name="icon">
+       <iconset resource="../../../uiresources.qrc">
+        <normaloff>:/Resource/Engine Icon.png</normaloff>:/Resource/Engine Icon.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>40</width>
+        <height>40</height>
+       </size>
+      </property>
      </widget>
     </item>
     <item row="4" column="0">
@@ -197,6 +237,16 @@ color: white;
       </property>
       <property name="text">
        <string>Battery</string>
+      </property>
+      <property name="icon">
+       <iconset resource="../../../uiresources.qrc">
+        <normaloff>:/Resource/Battery Icon.png</normaloff>:/Resource/Battery Icon.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>40</width>
+        <height>40</height>
+       </size>
       </property>
      </widget>
     </item>

@@ -55,5 +55,6 @@
         <file>Resource/MPPT Icon.png</file>
         <file>Resource/Steering Icon.png</file>
         <file>Resource/Tab Background</file>
+        <file>Resource/Fault Icon.png</file>
     </qresource>
 </RCC>
