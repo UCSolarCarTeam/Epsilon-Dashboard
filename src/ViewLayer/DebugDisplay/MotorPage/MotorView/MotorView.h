@@ -74,4 +74,7 @@ private slots:
 
     void motorZeroDetailsReceived(MotorDetails);
     void motorOneDetailsReceived(MotorDetails);
+    void motorZeroAverage(MotorDetails);
+    void motorOneAverage(MotorDetails);
+
 };
