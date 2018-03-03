@@ -1429,7 +1429,7 @@ padding-bottom: -25px;</string>
              </size>
             </property>
             <property name="styleSheet">
-             <string notr="true">border-image: url(:/Resources/TurnSignaLeft.png)  0 0 0 0 stretch stretch;</string>
+             <string notr="true">border-image: url(:/Resources/TurnSignalLeft.png)  0 0 0 0 stretch stretch;</string>
             </property>
            </widget>
           </item>

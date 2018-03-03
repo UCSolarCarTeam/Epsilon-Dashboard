@@ -215,7 +215,7 @@ void RaceModeDashboardView::leftSignalReceived(bool leftSignal)
 {
     if (leftSignal)
     {
-        ui_.leftTurnSignalWidget().setStyleSheet("border-image: url(:/Resources/TurnSignaLeft.png) 0 0 0 0 stretch stretch;");
+        ui_.leftTurnSignalWidget().setStyleSheet("border-image: url(:/Resources/TurnSignalLeft.png) 0 0 0 0 stretch stretch;");
     }
     else
     {
@@ -226,7 +226,7 @@ void RaceModeDashboardView::rightSignalReceived(bool rightSignal)
 {
     if (rightSignal)
     {
-        ui_.rightTurnSignalWidget().setStyleSheet("border-image: url(:/Resources/TurnSignaRight.png) 0 0 0 0 stretch stretch;");
+        ui_.rightTurnSignalWidget().setStyleSheet("border-image: url(:/Resources/TurnSignalRight.png) 0 0 0 0 stretch stretch;");
     }
     else
     {
