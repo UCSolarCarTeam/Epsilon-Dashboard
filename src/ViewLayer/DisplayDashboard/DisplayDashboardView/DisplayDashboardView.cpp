@@ -255,7 +255,7 @@ void DisplayDashboardView::leftSignalReceived(bool leftSignal)
 {
     if (leftSignal)
     {
-        ui_.leftTurnSignalWidget().setStyleSheet("background: url(:/Resources/TurnSignaLeft.png);");
+        ui_.leftTurnSignalWidget().setStyleSheet("background: url(:/Resources/TurnSignalLeft.png);");
     }
     else
     {
@@ -266,7 +266,7 @@ void DisplayDashboardView::rightSignalReceived(bool rightSignal)
 {
     if (rightSignal)
     {
-        ui_.rightTurnSignalWidget().setStyleSheet("background: url(:/Resources/TurnSignaRight.png);");
+        ui_.rightTurnSignalWidget().setStyleSheet("background: url(:/Resources/TurnSignalRight.png);");
     }
     else
     {
