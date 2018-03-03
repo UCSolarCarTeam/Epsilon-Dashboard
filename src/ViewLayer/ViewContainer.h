@@ -42,7 +42,7 @@ private:
 
 
     QScopedPointer<MotorView> MotorView_;
-    QScopedPointer<MotorFaultView> MotorFaultView_;
+    //QScopedPointer<MotorFaultView> MotorFaultView_;
     QScopedPointer<FaultView> FaultView_;
     QScopedPointer<ControlView> ControlView_;
     QScopedPointer<MpptView> MpptView_;
