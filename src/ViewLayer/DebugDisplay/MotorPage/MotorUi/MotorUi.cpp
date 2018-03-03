@@ -28,7 +28,7 @@ QLabel& MotorUi::setCurrentAvgLabel()
 
 QLabel& MotorUi::setCurrentRightLabel()
 {
-    return *ui_->setCurrentLeftLabel;
+    return *ui_->setCurrentRightLabel;
 }
 
 QLabel& MotorUi::setVelocityLeftLabel()
