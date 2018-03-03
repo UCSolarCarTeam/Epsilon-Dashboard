@@ -52,7 +52,6 @@ SOURCES += \
     DebugDisplay/Tab/TabUi/TabUi.cpp \
     DisplayDashboard/DisplayDashboardUI/DisplayDashboardUI.cpp \
     DisplayDashboard/DisplayDashboardView/DisplayDashboardView.cpp \
-    DisplayDashboard/DisplayDashboardUI/RaceModeDashboardUI.cpp \
     RaceModeDisplay/RaceModeDashboardView.cpp \
     RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.cpp \
     ViewContainer.cpp

@@ -12,9 +12,15 @@ BatteryUi::BatteryUi() :
     this->setPalette(background);
 }
 
+
 BatteryUi::~BatteryUi()
 {
     delete ui_;
+}
+
+QWidget& BatteryUi::aliveWidget()
+{
+    return *ui_ -> aliveWidget;
 }
 
 QLabel& BatteryUi::packInfoCurrent()
@@ -147,6 +153,11 @@ QLabel& BatteryUi::requestedFanSpeedLabel()
     return *ui_->requestedFanSpeedLabel;
 }
 
+QLabel& BatteryUi::fanVoltage()
+{
+    return *ui_->fanVoltage;
+}
+
 QLabel& BatteryUi::tempHighLabel()
 {
     return *ui_->tempHighLabel;
@@ -155,6 +166,11 @@ QLabel& BatteryUi::tempHighLabel()
 QLabel& BatteryUi::tempLowLabel()
 {
     return *ui_->tempLowLabel;
+}
+
+QLabel& BatteryUi::tempAvgLabel()
+{
+    return *ui_->tempAvgLabel;
 }
 
 QLabel& BatteryUi::tempHighThermistorIDLabel()
@@ -222,8 +238,13 @@ QWidget& BatteryUi::auxBmsAliveWidget()
     return *ui_->auxBmsAliveWidget;
 }
 
-QVBoxLayout& BatteryUi::progressBarContainer()
-{
-    return *ui_->progressBarContainer;
-}
+//QVBoxLayout& BatteryUi::progressBarContainer()
+//{
+//    return *ui_->progressBarContainer;
+//}
 
+
+QVBoxLayout& BatteryUi::progressBar()
+{
+    return *ui_->progressBar;
+}

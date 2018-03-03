@@ -63,5 +63,6 @@ public:
     virtual QLabel& auxVoltageLabel() = 0;
 
     virtual QWidget& auxBmsAliveWidget() = 0;
-    virtual QVBoxLayout& progressBarContainer() = 0;
+    //virtual QVBoxLayout& progressBarContainer() = 0;
+    virtual QVBoxLayout& progressBar() = 0;
 };

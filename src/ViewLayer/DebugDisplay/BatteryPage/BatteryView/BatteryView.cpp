@@ -122,7 +122,7 @@ void BatteryView::connectBattery(BatteryPresenter& batteryPresenter)
             this, SLOT(packNetPowerReceived(const double)));
 
     connect(&batteryPresenter, SIGNAL(updateProgress(const double, double)), this, SLOT(updateProgress(const double, double)));
-    ui_.progressBarContainer().addWidget(&bar_);
+    ui_.progressBar().addWidget(&bar_);
 }
 
 
