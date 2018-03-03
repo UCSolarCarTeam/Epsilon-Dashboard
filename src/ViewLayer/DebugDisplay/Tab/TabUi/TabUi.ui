@@ -106,7 +106,7 @@ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
     </widget>
    </item>
    <item>
-    <widget class="QPushButton" name="motorFaultButton">
+    <widget class="QPushButton" name="faultButton">
      <property name="styleSheet">
       <string notr="true">QPushButton{
 color: rgb(255,255,255);
@@ -127,7 +127,7 @@ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
 }</string>
      </property>
      <property name="text">
-      <string>MotorFault</string>
+      <string>Faults</string>
      </property>
     </widget>
    </item>

@@ -193,6 +193,9 @@ namespace JsonFormat
     const QString BATTERY_PRECHARGESTATE = "PrechargeState";
     const QString BATTERY_AUXVOLTAGE = "AuxVoltage";
     const QString BATTERY_AUXBMSALIVE = "AuxBmsAlive";
+    const QString BATTERY_STROBEBMSLIGHT = "StrobeBmsLight";
+    const QString BATTERY_ALLOWCHARGE = "AllowCharge";
+    const QString BATTERY_CONTACTORERROR = "ContactorError";
 
     // MPPT data
     const QString MPPT = "MPPT";

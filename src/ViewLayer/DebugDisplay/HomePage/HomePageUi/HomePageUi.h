@@ -17,7 +17,7 @@ public:
     ~HomePageUi();
     QPushButton& batteryButton();
     QPushButton& controlButton();
-    QPushButton& motorFaultButton();
+    QPushButton& faultButton();
     QPushButton& motorButton();
     QPushButton& mpptButton();
 
