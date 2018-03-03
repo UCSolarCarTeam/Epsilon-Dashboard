@@ -41,5 +41,19 @@
         <file>../Resources/ArrayZeroBackground.png</file>
         <file>Resource/Pause-Play.png</file>
         <file>../Resources/Alive Icon.png</file>
+        <file>Resource/Background.png</file>
+        <file>Resource/Battery.png</file>
+        <file>Resource/Battery Icon.png</file>
+        <file>Resource/Control.png</file>
+        <file>Resource/Engine Icon.png</file>
+        <file>Resource/Faults 1.png</file>
+        <file>Resource/Faults 2.png</file>
+        <file>Resource/Gear Icon.png</file>
+        <file>Resource/Home Icon.png</file>
+        <file>Resource/Motor.png</file>
+        <file>Resource/MPPT.png</file>
+        <file>Resource/MPPT Icon.png</file>
+        <file>Resource/Steering Icon.png</file>
+        <file>Resource/Tab Background</file>
     </qresource>
 </RCC>
