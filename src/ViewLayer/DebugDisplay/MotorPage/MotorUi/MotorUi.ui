@@ -1704,11 +1704,11 @@ background: transparent;
                <property name="styleSheet">
                 <string notr="true">background-color: rgb(252, 175, 62,180);</string>
                </property>
-               <layout class="QGridLayout" name="gridLayout">
-                <item row="0" column="0" alignment="Qt::AlignHCenter">
+               <layout class="QVBoxLayout" name="verticalLayout_23">
+                <item alignment="Qt::AlignHCenter">
                  <widget class="QLabel" name="slipSpeedAvgLabel">
                   <property name="sizePolicy">
-                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                     <horstretch>0</horstretch>
                     <verstretch>0</verstretch>
                    </sizepolicy>
@@ -1716,21 +1716,26 @@ background: transparent;
                   <property name="minimumSize">
                    <size>
                     <width>0</width>
-                    <height>10</height>
+                    <height>0</height>
                    </size>
                   </property>
                   <property name="maximumSize">
                    <size>
-                    <width>9</width>
-                    <height>25</height>
+                    <width>16777215</width>
+                    <height>16777215</height>
                    </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                   </font>
                   </property>
                   <property name="styleSheet">
                    <string notr="true">color:white;
 background: transparent;</string>
                   </property>
                   <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   <string/>
                   </property>
                  </widget>
                 </item>
