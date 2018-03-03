@@ -55,9 +55,9 @@
     </widget>
    </item>
    <item>
-    <widget class="QPushButton" name="motorFaultButton">
+    <widget class="QPushButton" name="faultButton">
      <property name="text">
-      <string>Motor Fault</string>
+      <string>Faults</string>
      </property>
     </widget>
    </item>

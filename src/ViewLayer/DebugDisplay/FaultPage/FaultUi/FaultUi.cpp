@@ -1,7 +1,7 @@
-#include "MotorFaultUi.h"
-#include "ui_MotorFaultUi.h"
-MotorFaultUi::MotorFaultUi():
-    ui_(new Ui::MotorFaultUi)
+#include "FaultUi.h"
+#include "ui_FaultUi.h"
+FaultUi::FaultUi():
+    ui_(new Ui::FaultUi)
 {
     ui_->setupUi(this);
     QPixmap bkgnd(":/Resources/Background.png");
@@ -11,37 +11,37 @@ MotorFaultUi::MotorFaultUi():
     this->setPalette(background);
 }
 
-MotorFaultUi::~MotorFaultUi()
+FaultUi::~FaultUi()
 {
     delete ui_;
 }
 
-QWidget& MotorFaultUi::motor0ContentsWidget()
+QWidget& FaultUi::motor0ContentsWidget()
 {
     return *ui_->motor0ContentsWidget;
 }
 
-QWidget& MotorFaultUi::motor1ContentsWidget()
+QWidget& FaultUi::motor1ContentsWidget()
 {
     return *ui_->motor1ContentsWidget;
 }
 
-QWidget& MotorFaultUi::batteryContentsWidget()
+QWidget& FaultUi::batteryContentsWidget()
 {
     return *ui_->batteryContentsWidget;
 }
 
-QScrollArea& MotorFaultUi::motor0ScrollArea()
+QScrollArea& FaultUi::motor0ScrollArea()
 {
     return *ui_->motor0ScrollArea;
 }
 
-QScrollArea& MotorFaultUi::motor1ScrollArea()
+QScrollArea& FaultUi::motor1ScrollArea()
 {
     return *ui_->motor1ScrollArea;
 }
 
-QScrollArea& MotorFaultUi::batteryScrollArea()
+QScrollArea& FaultUi::batteryScrollArea()
 {
     return *ui_->batteryScrollArea;
 }

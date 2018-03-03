@@ -11,14 +11,15 @@ HEADERS += \
     DebugDisplay/BatteryPage/BatteryUi/BatteryUi.h \
     DebugDisplay/BatteryPage/BatteryUi/I_BatteryUi.h \
     DebugDisplay/BatteryPage/BatteryView/BatteryView.h \
+    DebugDisplay/BatteryPage/ProgressBar.h \
     DebugDisplay/ControlPage/ControlUi/ControlUi.h \
     DebugDisplay/ControlPage/ControlUi/I_ControlUi.h \
     DebugDisplay/ControlPage/ControlView/ControlView.h \
     DebugDisplay/HomePage/HomePageUi/HomePageUi.h \
     DebugDisplay/HomePage/HomePageUi/I_HomePageUi.h \
-    DebugDisplay/MotorFaultPage/MotorFaultView/MotorFaultView.h \
-    DebugDisplay/MotorFaultPage/MotorFaultUi/MotorFaultUi.h \
-    DebugDisplay/MotorFaultPage/MotorFaultUi/I_MotorFaultUi.h \
+    DebugDisplay/FaultPage/FaultView/FaultView.h \
+    DebugDisplay/FaultPage/FaultUi/FaultUi.h \
+    DebugDisplay/FaultPage/FaultUi/I_FaultUi.h \
     DebugDisplay/MotorPage/MotorUi/MotorUi.h \
     DebugDisplay/MotorPage/MotorUi/I_MotorUi.h \
     DebugDisplay/MPPTPage/MPPTUi/MpptUi.h \
@@ -29,21 +30,22 @@ HEADERS += \
     DebugDisplay/Tab/TabUi/I_TabUi.h \
     DisplayDashboard/DisplayDashboardUI/DisplayDashboardUI.h \
     DisplayDashboard/DisplayDashboardUI/I_DisplayDashboardUI.h \
-    DisplayDashboard/DisplayDashboardUI/I_RaceModeDashboardUI.h \
-    DisplayDashboard/DisplayDashboardUI/RaceModeDashboardUI.h \
     DisplayDashboard/DisplayDashboardView/DisplayDashboardView.h \
-    ViewContainer.h \
-    DebugDisplay/BatteryPage/ProgressBar.h
-
+    RaceModeDisplay/RaceModeDashboardView.h \
+    RaceModeDisplay/RaceModeDisplayUI/I_RaceModeDashboardUI.h \
+    RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.h \
+    ViewContainer.h
+    
 SOURCES += \ 
     DebugDisplay/BatteryPage/BatteryUi/BatteryUi.cpp \
     DebugDisplay/BatteryPage/BatteryView/BatteryView.cpp \
+    DebugDisplay/BatteryPage/ProgressBar.cpp \
     DebugDisplay/ControlPage/ControlUi/ControlUi.cpp \
     DebugDisplay/ControlPage/ControlView/ControlView.cpp \
     DebugDisplay/HomePage/HomePageUi/HomePageUi.cpp\ 
-    DebugDisplay/MotorFaultPage/MotorFaultUi/MotorFaultUi.cpp \
-    DebugDisplay/MotorFaultPage/MotorFaultView/MotorFaultView.cpp \
+    DebugDisplay/FaultPage/FaultUi/FaultUi.cpp \
     DebugDisplay/MotorPage/MotorUi/MotorUi.cpp \
+    DebugDisplay/FaultPage/FaultView/FaultView.cpp \
     DebugDisplay/MPPTPage/MPPTUi/MpptUi.cpp \
     DebugDisplay/MPPTPage/MPPTView/MpptView.cpp \
     DebugDisplay/OverlordWidget/OverlordWidget.cpp \
@@ -51,16 +53,17 @@ SOURCES += \
     DisplayDashboard/DisplayDashboardUI/DisplayDashboardUI.cpp \
     DisplayDashboard/DisplayDashboardView/DisplayDashboardView.cpp \
     DisplayDashboard/DisplayDashboardUI/RaceModeDashboardUI.cpp \
-    ViewContainer.cpp \
-    DebugDisplay/BatteryPage/ProgressBar.cpp
+    RaceModeDisplay/RaceModeDashboardView.cpp \
+    RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.cpp \
+    ViewContainer.cpp
 
 FORMS += \   
     DebugDisplay/BatteryPage/BatteryUi/BatteryUi.ui \
     DebugDisplay/ControlPage/ControlUi/ControlUi.ui \
     DebugDisplay/HomePage/HomePageUi/HomePageUi.ui \
-    DebugDisplay/MotorFaultPage/MotorFaultUi/MotorFaultUi.ui \
+    DebugDisplay/FaultPage/FaultUi/FaultUi.ui \
     DebugDisplay/MotorPage/MotorUi/MotorUi.ui \
     DebugDisplay/MPPTPage/MPPTUi/MpptUi.ui \
     DebugDisplay/Tab/TabUi/TabUi.ui \
     DisplayDashboard/DisplayDashboardUI.ui \
-    DisplayDashboard/RaceModeDashboardUI.ui
+    RaceModeDisplay/RaceModeDashboardUI.ui

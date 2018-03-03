@@ -1,4 +1,4 @@
-#include "MotorFaultView.h"
+#include "FaultView.h"
 
 namespace
 {
@@ -33,9 +33,9 @@ namespace
                                    "}";
     int LABEL_RESIZE_LIMIT = 5;
 }
-MotorFaultView::MotorFaultView(MotorFaultsPresenter& motorFaultsPresenter,
-                               BatteryFaultsPresenter& batteryFaultsPresenter,
-                               I_MotorFaultUi& ui)
+FaultView::FaultView(MotorFaultsPresenter& motorFaultsPresenter,
+                     BatteryFaultsPresenter& batteryFaultsPresenter,
+                     I_FaultUi& ui)
     : motorFaultsPresenter_(motorFaultsPresenter)
     , batteryFaultsPresenter_(batteryFaultsPresenter)
     , ui_(ui)
@@ -50,7 +50,7 @@ MotorFaultView::MotorFaultView(MotorFaultsPresenter& motorFaultsPresenter,
     , busCurrentLimit0Fault_("Bus Current Limit")
     , busVoltageUpperLimit0Fault_("Bus Voltage Upper Limit")
     , busVoltageLowerLimit0Fault_ ("Bus Voltage Lower Limit")
-    , ipmOrMotorTelemetryLimit0Fault_ ("IPM or Motor Telemetry Limit")
+    , ipmOrMotorTemperatureLimit0Fault_ ("IPM or Motor Telemetry Limit")
     , motorCurrentLimit0Fault_ ("Motor Current Limit")
     , outputVoltagePwmLimit0Fault_ ("Output Voltage PWM Limit")
     , velocityLimit0Fault_ ("Velocity Limit")
@@ -66,7 +66,7 @@ MotorFaultView::MotorFaultView(MotorFaultsPresenter& motorFaultsPresenter,
     , busCurrentLimit1Fault_("Bus Current Limit")
     , busVoltageUpperLimit1Fault_("Bus Voltage Upper Limit")
     , busVoltageLowerLimit1Fault_ ("Bus Voltage Lower Limit")
-    , ipmOrMotorTelemetryLimit1Fault_ ("IPM or Motor Telemetry Limit")
+    , ipmOrMotorTemperatureLimit1Fault_ ("IPM or Motor Telemetry Limit")
     , motorCurrentLimit1Fault_ ("Motor Current Limit")
     , outputVoltagePwmLimit1Fault_ ("Output Voltage PWM Limit")
     , velocityLimit1Fault_ ("Velocity Limit")
@@ -136,11 +136,11 @@ MotorFaultView::MotorFaultView(MotorFaultsPresenter& motorFaultsPresenter,
     connectBatteryFaults(batteryFaultsPresenter_);
 }
 
-MotorFaultView::~MotorFaultView()
+FaultView::~FaultView()
 {
 }
 
-void MotorFaultView::initializeLabel(QLabel& label, QLayout*& layout, QString& styleSheet)
+void FaultView::initializeLabel(QLabel& label, QLayout*& layout, QString& styleSheet)
 {
     label.resize(WIDTH, HEIGHT);
     label.setStyleSheet(styleSheet);
@@ -149,7 +149,7 @@ void MotorFaultView::initializeLabel(QLabel& label, QLayout*& layout, QString& s
     label.hide();
 }
 
-void MotorFaultView::initializeLabels(QLayout*& layoutM0, QLayout*& layoutM1, QLayout*& layoutB)
+void FaultView::initializeLabels(QLayout*& layoutM0, QLayout*& layoutM1, QLayout*& layoutB)
 {
     // Motor 0
     initializeLabel(badMotorPositionHallSequence0Fault_, layoutM0, ERROR_STYLESHEET);
@@ -164,7 +164,7 @@ void MotorFaultView::initializeLabels(QLayout*& layoutM0, QLayout*& layoutM1, QL
     initializeLabel(busCurrentLimit0Fault_, layoutM0, LIMIT_STYLESHEET);
     initializeLabel(busVoltageLowerLimit0Fault_, layoutM0, LIMIT_STYLESHEET);
     initializeLabel(busVoltageUpperLimit0Fault_, layoutM0, LIMIT_STYLESHEET);
-    initializeLabel(ipmOrMotorTelemetryLimit0Fault_, layoutM0, LIMIT_STYLESHEET);
+    initializeLabel(ipmOrMotorTemperatureLimit0Fault_, layoutM0, LIMIT_STYLESHEET);
     initializeLabel(motorCurrentLimit0Fault_, layoutM0, LIMIT_STYLESHEET);
     initializeLabel(outputVoltagePwmLimit0Fault_, layoutM0, LIMIT_STYLESHEET);
     initializeLabel(velocityLimit0Fault_, layoutM0, LIMIT_STYLESHEET);
@@ -182,7 +182,7 @@ void MotorFaultView::initializeLabels(QLayout*& layoutM0, QLayout*& layoutM1, QL
     initializeLabel(busCurrentLimit1Fault_, layoutM1, LIMIT_STYLESHEET);
     initializeLabel(busVoltageLowerLimit1Fault_, layoutM1, LIMIT_STYLESHEET);
     initializeLabel(busVoltageUpperLimit1Fault_, layoutM1, LIMIT_STYLESHEET);
-    initializeLabel(ipmOrMotorTelemetryLimit1Fault_, layoutM1, LIMIT_STYLESHEET);
+    initializeLabel(ipmOrMotorTemperatureLimit1Fault_, layoutM1, LIMIT_STYLESHEET);
     initializeLabel(motorCurrentLimit1Fault_, layoutM1, LIMIT_STYLESHEET);
     initializeLabel(outputVoltagePwmLimit1Fault_, layoutM1, LIMIT_STYLESHEET);
     initializeLabel(velocityLimit1Fault_, layoutM1, LIMIT_STYLESHEET);
@@ -226,7 +226,7 @@ void MotorFaultView::initializeLabels(QLayout*& layoutM0, QLayout*& layoutM1, QL
     initializeLabel(dclReducedDueToTemperature_, layoutB, LIMIT_STYLESHEET);
 }
 
-void MotorFaultView::updateLabel(const bool& receivedValue, QLabel& label, QWidget& contentsWidget, int& labelCount)
+void FaultView::updateLabel(const bool& receivedValue, QLabel& label, QWidget& contentsWidget, int& labelCount)
 {
     if (receivedValue)
     {
@@ -258,7 +258,7 @@ void MotorFaultView::updateLabel(const bool& receivedValue, QLabel& label, QWidg
     }
 }
 
-void MotorFaultView::connectMotorFaults(MotorFaultsPresenter& motorFaultsPresenter)
+void FaultView::connectMotorFaults(MotorFaultsPresenter& motorFaultsPresenter)
 {
     connect(&motorFaultsPresenter, SIGNAL(motorZeroErrorFlagsReceived(ErrorFlags)),
             this, SLOT(motorZeroErrorFlagsReceived(ErrorFlags)));
@@ -270,7 +270,7 @@ void MotorFaultView::connectMotorFaults(MotorFaultsPresenter& motorFaultsPresent
             this, SLOT(motorOneLimitFlagsReceived(LimitFlags)));
 }
 
-void MotorFaultView::connectBatteryFaults(BatteryFaultsPresenter& batteryFaultsPresenter)
+void FaultView::connectBatteryFaults(BatteryFaultsPresenter& batteryFaultsPresenter)
 {
     connect(&batteryFaultsPresenter, SIGNAL(errorFlagsReceived(BatteryErrorFlags)),
             this, SLOT(errorFlagsReceived(BatteryErrorFlags)));
@@ -278,7 +278,7 @@ void MotorFaultView::connectBatteryFaults(BatteryFaultsPresenter& batteryFaultsP
             this, SLOT(limitFlagsReceived(BatteryLimitFlags)));
 }
 
-void MotorFaultView::motorZeroErrorFlagsReceived(ErrorFlags motorZeroErrorFlags)
+void FaultView::motorZeroErrorFlagsReceived(ErrorFlags motorZeroErrorFlags)
 {
     updateLabel(motorZeroErrorFlags.badMotorPositionHallSequence(), badMotorPositionHallSequence0Fault_, ui_.motor0ContentsWidget(), label0Count_);
     updateLabel(motorZeroErrorFlags.configReadError(), configReadError0Fault_, ui_.motor0ContentsWidget(), label0Count_);
@@ -290,18 +290,18 @@ void MotorFaultView::motorZeroErrorFlagsReceived(ErrorFlags motorZeroErrorFlags)
     updateLabel(motorZeroErrorFlags.softwareOverCurrent(), softwareOverCurrent0Fault_, ui_.motor0ContentsWidget(), label0Count_);
 }
 
-void MotorFaultView::motorZeroLimitFlagsReceived(LimitFlags motorZeroLimitFlags)
+void FaultView::motorZeroLimitFlagsReceived(LimitFlags motorZeroLimitFlags)
 {
     updateLabel(motorZeroLimitFlags.busCurrentLimit(), busCurrentLimit0Fault_, ui_.motor0ContentsWidget(), label0Count_);
     updateLabel(motorZeroLimitFlags.busVoltageUpperLimit(), busVoltageUpperLimit0Fault_, ui_.motor0ContentsWidget(), label0Count_);
     updateLabel(motorZeroLimitFlags.busVoltageLowerLimit(), busVoltageLowerLimit0Fault_, ui_.motor0ContentsWidget(), label0Count_);
-    updateLabel(motorZeroLimitFlags.ipmOrMotorTelemetryLimit(), ipmOrMotorTelemetryLimit0Fault_, ui_.motor0ContentsWidget(), label0Count_);
+    updateLabel(motorZeroLimitFlags.ipmOrMotorTemperatureLimit(), ipmOrMotorTemperatureLimit0Fault_, ui_.motor0ContentsWidget(), label0Count_);
     updateLabel(motorZeroLimitFlags.motorCurrentLimit(), motorCurrentLimit0Fault_, ui_.motor0ContentsWidget(), label0Count_);
     updateLabel(motorZeroLimitFlags.outputVoltagePwmLimit(), outputVoltagePwmLimit0Fault_, ui_.motor0ContentsWidget(), label0Count_);
     updateLabel(motorZeroLimitFlags.velocityLimit(), velocityLimit0Fault_, ui_.motor0ContentsWidget(), label0Count_);
 }
 
-void MotorFaultView::motorOneErrorFlagsReceived(ErrorFlags motorOneErrorFlags)
+void FaultView::motorOneErrorFlagsReceived(ErrorFlags motorOneErrorFlags)
 {
     updateLabel(motorOneErrorFlags.badMotorPositionHallSequence(), badMotorPositionHallSequence1Fault_, ui_.motor1ContentsWidget(), label1Count_);
     updateLabel(motorOneErrorFlags.configReadError(), configReadError1Fault_, ui_.motor1ContentsWidget(), label1Count_);
@@ -313,18 +313,18 @@ void MotorFaultView::motorOneErrorFlagsReceived(ErrorFlags motorOneErrorFlags)
     updateLabel(motorOneErrorFlags.softwareOverCurrent(), softwareOverCurrent1Fault_, ui_.motor1ContentsWidget(), label1Count_);
 }
 
-void MotorFaultView::motorOneLimitFlagsReceived(LimitFlags motorOneLimitFlags)
+void FaultView::motorOneLimitFlagsReceived(LimitFlags motorOneLimitFlags)
 {
     updateLabel(motorOneLimitFlags.busCurrentLimit(), busCurrentLimit1Fault_, ui_.motor1ContentsWidget(), label1Count_);
     updateLabel(motorOneLimitFlags.busVoltageUpperLimit(), busVoltageUpperLimit1Fault_, ui_.motor1ContentsWidget(), label1Count_);
     updateLabel(motorOneLimitFlags.busVoltageLowerLimit(), busVoltageLowerLimit1Fault_, ui_.motor1ContentsWidget(), label1Count_);
-    updateLabel(motorOneLimitFlags.ipmOrMotorTelemetryLimit(), ipmOrMotorTelemetryLimit1Fault_, ui_.motor1ContentsWidget(), label1Count_);
+    updateLabel(motorOneLimitFlags.ipmOrMotorTemperatureLimit(), ipmOrMotorTemperatureLimit1Fault_, ui_.motor1ContentsWidget(), label1Count_);
     updateLabel(motorOneLimitFlags.motorCurrentLimit(), motorCurrentLimit1Fault_, ui_.motor1ContentsWidget(), label1Count_);
     updateLabel(motorOneLimitFlags.outputVoltagePwmLimit(), outputVoltagePwmLimit1Fault_, ui_.motor1ContentsWidget(), label1Count_);
     updateLabel(motorOneLimitFlags.velocityLimit(), velocityLimit1Fault_, ui_.motor1ContentsWidget(), label1Count_);
 }
 
-void MotorFaultView::errorFlagsReceived(BatteryErrorFlags batteryErrorFlags)
+void FaultView::errorFlagsReceived(BatteryErrorFlags batteryErrorFlags)
 {
     updateLabel(batteryErrorFlags.alwaysOnSupplyFault(), alwaysOnSupplyFault_, ui_.batteryContentsWidget(), labelBCount_);
     updateLabel(batteryErrorFlags.canbusCommunicationsFault(), canbusCommunicationsFault_, ui_.batteryContentsWidget(), labelBCount_);
@@ -349,7 +349,7 @@ void MotorFaultView::errorFlagsReceived(BatteryErrorFlags batteryErrorFlags)
     updateLabel(batteryErrorFlags.weakPackFault(), alwaysOnSupplyFault_, ui_.batteryContentsWidget(), labelBCount_);
 }
 
-void MotorFaultView::limitFlagsReceived(BatteryLimitFlags batteryLimitFlags)
+void FaultView::limitFlagsReceived(BatteryLimitFlags batteryLimitFlags)
 {
     updateLabel(batteryLimitFlags.cclReducedDueToAlternateCurrentLimit(), cclReducedDueToAlternateCurrentLimit_, ui_.batteryContentsWidget(), labelBCount_);
     updateLabel(batteryLimitFlags.cclReducedDueToChargerLatch(), cclReducedDueToChargerLatch_, ui_.batteryContentsWidget(), labelBCount_);

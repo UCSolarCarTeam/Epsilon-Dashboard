@@ -16,11 +16,13 @@ HEADERS += \
     CommunicationContainer.h \
     JsonReceiver/I_JsonReceiver.h \
     JsonReceiver/JsonReceiver.h \
-    CommDeviceControl/InternetConnectionService.h
+    CommDeviceControl/InternetConnectionService.h \
+    CommDeviceControl/InternetCommDevice.h
 
 SOURCES += \ 
     CommDeviceControl/CommDeviceManager.cpp \
     CommDeviceControl/ConnectionController.cpp \
     CommunicationContainer.cpp \
     JsonReceiver/JsonReceiver.cpp \
-    CommDeviceControl/InternetConnectionService.cpp
+    CommDeviceControl/InternetConnectionService.cpp \
+    CommDeviceControl/InternetCommDevice.cpp

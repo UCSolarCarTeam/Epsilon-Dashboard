@@ -3,8 +3,6 @@
 #include <SimpleAmqpClient/SimpleAmqpClient.h>
 #include <QHostAddress>
 #include <QString>
-#include <QUdpSocket>
-#include <QThread>
 #include <QTimer>
 
 #include "I_ConnectionService.h"
@@ -23,6 +21,7 @@ public:
 
     void setupChannel();
     void disconnectFromDataSource();
+    AmqpClient::Channel::ptr_t getChannel();
 
 signals:
     void setupChannelSignal();

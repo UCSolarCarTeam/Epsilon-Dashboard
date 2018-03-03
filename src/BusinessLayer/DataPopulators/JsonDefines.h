@@ -51,7 +51,7 @@ namespace JsonFormat
     const QString MOTORDETAILS_MOTORVOLTAGEIMAGINARY = "MotorVoltageImaginary";
     const QString MOTORDETAILS_MOTORCURRENTREAL = "MotorCurrentReal";
     const QString MOTORDETAILS_MOTORCURRENTIMAGINARY = "MotorCurrentImaginary";
-    const QString MOTORDETAILS_BACKEMFREAL = "BackEmfReal";
+    const QString MOTORDETAILS_BACKEMF = "BackEmf";
     const QString MOTORDETAILS_VOLTAGERAIL15VSUPPLY = "VoltageRail15VSupply";
     const QString MOTORDETAILS_VOLTAGERAIL3VSUPPLY = "VoltageRail3VSupply";
     const QString MOTORDETAILS_VOLTAGERAIL1VSUPPLY = "VoltageRail1VSupply";
@@ -63,7 +63,7 @@ namespace JsonFormat
     const QString MOTORDETAILS_SLIPSPEED = "SlipSpeed";
 
     // Driver controls data
-    const QString DRIVERCONTROLS = "DriverControl";
+    const QString DRIVERCONTROLS = "DriverControls";
     const QString DRIVERCONTROLS_ALIVE = "Alive";
     const QString DRIVERCONTROLS_HEADLIGHTSOFF = "HeadlightsOff";
     const QString DRIVERCONTROLS_HEADLIGHTSLOW = "HeadlightsLow";
@@ -72,7 +72,6 @@ namespace JsonFormat
     const QString DRIVERCONTROLS_SIGNALLEFT = "SignalLeft";
     const QString DRIVERCONTROLS_HAZARD = "Hazard";
     const QString DRIVERCONTROLS_INTERIOR = "Interior";
-    const QString DRIVERCONTROLS_AUX = "Aux";
     const QString DRIVERCONTROLS_VOLUMEUP = "VolumeUp";
     const QString DRIVERCONTROLS_VOLUMEDOWN = "VolumeDown";
     const QString DRIVERCONTROLS_NEXTSONG = "NextSong";
@@ -85,6 +84,7 @@ namespace JsonFormat
     const QString DRIVERCONTROLS_PUSHTOTALK = "PushToTalk";
     const QString DRIVERCONTROLS_HORN = "Horn";
     const QString DRIVERCONTROLS_RESET = "Reset";
+    const QString DRIVERCONTROLS_AUX = "Aux";
 
     // Motor faults data
     const QString MOTORFAULTS = "MotorFaults";
@@ -193,6 +193,9 @@ namespace JsonFormat
     const QString BATTERY_PRECHARGESTATE = "PrechargeState";
     const QString BATTERY_AUXVOLTAGE = "AuxVoltage";
     const QString BATTERY_AUXBMSALIVE = "AuxBmsAlive";
+    const QString BATTERY_STROBEBMSLIGHT = "StrobeBmsLight";
+    const QString BATTERY_ALLOWCHARGE = "AllowCharge";
+    const QString BATTERY_CONTACTORERROR = "ContactorError";
 
     // MPPT data
     const QString MPPT = "MPPT";
