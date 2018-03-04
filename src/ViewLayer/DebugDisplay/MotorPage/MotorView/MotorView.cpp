@@ -126,7 +126,7 @@ void MotorView::motorZeroDetailsReceived(MotorDetails motorZeroDetails)
     odometerLeft_ = motorZeroDetails.odometer();
     slipSpeedLeft_ = motorZeroDetails.slipSpeed();
 
-    motorZeroAverage(motorZeroDetails);
+    motorDetailsAverage();
 
 }
 
@@ -174,112 +174,198 @@ void MotorView::motorOneDetailsReceived(MotorDetails motorOneDetails)
     slipSpeedRight_ = motorOneDetails.slipSpeed();
 
 
-    motorOneAverage(motorOneDetails);
+    motorDetailsAverage();
 
 }
 
 
-void MotorView::motorZeroAverage(MotorDetails motorZeroDetails)
+//void MotorView::motorZeroAverage(MotorDetails motorZeroDetails)
+//{
+//    ui_.phaseCCurrentAvgLabel().setNum((motorZeroDetails.phaseCCurrent() +
+//                                        phaseCCurrentRight_) / 2);
+
+//    ui_.phaseBCurrentAvgLabel().setNum((motorZeroDetails.phaseBCurrent() +
+//                                        phaseBCurrentRight_) / 2);
+
+
+//    ui_.motorVoltageRealAvgLabel().setNum((motorZeroDetails.motorVoltageReal() +
+//                                           motorVoltageRealRight_) / 2);
+
+
+//    ui_.motorVoltageImaginaryAvgLabel().setNum((motorZeroDetails.motorVoltageImaginary() +
+//            motorVoltageImaginaryRight_) / 2);
+
+//    ui_.motorCurrentRealAvgLabel().setNum((motorZeroDetails.motorCurrentReal() +
+//                                           motorCurrentRealRight_) / 2);
+
+//    ui_.motorCurrentImaginaryAvgLabel().setNum((motorZeroDetails.motorCurrentImaginary() +
+//            motorCurrentImaginaryRight_) / 2);
+
+//    ui_.backEmfAvgLabel().setNum((motorZeroDetails.backEmf() +
+//                                  backEmfRight_) / 2);
+
+//    ui_.voltageRail3VSupplyAvgLabel().setNum((motorZeroDetails.voltageRail3VSupply() +
+//            voltageRail3VSupplyRight_) / 2);
+
+//    ui_.voltageRail1VSupplyAvgLabel().setNum((motorZeroDetails.voltageRail1VSupply() +
+//            voltageRail1VSupplyRight_) / 2);
+
+//    ui_.voltageRail15VSupplyAvgLabel().setNum((motorZeroDetails.voltageRail15VSupply() +
+//            voltageRail15VSupplyRight_) / 2);
+
+//    ui_.heatSinkTempAvgLabel().setNum((motorZeroDetails.heatSinkTemp() +
+//                                       heatSinkTempRight_) / 2 );
+
+//    ui_.motorTempAvgLabel().setNum((motorZeroDetails.motorTemp() +
+//                                    motorTempRight_) / 2);
+
+//    ui_.dspBoardTempAvgLabel().setNum((motorZeroDetails.dspBoardTemp() +
+//                                       dspBoardTempRight_) / 2);
+
+//    ui_.dcBusAmpHoursAvgLabel().setNum((motorZeroDetails.dcBusAmpHours() +
+//                                        dcBusAmpHoursRight_) / 2);
+
+//    ui_.odometerAvgLabel().setNum((motorZeroDetails.odometer() +
+//                                   odometerRight_) / 2);
+
+//    ui_.slipSpeedAvgLabel().setNum((motorZeroDetails.slipSpeed() +
+//                                    slipSpeedRight_) / 2);
+//}
+
+//void MotorView::motorOneAverage(MotorDetails motorOneDetails)
+//{
+//    ui_.phaseCCurrentAvgLabel().setNum((motorOneDetails.phaseCCurrent() +
+//                                        phaseCCurrentLeft_) / 2);
+
+//    ui_.phaseBCurrentAvgLabel().setNum((motorOneDetails.phaseBCurrent() +
+//                                        phaseBCurrentLeft_) / 2);
+
+//    ui_.motorVoltageRealAvgLabel().setNum((motorOneDetails.motorVoltageReal() +
+//                                           motorVoltageRealLeft_) / 2);
+
+//    ui_.motorVoltageImaginaryAvgLabel().setNum((motorOneDetails.motorVoltageImaginary() +
+//            motorVoltageImaginaryLeft_) / 2);
+
+//    ui_.motorCurrentRealAvgLabel().setNum((motorOneDetails.motorCurrentReal() +
+//                                           motorCurrentRealLeft_) / 2);
+
+//    ui_.motorCurrentImaginaryAvgLabel().setNum((motorOneDetails.motorCurrentImaginary() +
+//            motorCurrentImaginaryLeft_) / 2);
+
+//    ui_.backEmfAvgLabel().setNum((motorOneDetails.backEmf() +
+//                                  backEmfLeft_) / 2);
+
+//    ui_.voltageRail3VSupplyAvgLabel().setNum((motorOneDetails.voltageRail3VSupply() +
+//            voltageRail3VSupplyLeft_) / 2);
+
+//    ui_.voltageRail1VSupplyAvgLabel().setNum((motorOneDetails.voltageRail1VSupply() +
+//            voltageRail1VSupplyLeft_) / 2);
+
+//    ui_.voltageRail15VSupplyAvgLabel().setNum((motorOneDetails.voltageRail15VSupply() +
+//            voltageRail15VSupplyLeft_) / 2);
+
+//    ui_.heatSinkTempAvgLabel().setNum((motorOneDetails.heatSinkTemp() +
+//                                       heatSinkTempLeft_) / 2 );
+
+//    ui_.motorTempAvgLabel().setNum((motorOneDetails.motorTemp() +
+//                                    motorTempLeft_) / 2);
+
+//    ui_.dspBoardTempAvgLabel().setNum((motorOneDetails.dspBoardTemp() +
+//                                       dspBoardTempLeft_) / 2);
+
+//    ui_.dcBusAmpHoursAvgLabel().setNum((motorOneDetails.dcBusAmpHours() +
+//                                        dcBusAmpHoursLeft_) / 2);
+
+//    ui_.odometerAvgLabel().setNum((motorOneDetails.odometer() +
+//                                   odometerLeft_) / 2);
+
+//    ui_.slipSpeedAvgLabel().setNum((motorOneDetails.slipSpeed() +
+//                                    slipSpeedLeft_) / 2);
+
+//}
+
+void MotorView::motorDetailsAverage()
 {
-    ui_.phaseCCurrentAvgLabel().setNum((motorZeroDetails.phaseCCurrent() +
-                                        phaseCCurrentRight_) / 2);
+    ui_.phaseCCurrentAvgLabel().setNum((phaseCCurrentLeft_ + phaseCCurrentRight_) / 2);
 
-    ui_.phaseBCurrentAvgLabel().setNum((motorZeroDetails.phaseBCurrent() +
-                                        phaseBCurrentRight_) / 2);
+    ui_.phaseBCurrentAvgLabel().setNum((phaseBCurrentLeft_ + phaseBCurrentRight_) / 2);
 
+    ui_.motorVoltageRealAvgLabel().setNum((motorVoltageRealLeft_ + motorVoltageRealRight_) / 2);
 
-    ui_.motorVoltageRealAvgLabel().setNum((motorZeroDetails.motorVoltageReal() +
-                                           motorVoltageRealRight_) / 2);
+    ui_.motorVoltageImaginaryAvgLabel().setNum((motorVoltageImaginaryLeft_ + motorVoltageImaginaryRight_) / 2);
 
+    ui_.motorCurrentRealAvgLabel().setNum((motorCurrentRealLeft_ + motorCurrentRealRight_) / 2);
 
-    ui_.motorVoltageImaginaryAvgLabel().setNum((motorZeroDetails.motorVoltageImaginary() +
-            motorVoltageImaginaryRight_) / 2);
+    ui_.motorCurrentImaginaryAvgLabel().setNum((motorCurrentImaginaryLeft_ + motorCurrentImaginaryRight_) / 2);
 
-    ui_.motorCurrentRealAvgLabel().setNum((motorZeroDetails.motorCurrentReal() +
-                                           motorCurrentRealRight_) / 2);
+    ui_.backEmfAvgLabel().setNum((backEmfLeft_ + backEmfRight_) / 2);
 
-    ui_.motorCurrentImaginaryAvgLabel().setNum((motorZeroDetails.motorCurrentImaginary() +
-            motorCurrentImaginaryRight_) / 2);
+    ui_.voltageRail3VSupplyAvgLabel().setNum((voltageRail3VSupplyLeft_ + voltageRail3VSupplyRight_) / 2);
 
-    ui_.backEmfAvgLabel().setNum((motorZeroDetails.backEmf() +
-                                  backEmfRight_) / 2);
+    ui_.voltageRail1VSupplyAvgLabel().setNum((voltageRail1VSupplyLeft_ + voltageRail1VSupplyRight_) / 2);
 
-    ui_.voltageRail3VSupplyAvgLabel().setNum((motorZeroDetails.voltageRail3VSupply() +
-            voltageRail3VSupplyRight_) / 2);
+    ui_.voltageRail15VSupplyAvgLabel().setNum((voltageRail15VSupplyLeft_ + voltageRail15VSupplyRight_) / 2);
 
-    ui_.voltageRail1VSupplyAvgLabel().setNum((motorZeroDetails.voltageRail1VSupply() +
-            voltageRail1VSupplyRight_) / 2);
+    ui_.heatSinkTempAvgLabel().setNum((heatSinkTempLeft_ + heatSinkTempRight_) / 2 );
 
-    ui_.voltageRail15VSupplyAvgLabel().setNum((motorZeroDetails.voltageRail15VSupply() +
-            voltageRail15VSupplyRight_) / 2);
+    ui_.motorTempAvgLabel().setNum((motorTempLeft_ + motorTempRight_) / 2);
 
-    ui_.heatSinkTempAvgLabel().setNum((motorZeroDetails.heatSinkTemp() +
-                                       heatSinkTempRight_) / 2 );
+    ui_.dspBoardTempAvgLabel().setNum((dspBoardTempLeft_ + dspBoardTempRight_) / 2);
 
-    ui_.motorTempAvgLabel().setNum((motorZeroDetails.motorTemp() +
-                                    motorTempRight_) / 2);
+    ui_.dcBusAmpHoursAvgLabel().setNum((dcBusAmpHoursLeft_ + dcBusAmpHoursRight_) / 2);
 
-    ui_.dspBoardTempAvgLabel().setNum((motorZeroDetails.dspBoardTemp() +
-                                       dspBoardTempRight_) / 2);
+    ui_.odometerAvgLabel().setNum((odometerLeft_ + odometerRight_) / 2);
 
-    ui_.dcBusAmpHoursAvgLabel().setNum((motorZeroDetails.dcBusAmpHours() +
-                                        dcBusAmpHoursRight_) / 2);
-
-    ui_.odometerAvgLabel().setNum((motorZeroDetails.odometer() +
-                                   odometerRight_) / 2);
-
-    ui_.slipSpeedAvgLabel().setNum((motorZeroDetails.slipSpeed() +
-                                    slipSpeedRight_) / 2);
+    ui_.slipSpeedAvgLabel().setNum((slipSpeedLeft_ + slipSpeedRight_) / 2);
 }
 
-void MotorView::motorOneAverage(MotorDetails motorOneDetails)
-{
-    ui_.phaseCCurrentAvgLabel().setNum((motorOneDetails.phaseCCurrent() +
-                                        phaseCCurrentLeft_) / 2);
+//void MotorView::motorOneAverage(MotorDetails motorOneDetails)
+//{
+//    ui_.phaseCCurrentAvgLabel().setNum((motorOneDetails.phaseCCurrent() +
+//                                        phaseCCurrentLeft_) / 2);
 
-    ui_.phaseBCurrentAvgLabel().setNum((motorOneDetails.phaseBCurrent() +
-                                        phaseBCurrentLeft_) / 2);
+//    ui_.phaseBCurrentAvgLabel().setNum((motorOneDetails.phaseBCurrent() +
+//                                        phaseBCurrentLeft_) / 2);
 
-    ui_.motorVoltageRealAvgLabel().setNum((motorOneDetails.motorVoltageReal() +
-                                           motorVoltageRealLeft_) / 2);
+//    ui_.motorVoltageRealAvgLabel().setNum((motorOneDetails.motorVoltageReal() +
+//                                           motorVoltageRealLeft_) / 2);
 
-    ui_.motorVoltageImaginaryAvgLabel().setNum((motorOneDetails.motorVoltageImaginary() +
-            motorVoltageImaginaryLeft_) / 2);
+//    ui_.motorVoltageImaginaryAvgLabel().setNum((motorOneDetails.motorVoltageImaginary() +
+//            motorVoltageImaginaryLeft_) / 2);
 
-    ui_.motorCurrentRealAvgLabel().setNum((motorOneDetails.motorCurrentReal() +
-                                           motorCurrentRealLeft_) / 2);
+//    ui_.motorCurrentRealAvgLabel().setNum((motorOneDetails.motorCurrentReal() +
+//                                           motorCurrentRealLeft_) / 2);
 
-    ui_.motorCurrentImaginaryAvgLabel().setNum((motorOneDetails.motorCurrentImaginary() +
-            motorCurrentImaginaryLeft_) / 2);
+//    ui_.motorCurrentImaginaryAvgLabel().setNum((motorOneDetails.motorCurrentImaginary() +
+//            motorCurrentImaginaryLeft_) / 2);
 
-    ui_.backEmfAvgLabel().setNum((motorOneDetails.backEmf() +
-                                  backEmfLeft_) / 2);
+//    ui_.backEmfAvgLabel().setNum((motorOneDetails.backEmf() +
+//                                  backEmfLeft_) / 2);
 
-    ui_.voltageRail3VSupplyAvgLabel().setNum((motorOneDetails.voltageRail3VSupply() +
-            voltageRail3VSupplyLeft_) / 2);
+//    ui_.voltageRail3VSupplyAvgLabel().setNum((motorOneDetails.voltageRail3VSupply() +
+//            voltageRail3VSupplyLeft_) / 2);
 
-    ui_.voltageRail1VSupplyAvgLabel().setNum((motorOneDetails.voltageRail1VSupply() +
-            voltageRail1VSupplyLeft_) / 2);
+//    ui_.voltageRail1VSupplyAvgLabel().setNum((motorOneDetails.voltageRail1VSupply() +
+//            voltageRail1VSupplyLeft_) / 2);
 
-    ui_.voltageRail15VSupplyAvgLabel().setNum((motorOneDetails.voltageRail15VSupply() +
-            voltageRail15VSupplyLeft_) / 2);
+//    ui_.voltageRail15VSupplyAvgLabel().setNum((motorOneDetails.voltageRail15VSupply() +
+//            voltageRail15VSupplyLeft_) / 2);
 
-    ui_.heatSinkTempAvgLabel().setNum((motorOneDetails.heatSinkTemp() +
-                                       heatSinkTempLeft_) / 2 );
+//    ui_.heatSinkTempAvgLabel().setNum((motorOneDetails.heatSinkTemp() +
+//                                       heatSinkTempLeft_) / 2 );
 
-    ui_.motorTempAvgLabel().setNum((motorOneDetails.motorTemp() +
-                                    motorTempLeft_) / 2);
+//    ui_.motorTempAvgLabel().setNum((motorOneDetails.motorTemp() +
+//                                    motorTempLeft_) / 2);
 
-    ui_.dspBoardTempAvgLabel().setNum((motorOneDetails.dspBoardTemp() +
-                                       dspBoardTempLeft_) / 2);
+//    ui_.dspBoardTempAvgLabel().setNum((motorOneDetails.dspBoardTemp() +
+//                                       dspBoardTempLeft_) / 2);
 
-    ui_.dcBusAmpHoursAvgLabel().setNum((motorOneDetails.dcBusAmpHours() +
-                                        dcBusAmpHoursLeft_) / 2);
+//    ui_.dcBusAmpHoursAvgLabel().setNum((motorOneDetails.dcBusAmpHours() +
+//                                        dcBusAmpHoursLeft_) / 2);
 
-    ui_.odometerAvgLabel().setNum((motorOneDetails.odometer() +
-                                   odometerLeft_) / 2);
+//    ui_.odometerAvgLabel().setNum((motorOneDetails.odometer() +
+//                                   odometerLeft_) / 2);
 
-    ui_.slipSpeedAvgLabel().setNum((motorOneDetails.slipSpeed() +
-                                    slipSpeedLeft_) / 2);
-
-}
+//    ui_.slipSpeedAvgLabel().setNum((motorOneDetails.slipSpeed() +
+//                                    slipSpeedLeft_) / 2);
+//}
