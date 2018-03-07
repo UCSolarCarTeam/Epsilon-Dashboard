@@ -5,6 +5,7 @@ namespace
 {
     const QString ON = "background-color: green; color: white;";
     const QString OFF = "background-color: rgb(45, 45, 45,150); color: white;";
+    const int INTERVAL = 2000;
 }
 
 HomePageView::HomePageView(I_HomePageUi& ui)
@@ -28,7 +29,7 @@ void HomePageView::connectTimer(QTimer* timer)
 {
     startLoop();
     connect(timer, SIGNAL(timeout()), this, SLOT(startLoop()));
-    timer->start(10000);
+    timer->start(INTERVAL * buttons.length());
 }
 
 void HomePageView::startLoop()
@@ -52,7 +53,7 @@ void HomePageView::startLoop()
             buttons[i]->setStyleSheet(OFF);
             timer2->deleteLater();
         });
-        timer->start((i + 1) * 2000);
-        timer2->start(2000 + (i + 1) * 2000);
+        timer->start((i + 1) * INTERVAL);
+        timer2->start(INTERVAL + (i + 1) * INTERVAL);
     }
 }
