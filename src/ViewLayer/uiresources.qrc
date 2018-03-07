@@ -46,8 +46,6 @@
         <file>Resource/Battery Icon.png</file>
         <file>Resource/Control.png</file>
         <file>Resource/Engine Icon.png</file>
-        <file>Resource/Faults 1.png</file>
-        <file>Resource/Faults 2.png</file>
         <file>Resource/Gear Icon.png</file>
         <file>Resource/Home Icon.png</file>
         <file>Resource/Motor.png</file>
@@ -56,5 +54,7 @@
         <file>Resource/Steering Icon.png</file>
         <file>Resource/Tab Background</file>
         <file>Resource/Fault Icon.png</file>
+        <file>Resource/Faults1.png</file>
+        <file>Resource/Faults2.png</file>
     </qresource>
 </RCC>

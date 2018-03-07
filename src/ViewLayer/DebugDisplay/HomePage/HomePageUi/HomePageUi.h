@@ -20,6 +20,7 @@ public:
     QPushButton& faultButton();
     QPushButton& motorButton();
     QPushButton& mpptButton();
+    QLabel& carLabel();
 
 private:
     Ui::HomePageUi* ui_;

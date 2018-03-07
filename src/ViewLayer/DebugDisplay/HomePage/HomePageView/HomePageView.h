@@ -13,6 +13,8 @@ public:
 private:
     I_HomePageUi& ui_;
     QList<QPushButton*> buttons;
+    QList<QPixmap> carImages;
+    QTimer* mainTimer;
     void connectTimer(QTimer*);
 
 private slots:
