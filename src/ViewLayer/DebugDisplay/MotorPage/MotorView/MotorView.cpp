@@ -126,7 +126,7 @@ void MotorView::motorZeroDetailsReceived(MotorDetails motorZeroDetails)
     odometerLeft_ = motorZeroDetails.odometer();
     slipSpeedLeft_ = motorZeroDetails.slipSpeed();
 
-    motorDetailsAverage();
+    setMotorDetailsAverageLabels();
 
 }
 
@@ -174,11 +174,11 @@ void MotorView::motorOneDetailsReceived(MotorDetails motorOneDetails)
     slipSpeedRight_ = motorOneDetails.slipSpeed();
 
 
-    motorDetailsAverage();
+    setMotorDetailsAverageLabels();
 
 }
 
-void MotorView::motorDetailsAverage()
+void MotorView::setMotorDetailsAverageLabels()
 {
     ui_.phaseCCurrentAvgLabel().setNum((phaseCCurrentLeft_ + phaseCCurrentRight_) / 2);
 

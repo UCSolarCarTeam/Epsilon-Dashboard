@@ -59,10 +59,6 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
                               *homepageUi_, *faultUi_,
                               *motorUi_, *mpptUi_, *tabUi_));
 
-
-//        MotorFaultView_.reset(new MotorFaultView(presenterContainer.motorFaultsPresenter(),
-//                              presenterContainer.batteryFaultsPresenter(),
-//                              *motorFaultUi_));
         MotorView_.reset(new MotorView( presenterContainer.keyMotorPresenter(),
                                         presenterContainer.motorDetailsPresenter(), *motorUi_));
 

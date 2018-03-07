@@ -22,7 +22,6 @@ public:
 
 private:
     void connectMotor(KeyMotorPresenter&, MotorDetailsPresenter&);
-    //void connectMotorDetails(MotorDetailsPresenter&);
 
     KeyMotorPresenter& keyMotorPresenter_;
     MotorDetailsPresenter& motorDetailsPresenter_;
@@ -74,7 +73,6 @@ private slots:
 
     void motorZeroDetailsReceived(MotorDetails);
     void motorOneDetailsReceived(MotorDetails);
-    //void motorZeroAverage(MotorDetails);
-    void motorDetailsAverage();
+    void setMotorDetailsAverageLabels();
 
 };
