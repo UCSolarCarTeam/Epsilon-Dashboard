@@ -13,3 +13,4 @@ void MotorDetailsPresenter::relayMotorDetailsData()
     connect(&motorDetailsData_, SIGNAL(motorOneDetailsReceived(MotorDetails)),
             this, SIGNAL(motorOneDetailsReceived(MotorDetails)));
 }
+
