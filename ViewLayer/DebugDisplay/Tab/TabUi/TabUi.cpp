@@ -18,7 +18,6 @@ TabUi::TabUi(QWidget *parent) :
     this->setAutoFillBackground(true);
     this->setPalette(background);
     this->show();
-
 }
 TabUi::~TabUi()
 {
