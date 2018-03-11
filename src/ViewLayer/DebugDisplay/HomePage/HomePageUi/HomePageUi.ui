@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>HomePageUi</class>
+ <widget class="QWidget" name="HomePageUi">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>683</width>
+    <height>786</height>
+   </rect>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>683</width>
+    <height>786</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QPushButton" name="MPPT">
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 9pt &quot;Sans Serif&quot;;</string>
+     </property>
+     <property name="text">
+      <string notr="true">MPPT</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../../Desktop/Tab Background.png</normaloff>
+       <normalon>../../Desktop/Tab Background.png</normalon>../../Desktop/Tab Background.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>80</width>
+       <height>22</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="controlButton">
+     <property name="text">
+      <string>Control</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="faultButton">
+     <property name="text">
+      <string>Faults</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="batteryButton">
+     <property name="text">
+      <string>Battery</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="motorButton">
+     <property name="text">
+      <string>Motor</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
