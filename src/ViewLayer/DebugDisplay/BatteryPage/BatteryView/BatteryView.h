@@ -6,6 +6,7 @@
 #include "../../../../PresenterLayer/BatteryPresenter/BatteryPresenter.h"
 #include "../../BatteryPage/BatteryUi/I_BatteryUi.h"
 #include "../ProgressBar.h"
+#include "../BatteryUi/BatteryUi.h"
 
 class BatteryPresenter;
 
@@ -60,6 +61,5 @@ private slots:
     void auxVoltageReceived(const int);
     void auxBmsAliveReceived(const bool);
     void packNetPowerReceived(const double);
-    void updateProgress(const double position, double totalCharge);
 
 };

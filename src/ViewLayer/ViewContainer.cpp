@@ -17,6 +17,7 @@
 #include "DebugDisplay/MPPTPage/MPPTView/MpptView.h"
 
 ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
+
 {
     if (mode == Mode::DISPLAY)
     {
@@ -49,6 +50,11 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
     else if (mode == Mode::DEBUG)
     {
         batteryUi_ = new BatteryUi();
+
+        ProgressBar_ = new ProgressBar();
+        BatteryView_.reset(new BatteryView(presenterContainer.batteryPresenter(),
+                                           *batteryUi_, *ProgressBar_) );
+
         controlUi_ = new ControlUi();
         homepageUi_ = new HomePageUi();
         faultUi_ = new FaultUi();

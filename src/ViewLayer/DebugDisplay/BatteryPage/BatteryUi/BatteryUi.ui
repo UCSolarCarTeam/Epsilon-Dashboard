@@ -1828,11 +1828,7 @@ border-top-right-radius:12px;</string>
              </widget>
             </item>
             <item row="0" column="0">
-             <layout class="QVBoxLayout" name="progressBar">
-              <item>
-               <widget class="QWidget" name="progressBarContainer" native="true"/>
-              </item>
-             </layout>
+             <layout class="QVBoxLayout" name="progressBarContainer"/>
             </item>
            </layout>
           </widget>

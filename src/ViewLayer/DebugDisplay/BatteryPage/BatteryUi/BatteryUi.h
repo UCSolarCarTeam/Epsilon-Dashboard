@@ -73,12 +73,11 @@ public:
 
     QWidget& auxBmsAliveWidget();
 
-    //QVBoxLayout& progressBarContainer();
-    QVBoxLayout& progressBar();
+    QVBoxLayout& progressBarContainer();
 
 private slots:
-   // void on_dial_sliderReleased();
-   // void on_dial_valueChanged(int value);
+    //void on_dial_sliderReleased();
+    //void on_dial_valueChanged(int value);
 
 private:
     Ui::BatteryUi* ui_;

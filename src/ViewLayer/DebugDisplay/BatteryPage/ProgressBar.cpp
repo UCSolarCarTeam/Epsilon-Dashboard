@@ -20,13 +20,17 @@ void ProgressBar::paintEvent(QPaintEvent *)
 
     QPen pen;
     pen.setWidth(7);
-    pen.setColor(QColor(92,145,161));
+    pen.setColor(QColor(250, 187, 28));
     p.setPen(pen);
 
     p.setRenderHint(QPainter::Antialiasing);
 
-    QRectF rectangle(27.0, 27.0, 138.0, 138.0);
+    QRectF rectangle(10.0, 20.0, 80.0, 80.0);
     int spanAngle = progress * FULL_CIRCLE;
 
     p.drawArc(rectangle, START_ANGLE, spanAngle);
+    QFont font = p.font();
+    font.setPointSize(18);
+    p.setFont(font);
+    p.drawText(rectangle,Qt::AlignCenter,QString::number(progress * 100)+"%");
 }

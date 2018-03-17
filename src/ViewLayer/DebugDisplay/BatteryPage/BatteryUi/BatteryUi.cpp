@@ -5,6 +5,7 @@ BatteryUi::BatteryUi() :
     ui_(new Ui::BatteryUi)
 {
     ui_->setupUi(this);
+    show();
     QPixmap bkgnd(":/Resources/Background.png");
     bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette background;
@@ -238,13 +239,7 @@ QWidget& BatteryUi::auxBmsAliveWidget()
     return *ui_->auxBmsAliveWidget;
 }
 
-//QVBoxLayout& BatteryUi::progressBarContainer()
-//{
-//    return *ui_->progressBarContainer;
-//}
-
-
-QVBoxLayout& BatteryUi::progressBar()
+QVBoxLayout& BatteryUi::progressBarContainer()
 {
-    return *ui_->progressBar;
+    return *ui_->progressBarContainer;
 }
