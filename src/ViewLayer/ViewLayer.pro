@@ -22,6 +22,11 @@ HEADERS += \
     DebugDisplay/MotorPage/MotorUi/I_MotorUi.h \
     DebugDisplay/MPPTPage/MPPTUi/MpptUi.h \
     DebugDisplay/MPPTPage/MPPTUi/I_MpptUi.h \
+    DebugDisplay/MotorPage/MotorUi/I_MotorUi.h \
+    DebugDisplay/MotorPage/MotorUi/MotorUi.h \
+    DebugDisplay/MPPTPage/MPPTView/MpptView.h \
+    DebugDisplay/MotorPage/MotorView/MotorView.h \
+    DebugDisplay/ControlPage/ControlView/ControlView.h \
     DebugDisplay/MPPTPage/MPPTView/MpptView.h \
     DebugDisplay/OverlordWidget/OverlordWidget.h \
     DebugDisplay/Tab/TabUi/TabUi.h \
@@ -44,6 +49,10 @@ SOURCES += \
     DebugDisplay/MotorPage/MotorUi/MotorUi.cpp \
     DebugDisplay/FaultPage/FaultView/FaultView.cpp \
     DebugDisplay/MPPTPage/MPPTUi/MpptUi.cpp \
+    DebugDisplay/MotorPage/MotorView/MotorView.cpp \
+    DebugDisplay/MotorPage/MotorUi/MotorUi.cpp \
+    DebugDisplay/MPPTPage/MPPTView/MpptView.cpp \
+    DebugDisplay/ControlPage/ControlView/ControlView.cpp \
     DebugDisplay/MPPTPage/MPPTView/MpptView.cpp \
     DebugDisplay/OverlordWidget/OverlordWidget.cpp \
     DebugDisplay/Tab/TabUi/TabUi.cpp \
