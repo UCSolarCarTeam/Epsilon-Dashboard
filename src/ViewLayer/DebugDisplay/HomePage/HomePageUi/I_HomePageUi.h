@@ -2,6 +2,7 @@
 
 #include <QWidget>
 #include <QPushButton>
+#include <QLabel>
 
 class I_HomePageUi: public QWidget
 {
@@ -13,4 +14,5 @@ public:
     virtual QPushButton& motorButton() = 0;
     virtual QPushButton& faultButton() = 0;
     virtual QPushButton& mpptButton() = 0;
+    virtual QLabel& carLabel() = 0;
 };
