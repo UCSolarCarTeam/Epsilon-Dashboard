@@ -25,6 +25,9 @@ HomePageView::~HomePageView()
 {
 }
 
+/*
+ * Connects the signal on the main timeout to restart the loop
+ */
 void HomePageView::connectTimer(QTimer* timer)
 {
     startLoop();
@@ -32,28 +35,36 @@ void HomePageView::connectTimer(QTimer* timer)
     timer->start(INTERVAL * buttons.length());
 }
 
+
+/* Starts 2 timers that controls the styling of the buttons
+ * One timer lights up the button and the other turns it
+ * back to its original styling
+ */
 void HomePageView::startLoop()
 {
     for (int i = 0; i < buttons.count(); i++)
     {
-        QTimer* timer = new QTimer(this);
+        QTimer* timer1 = new QTimer(this);
         QTimer* timer2 = new QTimer(this);
 
-        timer->setSingleShot(true);
+        timer1->setSingleShot(true);
         timer2->setSingleShot(true);
 
-        connect(timer, &QTimer::timeout, [ = ]()
+        // The [=] represents a lambda or anonymous function
+        // that changes the button colour and removes the timer
+        // after it finishes
+        connect(timer1, &QTimer::timeout, [=]()
         {
             buttons[i]->setStyleSheet(ON);
-            timer->deleteLater();
             ui_.carLabel().setPixmap(carImages[i]);
+            timer1->deleteLater();
         });
-        connect(timer2, &QTimer::timeout, [ = ]()
+        connect(timer2, &QTimer::timeout, [=]()
         {
             buttons[i]->setStyleSheet(OFF);
             timer2->deleteLater();
         });
-        timer->start((i + 1) * INTERVAL);
+        timer1->start((i + 1) * INTERVAL);
         timer2->start(INTERVAL + (i + 1) * INTERVAL);
     }
 }
