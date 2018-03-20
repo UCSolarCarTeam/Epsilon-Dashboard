@@ -53,13 +53,13 @@ void HomePageView::startLoop()
         // The [=] represents a lambda or anonymous function
         // that changes the button colour and removes the timer
         // after it finishes
-        connect(timer1, &QTimer::timeout, [=]()
+        connect(timer1, &QTimer::timeout, [ = ]()
         {
             buttons[i]->setStyleSheet(ON);
             ui_.carLabel().setPixmap(carImages[i]);
             timer1->deleteLater();
         });
-        connect(timer2, &QTimer::timeout, [=]()
+        connect(timer2, &QTimer::timeout, [ = ]()
         {
             buttons[i]->setStyleSheet(OFF);
             timer2->deleteLater();
