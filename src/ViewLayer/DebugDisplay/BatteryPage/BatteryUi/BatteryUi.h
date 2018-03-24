@@ -24,6 +24,7 @@ public:
     QLabel& packInfoVoltage();
     QLabel& packInfoAmphours();
     QLabel& packInfoDepthofDischarge();
+    QLabel& packNetPower();
 
     QLabel& BMSOn();
     QLabel& BMSCharging();

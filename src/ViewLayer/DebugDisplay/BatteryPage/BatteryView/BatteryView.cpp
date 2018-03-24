@@ -122,8 +122,8 @@ void BatteryView::connectBattery(BatteryPresenter& batteryPresenter)
     connect(&batteryPresenter, SIGNAL(packNetPowerReceived(const double)),
             this, SLOT(packNetPowerReceived(const double)));
 
-    //connect(&batteryPresenter, SIGNAL(updateProgress(const double, double)), this, SLOT(updateProgress(const double, double)));
-    //ui_.progressBarContainer().addWidget(&bar_);
+    connect(&batteryPresenter, SIGNAL(updateProgress(const double, double)), this, SLOT(updateProgress(const double, double)));
+    ui_.progressBarContainer().addWidget(&bar_);
 }
 
 
@@ -224,23 +224,23 @@ void BatteryView::populatedCellsReceived(int populatedCells)
 
 void BatteryView::inputVoltage12VReceived(double inputVoltage)
 {
-    ui_.inputVoltage12VLabel().setText(QString::number(inputVoltage) + VOLTAGE_UNIT);
+    ui_.inputVoltage12VLabel().setText(QString::number(inputVoltage) + " " + VOLTAGE_UNIT);
 }
 
 
 void BatteryView::fanVoltageReceived(double fanVoltage)
 {
-    ui_.fanVoltage().setText(QString::number(fanVoltage) + VOLTAGE_UNIT);
+    ui_.fanVoltage().setText(QString::number(fanVoltage) + " " + VOLTAGE_UNIT);
 }
 
 void BatteryView::packCurrentReceived(double packCurrent)
 {
-    ui_.packInfoCurrent().setText(QString::number(packCurrent) + CURRENT_UNIT);
+    ui_.packInfoCurrent().setText(QString::number(packCurrent) + " " + CURRENT_UNIT);
 }
 
 void BatteryView::packVoltageReceived(double packVoltage)
 {
-    ui_.packInfoVoltage().setText(QString::number(packVoltage) + VOLTAGE_UNIT);
+    ui_.packInfoVoltage().setText(QString::number(packVoltage) + " " + VOLTAGE_UNIT);
 }
 
 void BatteryView::packStateOfChargeReceived(double packStateOfCharge)
@@ -251,17 +251,17 @@ void BatteryView::packStateOfChargeReceived(double packStateOfCharge)
 
 void BatteryView::packAmphoursReceived(double packAmphours)
 {
-    ui_.packInfoAmphours().setText(QString::number(packAmphours) + AMPHOURS_UNIT);
+    ui_.packInfoAmphours().setText(QString::number(packAmphours) + " " + AMPHOURS_UNIT);
 }
 
 void BatteryView::packDepthOfDischargeReceived(double packDepthOfDischarge)
 {
-    ui_.packInfoDepthofDischarge().setText(QString::number(packDepthOfDischarge) + PERCENT_UNIT);
+    ui_.packInfoDepthofDischarge().setText(QString::number(packDepthOfDischarge) + " " + PERCENT_UNIT);
 }
 
 void BatteryView::highTemperatureReceived(int highTemperature)
 {
-    ui_.tempHighLabel().setText(QString::number(highTemperature) + TEMPERATURE_UNIT);
+    ui_.tempHighLabel().setText(QString::number(highTemperature) + " " + TEMPERATURE_UNIT);
 }
 
 void BatteryView::highThermistorIdReceived(int highThermistorId)
@@ -271,7 +271,7 @@ void BatteryView::highThermistorIdReceived(int highThermistorId)
 
 void BatteryView::lowTemperatureReceived(int lowTemperature)
 {
-    ui_.tempLowLabel().setText(QString::number(lowTemperature) + TEMPERATURE_UNIT);
+    ui_.tempLowLabel().setText(QString::number(lowTemperature) + " " + TEMPERATURE_UNIT);
 }
 
 void BatteryView::lowThermistorIdReceived(int lowThermistorId)
@@ -287,7 +287,7 @@ void BatteryView::averageTemperatureReceived(int lowTemperature, int highTempera
 
 void BatteryView::internalTemperatureReceived(int internalTemperature)
 {
-    ui_.internalTempLabel().setText(QString::number(internalTemperature) + TEMPERATURE_UNIT);
+    ui_.internalTempLabel().setText(QString::number(internalTemperature) + " " + TEMPERATURE_UNIT);
 }
 
 void BatteryView::fanSpeedReceived(int fanSpeed)
@@ -452,7 +452,7 @@ void BatteryView::lowCellVoltageIdReceived(int lowCellVoltageId)
 
 void BatteryView::highCellVoltageReceived(int highCellVoltage)
 {
-    ui_.highCellVoltageLabel().setText(QString::number(highCellVoltage) + MILLI_VOLTAGE_UNIT);
+    ui_.highCellVoltageLabel().setText(QString::number(highCellVoltage) + " " + MILLI_VOLTAGE_UNIT);
 }
 
 void BatteryView::highCellVoltageIdReceived(int highCellVoltageId)
@@ -463,7 +463,7 @@ void BatteryView::highCellVoltageIdReceived(int highCellVoltageId)
 void BatteryView::averageCellVoltageReceived(int lowCellVoltage, int highCellVoltage)
 {
     int averageCellVoltage = (lowCellVoltage + highCellVoltage)/2;
-    ui_.avgCellVoltageLabel().setText(QString::number(averageCellVoltage) + VOLTAGE_UNIT);
+    ui_.avgCellVoltageLabel().setText(QString::number(averageCellVoltage) + " " + VOLTAGE_UNIT);
 }
 
 void BatteryView::prechargeStateReceived(QString prechargeState)
@@ -473,7 +473,7 @@ void BatteryView::prechargeStateReceived(QString prechargeState)
 
 void BatteryView::auxVoltageReceived(int auxVoltage)
 {
-    ui_.auxVoltageLabel().setText(QString::number(auxVoltage) + CURRENT_UNIT);
+    ui_.auxVoltageLabel().setText(QString::number(auxVoltage) + " " + VOLTAGE_UNIT);
 }
 
 void BatteryView::auxBmsAliveReceived(bool auxBmsAlive)
@@ -491,5 +491,5 @@ void BatteryView::auxBmsAliveReceived(bool auxBmsAlive)
 
 void BatteryView::packNetPowerReceived(double packNetPower)
 {
-
+    ui_.packNetPower().setNum(packNetPower);
 }
