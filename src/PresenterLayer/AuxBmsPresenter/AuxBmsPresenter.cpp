@@ -1,7 +1,7 @@
 #include "AuxBmsPresenter.h"
 #include "../../DataLayer/AuxBmsData/I_AuxBmsData.h"
 
-AuxBmsPresenter::AuxBmsPresenter(const I_AuxBmsData &auxBmsData)
+AuxBmsPresenter::AuxBmsPresenter(const I_AuxBmsData& auxBmsData)
     : auxBmsData_(auxBmsData)
 {
     relayAuxBmsData();

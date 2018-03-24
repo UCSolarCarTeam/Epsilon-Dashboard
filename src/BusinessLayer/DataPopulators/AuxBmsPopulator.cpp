@@ -6,12 +6,12 @@
 #include "../BusinessLayer/DataPopulators/JsonDefines.h"
 #include "../DataLayer/AuxBmsData/I_AuxBmsData.h"
 
-AuxBmsPopulator::AuxBmsPopulator(I_AuxBmsData &auxBmsData)
+AuxBmsPopulator::AuxBmsPopulator(I_AuxBmsData& auxBmsData)
     : auxBmsData_(auxBmsData)
 {
 }
 
-void AuxBmsPopulator::populateData(const QJsonObject & data)
+void AuxBmsPopulator::populateData(const QJsonObject& data)
 {
     QJsonValue value = data.value(JsonFormat::AUXBMS);
 
