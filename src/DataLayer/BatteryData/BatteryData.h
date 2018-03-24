@@ -32,12 +32,6 @@ public:
     int highCellVoltage() const;
     int highCellVoltageId() const;
     int averageCellVoltage() const;
-    QString prechargeState() const;
-    int auxVoltage() const;
-    bool auxBmsAlive() const;
-    bool strobeBmsLight() const;
-    bool allowCharge() const;
-    bool contactorError() const;
     double packNetPower() const;
 
     /* Data setter */
@@ -64,12 +58,6 @@ public:
     void setHighCellVoltage(const int& highCellVoltage);
     void setHighCellVoltageId(const int& highCellVoltageId);
     void setAverageCellVoltage(const int& averageCellVoltage);
-    void setPrechargeState(const QString& prechargeState);
-    void setAuxVoltage(const int& auxVoltage);
-    void setAuxBmsAlive(const bool& auxBmsAlive);
-    void setStrobeBmsLight(const bool& strobeBmsLight);
-    void setAllowCharge(const bool& allowCharge);
-    void setContactorError(const bool& contactorError);
 
 private:
     bool alive_;
@@ -95,12 +83,6 @@ private:
     int highCellVoltage_;
     int highCellVoltageId_;
     int averageCellVoltage_;
-    QString prechargeState_;
-    int auxVoltage_;
-    bool auxBmsAlive_;
-    bool strobeBmsLight_;
-    bool allowCharge_;
-    bool contactorError_;
     double packNetPower_; // calculated based on pack current and voltage
 };
 
