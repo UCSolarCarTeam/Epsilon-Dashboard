@@ -14,6 +14,7 @@ namespace
     const QString MILLI_VOLTAGE_UNIT = "mV";
     const QString CURRENT_UNIT = "A";
     const QString AMPHOURS_UNIT = "Ah";
+    const QString POWER_UNIT = "W";
     const QString PERCENT_UNIT = "%";
     const QString TEMPERATURE_UNIT = "<sup>o</sup>C";
 
@@ -279,9 +280,9 @@ void BatteryView::lowThermistorIdReceived(int lowThermistorId)
     ui_.tempLowThermistorIDLabel().setNum(lowThermistorId);
 }
 
-void BatteryView::averageTemperatureReceived(int lowTemperature, int highTemperature)
+void BatteryView::averageTemperatureReceived(int averageTemperature)
 {
-    int averageTemperature = (lowTemperature + highTemperature) / 2;
+    //int averageTemperature = (lowTemperature + highTemperature) / 2;
     ui_.tempAvgLabel().setText(QString::number(averageTemperature) + TEMPERATURE_UNIT);
 }
 
@@ -460,15 +461,15 @@ void BatteryView::highCellVoltageIdReceived(int highCellVoltageId)
     ui_.highCellVoltageIDLabel().setNum(highCellVoltageId);
 }
 
-void BatteryView::averageCellVoltageReceived(int lowCellVoltage, int highCellVoltage)
+void BatteryView::averageCellVoltageReceived(int avgCellVoltage)
 {
-    int averageCellVoltage = (lowCellVoltage + highCellVoltage)/2;
-    ui_.avgCellVoltageLabel().setText(QString::number(averageCellVoltage) + " " + VOLTAGE_UNIT);
+    //int averageCellVoltage = (lowCellVoltage + highCellVoltage)/2;
+    ui_.avgCellVoltageLabel().setText(QString::number(avgCellVoltage) + " " + VOLTAGE_UNIT);
 }
 
 void BatteryView::prechargeStateReceived(QString prechargeState)
 {
-
+    ui_.prechargeStateLabel().setText(prechargeState);
 }
 
 void BatteryView::auxVoltageReceived(int auxVoltage)
@@ -491,5 +492,5 @@ void BatteryView::auxBmsAliveReceived(bool auxBmsAlive)
 
 void BatteryView::packNetPowerReceived(double packNetPower)
 {
-    ui_.packNetPower().setNum(packNetPower);
+    ui_.packNetPower().setText(QString::number(packNetPower) + " " + POWER_UNIT);
 }

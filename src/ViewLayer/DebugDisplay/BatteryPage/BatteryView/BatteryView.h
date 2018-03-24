@@ -48,7 +48,7 @@ private slots:
     void highThermistorIdReceived(const int);
     void lowTemperatureReceived(const int);
     void lowThermistorIdReceived(const int);
-    void averageTemperatureReceived(const int, const int);
+    void averageTemperatureReceived(const int);
     void internalTemperatureReceived(const int);
     void fanSpeedReceived(const int);
     void requestedFanSpeedReceived(const int);
@@ -56,7 +56,7 @@ private slots:
     void lowCellVoltageIdReceived(const int);
     void highCellVoltageReceived(const int);
     void highCellVoltageIdReceived(const int);
-    void averageCellVoltageReceived(const int, const int);
+    void averageCellVoltageReceived(const int);
     void prechargeStateReceived(const QString);
     void auxVoltageReceived(const int);
     void auxBmsAliveReceived(const bool);

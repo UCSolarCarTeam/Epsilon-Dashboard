@@ -921,7 +921,7 @@ color:white;</string>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="tempLowThermistoIDLabel">
+          <widget class="QLabel" name="tempLowThermistorIDLabel">
            <property name="styleSheet">
             <string notr="true">background: transparent;
 font:12pt &quot;Arial&quot;;
@@ -1284,7 +1284,7 @@ background: transparent;</string>
              <number>0</number>
             </property>
             <item>
-             <widget class="QLabel" name="BMSOnLabel">
+             <widget class="QLabel" name="BMSOn">
               <property name="font">
                <font>
                 <pointsize>12</pointsize>
@@ -1301,7 +1301,7 @@ background: transparent;</string>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="BMSChargingLabel">
+             <widget class="QLabel" name="BMSCharging">
               <property name="styleSheet">
                <string notr="true">background: transparent</string>
               </property>
@@ -1311,7 +1311,7 @@ background: transparent;</string>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="BMSReadyLabel">
+             <widget class="QLabel" name="BMSReady">
               <property name="styleSheet">
                <string notr="true">background: transparent</string>
               </property>
@@ -1331,7 +1331,7 @@ background: transparent;</string>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="BMSChargeRelayEnabledLabel">
+             <widget class="QLabel" name="BMSChargeRelayEnabled">
               <property name="styleSheet">
                <string notr="true">background: transparent;</string>
               </property>
