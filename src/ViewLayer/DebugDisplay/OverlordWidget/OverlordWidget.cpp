@@ -53,7 +53,7 @@ OverlordWidget::OverlordWidget(I_BatteryUi& batteryUi, \
             this, SLOT(handleControlButtonClicked()));
     connect(&tabUi_.motorButton(), SIGNAL(clicked()),
             this, SLOT(handleMotorButtonClicked()));
-    connect(&tabUi_.motorFaultButton(), SIGNAL(clicked()),
+    connect(&tabUi_.faultButton(), SIGNAL(clicked()),
             this, SLOT(handlefaultButtonClicked()));
     connect(&tabUi_.mpptButton(), SIGNAL(clicked()),
             this, SLOT(handleMPPTButtonClicked()));
@@ -64,6 +64,7 @@ OverlordWidget::OverlordWidget(I_BatteryUi& batteryUi, \
     overlordLayout->addWidget(menu_);
     tabUi_.hide();
     setLayout(overlordLayout);
+    overlordLayout->setSpacing(0);
     overlordLayout->setSizeConstraint(QLayout::SetNoConstraint);
 
     show();

@@ -13,7 +13,7 @@ public:
     QPushButton& homepageButton();
     QPushButton& batteryButton();
     QPushButton& controlButton();
-    QPushButton& motorFaultButton();
+    QPushButton& faultButton();
     QPushButton& motorButton();
     QPushButton& mpptButton();
 private slots:

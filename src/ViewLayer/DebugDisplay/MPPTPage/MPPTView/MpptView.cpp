@@ -1,4 +1,3 @@
-
 #include "MpptView.h"
 
 namespace
