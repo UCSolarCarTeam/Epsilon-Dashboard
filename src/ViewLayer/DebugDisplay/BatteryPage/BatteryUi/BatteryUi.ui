@@ -1291,62 +1291,92 @@ background: transparent;</string>
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">
+               <string notr="true">color: rgb(250, 187, 28);
 
 background: transparent;</string>
               </property>
               <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#f9bb1c;&quot;&gt;On&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               <string>On</string>
               </property>
              </widget>
             </item>
             <item>
              <widget class="QLabel" name="BMSCharging">
+              <property name="font">
+               <font>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
               <property name="styleSheet">
-               <string notr="true">background: transparent</string>
+               <string notr="true">background: transparent;
+color: rgb(250, 187, 28);</string>
               </property>
               <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#f9bb1c;&quot;&gt;Charging&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               <string>Charging</string>
               </property>
              </widget>
             </item>
             <item>
              <widget class="QLabel" name="BMSReady">
+              <property name="font">
+               <font>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
               <property name="styleSheet">
-               <string notr="true">background: transparent</string>
+               <string notr="true">background: transparent;
+color: rgb(85, 87, 83);</string>
               </property>
               <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#555753;&quot;&gt;Ready&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               <string>Ready</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="BMSDischargeRelayEnabledLabel">
+             <widget class="QLabel" name="BMSDischargeRelayEnabled">
+              <property name="font">
+               <font>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
               <property name="styleSheet">
-               <string notr="true">background: transparent;</string>
+               <string notr="true">background: transparent;
+color: rgb(85, 87, 83);</string>
               </property>
               <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#555753;&quot;&gt;Discharge Relay Enabled&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               <string>Discharge Relay Enabled</string>
               </property>
              </widget>
             </item>
             <item>
              <widget class="QLabel" name="BMSChargeRelayEnabled">
+              <property name="font">
+               <font>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
               <property name="styleSheet">
-               <string notr="true">background: transparent;</string>
+               <string notr="true">background: transparent;
+color: rgb(250, 187, 28);</string>
               </property>
               <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#f9bb1c;&quot;&gt;Charge Relay Enabled&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               <string>Charge Relay Enabled</string>
               </property>
              </widget>
             </item>
             <item>
              <widget class="QLabel" name="BMSChargerSafetyEnabled">
+              <property name="font">
+               <font>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
               <property name="styleSheet">
-               <string notr="true">background: transparent;</string>
+               <string notr="true">background: transparent;
+color: rgb(85, 87, 83);</string>
               </property>
               <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#555753;&quot;&gt;Charger Safety Enabled&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               <string>Charger Safety Enabled</string>
               </property>
              </widget>
             </item>
@@ -1436,22 +1466,28 @@ border-top-right-radius:12px;</string>
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">background: transparent;</string>
+               <string notr="true">background: transparent;
+color: rgb(250, 187, 28);</string>
               </property>
               <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#f9bb1c;&quot;&gt;Malfunction Indicator Active&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               <string>Malfunction Indicator Active</string>
               </property>
              </widget>
             </item>
             <item>
              <widget class="QLabel" name="multipurposeInputSignalStatus">
+              <property name="font">
+               <font>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
               <property name="styleSheet">
                <string notr="true">background: transparent;
-font:12pt &quot;Arial&quot;;
+color: rgb(85, 87, 83);
 </string>
               </property>
               <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#555753;&quot;&gt;Multi-purpose Input Signal Status&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               <string>Multi-Purpose Input Signal Status</string>
               </property>
              </widget>
             </item>

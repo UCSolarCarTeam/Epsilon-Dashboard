@@ -51,27 +51,27 @@ QLabel& BatteryUi::packNetPower()
 
 QLabel& BatteryUi::BMSOn()
 {
-    return *ui_->BMSOnLabel;
+    return *ui_->BMSOn;
 }
 
 QLabel& BatteryUi::BMSCharging()
 {
-    return *ui_->BMSChargingLabel;
+    return *ui_->BMSCharging;
 }
 
 QLabel& BatteryUi::BMSReady()
 {
-    return *ui_->BMSReadyLabel;
+    return *ui_->BMSReady;
 }
 
 QLabel& BatteryUi::BMSDischargeRelayEnabled()
 {
-    return *ui_->BMSDischargeRelayEnabledLabel;
+    return *ui_->BMSDischargeRelayEnabled;
 }
 
 QLabel& BatteryUi::BMSChargeRelayEnabled()
 {
-    return *ui_->BMSChargeRelayEnabledLabel;
+    return *ui_->BMSChargeRelayEnabled;
 }
 
 QLabel& BatteryUi::BMSChargerSafetyEnabled()
@@ -186,7 +186,7 @@ QLabel& BatteryUi::tempHighThermistorIDLabel()
 
 QLabel& BatteryUi::tempLowThermistorIDLabel()
 {
-    return *ui_->tempHighThermistorIDLabel;
+    return *ui_->tempLowThermistorIDLabel;
 }
 
 QLabel& BatteryUi::internalTempLabel()
