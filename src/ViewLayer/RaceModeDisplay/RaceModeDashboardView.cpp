@@ -141,7 +141,6 @@ void RaceModeDashboardView::aliveReceived(bool)
 {
 }
 
-//TODO
 void RaceModeDashboardView::prechargeStateReceived(QString prechargeState)
 {
     ui_.prechargeStateLabel().setText(prechargeState);
