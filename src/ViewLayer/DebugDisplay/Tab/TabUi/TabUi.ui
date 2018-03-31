@@ -76,7 +76,6 @@ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
                                       stop: 0 rgb(100,100,100), stop: 1 black);
 image: url(:/Resources/HomeIcon.png);
 image-position: 1,1;
-i
 font-size: 18px;
 
 border:grey;
@@ -520,14 +519,13 @@ border-bottom: 1px solid white;
          <string notr="true">QPushButton{
 
 color: rgb(255,255,255);
-/*
+
 background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
    
                                  stop: 0 rgb(60,60,60), stop: 1 rgb(60,60,60));
 
-/*image: url(:/Resources/SteeringIcon.png);
-*/
-background-color:red;
+image: url(:/Resources/SteeringIcon.png);
+
 image-position: 1,1;
 
 font-size: 18px;
