@@ -13,5 +13,5 @@ public:
     double progress;
 
 protected:
-    void paintEvent(QPaintEvent *);
+    void paintEvent(QPaintEvent*);
 };
