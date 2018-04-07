@@ -6,7 +6,7 @@ namespace
     const int START_ANGLE = 1440;
 }
 
-ProgressBar::ProgressBar(QWidget *parent) : QWidget(parent)
+ProgressBar::ProgressBar(QWidget* parent) : QWidget(parent)
 {
 
 }
@@ -16,7 +16,7 @@ ProgressBar::~ProgressBar()
 {
 }
 
-void ProgressBar::paintEvent(QPaintEvent *)
+void ProgressBar::paintEvent(QPaintEvent*)
 {
     QPainter p(this);
 

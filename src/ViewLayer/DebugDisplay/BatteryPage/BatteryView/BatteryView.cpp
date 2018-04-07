@@ -64,7 +64,6 @@ void BatteryView::connectBattery(BatteryPresenter& batteryPresenter)
 
     connect(&batteryPresenter, SIGNAL(packStateOfChargeReceived(const double)),
             this, SLOT(packStateofChargeReceived(const double)));
-    ui_.progressBarContainer().addWidget(&bar_);
 
     connect(&batteryPresenter, SIGNAL(packAmphoursReceived(const double)),
             this, SLOT(packAmphoursReceived(const double)));
@@ -124,10 +123,7 @@ void BatteryView::connectBattery(BatteryPresenter& batteryPresenter)
             this, SLOT(packNetPowerReceived(const double)));
 
     //connect(&batteryPresenter, SIGNAL(updateProgress(const double, double)), this, SLOT(updateProgress(const double, double)));
-    //ui_.progressBarContainer().addWidget(&bar_);
 }
-
-
 
 
 void BatteryView::aliveReceived(bool alive)
