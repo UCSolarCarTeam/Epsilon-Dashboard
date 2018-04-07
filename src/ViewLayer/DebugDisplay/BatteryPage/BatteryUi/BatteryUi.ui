@@ -1879,7 +1879,7 @@ color:white;</string>
                     <widget class="QLabel" name="packInfoAmphours">
                      <property name="geometry">
                       <rect>
-                       <x>20</x>
+                       <x>10</x>
                        <y>0</y>
                        <width>59</width>
                        <height>15</height>
@@ -1965,7 +1965,7 @@ color:white;</string>
                     <widget class="QLabel" name="packInfoDepthofDischarge">
                      <property name="geometry">
                       <rect>
-                       <x>20</x>
+                       <x>10</x>
                        <y>0</y>
                        <width>59</width>
                        <height>15</height>
@@ -2083,7 +2083,31 @@ color:white;</string>
              </widget>
             </item>
             <item row="0" column="0">
-             <layout class="QVBoxLayout" name="progressBarContainer"/>
+             <widget class="QWidget" name="widget_27" native="true">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>125</width>
+                <height>150</height>
+               </size>
+              </property>
+              <widget class="QWidget" name="verticalLayoutWidget">
+               <property name="geometry">
+                <rect>
+                 <x>0</x>
+                 <y>9</y>
+                 <width>2</width>
+                 <height>2</height>
+                </rect>
+               </property>
+               <layout class="QVBoxLayout" name="progressBarContainer"/>
+              </widget>
+             </widget>
             </item>
            </layout>
           </widget>

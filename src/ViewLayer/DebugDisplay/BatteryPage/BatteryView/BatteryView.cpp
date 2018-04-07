@@ -62,9 +62,9 @@ void BatteryView::connectBattery(BatteryPresenter& batteryPresenter)
     connect(&batteryPresenter, SIGNAL(packVoltageReceived(const double)),
             this, SLOT(packVoltageReceived(const double)));
 
-    connect(&batteryPresenter, SIGNAL(packStateofChargeReceived(const double)),
-            this, SLOT(packStateofChargeReceived(const double)));
-    ui_.progressBarContainer().addWidget(&bar_);
+    connect(&batteryPresenter, SIGNAL(packStateOfChargeReceived(const double)),
+            this, SLOT(packStateOfChargeReceived(const double)));
+    //ui_.progressBarContainer().addWidget(&bar_);
 
     connect(&batteryPresenter, SIGNAL(packAmphoursReceived(const double)),
             this, SLOT(packAmphoursReceived(const double)));
@@ -123,8 +123,8 @@ void BatteryView::connectBattery(BatteryPresenter& batteryPresenter)
     connect(&batteryPresenter, SIGNAL(packNetPowerReceived(const double)),
             this, SLOT(packNetPowerReceived(const double)));
 
-    connect(&batteryPresenter, SIGNAL(updateProgress(const double, double)), this, SLOT(updateProgress(const double, double)));
-    ui_.progressBarContainer().addWidget(&bar_);
+   // connect(&batteryPresenter, SIGNAL(updateProgress(const double, double)), this, SLOT(updateProgress(const double, double)));
+
 }
 
 
@@ -246,8 +246,11 @@ void BatteryView::packVoltageReceived(double packVoltage)
 
 void BatteryView::packStateOfChargeReceived(double packStateOfCharge)
 {
+    ui_.progressBarContainer().addWidget(&bar_);
     bar_.progress = packStateOfCharge / 100;
+    qDebug("hello");
     bar_.update();
+    //bar_.paintEvent();
 }
 
 void BatteryView::packAmphoursReceived(double packAmphours)
@@ -487,7 +490,6 @@ void BatteryView::auxBmsAliveReceived(bool auxBmsAlive)
     {
         ui_.auxBmsAliveWidget().setStyleSheet(BATTERY_DEAD);
     }
-
 }
 
 void BatteryView::packNetPowerReceived(double packNetPower)
