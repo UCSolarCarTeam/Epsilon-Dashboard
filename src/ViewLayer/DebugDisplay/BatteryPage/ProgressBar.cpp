@@ -6,15 +6,17 @@ namespace
     const int START_ANGLE = 1440;
 }
 
-ProgressBar::ProgressBar()
+ProgressBar::ProgressBar(QWidget *parent) : QWidget(parent)
 {
+
 }
+
 
 ProgressBar::~ProgressBar()
 {
 }
 
-void ProgressBar::paintEvent(QPaintEvent*)
+void ProgressBar::paintEvent(QPaintEvent *)
 {
     QPainter p(this);
 
@@ -25,12 +27,13 @@ void ProgressBar::paintEvent(QPaintEvent*)
 
     p.setRenderHint(QPainter::Antialiasing);
 
-    QRectF rectangle(10.0, 20.0, 80.0, 80.0);
+    QRectF rectangle(10.0, 20.0, 100.0, 100.0);
     int spanAngle = progress * FULL_CIRCLE;
 
     p.drawArc(rectangle, START_ANGLE, spanAngle);
+
     QFont font = p.font();
-    font.setPointSize(18);
+    font.setPointSize(17);
     p.setFont(font);
     p.drawText(rectangle, Qt::AlignCenter, QString::number(progress * 100) + "%");
 }
