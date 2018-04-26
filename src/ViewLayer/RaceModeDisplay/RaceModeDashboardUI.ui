@@ -466,16 +466,16 @@
        <rect>
         <x>0</x>
         <y>10</y>
-        <width>441</width>
+        <width>471</width>
         <height>241</height>
        </rect>
       </property>
       <widget class="QWidget" name="gridLayoutWidget_2">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>0</x>
          <y>0</y>
-         <width>161</width>
+         <width>141</width>
          <height>231</height>
         </rect>
        </property>
@@ -581,9 +581,9 @@ qproperty-alignment: 'AlignBottom | AlignRight';
       <widget class="QWidget" name="gridLayoutWidget">
        <property name="geometry">
         <rect>
-         <x>170</x>
+         <x>136</x>
          <y>0</y>
-         <width>304</width>
+         <width>491</width>
          <height>231</height>
         </rect>
        </property>
@@ -593,7 +593,7 @@ qproperty-alignment: 'AlignBottom | AlignRight';
           <property name="styleSheet">
            <string notr="true">font: 75 bold 14pt &quot;Nimbus Sans L&quot;;
 padding-top:60px;
-padding-left: -5px;
+padding-left: -6px;
 color: white;</string>
           </property>
           <property name="text">
@@ -606,7 +606,7 @@ color: white;</string>
           <property name="font">
            <font>
             <family>LCDMono</family>
-            <pointsize>70</pointsize>
+            <pointsize>45</pointsize>
             <weight>75</weight>
             <italic>false</italic>
             <bold>true</bold>
@@ -616,14 +616,21 @@ color: white;</string>
            <bool>false</bool>
           </property>
           <property name="styleSheet">
-           <string notr="true">font: bold 70pt &quot;LCDMono&quot;;
+           <string notr="true">font: bold 45pt &quot;LCDMono&quot;;
+text-align: right;
 color: white;</string>
           </property>
           <property name="text">
-           <string>000</string>
+           <string>000.000</string>
           </property>
           <property name="textFormat">
            <enum>Qt::PlainText</enum>
+          </property>
+          <property name="scaledContents">
+           <bool>false</bool>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
           </property>
          </widget>
         </item>
@@ -633,10 +640,10 @@ color: white;</string>
      <widget class="QWidget" name="TopRightCorner" native="true">
       <property name="geometry">
        <rect>
-        <x>450</x>
-        <y>10</y>
+        <x>470</x>
+        <y>0</y>
         <width>331</width>
-        <height>241</height>
+        <height>251</height>
        </rect>
       </property>
       <widget class="QWidget" name="gridLayoutWidget_4">
@@ -645,7 +652,7 @@ color: white;</string>
          <x>0</x>
          <y>0</y>
          <width>332</width>
-         <height>242</height>
+         <height>250</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="MainGrid">
@@ -663,6 +670,106 @@ color: rgb(100,100,100);
             </property>
             <property name="text">
              <string>B A T T E R Y</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1" rowspan="2" colspan="2">
+           <layout class="QGridLayout" name="prechargeRun">
+            <item row="0" column="1">
+             <widget class="QLabel" name="prechargeStateLabel">
+              <property name="styleSheet">
+               <string notr="true">color: rgb(100,100,100);
+padding-top: 20px;</string>
+              </property>
+              <property name="text">
+               <string>RUN</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0" colspan="2">
+             <widget class="QLabel" name="prechargeStateTitleLabel">
+              <property name="font">
+               <font>
+                <family>Noto Sans [unknown]</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(100,100,100);
+padding-bottom: 20px;
+</string>
+              </property>
+              <property name="text">
+               <string>       P R E C H A R G E</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QWidget" name="prechargeStateIconWidget" native="true">
+              <property name="minimumSize">
+               <size>
+                <width>45</width>
+                <height>45</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>45</width>
+                <height>45</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">border-image: url(:/Resources/Alive Icon.png) 0 0 0 0 stretch stretch;
+</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="0" column="0">
+           <widget class="QProgressBar" name="stateOfChargeCapacityWidget">
+            <property name="maximumSize">
+             <size>
+              <width>150</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>LCDMono</family>
+              <pointsize>20</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+              <kerning>true</kerning>
+             </font>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QProgressBar:horizontal {
+border: 1px solid white;
+border-radius: 7px;
+background-color: black;
+text-align: center;
+}
+QProgressBar::chunk:horizontal{
+border-radius: 7px;
+background: rgb(20,180,20);
+}
+QProgressBar:horizontal::font {
+color: white;
+}</string>
+            </property>
+            <property name="value">
+             <number>100</number>
+            </property>
+            <property name="textVisible">
+             <bool>true</bool>
+            </property>
+            <property name="invertedAppearance">
+             <bool>false</bool>
             </property>
            </widget>
           </item>
@@ -921,95 +1028,10 @@ background: url(:/Resources/Thermometer.png);
             </item>
            </layout>
           </item>
-          <item row="0" column="1" rowspan="2" colspan="2">
-           <layout class="QGridLayout" name="prechargeRun">
-            <item row="0" column="1">
-             <widget class="QLabel" name="prechargeStateLabel">
-              <property name="styleSheet">
-               <string notr="true">color: rgb(100,100,100);
-padding-top: 20px;</string>
-              </property>
-              <property name="text">
-               <string>RUN</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="0">
-             <widget class="QWidget" name="prechargeStateIconWidget" native="true"/>
-            </item>
-            <item row="1" column="0" colspan="2">
-             <widget class="QLabel" name="prechargeStateTitleLabel">
-              <property name="font">
-               <font>
-                <family>Noto Sans [unknown]</family>
-                <pointsize>12</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(100,100,100);
-padding-bottom: 20px;
-</string>
-              </property>
-              <property name="text">
-               <string>       P R E C H A R G E</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item row="0" column="0">
-           <widget class="QProgressBar" name="stateOfChargeCapacityWidget">
-            <property name="maximumSize">
-             <size>
-              <width>150</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>LCDMono</family>
-              <pointsize>20</pointsize>
-              <weight>50</weight>
-              <italic>false</italic>
-              <bold>false</bold>
-              <kerning>true</kerning>
-             </font>
-            </property>
-            <property name="autoFillBackground">
-             <bool>false</bool>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QProgressBar:horizontal {
-border: 1px solid white;
-border-radius: 7px;
-background-color: black;
-text-align: center;
-}
-QProgressBar::chunk:horizontal{
-border-radius: 7px;
-background: rgb(20,180,20);
-}
-QProgressBar:horizontal::font {
-color: white;
-}</string>
-            </property>
-            <property name="value">
-             <number>100</number>
-            </property>
-            <property name="textVisible">
-             <bool>true</bool>
-            </property>
-            <property name="invertedAppearance">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
          </layout>
         </item>
        </layout>
       </widget>
-      <zorder>gridLayoutWidget_4</zorder>
-      <zorder></zorder>
      </widget>
      <widget class="QWidget" name="BottomLeftCorner" native="true">
       <property name="geometry">
@@ -1055,6 +1077,9 @@ color:white;</string>
             </property>
             <property name="text">
              <string>879</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
             </property>
            </widget>
           </item>
@@ -1291,126 +1316,24 @@ padding-bottom: -25px;</string>
       <property name="geometry">
        <rect>
         <x>360</x>
-        <y>250</y>
-        <width>441</width>
-        <height>221</height>
+        <y>260</y>
+        <width>451</width>
+        <height>241</height>
        </rect>
       </property>
       <widget class="QWidget" name="gridLayoutWidget_13">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>0</x>
          <y>0</y>
-         <width>421</width>
-         <height>245</height>
+         <width>201</width>
+         <height>231</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="BottomRight">
         <property name="verticalSpacing">
          <number>3</number>
         </property>
-        <item row="0" column="0">
-         <layout class="QGridLayout" name="turnSignals">
-          <item row="0" column="2">
-           <widget class="QWidget" name="rightTurnSignalWidget" native="true">
-            <property name="minimumSize">
-             <size>
-              <width>45</width>
-              <height>45</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>45</width>
-              <height>45</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">border-image: url(:/Resources/TurnSignalRight.png) 0 0 0 0 stretch stretch;
-</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="0">
-           <widget class="QWidget" name="leftTurnSignalWidget" native="true">
-            <property name="minimumSize">
-             <size>
-              <width>45</width>
-              <height>45</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>45</width>
-              <height>45</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">border-image: url(:/Resources/TurnSignaLeft.png)  0 0 0 0 stretch stretch;</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <spacer name="horizontalSpacer_3">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeType">
-             <enum>QSizePolicy::Maximum</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>10</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-         </layout>
-        </item>
-        <item row="1" column="1">
-         <layout class="QGridLayout" name="motorFaults">
-          <item row="1" column="0">
-           <widget class="QLabel" name="motorFaultsTitleLabel">
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>20</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">font: bold 10pt &quot;Arial Unicode MS&quot;;
-color: rgb(100,100,100);</string>
-            </property>
-            <property name="text">
-             <string>    M O T O R   F A U L T S</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="motorFaultsLabel">
-            <property name="minimumSize">
-             <size>
-              <width>200</width>
-              <height>55</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>200</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">background-color: rgb(15,15,15);</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
         <item row="1" column="0">
          <layout class="QGridLayout" name="headlights">
           <item row="0" column="2">
@@ -1469,7 +1392,78 @@ color: rgb(100,100,100);</string>
           </item>
          </layout>
         </item>
-        <item row="0" column="1">
+        <item row="0" column="0">
+         <layout class="QGridLayout" name="turnSignals">
+          <item row="0" column="2">
+           <widget class="QWidget" name="rightTurnSignalWidget" native="true">
+            <property name="minimumSize">
+             <size>
+              <width>45</width>
+              <height>45</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>45</width>
+              <height>45</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-image: url(:/Resources/TurnSignalRight.png) 0 0 0 0 stretch stretch;
+</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QWidget" name="leftTurnSignalWidget" native="true">
+            <property name="minimumSize">
+             <size>
+              <width>45</width>
+              <height>45</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>45</width>
+              <height>45</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-image: url(:/Resources/TurnSignalLeft.png)  0 0 0 0 stretch stretch;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Maximum</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>10</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="verticalLayoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>0</y>
+         <width>241</width>
+         <height>231</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
          <layout class="QGridLayout" name="batteryFaults">
           <property name="verticalSpacing">
            <number>0</number>
@@ -1502,7 +1496,7 @@ color: rgb(100,100,100);</string>
             <property name="maximumSize">
              <size>
               <width>200</width>
-              <height>16777215</height>
+              <height>55</height>
              </size>
             </property>
             <property name="styleSheet">
@@ -1511,6 +1505,131 @@ color: rgb(100,100,100);</string>
             <property name="text">
              <string/>
             </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QGridLayout" name="motorFaults">
+          <item row="1" column="0">
+           <widget class="QLabel" name="motorFaultsTitleLabel">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: bold 10pt &quot;Arial Unicode MS&quot;;
+color: rgb(100,100,100);</string>
+            </property>
+            <property name="text">
+             <string>    M O T O R   F A U L T S</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QWidget" name="motorFaultsWidget" native="true">
+            <property name="minimumSize">
+             <size>
+              <width>200</width>
+              <height>80</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>200</width>
+              <height>80</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(15,15,15);</string>
+            </property>
+            <widget class="QWidget" name="gridLayoutWidget_3">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>-30</y>
+               <width>201</width>
+               <height>148</height>
+              </rect>
+             </property>
+             <layout class="QGridLayout" name="gridLayout">
+              <item row="0" column="2">
+               <widget class="QWidget" name="motorOneFaultsWidget" native="true">
+                <property name="minimumSize">
+                 <size>
+                  <width>70</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>70</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">border-image: url(:/Resources/EngineIcon.png)  0 0 0 0 stretch stretch;</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QWidget" name="motorZeroFaultsWidget" native="true">
+                <property name="minimumSize">
+                 <size>
+                  <width>70</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>70</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="autoFillBackground">
+                 <bool>false</bool>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">border-image: url(:/Resources/EngineIcon.png)  0 0 0 0 stretch stretch;</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="2">
+               <spacer name="verticalSpacer">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Minimum</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>5</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item row="0" column="0">
+               <spacer name="horizontalSpacer_4">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Fixed</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>5</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
            </widget>
           </item>
          </layout>

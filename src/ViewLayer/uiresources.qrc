@@ -7,6 +7,8 @@
         <file>../Resources/HomeIcon.png</file>
         <file>../Resources/GearIcon.png</file>
         <file>../Resources/EngineIcon.png</file>
+        <file>../Resources/EngineLimitIcon.png</file>
+        <file>../Resources/EngineErrorIcon.png</file>
         <file>../Resources/BatteryIcon.png</file>
         <file>../Resources/Fonts/AvenirLTStd-Black.otf</file>
         <file>../Resources/Fonts/AvenirLTStd-BlackOblique.otf</file>
@@ -21,7 +23,7 @@
         <file>../Resources/Fonts/AvenirLTStd-Oblique.otf</file>
         <file>../Resources/Fonts/AvenirLTStd-Roman.otf</file>
         <file>../Resources/Thermometer.png</file>
-        <file>../Resources/TurnSignaLeft.png</file>
+        <file>../Resources/TurnSignalLeft.png</file>
         <file>../Resources/TurnSignalRight.png</file>
         <file>../Resources/MotorResetButton.png</file>
         <file>../Resources/LowHeadlightIndicator.png</file>
