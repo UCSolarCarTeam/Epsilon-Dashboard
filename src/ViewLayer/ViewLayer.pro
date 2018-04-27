@@ -24,6 +24,11 @@ HEADERS += \
     DebugDisplay/MotorPage/MotorUi/I_MotorUi.h \
     DebugDisplay/MPPTPage/MPPTUi/MpptUi.h \
     DebugDisplay/MPPTPage/MPPTUi/I_MpptUi.h \
+    DebugDisplay/MotorPage/MotorUi/I_MotorUi.h \
+    DebugDisplay/MotorPage/MotorUi/MotorUi.h \
+    DebugDisplay/MPPTPage/MPPTView/MpptView.h \
+    DebugDisplay/MotorPage/MotorView/MotorView.h \
+    DebugDisplay/ControlPage/ControlView/ControlView.h \
     DebugDisplay/MPPTPage/MPPTView/MpptView.h \
     DebugDisplay/OverlordWidget/OverlordWidget.h \
     DebugDisplay/Tab/TabUi/TabUi.h \
@@ -34,8 +39,9 @@ HEADERS += \
     RaceModeDisplay/RaceModeDashboardView.h \
     RaceModeDisplay/RaceModeDisplayUI/I_RaceModeDashboardUI.h \
     RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.h \
-    ViewContainer.h
-    
+    ViewContainer.h \
+    DebugDisplay/HomePage/HomePageView/HomePageView.h
+
 SOURCES += \ 
     DebugDisplay/BatteryPage/BatteryUi/BatteryUi.cpp \
     DebugDisplay/BatteryPage/BatteryView/BatteryView.cpp \
@@ -47,6 +53,10 @@ SOURCES += \
     DebugDisplay/MotorPage/MotorUi/MotorUi.cpp \
     DebugDisplay/FaultPage/FaultView/FaultView.cpp \
     DebugDisplay/MPPTPage/MPPTUi/MpptUi.cpp \
+    DebugDisplay/MotorPage/MotorView/MotorView.cpp \
+    DebugDisplay/MotorPage/MotorUi/MotorUi.cpp \
+    DebugDisplay/MPPTPage/MPPTView/MpptView.cpp \
+    DebugDisplay/ControlPage/ControlView/ControlView.cpp \
     DebugDisplay/MPPTPage/MPPTView/MpptView.cpp \
     DebugDisplay/OverlordWidget/OverlordWidget.cpp \
     DebugDisplay/Tab/TabUi/TabUi.cpp \
@@ -54,7 +64,8 @@ SOURCES += \
     DisplayDashboard/DisplayDashboardView/DisplayDashboardView.cpp \
     RaceModeDisplay/RaceModeDashboardView.cpp \
     RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.cpp \
-    ViewContainer.cpp
+    ViewContainer.cpp \
+    DebugDisplay/HomePage/HomePageView/HomePageView.cpp
 
 FORMS += \   
     DebugDisplay/BatteryPage/BatteryUi/BatteryUi.ui \

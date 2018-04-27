@@ -16,11 +16,13 @@ class BatteryUi;
 class ControlUi;
 class ControlView;
 class HomePageUi;
+class HomePageView;
 class FaultUi;
 class FaultView;
 class MotorUi;
 class MpptUi;
 class MpptView;
+class MotorView;
 class OverlordWidget;
 class TabUi;
 class PresenterContainer;
@@ -48,10 +50,12 @@ private:
     TabUi* tabUi_;
     ProgressBar* ProgressBar_;
 
+    QScopedPointer<MotorView> MotorView_;
     QScopedPointer<FaultView> FaultView_;
-
     QScopedPointer<ControlView> ControlView_;
     QScopedPointer<MpptView> MpptView_;
+    QScopedPointer<HomePageView> HomePageView_;
+
 
     QScopedPointer<DisplayDashboardView> DisplayDashboardView_;
     QScopedPointer<RaceModeDashboardView> RaceModeDashboardView_;
