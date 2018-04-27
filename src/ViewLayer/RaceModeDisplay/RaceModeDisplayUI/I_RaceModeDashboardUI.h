@@ -20,6 +20,8 @@ public:
     virtual QWidget& motorFaultsWidget() = 0;
     virtual QWidget& motorZeroFaultsWidget() = 0;
     virtual QWidget& motorOneFaultsWidget() = 0;
+    virtual QLabel& motorZeroFaultsLabel() = 0;
+    virtual QLabel& motorOneFaultsLabel() = 0;
 
     virtual QWidget& leftTurnSignalWidget() = 0;
     virtual QWidget& rightTurnSignalWidget() = 0;

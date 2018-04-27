@@ -52,6 +52,16 @@ QWidget& RaceModeDashboardUI::motorOneFaultsWidget()
     return *ui_->motorOneFaultsWidget;
 }
 
+QLabel& RaceModeDashboardUI::motorZeroFaultsLabel()
+{
+    return *ui_->motorZeroFaultsLabel;
+}
+
+QLabel& RaceModeDashboardUI::motorOneFaultsLabel()
+{
+    return *ui_->motorOneFaultsLabel;
+}
+
 QWidget& RaceModeDashboardUI::leftTurnSignalWidget()
 {
     return *ui_->leftTurnSignalWidget;

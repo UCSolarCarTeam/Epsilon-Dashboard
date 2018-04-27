@@ -38,7 +38,17 @@ HEADERS += \
     RaceModeDisplay/RaceModeDisplayUI/I_RaceModeDashboardUI.h \
     RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.h \
     ViewContainer.h \
-    DebugDisplay/HomePage/HomePageView/HomePageView.h
+    DebugDisplay/HomePage/HomePageView/HomePageView.h \
+    RaceModeDisplay/RaceModeDisplayUI/I_RaceModeDashboardUI.h \
+    RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.h \
+    RaceModeDisplay/RaceModeDashboardView.h \
+    RaceModeDisplay/RaceModeDisplayUI/I_RaceModeDashboardUI.h \
+    RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.h \
+    RaceModeDisplay/RaceModeDashboardView.h \
+    RaceModeDisplay/errorlist.h \
+    RaceModeDisplay/RaceModeErrors/ErrorList.h \
+    RaceModeDisplay/FaultLabel/faultlabel.h \
+    RaceModeDisplay/FaultLabel/FaultLabel.h
 
 SOURCES += \ 
     DebugDisplay/BatteryPage/BatteryUi/BatteryUi.cpp \
@@ -61,7 +71,11 @@ SOURCES += \
     RaceModeDisplay/RaceModeDashboardView.cpp \
     RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.cpp \
     ViewContainer.cpp \
-    DebugDisplay/HomePage/HomePageView/HomePageView.cpp
+    DebugDisplay/HomePage/HomePageView/HomePageView.cpp \
+    RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.cpp \
+    RaceModeDisplay/RaceModeDashboardView.cpp \
+    RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.cpp \
+    RaceModeDisplay/RaceModeDashboardView.cpp
 
 FORMS += \   
     DebugDisplay/BatteryPage/BatteryUi/BatteryUi.ui \

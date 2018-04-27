@@ -1555,37 +1555,18 @@ color: rgb(100,100,100);</string>
               </rect>
              </property>
              <layout class="QGridLayout" name="gridLayout">
-              <item row="0" column="2">
-               <widget class="QWidget" name="motorOneFaultsWidget" native="true">
-                <property name="minimumSize">
-                 <size>
-                  <width>70</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>70</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">border-image: url(:/Resources/EngineIcon.png)  0 0 0 0 stretch stretch;</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="1">
+              <item row="0" column="0">
                <widget class="QWidget" name="motorZeroFaultsWidget" native="true">
                 <property name="minimumSize">
                  <size>
-                  <width>70</width>
-                  <height>70</height>
+                  <width>20</width>
+                  <height>20</height>
                  </size>
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>70</width>
-                  <height>70</height>
+                  <width>20</width>
+                  <height>20</height>
                  </size>
                 </property>
                 <property name="autoFillBackground">
@@ -1596,37 +1577,58 @@ color: rgb(100,100,100);</string>
                 </property>
                </widget>
               </item>
-              <item row="1" column="2">
-               <spacer name="verticalSpacer">
-                <property name="orientation">
-                 <enum>Qt::Vertical</enum>
-                </property>
-                <property name="sizeType">
-                 <enum>QSizePolicy::Minimum</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
+              <item row="0" column="1">
+               <widget class="QWidget" name="motorOneFaultsWidget" native="true">
+                <property name="minimumSize">
                  <size>
                   <width>20</width>
-                  <height>5</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item row="0" column="0">
-               <spacer name="horizontalSpacer_4">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeType">
-                 <enum>QSizePolicy::Fixed</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>5</width>
                   <height>20</height>
                  </size>
                 </property>
-               </spacer>
+                <property name="maximumSize">
+                 <size>
+                  <width>20</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">border-image: url(:/Resources/EngineIcon.png)  0 0 0 0 stretch stretch;</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="motorOneFaultsLabel">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">font: 12pt &quot;Burlingame Pro&quot;;
+color:white;</string>
+                </property>
+                <property name="text">
+                 <string>Motor0</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLabel" name="motorZeroFaultsLabel">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">font: 12pt &quot;Burlingame Pro&quot;;
+color:white;</string>
+                </property>
+                <property name="text">
+                 <string>Motor1</string>
+                </property>
+               </widget>
               </item>
              </layout>
             </widget>

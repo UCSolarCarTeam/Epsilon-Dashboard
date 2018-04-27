@@ -255,6 +255,7 @@ void RaceModeDashboardView::motorZeroErrorFlagsReceived(ErrorFlags flags)
     {
         motorZeroErrorRecieved_ = true;
         ui_.motorZeroFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineErrorIcon.png) 0 0 0 0 stretch stretch;");
+        ui_.motorZeroFaultsLabel().setText("ERROR");
     }
     else
     {
@@ -263,10 +264,12 @@ void RaceModeDashboardView::motorZeroErrorFlagsReceived(ErrorFlags flags)
         if (motorZeroLimitRecieved_)
         {
             ui_.motorZeroFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineLimitIcon.png) 0 0 0 0 stretch stretch;");
+            ui_.motorZeroFaultsLabel().setText("LIMIT");
         }
         else
         {
             ui_.motorZeroFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineIcon.png) 0 0 0 0 stretch stretch;");
+            ui_.motorZeroFaultsLabel().setText("Motor 0");
         }
     }
 }
@@ -281,6 +284,7 @@ void RaceModeDashboardView::motorZeroLimitFlagsReceived(LimitFlags flags)
         if (!motorZeroErrorRecieved_)
         {
             ui_.motorZeroFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineLimitIcon.png) 0 0 0 0 stretch stretch;");
+            ui_.motorZeroFaultsLabel().setText("LIMIT");
         }
     }
     else
@@ -290,6 +294,7 @@ void RaceModeDashboardView::motorZeroLimitFlagsReceived(LimitFlags flags)
         if (!motorZeroErrorRecieved_)
         {
             ui_.motorZeroFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineIcon.png) 0 0 0 0 stretch stretch;");
+            ui_.motorZeroFaultsLabel().setText("Motor 0");
         }
     }
 }
@@ -301,6 +306,7 @@ void RaceModeDashboardView::motorOneErrorFlagsReceived(ErrorFlags flags)
     {
         motorOneErrorRecieved_ = true;
         ui_.motorOneFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineErrorIcon.png) 0 0 0 0 stretch stretch;");
+        ui_.motorOneFaultsLabel().setText("ERROR");
     }
     else
     {
@@ -309,10 +315,12 @@ void RaceModeDashboardView::motorOneErrorFlagsReceived(ErrorFlags flags)
         if (motorOneLimitRecieved_)
         {
             ui_.motorOneFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineLimitIcon.png) 0 0 0 0 stretch stretch;");
+            ui_.motorOneFaultsLabel().setText("LIMIT");
         }
         else
         {
             ui_.motorOneFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineIcon.png) 0 0 0 0 stretch stretch;");
+            ui_.motorOneFaultsLabel().setText("Motor 1");
         }
     }
 }
@@ -327,6 +335,7 @@ void RaceModeDashboardView::motorOneLimitFlagsReceived(LimitFlags flags)
         if (!motorOneErrorRecieved_)
         {
             ui_.motorOneFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineLimitIcon.png) 0 0 0 0 stretch stretch;");
+            ui_.motorOneFaultsLabel().setText("LIMIT");
         }
     }
     else
@@ -336,6 +345,7 @@ void RaceModeDashboardView::motorOneLimitFlagsReceived(LimitFlags flags)
         if (!motorOneErrorRecieved_)
         {
             ui_.motorOneFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineIcon.png) 0 0 0 0 stretch stretch;");
+            ui_.motorOneFaultsLabel().setText("Motor 1");
         }
     }
 }
