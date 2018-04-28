@@ -12,7 +12,7 @@ public:
     ProgressBar(QWidget* parent = 0);
     ~ProgressBar();
     double progress;
-    void paintEvent(QPaintEvent *);
+    void paintEvent(QPaintEvent*);
 
 protected:
 

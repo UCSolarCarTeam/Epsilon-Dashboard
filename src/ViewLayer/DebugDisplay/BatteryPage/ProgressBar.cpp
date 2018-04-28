@@ -5,10 +5,12 @@ namespace
     const int FULL_CIRCLE = 5760;
     const int START_ANGLE = 1440;
 }
+
 ProgressBar::ProgressBar(QWidget *parent) : QWidget(parent)
 {
 
 }
+
 
 ProgressBar::~ProgressBar()
 {
@@ -26,6 +28,7 @@ void ProgressBar::paintEvent(QPaintEvent *)
     p.setRenderHint(QPainter::Antialiasing);
 
     QRectF rectangle(10.0, 30.0, 100.0, 100.0);
+
     int spanAngle = progress * FULL_CIRCLE;
 
     p.drawArc(rectangle, START_ANGLE, spanAngle);

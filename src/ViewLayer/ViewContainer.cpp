@@ -8,6 +8,7 @@
 #include "DebugDisplay/ControlPage/ControlUi/ControlUi.h"
 #include "DebugDisplay/ControlPage/ControlView/ControlView.h"
 #include "DebugDisplay/HomePage/HomePageUi/HomePageUi.h"
+#include "DebugDisplay/HomePage/HomePageView/HomePageView.h"
 #include "DebugDisplay/FaultPage/FaultUi/FaultUi.h"
 #include "DebugDisplay/FaultPage/FaultView/FaultView.h"
 #include "DebugDisplay/MotorPage/MotorUi/MotorUi.h"
@@ -66,10 +67,6 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
                               *homepageUi_, *faultUi_,
                               *motorUi_, *mpptUi_, *tabUi_));
 
-
-//        MotorFaultView_.reset(new MotorFaultView(presenterContainer.motorFaultsPresenter(),
-//                              presenterContainer.batteryFaultsPresenter(),
-//                              *motorFaultUi_));
         MotorView_.reset(new MotorView( presenterContainer.keyMotorPresenter(),
                                         presenterContainer.motorDetailsPresenter(), *motorUi_));
 
@@ -80,6 +77,7 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
 
         MpptView_.reset(new MpptView(presenterContainer.mpptPresenter(), *mpptUi_));
         ControlView_.reset(new ControlView(presenterContainer.driverControlsPresenter(), *controlUi_));
+        HomePageView_.reset(new HomePageView(*homepageUi_));
     }
 }
 

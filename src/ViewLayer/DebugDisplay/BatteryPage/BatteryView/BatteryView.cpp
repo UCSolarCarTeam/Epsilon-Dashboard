@@ -124,10 +124,7 @@ void BatteryView::connectBattery(BatteryPresenter& batteryPresenter)
             this, SLOT(packNetPowerReceived(const double)));
 
    // connect(&batteryPresenter, SIGNAL(updateProgress(const double, double)), this, SLOT(updateProgress(const double, double)));
-
 }
-
-
 
 
 void BatteryView::aliveReceived(bool alive)

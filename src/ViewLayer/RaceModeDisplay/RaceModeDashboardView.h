@@ -53,6 +53,11 @@ private:
     MotorDetailsPresenter& motorDetailsPresenter_;
     MotorFaultsPresenter& motorFaultsPresenter_;
 
+    bool motorZeroLimitRecieved_;
+    bool motorZeroErrorRecieved_;
+    bool motorOneLimitRecieved_;
+    bool motorOneErrorRecieved_;
+
     I_RaceModeDashboardUI& ui_;
 
 private slots:
