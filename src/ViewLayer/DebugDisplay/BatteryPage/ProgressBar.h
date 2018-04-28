@@ -15,5 +15,5 @@ public:
     void paintEvent(QPaintEvent*);
     void setProgress(double progress);
 private:
-    double progress_;
+    double progress_ = 0;
 };

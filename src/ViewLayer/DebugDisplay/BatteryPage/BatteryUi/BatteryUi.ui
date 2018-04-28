@@ -1844,7 +1844,7 @@ color:white;</string>
                     <widget class="QLabel" name="packInfoAmphours">
                      <property name="geometry">
                       <rect>
-                       <x>20</x>
+                       <x>10</x>
                        <y>0</y>
                        <width>59</width>
                        <height>15</height>
@@ -1989,7 +1989,7 @@ color:white;</string>
                   <property name="bottomMargin">
                    <number>0</number>
                   </property>
-                  <item>
+                  <item alignment="Qt::AlignHCenter">
                    <widget class="QLabel" name="label_6">
                     <property name="text">
                      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;Power&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>

@@ -128,8 +128,6 @@ void BatteryView::connectBattery(BatteryPresenter& batteryPresenter)
             this, SLOT(packNetPowerReceived(const double)));
 
     ui_.progressBarContainer().addWidget(&bar_);
-
-
 }
 
 
@@ -444,7 +442,7 @@ void BatteryView::requestedFanSpeedReceived(int requestedFanSpeed)
 
 void BatteryView::lowCellVoltageReceived(int lowCellVoltage)
 {
-    ui_.lowCellVoltageLabel().setText(QString::number(lowCellVoltage) + MILLI_VOLTAGE_UNIT);
+    ui_.lowCellVoltageLabel().setText(QString::number(lowCellVoltage) + " " + MILLI_VOLTAGE_UNIT);
 }
 
 void BatteryView::lowCellVoltageIdReceived(int lowCellVoltageId)
