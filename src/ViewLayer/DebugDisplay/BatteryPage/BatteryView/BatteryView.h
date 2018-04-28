@@ -21,6 +21,7 @@ public:
     BatteryView(BatteryPresenter& batteryPresenter,
                 I_BatteryUi& ui, ProgressBar& bar);
     ~BatteryView();
+    void updateProgress(double stateOfCharge);
 
 private:
     void connectBattery(BatteryPresenter&);
