@@ -15,7 +15,9 @@ namespace
 }
 
 
-ProgressBar::ProgressBar(QWidget* parent) : QWidget(parent)
+ProgressBar::ProgressBar(QWidget* parent)
+    : QWidget(parent)
+    , progress_(0)
 {
 
 }
@@ -52,3 +54,4 @@ void ProgressBar::paintEvent(QPaintEvent*)
     p.setFont(font);
     p.drawText(rectangle, Qt::AlignCenter, QString::number(progress_ * 100) + "%");
 }
+

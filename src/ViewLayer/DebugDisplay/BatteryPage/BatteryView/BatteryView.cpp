@@ -1,4 +1,5 @@
-﻿#include "BatteryView.h"
+﻿#include <QDebug>;
+#include "BatteryView.h"
 
 namespace
 {
@@ -68,7 +69,8 @@ void BatteryView::connectBattery(BatteryPresenter& batteryPresenter)
             this, SLOT(packVoltageReceived(const double)));
 
     connect(&batteryPresenter, SIGNAL(packStateOfChargeReceived(const double)),
-            this, SLOT(packStateofChargeReceived(const double)));
+            this, SLOT(packStateOfChargeReceived(const double)));
+    //ui_.progressBarContainer().addWidget(&bar_);
 
     connect(&batteryPresenter, SIGNAL(packAmphoursReceived(const double)),
             this, SLOT(packAmphoursReceived(const double)));
@@ -126,7 +128,6 @@ void BatteryView::connectBattery(BatteryPresenter& batteryPresenter)
 
     connect(&batteryPresenter, SIGNAL(packNetPowerReceived(const double)),
             this, SLOT(packNetPowerReceived(const double)));
-
     ui_.progressBarContainer().addWidget(&bar_);
 }
 
@@ -468,6 +469,7 @@ void BatteryView::averageCellVoltageReceived(int avgCellVoltage)
 void BatteryView::prechargeStateReceived(QString prechargeState)
 {
     ui_.prechargeStateLabel().setText(prechargeState);
+    qDebug() << ui_.prechargeStateLabel().text();
 }
 
 void BatteryView::auxVoltageReceived(int auxVoltage)
@@ -485,7 +487,6 @@ void BatteryView::auxBmsAliveReceived(bool auxBmsAlive)
     {
         ui_.auxBmsAliveWidget().setStyleSheet(BATTERY_DEAD);
     }
-
 }
 
 void BatteryView::packNetPowerReceived(double packNetPower)

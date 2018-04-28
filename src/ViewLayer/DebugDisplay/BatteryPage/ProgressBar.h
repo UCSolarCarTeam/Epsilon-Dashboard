@@ -17,3 +17,4 @@ public:
 private:
     double progress_ = 0;
 };
+

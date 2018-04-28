@@ -248,3 +248,4 @@ QVBoxLayout& BatteryUi::progressBarContainer()
 {
     return *ui_->progressBarContainer;
 }
+
