@@ -5,7 +5,7 @@
 
 namespace
 {
-    QString SETTINGS_FILE_PATH = (QDir::currentPath() + "/../src/config.ini");
+    QString SETTINGS_FILE_PATH = (QDir::currentPath() + "/config.ini");
 }
 
 InfrastructureContainer::InfrastructureContainer(QString queueName)
