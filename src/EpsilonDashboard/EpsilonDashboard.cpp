@@ -8,6 +8,9 @@
 #include "../InfrastructureLayer/InfrastructureContainer.h"
 #include "EpsilonDashboard.h"
 
+#include <QDebug>
+#include <QString>
+
 EpsilonDashboard::EpsilonDashboard(int& argc, char** argv)
     : QApplication(argc, argv)
     , infrastructureContainer_(new InfrastructureContainer())
@@ -19,8 +22,11 @@ EpsilonDashboard::EpsilonDashboard(int& argc, char** argv)
     QCommandLineParser parser;
     QCommandLineOption raceModeOption("r");
     QCommandLineOption debugModeOption("d");
+    QCommandLineOption queueNameOption("qn", "", "queueName");
     parser.addOption(raceModeOption);
     parser.addOption(debugModeOption);
+    parser.addOption(queueNameOption);
+
     parser.process(*this);
     Mode mode = Mode::DISPLAY;
 
@@ -33,6 +39,8 @@ EpsilonDashboard::EpsilonDashboard(int& argc, char** argv)
     {
         mode = Mode::DEBUG;
     }
+
+    QString queueName = parser.value(queueNameOption);
 
     viewContainer_.reset(new ViewContainer(*presenterContainer_, mode));
 }
