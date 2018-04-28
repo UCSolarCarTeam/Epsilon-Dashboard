@@ -15,7 +15,9 @@ namespace
 }
 
 
-ProgressBar::ProgressBar(QWidget* parent) : QWidget(parent)
+ProgressBar::ProgressBar(QWidget* parent)
+    : QWidget(parent)
+    , progress_(0)
 {
 
 }
