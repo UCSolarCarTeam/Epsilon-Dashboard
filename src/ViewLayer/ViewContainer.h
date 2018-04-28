@@ -10,6 +10,7 @@ class BatteryUi;
 class ControlUi;
 class ControlView;
 class HomePageUi;
+class HomePageView;
 class FaultUi;
 class FaultView;
 class MotorUi;
@@ -40,11 +41,12 @@ private:
     MpptUi* mpptUi_;
     TabUi* tabUi_;
 
-
     QScopedPointer<MotorView> MotorView_;
     QScopedPointer<FaultView> FaultView_;
     QScopedPointer<ControlView> ControlView_;
     QScopedPointer<MpptView> MpptView_;
+    QScopedPointer<HomePageView> HomePageView_;
+
 
     QScopedPointer<DisplayDashboardView> DisplayDashboardView_;
     QScopedPointer<RaceModeDashboardView> RaceModeDashboardView_;
