@@ -464,7 +464,6 @@ void BatteryView::highCellVoltageIdReceived(int highCellVoltageId)
 
 void BatteryView::averageCellVoltageReceived(int avgCellVoltage)
 {
-    //int averageCellVoltage = (lowCellVoltage + highCellVoltage)/2;
     ui_.avgCellVoltageLabel().setText(QString::number(avgCellVoltage) + " " + MILLI_VOLTAGE_UNIT);
 }
 
