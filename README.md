@@ -26,3 +26,7 @@ In this repo, there are dependencies needed for Rabbitmq before you will be able
 
 To install these dependencies, run the command:
 	`./EpsilonDashboardSetup.sh`
+
+## Config file
+
+Please put the config.ini.example file into the build directory and rename to config.ini and update settings there.
