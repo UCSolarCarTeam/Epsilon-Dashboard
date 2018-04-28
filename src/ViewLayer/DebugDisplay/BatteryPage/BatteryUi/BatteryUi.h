@@ -76,10 +76,6 @@ public:
 
     QVBoxLayout& progressBarContainer();
 
-private slots:
-    //void on_dial_sliderReleased();
-    //void on_dial_valueChanged(int value);
-
 private:
     Ui::BatteryUi* ui_;
 };

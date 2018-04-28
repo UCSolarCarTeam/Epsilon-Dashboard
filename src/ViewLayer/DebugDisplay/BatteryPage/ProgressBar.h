@@ -8,13 +8,13 @@
 class ProgressBar : public QWidget
 {
     Q_OBJECT
+
 public:
     ProgressBar(QWidget* parent = 0);
     ~ProgressBar();
-    double progress;
     void paintEvent(QPaintEvent*);
-
-protected:
-
+    void setProgress(double progress);
+private:
+    double progress_;
 };
 
