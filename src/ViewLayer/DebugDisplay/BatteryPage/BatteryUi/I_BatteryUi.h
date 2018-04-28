@@ -17,12 +17,12 @@ public:
     virtual QLabel& packInfoDepthofDischarge() = 0;
     virtual QLabel& packNetPower() = 0;
 
-    virtual QLabel& BMSOn() = 0;
-    virtual QLabel& BMSCharging() = 0;
-    virtual QLabel& BMSReady() = 0;
-    virtual QLabel& BMSDischargeRelayEnabled() = 0;
-    virtual QLabel& BMSChargeRelayEnabled() = 0;
-    virtual QLabel& BMSChargerSafetyEnabled() = 0;
+    virtual QLabel& BmsOn() = 0;
+    virtual QLabel& BmsCharging() = 0;
+    virtual QLabel& BmsReady() = 0;
+    virtual QLabel& BmsDischargeRelayEnabled() = 0;
+    virtual QLabel& BmsChargeRelayEnabled() = 0;
+    virtual QLabel& BmsChargerSafetyEnabled() = 0;
 
     virtual QLabel& malfunctionIndicatorActive() = 0;
     virtual QLabel& multipurposeInputSignalStatus() = 0;

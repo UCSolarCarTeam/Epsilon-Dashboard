@@ -26,12 +26,12 @@ public:
     QLabel& packInfoDepthofDischarge();
     QLabel& packNetPower();
 
-    QLabel& BMSOn();
-    QLabel& BMSCharging();
-    QLabel& BMSReady();
-    QLabel& BMSDischargeRelayEnabled();
-    QLabel& BMSChargeRelayEnabled();
-    QLabel& BMSChargerSafetyEnabled();
+    QLabel& BmsOn();
+    QLabel& BmsCharging();
+    QLabel& BmsReady();
+    QLabel& BmsDischargeRelayEnabled();
+    QLabel& BmsChargeRelayEnabled();
+    QLabel& BmsChargerSafetyEnabled();
 
     QLabel& malfunctionIndicatorActive();
     QLabel& multipurposeInputSignalStatus();

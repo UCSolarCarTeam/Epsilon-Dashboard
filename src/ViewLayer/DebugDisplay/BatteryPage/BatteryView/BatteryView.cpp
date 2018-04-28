@@ -148,56 +148,56 @@ void BatteryView::bmsRelayStatusReceived(BmsRelayStatusFlags BmsRelayStatus)
 {
     if (BmsRelayStatus.alwaysOnSignalStatus())
     {
-        ui_.BMSOn().setStyleSheet(ON);
+        ui_.BmsOn().setStyleSheet(ON);
     }
     else
     {
-        ui_.BMSOn().setStyleSheet(OFF);
+        ui_.BmsOn().setStyleSheet(OFF);
     }
 
     if (BmsRelayStatus.isChargingSignalStatus())
     {
-        ui_.BMSCharging().setStyleSheet(ON);
+        ui_.BmsCharging().setStyleSheet(ON);
     }
     else
     {
-        ui_.BMSCharging().setStyleSheet(OFF);
+        ui_.BmsCharging().setStyleSheet(OFF);
     }
 
     if (BmsRelayStatus.isReadySignalStatus())
     {
-        ui_.BMSReady().setStyleSheet(ON);
+        ui_.BmsReady().setStyleSheet(ON);
     }
     else
     {
-        ui_.BMSReady().setStyleSheet(OFF);
+        ui_.BmsReady().setStyleSheet(OFF);
     }
 
     if (BmsRelayStatus.dischargeRelayEnabled())
     {
-        ui_.BMSDischargeRelayEnabled().setStyleSheet(ON);
+        ui_.BmsDischargeRelayEnabled().setStyleSheet(ON);
     }
     else
     {
-        ui_.BMSDischargeRelayEnabled().setStyleSheet(OFF);
+        ui_.BmsDischargeRelayEnabled().setStyleSheet(OFF);
     }
 
     if (BmsRelayStatus.chargeRelayEnabled())
     {
-        ui_.BMSChargeRelayEnabled().setStyleSheet(ON);
+        ui_.BmsChargeRelayEnabled().setStyleSheet(ON);
     }
     else
     {
-        ui_.BMSChargeRelayEnabled().setStyleSheet(OFF);
+        ui_.BmsChargeRelayEnabled().setStyleSheet(OFF);
     }
 
     if (BmsRelayStatus.chargerSafetyEnabled())
     {
-        ui_.BMSChargerSafetyEnabled().setStyleSheet(ON);
+        ui_.BmsChargerSafetyEnabled().setStyleSheet(ON);
     }
     else
     {
-        ui_.BMSChargerSafetyEnabled().setStyleSheet(OFF);
+        ui_.BmsChargerSafetyEnabled().setStyleSheet(OFF);
     }
 
     if (BmsRelayStatus.malfunctionIndicatorActive())

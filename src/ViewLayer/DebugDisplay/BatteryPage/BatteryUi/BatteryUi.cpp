@@ -49,34 +49,34 @@ QLabel& BatteryUi::packNetPower()
     return *ui_->packNetPowerLabel;
 }
 
-QLabel& BatteryUi::BMSOn()
+QLabel& BatteryUi::BmsOn()
 {
-    return *ui_->BMSOn;
+    return *ui_->BmsOn;
 }
 
-QLabel& BatteryUi::BMSCharging()
+QLabel& BatteryUi::BmsCharging()
 {
-    return *ui_->BMSCharging;
+    return *ui_->BmsCharging;
 }
 
-QLabel& BatteryUi::BMSReady()
+QLabel& BatteryUi::BmsReady()
 {
-    return *ui_->BMSReady;
+    return *ui_->BmsReady;
 }
 
-QLabel& BatteryUi::BMSDischargeRelayEnabled()
+QLabel& BatteryUi::BmsDischargeRelayEnabled()
 {
-    return *ui_->BMSDischargeRelayEnabled;
+    return *ui_->BmsDischargeRelayEnabled;
 }
 
-QLabel& BatteryUi::BMSChargeRelayEnabled()
+QLabel& BatteryUi::BmsChargeRelayEnabled()
 {
-    return *ui_->BMSChargeRelayEnabled;
+    return *ui_->BmsChargeRelayEnabled;
 }
 
-QLabel& BatteryUi::BMSChargerSafetyEnabled()
+QLabel& BatteryUi::BmsChargerSafetyEnabled()
 {
-    return *ui_->BMSChargerSafetyEnabled;
+    return *ui_->BmsChargerSafetyEnabled;
 }
 
 QLabel& BatteryUi::malfunctionIndicatorActive()
