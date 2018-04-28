@@ -17,6 +17,9 @@ To run the application in debug display mode, run the command:
 To run the application in race mode, add the -r flag at the end:
   `./EpsilonDashboard -r`
 
+OPTIONAL: Specify the queue name by adding the `--qn` flag after any mode flag followed by a space and then the queue name
+  `./EpsilonDashboard -r --qn customQueueName`
+
 ## Setting up Rabbitmq
 
 In this repo, there are dependencies needed for Rabbitmq before you will be able to build or run anything.

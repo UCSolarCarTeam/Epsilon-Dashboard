@@ -43,7 +43,9 @@ EpsilonDashboard::EpsilonDashboard(int& argc, char** argv)
     }
 
     QString queueSpecified = parser.value(queueNameOption);
-    if (queueSpecified != ""){
+
+    if (queueSpecified != "")
+    {
         queueName = queueSpecified;
     }
 
