@@ -18,7 +18,7 @@ To run the application in race mode, add the -r flag at the end:
   `./EpsilonDashboard -r`
 
 OPTIONAL: Specify the queue name by adding the `--qn` flag after any mode flag followed by a space and then the queue name
-  `./EpsilonDashboard -r --qn customQueueName`
+  I.e: `./EpsilonDashboard -r --qn customQueueName`
 
 ## Setting up Rabbitmq
 
@@ -29,4 +29,4 @@ To install these dependencies, run the command:
 
 ## Config file
 
-Please put the config.ini.example file into the build directory and rename to config.ini and update settings there.
+Please put the `config.ini.example` file into the `build` directory and rename to `config.ini` and update settings there.
