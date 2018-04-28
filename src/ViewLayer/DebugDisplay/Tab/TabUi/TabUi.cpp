@@ -4,11 +4,11 @@
 #include <QDateTime>
 #include <QPixmap>
 
-TabUi::TabUi(QWidget *parent) :
+TabUi::TabUi(QWidget* parent) :
     ui_(new Ui::TabUi)
 {
     ui_->setupUi(this);
-    QTimer *timer = new QTimer(this);
+    QTimer* timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(showTime()));
     timer->start();
     QPixmap bkgnd(":/Resources/Background.png");
@@ -17,19 +17,19 @@ TabUi::TabUi(QWidget *parent) :
     background.setBrush(QPalette::Background, bkgnd);
 
     ui_->controlButton->setIcon(QIcon(":/Resources/SteeringIcon.png"));
-    ui_->controlButton->setIconSize(QSize(30,30));
+    ui_->controlButton->setIconSize(QSize(30, 30));
     ui_->batteryButton->setIcon(QIcon(":/Resources/BatteryIcon.png"));
-    ui_->batteryButton->setIconSize(QSize(30,30));
+    ui_->batteryButton->setIconSize(QSize(30, 30));
     ui_->motorButton->setIcon(QIcon(":/Resources/EngineIcon.png"));
-    ui_->motorButton->setIconSize(QSize(35,35));
+    ui_->motorButton->setIconSize(QSize(35, 35));
     ui_->faultButton->setIcon(QIcon(":/Resources/GearIcon.png"));
-    ui_->faultButton->setIconSize(QSize(35,35));
+    ui_->faultButton->setIconSize(QSize(35, 35));
     ui_->mpptButton->setIcon(QIcon(":/Resources/MPPTIcon.png"));
-    ui_->mpptButton->setIconSize(QSize(38,38));
+    ui_->mpptButton->setIconSize(QSize(38, 38));
 
     QPixmap pix(":/Resources/SolarCarTeam.png");
 
-    pix = pix.scaled(QSize(25,25));
+    pix = pix.scaled(QSize(25, 25));
     ui_->calgaryTeam->setPixmap(pix);
 
     this->setAutoFillBackground(true);
