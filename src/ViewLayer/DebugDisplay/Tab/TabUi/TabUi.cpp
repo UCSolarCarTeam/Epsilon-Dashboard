@@ -27,10 +27,8 @@ TabUi::TabUi(QWidget *parent) :
     ui_->mpptButton->setIcon(QIcon(":/Resources/MPPTIcon.png"));
     ui_->mpptButton->setIconSize(QSize(38,38));
 
-    QPixmap pix(":/Resources/MPPTIcon.png");
-    //correct logo below
-    //QPixmap pix(":/Resources/SolarCarTeam.png");
-    //
+    QPixmap pix(":/Resources/SolarCarTeam.png");
+
     pix = pix.scaled(QSize(25,25));
     ui_->calgaryTeam->setPixmap(pix);
 

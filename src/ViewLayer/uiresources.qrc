@@ -41,5 +41,6 @@
         <file>../Resources/ArrayZeroBackground.png</file>
         <file>Resource/Pause-Play.png</file>
         <file>../Resources/Alive Icon.png</file>
+        <file>../Resources/SolarCarTeam.png</file>
     </qresource>
 </RCC>
