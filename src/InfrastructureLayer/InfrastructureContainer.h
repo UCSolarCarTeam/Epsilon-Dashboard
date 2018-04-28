@@ -6,7 +6,7 @@ class I_Settings;
 class InfrastructureContainer
 {
 public:
-    InfrastructureContainer();
+    InfrastructureContainer(QString queueName);
     ~InfrastructureContainer();
 
     I_Settings& settings();

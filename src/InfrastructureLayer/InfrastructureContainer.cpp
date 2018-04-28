@@ -8,8 +8,8 @@ namespace
     QString SETTINGS_FILE_PATH = (QDir::currentPath() + "/../src/config.ini");
 }
 
-InfrastructureContainer::InfrastructureContainer()
-    : settings_(new Settings(SETTINGS_FILE_PATH))
+InfrastructureContainer::InfrastructureContainer(QString queueName)
+    : settings_(new Settings(SETTINGS_FILE_PATH, queueName))
 {
 }
 

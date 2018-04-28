@@ -7,7 +7,7 @@
 class Settings : public I_Settings
 {
 public:
-    Settings(QString filepath);
+    Settings(QString filepath, QString queueName);
     virtual ~Settings() {}
     QString ipAddress() const;
     quint16 port() const;
