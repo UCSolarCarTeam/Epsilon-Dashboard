@@ -67,7 +67,8 @@ JsonReceiver::JsonReceiver(BatteryPopulator& batteryPopulator,
     connect(this, SIGNAL(invalidDataReceived()),
             &communicationsMonitoringService_, SLOT(invalidPacketReceived()));
 
-    if(loggingEnabled_){
+    if (loggingEnabled_)
+    {
         Logging* logger = new Logging();
         logger_ = logger;
     }
@@ -85,8 +86,11 @@ void JsonReceiver::handleIncomingData(const QByteArray& data)
     }
     else
     {
-        if(loggingEnabled_)
+        if (loggingEnabled_)
+        {
             logger_->saveToLog(parsedData);
+        }
+
         emit dataReceived(parsedData);
     }
 }

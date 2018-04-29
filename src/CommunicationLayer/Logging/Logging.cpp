@@ -22,7 +22,9 @@ Logging::Logging()
     QString logName = LOG_DIR + LOG_NAME + todayStr + LOG_EXT;
 
     logFile_.setFileName(logName);
-    if(!QDir(LOG_DIR).exists()){
+
+    if (!QDir(LOG_DIR).exists())
+    {
         QDir().mkdir(LOG_DIR);
     }
 
