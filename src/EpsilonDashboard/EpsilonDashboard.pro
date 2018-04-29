@@ -34,4 +34,8 @@ DISTFILES += \
     ../Resources/Solar Car Team Icon.ico \
     ../Resources/BrowseButton.png \
     ../Resources/HighHeadlightIndicator.png \
-    ../Resources/LowHeadlightIndicator.png
+    ../Resources/LowHeadlightIndicator.png \
+    ../Resources/HighHeadlightIndicatorOff.png \
+    ../Resources/LowHeadlightIndicatorOff.png \
+    ../Resources/TurnSignalLeftOff.png \
+    ../Resources/TurnSignalRightOff.png
