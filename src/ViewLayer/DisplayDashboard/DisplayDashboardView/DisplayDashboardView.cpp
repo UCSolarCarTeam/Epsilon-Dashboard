@@ -135,8 +135,8 @@ void DisplayDashboardView::prechargeStateReceived(QString prechargeState)
 
 void DisplayDashboardView::packNetPowerReceived(double netPower)
 {
-    ui_.netPowerLabel().setNum(netPower);
-    ui_.powerOutLabel().setNum(netPower - ui_.powerInLabel().text().toDouble());
+    ui_.netPowerLabel().setText(QString::number(netPower, 'f', 2));
+    ui_.powerOutLabel().setText(QString::number(netPower - ui_.powerInLabel().text().toDouble(), 'f', 2));
 }
 
 /*
@@ -214,19 +214,19 @@ void DisplayDashboardView::resetReceived(bool reset)
 }
 void DisplayDashboardView::motorSetCurrentReceived(double setCurrent)
 {
-    ui_.setCurrentLabel().setNum(setCurrent);
+    ui_.setCurrentLabel().setText(QString::number(setCurrent, 'f', 3);
 }
 void DisplayDashboardView::motorActualSpeedReceived(double actualSpeed)
 {
-    ui_.actualSpeedLabel().setNum(actualSpeed);
+    ui_.actualSpeedLabel().setText(QString::number(actualSpeed, 'f', 1));
 }
 void DisplayDashboardView::motorBusVoltageReceived(double busVoltage)
 {
-    ui_.busVoltageLabel().setNum(busVoltage);
+    ui_.busVoltageLabel().setText(QString::number(busVoltage, 'f', 2);
 }
 void DisplayDashboardView::motorBusCurrentReceived(double busCurrent)
 {
-    ui_.busCurrentLabel().setNum(busCurrent);
+    ui_.busCurrentLabel().setText(QString::number(busCurrent, 'f', 3);
 }
 
 void DisplayDashboardView::lowBeamsReceived(bool lowBeams)
