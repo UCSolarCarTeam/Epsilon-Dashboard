@@ -11,7 +11,6 @@ namespace
     const double RECT_WIDTH = 100.0;
     const int PEN_WIDTH = 7;
     const QColor TEXT_COLOR = QColor(250, 187, 28);
-
 }
 
 
