@@ -13,6 +13,7 @@ namespace
     const QString PACKET_TITLE = "JsonFormat/packetTitle";
     const QString EXCHANGE_NAME = "rabbitMQ/exchangeName";
     const QString QUEUE_NAME = "rabbitMQ/queueName";
+    const QString LOGGING_ENABLED = "true";
 
 }
 
@@ -44,4 +45,9 @@ QString Settings::exchange() const
 QString Settings::queue() const
 {
     return QString(settings_.value(QUEUE_NAME).toString());
+}
+
+bool Settings::logging() const
+{
+    return bool(settings_.value(LOGGING_ENABLED).toBool());
 }

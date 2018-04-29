@@ -14,6 +14,7 @@ public:
     QString packetTitle() const;
     QString exchange() const;
     QString queue() const;
+    bool logging() const;
 
 private:
     QSettings settings_ ;

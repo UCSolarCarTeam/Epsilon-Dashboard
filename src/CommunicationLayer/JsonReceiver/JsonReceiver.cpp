@@ -36,7 +36,7 @@ JsonReceiver::JsonReceiver(BatteryPopulator& batteryPopulator,
                            MpptPopulator& mpptPopulator,
                            MotorDetailsPopulator& motorDetailsPopulator,
                            MotorFaultsPopulator& motorFaultsPopulator,
-                           I_CommunicationsMonitoringService& communicationsMonitoringService)
+                           I_CommunicationsMonitoringService& communicationsMonitoringService, bool loggingEnabled)
     : batteryPopulator_(batteryPopulator)
     , batteryFaultsPopulator_(batteryFaultsPopulator)
     , driverControlsPopulator_(driverControlsPopulator)
@@ -65,6 +65,9 @@ JsonReceiver::JsonReceiver(BatteryPopulator& batteryPopulator,
             &motorFaultsPopulator_, SLOT(populateData(const QJsonObject&)));
     connect(this, SIGNAL(invalidDataReceived()),
             &communicationsMonitoringService_, SLOT(invalidPacketReceived()));
+
+    Logging* logger = new Logging();
+    logger_ = logger;
 }
 
 void JsonReceiver::handleIncomingData(const QByteArray& data)
@@ -79,6 +82,7 @@ void JsonReceiver::handleIncomingData(const QByteArray& data)
     }
     else
     {
+        logger_->saveToLog(parsedData);
         emit dataReceived(parsedData);
     }
 }
