@@ -505,7 +505,7 @@ background: none;</string>
              </size>
             </property>
             <property name="styleSheet">
-             <string notr="true">background: url(:/Resources/TurnSignaLeft.png);</string>
+             <string notr="true">background: url(:/Resources/TurnSignalLeft.png);</string>
             </property>
            </widget>
           </item>

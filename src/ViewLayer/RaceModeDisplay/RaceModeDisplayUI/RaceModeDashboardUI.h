@@ -23,7 +23,9 @@ public:
     QLabel& motorPowerLabel();
 
     QLabel& batteryFaultsLabel();
-    QLabel& motorFaultsLabel();
+    QWidget& motorFaultsWidget();
+    QWidget& motorZeroFaultsWidget();
+    QWidget& motorOneFaultsWidget();
 
     QWidget& leftTurnSignalWidget();
     QWidget& rightTurnSignalWidget();
