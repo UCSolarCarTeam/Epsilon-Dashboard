@@ -3,15 +3,15 @@
 
 namespace
 {
-    const QString DRIVER_CONTROL_ALIVE = "background-color:rgb(93, 234, 140); \
+const QString DRIVER_CONTROL_ALIVE = "background-color:rgb(93, 234, 140); \
                               border-radius:8px; \
                               border: 1px solid white;";
-    const QString DRIVER_CONTROL_DEAD = "background-color:rgb(147, 147, 147); \
+const QString DRIVER_CONTROL_DEAD = "background-color:rgb(147, 147, 147); \
                              border-radius:8px; \
                              border: 1px solid white;";
-    const QString ON = "color: orange;";
+const QString ON = "color: orange;";
 
-    const QString OFF = "color: grey;";
+const QString OFF = "color: grey;";
 }
 
 ControlView::ControlView(DriverControlsPresenter& driverControlsPresenter,

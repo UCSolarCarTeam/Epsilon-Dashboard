@@ -2,7 +2,7 @@
 #include "I_TabUi.h"
 namespace Ui
 {
-    class TabUi;
+class TabUi;
 }
 class TabUi : public I_TabUi
 {

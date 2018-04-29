@@ -22,13 +22,13 @@ TabUi::TabUi(QWidget* parent) :
     ui_->batteryButton->setIconSize(QSize(30, 30));
     ui_->motorButton->setIcon(QIcon(":/Resources/EngineIcon.png"));
     ui_->motorButton->setIconSize(QSize(35, 35));
-    ui_->faultButton->setIcon(QIcon(":/Resources/GearIcon.png"));
-    ui_->faultButton->setIconSize(QSize(35, 35));
+    ui_->faultButton->setIcon(QIcon(":/Resources/FaultIcon.png"));
+    ui_->faultButton->setIconSize(QSize(33, 33));
     ui_->mpptButton->setIcon(QIcon(":/Resources/MPPTIcon.png"));
-    ui_->mpptButton->setIconSize(QSize(38, 38));
+    ui_->mpptButton->setIconSize(QSize(38, 40));
 
     QPixmap pix(":/Resources/SolarCarTeam.png");
-    pix = pix.scaled(QSize(25,25));
+    pix = pix.scaled(QSize(20.5,25));
     ui_->solarCarTeamLogo->setPixmap(pix);
 
     this->setAutoFillBackground(true);

@@ -2,36 +2,36 @@
 
 namespace
 {
-    int HEIGHT = 25;
-    int WIDTH = 665;
-    QString ERROR_STYLESHEET = "font: 20px 'Arial';\nfont-weight:500;color:#89c2d3; margin-left: 10px;";
-    QString LIMIT_STYLESHEET = "font: 20px 'Arial';\nfont-weight:500;color:#CCBF14; margin-left: 10px;";
-    QString SCROLLBAR_STYLESHEET = "QScrollBar:vertical {"
-                                   "    background:rgba(83, 83, 84);"
-                                   "    width:10px;    "
-                                   "    margin: 0px 0px 0px 0px;"
-                                   "}"
-                                   "QScrollBar::handle:vertical {"
-                                   "    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,"
-                                   "    stop: 0 rgb(255, 192, 33), stop: 0.5 rgb(255, 192, 33), stop:1 rgb(255, 192, 33));"
-                                   "    min-height: 0px;"
-                                   "    border-radius: 5px;"
-                                   "}"
-                                   "QScrollBar::add-line:vertical {"
-                                   "    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,"
-                                   "    stop: 0 rgb(255, 192, 33), stop: 0.5 rgb(255, 192, 33),  stop:1 rgb(255, 192, 33));"
-                                   "    height: 0px;"
-                                   "    subcontrol-position: bottom;"
-                                   "    subcontrol-origin: margin;"
-                                   "}"
-                                   "QScrollBar::sub-line:vertical {"
-                                   "    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,"
-                                   "    stop: 0  rgb(255, 192, 33), stop: 0.5 rgb(255, 192, 33),  stop:1 rgb(255, 192, 33));"
-                                   "    height: 0 px;"
-                                   "    subcontrol-position: top;"
-                                   "    subcontrol-origin: margin;"
-                                   "}";
-    int LABEL_RESIZE_LIMIT = 5;
+int HEIGHT = 25;
+int WIDTH = 665;
+QString ERROR_STYLESHEET = "font: 20px 'Arial';\nfont-weight:500;color:#89c2d3; margin-left: 10px;";
+QString LIMIT_STYLESHEET = "font: 20px 'Arial';\nfont-weight:500;color:#CCBF14; margin-left: 10px;";
+QString SCROLLBAR_STYLESHEET = "QScrollBar:vertical {"
+                               "    background:rgba(83, 83, 84);"
+                               "    width:10px;    "
+                               "    margin: 0px 0px 0px 0px;"
+                               "}"
+                               "QScrollBar::handle:vertical {"
+                               "    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,"
+                               "    stop: 0 rgb(255, 192, 33), stop: 0.5 rgb(255, 192, 33), stop:1 rgb(255, 192, 33));"
+                               "    min-height: 0px;"
+                               "    border-radius: 5px;"
+                               "}"
+                               "QScrollBar::add-line:vertical {"
+                               "    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,"
+                               "    stop: 0 rgb(255, 192, 33), stop: 0.5 rgb(255, 192, 33),  stop:1 rgb(255, 192, 33));"
+                               "    height: 0px;"
+                               "    subcontrol-position: bottom;"
+                               "    subcontrol-origin: margin;"
+                               "}"
+                               "QScrollBar::sub-line:vertical {"
+                               "    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,"
+                               "    stop: 0  rgb(255, 192, 33), stop: 0.5 rgb(255, 192, 33),  stop:1 rgb(255, 192, 33));"
+                               "    height: 0 px;"
+                               "    subcontrol-position: top;"
+                               "    subcontrol-origin: margin;"
+                               "}";
+int LABEL_RESIZE_LIMIT = 5;
 }
 FaultView::FaultView(MotorFaultsPresenter& motorFaultsPresenter,
                      BatteryFaultsPresenter& batteryFaultsPresenter,

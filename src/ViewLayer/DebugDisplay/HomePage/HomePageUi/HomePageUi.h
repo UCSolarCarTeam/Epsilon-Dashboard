@@ -4,7 +4,7 @@
 
 namespace Ui
 {
-    class HomePageUi;
+class HomePageUi;
 }
 
 class HomePageUi : public I_HomePageUi

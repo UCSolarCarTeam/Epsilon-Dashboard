@@ -59,5 +59,6 @@
         <file>Resource/Fault Icon.png</file>
         <file>Resource/Faults1.png</file>
         <file>Resource/Faults2.png</file>
+        <file>../Resources/FaultIcon.png</file>
     </qresource>
 </RCC>

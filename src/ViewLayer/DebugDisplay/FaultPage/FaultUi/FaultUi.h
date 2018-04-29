@@ -2,7 +2,7 @@
 #include "I_FaultUi.h"
 namespace Ui
 {
-    class FaultUi;
+class FaultUi;
 }
 class FaultUi : public I_FaultUi
 {

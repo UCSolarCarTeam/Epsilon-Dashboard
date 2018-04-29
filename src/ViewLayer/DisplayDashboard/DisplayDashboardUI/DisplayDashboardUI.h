@@ -4,7 +4,7 @@
 
 namespace Ui
 {
-    class DisplayDashboardUI;
+class DisplayDashboardUI;
 }
 class DisplayDashboardUI : public I_DisplayDashboardUI
 {

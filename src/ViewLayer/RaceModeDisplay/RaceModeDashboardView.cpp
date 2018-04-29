@@ -10,12 +10,12 @@
 
 namespace
 {
-    const double RED_SLOPE = -1;
-    const int RED_INITIAL = 220;
-    const double GREEN_SLOPE = 1.7;
-    const int GREEN_INITIAL = 10;
-    const int BLUE_INITIAL = 20;
-    const QString DEFAULT_STYLESHEET = "QProgressBar:horizontal {\
+const double RED_SLOPE = -1;
+const int RED_INITIAL = 220;
+const double GREEN_SLOPE = 1.7;
+const int GREEN_INITIAL = 10;
+const int BLUE_INITIAL = 20;
+const QString DEFAULT_STYLESHEET = "QProgressBar:horizontal {\
             border: 1px solid white;\
             border-radius: 7px;\
             background: black;\

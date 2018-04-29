@@ -3,7 +3,7 @@
 
 namespace Ui
 {
-    class MpptUi;
+class MpptUi;
 }
 
 class MpptUi : public I_MpptUi

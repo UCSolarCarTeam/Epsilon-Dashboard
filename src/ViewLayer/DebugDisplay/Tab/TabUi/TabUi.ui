@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>864</width>
-    <height>300</height>
+    <height>350</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -108,7 +108,7 @@ color: rgb(255,255,255);
 background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
                                       stop: 0 rgb(100,100,100), stop: 1 black);
 image: url(:/Resources/HomeIcon.png);
-image-position: 1,1;
+
 font-size: 18px;
 
 border:grey;
@@ -593,7 +593,7 @@ border-bottom: 1px solid white;
      <property name="minimumSize">
       <size>
        <width>500</width>
-       <height>40</height>
+       <height>55</height>
       </size>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_4">

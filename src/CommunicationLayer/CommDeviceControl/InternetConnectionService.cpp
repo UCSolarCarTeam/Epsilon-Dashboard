@@ -8,7 +8,7 @@
 
 namespace
 {
-    quint32 SLEEP_TIME_MILLISECONDS = 2000;
+quint32 SLEEP_TIME_MILLISECONDS = 2000;
 }
 
 InternetConnectionService::InternetConnectionService(
