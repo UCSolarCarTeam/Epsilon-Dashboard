@@ -1541,7 +1541,7 @@ background-color: rgb(250, 187, 28);</string>
                    <number>0</number>
                   </property>
                   <item alignment="Qt::AlignHCenter">
-                   <widget class="QLabel" name="fanVoltage">
+                   <widget class="QLabel" name="label_8">
                     <property name="styleSheet">
                      <string notr="true">background: transparent;
 font:12pt &quot;Arial&quot;;
