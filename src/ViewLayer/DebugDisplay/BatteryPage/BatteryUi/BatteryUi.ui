@@ -322,6 +322,22 @@ color:white;</string>
              </widget>
             </item>
             <item>
+             <spacer name="horizontalSpacer_10">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>13</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
              <widget class="QLabel" name="avgCellVoltageLabel">
               <property name="font">
                <font>
@@ -439,18 +455,34 @@ color:white;</string>
    <item row="0" column="1">
     <widget class="QWidget" name="widget_53" native="true">
      <property name="sizePolicy">
-      <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+      <sizepolicy hsizetype="Fixed" vsizetype="Maximum">
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
      <property name="maximumSize">
       <size>
-       <width>100</width>
+       <width>500</width>
        <height>38</height>
       </size>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_8">
+      <item>
+       <spacer name="horizontalSpacer_9">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>235</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
       <item>
        <widget class="QLabel" name="label_58">
         <property name="text">
@@ -663,7 +695,7 @@ color: rgb(250, 187, 28);</string>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="BMSReady">
+             <widget class="QLabel" name="BmsReady">
               <property name="font">
                <font>
                 <pointsize>12</pointsize>
@@ -1600,9 +1632,9 @@ color:white;</string>
                     <widget class="QLabel" name="packInfoAmphours">
                      <property name="geometry">
                       <rect>
-                       <x>10</x>
+                       <x>0</x>
                        <y>0</y>
-                       <width>59</width>
+                       <width>80</width>
                        <height>15</height>
                       </rect>
                      </property>

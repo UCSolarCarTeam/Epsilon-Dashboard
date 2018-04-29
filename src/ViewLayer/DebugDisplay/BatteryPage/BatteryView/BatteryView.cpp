@@ -491,5 +491,6 @@ void BatteryView::auxBmsAliveReceived(bool auxBmsAlive)
 
 void BatteryView::packNetPowerReceived(double packNetPower)
 {
-    ui_.packNetPower().setText(QString::number(packNetPower) + " " + POWER_UNIT);
+    double scale = 0.01;
+    ui_.packNetPower().setText(QString::number((int)(packNetPower / scale) * scale) + " " + POWER_UNIT);
 }

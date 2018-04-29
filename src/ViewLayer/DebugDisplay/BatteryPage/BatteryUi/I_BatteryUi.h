@@ -52,7 +52,7 @@ public:
     virtual QLabel& tempLowThermistorIDLabel() = 0;
     virtual QLabel& internalTempLabel() = 0;
 
-    virtual QLabel&	highCellVoltageLabel() = 0;
+    virtual QLabel& highCellVoltageLabel() = 0;
     virtual QLabel& lowCellVoltageLabel() = 0;
     virtual QLabel& avgCellVoltageLabel() = 0;
     virtual QLabel& highCellVoltageIDLabel() = 0;

@@ -61,7 +61,7 @@ public:
     QLabel& tempLowThermistorIDLabel();
     QLabel& internalTempLabel();
 
-    QLabel&	highCellVoltageLabel();
+    QLabel& highCellVoltageLabel();
     QLabel& lowCellVoltageLabel();
     QLabel& avgCellVoltageLabel();
     QLabel& highCellVoltageIDLabel();
