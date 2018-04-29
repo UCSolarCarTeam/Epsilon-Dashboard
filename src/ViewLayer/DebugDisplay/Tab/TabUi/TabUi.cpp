@@ -27,12 +27,9 @@ TabUi::TabUi(QWidget *parent) :
     ui_->mpptButton->setIcon(QIcon(":/Resources/MPPTIcon.png"));
     ui_->mpptButton->setIconSize(QSize(38,38));
 
-    QPixmap pix(":/Resources/MPPTIcon.png");
-    //correct logo below
-    //QPixmap pix(":/Resources/SolarCarTeam.png");
-    //
+    QPixmap pix(":/Resources/SolarCarTeam.png");
     pix = pix.scaled(QSize(25,25));
-    ui_->calgaryTeam->setPixmap(pix);
+    ui_->solarCarTeamLogo->setPixmap(pix);
 
     this->setAutoFillBackground(true);
     this->setPalette(background);
@@ -70,5 +67,5 @@ void TabUi::showTime()
 {
     QTime time = QTime::currentTime();
     QString time_text = time.toString("hh:mm:ss");
-    ui_->Digital_Clock->setText(time_text);
+    ui_->digitalClock->setText(time_text);
 }
