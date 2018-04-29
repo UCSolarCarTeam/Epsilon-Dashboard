@@ -469,7 +469,6 @@ void BatteryView::averageCellVoltageReceived(int avgCellVoltage)
 void BatteryView::prechargeStateReceived(QString prechargeState)
 {
     ui_.prechargeStateLabel().setText(prechargeState);
-    qDebug() << ui_.prechargeStateLabel().text();
 }
 
 void BatteryView::auxVoltageReceived(int auxVoltage)
@@ -491,6 +490,5 @@ void BatteryView::auxBmsAliveReceived(bool auxBmsAlive)
 
 void BatteryView::packNetPowerReceived(double packNetPower)
 {
-    double scale = 0.01;
-    ui_.packNetPower().setText(QString::number((int)(packNetPower / scale) * scale) + " " + POWER_UNIT);
+    ui_.packNetPower().setText(QString::number(packNetPower, 'f', 2) + " " + POWER_UNIT);
 }
