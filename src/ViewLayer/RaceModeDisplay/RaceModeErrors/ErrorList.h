@@ -1,16 +1,21 @@
 #pragma once
 
+#include <QVector>
 #include "../FaultLabel/FaultLabel.h"
+#include "../DataLayer/MotorFaultsData/ErrorFlags.h"
 
 class ErrorList
 {
 public:
     ErrorList();
 
+    ~ErrorList();
+
     FaultLabel getHighestActivePriority();
-    void updateFaultsList();
-    FaultLabel* getLabelList();
+    void updateFaults(ErrorFlags errorFlags);
+    QVector<FaultLabel> getErrorLabelList();
 
 private:
-    FaultLabel faultList_ [];
+
+    QVector<FaultLabel> errorList_;
 }
