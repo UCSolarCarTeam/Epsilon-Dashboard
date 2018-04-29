@@ -4,7 +4,7 @@
 
 namespace Ui
 {
-class RaceModeDashboardUI;
+    class RaceModeDashboardUI;
 }
 class RaceModeDashboardUI : public I_RaceModeDashboardUI
 {

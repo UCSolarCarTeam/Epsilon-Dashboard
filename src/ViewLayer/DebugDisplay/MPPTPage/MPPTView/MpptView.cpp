@@ -2,14 +2,14 @@
 
 namespace
 {
-const QString VOLTAGE_UNIT = "<sub>V</sub";
-const QString CURRENT_UNIT = "<sub>A</sub>";
-const QString POWER_UNIT = "<sub>W</sub>";
-const QString TEMPERATURE_UNIT = "<sup>o</sup>C";
-const QString MPPT_ALIVE = "background-color:rgb(93, 234, 140); \
+    const QString VOLTAGE_UNIT = "<sub>V</sub";
+    const QString CURRENT_UNIT = "<sub>A</sub>";
+    const QString POWER_UNIT = "<sub>W</sub>";
+    const QString TEMPERATURE_UNIT = "<sup>o</sup>C";
+    const QString MPPT_ALIVE = "background-color:rgb(93, 234, 140); \
                                 border-radius:8px; \
                                 border: 1px solid white;";
-const QString MPPT_DEAD = "background-color:rgb(147, 147, 147); \
+    const QString MPPT_DEAD = "background-color:rgb(147, 147, 147); \
                                border-radius:8px; \
                                border: 1px solid white;";
 }

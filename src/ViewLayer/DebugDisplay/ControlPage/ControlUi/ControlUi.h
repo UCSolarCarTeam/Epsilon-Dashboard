@@ -2,7 +2,7 @@
 #include "I_ControlUi.h"
 namespace Ui
 {
-class ControlUi;
+    class ControlUi;
 }
 
 class ControlUi : public I_ControlUi

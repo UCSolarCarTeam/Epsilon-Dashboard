@@ -3,9 +3,9 @@
 
 namespace
 {
-const QString ON = "background-color: green; color: white;";
-const QString OFF = "background-color: rgb(45, 45, 45,150); color: white;";
-const int INTERVAL = 2000;
+    const QString ON = "background-color: green; color: white;";
+    const QString OFF = "background-color: rgb(45, 45, 45,150); color: white;";
+    const int INTERVAL = 2000;
 }
 
 HomePageView::HomePageView(I_HomePageUi& ui)

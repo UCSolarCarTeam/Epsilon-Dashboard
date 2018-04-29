@@ -3,7 +3,7 @@
 
 namespace Ui
 {
-class MotorUi;
+    class MotorUi;
 }
 class MotorUi: public I_MotorUi
 {

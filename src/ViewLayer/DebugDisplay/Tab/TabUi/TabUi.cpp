@@ -28,7 +28,7 @@ TabUi::TabUi(QWidget* parent) :
     ui_->mpptButton->setIconSize(QSize(38, 40));
 
     QPixmap pix(":/Resources/SolarCarTeam.png");
-    pix = pix.scaled(QSize(20.5,25));
+    pix = pix.scaled(QSize(20.5, 25));
     ui_->solarCarTeamLogo->setPixmap(pix);
 
     this->setAutoFillBackground(true);

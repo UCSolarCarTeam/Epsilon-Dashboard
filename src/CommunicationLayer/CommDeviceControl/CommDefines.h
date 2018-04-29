@@ -2,8 +2,8 @@
 
 namespace CommDefines
 {
-enum Type
-{
-    Internet
-};
+    enum Type
+    {
+        Internet
+    };
 }

@@ -2,7 +2,7 @@
 #include "I_BatteryUi.h"
 namespace Ui
 {
-class BatteryUi;
+    class BatteryUi;
 }
 
 class BatteryUi : public I_BatteryUi
