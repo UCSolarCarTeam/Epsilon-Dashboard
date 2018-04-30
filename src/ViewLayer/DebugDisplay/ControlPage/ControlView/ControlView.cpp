@@ -133,6 +133,7 @@ void ControlView::aliveReceived(bool alive)
 void ControlView::aliveLights(bool lights)
 {
     qDebug() << "bill is fat" << endl;
+
     if (lights)
     {
         ui_.lightsIndicator().setStyleSheet(ON);
@@ -169,7 +170,7 @@ void ControlView::highHeadlightsReceived(bool highBeams)
 
 void ControlView::lowBeamsReceived(bool lowBeams)
 {
-    if(lowBeams)
+    if (lowBeams)
     {
         ui_.lowBeamLabel().setStyleSheet(LOW_BEAMS_ON);
     }
@@ -181,7 +182,7 @@ void ControlView::lowBeamsReceived(bool lowBeams)
 
 void ControlView::highBeamsReceived(bool highBeams)
 {
-    if(highBeams)
+    if (highBeams)
     {
         ui_.highBeamLabel().setStyleSheet(HIGH_BEAMS_ON);
     }
@@ -231,7 +232,7 @@ void ControlView::hazardReceived(bool hazard)
 
 void ControlView::leftLightReceived(bool left)
 {
-    if(left)
+    if (left)
     {
         ui_.leftSignalActiveLabel().setStyleSheet(LEFT_ON);
     }
@@ -243,7 +244,7 @@ void ControlView::leftLightReceived(bool left)
 
 void ControlView::rightLightReceived(bool right)
 {
-    if(right)
+    if (right)
     {
         ui_.rightSignalActiveLabel().setStyleSheet(RIGHT_ON);
     }
@@ -375,7 +376,7 @@ void ControlView::brakesReceived(bool brakes)
 
 void ControlView::brakesLightReceived(bool brakes)
 {
-    if(brakes)
+    if (brakes)
     {
         ui_.brakesOnActiveLabel().setStyleSheet(BRAKE_ON);
     }
