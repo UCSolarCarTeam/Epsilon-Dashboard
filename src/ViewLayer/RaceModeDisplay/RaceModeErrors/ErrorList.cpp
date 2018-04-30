@@ -6,16 +6,17 @@ namespace
 }
 
 ErrorList::ErrorList()
-    :errorList_({
-         FaultLabel(QString::fromLatin1("Motor Over Speed"), QString::fromLatin1("red"), 0, false)
-         ,FaultLabel(QString::fromLatin1("Software Over Current"), QString::fromLatin1("red"), 0, false)
-         ,FaultLabel(QString::fromLatin1("DC Bus Over Voltage"), QString::fromLatin1("red"), 0, false)
-         ,FaultLabel(QString::fromLatin1("Bad Motor Position Hall Sequence"), QString::fromLatin1("red"), 0, false)
-         ,FaultLabel(QString::fromLatin1("Watchdog Caused Last Reset"), QString::fromLatin1("red"), 0, false)
-         ,FaultLabel(QString::fromLatin1("Config Read Error"), QString::fromLatin1("red"), 0, false)
-         ,FaultLabel(QString::fromLatin1("Rail Under-Voltage Lock Out"), QString::fromLatin1("red"), 0, false)
-         ,FaultLabel(QString::fromLatin1("Desaturation Fault"), QString::fromLatin1("red"), 0, false)
-         })
+//    :errorList_({
+//         FaultLabel(QString::fromLatin1("Motor Over Speed"), QString::fromLatin1("red"), 0, false)
+//         ,FaultLabel(QString::fromLatin1("Software Over Current"), QString::fromLatin1("red"), 0, false)
+//         ,FaultLabel(QString::fromLatin1("DC Bus Over Voltage"), QString::fromLatin1("red"), 0, false)
+//         ,FaultLabel(QString::fromLatin1("Bad Motor Position Hall Sequence"), QString::fromLatin1("red"), 0, false)
+//         ,FaultLabel(QString::fromLatin1("Watchdog Caused Last Reset"), QString::fromLatin1("red"), 0, false)
+//         ,FaultLabel(QString::fromLatin1("Config Read Error"), QString::fromLatin1("red"), 0, false)
+//         ,FaultLabel(QString::fromLatin1("Rail Under-Voltage Lock Out"), QString::fromLatin1("red"), 0, false)
+//         ,FaultLabel(QString::fromLatin1("Desaturation Fault"), QString::fromLatin1("red"), 0, false)
+//         })
+    :errorList_(10)
 {
 }
 
