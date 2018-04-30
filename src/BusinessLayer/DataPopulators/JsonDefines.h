@@ -27,14 +27,14 @@
 //TODO finish by adding voltages with all the numbers in them... ask managers how they want it formatted
 namespace JsonFormat
 {
-    // meta info
+// meta info
     const int DECIMAL_PRECISION = 2;
     const QString DATA_TYPE = "datatype";
 
     const QString PACKETTITLE = "PacketTitle";
     const QString TIMESTAMP = "TimeStamp";
 
-    // Key motor data
+// Key motor data
     const QString KEYMOTOR = "KeyMotor";
     const QString KEYMOTOR_ALIVE = "Alive";
     const QString KEYMOTOR_SETCURRENT = "SetCurrent";
@@ -43,7 +43,7 @@ namespace JsonFormat
     const QString KEYMOTOR_BUSVOLTAGE = "BusVoltage";
     const QString KEYMOTOR_VEHICLEVELOCITY = "VehicleVelocity";
 
-    // Motor details data
+// Motor details data
     const QString MOTORDETAILS = "MotorDetails";
     const QString MOTORDETAILS_PHASECCURRENT = "PhaseCCurrent";
     const QString MOTORDETAILS_PHASEBCURRENT = "PhaseBCurrent";
@@ -62,7 +62,7 @@ namespace JsonFormat
     const QString MOTORDETAILS_ODOMETER = "Odometer";
     const QString MOTORDETAILS_SLIPSPEED = "SlipSpeed";
 
-    // Driver controls data
+// Driver controls data
     const QString DRIVERCONTROLS = "DriverControls";
     const QString DRIVERCONTROLS_ALIVE = "Alive";
     const QString DRIVERCONTROLS_HEADLIGHTSOFF = "HeadlightsOff";
@@ -86,7 +86,7 @@ namespace JsonFormat
     const QString DRIVERCONTROLS_RESET = "Reset";
     const QString DRIVERCONTROLS_AUX = "Aux";
 
-    // Motor faults data
+// Motor faults data
     const QString MOTORFAULTS = "MotorFaults";
     const QString MOTORFAULTS_ERRORFLAGS = "ErrorFlags";
     const QString MOTORFAULTS_ERRORFLAGS_MOTOROVERSPEED = "MotorOverSpeed";
@@ -109,7 +109,7 @@ namespace JsonFormat
     const QString MOTORFAULTS_RXERRORCOUNT = "RxErrorCount";
     const QString MOTORFAULTS_TXERRORCOUNT = "TxErrorCount";
 
-    // Battery faults data
+// Battery faults data
     const QString BATTERYFAULTS = "BatteryFaults";
 
     const QString BATTERYFAULTS_ERRORFLAGS = "ErrorFlags";
@@ -151,7 +151,7 @@ namespace JsonFormat
     const QString BATTERYFAULTS_LIMITSFLAGS_CCLREDUCEDDUETOCHARGERLATCH = "CclReducedDueToChargerLatch";
     const QString BATTERYFAULTS_LIMITSFLAGS_CCLREDUCEDDUETOALTERNATECURRENTLIMIT = "CclReducedDueToAlternateCurrentLimit";
 
-    // Battery data
+// Battery data
     const QString BATTERY = "Battery";
     const QString BATTERY_ALIVE = "Alive";
 
@@ -197,7 +197,7 @@ namespace JsonFormat
     const QString BATTERY_ALLOWCHARGE = "AllowCharge";
     const QString BATTERY_CONTACTORERROR = "ContactorError";
 
-    // MPPT data
+// MPPT data
     const QString MPPT = "MPPT";
     const QString MPPT_ALIVE = "Alive";
     const QString MPPT_ARRAYVOLTAGE = "ArrayVoltage";
@@ -205,7 +205,7 @@ namespace JsonFormat
     const QString MPPT_BATTERYVOLTAGE = "BatteryVoltage";
     const QString MPPT_TEMPERATURE = "Temperature";
 
-    // Lights data
+// Lights data
     const QString LIGHTS = "Lights";
     const QString LIGHTS_ALIVE = "Alive";
     const QString LIGHTS_LOWBEAMS = "LowBeams";

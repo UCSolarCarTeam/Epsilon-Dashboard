@@ -43,6 +43,7 @@
         <file>../Resources/ArrayZeroBackground.png</file>
         <file>Resource/Pause-Play.png</file>
         <file>../Resources/Alive Icon.png</file>
+        <file>../Resources/SolarCarTeam.png</file>
         <file>Resource/Background.png</file>
         <file>Resource/Battery.png</file>
         <file>Resource/Battery Icon.png</file>
@@ -58,5 +59,6 @@
         <file>Resource/Fault Icon.png</file>
         <file>Resource/Faults1.png</file>
         <file>Resource/Faults2.png</file>
+        <file>../Resources/FaultIcon.png</file>
     </qresource>
 </RCC>
