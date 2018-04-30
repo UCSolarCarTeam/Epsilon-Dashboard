@@ -11,11 +11,11 @@ public:
 
     ~ErrorList();
 
-    FaultLabel getHighestActivePriority();
-    void updateFaults(ErrorFlags errorFlags);
-    QVector<FaultLabel> getErrorLabelList();
+    FaultLabel getHighestActivePriority() const;
+    QVector<FaultLabel> getErrorLabelList() const;
+    void updateFaults(const ErrorFlags& errorFlags);
 
 private:
 
     QVector<FaultLabel> errorList_;
-}
+};

@@ -76,7 +76,8 @@ SOURCES += \
     RaceModeDisplay/RaceModeDashboardView.cpp \
     RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.cpp \
     RaceModeDisplay/RaceModeDashboardView.cpp \
-    RaceModeDisplay/FaultLabel/FaultLabel.cpp
+    RaceModeDisplay/FaultLabel/FaultLabel.cpp \
+    RaceModeDisplay/RaceModeErrors/ErrorList.cpp
 
 FORMS += \   
     DebugDisplay/BatteryPage/BatteryUi/BatteryUi.ui \

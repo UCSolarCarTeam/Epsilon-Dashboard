@@ -3,17 +3,19 @@
 #include <QString>
 #include <QLabel>
 
-class FaultLabel : QLabel
+class FaultLabel : public QLabel
 {
 public:
-    FaultLabel(QString& name, QString& color, int& priority, bool isActive);
+    FaultLabel();
+    FaultLabel(QString name, QString color, int priority, bool isActive);
+    FaultLabel(const FaultLabel& faultLabel);
 
     ~FaultLabel();
 
-    QString name();
-    QString color();
-    int priority();
-    bool isActive();
+    QString name() const;
+    QString color() const;
+    int priority() const;
+    bool isActive() const;
 
     void setIsActive(bool value);
 
@@ -23,4 +25,4 @@ private:
     QString color_;
     int priority_;
     bool isActive_;
-}
+};

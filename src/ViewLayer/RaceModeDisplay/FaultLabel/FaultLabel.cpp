@@ -1,11 +1,27 @@
 #include "FaultLabel.h"
 
-FaultLabel::FaultLabel(QString &name, QString &color, int &priority, bool isActive)
-    : color_(color)
+FaultLabel::FaultLabel()
+    : QLabel("")
+    , color_("")
+    , priority_(-1)
+    , isActive_(false)
+{
+}
+
+FaultLabel::FaultLabel(QString name, QString color, int priority, bool isActive)
+    : QLabel(name)
+    , color_(color)
     , priority_(priority)
     , isActive_(isActive)
 {
-    QLabel(name, QWidget* parent=0);
+}
+
+FaultLabel::FaultLabel(const FaultLabel &faultLabel)
+    : QLabel(faultLabel.name())
+    , color_(color())
+    , priority_(priority())
+    , isActive_(isActive())
+{
 }
 
 FaultLabel::~FaultLabel()
