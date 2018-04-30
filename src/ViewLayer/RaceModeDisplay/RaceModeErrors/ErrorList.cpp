@@ -1,23 +1,43 @@
 #include "ErrorList.h"
+#include <QDebug>
 
 namespace
 {
     int NUMBER_OF_MOTOR_ERRORS = 8;
+    QString MOTOR_OVER_SPEED = "Motor Over Speed";
+    QString SOFTWARE_OVER_CURRENT = "Software Over Current";
+    QString DC_BUS_OVER_VOLTAGE = "DC Bus Over Voltage";
+    QString BAD_MOTOR_POSITION_HALL_SEQUENCE = "Bad Motor Position Hall Sequence";
+    QString WATCHDOG_CAUSED_LAST_RESET = "Watchdog Caused Last Reset";
+    QString CONFIG_READ_ERROR = "Config Read Error";
+    QString RAIL_UNDER_VOLTAGE_LOCK_OUT = "Rail Under-Voltage Lock Out";
+    QString DESATURATION_FAULT = "Desaturation Fault";
+    QString RED = "red";
 }
 
 ErrorList::ErrorList()
-//    :errorList_({
-//         FaultLabel(QString::fromLatin1("Motor Over Speed"), QString::fromLatin1("red"), 0, false)
-//         ,FaultLabel(QString::fromLatin1("Software Over Current"), QString::fromLatin1("red"), 0, false)
-//         ,FaultLabel(QString::fromLatin1("DC Bus Over Voltage"), QString::fromLatin1("red"), 0, false)
-//         ,FaultLabel(QString::fromLatin1("Bad Motor Position Hall Sequence"), QString::fromLatin1("red"), 0, false)
-//         ,FaultLabel(QString::fromLatin1("Watchdog Caused Last Reset"), QString::fromLatin1("red"), 0, false)
-//         ,FaultLabel(QString::fromLatin1("Config Read Error"), QString::fromLatin1("red"), 0, false)
-//         ,FaultLabel(QString::fromLatin1("Rail Under-Voltage Lock Out"), QString::fromLatin1("red"), 0, false)
-//         ,FaultLabel(QString::fromLatin1("Desaturation Fault"), QString::fromLatin1("red"), 0, false)
-//         })
-    :errorList_(10)
+    :errorList_({
+                FaultLabel(MOTOR_OVER_SPEED, RED, 0, false)
+                ,FaultLabel(SOFTWARE_OVER_CURRENT, RED, 0, false)
+                ,FaultLabel(DC_BUS_OVER_VOLTAGE, RED, 0, false)
+                ,FaultLabel(BAD_MOTOR_POSITION_HALL_SEQUENCE, RED, 0, false)
+                ,FaultLabel(WATCHDOG_CAUSED_LAST_RESET,RED, 0, false)
+                ,FaultLabel(CONFIG_READ_ERROR, RED, 0, false)
+                ,FaultLabel(RAIL_UNDER_VOLTAGE_LOCK_OUT, RED, 0, false)
+                ,FaultLabel(DESATURATION_FAULT, RED, 0, false)
+                })
 {
+//   QVector<FaultLabel> errorList({
+//         FaultLabel(MOTOR_OVER_SPEED, RED, 0, false)
+//         ,FaultLabel(SOFTWARE_OVER_CURRENT, RED, 0, false)
+//         ,FaultLabel(DC_BUS_OVER_VOLTAGE, RED, 0, false)
+//         ,FaultLabel(BAD_MOTOR_POSITION_HALL_SEQUENCE, RED, 0, false)
+//         ,FaultLabel(WATCHDOG_CAUSED_LAST_RESET,RED, 0, false)
+//         ,FaultLabel(CONFIG_READ_ERROR, RED, 0, false)
+//         ,FaultLabel(RAIL_UNDER_VOLTAGE_LOCK_OUT, RED, 0, false)
+//         ,FaultLabel(DESATURATION_FAULT, RED, 0, false)
+//         });
+//   errorList_ = errorList;
 }
 
 ErrorList::~ErrorList()

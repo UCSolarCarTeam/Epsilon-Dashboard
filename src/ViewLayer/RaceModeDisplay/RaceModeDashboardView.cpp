@@ -252,12 +252,14 @@ void RaceModeDashboardView::mpptPowerReceived(double mpptPower)
 
 void RaceModeDashboardView::motorZeroErrorFlagsReceived(ErrorFlags flags)
 {
+    errorList_.updateFaults(flags);
     if (flags.badMotorPositionHallSequence() || flags.configReadError() || flags.dcBusOverVoltage() || flags.desaturationFault()
             || flags.motorOverSpeed() || flags.railUnderVoltageLockOut() || flags.softwareOverCurrent() || flags.watchdogCausedLastReset())
     {
         motorZeroErrorRecieved_ = true;
         ui_.motorZeroFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineErrorIcon.png) 0 0 0 0 stretch stretch;");
         ui_.motorZeroFaultsLabel().setText("ERROR");
+        ui_.motorZeroFaultsLabel().setText(errorList_.getHighestActivePriority().text());
     }
     else
     {
