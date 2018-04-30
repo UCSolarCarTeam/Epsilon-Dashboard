@@ -32,7 +32,9 @@ HEADERS += \
     MotorFaultsData/LimitFlags.h \
     BatteryData/BmsRelayStatusFlags.h \
     BatteryFaultsData/BatteryErrorFlags.h \
-    BatteryFaultsData/BatteryLimitFlags.h
+    BatteryFaultsData/BatteryLimitFlags.h \
+    AuxBmsData/AuxBmsData.h \
+    AuxBmsData/I_AuxBmsData.h
 
 SOURCES += \ 
     BatteryData/BatteryData.cpp \
@@ -51,4 +53,5 @@ SOURCES += \
     DataContainer.cpp \
     BatteryData/BmsRelayStatusFlags.cpp \
     BatteryFaultsData/BatteryErrorFlags.cpp \
-    BatteryFaultsData/BatteryLimitFlags.cpp
+    BatteryFaultsData/BatteryLimitFlags.cpp \
+    AuxBmsData/AuxBmsData.cpp

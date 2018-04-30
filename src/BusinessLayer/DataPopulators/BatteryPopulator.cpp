@@ -74,10 +74,4 @@ void BatteryPopulator::populateData(const QJsonObject& data)
     batteryData_.setHighCellVoltage(value.toObject().value(JsonFormat::BATTERY_HIGHCELLVOLTAGE).toInt());
     batteryData_.setHighCellVoltageId(value.toObject().value(JsonFormat::BATTERY_HIGHCELLVOLTAGEID).toInt());
     batteryData_.setAverageCellVoltage(value.toObject().value(JsonFormat::BATTERY_AVERAGECELLVOLTAGE).toInt());
-    batteryData_.setPrechargeState(value.toObject().value(JsonFormat::BATTERY_PRECHARGESTATE).toString());
-    batteryData_.setAuxVoltage(value.toObject().value(JsonFormat::BATTERY_AUXVOLTAGE).toInt());
-    batteryData_.setAuxBmsAlive(value.toObject().value(JsonFormat::BATTERY_AUXBMSALIVE).toBool());
-    batteryData_.setStrobeBmsLight(value.toObject().value(JsonFormat::BATTERY_STROBEBMSLIGHT).toBool());
-    batteryData_.setAllowCharge(value.toObject().value(JsonFormat::BATTERY_ALLOWCHARGE).toBool());
-    batteryData_.setContactorError(value.toObject().value(JsonFormat::BATTERY_CONTACTORERROR).toBool());
 }

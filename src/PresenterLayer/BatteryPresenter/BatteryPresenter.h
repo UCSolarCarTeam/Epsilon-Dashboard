@@ -40,11 +40,5 @@ signals:
     void highCellVoltageReceived(const int&);
     void highCellVoltageIdReceived(const int&);
     void averageCellVoltageReceived(const int&);
-    void prechargeStateReceived(const QString&);
-    void auxVoltageReceived(const int&);
-    void auxBmsAliveReceived(const bool&);
-    void strobeBmsLightReceived(const bool&);
-    void allowChargeReceieved(const bool&);
-    void contactorErrorReceieved(const bool&);
     void packNetPowerReceived(const double&);
 };

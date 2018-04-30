@@ -36,12 +36,6 @@ public:
     virtual int highCellVoltage() const = 0;
     virtual int highCellVoltageId() const = 0;
     virtual int averageCellVoltage() const = 0;
-    virtual QString prechargeState() const = 0;
-    virtual int auxVoltage() const = 0;
-    virtual bool auxBmsAlive() const = 0;
-    virtual bool strobeBmsLight() const = 0;
-    virtual bool allowCharge() const = 0;
-    virtual bool contactorError() const = 0;
     virtual double packNetPower() const = 0;
 
     /* Data "Sets" */
@@ -68,12 +62,6 @@ public:
     virtual void setHighCellVoltage(const int&) = 0;
     virtual void setHighCellVoltageId(const int&) = 0;
     virtual void setAverageCellVoltage(const int&) = 0;
-    virtual void setPrechargeState(const QString&) = 0;
-    virtual void setAuxVoltage(const int&) = 0;
-    virtual void setAuxBmsAlive(const bool&) = 0;
-    virtual void setStrobeBmsLight(const bool&) = 0;
-    virtual void setAllowCharge(const bool&) = 0;
-    virtual void setContactorError(const bool&) = 0;
 
 signals:
     void aliveReceived(const bool& alive);
@@ -99,11 +87,5 @@ signals:
     void highCellVoltageReceived(const int&);
     void highCellVoltageIdReceived(const int&);
     void averageCellVoltageReceived(const int&);
-    void prechargeStateReceived(const QString&);
-    void auxVoltageReceived(const int&);
-    void auxBmsAliveReceived(const bool&);
-    void strobeBmsLightRecieved(const bool&);
-    void allowChargeRecieved(const bool&);
-    void contactorErrorRecieved(const bool&);
     void packNetPowerReceived(const double&);
 };
