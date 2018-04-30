@@ -1,6 +1,5 @@
 #include <QDebug>
 #include <QSettings>
-#include <QCoreApplication>
 
 #include "Settings.h"
 
