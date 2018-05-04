@@ -16,10 +16,9 @@ namespace
 
 }
 
-Settings::Settings(QString filepath, QString queueName)
+Settings::Settings(QString filepath)
     : settings_(filepath, SETTINGS_FILE_FORMAT)
 {
-    settings_.setValue(QUEUE_NAME, queueName);
 }
 
 QString Settings::ipAddress() const
@@ -45,4 +44,9 @@ QString Settings::exchange() const
 QString Settings::queue() const
 {
     return QString(settings_.value(QUEUE_NAME).toString());
+}
+
+void Settings::setQueueName(QString queueName)
+{
+    settings_.setValue(QUEUE_NAME, queueName);
 }

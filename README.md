@@ -29,4 +29,4 @@ To install these dependencies, run the command:
 
 ## Config file
 
-Please put the `config.ini.example` file into the `build` directory and rename to `config.ini` and update settings there.
+Create a copy of the `config.ini.example` file in the `build` directory called `config.ini` and update any necessary settings.

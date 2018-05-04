@@ -11,4 +11,6 @@ public:
     virtual QString packetTitle() const = 0;
     virtual QString exchange() const = 0;
     virtual QString queue() const = 0;
+
+    virtual void setQueueName(QString queueName) = 0;
 };

@@ -13,45 +13,37 @@
 
 EpsilonDashboard::EpsilonDashboard(int& argc, char** argv)
     : QApplication(argc, argv)
+    , infrastructureContainer_(new InfrastructureContainer())
     , dataContainer_(new DataContainer())
     , businessContainer_(new BusinessContainer(*dataContainer_))
+    , communicationContainer_(new CommunicationContainer(*businessContainer_, *infrastructureContainer_))
     , presenterContainer_(new PresenterContainer(*dataContainer_))
 {
     QCommandLineParser parser;
-    QString queueName;
     QCommandLineOption raceModeOption("r");
     QCommandLineOption debugModeOption("d");
-    QCommandLineOption queueNameOption("qn", "", "queueName");
     parser.addOption(raceModeOption);
     parser.addOption(debugModeOption);
-    parser.addOption(queueNameOption);
 
     parser.process(*this);
     Mode mode = Mode::DISPLAY;
-    queueName = "displayQueue";
 
     if (parser.isSet(raceModeOption))
     {
         mode = Mode::RACE;
-        queueName = "raceQueue";
+        infrastructureContainer_->setQueueName("raceQueue");
     }
-
-    if (parser.isSet(debugModeOption))
+    else if (parser.isSet(debugModeOption))
     {
         mode = Mode::DEBUG;
-        queueName = "debugQueue";
+        infrastructureContainer_->setQueueName("debugQueue");
     }
-
-    QString queueSpecified = parser.value(queueNameOption);
-
-    if (queueSpecified != "")
+    else
     {
-        queueName = queueSpecified;
+        infrastructureContainer_->setQueueName("displayQueue");
     }
 
-    infrastructureContainer_.reset(new InfrastructureContainer(queueName));
     viewContainer_.reset(new ViewContainer(*presenterContainer_, mode));
-    communicationContainer_.reset(new CommunicationContainer(*businessContainer_, *infrastructureContainer_));
 }
 
 EpsilonDashboard::~EpsilonDashboard()

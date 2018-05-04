@@ -6,8 +6,9 @@ class I_Settings;
 class InfrastructureContainer
 {
 public:
-    InfrastructureContainer(QString queueName);
+    InfrastructureContainer();
     ~InfrastructureContainer();
+    void setQueueName(const char* queueName);
 
     I_Settings& settings();
 
