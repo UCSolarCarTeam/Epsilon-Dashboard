@@ -39,16 +39,17 @@ HEADERS += \
     RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.h \
     ViewContainer.h \
     DebugDisplay/HomePage/HomePageView/HomePageView.h \
-    RaceModeDisplay/RaceModeDisplayUI/I_RaceModeDashboardUI.h \
-    RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.h \
-    RaceModeDisplay/RaceModeDashboardView.h \
-    RaceModeDisplay/RaceModeDisplayUI/I_RaceModeDashboardUI.h \
-    RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.h \
-    RaceModeDisplay/RaceModeDashboardView.h \
     RaceModeDisplay/errorlist.h \
-    RaceModeDisplay/RaceModeErrors/ErrorList.h \
     RaceModeDisplay/FaultLabel/faultlabel.h \
-    RaceModeDisplay/FaultLabel/FaultLabel.h
+    RaceModeDisplay/RaceModeDisplayUI/I_RaceModeDashboardUI.h \
+    RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.h \
+    RaceModeDisplay/RaceModeDashboardView.h \
+    RaceModeDisplay/RaceModeFaults/FaultList.h \
+    RaceModeDisplay/FaultLabel/FaultLabel.h \
+    RaceModeDisplay/RaceModeDisplayUI/I_RaceModeDashboardUI.h \
+    RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.h \
+    RaceModeDisplay/RaceModeFaults/FaultList.h \
+    RaceModeDisplay/RaceModeDashboardView.h
 
 SOURCES += \ 
     DebugDisplay/BatteryPage/BatteryUi/BatteryUi.cpp \
@@ -72,12 +73,14 @@ SOURCES += \
     RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.cpp \
     ViewContainer.cpp \
     DebugDisplay/HomePage/HomePageView/HomePageView.cpp \
-    RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.cpp \
-    RaceModeDisplay/RaceModeDashboardView.cpp \
-    RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.cpp \
     RaceModeDisplay/RaceModeDashboardView.cpp \
     RaceModeDisplay/FaultLabel/FaultLabel.cpp \
-    RaceModeDisplay/RaceModeErrors/ErrorList.cpp
+    RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.cpp \
+    RaceModeDisplay/RaceModeDashboardView.cpp \
+    RaceModeDisplay/RaceModeFaults/FaultList.cpp \
+    RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.cpp \
+    RaceModeDisplay/RaceModeFaults/FaultList.cpp \
+    RaceModeDisplay/RaceModeDashboardView.cpp
 
 FORMS += \   
     DebugDisplay/BatteryPage/BatteryUi/BatteryUi.ui \

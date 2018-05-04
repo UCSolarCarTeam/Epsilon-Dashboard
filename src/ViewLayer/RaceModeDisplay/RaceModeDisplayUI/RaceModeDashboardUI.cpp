@@ -42,16 +42,6 @@ QWidget& RaceModeDashboardUI::motorFaultsWidget()
     return *ui_->motorFaultsWidget;
 }
 
-QWidget& RaceModeDashboardUI::motorZeroFaultsWidget()
-{
-    return *ui_->motorZeroFaultsWidget;
-}
-
-QWidget& RaceModeDashboardUI::motorOneFaultsWidget()
-{
-    return *ui_->motorOneFaultsWidget;
-}
-
 QLabel& RaceModeDashboardUI::motorZeroFaultsLabel()
 {
     return *ui_->motorZeroFaultsLabel;

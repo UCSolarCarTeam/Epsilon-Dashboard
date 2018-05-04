@@ -34,7 +34,8 @@ RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
         MotorDetailsPresenter& motorDetailsPresenter,
         MotorFaultsPresenter& motorFaultsPresenter,
         I_RaceModeDashboardUI& ui,
-        ErrorList& errorList)
+        FaultList& motorZeroFaultsList,
+        FaultList& motorOneFaultsList)
     : batteryPresenter_(batteryPresenter)
     , batteryFaultsPresenter_(batteryFaultsPresenter)
     , driverControlsPresenter_(driverControlsPresenter)
@@ -44,7 +45,8 @@ RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
     , motorDetailsPresenter_(motorDetailsPresenter)
     , motorFaultsPresenter_(motorFaultsPresenter)
     , ui_(ui)
-    , errorList_(errorList)
+    , motorZeroFaultsList_(motorZeroFaultsList)
+    , motorOneFaultsList_(motorOneFaultsList)
     , motorZeroLimitRecieved_ (false)
     , motorZeroErrorRecieved_ (false)
     , motorOneLimitRecieved_ (false)
@@ -250,106 +252,63 @@ void RaceModeDashboardView::mpptPowerReceived(double mpptPower)
     ui_.powerOutLabel().setNum(ui_.netPowerLabel().text().toDouble() - mpptPower);
 }
 
-void RaceModeDashboardView::motorZeroErrorFlagsReceived(ErrorFlags flags)
+void RaceModeDashboardView::updateMotorLabel(QLabel& motorLabel, FaultLabel& faultLabel)
 {
-    errorList_.updateFaults(flags);
-    if (flags.badMotorPositionHallSequence() || flags.configReadError() || flags.dcBusOverVoltage() || flags.desaturationFault()
-            || flags.motorOverSpeed() || flags.railUnderVoltageLockOut() || flags.softwareOverCurrent() || flags.watchdogCausedLastReset())
+    if(faultLabel.priority() >= 0)
     {
-        motorZeroErrorRecieved_ = true;
-        ui_.motorZeroFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineErrorIcon.png) 0 0 0 0 stretch stretch;");
-        ui_.motorZeroFaultsLabel().setText("ERROR");
-        ui_.motorZeroFaultsLabel().setText(errorList_.getHighestActivePriority().text());
-    }
+        motorLabel.setStyleSheet("font: 11pt \"Burlingame Pro\";\n color:" + faultLabel.color() +";");
+        motorLabel.setText(faultLabel.text());
+    }//    if (flags.busCurrentLimit() || flags.busVoltageLowerLimit() || flags.busVoltageUpperLimit()
+    //            || flags.motorCurrentLimit() || flags.outputVoltagePwmLimit() || flags.velocityLimit())
+    //    {
+    //        motorOneLimitRecieved_ = true;
+
+    //        if (!motorOneErrorRecieved_)
+    //        {
+    //            ui_.motorOneFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineLimitIcon.png) 0 0 0 0 stretch stretch;");
+    //            ui_.motorOneFaultsLabel().setText("LIMIT");
+    //        }
+    //    }
+    //    else
+    //    {
+    //        motorOneLimitRecieved_ = false;
+
+    //        if (!motorOneErrorRecieved_)
+    //        {
+    //            ui_.motorOneFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineIcon.png) 0 0 0 0 stretch stretch;");
+    //            ui_.motorOneFaultsLabel().setText("Motor 1");
+    //        }
+    //    }
     else
     {
-        motorZeroErrorRecieved_ = false;
-
-        if (motorZeroLimitRecieved_)
-        {
-            ui_.motorZeroFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineLimitIcon.png) 0 0 0 0 stretch stretch;");
-            ui_.motorZeroFaultsLabel().setText("LIMIT");
-        }
-        else
-        {
-            ui_.motorZeroFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineIcon.png) 0 0 0 0 stretch stretch;");
-            ui_.motorZeroFaultsLabel().setText("Motor 0");
-        }
+        motorLabel.setText("");
     }
+}
+
+void RaceModeDashboardView::motorZeroErrorFlagsReceived(ErrorFlags flags)
+{
+    motorZeroFaultsList_.updateErrors(flags);
+    FaultLabel highestPriorityError = motorZeroFaultsList_.getHighestActivePriorityLabel();
+    updateMotorLabel(ui_.motorZeroFaultsLabel(), highestPriorityError);
 }
 
 void RaceModeDashboardView::motorZeroLimitFlagsReceived(LimitFlags flags)
 {
-    if (flags.busCurrentLimit() || flags.busVoltageLowerLimit() || flags.busVoltageUpperLimit()
-            || flags.motorCurrentLimit() || flags.outputVoltagePwmLimit() || flags.velocityLimit())
-    {
-        motorZeroLimitRecieved_ = true;
-
-        if (!motorZeroErrorRecieved_)
-        {
-            ui_.motorZeroFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineLimitIcon.png) 0 0 0 0 stretch stretch;");
-            ui_.motorZeroFaultsLabel().setText("LIMIT");
-        }
-    }
-    else
-    {
-        motorZeroLimitRecieved_ = false;
-
-        if (!motorZeroErrorRecieved_)
-        {
-            ui_.motorZeroFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineIcon.png) 0 0 0 0 stretch stretch;");
-            ui_.motorZeroFaultsLabel().setText("Motor 0");
-        }
-    }
+     motorZeroFaultsList_.updateLimits(flags);
+     FaultLabel highestPriorityLimit = motorZeroFaultsList_.getHighestActivePriorityLabel();
+     updateMotorLabel(ui_.motorZeroFaultsLabel(), highestPriorityLimit);
 }
 
 void RaceModeDashboardView::motorOneErrorFlagsReceived(ErrorFlags flags)
 {
-    if (flags.badMotorPositionHallSequence() || flags.configReadError() || flags.dcBusOverVoltage() || flags.desaturationFault()
-            || flags.motorOverSpeed() || flags.railUnderVoltageLockOut() || flags.softwareOverCurrent() || flags.watchdogCausedLastReset())
-    {
-        motorOneErrorRecieved_ = true;
-        ui_.motorOneFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineErrorIcon.png) 0 0 0 0 stretch stretch;");
-        ui_.motorOneFaultsLabel().setText("ERROR");
-    }
-    else
-    {
-        motorOneErrorRecieved_ = false;
-
-        if (motorOneLimitRecieved_)
-        {
-            ui_.motorOneFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineLimitIcon.png) 0 0 0 0 stretch stretch;");
-            ui_.motorOneFaultsLabel().setText("LIMIT");
-        }
-        else
-        {
-            ui_.motorOneFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineIcon.png) 0 0 0 0 stretch stretch;");
-            ui_.motorOneFaultsLabel().setText("Motor 1");
-        }
-    }
+     motorOneFaultsList_.updateErrors(flags);
+     FaultLabel highestPriorityError = motorOneFaultsList_.getHighestActivePriorityLabel();
+     updateMotorLabel(ui_.motorOneFaultsLabel(), highestPriorityError);
 }
 
 void RaceModeDashboardView::motorOneLimitFlagsReceived(LimitFlags flags)
 {
-    if (flags.busCurrentLimit() || flags.busVoltageLowerLimit() || flags.busVoltageUpperLimit()
-            || flags.motorCurrentLimit() || flags.outputVoltagePwmLimit() || flags.velocityLimit())
-    {
-        motorOneLimitRecieved_ = true;
-
-        if (!motorOneErrorRecieved_)
-        {
-            ui_.motorOneFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineLimitIcon.png) 0 0 0 0 stretch stretch;");
-            ui_.motorOneFaultsLabel().setText("LIMIT");
-        }
-    }
-    else
-    {
-        motorOneLimitRecieved_ = false;
-
-        if (!motorOneErrorRecieved_)
-        {
-            ui_.motorOneFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineIcon.png) 0 0 0 0 stretch stretch;");
-            ui_.motorOneFaultsLabel().setText("Motor 1");
-        }
-    }
+    motorOneFaultsList_.updateLimits(flags);
+    FaultLabel highestPriorityLimit = motorOneFaultsList_.getHighestActivePriorityLabel();
+    updateMotorLabel(ui_.motorOneFaultsLabel(),highestPriorityLimit);
 }

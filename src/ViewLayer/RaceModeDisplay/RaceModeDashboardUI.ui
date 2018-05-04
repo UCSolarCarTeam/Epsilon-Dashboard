@@ -1459,7 +1459,7 @@ padding-bottom: -25px;</string>
          <x>200</x>
          <y>0</y>
          <width>241</width>
-         <height>231</height>
+         <height>237</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout">
@@ -1528,7 +1528,7 @@ color: rgb(100,100,100);</string>
             </property>
            </widget>
           </item>
-          <item row="2" column="0">
+          <item row="3" column="0">
            <widget class="QWidget" name="motorFaultsWidget" native="true">
             <property name="minimumSize">
              <size>
@@ -1549,50 +1549,29 @@ color: rgb(100,100,100);</string>
              <property name="geometry">
               <rect>
                <x>0</x>
-               <y>-30</y>
+               <y>0</y>
                <width>201</width>
-               <height>148</height>
+               <height>61</height>
               </rect>
              </property>
              <layout class="QGridLayout" name="gridLayout">
+              <property name="verticalSpacing">
+               <number>6</number>
+              </property>
               <item row="0" column="0">
-               <widget class="QWidget" name="motorZeroFaultsWidget" native="true">
-                <property name="minimumSize">
-                 <size>
-                  <width>20</width>
-                  <height>20</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>20</width>
-                  <height>20</height>
-                 </size>
-                </property>
-                <property name="autoFillBackground">
-                 <bool>false</bool>
+               <widget class="QLabel" name="motorZeroFaultsLabel">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">border-image: url(:/Resources/EngineIcon.png)  0 0 0 0 stretch stretch;</string>
+                 <string notr="true">font: 11pt &quot;Burlingame Pro&quot;;
+color:white;</string>
                 </property>
-               </widget>
-              </item>
-              <item row="0" column="1">
-               <widget class="QWidget" name="motorOneFaultsWidget" native="true">
-                <property name="minimumSize">
-                 <size>
-                  <width>20</width>
-                  <height>20</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>20</width>
-                  <height>20</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">border-image: url(:/Resources/EngineIcon.png)  0 0 0 0 stretch stretch;</string>
+                <property name="text">
+                 <string>Motor0</string>
                 </property>
                </widget>
               </item>
@@ -1605,24 +1584,7 @@ color: rgb(100,100,100);</string>
                  </sizepolicy>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">font: 12pt &quot;Burlingame Pro&quot;;
-color:white;</string>
-                </property>
-                <property name="text">
-                 <string>Motor0</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="1">
-               <widget class="QLabel" name="motorZeroFaultsLabel">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">font: 12pt &quot;Burlingame Pro&quot;;
+                 <string notr="true">font: 11pt &quot;Burlingame Pro&quot;;
 color:white;</string>
                 </property>
                 <property name="text">

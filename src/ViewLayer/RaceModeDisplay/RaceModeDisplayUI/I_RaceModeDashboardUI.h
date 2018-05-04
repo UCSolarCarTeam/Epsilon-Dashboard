@@ -18,8 +18,6 @@ public:
 
     virtual QLabel& batteryFaultsLabel() = 0;
     virtual QWidget& motorFaultsWidget() = 0;
-    virtual QWidget& motorZeroFaultsWidget() = 0;
-    virtual QWidget& motorOneFaultsWidget() = 0;
     virtual QLabel& motorZeroFaultsLabel() = 0;
     virtual QLabel& motorOneFaultsLabel() = 0;
 
