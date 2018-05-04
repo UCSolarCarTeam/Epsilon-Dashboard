@@ -47,10 +47,6 @@ RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
     , ui_(ui)
     , motorZeroFaultsList_(motorZeroFaultsList)
     , motorOneFaultsList_(motorOneFaultsList)
-    , motorZeroLimitRecieved_ (false)
-    , motorZeroErrorRecieved_ (false)
-    , motorOneLimitRecieved_ (false)
-    , motorOneErrorRecieved_ (false)
 {
     connectBattery(batteryPresenter_);
     connectBatteryFaults(batteryFaultsPresenter_);
@@ -258,27 +254,7 @@ void RaceModeDashboardView::updateMotorLabel(QLabel& motorLabel, FaultLabel& fau
     {
         motorLabel.setStyleSheet("font: 11pt \"Burlingame Pro\";\n color:" + faultLabel.color() +";");
         motorLabel.setText(faultLabel.text());
-    }//    if (flags.busCurrentLimit() || flags.busVoltageLowerLimit() || flags.busVoltageUpperLimit()
-    //            || flags.motorCurrentLimit() || flags.outputVoltagePwmLimit() || flags.velocityLimit())
-    //    {
-    //        motorOneLimitRecieved_ = true;
-
-    //        if (!motorOneErrorRecieved_)
-    //        {
-    //            ui_.motorOneFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineLimitIcon.png) 0 0 0 0 stretch stretch;");
-    //            ui_.motorOneFaultsLabel().setText("LIMIT");
-    //        }
-    //    }
-    //    else
-    //    {
-    //        motorOneLimitRecieved_ = false;
-
-    //        if (!motorOneErrorRecieved_)
-    //        {
-    //            ui_.motorOneFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineIcon.png) 0 0 0 0 stretch stretch;");
-    //            ui_.motorOneFaultsLabel().setText("Motor 1");
-    //        }
-    //    }
+    }
     else
     {
         motorLabel.setText("");
