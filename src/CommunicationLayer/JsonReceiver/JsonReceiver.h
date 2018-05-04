@@ -3,6 +3,7 @@
 #include <QObject>
 #include "I_JsonReceiver.h"
 
+#include "../BusinessLayer/DataPopulators/AuxBmsPopulator.h"
 #include "../BusinessLayer/DataPopulators/BatteryFaultsPopulator.h"
 #include "../BusinessLayer/DataPopulators/BatteryPopulator.h"
 #include "../BusinessLayer/DataPopulators/DriverControlsPopulator.h"
@@ -17,6 +18,7 @@
 #include "CommDeviceControl/I_CommDevice.h"
 #include "Logging/Logging.h"
 
+class AuxBmsPopulator;
 class BatteryPopulator;
 class BatteryFaultsPopulator;
 class DriverControlsPopulator;
@@ -32,7 +34,8 @@ class JsonReceiver : public I_JsonReceiver
 {
     Q_OBJECT
 public:
-    JsonReceiver(BatteryPopulator& batteryPopulator,
+    JsonReceiver(AuxBmsPopulator& auxBmsPopulator,
+                 BatteryPopulator& batteryPopulator,
                  BatteryFaultsPopulator& batteryFaultsPopulator,
                  DriverControlsPopulator& driverControlsPopulator,
                  KeyMotorPopulator& keyMotorPopulator,
@@ -48,6 +51,7 @@ public slots:
     void handleIncomingData(const QByteArray&);
 
 private:
+    AuxBmsPopulator& auxBmsPopulator_;
     BatteryPopulator& batteryPopulator_;
     BatteryFaultsPopulator& batteryFaultsPopulator_;
     DriverControlsPopulator& driverControlsPopulator_;

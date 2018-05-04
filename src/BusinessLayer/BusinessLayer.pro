@@ -19,7 +19,8 @@ HEADERS += \
     DataPopulators/MpptPopulator.h \
     DataPopulators/MotorDetailsPopulator.h \
     DataPopulators/MotorFaultsPopulator.h \
-    DataPopulators/JsonDefines.h
+    DataPopulators/JsonDefines.h \
+    DataPopulators/AuxBmsPopulator.h
 
 SOURCES += \ 
     BusinessContainer.cpp \
@@ -31,4 +32,5 @@ SOURCES += \
     DataPopulators/LightsPopulator.cpp \
     DataPopulators/MpptPopulator.cpp \
     DataPopulators/MotorDetailsPopulator.cpp \
-    DataPopulators/MotorFaultsPopulator.cpp
+    DataPopulators/MotorFaultsPopulator.cpp \
+    DataPopulators/AuxBmsPopulator.cpp

@@ -55,18 +55,6 @@ void BatteryPresenter::relayBatteryData()
             this, SIGNAL(highCellVoltageIdReceived(const int&)));
     connect(&batteryData_, SIGNAL(averageCellVoltageReceived(const int&)),
             this, SIGNAL(averageCellVoltageReceived(const int&)));
-    connect(&batteryData_, SIGNAL(prechargeStateReceived(const QString&)),
-            this, SIGNAL(prechargeStateReceived(const QString&)));
-    connect(&batteryData_, SIGNAL(auxVoltageReceived(const int&)),
-            this, SIGNAL(auxVoltageReceived(const int&)));
-    connect(&batteryData_, SIGNAL(auxBmsAliveReceived(const bool&)),
-            this, SIGNAL(auxBmsAliveReceived(bool)));
-    connect(&batteryData_, SIGNAL(strobeBmsLightRecieved(const bool&)),
-            this, SIGNAL(strobeBmsLightReceived(bool)));
-    connect(&batteryData_, SIGNAL(allowChargeRecieved(const bool&)),
-            this, SIGNAL(allowChargeReceieved(bool)));
-    connect(&batteryData_, SIGNAL(contactorErrorRecieved(const bool&)),
-            this, SIGNAL(contactorErrorReceieved(bool)));
     connect(&batteryData_, SIGNAL(packNetPowerReceived(const double&)),
             this, SIGNAL(packNetPowerReceived(const double&)));
 }

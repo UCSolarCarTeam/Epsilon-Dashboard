@@ -21,7 +21,8 @@ public:
                                 infrastructureContainer.settings().port())
         , commDeviceManager_(connectionController_.getChannel(),
                              infrastructureContainer.settings().queue())
-        , jsonReceiver_(businessContainer.batteryPopulator(),
+        , jsonReceiver_(businessContainer.auxBmsPopulator(),
+                        businessContainer.batteryPopulator(),
                         businessContainer.batteryFaultsPopulator(),
                         businessContainer.driverControlsPopulator(),
                         businessContainer.keyMotorPopulator(),
