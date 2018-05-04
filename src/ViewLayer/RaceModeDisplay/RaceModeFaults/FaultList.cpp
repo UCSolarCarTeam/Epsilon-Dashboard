@@ -28,24 +28,25 @@ namespace
 }
 
 FaultList::FaultList()
-    :errorList_({
-                FaultLabel(MOTOR_OVER_SPEED, RED, 0, false)
-                ,FaultLabel(SOFTWARE_OVER_CURRENT, RED, 0, false)
-                ,FaultLabel(DC_BUS_OVER_VOLTAGE, RED, 0, false)
-                ,FaultLabel(BAD_MOTOR_POSITION_HALL_SEQUENCE, RED, 0, false)
-                ,FaultLabel(WATCHDOG_CAUSED_LAST_RESET,RED, 0, false)
-                ,FaultLabel(CONFIG_READ_ERROR, RED, 0, false)
-                ,FaultLabel(RAIL_UNDER_VOLTAGE_LOCK_OUT, RED, 0, false)
-                ,FaultLabel(DESATURATION_FAULT, RED, 0, false)
-                })
-    ,limitList_({FaultLabel(OUTPUT_VOLTAGE_PWM_LIMIT, YELLOW,1,false)
-                ,FaultLabel(MOTOR_CURRENT_LIMIT, YELLOW,1,false)
-                ,FaultLabel(VELOCITY_LIMIT, YELLOW,1,false)
-                ,FaultLabel(BUS_CURRENT_LIMIT, YELLOW,1,false)
-                ,FaultLabel(BUS_VOLTAGE_UPPER_LIMIT, YELLOW, 1,false)
-                ,FaultLabel(BUS_VOLTAGE_LOWER_LIMIT, YELLOW,1,false)
-                ,FaultLabel(IPM_MOTOR_TEMPERATURE_LIMIT, YELLOW, 1,false)
-                })
+    : errorList_(
+{
+    FaultLabel(MOTOR_OVER_SPEED, RED, 0, false)
+    , FaultLabel(SOFTWARE_OVER_CURRENT, RED, 0, false)
+    , FaultLabel(DC_BUS_OVER_VOLTAGE, RED, 0, false)
+    , FaultLabel(BAD_MOTOR_POSITION_HALL_SEQUENCE, RED, 0, false)
+    , FaultLabel(WATCHDOG_CAUSED_LAST_RESET, RED, 0, false)
+    , FaultLabel(CONFIG_READ_ERROR, RED, 0, false)
+    , FaultLabel(RAIL_UNDER_VOLTAGE_LOCK_OUT, RED, 0, false)
+    , FaultLabel(DESATURATION_FAULT, RED, 0, false)
+})
+, limitList_({FaultLabel(OUTPUT_VOLTAGE_PWM_LIMIT, YELLOW, 1, false)
+              , FaultLabel(MOTOR_CURRENT_LIMIT, YELLOW, 1, false)
+              , FaultLabel(VELOCITY_LIMIT, YELLOW, 1, false)
+              , FaultLabel(BUS_CURRENT_LIMIT, YELLOW, 1, false)
+              , FaultLabel(BUS_VOLTAGE_UPPER_LIMIT, YELLOW, 1, false)
+              , FaultLabel(BUS_VOLTAGE_LOWER_LIMIT, YELLOW, 1, false)
+              , FaultLabel(IPM_MOTOR_TEMPERATURE_LIMIT, YELLOW, 1, false)
+             })
 {
 }
 
@@ -60,15 +61,15 @@ FaultLabel FaultList::getHighestActivePriorityLabel() const
 
     for (int i = 0; i < NUMBER_OF_MOTOR_ERRORS; i++)
     {
-        if(errorList_[i].isActive())
+        if (errorList_[i].isActive())
         {
-            if(highestPriorityErrorIndex == -1)
+            if (highestPriorityErrorIndex == -1)
             {
                 highestPriorityErrorIndex = i;
             }
-            else if(errorList_[i].priority() > errorList_[highestPriorityErrorIndex].priority())
+            else if (errorList_[i].priority() > errorList_[highestPriorityErrorIndex].priority())
             {
-                 highestPriorityErrorIndex = i;
+                highestPriorityErrorIndex = i;
             }
         }
     }
@@ -77,21 +78,21 @@ FaultLabel FaultList::getHighestActivePriorityLabel() const
 
     for (int i = 0; i < NUMBER_OF_MOTOR_LIMITS; i++)
     {
-        if(limitList_[i].isActive())
+        if (limitList_[i].isActive())
         {
-            if(highestPriorityLimitIndex == -1)
+            if (highestPriorityLimitIndex == -1)
             {
                 highestPriorityLimitIndex = i;
             }
-            else if(errorList_[i].priority() > errorList_[highestPriorityLimitIndex].priority())
+            else if (errorList_[i].priority() > errorList_[highestPriorityLimitIndex].priority())
             {
-                 highestPriorityLimitIndex = i;
+                highestPriorityLimitIndex = i;
             }
         }
     }
 
     //Returns the FaultLabel with the highest priority, where 0 is the highest priority, 1 is the second highest etc.
-    if(highestPriorityErrorIndex == -1 && highestPriorityLimitIndex == -1)
+    if (highestPriorityErrorIndex == -1 && highestPriorityLimitIndex == -1)
     {
         return FaultLabel();
     }
@@ -105,7 +106,7 @@ FaultLabel FaultList::getHighestActivePriorityLabel() const
     }
     else
     {
-        if(errorList_[highestPriorityErrorIndex].priority() <= limitList_[highestPriorityLimitIndex].priority())
+        if (errorList_[highestPriorityErrorIndex].priority() <= limitList_[highestPriorityLimitIndex].priority())
         {
             return errorList_[highestPriorityErrorIndex];
         }

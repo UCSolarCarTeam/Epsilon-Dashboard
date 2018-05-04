@@ -250,9 +250,9 @@ void RaceModeDashboardView::mpptPowerReceived(double mpptPower)
 
 void RaceModeDashboardView::updateMotorLabel(QLabel& motorLabel, FaultLabel& faultLabel)
 {
-    if(faultLabel.priority() >= 0)
+    if (faultLabel.priority() >= 0)
     {
-        motorLabel.setStyleSheet("font: 11pt \"Burlingame Pro\";\n color:" + faultLabel.color() +";");
+        motorLabel.setStyleSheet("font: 11pt \"Burlingame Pro\";\n color:" + faultLabel.color() + ";");
         motorLabel.setText(faultLabel.text());
     }
     else
@@ -270,21 +270,21 @@ void RaceModeDashboardView::motorZeroErrorFlagsReceived(ErrorFlags flags)
 
 void RaceModeDashboardView::motorZeroLimitFlagsReceived(LimitFlags flags)
 {
-     motorZeroFaultsList_.updateLimits(flags);
-     FaultLabel highestPriorityLimit = motorZeroFaultsList_.getHighestActivePriorityLabel();
-     updateMotorLabel(ui_.motorZeroFaultsLabel(), highestPriorityLimit);
+    motorZeroFaultsList_.updateLimits(flags);
+    FaultLabel highestPriorityLimit = motorZeroFaultsList_.getHighestActivePriorityLabel();
+    updateMotorLabel(ui_.motorZeroFaultsLabel(), highestPriorityLimit);
 }
 
 void RaceModeDashboardView::motorOneErrorFlagsReceived(ErrorFlags flags)
 {
-     motorOneFaultsList_.updateErrors(flags);
-     FaultLabel highestPriorityError = motorOneFaultsList_.getHighestActivePriorityLabel();
-     updateMotorLabel(ui_.motorOneFaultsLabel(), highestPriorityError);
+    motorOneFaultsList_.updateErrors(flags);
+    FaultLabel highestPriorityError = motorOneFaultsList_.getHighestActivePriorityLabel();
+    updateMotorLabel(ui_.motorOneFaultsLabel(), highestPriorityError);
 }
 
 void RaceModeDashboardView::motorOneLimitFlagsReceived(LimitFlags flags)
 {
     motorOneFaultsList_.updateLimits(flags);
     FaultLabel highestPriorityLimit = motorOneFaultsList_.getHighestActivePriorityLabel();
-    updateMotorLabel(ui_.motorOneFaultsLabel(),highestPriorityLimit);
+    updateMotorLabel(ui_.motorOneFaultsLabel(), highestPriorityLimit);
 }

@@ -16,7 +16,7 @@ FaultLabel::FaultLabel(QString name, QString color, int priority, bool isActive)
 {
 }
 
-FaultLabel::FaultLabel(const FaultLabel &faultLabel)
+FaultLabel::FaultLabel(const FaultLabel& faultLabel)
     : QLabel(faultLabel.name())
     , color_(faultLabel.color())
     , priority_(faultLabel.priority())
