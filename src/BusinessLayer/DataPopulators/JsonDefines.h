@@ -189,7 +189,6 @@ namespace JsonFormat
     const QString BATTERY_HIGHCELLVOLTAGE = "HighCellVoltage";
     const QString BATTERY_HIGHCELLVOLTAGEID = "HighCellVoltageId";
     const QString BATTERY_AVERAGECELLVOLTAGE = "AverageCellVoltage";
-
     const QString BATTERY_PRECHARGESTATE = "PrechargeState";
     const QString BATTERY_AUXVOLTAGE = "AuxVoltage";
     const QString BATTERY_AUXBMSALIVE = "AuxBmsAlive";
@@ -214,4 +213,13 @@ namespace JsonFormat
     const QString LIGHTS_LEFTSIGNAL = "LeftSignal";
     const QString LIGHTS_RIGHTSIGNAL = "RightSignal";
     const QString LIGHTS_BMSSTROBELIGHT = "BmsStrobeLight";
+
+    // AuxBmsData
+    const QString AUXBMS = "AuxBms";
+    const QString AUXBMS_PRECHARGESTATE = "PrechargeState";
+    const QString AUXBMS_AUXVOLTAGE = "AuxVoltage";
+    const QString AUXBMS_AUXBMSALIVE = "AuxBmsAlive";
+    const QString AUXBMS_STROBEBMSLIGHT = "StrobeBmsLight";
+    const QString AUXBMS_ALLOWCHARGE = "AllowCharge";
+    const QString AUXBMS_CONTACTORERROR = "ContactorError";
 }
