@@ -39,29 +39,23 @@ ControlView::ControlView(DriverControlsPresenter& driverControlsPresenter,
     , lightsPresenter_(lightsPresenter)
     , ui_(ui)
 {
-    connectDriverControls(driverControlsPresenter_, lightsPresenter_);
+    connectDriverControls(driverControlsPresenter_);
+    connectLights(lightsPresenter_);
 }
 
 ControlView::~ControlView()
 {
 }
 
-void ControlView::connectDriverControls(DriverControlsPresenter& driverControlsPresenter, LightsPresenter& lightsPresenter)
+void ControlView::connectDriverControls(DriverControlsPresenter& driverControlsPresenter)
 {
     connect(&driverControlsPresenter, SIGNAL(aliveReceived(bool)),
             this, SLOT(aliveReceived(bool)));
-    connect(&lightsPresenter, SIGNAL(lightAliveReceived(bool)),
-            this, SLOT(aliveLights(bool)));
 
     connect(&driverControlsPresenter, SIGNAL(headlightsLowReceived(bool)),
             this, SLOT(lowHeadlightsReceived(bool)));
     connect(&driverControlsPresenter, SIGNAL(headlightsHighReceived(bool)),
             this, SLOT(highHeadlightsReceived(bool)));
-    connect(&lightsPresenter, SIGNAL(lowBeamsReceived(bool)),
-            this, SLOT(lowBeamsReceived(bool)));
-    connect(&lightsPresenter, SIGNAL(highBeamsReceived(bool)),
-            this, SLOT(highBeamsReceived(bool)));
-
 
     connect(&driverControlsPresenter, SIGNAL(signalLeftReceived(bool)),
             this, SLOT(leftSignalReceived(bool)));
@@ -69,10 +63,6 @@ void ControlView::connectDriverControls(DriverControlsPresenter& driverControlsP
             this, SLOT(rightSignalReceived(bool)));
     connect(&driverControlsPresenter, SIGNAL(hazardReceived(bool)),
             this, SLOT(hazardReceived(bool)));
-    connect(&lightsPresenter, SIGNAL(leftSignalReceived(bool)),
-            this, SLOT(leftLightReceived(bool)));
-    connect(&lightsPresenter, SIGNAL(rightSignalReceived(bool)),
-            this, SLOT(rightLightReceived(bool)));
 
     connect(&driverControlsPresenter, SIGNAL(interiorReceived(bool)),
             this, SLOT(interiorReceived(bool)));
@@ -93,11 +83,9 @@ void ControlView::connectDriverControls(DriverControlsPresenter& driverControlsP
             this, SLOT(volumeUpReceived(bool)));
     connect(&driverControlsPresenter, SIGNAL(volumeDownReceived(bool)),
             this, SLOT(volumeDownReceived(bool)));
-
     connect(&driverControlsPresenter, SIGNAL(brakesReceived(bool)),
             this, SLOT(brakesReceived(bool)));
-    connect(&lightsPresenter, SIGNAL(brakesReceived(bool)),
-            this, SLOT(brakesLightReceived(bool)));
+
     connect(&driverControlsPresenter, SIGNAL(forwardReceived(bool)),
             this, SLOT(forwardReceived(bool)));
     connect(&driverControlsPresenter, SIGNAL(reverseReceived(bool)),
@@ -110,6 +98,23 @@ void ControlView::connectDriverControls(DriverControlsPresenter& driverControlsP
             this, SLOT(accelerationReceived(double)));
     connect(&driverControlsPresenter, SIGNAL(regenBrakingReceived(double)),
             this, SLOT(regenBrakingReceived(double)));
+}
+
+void ControlView::connectLights(LightsPresenter& lightsPresenter)
+{
+    connect(&lightsPresenter, SIGNAL(lightAliveReceived(bool)),
+            this, SLOT(aliveLights(bool)));
+
+    connect(&lightsPresenter, SIGNAL(lowBeamsReceived(bool)),
+            this, SLOT(lowBeamsReceived(bool)));
+    connect(&lightsPresenter, SIGNAL(highBeamsReceived(bool)),
+            this, SLOT(highBeamsReceived(bool)));
+    connect(&lightsPresenter, SIGNAL(leftSignalReceived(bool)),
+            this, SLOT(leftLightReceived(bool)));
+    connect(&lightsPresenter, SIGNAL(rightSignalReceived(bool)),
+            this, SLOT(rightLightReceived(bool)));
+    connect(&lightsPresenter, SIGNAL(brakesReceived(bool)),
+            this, SLOT(brakesLightReceived(bool)));
 }
 
 void ControlView::aliveReceived(bool alive)

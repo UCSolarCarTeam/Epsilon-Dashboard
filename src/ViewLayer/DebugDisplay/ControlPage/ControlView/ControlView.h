@@ -18,7 +18,8 @@ public:
     ~ControlView();
 
 private:
-    void connectDriverControls(DriverControlsPresenter&, LightsPresenter&);
+    void connectDriverControls(DriverControlsPresenter&);
+    void connectLights(LightsPresenter&);
 
     DriverControlsPresenter& driverControlsPresenter_;
     LightsPresenter& lightsPresenter_;
