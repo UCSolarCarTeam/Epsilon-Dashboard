@@ -17,7 +17,6 @@ public:
     virtual QLabel& motorPowerLabel() = 0;
 
     virtual QLabel& batteryFaultsLabel() = 0;
-    virtual QWidget& motorFaultsWidget() = 0;
     virtual QLabel& motorZeroFaultsLabel() = 0;
     virtual QLabel& motorOneFaultsLabel() = 0;
 

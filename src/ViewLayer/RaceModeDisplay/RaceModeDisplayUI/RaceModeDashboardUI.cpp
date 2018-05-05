@@ -37,11 +37,6 @@ QLabel& RaceModeDashboardUI::batteryFaultsLabel()
     return *ui_->batteryFaultsLabel;
 }
 
-QWidget& RaceModeDashboardUI::motorFaultsWidget()
-{
-    return *ui_->motorFaultsWidget;
-}
-
 QLabel& RaceModeDashboardUI::motorZeroFaultsLabel()
 {
     return *ui_->motorZeroFaultsLabel;
