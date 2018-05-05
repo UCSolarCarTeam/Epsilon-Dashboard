@@ -35,8 +35,8 @@ HEADERS += \
     ViewContainer.h \
     DebugDisplay/HomePage/HomePageView/HomePageView.h \
     RaceModeDisplay/RaceModeDashboardView.h \
-    RaceModeDisplay/FaultLabel/FaultLabel.h \
-    RaceModeDisplay/RaceModeFaults/FaultList.h
+    Faults/MotorFaults/MotorFaultList.h \
+    Faults/FaultLabel/FaultLabel.h
 
 SOURCES += \ 
     DebugDisplay/BatteryPage/BatteryUi/BatteryUi.cpp \
@@ -57,8 +57,8 @@ SOURCES += \
     RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.cpp \
     ViewContainer.cpp \
     DebugDisplay/HomePage/HomePageView/HomePageView.cpp \
-    RaceModeDisplay/FaultLabel/FaultLabel.cpp \
-    RaceModeDisplay/RaceModeFaults/FaultList.cpp
+    Faults/FaultLabel/FaultLabel.cpp \
+    Faults/MotorFaults/MotorFaultList.cpp
 
 FORMS += \   
     DebugDisplay/BatteryPage/BatteryUi/BatteryUi.ui \

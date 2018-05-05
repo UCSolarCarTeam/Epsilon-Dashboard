@@ -5,12 +5,12 @@
 #include "../DataLayer/MotorFaultsData/ErrorFlags.h"
 #include "../DataLayer/MotorFaultsData/LimitFlags.h"
 
-class FaultList
+class MotorFaultList
 {
 public:
-    FaultList();
+    MotorFaultList();
 
-    ~FaultList();
+    ~MotorFaultList();
 
     FaultLabel getHighestActivePriorityLabel() const;
     QVector<FaultLabel>& getErrorLabels();

@@ -7,7 +7,7 @@
 #include "../../DataLayer/MotorFaultsData/ErrorFlags.h"
 #include "../../DataLayer/MotorFaultsData/LimitFlags.h"
 #include "../../PresenterLayer/BatteryFaultsPresenter/BatteryFaultsPresenter.h"
-#include "RaceModeFaults/FaultList.h"
+#include "Faults/MotorFaults/MotorFaultList.h"
 
 
 class BatteryPresenter;
@@ -33,8 +33,8 @@ public:
                           MotorDetailsPresenter& motorDetailsPresenter,
                           MotorFaultsPresenter& motorFaultsPresenter,
                           I_RaceModeDashboardUI& ui,
-                          FaultList& motorZeroFaultsList,
-                          FaultList& motorOneFaultsList);
+                          MotorFaultList& motorZeroFaultsList,
+                          MotorFaultList& motorOneFaultsList);
     ~RaceModeDashboardView();
 
 private:
@@ -57,8 +57,8 @@ private:
     MpptPresenter& mpptPresenter_;
     MotorDetailsPresenter& motorDetailsPresenter_;
     MotorFaultsPresenter& motorFaultsPresenter_;
-    FaultList& motorZeroFaultsList_;
-    FaultList& motorOneFaultsList_;
+    MotorFaultList& motorZeroFaultsList_;
+    MotorFaultList& motorOneFaultsList_;
 
     I_RaceModeDashboardUI& ui_;
 

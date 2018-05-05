@@ -1,4 +1,4 @@
-#include "FaultList.h"
+#include "MotorFaultList.h"
 #include <QDebug>
 
 namespace
@@ -27,7 +27,7 @@ namespace
     QString YELLOW = "yellow";
 }
 
-FaultList::FaultList()
+MotorFaultList::MotorFaultList()
     : errorLabels_(
 {
     FaultLabel(MOTOR_OVER_SPEED, RED, 0, false)
@@ -50,11 +50,11 @@ FaultList::FaultList()
 {
 }
 
-FaultList::~FaultList()
+MotorFaultList::~MotorFaultList()
 {
 }
 
-FaultLabel FaultList::determineHighestActivePriorityLabel() const
+FaultLabel MotorFaultList::determineHighestActivePriorityLabel() const
 {
     int highestPriorityErrorIndex = -1;
 
@@ -116,22 +116,22 @@ FaultLabel FaultList::determineHighestActivePriorityLabel() const
     }
 }
 
-FaultLabel FaultList::getHighestActivePriorityLabel() const
+FaultLabel MotorFaultList::getHighestActivePriorityLabel() const
 {
     return determineHighestActivePriorityLabel();
 }
 
-QVector<FaultLabel>& FaultList::getErrorLabels()
+QVector<FaultLabel>& MotorFaultList::getErrorLabels()
 {
     return errorLabels_;
 }
 
-QVector<FaultLabel>& FaultList::getLimitLabels()
+QVector<FaultLabel>& MotorFaultList::getLimitLabels()
 {
     return limitLabels_;
 }
 
-void FaultList::updateErrors(const ErrorFlags& errorFlags)
+void MotorFaultList::updateErrors(const ErrorFlags& errorFlags)
 {
     errorLabels_[0].setIsActive(errorFlags.motorOverSpeed());
     errorLabels_[1].setIsActive(errorFlags.softwareOverCurrent());
@@ -143,7 +143,7 @@ void FaultList::updateErrors(const ErrorFlags& errorFlags)
     errorLabels_[7].setIsActive(errorFlags.desaturationFault());
 }
 
-void FaultList::updateLimits(const LimitFlags& limitFlags)
+void MotorFaultList::updateLimits(const LimitFlags& limitFlags)
 {
     limitLabels_[0].setIsActive(limitFlags.outputVoltagePwmLimit());
     limitLabels_[1].setIsActive(limitFlags.motorCurrentLimit());

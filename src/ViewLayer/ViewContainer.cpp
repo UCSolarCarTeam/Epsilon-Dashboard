@@ -2,7 +2,7 @@
 #include "RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.h"
 #include "DisplayDashboard/DisplayDashboardView/DisplayDashboardView.h"
 #include "RaceModeDisplay/RaceModeDashboardView.h"
-#include "RaceModeDisplay/RaceModeFaults/FaultList.h"
+#include "Faults/MotorFaults/MotorFaultList.h"
 #include "../PresenterLayer/PresenterContainer.h"
 #include "ViewContainer.h"
 #include "DebugDisplay/BatteryPage/BatteryUi/BatteryUi.h"
@@ -36,8 +36,8 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
     }
     else if (mode == Mode::RACE)
     {
-        FaultList* motorZeroFaultList = new FaultList();
-        FaultList* motorOneFaultList = new FaultList();
+        MotorFaultList* motorZeroMotorFaultList = new MotorFaultList();
+        MotorFaultList* motorOneMotorFaultList = new MotorFaultList();
         RaceModeDashboardUI_ = new RaceModeDashboardUI();
         RaceModeDashboardView_.reset(new RaceModeDashboardView(
                                          presenterContainer.batteryPresenter(),
@@ -49,8 +49,8 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
                                          presenterContainer.motorDetailsPresenter(),
                                          presenterContainer.motorFaultsPresenter(),
                                          *RaceModeDashboardUI_,
-                                         *motorZeroFaultList,
-                                         *motorOneFaultList));
+                                         *motorZeroMotorFaultList,
+                                         *motorOneMotorFaultList));
     }
     else if (mode == Mode::DEBUG)
     {
