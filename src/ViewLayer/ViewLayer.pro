@@ -22,34 +22,21 @@ HEADERS += \
     DebugDisplay/MotorPage/MotorUi/I_MotorUi.h \
     DebugDisplay/MPPTPage/MPPTUi/MpptUi.h \
     DebugDisplay/MPPTPage/MPPTUi/I_MpptUi.h \
-    DebugDisplay/MotorPage/MotorUi/I_MotorUi.h \
-    DebugDisplay/MotorPage/MotorUi/MotorUi.h \
     DebugDisplay/MPPTPage/MPPTView/MpptView.h \
     DebugDisplay/MotorPage/MotorView/MotorView.h \
-    DebugDisplay/ControlPage/ControlView/ControlView.h \
-    DebugDisplay/MPPTPage/MPPTView/MpptView.h \
     DebugDisplay/OverlordWidget/OverlordWidget.h \
     DebugDisplay/Tab/TabUi/TabUi.h \
     DebugDisplay/Tab/TabUi/I_TabUi.h \
     DisplayDashboard/DisplayDashboardUI/DisplayDashboardUI.h \
     DisplayDashboard/DisplayDashboardUI/I_DisplayDashboardUI.h \
     DisplayDashboard/DisplayDashboardView/DisplayDashboardView.h \
-    RaceModeDisplay/RaceModeDashboardView.h \
     RaceModeDisplay/RaceModeDisplayUI/I_RaceModeDashboardUI.h \
     RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.h \
     ViewContainer.h \
     DebugDisplay/HomePage/HomePageView/HomePageView.h \
-    RaceModeDisplay/errorlist.h \
-    RaceModeDisplay/FaultLabel/faultlabel.h \
-    RaceModeDisplay/RaceModeDisplayUI/I_RaceModeDashboardUI.h \
-    RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.h \
     RaceModeDisplay/RaceModeDashboardView.h \
-    RaceModeDisplay/RaceModeFaults/FaultList.h \
     RaceModeDisplay/FaultLabel/FaultLabel.h \
-    RaceModeDisplay/RaceModeDisplayUI/I_RaceModeDashboardUI.h \
-    RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.h \
-    RaceModeDisplay/RaceModeFaults/FaultList.h \
-    RaceModeDisplay/RaceModeDashboardView.h
+    RaceModeDisplay/RaceModeFaults/FaultList.h
 
 SOURCES += \ 
     DebugDisplay/BatteryPage/BatteryUi/BatteryUi.cpp \
@@ -61,9 +48,6 @@ SOURCES += \
     DebugDisplay/FaultPage/FaultView/FaultView.cpp \
     DebugDisplay/MPPTPage/MPPTUi/MpptUi.cpp \
     DebugDisplay/MotorPage/MotorView/MotorView.cpp \
-    DebugDisplay/MotorPage/MotorUi/MotorUi.cpp \
-    DebugDisplay/MPPTPage/MPPTView/MpptView.cpp \
-    DebugDisplay/ControlPage/ControlView/ControlView.cpp \
     DebugDisplay/MPPTPage/MPPTView/MpptView.cpp \
     DebugDisplay/OverlordWidget/OverlordWidget.cpp \
     DebugDisplay/Tab/TabUi/TabUi.cpp \
@@ -73,14 +57,8 @@ SOURCES += \
     RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.cpp \
     ViewContainer.cpp \
     DebugDisplay/HomePage/HomePageView/HomePageView.cpp \
-    RaceModeDisplay/RaceModeDashboardView.cpp \
     RaceModeDisplay/FaultLabel/FaultLabel.cpp \
-    RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.cpp \
-    RaceModeDisplay/RaceModeDashboardView.cpp \
-    RaceModeDisplay/RaceModeFaults/FaultList.cpp \
-    RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.cpp \
-    RaceModeDisplay/RaceModeFaults/FaultList.cpp \
-    RaceModeDisplay/RaceModeDashboardView.cpp
+    RaceModeDisplay/RaceModeFaults/FaultList.cpp
 
 FORMS += \   
     DebugDisplay/BatteryPage/BatteryUi/BatteryUi.ui \
