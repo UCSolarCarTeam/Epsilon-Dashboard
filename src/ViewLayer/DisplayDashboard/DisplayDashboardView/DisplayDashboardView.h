@@ -72,6 +72,7 @@ private slots:
     void aliveReceived(bool);
     void prechargeStateReceived(QString);
     void packNetPowerReceived(double);
+    void packStateOfChargeReceived(double);
     void highTemperatureReceived(int);
     void lowCellVoltageReceived(int);
     void averageTemperatureReceived(int);

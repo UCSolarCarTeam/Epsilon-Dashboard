@@ -1,4 +1,5 @@
 #include "DisplayDashboardView.h"
+#include <QDebug>
 
 namespace
 {
@@ -59,6 +60,8 @@ void DisplayDashboardView::connectBattery(BatteryPresenter& batteryPresenter)
             this, SLOT(prechargeStateReceived(QString)));
     connect(&batteryPresenter, SIGNAL(packNetPowerReceived(double)),
             this, SLOT(packNetPowerReceived(double)));
+    connect(&batteryPresenter, SIGNAL(packStateOfChargeReceived(double)),
+            this, SLOT(packStateOfChargeReceived(double)));
     connect(&batteryPresenter, SIGNAL(highTemperatureReceived(int)),
             this, SLOT(highTemperatureReceived(int)));
     connect(&batteryPresenter, SIGNAL(lowCellVoltageReceived(int)),
@@ -150,9 +153,9 @@ void DisplayDashboardView::packNetPowerReceived(double netPower)
 /*
  * TODO UI has to be updated w.r.t. the changes in the protocol
  */
-/*
-void DisplayDashboardView::packSocPercentageReceived(double packSocPercentage)
+void DisplayDashboardView::packStateOfChargeReceived(double packSocPercentage)
 {
+    qDebug() << packSocPercentage;
     ui_.stateOfChargeCapacityWidget().setValue(packSocPercentage);
 
     // The rgb values for the progressbar are calculated with the intention of displaying a colour closer to red
@@ -175,8 +178,8 @@ void DisplayDashboardView::packSocPercentageReceived(double packSocPercentage)
     QString rgb = QString("rgb(%1,%2,%3);").arg(r, g, b);
 
     ui_.stateOfChargeCapacityWidget().setStyleSheet(DEFAULT_STYLESHEET + rgb + "}");
-
 }
+/*
 void DisplayDashboardView::prechargeTimerElapsedReceived(bool prechargeTimerElapsed)
 {
 }
@@ -315,7 +318,7 @@ void DisplayDashboardView::mpptReceived(int i, Mppt mppt)
 
 void DisplayDashboardView::mpptPowerReceived(double mpptPower)
 {
-    ui_.powerInLabel().setText(QString::number(mpptPower, 'f', 2));
+    ui_.powerInLabel().setText(QString::number(mpptPower, 'f', 0));
     ui_.powerOutLabel().setNum(ui_.netPowerLabel().text().toDouble() - mpptPower);
 }
 
