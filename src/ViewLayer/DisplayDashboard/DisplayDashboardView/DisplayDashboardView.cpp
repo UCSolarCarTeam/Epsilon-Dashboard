@@ -145,7 +145,6 @@ void DisplayDashboardView::prechargeStateReceived(QString prechargeState)
 void DisplayDashboardView::packNetPowerReceived(double netPower)
 {
     ui_.netPowerLabel().setNum(netPower);
-    ui_.powerOutLabel().setNum(netPower - ui_.powerInLabel().text().toDouble());
 }
 
 /*
@@ -296,17 +295,22 @@ void DisplayDashboardView::mpptReceived(int i, Mppt mppt)
     {
         ui_.array0CurrentLabel().setNum(mppt.arrayCurrent());
         ui_.array0VoltageLabel().setNum(mppt.arrayVoltage());
+        mpptZeroPower_ = mppt.arrayCurrent() * mppt.arrayVoltage();
     }
     else if (i == 1)
     {
         ui_.array1CurrentLabel().setNum(mppt.arrayCurrent());
         ui_.array1VoltageLabel().setNum(mppt.arrayVoltage());
+        mpptOnePower_ = mppt.arrayCurrent() * mppt.arrayVoltage();
     }
     else if (i == 2)
     {
         ui_.array2CurrentLabel().setNum(mppt.arrayCurrent());
         ui_.array2VoltageLabel().setNum(mppt.arrayVoltage());
+        mpptTwoPower_ = mppt.arrayCurrent() * mppt.arrayVoltage();
     }
+
+    mpptPowerReceived(mpptZeroPower_ + mpptOnePower_ + mpptTwoPower_);
 }
 
 void DisplayDashboardView::mpptPowerReceived(double mpptPower)

@@ -62,6 +62,11 @@ private:
 
     I_DisplayDashboardUI& ui_;
 
+    //used in mpptReceived
+    double mpptZeroPower_;
+    double mpptOnePower_;
+    double mpptTwoPower_;
+
 private slots:
     // battery data slots
     void aliveReceived(bool);
