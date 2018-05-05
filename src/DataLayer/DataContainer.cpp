@@ -1,3 +1,4 @@
+#include "AuxBmsData/AuxBmsData.h"
 #include "BatteryData/BatteryData.h"
 #include "BatteryFaultsData/BatteryFaultsData.h"
 #include "DriverControlsData/DriverControlsData.h"
@@ -9,7 +10,8 @@
 #include "DataContainer.h"
 
 DataContainer::DataContainer()
-    : batteryData_(new BatteryData())
+    : auxBmsData_(new AuxBmsData())
+    , batteryData_(new BatteryData())
     , batteryFaultsData_(new BatteryFaultsData())
     , driverControlsData_(new DriverControlsData())
     , keyMotorData_(new KeyMotorData())
@@ -22,6 +24,11 @@ DataContainer::DataContainer()
 
 DataContainer::~DataContainer()
 {
+}
+
+I_AuxBmsData& DataContainer::auxBmsData()
+{
+    return *auxBmsData_;
 }
 
 I_BatteryData& DataContainer::batteryData()
