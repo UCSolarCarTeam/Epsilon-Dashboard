@@ -67,6 +67,10 @@ private slots:
     void aliveReceived(bool);
     void prechargeStateReceived(QString);
     void packNetPowerReceived(double);
+    void highTemperatureReceived(int);
+    void lowCellVoltageReceived(int);
+    void averageTemperatureReceived(int);
+    void averageCellVoltageReceived(int);
 
     // battery faults slots
     void errorFlagsReceived(BatteryErrorFlags);
@@ -75,6 +79,7 @@ private slots:
     void resetReceived(bool);
 
     // key motor slots
+    void motorSetPowerReceived(double);
     void motorSetCurrentReceived(double);
     void motorActualSpeedReceived(double);
     void motorBusVoltageReceived(double);

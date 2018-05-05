@@ -48,8 +48,7 @@ DisplayDashboardView::DisplayDashboardView(BatteryPresenter& batteryPresenter,
     ui_.show();
 }
 DisplayDashboardView::~DisplayDashboardView()
-{
-}
+{}
 
 void DisplayDashboardView::connectBattery(BatteryPresenter& batteryPresenter)
 {
@@ -60,6 +59,14 @@ void DisplayDashboardView::connectBattery(BatteryPresenter& batteryPresenter)
             this, SLOT(prechargeStateReceived(QString)));
     connect(&batteryPresenter, SIGNAL(packNetPowerReceived(double)),
             this, SLOT(packNetPowerReceived(double)));
+    connect(&batteryPresenter, SIGNAL(highTemperatureReceived(int)),
+            this, SLOT(highTemperatureReceived(int)));
+    connect(&batteryPresenter, SIGNAL(lowCellVoltageReceived(int)),
+            this, SLOT(lowCellVoltageReceived(int)));
+    connect(&batteryPresenter, SIGNAL(averageTemperatureReceived(int)),
+            this, SLOT(averageTemperatureReceived(int)));
+    connect(&batteryPresenter, SIGNAL(averageCellVoltageReceived(int)),
+            this, SLOT(averageCellVoltageReceived(int)));
 }
 
 void DisplayDashboardView::connectBatteryFaults(BatteryFaultsPresenter& batteryFaultsPresenter)
@@ -78,6 +85,8 @@ void DisplayDashboardView::connectDriverControls(DriverControlsPresenter& driver
 
 void DisplayDashboardView::connectKeyMotor(KeyMotorPresenter& keyMotorPresenter)
 {
+    connect(&keyMotorPresenter, SIGNAL(motorSetPowerReceived(double)),
+            this, SLOT(motorSetPowerReceived(double)));
     connect(&keyMotorPresenter, SIGNAL(motorSetCurrentReceived(double)),
             this, SLOT(motorSetCurrentReceived(double)));
     connect(&keyMotorPresenter, SIGNAL(motorActualSpeedReceived(double)),
@@ -175,24 +184,23 @@ void DisplayDashboardView::prechargeTimerElapsedReceived(bool prechargeTimerElap
 void DisplayDashboardView::prechargeTimerCountReceived(double prechargeTimerCount)
 {
 }
-void DisplayDashboardView::cmuMaxCellTempReceived(double maxCellTemp)
+*/
+void DisplayDashboardView::highTemperatureReceived(int maxCellTemp)
 {
     ui_.maxCellTemperatureLabel().setNum(maxCellTemp);
 }
-void DisplayDashboardView::cmuLowestCellVoltageReceived(double lowestCellVoltage)
+void DisplayDashboardView::lowCellVoltageReceived(int lowestCellVoltage)
 {
     ui_.lowestCellVoltageLabel().setNum(lowestCellVoltage);
 }
-void DisplayDashboardView::cmuAverageCellTempReceived(double averageCellTemp)
+void DisplayDashboardView::averageTemperatureReceived(int averageCellTemp)
 {
     ui_.avgCellTemperatureLabel().setNum(averageCellTemp);
 }
-void DisplayDashboardView::cmuAverageVoltageReceived(double averageVoltage)
+void DisplayDashboardView::averageCellVoltageReceived(int averageVoltage)
 {
     ui_.avgCellVoltageLabel().setNum(averageVoltage);
 }
-*/
-
 void DisplayDashboardView::errorFlagsReceived(BatteryErrorFlags)
 {
     // TODO
@@ -201,6 +209,7 @@ void DisplayDashboardView::limitFlagsReceived(BatteryLimitFlags)
 {
     // TODO
 }
+
 void DisplayDashboardView::resetReceived(bool reset)
 {
     if (reset)
@@ -211,6 +220,10 @@ void DisplayDashboardView::resetReceived(bool reset)
     {
         ui_.motorResetButtonWidget().setStyleSheet("");
     }
+}
+void DisplayDashboardView::motorSetPowerReceived(double setPower)
+{
+    ui_.motorPowerLabel().setNum(setPower);
 }
 void DisplayDashboardView::motorSetCurrentReceived(double setCurrent)
 {
