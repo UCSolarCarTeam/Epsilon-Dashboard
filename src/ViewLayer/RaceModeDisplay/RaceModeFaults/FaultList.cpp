@@ -28,7 +28,7 @@ namespace
 }
 
 FaultList::FaultList()
-    : errorList_(
+    : errorLabels_(
 {
     FaultLabel(MOTOR_OVER_SPEED, RED, 0, false)
     , FaultLabel(SOFTWARE_OVER_CURRENT, RED, 0, false)
@@ -39,7 +39,7 @@ FaultList::FaultList()
     , FaultLabel(RAIL_UNDER_VOLTAGE_LOCK_OUT, RED, 0, false)
     , FaultLabel(DESATURATION_FAULT, RED, 0, false)
 })
-, limitList_({FaultLabel(OUTPUT_VOLTAGE_PWM_LIMIT, YELLOW, 1, false)
+, limitLabels_({FaultLabel(OUTPUT_VOLTAGE_PWM_LIMIT, YELLOW, 1, false)
               , FaultLabel(MOTOR_CURRENT_LIMIT, YELLOW, 1, false)
               , FaultLabel(VELOCITY_LIMIT, YELLOW, 1, false)
               , FaultLabel(BUS_CURRENT_LIMIT, YELLOW, 1, false)
@@ -54,20 +54,19 @@ FaultList::~FaultList()
 {
 }
 
-FaultLabel FaultList::getHighestActivePriorityLabel() const
+FaultLabel FaultLabel::determineHighestActivePriorityLabel() const
 {
-
     int highestPriorityErrorIndex = -1;
 
     for (int i = 0; i < NUMBER_OF_MOTOR_ERRORS; i++)
     {
-        if (errorList_[i].isActive())
+        if (errorLabels_[i].isActive())
         {
             if (highestPriorityErrorIndex == -1)
             {
                 highestPriorityErrorIndex = i;
             }
-            else if (errorList_[i].priority() > errorList_[highestPriorityErrorIndex].priority())
+            else if (errorLabels_[i].priority() > errorLabels_[highestPriorityErrorIndex].priority())
             {
                 highestPriorityErrorIndex = i;
             }
@@ -78,13 +77,13 @@ FaultLabel FaultList::getHighestActivePriorityLabel() const
 
     for (int i = 0; i < NUMBER_OF_MOTOR_LIMITS; i++)
     {
-        if (limitList_[i].isActive())
+        if (limitLabels_[i].isActive())
         {
             if (highestPriorityLimitIndex == -1)
             {
                 highestPriorityLimitIndex = i;
             }
-            else if (errorList_[i].priority() > errorList_[highestPriorityLimitIndex].priority())
+            else if (limitLabels_[i].priority() > limitLabels_[highestPriorityLimitIndex].priority())
             {
                 highestPriorityLimitIndex = i;
             }
@@ -98,54 +97,59 @@ FaultLabel FaultList::getHighestActivePriorityLabel() const
     }
     else if (highestPriorityErrorIndex > -1 && highestPriorityLimitIndex == -1)
     {
-        return errorList_[highestPriorityErrorIndex];
+        return errorLabels_[highestPriorityErrorIndex];
     }
     else if (highestPriorityErrorIndex == -1 && highestPriorityLimitIndex > -1)
     {
-        return limitList_[highestPriorityLimitIndex];
+        return limitLabels_[highestPriorityLimitIndex];
     }
     else
     {
-        if (errorList_[highestPriorityErrorIndex].priority() <= limitList_[highestPriorityLimitIndex].priority())
+        if (errorLabels_[highestPriorityErrorIndex].priority() <= limitLabels_[highestPriorityLimitIndex].priority())
         {
-            return errorList_[highestPriorityErrorIndex];
+            return errorLabels_[highestPriorityErrorIndex];
         }
         else
         {
-            return limitList_[highestPriorityLimitIndex];
+            return limitLabels_[highestPriorityLimitIndex];
         }
     }
 }
 
-QVector<FaultLabel> FaultList::getErrorLabelList() const
+FaultLabel FaultList::getHighestActivePriorityLabel() const
 {
-    return errorList_;
+    return determineHighestActivePriorityLabel();
 }
 
-QVector<FaultLabel> FaultList::getLimitLabelList() const
+QVector<FaultLabel>& FaultList::getErrorLabelList()
 {
-    return limitList_;
+    return errorLabels_;
+}
+
+QVector<FaultLabel>& FaultList::getLimitLabelList()
+{
+    return limitLabels_;
 }
 
 void FaultList::updateErrors(const ErrorFlags& errorFlags)
 {
-    errorList_[0].setIsActive(errorFlags.motorOverSpeed());
-    errorList_[1].setIsActive(errorFlags.softwareOverCurrent());
-    errorList_[2].setIsActive(errorFlags.dcBusOverVoltage());
-    errorList_[3].setIsActive(errorFlags.badMotorPositionHallSequence());
-    errorList_[4].setIsActive(errorFlags.watchdogCausedLastReset());
-    errorList_[5].setIsActive(errorFlags.configReadError());
-    errorList_[6].setIsActive(errorFlags.railUnderVoltageLockOut());
-    errorList_[7].setIsActive(errorFlags.desaturationFault());
+    errorLabels_[0].setIsActive(errorFlags.motorOverSpeed());
+    errorLabels_[1].setIsActive(errorFlags.softwareOverCurrent());
+    errorLabels_[2].setIsActive(errorFlags.dcBusOverVoltage());
+    errorLabels_[3].setIsActive(errorFlags.badMotorPositionHallSequence());
+    errorLabels_[4].setIsActive(errorFlags.watchdogCausedLastReset());
+    errorLabels_[5].setIsActive(errorFlags.configReadError());
+    errorLabels_[6].setIsActive(errorFlags.railUnderVoltageLockOut());
+    errorLabels_[7].setIsActive(errorFlags.desaturationFault());
 }
 
 void FaultList::updateLimits(const LimitFlags& limitFlags)
 {
-    limitList_[0].setIsActive(limitFlags.outputVoltagePwmLimit());
-    limitList_[1].setIsActive(limitFlags.motorCurrentLimit());
-    limitList_[2].setIsActive(limitFlags.velocityLimit());
-    limitList_[3].setIsActive(limitFlags.busCurrentLimit());
-    limitList_[4].setIsActive(limitFlags.busVoltageUpperLimit());
-    limitList_[5].setIsActive(limitFlags.busVoltageLowerLimit());
-    limitList_[6].setIsActive(limitFlags.ipmOrMotorTemperatureLimit());
+    limitLabels_[0].setIsActive(limitFlags.outputVoltagePwmLimit());
+    limitLabels_[1].setIsActive(limitFlags.motorCurrentLimit());
+    limitLabels_[2].setIsActive(limitFlags.velocityLimit());
+    limitLabels_[3].setIsActive(limitFlags.busCurrentLimit());
+    limitLabels_[4].setIsActive(limitFlags.busVoltageUpperLimit());
+    limitLabels_[5].setIsActive(limitFlags.busVoltageLowerLimit());
+    limitLabels_[6].setIsActive(limitFlags.ipmOrMotorTemperatureLimit());
 }

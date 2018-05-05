@@ -8,7 +8,7 @@ FaultLabel::FaultLabel()
 {
 }
 
-FaultLabel::FaultLabel(QString name, QString color, int priority, bool isActive)
+FaultLabel::FaultLabel(QString name, QColor color, int priority, bool isActive)
     : QLabel(name)
     , color_(color)
     , priority_(priority)
@@ -33,7 +33,7 @@ QString FaultLabel::name() const
     return this->text();
 }
 
-QString FaultLabel::color() const
+QColor FaultLabel::color() const
 {
     return color_;
 }

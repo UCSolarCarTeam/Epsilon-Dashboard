@@ -252,7 +252,7 @@ void RaceModeDashboardView::updateMotorLabel(QLabel& motorLabel, FaultLabel& fau
 {
     if (faultLabel.priority() >= 0)
     {
-        motorLabel.setStyleSheet("font: 11pt \"Burlingame Pro\";\n color:" + faultLabel.color() + ";");
+        motorLabel.setStyleSheet("font: 11pt \"Burlingame Pro\";\n color:" + faultLabel.color().name() + ";");
         motorLabel.setText(faultLabel.text());
     }
     else
@@ -264,27 +264,23 @@ void RaceModeDashboardView::updateMotorLabel(QLabel& motorLabel, FaultLabel& fau
 void RaceModeDashboardView::motorZeroErrorFlagsReceived(ErrorFlags flags)
 {
     motorZeroFaultsList_.updateErrors(flags);
-    FaultLabel highestPriorityError = motorZeroFaultsList_.getHighestActivePriorityLabel();
-    updateMotorLabel(ui_.motorZeroFaultsLabel(), highestPriorityError);
+    updateMotorLabel(ui_.motorZeroFaultsLabel(), motorZeroFaultsList_.getHighestActivePriorityLabel());
 }
 
 void RaceModeDashboardView::motorZeroLimitFlagsReceived(LimitFlags flags)
 {
     motorZeroFaultsList_.updateLimits(flags);
-    FaultLabel highestPriorityLimit = motorZeroFaultsList_.getHighestActivePriorityLabel();
-    updateMotorLabel(ui_.motorZeroFaultsLabel(), highestPriorityLimit);
+    updateMotorLabel(ui_.motorZeroFaultsLabel(), motorZeroFaultsList_.getHighestActivePriorityLabel());
 }
 
 void RaceModeDashboardView::motorOneErrorFlagsReceived(ErrorFlags flags)
 {
     motorOneFaultsList_.updateErrors(flags);
-    FaultLabel highestPriorityError = motorOneFaultsList_.getHighestActivePriorityLabel();
-    updateMotorLabel(ui_.motorOneFaultsLabel(), highestPriorityError);
+    updateMotorLabel(ui_.motorOneFaultsLabel(), motorOneFaultsList_.getHighestActivePriorityLabel());
 }
 
 void RaceModeDashboardView::motorOneLimitFlagsReceived(LimitFlags flags)
 {
     motorOneFaultsList_.updateLimits(flags);
-    FaultLabel highestPriorityLimit = motorOneFaultsList_.getHighestActivePriorityLabel();
-    updateMotorLabel(ui_.motorOneFaultsLabel(), highestPriorityLimit);
+    updateMotorLabel(ui_.motorOneFaultsLabel(), motorOneFaultsList_.getHighestActivePriorityLabel());
 }
