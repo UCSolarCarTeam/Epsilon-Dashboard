@@ -36,8 +36,8 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
     }
     else if (mode == Mode::RACE)
     {
-        MotorFaultList* motorZeroMotorFaultList = new MotorFaultList();
-        MotorFaultList* motorOneMotorFaultList = new MotorFaultList();
+        MotorFaultList* motorZeroFaultList = new MotorFaultList();
+        MotorFaultList* motorOneFaultList = new MotorFaultList();
         RaceModeDashboardUI_ = new RaceModeDashboardUI();
         RaceModeDashboardView_.reset(new RaceModeDashboardView(
                                          presenterContainer.batteryPresenter(),
@@ -49,8 +49,8 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
                                          presenterContainer.motorDetailsPresenter(),
                                          presenterContainer.motorFaultsPresenter(),
                                          *RaceModeDashboardUI_,
-                                         *motorZeroMotorFaultList,
-                                         *motorOneMotorFaultList));
+                                         *motorZeroFaultList,
+                                         *motorOneFaultList));
     }
     else if (mode == Mode::DEBUG)
     {
