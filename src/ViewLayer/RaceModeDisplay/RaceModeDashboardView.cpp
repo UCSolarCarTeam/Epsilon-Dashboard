@@ -248,7 +248,7 @@ void RaceModeDashboardView::mpptPowerReceived(double mpptPower)
     ui_.powerOutLabel().setNum(ui_.netPowerLabel().text().toDouble() - mpptPower);
 }
 
-void RaceModeDashboardView::updateMotorLabel(QLabel& motorLabel, FaultLabel& faultLabel)
+void RaceModeDashboardView::updateMotorLabel(QLabel& motorLabel, FaultLabel faultLabel)
 {
     if (faultLabel.priority() >= 0)
     {

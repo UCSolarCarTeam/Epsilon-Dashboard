@@ -54,7 +54,7 @@ FaultList::~FaultList()
 {
 }
 
-FaultLabel FaultLabel::determineHighestActivePriorityLabel() const
+FaultLabel FaultList::determineHighestActivePriorityLabel() const
 {
     int highestPriorityErrorIndex = -1;
 
@@ -121,12 +121,12 @@ FaultLabel FaultList::getHighestActivePriorityLabel() const
     return determineHighestActivePriorityLabel();
 }
 
-QVector<FaultLabel>& FaultList::getErrorLabelList()
+QVector<FaultLabel>& FaultList::getErrorLabels()
 {
     return errorLabels_;
 }
 
-QVector<FaultLabel>& FaultList::getLimitLabelList()
+QVector<FaultLabel>& FaultList::getLimitLabels()
 {
     return limitLabels_;
 }

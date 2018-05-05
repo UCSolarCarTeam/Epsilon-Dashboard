@@ -47,7 +47,7 @@ private:
     void connectMotorDetails(MotorDetailsPresenter&);
     void connectMotorFaults(MotorFaultsPresenter&);
 
-    void updateMotorLabel(QLabel& motorLabel, FaultLabel& faultLabel);
+    void updateMotorLabel(QLabel& motorLabel, FaultLabel faultLabel);
 
     BatteryPresenter& batteryPresenter_;
     BatteryFaultsPresenter& batteryFaultsPresenter_;

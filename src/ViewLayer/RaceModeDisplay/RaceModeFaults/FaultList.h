@@ -13,8 +13,8 @@ public:
     ~FaultList();
 
     FaultLabel getHighestActivePriorityLabel() const;
-    QVector<FaultLabel>& getErrorLabelList();
-    QVector<FaultLabel>& getLimitLabelList();
+    QVector<FaultLabel>& getErrorLabels();
+    QVector<FaultLabel>& getLimitLabels();
     void updateErrors(const ErrorFlags& errorFlags);
     void updateLimits(const LimitFlags& limitFlags);
 

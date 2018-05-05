@@ -22,7 +22,6 @@ public:
 
 private:
 
-//    QString color_;
     QColor color_;
     int priority_;
     bool isActive_;
