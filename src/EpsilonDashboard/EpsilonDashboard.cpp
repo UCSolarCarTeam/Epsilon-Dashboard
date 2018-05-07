@@ -31,16 +31,16 @@ EpsilonDashboard::EpsilonDashboard(int& argc, char** argv)
     if (parser.isSet(raceModeOption))
     {
         mode = Mode::RACE;
-        infrastructureContainer_->setQueueName("raceQueue");
+        infrastructureContainer_->setQueueName(infrastructureContainer_->getRaceQueueName());
     }
     else if (parser.isSet(debugModeOption))
     {
         mode = Mode::DEBUG;
-        infrastructureContainer_->setQueueName("debugQueue");
+        infrastructureContainer_->setQueueName(infrastructureContainer_->getDebugQueueName());
     }
     else
     {
-        infrastructureContainer_->setQueueName("displayQueue");
+        infrastructureContainer_->setQueueName(infrastructureContainer_->getDisplayQueueName());
     }
 
     viewContainer_.reset(new ViewContainer(*presenterContainer_, mode));
