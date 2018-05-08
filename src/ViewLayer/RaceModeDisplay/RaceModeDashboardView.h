@@ -60,11 +60,23 @@ private:
 
     I_RaceModeDashboardUI& ui_;
 
+    double busCurrent_;
+    double busVoltage_;
+    double mpptZeroPower_;
+    double mpptOnePower_;
+    double mpptTwoPower_;
+
 private slots:
     // battery data slots
     void aliveReceived(bool);
     void prechargeStateReceived(QString);
     void packNetPowerReceived(double);
+    void auxVoltageReceived(int);
+    void packStateOfChargeReceived(double);
+    void lowCellVoltageReceived(int);
+    void averageCellVoltageReceived(int);
+    void highTemperatureReceived(int);
+    void averageTemperatureReceived(int);
 
     // battery faults slots
     void errorFlagsReceived(BatteryErrorFlags);
@@ -94,4 +106,6 @@ private slots:
     void motorZeroLimitFlagsReceived(LimitFlags);
     void motorOneErrorFlagsReceived(ErrorFlags);
     void motorOneLimitFlagsReceived(LimitFlags);
+
+    void setMotorPower();
 };
