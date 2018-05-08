@@ -292,17 +292,17 @@ void RaceModeDashboardView::lightAliveReceived(bool)
 //TODO
 void RaceModeDashboardView::mpptReceived(int i, Mppt mppt)
 {
-    if(i == 0)
+    if (i == 0)
     {
         mpptZeroPower_ = mppt.arrayCurrent() * mppt.arrayVoltage();
     }
 
-    else if(i == 1)
+    else if (i == 1)
     {
         mpptOnePower_ = mppt.arrayCurrent() * mppt.arrayVoltage();
     }
 
-    else if(i == 2)
+    else if (i == 2)
     {
         mpptTwoPower_ = mppt.arrayCurrent() * mppt.arrayVoltage();
     }
