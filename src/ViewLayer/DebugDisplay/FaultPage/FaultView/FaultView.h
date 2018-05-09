@@ -11,6 +11,7 @@
 #include "../../../../PresenterLayer/BatteryFaultsPresenter/BatteryFaultsPresenter.h"
 #include "../../../../PresenterLayer/MotorFaultsPresenter/MotorFaultsPresenter.h"
 #include "../FaultUi/I_FaultUi.h"
+#include "Faults/MotorFaults/MotorFaultList.h"
 
 class MotorFaultsPresenter;
 class BatteryFaultsPresenter;
@@ -22,7 +23,9 @@ class FaultView : public QObject
 public:
     FaultView(MotorFaultsPresenter& motorFaultsPresenter,
               BatteryFaultsPresenter& batteryFaultsPresenter,
-              I_FaultUi& ui);
+              I_FaultUi& ui,
+              MotorFaultList motorZeroFaultList,
+              MotorFaultList motorOneFaultList);
     ~FaultView();
 
 private:
@@ -56,6 +59,8 @@ private:
     QLabel velocityLimit0Fault_;
     int label0Count_;
 
+    MotorFaultList motorZeroFaultList_;
+
     // Motor 1
     QLabel badMotorPositionHallSequence1Fault_;
     QLabel configReadError1Fault_;
@@ -74,6 +79,8 @@ private:
     QLabel outputVoltagePwmLimit1Fault_;
     QLabel velocityLimit1Fault_;
     int label1Count_;
+
+    MotorFaultList motorOneFaultList_;
 
     // Battery
     QLabel alwaysOnSupplyFault_;

@@ -35,10 +35,14 @@ namespace
 }
 FaultView::FaultView(MotorFaultsPresenter& motorFaultsPresenter,
                      BatteryFaultsPresenter& batteryFaultsPresenter,
-                     I_FaultUi& ui)
+                     I_FaultUi& ui,
+                     MotorFaultList motorZeroFaultList,
+                     MotorFaultList motorOneFaultList)
     : motorFaultsPresenter_(motorFaultsPresenter)
     , batteryFaultsPresenter_(batteryFaultsPresenter)
     , ui_(ui)
+    , motorZeroFaultList_(motorZeroFaultList)
+    , motorOneFaultList_(motorOneFaultList)
     , badMotorPositionHallSequence0Fault_("Bad Motor Position Hall Sequence Error")
     , configReadError0Fault_("Config Read Error")
     , dcBusOverVoltage0Fault_("DC Bus Over Voltage Error")
@@ -152,22 +156,32 @@ void FaultView::initializeLabel(QLabel& label, QLayout*& layout, QString& styleS
 void FaultView::initializeLabels(QLayout*& layoutM0, QLayout*& layoutM1, QLayout*& layoutB)
 {
     // Motor 0
-    initializeLabel(badMotorPositionHallSequence0Fault_, layoutM0, ERROR_STYLESHEET);
-    initializeLabel(configReadError0Fault_, layoutM0, ERROR_STYLESHEET);
-    initializeLabel(dcBusOverVoltage0Fault_, layoutM0, ERROR_STYLESHEET);
-    initializeLabel(desaturationFault0Fault_, layoutM0, ERROR_STYLESHEET);
+//    initializeLabel(badMotorPositionHallSequence0Fault_, layoutM0, ERROR_STYLESHEET);
+//    initializeLabel(configReadError0Fault_, layoutM0, ERROR_STYLESHEET);
+//    initializeLabel(dcBusOverVoltage0Fault_, layoutM0, ERROR_STYLESHEET);
+//    initializeLabel(desaturationFault0Fault_, layoutM0, ERROR_STYLESHEET);
     initializeLabel(motorOverSpeed0Fault_, layoutM0, ERROR_STYLESHEET);
-    initializeLabel(railUnderVoltageLockOut0Fault_, layoutM0, ERROR_STYLESHEET);
-    initializeLabel(watchdogCausedLastReset0Fault_, layoutM0, ERROR_STYLESHEET);
-    initializeLabel(softwareOverCurrent0Fault_, layoutM0, ERROR_STYLESHEET);
+//    initializeLabel(railUnderVoltageLockOut0Fault_, layoutM0, ERROR_STYLESHEET);
+//    initializeLabel(watchdogCausedLastReset0Fault_, layoutM0, ERROR_STYLESHEET);
+//    initializeLabel(softwareOverCurrent0Fault_, layoutM0, ERROR_STYLESHEET);
 
-    initializeLabel(busCurrentLimit0Fault_, layoutM0, LIMIT_STYLESHEET);
-    initializeLabel(busVoltageLowerLimit0Fault_, layoutM0, LIMIT_STYLESHEET);
-    initializeLabel(busVoltageUpperLimit0Fault_, layoutM0, LIMIT_STYLESHEET);
-    initializeLabel(ipmOrMotorTemperatureLimit0Fault_, layoutM0, LIMIT_STYLESHEET);
-    initializeLabel(motorCurrentLimit0Fault_, layoutM0, LIMIT_STYLESHEET);
-    initializeLabel(outputVoltagePwmLimit0Fault_, layoutM0, LIMIT_STYLESHEET);
-    initializeLabel(velocityLimit0Fault_, layoutM0, LIMIT_STYLESHEET);
+//    initializeLabel(busCurrentLimit0Fault_, layoutM0, LIMIT_STYLESHEET);
+//    initializeLabel(busVoltageLowerLimit0Fault_, layoutM0, LIMIT_STYLESHEET);
+//    initializeLabel(busVoltageUpperLimit0Fault_, layoutM0, LIMIT_STYLESHEET);
+//    initializeLabel(ipmOrMotorTemperatureLimit0Fault_, layoutM0, LIMIT_STYLESHEET);
+//    initializeLabel(motorCurrentLimit0Fault_, layoutM0, LIMIT_STYLESHEET);
+//    initializeLabel(outputVoltagePwmLimit0Fault_, layoutM0, LIMIT_STYLESHEET);
+//    initializeLabel(velocityLimit0Fault_, layoutM0, LIMIT_STYLESHEET);
+
+    for(int i = 0; i < motorZeroFaultList_.getErrorLabels().size(); i++)
+    {
+        initializeLabel(motorZeroFaultList_.getErrorLabels()[i], layoutM0, ERROR_STYLESHEET);
+    }
+
+    for(int i = 0; i < motorZeroFaultList_.getLimitLabels().size(); i++)
+    {
+        initializeLabel(motorZeroFaultList_.getLimitLabels()[i], layoutM0, LIMIT_STYLESHEET);
+    }
 
     // Motor 1
     initializeLabel(badMotorPositionHallSequence1Fault_, layoutM1, ERROR_STYLESHEET);
@@ -186,6 +200,18 @@ void FaultView::initializeLabels(QLayout*& layoutM0, QLayout*& layoutM1, QLayout
     initializeLabel(motorCurrentLimit1Fault_, layoutM1, LIMIT_STYLESHEET);
     initializeLabel(outputVoltagePwmLimit1Fault_, layoutM1, LIMIT_STYLESHEET);
     initializeLabel(velocityLimit1Fault_, layoutM1, LIMIT_STYLESHEET);
+
+//    QVector<FaultLabel> motorOneErrors = motorOneFaultList_.getErrorLabels();
+//    for(int i = 0; i < motorOneErrors.size(); i++)
+//    {
+//        initializeLabel(motorOneErrors[i], layoutM1, ERROR_STYLESHEET);
+//    }
+
+//    QVector<FaultLabel> motorOneLimits = motorOneFaultList_.getLimitLabels();
+//    for(int i = 0; i < motorOneLimits.size(); i++)
+//    {
+//        initializeLabel(motorOneLimits[i], layoutM1, LIMIT_STYLESHEET);
+//    }
 
     // Battery
     initializeLabel(alwaysOnSupplyFault_, layoutB, ERROR_STYLESHEET);
@@ -280,25 +306,40 @@ void FaultView::connectBatteryFaults(BatteryFaultsPresenter& batteryFaultsPresen
 
 void FaultView::motorZeroErrorFlagsReceived(ErrorFlags motorZeroErrorFlags)
 {
-    updateLabel(motorZeroErrorFlags.badMotorPositionHallSequence(), badMotorPositionHallSequence0Fault_, ui_.motor0ContentsWidget(), label0Count_);
-    updateLabel(motorZeroErrorFlags.configReadError(), configReadError0Fault_, ui_.motor0ContentsWidget(), label0Count_);
-    updateLabel(motorZeroErrorFlags.dcBusOverVoltage(), dcBusOverVoltage0Fault_, ui_.motor0ContentsWidget(), label0Count_);
-    updateLabel(motorZeroErrorFlags.desaturationFault(), desaturationFault0Fault_, ui_.motor0ContentsWidget(), label0Count_);
-    updateLabel(motorZeroErrorFlags.motorOverSpeed(), motorOverSpeed0Fault_, ui_.motor0ContentsWidget(), label0Count_);
-    updateLabel(motorZeroErrorFlags.railUnderVoltageLockOut(), railUnderVoltageLockOut0Fault_, ui_.motor0ContentsWidget(), label0Count_);
-    updateLabel(motorZeroErrorFlags.watchdogCausedLastReset(), watchdogCausedLastReset0Fault_, ui_.motor0ContentsWidget(), label0Count_);
-    updateLabel(motorZeroErrorFlags.softwareOverCurrent(), softwareOverCurrent0Fault_, ui_.motor0ContentsWidget(), label0Count_);
+    motorZeroFaultList_.updateErrors(motorZeroErrorFlags);
+//    QVector<FaultLabel> motorZeroErrors = motorZeroFaultList_.getErrorLabels();
+
+    for(int i = 0; i < motorZeroFaultList_.getErrorLabels().size(); i++)
+    {
+        updateLabel(motorZeroFaultList_.getErrorLabels()[i].isActive(),  motorZeroFaultList_.getErrorLabels()[i], ui_.motor0ContentsWidget(), label0Count_);
+    }
+
+//    updateLabel(motorZeroErrorFlags.badMotorPositionHallSequence(), badMotorPositionHallSequence0Fault_, ui_.motor0ContentsWidget(), label0Count_);
+//    updateLabel(motorZeroErrorFlags.configReadError(), configReadError0Fault_, ui_.motor0ContentsWidget(), label0Count_);
+//    updateLabel(motorZeroErrorFlags.dcBusOverVoltage(), dcBusOverVoltage0Fault_, ui_.motor0ContentsWidget(), label0Count_);
+//    updateLabel(motorZeroErrorFlags.desaturationFault(), desaturationFault0Fault_, ui_.motor0ContentsWidget(), label0Count_);
+//    updateLabel(motorZeroErrorFlags.motorOverSpeed(), motorOverSpeed0Fault_, ui_.motor0ContentsWidget(), label0Count_);
+//    updateLabel(motorZeroErrorFlags.railUnderVoltageLockOut(), railUnderVoltageLockOut0Fault_, ui_.motor0ContentsWidget(), label0Count_);
+//    updateLabel(motorZeroErrorFlags.watchdogCausedLastReset(), watchdogCausedLastReset0Fault_, ui_.motor0ContentsWidget(), label0Count_);
+//    updateLabel(motorZeroErrorFlags.softwareOverCurrent(), softwareOverCurrent0Fault_, ui_.motor0ContentsWidget(), label0Count_);
 }
 
 void FaultView::motorZeroLimitFlagsReceived(LimitFlags motorZeroLimitFlags)
 {
-    updateLabel(motorZeroLimitFlags.busCurrentLimit(), busCurrentLimit0Fault_, ui_.motor0ContentsWidget(), label0Count_);
-    updateLabel(motorZeroLimitFlags.busVoltageUpperLimit(), busVoltageUpperLimit0Fault_, ui_.motor0ContentsWidget(), label0Count_);
-    updateLabel(motorZeroLimitFlags.busVoltageLowerLimit(), busVoltageLowerLimit0Fault_, ui_.motor0ContentsWidget(), label0Count_);
-    updateLabel(motorZeroLimitFlags.ipmOrMotorTemperatureLimit(), ipmOrMotorTemperatureLimit0Fault_, ui_.motor0ContentsWidget(), label0Count_);
-    updateLabel(motorZeroLimitFlags.motorCurrentLimit(), motorCurrentLimit0Fault_, ui_.motor0ContentsWidget(), label0Count_);
-    updateLabel(motorZeroLimitFlags.outputVoltagePwmLimit(), outputVoltagePwmLimit0Fault_, ui_.motor0ContentsWidget(), label0Count_);
-    updateLabel(motorZeroLimitFlags.velocityLimit(), velocityLimit0Fault_, ui_.motor0ContentsWidget(), label0Count_);
+    motorZeroFaultList_.updateLimits(motorZeroLimitFlags);
+//    QVector<FaultLabel> motorZeroFaults = motorZeroFaultList_.getLimitLabels();
+    for(int i = 0; i < motorZeroFaultList_.getLimitLabels().size(); i++)
+    {
+        updateLabel(motorZeroFaultList_.getLimitLabels()[i].isActive(), motorZeroFaultList_.getLimitLabels()[i], ui_.motor0ContentsWidget(), label0Count_);
+    }
+
+//    updateLabel(motorZeroLimitFlags.busCurrentLimit(), busCurrentLimit0Fault_, ui_.motor0ContentsWidget(), label0Count_);
+//    updateLabel(motorZeroLimitFlags.busVoltageUpperLimit(), busVoltageUpperLimit0Fault_, ui_.motor0ContentsWidget(), label0Count_);
+//    updateLabel(motorZeroLimitFlags.busVoltageLowerLimit(), busVoltageLowerLimit0Fault_, ui_.motor0ContentsWidget(), label0Count_);
+//    updateLabel(motorZeroLimitFlags.ipmOrMotorTemperatureLimit(), ipmOrMotorTemperatureLimit0Fault_, ui_.motor0ContentsWidget(), label0Count_);
+//    updateLabel(motorZeroLimitFlags.motorCurrentLimit(), motorCurrentLimit0Fault_, ui_.motor0ContentsWidget(), label0Count_);
+//    updateLabel(motorZeroLimitFlags.outputVoltagePwmLimit(), outputVoltagePwmLimit0Fault_, ui_.motor0ContentsWidget(), label0Count_);
+//    updateLabel(motorZeroLimitFlags.velocityLimit(), velocityLimit0Fault_, ui_.motor0ContentsWidget(), label0Count_);
 }
 
 void FaultView::motorOneErrorFlagsReceived(ErrorFlags motorOneErrorFlags)
