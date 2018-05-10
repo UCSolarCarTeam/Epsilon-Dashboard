@@ -1,5 +1,4 @@
 #include "MotorFaultList.h"
-#include <QDebug>
 
 namespace
 {

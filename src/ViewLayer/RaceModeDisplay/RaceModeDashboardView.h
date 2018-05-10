@@ -7,6 +7,7 @@
 #include "../../DataLayer/MotorFaultsData/ErrorFlags.h"
 #include "../../DataLayer/MotorFaultsData/LimitFlags.h"
 #include "../../PresenterLayer/BatteryFaultsPresenter/BatteryFaultsPresenter.h"
+#include "Faults/BatteryFaults/BatteryFaultList.h"
 #include "Faults/MotorFaults/MotorFaultList.h"
 
 
@@ -34,7 +35,8 @@ public:
                           MotorFaultsPresenter& motorFaultsPresenter,
                           I_RaceModeDashboardUI& ui,
                           MotorFaultList& motorZeroFaultsList,
-                          MotorFaultList& motorOneFaultsList);
+                          MotorFaultList& motorOneFaultsList,
+                          BatteryFaultList& batteryFaultsList);
     ~RaceModeDashboardView();
 
 private:
@@ -57,10 +59,10 @@ private:
     MpptPresenter& mpptPresenter_;
     MotorDetailsPresenter& motorDetailsPresenter_;
     MotorFaultsPresenter& motorFaultsPresenter_;
+    I_RaceModeDashboardUI& ui_;
     MotorFaultList& motorZeroFaultsList_;
     MotorFaultList& motorOneFaultsList_;
-
-    I_RaceModeDashboardUI& ui_;
+    BatteryFaultList& batteryFaultsList_;
 
 private slots:
     // battery data slots

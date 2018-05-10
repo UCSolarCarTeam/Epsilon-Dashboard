@@ -35,7 +35,8 @@ RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
         MotorFaultsPresenter& motorFaultsPresenter,
         I_RaceModeDashboardUI& ui,
         MotorFaultList& motorZeroFaultsList,
-        MotorFaultList& motorOneFaultsList)
+        MotorFaultList& motorOneFaultsList,
+        BatteryFaultList& batteryFaultsList)
     : batteryPresenter_(batteryPresenter)
     , batteryFaultsPresenter_(batteryFaultsPresenter)
     , driverControlsPresenter_(driverControlsPresenter)
@@ -47,6 +48,7 @@ RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
     , ui_(ui)
     , motorZeroFaultsList_(motorZeroFaultsList)
     , motorOneFaultsList_(motorOneFaultsList)
+    , batteryFaultsList_(batteryFaultsList)
 {
     connectBattery(batteryPresenter_);
     connectBatteryFaults(batteryFaultsPresenter_);
