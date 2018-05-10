@@ -41,46 +41,12 @@ private:
     I_FaultUi& ui_;
 
     // Motor 0
-    QLabel badMotorPositionHallSequence0Fault_;
-    QLabel configReadError0Fault_;
-    QLabel dcBusOverVoltage0Fault_;
-    QLabel desaturationFault0Fault_;
-    QLabel motorOverSpeed0Fault_;
-    QLabel railUnderVoltageLockOut0Fault_;
-    QLabel watchdogCausedLastReset0Fault_;
-    QLabel softwareOverCurrent0Fault_;
-
-    QLabel busCurrentLimit0Fault_;
-    QLabel busVoltageUpperLimit0Fault_;
-    QLabel busVoltageLowerLimit0Fault_;
-    QLabel ipmOrMotorTemperatureLimit0Fault_;
-    QLabel motorCurrentLimit0Fault_;
-    QLabel outputVoltagePwmLimit0Fault_;
-    QLabel velocityLimit0Fault_;
+    MotorFaultList motorZeroFaultList_;
     int label0Count_;
 
-    MotorFaultList motorZeroFaultList_;
-
     // Motor 1
-    QLabel badMotorPositionHallSequence1Fault_;
-    QLabel configReadError1Fault_;
-    QLabel dcBusOverVoltage1Fault_;
-    QLabel desaturationFault1Fault_;
-    QLabel motorOverSpeed1Fault_;
-    QLabel railUnderVoltageLockOut1Fault_;
-    QLabel watchdogCausedLastReset1Fault_;
-    QLabel softwareOverCurrent1Fault_;
-
-    QLabel busCurrentLimit1Fault_;
-    QLabel busVoltageUpperLimit1Fault_;
-    QLabel busVoltageLowerLimit1Fault_;
-    QLabel ipmOrMotorTemperatureLimit1Fault_;
-    QLabel motorCurrentLimit1Fault_;
-    QLabel outputVoltagePwmLimit1Fault_;
-    QLabel velocityLimit1Fault_;
-    int label1Count_;
-
     MotorFaultList motorOneFaultList_;
+    int label1Count_;
 
     // Battery
     QLabel alwaysOnSupplyFault_;
