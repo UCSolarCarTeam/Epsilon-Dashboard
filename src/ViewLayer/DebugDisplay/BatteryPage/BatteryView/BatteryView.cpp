@@ -136,7 +136,9 @@ void BatteryView::connectBattery(BatteryPresenter& batteryPresenter)
 
 void BatteryView::connectAuxBMS(AuxBmsPresenter& auxBMSPresenter)
 {
-    qDebug() << "connecting aux BMS" << endl;
+    qDebug() << "-------------------------------------aux bms---------------------------------------------------" << endl;
+    connect(&auxBMSPresenter, SIGNAL(auxBmsAliveReceived(bool)),
+            this, SLOT(auxBmsAliveReceived(bool)));
     connect(&auxBMSPresenter, SIGNAL(strobeBmsLightReceived(bool)),
             this, SLOT(strobeBMSReceived(bool)));
     connect(&auxBMSPresenter, SIGNAL(allowChargeReceieved(bool)),
@@ -230,7 +232,6 @@ void BatteryView::bmsRelayStatusReceived(BmsRelayStatusFlags BmsRelayStatus)
     {
         ui_.multipurposeInputSignalStatus().setStyleSheet(OFF);
     }
-
 }
 
 void BatteryView::populatedCellsReceived(int populatedCells)
@@ -386,7 +387,7 @@ void BatteryView::requestedFanSpeedReceived(int requestedFanSpeed)
     if (requestedFanSpeed == 0)
     {
         ui_.requestedSpeed1().setStyleSheet(FAN_OFF);
-        ui_.requestedSpee    if(BmsRelayStatus.)d2().setStyleSheet(FAN_OFF);
+        ui_.requestedSpeed2().setStyleSheet(FAN_OFF);
         ui_.requestedSpeed3().setStyleSheet(FAN_OFF);
         ui_.requestedSpeed4().setStyleSheet(FAN_OFF);
         ui_.requestedSpeed5().setStyleSheet(FAN_OFF);
@@ -460,7 +461,7 @@ void BatteryView::lowCellVoltageReceived(int lowCellVoltage)
 }
 
 void BatteryView::lowCellVoltageIdReceived(int lowCellVoltageId)
-{    if(BmsRelayStatus.)
+{
     ui_.lowCellVoltageIDLabel().setNum(lowCellVoltageId);
 }
 
@@ -508,8 +509,7 @@ void BatteryView::packNetPowerReceived(double packNetPower)
 
 void BatteryView::strobeBMSReceived(bool strobe)
 {
-    qDebug() << "1" << endl;
-    if(strobe)
+    if (strobe)
     {
         ui_.strobeBMSLabel().setStyleSheet(ON);
     }
@@ -521,8 +521,8 @@ void BatteryView::strobeBMSReceived(bool strobe)
 
 void BatteryView::allowChargeReceived(bool allowCharge)
 {
-    qDebug() << "2" << endl;
-    if(allowCharge)
+
+    if (allowCharge)
     {
         ui_.allowChargeLabel().setStyleSheet(ON);
     }
@@ -534,8 +534,8 @@ void BatteryView::allowChargeReceived(bool allowCharge)
 
 void BatteryView::contactorErrorReceived(bool contactorError)
 {
-    qDebug() << "3" << endl;
-    if(contactorError)
+
+    if (contactorError)
     {
         ui_.contactorErrorLabel().setStyleSheet(ON);
     }
