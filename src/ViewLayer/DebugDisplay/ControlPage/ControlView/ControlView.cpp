@@ -194,7 +194,7 @@ void ControlView::highBeamsReceived(bool lights)
 
 void ControlView::headlightsOffReceived(bool lights)
 {
-    if(lights)
+    if (lights)
     {
         ui_.headlightsOff().setStyleSheet(ON);
     }
