@@ -72,5 +72,5 @@ void LightsData::setBmsStrobeLight(bool bmsStrobeLight)
 void LightsData::setAlive(bool alive)
 {
     alive_ = alive;
-    emit bmsStrobeLightReceived(alive_);
+    emit aliveReceived(alive_);
 }
