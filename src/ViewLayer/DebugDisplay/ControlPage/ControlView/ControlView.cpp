@@ -3,23 +3,44 @@
 
 namespace
 {
-    const QString DRIVER_CONTROL_ALIVE = "background-color:rgb(93, 234, 140); \
-                              border-radius:8px; \
-                              border: 1px solid white;";
-    const QString DRIVER_CONTROL_DEAD = "background-color:rgb(147, 147, 147); \
-                             border-radius:8px; \
-                             border: 1px solid white;";
     const QString ON = "color: orange;";
 
     const QString OFF = "color: grey;";
+
+    const QString LOW_BEAMS_ON = "image: url(:Resources/LowHeadlightIndicator.png);";
+
+    const QString LOW_BEAMS_OFF = "image: url(:Resources/LowHeadlightOff.png);";
+
+    const QString HIGH_BEAMS_ON = "image: url(:Resources/HighHeadlightIndicator.png);";
+
+    const QString HIGH_BEAMS_OFF = "image: url(:Resources/HighHeadlightOff.png);";
+
+    const QString LEFT_ON = "image: url(:Resources/TurnSignalLeft.png);";
+
+    const QString LEFT_OFF = "image: url(:Resources/TurnSignalLeftOff.png);";
+
+    const QString RIGHT_ON = "image: url(:Resources/TurnSignalRight.png);";
+
+    const QString RIGHT_OFF = "image: url(:Resources/TurnSignalRightOff.png);";
+
+    const QString BRAKE_ON = "background-color: rgb(234,0,0);"
+                             "border-radius: 10px;"
+                             "border: 1px solid white;";
+
+    const QString BRAKE_OFF = "background-color: rgb(75,75,75);"
+                              "border-radius: 10px;"
+                              "border: 1px solid white;";
 }
 
 ControlView::ControlView(DriverControlsPresenter& driverControlsPresenter,
+                         LightsPresenter& lightsPresenter,
                          I_ControlUi& ui)
     : driverControlsPresenter_(driverControlsPresenter)
+    , lightsPresenter_(lightsPresenter)
     , ui_(ui)
 {
     connectDriverControls(driverControlsPresenter_);
+    connectLights(lightsPresenter_);
 }
 
 ControlView::~ControlView()
@@ -30,6 +51,9 @@ void ControlView::connectDriverControls(DriverControlsPresenter& driverControlsP
 {
     connect(&driverControlsPresenter, SIGNAL(aliveReceived(bool)),
             this, SLOT(aliveReceived(bool)));
+
+    connect(&driverControlsPresenter, SIGNAL(headlightsOffReceived(bool)),
+            this, SLOT(headlightsOffReceived(bool)));
 
     connect(&driverControlsPresenter, SIGNAL(headlightsLowReceived(bool)),
             this, SLOT(lowHeadlightsReceived(bool)));
@@ -62,9 +86,9 @@ void ControlView::connectDriverControls(DriverControlsPresenter& driverControlsP
             this, SLOT(volumeUpReceived(bool)));
     connect(&driverControlsPresenter, SIGNAL(volumeDownReceived(bool)),
             this, SLOT(volumeDownReceived(bool)));
-
     connect(&driverControlsPresenter, SIGNAL(brakesReceived(bool)),
             this, SLOT(brakesReceived(bool)));
+
     connect(&driverControlsPresenter, SIGNAL(forwardReceived(bool)),
             this, SLOT(forwardReceived(bool)));
     connect(&driverControlsPresenter, SIGNAL(reverseReceived(bool)),
@@ -79,15 +103,44 @@ void ControlView::connectDriverControls(DriverControlsPresenter& driverControlsP
             this, SLOT(regenBrakingReceived(double)));
 }
 
+void ControlView::connectLights(LightsPresenter& lightsPresenter)
+{
+    connect(&lightsPresenter, SIGNAL(lightAliveReceived(bool)),
+            this, SLOT(aliveLights(bool)));
+
+    connect(&lightsPresenter, SIGNAL(lowBeamsReceived(bool)),
+            this, SLOT(lowBeamsReceived(bool)));
+    connect(&lightsPresenter, SIGNAL(highBeamsReceived(bool)),
+            this, SLOT(highBeamsReceived(bool)));
+    connect(&lightsPresenter, SIGNAL(leftSignalReceived(bool)),
+            this, SLOT(leftLightReceived(bool)));
+    connect(&lightsPresenter, SIGNAL(rightSignalReceived(bool)),
+            this, SLOT(rightLightReceived(bool)));
+    connect(&lightsPresenter, SIGNAL(brakesReceived(bool)),
+            this, SLOT(brakesLightReceived(bool)));
+}
+
 void ControlView::aliveReceived(bool alive)
 {
     if (alive)
     {
-        ui_.aliveIndicator().setStyleSheet(DRIVER_CONTROL_ALIVE);
+        ui_.aliveIndicator().setStyleSheet(ON);
     }
     else
     {
-        ui_.aliveIndicator().setStyleSheet(DRIVER_CONTROL_DEAD);
+        ui_.aliveIndicator().setStyleSheet(OFF);
+    }
+}
+
+void ControlView::aliveLights(bool lights)
+{
+    if (lights)
+    {
+        ui_.lightsIndicator().setStyleSheet(ON);
+    }
+    else
+    {
+        ui_.lightsIndicator().setStyleSheet(OFF);
     }
 }
 
@@ -112,6 +165,42 @@ void ControlView::highHeadlightsReceived(bool highBeams)
     else
     {
         ui_.highHeadlightsLabel().setStyleSheet(OFF);
+    }
+}
+
+void ControlView::lowBeamsReceived(bool lights)
+{
+    if (lights)
+    {
+        ui_.lowBeamLabel().setStyleSheet(LOW_BEAMS_ON);
+    }
+    else
+    {
+        ui_.lowBeamLabel().setStyleSheet(LOW_BEAMS_OFF);
+    }
+}
+
+void ControlView::highBeamsReceived(bool lights)
+{
+    if (lights)
+    {
+        ui_.highBeamLabel().setStyleSheet(HIGH_BEAMS_ON);
+    }
+    else
+    {
+        ui_.highBeamLabel().setStyleSheet(HIGH_BEAMS_OFF);
+    }
+}
+
+void ControlView::headlightsOffReceived(bool lights)
+{
+    if (lights)
+    {
+        ui_.headlightsOff().setStyleSheet(ON);
+    }
+    else
+    {
+        ui_.headlightsOff().setStyleSheet(OFF);
     }
 }
 
@@ -148,6 +237,30 @@ void ControlView::hazardReceived(bool hazard)
     else
     {
         ui_.hazardOnLabel().setStyleSheet(OFF);
+    }
+}
+
+void ControlView::leftLightReceived(bool light)
+{
+    if (light)
+    {
+        ui_.leftSignalActiveLabel().setStyleSheet(LEFT_ON);
+    }
+    else
+    {
+        ui_.leftSignalActiveLabel().setStyleSheet(LEFT_OFF);
+    }
+}
+
+void ControlView::rightLightReceived(bool light)
+{
+    if (light)
+    {
+        ui_.rightSignalActiveLabel().setStyleSheet(RIGHT_ON);
+    }
+    else
+    {
+        ui_.rightSignalActiveLabel().setStyleSheet(RIGHT_OFF);
     }
 }
 
@@ -268,6 +381,18 @@ void ControlView::brakesReceived(bool brakes)
     else
     {
         ui_.brakesOnLabel().setStyleSheet(OFF);
+    }
+}
+
+void ControlView::brakesLightReceived(bool light)
+{
+    if (light)
+    {
+        ui_.brakesOnActiveLabel().setStyleSheet(BRAKE_ON);
+    }
+    else
+    {
+        ui_.brakesOnActiveLabel().setStyleSheet(BRAKE_OFF);
     }
 }
 
