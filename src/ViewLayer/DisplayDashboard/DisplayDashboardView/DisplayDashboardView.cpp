@@ -18,7 +18,8 @@ namespace
             background: ";
 }
 
-DisplayDashboardView::DisplayDashboardView(BatteryPresenter& batteryPresenter,
+DisplayDashboardView::DisplayDashboardView(AuxBmsPresenter& auxBmsPresenter,
+        BatteryPresenter& batteryPresenter,
         BatteryFaultsPresenter& batteryFaultsPresenter,
         DriverControlsPresenter& driverControlsPresenter,
         KeyMotorPresenter& keyMotorPresenter,
@@ -27,7 +28,8 @@ DisplayDashboardView::DisplayDashboardView(BatteryPresenter& batteryPresenter,
         MotorDetailsPresenter& motorDetailsPresenter,
         MotorFaultsPresenter& motorFaultsPresenter,
         I_DisplayDashboardUI& ui)
-    : batteryPresenter_(batteryPresenter)
+    : auxBmsPresenter_(auxBmsPresenter)
+    , batteryPresenter_(batteryPresenter)
     , batteryFaultsPresenter_(batteryFaultsPresenter)
     , driverControlsPresenter_(driverControlsPresenter)
     , keyMotorPresenter_(keyMotorPresenter)
@@ -37,6 +39,7 @@ DisplayDashboardView::DisplayDashboardView(BatteryPresenter& batteryPresenter,
     , motorFaultsPresenter_(motorFaultsPresenter)
     , ui_(ui)
 {
+    connectAuxBms(auxBmsPresenter_);
     connectBattery(batteryPresenter_);
     connectBatteryFaults(batteryFaultsPresenter_);
     connectDriverControls(driverControlsPresenter_);
@@ -51,13 +54,17 @@ DisplayDashboardView::DisplayDashboardView(BatteryPresenter& batteryPresenter,
 DisplayDashboardView::~DisplayDashboardView()
 {}
 
+void DisplayDashboardView::connectAuxBms(AuxBmsPresenter& auxBmsPresenter)
+{
+    connect(&auxBmsPresenter, SIGNAL(prechargeStateReceived(QString)),
+            this, SLOT(prechargeStateReceived(QString)));
+}
+
 void DisplayDashboardView::connectBattery(BatteryPresenter& batteryPresenter)
 {
     // TODO update to new battery data (depends on what should be shown in UI)
     connect(&batteryPresenter, SIGNAL(aliveReceived(bool)),
             this, SLOT(aliveReceived(bool)));
-    connect(&batteryPresenter, SIGNAL(prechargeStateReceived(QString)),
-            this, SLOT(prechargeStateReceived(QString)));
     connect(&batteryPresenter, SIGNAL(packNetPowerReceived(double)),
             this, SLOT(packNetPowerReceived(double)));
     connect(&batteryPresenter, SIGNAL(packStateOfChargeReceived(double)),
@@ -143,6 +150,7 @@ void DisplayDashboardView::aliveReceived(bool)
 }
 void DisplayDashboardView::prechargeStateReceived(QString prechargeState)
 {
+    ui_.prechargeStateLabel().setText(prechargeState);
 }
 
 void DisplayDashboardView::packNetPowerReceived(double netPower)
@@ -155,7 +163,6 @@ void DisplayDashboardView::packNetPowerReceived(double netPower)
  */
 void DisplayDashboardView::packStateOfChargeReceived(double packSocPercentage)
 {
-    qDebug() << packSocPercentage;
     ui_.stateOfChargeCapacityWidget().setValue(packSocPercentage);
 
     // The rgb values for the progressbar are calculated with the intention of displaying a colour closer to red
@@ -163,21 +170,21 @@ void DisplayDashboardView::packStateOfChargeReceived(double packSocPercentage)
     // with a slope and intercept.
 
     // Default colour
-    int red = RED_INITIAL;
-    int green = GREEN_INITIAL;
-    int blue = BLUE_INITIAL;
+//    int red = RED_INITIAL;
+//    int green = GREEN_INITIAL;
+//    int blue = BLUE_INITIAL;
 
-    // Calculated color
-    red += int(RED_SLOPE * packSocPercentage);
-    green += int(GREEN_SLOPE * packSocPercentage);
+//    // Calculated color
+//    red += int(RED_SLOPE * packSocPercentage);
+//    green += int(GREEN_SLOPE * packSocPercentage);
 
-    QString r = QString::number(red);
-    QString g = QString::number(green);
-    QString b = QString::number(blue);
+//    QString r = QString::number(red);
+//    QString g = QString::number(green);
+//    QString b = QString::number(blue);
 
-    QString rgb = QString("rgb(%1,%2,%3);").arg(r, g, b);
+//    QString rgb = QString("rgb(%1,%2,%3);").arg(r, g, b);
 
-    ui_.stateOfChargeCapacityWidget().setStyleSheet(DEFAULT_STYLESHEET + rgb + "}");
+//    ui_.stateOfChargeCapacityWidget().setStyleSheet(DEFAULT_STYLESHEET + rgb + "}");
 }
 /*
 void DisplayDashboardView::prechargeTimerElapsedReceived(bool prechargeTimerElapsed)
