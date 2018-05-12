@@ -60,5 +60,9 @@
         <file>Resource/Faults1.png</file>
         <file>Resource/Faults2.png</file>
         <file>../Resources/FaultIcon.png</file>
+        <file>../Resources/TurnSignalLeftOff.png</file>
+        <file>../Resources/TurnSignalRightOff.png</file>
+        <file>../Resources/LowHeadlightOff.png</file>
+        <file>../Resources/HighHeadlightOff.png</file>
     </qresource>
 </RCC>
