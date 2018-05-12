@@ -120,15 +120,6 @@ void BatteryView::connectBattery(BatteryPresenter& batteryPresenter)
     connect(&batteryPresenter, SIGNAL(averageCellVoltageReceived(const int)),
             this, SLOT(averageCellVoltageReceived(const int)));
 
-    connect(&batteryPresenter, SIGNAL(prechargeStateReceived(const QString)),
-            this, SLOT(prechargeStateReceived(const QString)));
-
-    connect(&batteryPresenter, SIGNAL(auxVoltageReceived(const int)),
-            this, SLOT(auxVoltageReceived(const int)));
-
-    connect(&batteryPresenter, SIGNAL(auxBmsAliveReceived(const bool)),
-            this, SLOT(auxBmsAliveReceived(const bool)));
-
     connect(&batteryPresenter, SIGNAL(packNetPowerReceived(const double)),
             this, SLOT(packNetPowerReceived(const double)));
     ui_.progressBarContainer().addWidget(&bar_);
@@ -136,7 +127,6 @@ void BatteryView::connectBattery(BatteryPresenter& batteryPresenter)
 
 void BatteryView::connectAuxBMS(AuxBmsPresenter& auxBMSPresenter)
 {
-    qDebug() << "-------------------------------------aux bms---------------------------------------------------" << endl;
     connect(&auxBMSPresenter, SIGNAL(auxBmsAliveReceived(bool)),
             this, SLOT(auxBmsAliveReceived(bool)));
     connect(&auxBMSPresenter, SIGNAL(strobeBmsLightReceived(bool)),
@@ -145,6 +135,10 @@ void BatteryView::connectAuxBMS(AuxBmsPresenter& auxBMSPresenter)
             this, SLOT(allowChargeReceived(bool)));
     connect(&auxBMSPresenter, SIGNAL(contactorErrorReceieved(bool)),
             this, SLOT(contactorErrorReceived(bool)));
+    connect(&auxBMSPresenter, SIGNAL(auxVoltageReceived(const int)),
+            this, SLOT(auxVoltageReceived(const int)));
+    connect(&auxBMSPresenter, SIGNAL(prechargeStateReceived(const QString)),
+            this, SLOT(prechargeStateReceived(const QString)));
 }
 
 void BatteryView::aliveReceived(bool alive)
