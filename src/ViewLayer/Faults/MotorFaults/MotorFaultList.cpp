@@ -1,5 +1,4 @@
 #include "MotorFaultList.h"
-#include <QDebug>
 
 namespace
 {
@@ -39,14 +38,16 @@ MotorFaultList::MotorFaultList()
     , FaultLabel(RAIL_UNDER_VOLTAGE_LOCK_OUT, RED, 0, false)
     , FaultLabel(DESATURATION_FAULT, RED, 0, false)
 })
-, limitLabels_({FaultLabel(OUTPUT_VOLTAGE_PWM_LIMIT, YELLOW, 1, false)
-                , FaultLabel(MOTOR_CURRENT_LIMIT, YELLOW, 1, false)
-                , FaultLabel(VELOCITY_LIMIT, YELLOW, 1, false)
-                , FaultLabel(BUS_CURRENT_LIMIT, YELLOW, 1, false)
-                , FaultLabel(BUS_VOLTAGE_UPPER_LIMIT, YELLOW, 1, false)
-                , FaultLabel(BUS_VOLTAGE_LOWER_LIMIT, YELLOW, 1, false)
-                , FaultLabel(IPM_MOTOR_TEMPERATURE_LIMIT, YELLOW, 1, false)
-               })
+, limitLabels_(
+{
+    FaultLabel(OUTPUT_VOLTAGE_PWM_LIMIT, YELLOW, 1, false)
+    , FaultLabel(MOTOR_CURRENT_LIMIT, YELLOW, 1, false)
+    , FaultLabel(VELOCITY_LIMIT, YELLOW, 1, false)
+    , FaultLabel(BUS_CURRENT_LIMIT, YELLOW, 1, false)
+    , FaultLabel(BUS_VOLTAGE_UPPER_LIMIT, YELLOW, 1, false)
+    , FaultLabel(BUS_VOLTAGE_LOWER_LIMIT, YELLOW, 1, false)
+    , FaultLabel(IPM_MOTOR_TEMPERATURE_LIMIT, YELLOW, 1, false)
+})
 {
 }
 
@@ -121,35 +122,35 @@ FaultLabel MotorFaultList::getHighestActivePriorityLabel() const
     return determineHighestActivePriorityLabel();
 }
 
-QVector<FaultLabel>& MotorFaultList::getErrorLabels()
+QVector<FaultLabel>& MotorFaultList::errorLabels()
 {
     return errorLabels_;
 }
 
-QVector<FaultLabel>& MotorFaultList::getLimitLabels()
+QVector<FaultLabel>& MotorFaultList::limitLabels()
 {
     return limitLabels_;
 }
 
 void MotorFaultList::updateErrors(const ErrorFlags& errorFlags)
 {
-    errorLabels_[0].setIsActive(errorFlags.motorOverSpeed());
-    errorLabels_[1].setIsActive(errorFlags.softwareOverCurrent());
-    errorLabels_[2].setIsActive(errorFlags.dcBusOverVoltage());
-    errorLabels_[3].setIsActive(errorFlags.badMotorPositionHallSequence());
-    errorLabels_[4].setIsActive(errorFlags.watchdogCausedLastReset());
-    errorLabels_[5].setIsActive(errorFlags.configReadError());
-    errorLabels_[6].setIsActive(errorFlags.railUnderVoltageLockOut());
-    errorLabels_[7].setIsActive(errorFlags.desaturationFault());
+    errorLabels_[0].setActive(errorFlags.motorOverSpeed());
+    errorLabels_[1].setActive(errorFlags.softwareOverCurrent());
+    errorLabels_[2].setActive(errorFlags.dcBusOverVoltage());
+    errorLabels_[3].setActive(errorFlags.badMotorPositionHallSequence());
+    errorLabels_[4].setActive(errorFlags.watchdogCausedLastReset());
+    errorLabels_[5].setActive(errorFlags.configReadError());
+    errorLabels_[6].setActive(errorFlags.railUnderVoltageLockOut());
+    errorLabels_[7].setActive(errorFlags.desaturationFault());
 }
 
 void MotorFaultList::updateLimits(const LimitFlags& limitFlags)
 {
-    limitLabels_[0].setIsActive(limitFlags.outputVoltagePwmLimit());
-    limitLabels_[1].setIsActive(limitFlags.motorCurrentLimit());
-    limitLabels_[2].setIsActive(limitFlags.velocityLimit());
-    limitLabels_[3].setIsActive(limitFlags.busCurrentLimit());
-    limitLabels_[4].setIsActive(limitFlags.busVoltageUpperLimit());
-    limitLabels_[5].setIsActive(limitFlags.busVoltageLowerLimit());
-    limitLabels_[6].setIsActive(limitFlags.ipmOrMotorTemperatureLimit());
+    limitLabels_[0].setActive(limitFlags.outputVoltagePwmLimit());
+    limitLabels_[1].setActive(limitFlags.motorCurrentLimit());
+    limitLabels_[2].setActive(limitFlags.velocityLimit());
+    limitLabels_[3].setActive(limitFlags.busCurrentLimit());
+    limitLabels_[4].setActive(limitFlags.busVoltageUpperLimit());
+    limitLabels_[5].setActive(limitFlags.busVoltageLowerLimit());
+    limitLabels_[6].setActive(limitFlags.ipmOrMotorTemperatureLimit());
 }

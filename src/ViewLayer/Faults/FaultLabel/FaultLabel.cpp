@@ -48,7 +48,7 @@ bool FaultLabel::isActive() const
     return isActive_;
 }
 
-void FaultLabel::setIsActive(bool value)
+void FaultLabel::setActive(bool value)
 {
     isActive_ = value;
 }

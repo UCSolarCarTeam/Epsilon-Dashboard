@@ -35,7 +35,8 @@ RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
         MotorFaultsPresenter& motorFaultsPresenter,
         I_RaceModeDashboardUI& ui,
         MotorFaultList& motorZeroFaultsList,
-        MotorFaultList& motorOneFaultsList)
+        MotorFaultList& motorOneFaultsList,
+        BatteryFaultList& batteryFaultsList)
     : batteryPresenter_(batteryPresenter)
     , batteryFaultsPresenter_(batteryFaultsPresenter)
     , driverControlsPresenter_(driverControlsPresenter)
@@ -47,6 +48,7 @@ RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
     , ui_(ui)
     , motorZeroFaultsList_(motorZeroFaultsList)
     , motorOneFaultsList_(motorOneFaultsList)
+    , batteryFaultsList_(batteryFaultsList)
 {
     connectBattery(batteryPresenter_);
     connectBatteryFaults(batteryFaultsPresenter_);
@@ -137,6 +139,19 @@ void RaceModeDashboardView::connectMotorFaults(MotorFaultsPresenter& motorFaults
             this, SLOT(motorOneLimitFlagsReceived(LimitFlags)));
 }
 
+void RaceModeDashboardView::updateFaultLabel(QLabel& dashBoardLabel, FaultLabel faultLabel)
+{
+    if (faultLabel.priority() >= 0)
+    {
+        dashBoardLabel.setStyleSheet("font: 11pt \"Burlingame Pro\";\n color:" + faultLabel.color().name() + ";");
+        dashBoardLabel.setText(faultLabel.text());
+    }
+    else
+    {
+        dashBoardLabel.setText("");
+    }
+}
+
 void RaceModeDashboardView::aliveReceived(bool)
 {
 }
@@ -152,13 +167,15 @@ void RaceModeDashboardView::packNetPowerReceived(double netPower)
     ui_.powerOutLabel().setNum(netPower - ui_.powerInLabel().text().toDouble());
 }
 
-void RaceModeDashboardView::errorFlagsReceived(BatteryErrorFlags)
+void RaceModeDashboardView::errorFlagsReceived(BatteryErrorFlags batteryErrorFlags)
 {
-    // TODO
+    batteryFaultsList_.updateErrors(batteryErrorFlags);
+    updateFaultLabel(ui_.batteryFaultsLabel(), batteryFaultsList_.getHighestActivePriorityLabel());
 }
-void RaceModeDashboardView::limitFlagsReceived(BatteryLimitFlags)
+void RaceModeDashboardView::limitFlagsReceived(BatteryLimitFlags batteryLimitFlags)
 {
-    // TODO
+    batteryFaultsList_.updateLimits(batteryLimitFlags);
+    updateFaultLabel(ui_.batteryFaultsLabel(), batteryFaultsList_.getHighestActivePriorityLabel());
 }
 void RaceModeDashboardView::resetReceived(bool reset)
 {
@@ -248,39 +265,26 @@ void RaceModeDashboardView::mpptPowerReceived(double mpptPower)
     ui_.powerOutLabel().setNum(ui_.netPowerLabel().text().toDouble() - mpptPower);
 }
 
-void RaceModeDashboardView::updateMotorLabel(QLabel& motorLabel, FaultLabel faultLabel)
-{
-    if (faultLabel.priority() >= 0)
-    {
-        motorLabel.setStyleSheet("font: 11pt \"Burlingame Pro\";\n color:" + faultLabel.color().name() + ";");
-        motorLabel.setText(faultLabel.text());
-    }
-    else
-    {
-        motorLabel.setText("");
-    }
-}
-
 void RaceModeDashboardView::motorZeroErrorFlagsReceived(ErrorFlags flags)
 {
     motorZeroFaultsList_.updateErrors(flags);
-    updateMotorLabel(ui_.motorZeroFaultsLabel(), motorZeroFaultsList_.getHighestActivePriorityLabel());
+    updateFaultLabel(ui_.motorZeroFaultsLabel(), motorZeroFaultsList_.getHighestActivePriorityLabel());
 }
 
 void RaceModeDashboardView::motorZeroLimitFlagsReceived(LimitFlags flags)
 {
     motorZeroFaultsList_.updateLimits(flags);
-    updateMotorLabel(ui_.motorZeroFaultsLabel(), motorZeroFaultsList_.getHighestActivePriorityLabel());
+    updateFaultLabel(ui_.motorZeroFaultsLabel(), motorZeroFaultsList_.getHighestActivePriorityLabel());
 }
 
 void RaceModeDashboardView::motorOneErrorFlagsReceived(ErrorFlags flags)
 {
     motorOneFaultsList_.updateErrors(flags);
-    updateMotorLabel(ui_.motorOneFaultsLabel(), motorOneFaultsList_.getHighestActivePriorityLabel());
+    updateFaultLabel(ui_.motorOneFaultsLabel(), motorOneFaultsList_.getHighestActivePriorityLabel());
 }
 
 void RaceModeDashboardView::motorOneLimitFlagsReceived(LimitFlags flags)
 {
     motorOneFaultsList_.updateLimits(flags);
-    updateMotorLabel(ui_.motorOneFaultsLabel(), motorOneFaultsList_.getHighestActivePriorityLabel());
+    updateFaultLabel(ui_.motorOneFaultsLabel(), motorOneFaultsList_.getHighestActivePriorityLabel());
 }

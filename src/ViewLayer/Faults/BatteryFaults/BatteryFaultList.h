@@ -1,22 +1,22 @@
 #pragma once
 
-#include <QVector>
+#include "../DataLayer/BatteryFaultsData/BatteryFaultsData.h"
+#include "../DataLayer/BatteryFaultsData/BatteryLimitFlags.h"
 #include "../FaultLabel/FaultLabel.h"
-#include "../DataLayer/MotorFaultsData/ErrorFlags.h"
-#include "../DataLayer/MotorFaultsData/LimitFlags.h"
+#include <QVector>
 
-class MotorFaultList
+class BatteryFaultList
 {
 public:
-    MotorFaultList();
+    BatteryFaultList();
 
-    ~MotorFaultList();
+    ~BatteryFaultList();
 
     FaultLabel getHighestActivePriorityLabel() const;
     QVector<FaultLabel>& errorLabels();
     QVector<FaultLabel>& limitLabels();
-    void updateErrors(const ErrorFlags& errorFlags);
-    void updateLimits(const LimitFlags& limitFlags);
+    void updateErrors(const BatteryErrorFlags& errorFlags);
+    void updateLimits(const BatteryLimitFlags& limitFlags);
 
 private:
 
