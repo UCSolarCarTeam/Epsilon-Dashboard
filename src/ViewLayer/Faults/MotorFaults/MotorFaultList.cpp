@@ -21,32 +21,29 @@ namespace
     QString BUS_VOLTAGE_UPPER_LIMIT = "Bus Voltage Upper Limit";
     QString BUS_VOLTAGE_LOWER_LIMIT = "Bus Voltage Lower Limit";
     QString IPM_MOTOR_TEMPERATURE_LIMIT = "IPM or Motor Temperature Limit";
-
-    QString RED = "red";
-    QString YELLOW = "yellow";
 }
 
 MotorFaultList::MotorFaultList()
     : errorLabels_(
 {
-    FaultLabel(MOTOR_OVER_SPEED, RED, 0, false)
-    , FaultLabel(SOFTWARE_OVER_CURRENT, RED, 0, false)
-    , FaultLabel(DC_BUS_OVER_VOLTAGE, RED, 0, false)
-    , FaultLabel(BAD_MOTOR_POSITION_HALL_SEQUENCE, RED, 0, false)
-    , FaultLabel(WATCHDOG_CAUSED_LAST_RESET, RED, 0, false)
-    , FaultLabel(CONFIG_READ_ERROR, RED, 0, false)
-    , FaultLabel(RAIL_UNDER_VOLTAGE_LOCK_OUT, RED, 0, false)
-    , FaultLabel(DESATURATION_FAULT, RED, 0, false)
+    FaultLabel(MOTOR_OVER_SPEED, FaultPriorities::HIGH_PRIORITY, false)
+    , FaultLabel(SOFTWARE_OVER_CURRENT, FaultPriorities::HIGH_PRIORITY, false)
+    , FaultLabel(DC_BUS_OVER_VOLTAGE, FaultPriorities::HIGH_PRIORITY, false)
+    , FaultLabel(BAD_MOTOR_POSITION_HALL_SEQUENCE, FaultPriorities::HIGH_PRIORITY, false)
+    , FaultLabel(WATCHDOG_CAUSED_LAST_RESET, FaultPriorities::HIGH_PRIORITY, false)
+    , FaultLabel(CONFIG_READ_ERROR, FaultPriorities::HIGH_PRIORITY, false)
+    , FaultLabel(RAIL_UNDER_VOLTAGE_LOCK_OUT, FaultPriorities::HIGH_PRIORITY, false)
+    , FaultLabel(DESATURATION_FAULT, FaultPriorities::HIGH_PRIORITY, false)
 })
 , limitLabels_(
 {
-    FaultLabel(OUTPUT_VOLTAGE_PWM_LIMIT, YELLOW, 1, false)
-    , FaultLabel(MOTOR_CURRENT_LIMIT, YELLOW, 1, false)
-    , FaultLabel(VELOCITY_LIMIT, YELLOW, 1, false)
-    , FaultLabel(BUS_CURRENT_LIMIT, YELLOW, 1, false)
-    , FaultLabel(BUS_VOLTAGE_UPPER_LIMIT, YELLOW, 1, false)
-    , FaultLabel(BUS_VOLTAGE_LOWER_LIMIT, YELLOW, 1, false)
-    , FaultLabel(IPM_MOTOR_TEMPERATURE_LIMIT, YELLOW, 1, false)
+    FaultLabel(OUTPUT_VOLTAGE_PWM_LIMIT, FaultPriorities::MEDIUM_PRIORITY, false)
+    , FaultLabel(MOTOR_CURRENT_LIMIT, FaultPriorities::MEDIUM_PRIORITY, false)
+    , FaultLabel(VELOCITY_LIMIT, FaultPriorities::MEDIUM_PRIORITY, false)
+    , FaultLabel(BUS_CURRENT_LIMIT, FaultPriorities::MEDIUM_PRIORITY, false)
+    , FaultLabel(BUS_VOLTAGE_UPPER_LIMIT, FaultPriorities::MEDIUM_PRIORITY, false)
+    , FaultLabel(BUS_VOLTAGE_LOWER_LIMIT, FaultPriorities::MEDIUM_PRIORITY, false)
+    , FaultLabel(IPM_MOTOR_TEMPERATURE_LIMIT, FaultPriorities::MEDIUM_PRIORITY, false)
 })
 {
 }
