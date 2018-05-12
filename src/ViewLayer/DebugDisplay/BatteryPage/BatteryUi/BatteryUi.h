@@ -73,8 +73,11 @@ public:
     QLabel& auxVoltageLabel();
 
     QWidget& auxBmsAliveWidget();
-
     QVBoxLayout& progressBarContainer();
+
+    QLabel& strobeBMSLabel();
+    QLabel& allowChargeLabel();
+    QLabel& contactorErrorLabel();
 
 private:
     Ui::BatteryUi* ui_;

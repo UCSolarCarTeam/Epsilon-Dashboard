@@ -27,12 +27,15 @@ namespace
 }
 
 BatteryView::BatteryView(BatteryPresenter& batteryPresenter,
-                         I_BatteryUi& ui, ProgressBar& bar)
+                         I_BatteryUi& ui, ProgressBar& bar,
+                         AuxBmsPresenter& auxBMSPresenter)
     : batteryPresenter_(batteryPresenter)
     , ui_(ui)
     , bar_(bar)
+    , auxBMSPresenter_(auxBMSPresenter)
 {
     connectBattery(batteryPresenter_);
+    connectAuxBMS(auxBMSPresenter_);
 }
 
 BatteryView::~BatteryView()
@@ -131,6 +134,16 @@ void BatteryView::connectBattery(BatteryPresenter& batteryPresenter)
     ui_.progressBarContainer().addWidget(&bar_);
 }
 
+void BatteryView::connectAuxBMS(AuxBmsPresenter& auxBMSPresenter)
+{
+    qDebug() << "connecting aux BMS" << endl;
+    connect(&auxBMSPresenter, SIGNAL(strobeBmsLightReceived(bool)),
+            this, SLOT(strobeBMSReceived(bool)));
+    connect(&auxBMSPresenter, SIGNAL(allowChargeReceieved(bool)),
+            this, SLOT(allowChargeReceived(bool)));
+    connect(&auxBMSPresenter, SIGNAL(contactorErrorReceieved(bool)),
+            this, SLOT(contactorErrorReceived(bool)));
+}
 
 void BatteryView::aliveReceived(bool alive)
 {
@@ -373,7 +386,7 @@ void BatteryView::requestedFanSpeedReceived(int requestedFanSpeed)
     if (requestedFanSpeed == 0)
     {
         ui_.requestedSpeed1().setStyleSheet(FAN_OFF);
-        ui_.requestedSpeed2().setStyleSheet(FAN_OFF);
+        ui_.requestedSpee    if(BmsRelayStatus.)d2().setStyleSheet(FAN_OFF);
         ui_.requestedSpeed3().setStyleSheet(FAN_OFF);
         ui_.requestedSpeed4().setStyleSheet(FAN_OFF);
         ui_.requestedSpeed5().setStyleSheet(FAN_OFF);
@@ -447,7 +460,7 @@ void BatteryView::lowCellVoltageReceived(int lowCellVoltage)
 }
 
 void BatteryView::lowCellVoltageIdReceived(int lowCellVoltageId)
-{
+{    if(BmsRelayStatus.)
     ui_.lowCellVoltageIDLabel().setNum(lowCellVoltageId);
 }
 
@@ -491,4 +504,43 @@ void BatteryView::auxBmsAliveReceived(bool auxBmsAlive)
 void BatteryView::packNetPowerReceived(double packNetPower)
 {
     ui_.packNetPower().setText(QString::number(packNetPower, 'f', 2) + " " + POWER_UNIT);
+}
+
+void BatteryView::strobeBMSReceived(bool strobe)
+{
+    qDebug() << "1" << endl;
+    if(strobe)
+    {
+        ui_.strobeBMSLabel().setStyleSheet(ON);
+    }
+    else
+    {
+        ui_.strobeBMSLabel().setStyleSheet(OFF);
+    }
+}
+
+void BatteryView::allowChargeReceived(bool allowCharge)
+{
+    qDebug() << "2" << endl;
+    if(allowCharge)
+    {
+        ui_.allowChargeLabel().setStyleSheet(ON);
+    }
+    else
+    {
+        ui_.allowChargeLabel().setStyleSheet(OFF);
+    }
+}
+
+void BatteryView::contactorErrorReceived(bool contactorError)
+{
+    qDebug() << "3" << endl;
+    if(contactorError)
+    {
+        ui_.contactorErrorLabel().setStyleSheet(ON);
+    }
+    else
+    {
+        ui_.contactorErrorLabel().setStyleSheet(OFF);
+    }
 }

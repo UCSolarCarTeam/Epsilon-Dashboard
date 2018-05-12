@@ -55,7 +55,7 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
 
         ProgressBar_ = new ProgressBar();
         BatteryView_.reset(new BatteryView(presenterContainer.batteryPresenter(),
-                                           *batteryUi_, *ProgressBar_) );
+                                           *batteryUi_, *ProgressBar_, presenterContainer.auxBmsPresenter()) );
 
         controlUi_ = new ControlUi();
         homepageUi_ = new HomePageUi();

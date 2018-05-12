@@ -249,3 +249,18 @@ QVBoxLayout& BatteryUi::progressBarContainer()
     return *ui_->progressBarContainer;
 }
 
+QLabel& BatteryUi::strobeBMSLabel()
+{
+    return *ui_->strobeBMSLabel;
+}
+
+QLabel& BatteryUi::allowChargeLabel()
+{
+    return *ui_->allowChargeLabel;
+}
+
+QLabel& BatteryUi::contactorErrorLabel()
+{
+    return *ui_->contactorErrorLabel;
+}
+
