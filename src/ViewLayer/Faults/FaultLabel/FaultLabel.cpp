@@ -8,9 +8,9 @@ FaultLabel::FaultLabel()
 {
 }
 
-FaultLabel::FaultLabel(QString name, QColor color, int priority, bool isActive)
+FaultLabel::FaultLabel(QString name, FaultPriorities::PRIORITY priority, bool isActive)
     : QLabel(name)
-    , color_(color)
+    , color_(priorityToColor(priority))
     , priority_(priority)
     , isActive_(isActive)
 {
@@ -51,4 +51,21 @@ bool FaultLabel::isActive() const
 void FaultLabel::setActive(bool value)
 {
     isActive_ = value;
+}
+
+QColor FaultLabel::priorityToColor(FaultPriorities::PRIORITY priority)
+{
+    switch (priority)
+    {
+        case FaultPriorities::HIGH_PRIORITY:
+            return FaultPriorities::HIGH_PRIORITY_COLOR;
+
+        case FaultPriorities::MEDIUM_PRIORITY:
+            return FaultPriorities::MEDIUM_PRIORITY_COLOR;
+
+        case FaultPriorities::LOW_PRIORITY:
+            return FaultPriorities::LOW_PRIORITY_COLOR;
+    }
+
+    return FaultPriorities::HIGH_PRIORITY_COLOR;
 }

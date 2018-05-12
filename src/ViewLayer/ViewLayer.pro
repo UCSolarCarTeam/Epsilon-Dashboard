@@ -37,7 +37,8 @@ HEADERS += \
     RaceModeDisplay/RaceModeDashboardView.h \
     Faults/MotorFaults/MotorFaultList.h \
     Faults/FaultLabel/FaultLabel.h \
-    Faults/BatteryFaults/BatteryFaultList.h
+    Faults/BatteryFaults/BatteryFaultList.h \
+    Faults/FaultPriorities/FaultPriorities.h
 
 SOURCES += \ 
     DebugDisplay/BatteryPage/BatteryUi/BatteryUi.cpp \

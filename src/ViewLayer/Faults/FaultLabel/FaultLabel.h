@@ -1,5 +1,7 @@
 #pragma once
 
+#include "../FaultPriorities/FaultPriorities.h"
+
 #include <QString>
 #include <QLabel>
 #include <QColor>
@@ -8,8 +10,8 @@ class FaultLabel : public QLabel
 {
 public:
     FaultLabel();
-    FaultLabel(QString name, QColor color, int priority, bool isActive);
-    FaultLabel(const FaultLabel& faultLabel);
+    FaultLabel(QString, FaultPriorities::PRIORITY, bool);
+    FaultLabel(const FaultLabel&);
 
     ~FaultLabel();
 
@@ -18,9 +20,11 @@ public:
     int priority() const;
     bool isActive() const;
 
-    void setActive(bool value);
+    void setActive(bool);
 
 private:
+
+    QColor priorityToColor(FaultPriorities::PRIORITY);
 
     QColor color_;
     int priority_;
