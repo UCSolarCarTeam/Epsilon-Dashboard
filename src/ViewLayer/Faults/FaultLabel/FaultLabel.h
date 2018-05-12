@@ -11,19 +11,20 @@ class FaultLabel : public QLabel
 public:
     FaultLabel();
     FaultLabel(QString, FaultPriorities::PRIORITY, bool);
-    FaultLabel(const FaultLabel& faultLabel);
+    FaultLabel(const FaultLabel&);
 
     ~FaultLabel();
 
-    QColor priorityToColor(FaultPriorities::PRIORITY);
     QString name() const;
     QColor color() const;
     int priority() const;
     bool isActive() const;
 
-    void setActive(bool value);
+    void setActive(bool);
 
 private:
+
+    QColor priorityToColor(FaultPriorities::PRIORITY);
 
     QColor color_;
     int priority_;

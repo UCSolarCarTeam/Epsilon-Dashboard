@@ -53,37 +53,37 @@ BatteryFaultList::BatteryFaultList()
     , FaultLabel(OPEN_WIRING_FAULT, FaultPriorities::HIGH_PRIORITY, false)
     , FaultLabel(CURRENT_SENSOR_FAULT, FaultPriorities::HIGH_PRIORITY, false)
     , FaultLabel(PACK_VOLTAGE_SENSOR, FaultPriorities::HIGH_PRIORITY, false)
-    , FaultLabel(WEAK_PACK_FAULT, FaultPriorities::HIGH_PRIORITY, false)
+    , FaultLabel(WEAK_PACK_FAULT, FaultPriorities::MEDIUM_PRIORITY, false)
     , FaultLabel(VOLTAGE_REDUNDANCY_FAULT, FaultPriorities::HIGH_PRIORITY, false)
-    , FaultLabel(FAN_MONITOR_FAULT, FaultPriorities::HIGH_PRIORITY, false)
+    , FaultLabel(FAN_MONITOR_FAULT, FaultPriorities::LOW_PRIORITY, false)
     , FaultLabel(THERMISTOR_FAULT, FaultPriorities::HIGH_PRIORITY, false)
     , FaultLabel(CANBUS_COMMUNICATIONS_FAULT, FaultPriorities::HIGH_PRIORITY, false)
-    , FaultLabel(ALWAYS_ON_SUPPLY_FAULT, FaultPriorities::HIGH_PRIORITY, false)
+    , FaultLabel(ALWAYS_ON_SUPPLY_FAULT, FaultPriorities::LOW_PRIORITY, false)
     , FaultLabel(HIGH_VOLTAGE_ISOLATION_FAULT, FaultPriorities::HIGH_PRIORITY, false)
     , FaultLabel(POWER_SUPPLY_FAULT, FaultPriorities::HIGH_PRIORITY, false)
     , FaultLabel(CHARGE_LIMIT_ENFORCEMENT_FAULT, FaultPriorities::HIGH_PRIORITY, false)
     , FaultLabel(DISCHARGE_LIMIT_ENFORCEMENT_FAULT, FaultPriorities::HIGH_PRIORITY, false)
     , FaultLabel(CHARGER_SAFETY_RELAY_FAULT, FaultPriorities::HIGH_PRIORITY, false)
-    , FaultLabel(INTERNAL_MEMORY_FAULT, FaultPriorities::HIGH_PRIORITY, false)
+    , FaultLabel(INTERNAL_MEMORY_FAULT, FaultPriorities::MEDIUM_PRIORITY, false)
     , FaultLabel(INTERNAL_THERMISTOR_FAULT, FaultPriorities::HIGH_PRIORITY, false)
     , FaultLabel(INTERNAL_LOGIC_FAULT, FaultPriorities::HIGH_PRIORITY, false)
 })
 , limitLabels_(
 {
     FaultLabel(DCL_REDUCED_DUE_TO_LOW_SOC, FaultPriorities::MEDIUM_PRIORITY, false)
-    , FaultLabel(DCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE, FaultPriorities::MEDIUM_PRIORITY, false)
-    , FaultLabel(DCL_REDUCED_DUE_TO_TEMPERATURE, FaultPriorities::MEDIUM_PRIORITY, false)
-    , FaultLabel(DCL_REDUCED_DUE_TO_LOW_CELL_VOLTAGE, FaultPriorities::MEDIUM_PRIORITY, false)
-    , FaultLabel(DCL_REDUCED_DUE_TO_LOW_PACK_VOLTAGE, FaultPriorities::MEDIUM_PRIORITY, false)
-    , FaultLabel(DCL_AND_CCL_REDUCED_DUE_TO_VOLTAGE_FAILSAFE, FaultPriorities::MEDIUM_PRIORITY, false)
-    , FaultLabel(DCL_AND_CCL_REDUCED_DUE_TO_COMMUNICATION_FAILSAFE, FaultPriorities::MEDIUM_PRIORITY, false)
-    , FaultLabel(CCL_REDUCED_DUE_TO_HIGH_SOC, FaultPriorities::MEDIUM_PRIORITY, false)
-    , FaultLabel(CCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE, FaultPriorities::MEDIUM_PRIORITY, false)
-    , FaultLabel(CCL_REDUCED_DUE_TO_TEMPERATURE, FaultPriorities::MEDIUM_PRIORITY, false)
-    , FaultLabel(CCL_REDUCED_DUE_TO_HIGH_CELL_VOLTAGE, FaultPriorities::MEDIUM_PRIORITY, false)
-    , FaultLabel(CCL_REDUCED_DUE_TO_HIGH_PACK_VOLTAGE, FaultPriorities::MEDIUM_PRIORITY, false)
-    , FaultLabel(CCL_REDUCED_DUE_TO_CHARGER_LATCH, FaultPriorities::MEDIUM_PRIORITY, false)
-    , FaultLabel(CCL_REDUCED_DUE_TO_ALTERNATE_CURRENT_LIMIT, FaultPriorities::MEDIUM_PRIORITY, false)
+    , FaultLabel(DCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE, FaultPriorities::LOW_PRIORITY, false)
+    , FaultLabel(DCL_REDUCED_DUE_TO_TEMPERATURE, FaultPriorities::HIGH_PRIORITY, false)
+    , FaultLabel(DCL_REDUCED_DUE_TO_LOW_CELL_VOLTAGE, FaultPriorities::HIGH_PRIORITY, false)
+    , FaultLabel(DCL_REDUCED_DUE_TO_LOW_PACK_VOLTAGE, FaultPriorities::HIGH_PRIORITY, false)
+    , FaultLabel(DCL_AND_CCL_REDUCED_DUE_TO_VOLTAGE_FAILSAFE, FaultPriorities::HIGH_PRIORITY, false)
+    , FaultLabel(DCL_AND_CCL_REDUCED_DUE_TO_COMMUNICATION_FAILSAFE, FaultPriorities::HIGH_PRIORITY, false)
+    , FaultLabel(CCL_REDUCED_DUE_TO_HIGH_SOC, FaultPriorities::HIGH_PRIORITY, false)
+    , FaultLabel(CCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE, FaultPriorities::LOW_PRIORITY, false)
+    , FaultLabel(CCL_REDUCED_DUE_TO_TEMPERATURE, FaultPriorities::HIGH_PRIORITY, false)
+    , FaultLabel(CCL_REDUCED_DUE_TO_HIGH_CELL_VOLTAGE, FaultPriorities::HIGH_PRIORITY, false)
+    , FaultLabel(CCL_REDUCED_DUE_TO_HIGH_PACK_VOLTAGE, FaultPriorities::HIGH_PRIORITY, false)
+    , FaultLabel(CCL_REDUCED_DUE_TO_CHARGER_LATCH, FaultPriorities::HIGH_PRIORITY, false)
+    , FaultLabel(CCL_REDUCED_DUE_TO_ALTERNATE_CURRENT_LIMIT, FaultPriorities::HIGH_PRIORITY, false)
 })
 {
 }
@@ -104,7 +104,7 @@ FaultLabel BatteryFaultList::determineHighestActivePriorityLabel() const
             {
                 highestPriorityErrorIndex = i;
             }
-            else if (errorLabels_[i].priority() > errorLabels_[highestPriorityErrorIndex].priority())
+            else if (errorLabels_[i].priority() < errorLabels_[highestPriorityErrorIndex].priority())
             {
                 highestPriorityErrorIndex = i;
             }
@@ -121,7 +121,7 @@ FaultLabel BatteryFaultList::determineHighestActivePriorityLabel() const
             {
                 highestPriorityLimitIndex = i;
             }
-            else if (limitLabels_[i].priority() > limitLabels_[highestPriorityLimitIndex].priority())
+            else if (limitLabels_[i].priority() < limitLabels_[highestPriorityLimitIndex].priority())
             {
                 highestPriorityLimitIndex = i;
             }

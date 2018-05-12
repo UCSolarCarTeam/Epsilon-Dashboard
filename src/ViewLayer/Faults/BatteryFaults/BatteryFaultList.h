@@ -15,8 +15,8 @@ public:
     FaultLabel getHighestActivePriorityLabel() const;
     QVector<FaultLabel>& errorLabels();
     QVector<FaultLabel>& limitLabels();
-    void updateErrors(const BatteryErrorFlags& errorFlags);
-    void updateLimits(const BatteryLimitFlags& limitFlags);
+    void updateErrors(const BatteryErrorFlags&);
+    void updateLimits(const BatteryLimitFlags&);
 
 private:
 

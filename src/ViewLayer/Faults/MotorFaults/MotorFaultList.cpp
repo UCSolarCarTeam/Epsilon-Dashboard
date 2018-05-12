@@ -29,20 +29,20 @@ MotorFaultList::MotorFaultList()
     FaultLabel(MOTOR_OVER_SPEED, FaultPriorities::HIGH_PRIORITY, false)
     , FaultLabel(SOFTWARE_OVER_CURRENT, FaultPriorities::HIGH_PRIORITY, false)
     , FaultLabel(DC_BUS_OVER_VOLTAGE, FaultPriorities::HIGH_PRIORITY, false)
-    , FaultLabel(BAD_MOTOR_POSITION_HALL_SEQUENCE, FaultPriorities::HIGH_PRIORITY, false)
-    , FaultLabel(WATCHDOG_CAUSED_LAST_RESET, FaultPriorities::HIGH_PRIORITY, false)
-    , FaultLabel(CONFIG_READ_ERROR, FaultPriorities::HIGH_PRIORITY, false)
-    , FaultLabel(RAIL_UNDER_VOLTAGE_LOCK_OUT, FaultPriorities::HIGH_PRIORITY, false)
+    , FaultLabel(BAD_MOTOR_POSITION_HALL_SEQUENCE, FaultPriorities::MEDIUM_PRIORITY, false)
+    , FaultLabel(WATCHDOG_CAUSED_LAST_RESET, FaultPriorities::MEDIUM_PRIORITY, false)
+    , FaultLabel(CONFIG_READ_ERROR, FaultPriorities::MEDIUM_PRIORITY, false)
+    , FaultLabel(RAIL_UNDER_VOLTAGE_LOCK_OUT, FaultPriorities::MEDIUM_PRIORITY, false)
     , FaultLabel(DESATURATION_FAULT, FaultPriorities::HIGH_PRIORITY, false)
 })
 , limitLabels_(
 {
-    FaultLabel(OUTPUT_VOLTAGE_PWM_LIMIT, FaultPriorities::MEDIUM_PRIORITY, false)
-    , FaultLabel(MOTOR_CURRENT_LIMIT, FaultPriorities::MEDIUM_PRIORITY, false)
-    , FaultLabel(VELOCITY_LIMIT, FaultPriorities::MEDIUM_PRIORITY, false)
-    , FaultLabel(BUS_CURRENT_LIMIT, FaultPriorities::MEDIUM_PRIORITY, false)
-    , FaultLabel(BUS_VOLTAGE_UPPER_LIMIT, FaultPriorities::MEDIUM_PRIORITY, false)
-    , FaultLabel(BUS_VOLTAGE_LOWER_LIMIT, FaultPriorities::MEDIUM_PRIORITY, false)
+    FaultLabel(OUTPUT_VOLTAGE_PWM_LIMIT, FaultPriorities::HIGH_PRIORITY, false)
+    , FaultLabel(MOTOR_CURRENT_LIMIT, FaultPriorities::HIGH_PRIORITY, false)
+    , FaultLabel(VELOCITY_LIMIT, FaultPriorities::LOW_PRIORITY, false)
+    , FaultLabel(BUS_CURRENT_LIMIT, FaultPriorities::HIGH_PRIORITY, false)
+    , FaultLabel(BUS_VOLTAGE_UPPER_LIMIT, FaultPriorities::HIGH_PRIORITY, false)
+    , FaultLabel(BUS_VOLTAGE_LOWER_LIMIT, FaultPriorities::HIGH_PRIORITY, false)
     , FaultLabel(IPM_MOTOR_TEMPERATURE_LIMIT, FaultPriorities::MEDIUM_PRIORITY, false)
 })
 {
@@ -64,7 +64,7 @@ FaultLabel MotorFaultList::determineHighestActivePriorityLabel() const
             {
                 highestPriorityErrorIndex = i;
             }
-            else if (errorLabels_[i].priority() > errorLabels_[highestPriorityErrorIndex].priority())
+            else if (errorLabels_[i].priority() < errorLabels_[highestPriorityErrorIndex].priority())
             {
                 highestPriorityErrorIndex = i;
             }
@@ -81,7 +81,7 @@ FaultLabel MotorFaultList::determineHighestActivePriorityLabel() const
             {
                 highestPriorityLimitIndex = i;
             }
-            else if (limitLabels_[i].priority() > limitLabels_[highestPriorityLimitIndex].priority())
+            else if (limitLabels_[i].priority() < limitLabels_[highestPriorityLimitIndex].priority())
             {
                 highestPriorityLimitIndex = i;
             }

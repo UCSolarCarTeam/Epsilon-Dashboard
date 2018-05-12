@@ -15,8 +15,8 @@ public:
     FaultLabel getHighestActivePriorityLabel() const;
     QVector<FaultLabel>& errorLabels();
     QVector<FaultLabel>& limitLabels();
-    void updateErrors(const ErrorFlags& errorFlags);
-    void updateLimits(const LimitFlags& limitFlags);
+    void updateErrors(const ErrorFlags&);
+    void updateLimits(const LimitFlags&);
 
 private:
 
