@@ -309,12 +309,12 @@ void ControlView::resetReceived(bool reset)
 
 void ControlView::accelerationReceived(double acceleration)
 {
-    int accelerationPercentage = acceleration * 100;
+    int accelerationPercentage = (int)acceleration;
     ui_.accelerationProgressBar().setValue(accelerationPercentage);
 }
 
 void ControlView::regenBrakingReceived(double regenBraking)
 {
-    int regenBrakingPercentage = regenBraking * 100;
+    int regenBrakingPercentage = (int)regenBraking;
     ui_.regenBrakingProgressBar().setValue(regenBrakingPercentage);
 }
