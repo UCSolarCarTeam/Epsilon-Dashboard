@@ -1468,7 +1468,42 @@ padding-bottom: -25px;</string>
           <property name="verticalSpacing">
            <number>0</number>
           </property>
-          <item row="1" column="0">
+          <item row="3" column="0" alignment="Qt::AlignHCenter">
+           <widget class="QLabel" name="batteryFaultsLabel">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: 11pt &quot;Burlingame Pro&quot;;
+color:white;</string>
+            </property>
+            <property name="text">
+             <string>BatteryFaults</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
            <widget class="QLabel" name="batteryFaultsTitleLabel">
             <property name="maximumSize">
              <size>
@@ -1481,30 +1516,7 @@ padding-bottom: -25px;</string>
 color: rgb(100,100,100);</string>
             </property>
             <property name="text">
-             <string>B A T T E R Y   F A U L T S</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="batteryFaultsLabel">
-            <property name="minimumSize">
-             <size>
-              <width>200</width>
-              <height>55</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>200</width>
-              <height>55</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">font: 11pt &quot;Burlingame Pro&quot;;
-color:white;</string>
-            </property>
-            <property name="text">
-             <string>BatteryFaults</string>
+             <string>    B A T T E R Y   F A U L T S</string>
             </property>
            </widget>
           </item>

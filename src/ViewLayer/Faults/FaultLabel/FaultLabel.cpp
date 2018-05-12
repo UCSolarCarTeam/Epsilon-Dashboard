@@ -55,7 +55,7 @@ void FaultLabel::setActive(bool value)
 
 QColor FaultLabel::priorityToColor(FaultPriorities::PRIORITY priority)
 {
-    switch(priority)
+    switch (priority)
     {
         case FaultPriorities::HIGH_PRIORITY:
             return FaultPriorities::HIGH_PRIORITY_COLOR;
@@ -66,5 +66,6 @@ QColor FaultLabel::priorityToColor(FaultPriorities::PRIORITY priority)
         case FaultPriorities::LOW_PRIORITY:
             return FaultPriorities::LOW_PRIORITY_COLOR;
     }
+
     return FaultPriorities::HIGH_PRIORITY_COLOR;
 }

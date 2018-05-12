@@ -59,6 +59,7 @@ RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
     connectMotorDetails(motorDetailsPresenter_);
     connectMotorFaults(motorFaultsPresenter_);
     //ui_.showMaximized();
+    ui_.batteryFaultsLabel().setWordWrap(true);
     ui_.show();
 }
 RaceModeDashboardView::~RaceModeDashboardView()
