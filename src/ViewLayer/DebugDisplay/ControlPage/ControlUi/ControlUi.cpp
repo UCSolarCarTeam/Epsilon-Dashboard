@@ -17,9 +17,14 @@ ControlUi::~ControlUi()
     delete ui_;
 }
 
-QWidget& ControlUi::aliveIndicator()
+QLabel& ControlUi::aliveIndicator()
 {
     return *ui_->aliveIndicator;
+}
+
+QLabel& ControlUi::lightsIndicator()
+{
+    return *ui_->lightsIndicator;
 }
 
 QLabel& ControlUi::highHeadlightsLabel()
@@ -32,6 +37,21 @@ QLabel& ControlUi::lowHeadlightsLabel()
     return *ui_->lowHeadlightsLabel;
 }
 
+QLabel& ControlUi::lowBeamLabel()
+{
+    return *ui_->lowBeamLabel;
+}
+
+QLabel& ControlUi::highBeamLabel()
+{
+    return *ui_->highBeamlabel;
+}
+
+QLabel& ControlUi::headlightsOff()
+{
+    return *ui_->lightsOff;
+}
+
 QLabel& ControlUi::leftSignalLabel()
 {
     return *ui_->leftSignalLabel;
@@ -40,6 +60,16 @@ QLabel& ControlUi::leftSignalLabel()
 QLabel& ControlUi::rightSignalLabel()
 {
     return *ui_->rightSignalLabel;
+}
+
+QLabel& ControlUi::leftSignalActiveLabel()
+{
+    return *ui_->LeftSignalActiveLabel;
+}
+
+QLabel& ControlUi::rightSignalActiveLabel()
+{
+    return *ui_->RightSignalActiveLabel;
 }
 
 QLabel& ControlUi::hazardOnLabel()
@@ -91,6 +121,11 @@ QLabel& ControlUi::volumeDownLabel()
 QLabel& ControlUi::brakesOnLabel()
 {
     return *ui_->brakesOnLabel;
+}
+
+QLabel& ControlUi::brakesOnActiveLabel()
+{
+    return *ui_->brakesOnActiveLabel;
 }
 
 QLabel& ControlUi::forwardOnLabel()
