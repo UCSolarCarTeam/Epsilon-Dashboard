@@ -1,5 +1,4 @@
-﻿#include <QDebug>;
-#include "BatteryView.h"
+﻿#include "BatteryView.h"
 
 namespace
 {
