@@ -47,45 +47,47 @@ namespace
 }
 
 BatteryFaultList::BatteryFaultList()
-    : errorLabels_({
-          FaultLabel(INTERNAL_COMMUNICATION_FAULT, RED, 0, false)
-          , FaultLabel(INTERNAL_CONVERSION_FAULT, RED, 0, false)
-          , FaultLabel(WEAK_CELL_FAULT, RED, 0, false)
-          , FaultLabel(LOW_CELL_VOLTAGE_FAULT, RED, 0, false)
-          , FaultLabel(OPEN_WIRING_FAULT, RED, 0, false)
-          , FaultLabel(CURRENT_SENSOR_FAULT, RED, 0, false)
-          , FaultLabel(PACK_VOLTAGE_SENSOR, RED, 0, false)
-          , FaultLabel(WEAK_PACK_FAULT, RED, 0, false)
-          , FaultLabel(VOLTAGE_REDUNDANCY_FAULT, RED, 0, false)
-          , FaultLabel(FAN_MONITOR_FAULT, RED, 0, false)
-          , FaultLabel(THERMISTOR_FAULT, RED, 0, false)
-          , FaultLabel(CANBUS_COMMUNICATIONS_FAULT, RED, 0, false)
-          , FaultLabel(ALWAYS_ON_SUPPLY_FAULT, RED, 0, false)
-          , FaultLabel(HIGH_VOLTAGE_ISOLATION_FAULT, RED, 0, false)
-          , FaultLabel(POWER_SUPPLY_FAULT, RED, 0, false)
-          , FaultLabel(CHARGE_LIMIT_ENFORCEMENT_FAULT, RED, 0, false)
-          , FaultLabel(DISCHARGE_LIMIT_ENFORCEMENT_FAULT, RED, 0, false)
-          , FaultLabel(CHARGER_SAFETY_RELAY_FAULT, RED, 0, false)
-          , FaultLabel(INTERNAL_MEMORY_FAULT, RED, 0, false)
-          , FaultLabel(INTERNAL_THERMISTOR_FAULT, RED, 0, false)
-          , FaultLabel(INTERNAL_LOGIC_FAULT, RED, 0, false)
-          })
-    , limitLabels_({
-                   FaultLabel(DCL_REDUCED_DUE_TO_LOW_SOC, YELLOW, 1, false)
-                   , FaultLabel(DCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE, YELLOW, 1, false)
-                   , FaultLabel(DCL_REDUCED_DUE_TO_TEMPERATURE, YELLOW, 1, false)
-                   , FaultLabel(DCL_REDUCED_DUE_TO_LOW_CELL_VOLTAGE, YELLOW, 1, false)
-                   , FaultLabel(DCL_REDUCED_DUE_TO_LOW_PACK_VOLTAGE, YELLOW, 1, false)
-                   , FaultLabel(DCL_AND_CCL_REDUCED_DUE_TO_VOLTAGE_FAILSAFE, YELLOW, 1, false)
-                   , FaultLabel(DCL_AND_CCL_REDUCED_DUE_TO_COMMUNICATION_FAILSAFE, YELLOW, 1, false)
-                   , FaultLabel(CCL_REDUCED_DUE_TO_HIGH_SOC, YELLOW, 1, false)
-                   , FaultLabel(CCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE, YELLOW, 1, false)
-                   , FaultLabel(CCL_REDUCED_DUE_TO_TEMPERATURE, YELLOW, 1, false)
-                   , FaultLabel(CCL_REDUCED_DUE_TO_HIGH_CELL_VOLTAGE, YELLOW, 1, false)
-                   , FaultLabel(CCL_REDUCED_DUE_TO_HIGH_PACK_VOLTAGE, YELLOW, 1, false)
-                   , FaultLabel(CCL_REDUCED_DUE_TO_CHARGER_LATCH, YELLOW, 1, false)
-                   , FaultLabel(CCL_REDUCED_DUE_TO_ALTERNATE_CURRENT_LIMIT, YELLOW, 1, false)
-                   })
+    : errorLabels_(
+{
+    FaultLabel(INTERNAL_COMMUNICATION_FAULT, RED, 0, false)
+    , FaultLabel(INTERNAL_CONVERSION_FAULT, RED, 0, false)
+    , FaultLabel(WEAK_CELL_FAULT, RED, 0, false)
+    , FaultLabel(LOW_CELL_VOLTAGE_FAULT, RED, 0, false)
+    , FaultLabel(OPEN_WIRING_FAULT, RED, 0, false)
+    , FaultLabel(CURRENT_SENSOR_FAULT, RED, 0, false)
+    , FaultLabel(PACK_VOLTAGE_SENSOR, RED, 0, false)
+    , FaultLabel(WEAK_PACK_FAULT, RED, 0, false)
+    , FaultLabel(VOLTAGE_REDUNDANCY_FAULT, RED, 0, false)
+    , FaultLabel(FAN_MONITOR_FAULT, RED, 0, false)
+    , FaultLabel(THERMISTOR_FAULT, RED, 0, false)
+    , FaultLabel(CANBUS_COMMUNICATIONS_FAULT, RED, 0, false)
+    , FaultLabel(ALWAYS_ON_SUPPLY_FAULT, RED, 0, false)
+    , FaultLabel(HIGH_VOLTAGE_ISOLATION_FAULT, RED, 0, false)
+    , FaultLabel(POWER_SUPPLY_FAULT, RED, 0, false)
+    , FaultLabel(CHARGE_LIMIT_ENFORCEMENT_FAULT, RED, 0, false)
+    , FaultLabel(DISCHARGE_LIMIT_ENFORCEMENT_FAULT, RED, 0, false)
+    , FaultLabel(CHARGER_SAFETY_RELAY_FAULT, RED, 0, false)
+    , FaultLabel(INTERNAL_MEMORY_FAULT, RED, 0, false)
+    , FaultLabel(INTERNAL_THERMISTOR_FAULT, RED, 0, false)
+    , FaultLabel(INTERNAL_LOGIC_FAULT, RED, 0, false)
+})
+, limitLabels_(
+{
+    FaultLabel(DCL_REDUCED_DUE_TO_LOW_SOC, YELLOW, 1, false)
+    , FaultLabel(DCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE, YELLOW, 1, false)
+    , FaultLabel(DCL_REDUCED_DUE_TO_TEMPERATURE, YELLOW, 1, false)
+    , FaultLabel(DCL_REDUCED_DUE_TO_LOW_CELL_VOLTAGE, YELLOW, 1, false)
+    , FaultLabel(DCL_REDUCED_DUE_TO_LOW_PACK_VOLTAGE, YELLOW, 1, false)
+    , FaultLabel(DCL_AND_CCL_REDUCED_DUE_TO_VOLTAGE_FAILSAFE, YELLOW, 1, false)
+    , FaultLabel(DCL_AND_CCL_REDUCED_DUE_TO_COMMUNICATION_FAILSAFE, YELLOW, 1, false)
+    , FaultLabel(CCL_REDUCED_DUE_TO_HIGH_SOC, YELLOW, 1, false)
+    , FaultLabel(CCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE, YELLOW, 1, false)
+    , FaultLabel(CCL_REDUCED_DUE_TO_TEMPERATURE, YELLOW, 1, false)
+    , FaultLabel(CCL_REDUCED_DUE_TO_HIGH_CELL_VOLTAGE, YELLOW, 1, false)
+    , FaultLabel(CCL_REDUCED_DUE_TO_HIGH_PACK_VOLTAGE, YELLOW, 1, false)
+    , FaultLabel(CCL_REDUCED_DUE_TO_CHARGER_LATCH, YELLOW, 1, false)
+    , FaultLabel(CCL_REDUCED_DUE_TO_ALTERNATE_CURRENT_LIMIT, YELLOW, 1, false)
+})
 {
 }
 
@@ -170,45 +172,45 @@ QVector<FaultLabel>& BatteryFaultList::limitLabels()
     return limitLabels_;
 }
 
-void BatteryFaultList::updateErrors(const BatteryErrorFlags &errorFlags)
+void BatteryFaultList::updateErrors(const BatteryErrorFlags& errorFlags)
 {
-    errorLabels_[0].setIsActive(errorFlags.internalCommununicationFault());
-    errorLabels_[1].setIsActive(errorFlags.internalConversionFault());
-    errorLabels_[2].setIsActive(errorFlags.weakCellFault());
-    errorLabels_[3].setIsActive(errorFlags.lowCellVoltageFault());
-    errorLabels_[4].setIsActive(errorFlags.openWiringFault());
-    errorLabels_[5].setIsActive(errorFlags.currentSensorFault());
-    errorLabels_[6].setIsActive(errorFlags.packVoltageSensorFault());
-    errorLabels_[7].setIsActive(errorFlags.weakPackFault());
-    errorLabels_[8].setIsActive(errorFlags.voltageRedundancyFault());
-    errorLabels_[9].setIsActive(errorFlags.fanMonitorFault());
-    errorLabels_[10].setIsActive(errorFlags.thermistorFault());
-    errorLabels_[11].setIsActive(errorFlags.canbusCommunicationsFault());
-    errorLabels_[12].setIsActive(errorFlags.alwaysOnSupplyFault());
-    errorLabels_[13].setIsActive(errorFlags.highVoltageIsolationFault());
-    errorLabels_[14].setIsActive(errorFlags.powerSupplyFault12V());
-    errorLabels_[15].setIsActive(errorFlags.chargeLimitEnforcementFault());
-    errorLabels_[16].setIsActive(errorFlags.dischargeLimitEnforcementFault());
-    errorLabels_[17].setIsActive(errorFlags.chargerSafetyRelayFault());
-    errorLabels_[18].setIsActive(errorFlags.internalMemoryFault());
-    errorLabels_[19].setIsActive(errorFlags.internalThermistorFault());
-    errorLabels_[20].setIsActive(errorFlags.internalLogicFault());
+    errorLabels_[0].setActive(errorFlags.internalCommununicationFault());
+    errorLabels_[1].setActive(errorFlags.internalConversionFault());
+    errorLabels_[2].setActive(errorFlags.weakCellFault());
+    errorLabels_[3].setActive(errorFlags.lowCellVoltageFault());
+    errorLabels_[4].setActive(errorFlags.openWiringFault());
+    errorLabels_[5].setActive(errorFlags.currentSensorFault());
+    errorLabels_[6].setActive(errorFlags.packVoltageSensorFault());
+    errorLabels_[7].setActive(errorFlags.weakPackFault());
+    errorLabels_[8].setActive(errorFlags.voltageRedundancyFault());
+    errorLabels_[9].setActive(errorFlags.fanMonitorFault());
+    errorLabels_[10].setActive(errorFlags.thermistorFault());
+    errorLabels_[11].setActive(errorFlags.canbusCommunicationsFault());
+    errorLabels_[12].setActive(errorFlags.alwaysOnSupplyFault());
+    errorLabels_[13].setActive(errorFlags.highVoltageIsolationFault());
+    errorLabels_[14].setActive(errorFlags.powerSupplyFault12V());
+    errorLabels_[15].setActive(errorFlags.chargeLimitEnforcementFault());
+    errorLabels_[16].setActive(errorFlags.dischargeLimitEnforcementFault());
+    errorLabels_[17].setActive(errorFlags.chargerSafetyRelayFault());
+    errorLabels_[18].setActive(errorFlags.internalMemoryFault());
+    errorLabels_[19].setActive(errorFlags.internalThermistorFault());
+    errorLabels_[20].setActive(errorFlags.internalLogicFault());
 }
 
-void BatteryFaultList::updateLimits(const BatteryLimitFlags &limitFlags)
+void BatteryFaultList::updateLimits(const BatteryLimitFlags& limitFlags)
 {
-    limitLabels_[0].setIsActive(limitFlags.dclReducedDueToLowSoc());
-    limitLabels_[1].setIsActive(limitFlags.dclReducedDueToHighCellResistance());
-    limitLabels_[2].setIsActive(limitFlags.dclReducedDueToTemperature());
-    limitLabels_[3].setIsActive(limitFlags.dclReducedDueToLowCellVoltage());
-    limitLabels_[4].setIsActive(limitFlags.dclReducedDueToLowPackVoltage());
-    limitLabels_[5].setIsActive(limitFlags.dclandCclReducedDueToVoltageFailsafe());
-    limitLabels_[6].setIsActive(limitFlags.dclandCclReducedDueToCommunicationFailsafe());
-    limitLabels_[7].setIsActive(limitFlags.cclReducedDueToHighSoc());
-    limitLabels_[8].setIsActive(limitFlags.cclReducedDueToHighCellResistance());
-    limitLabels_[9].setIsActive(limitFlags.cclReducedDueToTemperature());
-    limitLabels_[10].setIsActive(limitFlags.cclReducedDueToHighCellVoltage());
-    limitLabels_[11].setIsActive(limitFlags.cclReducedDueToHighPackVoltage());
-    limitLabels_[12].setIsActive(limitFlags.cclReducedDueToChargerLatch());
-    limitLabels_[13].setIsActive(limitFlags.cclReducedDueToAlternateCurrentLimit());
+    limitLabels_[0].setActive(limitFlags.dclReducedDueToLowSoc());
+    limitLabels_[1].setActive(limitFlags.dclReducedDueToHighCellResistance());
+    limitLabels_[2].setActive(limitFlags.dclReducedDueToTemperature());
+    limitLabels_[3].setActive(limitFlags.dclReducedDueToLowCellVoltage());
+    limitLabels_[4].setActive(limitFlags.dclReducedDueToLowPackVoltage());
+    limitLabels_[5].setActive(limitFlags.dclandCclReducedDueToVoltageFailsafe());
+    limitLabels_[6].setActive(limitFlags.dclandCclReducedDueToCommunicationFailsafe());
+    limitLabels_[7].setActive(limitFlags.cclReducedDueToHighSoc());
+    limitLabels_[8].setActive(limitFlags.cclReducedDueToHighCellResistance());
+    limitLabels_[9].setActive(limitFlags.cclReducedDueToTemperature());
+    limitLabels_[10].setActive(limitFlags.cclReducedDueToHighCellVoltage());
+    limitLabels_[11].setActive(limitFlags.cclReducedDueToHighPackVoltage());
+    limitLabels_[12].setActive(limitFlags.cclReducedDueToChargerLatch());
+    limitLabels_[13].setActive(limitFlags.cclReducedDueToAlternateCurrentLimit());
 }

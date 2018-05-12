@@ -332,21 +332,21 @@ void FaultView::errorFlagsReceived(BatteryErrorFlags batteryErrorFlags)
     updateLabel(batteryErrorFlags.chargerSafetyRelayFault(), chargerSafetyRelayFault_, ui_.batteryContentsWidget(), labelBCount_);
     updateLabel(batteryErrorFlags.currentSensorFault(), currentSensorFault_, ui_.batteryContentsWidget(), labelBCount_);
     updateLabel(batteryErrorFlags.dischargeLimitEnforcementFault(), dischargeLimitEnforcementFault_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryErrorFlags.fanMonitorFault(), alwaysOnSupplyFault_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryErrorFlags.highVoltageIsolationFault(), alwaysOnSupplyFault_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryErrorFlags.internalCommununicationFault(), alwaysOnSupplyFault_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryErrorFlags.internalConversionFault(), alwaysOnSupplyFault_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryErrorFlags.internalLogicFault(), alwaysOnSupplyFault_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryErrorFlags.internalMemoryFault(), alwaysOnSupplyFault_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryErrorFlags.internalThermistorFault(), alwaysOnSupplyFault_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryErrorFlags.lowCellVoltageFault(), alwaysOnSupplyFault_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryErrorFlags.openWiringFault(), alwaysOnSupplyFault_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryErrorFlags.packVoltageSensorFault(), alwaysOnSupplyFault_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryErrorFlags.powerSupplyFault12V(), alwaysOnSupplyFault_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryErrorFlags.thermistorFault(), alwaysOnSupplyFault_, ui_.batteryContentsWidget(), labelBCount_);
+    updateLabel(batteryErrorFlags.fanMonitorFault(), fanMonitorFault_, ui_.batteryContentsWidget(), labelBCount_);
+    updateLabel(batteryErrorFlags.highVoltageIsolationFault(), highVoltageIsolationFault_, ui_.batteryContentsWidget(), labelBCount_);
+    updateLabel(batteryErrorFlags.internalCommununicationFault(), internalCommununicationFault_, ui_.batteryContentsWidget(), labelBCount_);
+    updateLabel(batteryErrorFlags.internalConversionFault(), internalConversionFault_, ui_.batteryContentsWidget(), labelBCount_);
+    updateLabel(batteryErrorFlags.internalLogicFault(), internalLogicFault_, ui_.batteryContentsWidget(), labelBCount_);
+    updateLabel(batteryErrorFlags.internalMemoryFault(), internalMemoryFault_, ui_.batteryContentsWidget(), labelBCount_);
+    updateLabel(batteryErrorFlags.internalThermistorFault(), internalThermistorFault_, ui_.batteryContentsWidget(), labelBCount_);
+    updateLabel(batteryErrorFlags.lowCellVoltageFault(), lowCellVoltageFault_, ui_.batteryContentsWidget(), labelBCount_);
+    updateLabel(batteryErrorFlags.openWiringFault(), openWiringFault_, ui_.batteryContentsWidget(), labelBCount_);
+    updateLabel(batteryErrorFlags.packVoltageSensorFault(), packVoltageSensorFault_, ui_.batteryContentsWidget(), labelBCount_);
+    updateLabel(batteryErrorFlags.powerSupplyFault12V(), powerSupplyFault12V_, ui_.batteryContentsWidget(), labelBCount_);
+    updateLabel(batteryErrorFlags.thermistorFault(), thermistorFault_, ui_.batteryContentsWidget(), labelBCount_);
     updateLabel(batteryErrorFlags.voltageRedundancyFault(), alwaysOnSupplyFault_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryErrorFlags.weakCellFault(), alwaysOnSupplyFault_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryErrorFlags.weakPackFault(), alwaysOnSupplyFault_, ui_.batteryContentsWidget(), labelBCount_);
+    updateLabel(batteryErrorFlags.weakCellFault(), weakCellFault_, ui_.batteryContentsWidget(), labelBCount_);
+    updateLabel(batteryErrorFlags.weakPackFault(), weakPackFault_, ui_.batteryContentsWidget(), labelBCount_);
 }
 
 void FaultView::limitFlagsReceived(BatteryLimitFlags batteryLimitFlags)

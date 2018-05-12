@@ -18,7 +18,7 @@ public:
     int priority() const;
     bool isActive() const;
 
-    void setIsActive(bool value);
+    void setActive(bool value);
 
 private:
 
