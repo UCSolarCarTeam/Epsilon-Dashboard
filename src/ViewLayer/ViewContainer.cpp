@@ -55,7 +55,7 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
 
         ProgressBar_ = new ProgressBar();
         BatteryView_.reset(new BatteryView(presenterContainer.batteryPresenter(),
-                                           *batteryUi_, *ProgressBar_) );
+                                           *batteryUi_, *ProgressBar_, presenterContainer.auxBmsPresenter()) );
 
         controlUi_ = new ControlUi();
         homepageUi_ = new HomePageUi();
@@ -76,7 +76,7 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
 
 
         MpptView_.reset(new MpptView(presenterContainer.mpptPresenter(), *mpptUi_));
-        ControlView_.reset(new ControlView(presenterContainer.driverControlsPresenter(), *controlUi_));
+        ControlView_.reset(new ControlView(presenterContainer.driverControlsPresenter(), presenterContainer.lightsPresenter(), *controlUi_));
         HomePageView_.reset(new HomePageView(*homepageUi_));
     }
 }

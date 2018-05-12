@@ -7,6 +7,7 @@
 #include "../../BatteryPage/BatteryUi/I_BatteryUi.h"
 #include "../ProgressBar.h"
 #include "../BatteryUi/BatteryUi.h"
+#include "../../../../PresenterLayer/AuxBmsPresenter/AuxBmsPresenter.h"
 
 class BatteryPresenter;
 
@@ -19,14 +20,18 @@ class BatteryView : public QObject
     Q_OBJECT
 public:
     BatteryView(BatteryPresenter& batteryPresenter,
-                I_BatteryUi& ui, ProgressBar& bar);
+                I_BatteryUi& ui, ProgressBar& bar,
+                AuxBmsPresenter& auxBMSPresenter);
     ~BatteryView();
     void updateProgress(double stateOfCharge);
 
 private:
     void connectBattery(BatteryPresenter&);
+    void connectAuxBMS(AuxBmsPresenter&);
 
     BatteryPresenter& batteryPresenter_;
+
+    AuxBmsPresenter& auxBMSPresenter_;
 
     I_BatteryUi& ui_;
 
@@ -62,5 +67,8 @@ private slots:
     void auxVoltageReceived(const int);
     void auxBmsAliveReceived(const bool);
     void packNetPowerReceived(const double);
+    void strobeBMSReceived(bool);
+    void allowChargeReceived(bool);
+    void contactorErrorReceived(bool);
 
 };

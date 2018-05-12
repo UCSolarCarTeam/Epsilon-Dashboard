@@ -64,6 +64,7 @@ OverlordWidget::OverlordWidget(I_BatteryUi& batteryUi, \
     overlordLayout->addWidget(menu_);
     tabUi_.hide();
     setLayout(overlordLayout);
+    overlordLayout->setSpacing(0);
     overlordLayout->setSizeConstraint(QLayout::SetNoConstraint);
 
     show();

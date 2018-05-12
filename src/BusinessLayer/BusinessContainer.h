@@ -4,6 +4,7 @@
 
 class DataContainer;
 
+class AuxBmsPopulator;
 class BatteryPopulator;
 class BatteryFaultsPopulator;
 class DriverControlsPopulator;
@@ -22,6 +23,7 @@ public:
     explicit BusinessContainer(DataContainer& dataContainer);
     ~BusinessContainer();
 
+    AuxBmsPopulator& auxBmsPopulator();
     BatteryPopulator& batteryPopulator();
     BatteryFaultsPopulator& batteryFaultsPopulator();
     DriverControlsPopulator& driverControlsPopulator();

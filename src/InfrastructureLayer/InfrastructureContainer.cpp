@@ -1,16 +1,11 @@
 #include "InfrastructureContainer.h"
 #include "Settings/Settings.h"
-#include <QDir>
+#include <QCoreApplication>
 #include <QDebug>
 
-namespace
-{
-    QString SETTINGS_FILE_PATH = (QDir::currentPath() + "/../src/config.ini");
-}
-
 InfrastructureContainer::InfrastructureContainer()
-    : settings_(new Settings(SETTINGS_FILE_PATH))
 {
+    settings_.reset(new Settings(QCoreApplication::applicationDirPath() + "/config.ini"));
 }
 
 InfrastructureContainer::~InfrastructureContainer()

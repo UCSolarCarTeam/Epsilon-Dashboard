@@ -1,5 +1,4 @@
-﻿#include <QDebug>;
-#include "BatteryView.h"
+﻿#include "BatteryView.h"
 
 namespace
 {
@@ -27,12 +26,15 @@ namespace
 }
 
 BatteryView::BatteryView(BatteryPresenter& batteryPresenter,
-                         I_BatteryUi& ui, ProgressBar& bar)
+                         I_BatteryUi& ui, ProgressBar& bar,
+                         AuxBmsPresenter& auxBMSPresenter)
     : batteryPresenter_(batteryPresenter)
     , ui_(ui)
     , bar_(bar)
+    , auxBMSPresenter_(auxBMSPresenter)
 {
     connectBattery(batteryPresenter_);
+    connectAuxBMS(auxBMSPresenter_);
 }
 
 BatteryView::~BatteryView()
@@ -117,20 +119,26 @@ void BatteryView::connectBattery(BatteryPresenter& batteryPresenter)
     connect(&batteryPresenter, SIGNAL(averageCellVoltageReceived(const int)),
             this, SLOT(averageCellVoltageReceived(const int)));
 
-    connect(&batteryPresenter, SIGNAL(prechargeStateReceived(const QString)),
-            this, SLOT(prechargeStateReceived(const QString)));
-
-    connect(&batteryPresenter, SIGNAL(auxVoltageReceived(const int)),
-            this, SLOT(auxVoltageReceived(const int)));
-
-    connect(&batteryPresenter, SIGNAL(auxBmsAliveReceived(const bool)),
-            this, SLOT(auxBmsAliveReceived(const bool)));
-
     connect(&batteryPresenter, SIGNAL(packNetPowerReceived(const double)),
             this, SLOT(packNetPowerReceived(const double)));
     ui_.progressBarContainer().addWidget(&bar_);
 }
 
+void BatteryView::connectAuxBMS(AuxBmsPresenter& auxBMSPresenter)
+{
+    connect(&auxBMSPresenter, SIGNAL(auxBmsAliveReceived(bool)),
+            this, SLOT(auxBmsAliveReceived(bool)));
+    connect(&auxBMSPresenter, SIGNAL(strobeBmsLightReceived(bool)),
+            this, SLOT(strobeBMSReceived(bool)));
+    connect(&auxBMSPresenter, SIGNAL(allowChargeReceieved(bool)),
+            this, SLOT(allowChargeReceived(bool)));
+    connect(&auxBMSPresenter, SIGNAL(contactorErrorReceieved(bool)),
+            this, SLOT(contactorErrorReceived(bool)));
+    connect(&auxBMSPresenter, SIGNAL(auxVoltageReceived(const int)),
+            this, SLOT(auxVoltageReceived(const int)));
+    connect(&auxBMSPresenter, SIGNAL(prechargeStateReceived(const QString)),
+            this, SLOT(prechargeStateReceived(const QString)));
+}
 
 void BatteryView::aliveReceived(bool alive)
 {
@@ -217,7 +225,6 @@ void BatteryView::bmsRelayStatusReceived(BmsRelayStatusFlags BmsRelayStatus)
     {
         ui_.multipurposeInputSignalStatus().setStyleSheet(OFF);
     }
-
 }
 
 void BatteryView::populatedCellsReceived(int populatedCells)
@@ -491,4 +498,42 @@ void BatteryView::auxBmsAliveReceived(bool auxBmsAlive)
 void BatteryView::packNetPowerReceived(double packNetPower)
 {
     ui_.packNetPower().setText(QString::number(packNetPower, 'f', 2) + " " + POWER_UNIT);
+}
+
+void BatteryView::strobeBMSReceived(bool strobe)
+{
+    if (strobe)
+    {
+        ui_.strobeBMSLabel().setStyleSheet(ON);
+    }
+    else
+    {
+        ui_.strobeBMSLabel().setStyleSheet(OFF);
+    }
+}
+
+void BatteryView::allowChargeReceived(bool allowCharge)
+{
+
+    if (allowCharge)
+    {
+        ui_.allowChargeLabel().setStyleSheet(ON);
+    }
+    else
+    {
+        ui_.allowChargeLabel().setStyleSheet(OFF);
+    }
+}
+
+void BatteryView::contactorErrorReceived(bool contactorError)
+{
+
+    if (contactorError)
+    {
+        ui_.contactorErrorLabel().setStyleSheet(ON);
+    }
+    else
+    {
+        ui_.contactorErrorLabel().setStyleSheet(OFF);
+    }
 }

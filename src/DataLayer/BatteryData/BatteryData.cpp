@@ -126,36 +126,6 @@ int BatteryData::averageCellVoltage() const
     return averageCellVoltage_;
 }
 
-QString BatteryData::prechargeState() const
-{
-    return prechargeState_;
-}
-
-int BatteryData::auxVoltage() const
-{
-    return auxVoltage_;
-}
-
-bool BatteryData::auxBmsAlive() const
-{
-    return auxBmsAlive_;
-}
-
-bool BatteryData::strobeBmsLight() const
-{
-    return strobeBmsLight_;
-}
-
-bool BatteryData::allowCharge() const
-{
-    return allowCharge_;
-}
-
-bool BatteryData::contactorError() const
-{
-    return contactorError_;
-}
-
 double BatteryData::packNetPower() const
 {
     return packNetPower_;
@@ -303,40 +273,4 @@ void BatteryData::setAverageCellVoltage(const int& averageCellVoltage)
 {
     averageCellVoltage_ = averageCellVoltage;
     emit averageCellVoltageReceived(averageCellVoltage_);
-}
-
-void BatteryData::setPrechargeState(const QString& prechargeState)
-{
-    prechargeState_ = prechargeState;
-    emit prechargeStateReceived(prechargeState_);
-}
-
-void BatteryData::setAuxVoltage(const int& auxVoltage)
-{
-    auxVoltage_ = auxVoltage;
-    emit auxVoltageReceived(auxVoltage_);
-}
-
-void BatteryData::setAuxBmsAlive(const bool& auxBmsAlive)
-{
-    auxBmsAlive_ = auxBmsAlive;
-    emit auxBmsAliveReceived(auxBmsAlive_);
-}
-
-void BatteryData::setStrobeBmsLight(const bool& strobeBmsLight)
-{
-    strobeBmsLight_ = strobeBmsLight;
-    emit strobeBmsLightRecieved(strobeBmsLight_);
-}
-
-void BatteryData::setAllowCharge(const bool& allowCharge)
-{
-    allowCharge_ = allowCharge;
-    emit allowChargeRecieved(allowCharge_);
-}
-
-void BatteryData::setContactorError(const bool& contactorError)
-{
-    contactorError_ = contactorError;
-    emit contactorErrorRecieved(contactorError_);
 }
