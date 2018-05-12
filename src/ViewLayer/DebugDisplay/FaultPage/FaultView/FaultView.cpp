@@ -344,7 +344,7 @@ void FaultView::errorFlagsReceived(BatteryErrorFlags batteryErrorFlags)
     updateLabel(batteryErrorFlags.packVoltageSensorFault(), packVoltageSensorFault_, ui_.batteryContentsWidget(), labelBCount_);
     updateLabel(batteryErrorFlags.powerSupplyFault12V(), powerSupplyFault12V_, ui_.batteryContentsWidget(), labelBCount_);
     updateLabel(batteryErrorFlags.thermistorFault(), thermistorFault_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryErrorFlags.voltageRedundancyFault(), alwaysOnSupplyFault_, ui_.batteryContentsWidget(), labelBCount_);
+    updateLabel(batteryErrorFlags.voltageRedundancyFault(), voltageRedundancyFault_, ui_.batteryContentsWidget(), labelBCount_);
     updateLabel(batteryErrorFlags.weakCellFault(), weakCellFault_, ui_.batteryContentsWidget(), labelBCount_);
     updateLabel(batteryErrorFlags.weakPackFault(), weakPackFault_, ui_.batteryContentsWidget(), labelBCount_);
 }
