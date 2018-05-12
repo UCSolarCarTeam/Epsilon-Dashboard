@@ -17,6 +17,7 @@ public:
     QLabel& lowHeadlightsLabel();
     QLabel& lowBeamLabel();
     QLabel& highBeamLabel();
+    QLabel& headlightsOff();
     QLabel& leftSignalLabel();
     QLabel& rightSignalLabel();
     QLabel& leftSignalActiveLabel();

@@ -47,6 +47,11 @@ QLabel& ControlUi::highBeamLabel()
     return *ui_->highBeamlabel;
 }
 
+QLabel& ControlUi::headlightsOff()
+{
+    return *ui_->lightsOff;
+}
+
 QLabel& ControlUi::leftSignalLabel()
 {
     return *ui_->leftSignalLabel;

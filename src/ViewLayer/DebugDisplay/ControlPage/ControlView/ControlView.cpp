@@ -52,6 +52,9 @@ void ControlView::connectDriverControls(DriverControlsPresenter& driverControlsP
     connect(&driverControlsPresenter, SIGNAL(aliveReceived(bool)),
             this, SLOT(aliveReceived(bool)));
 
+    connect(&driverControlsPresenter, SIGNAL(headlightsOffReceived(bool)),
+            this, SLOT(headlightsOffReceived(bool)));
+
     connect(&driverControlsPresenter, SIGNAL(headlightsLowReceived(bool)),
             this, SLOT(lowHeadlightsReceived(bool)));
     connect(&driverControlsPresenter, SIGNAL(headlightsHighReceived(bool)),
@@ -186,6 +189,18 @@ void ControlView::highBeamsReceived(bool lights)
     else
     {
         ui_.highBeamLabel().setStyleSheet(HIGH_BEAMS_OFF);
+    }
+}
+
+void ControlView::headlightsOffReceived(bool lights)
+{
+    if(lights)
+    {
+        ui_.headlightsOff().setStyleSheet(ON);
+    }
+    else
+    {
+        ui_.headlightsOff().setStyleSheet(OFF);
     }
 }
 

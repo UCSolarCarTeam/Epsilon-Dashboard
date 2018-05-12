@@ -32,6 +32,7 @@ private slots:
 
     void lowHeadlightsReceived(bool);
     void highHeadlightsReceived(bool);
+    void headlightsOffReceived(bool);
     void lowBeamsReceived(bool);
     void highBeamsReceived(bool);
 
