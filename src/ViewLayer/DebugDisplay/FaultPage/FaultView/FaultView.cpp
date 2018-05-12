@@ -37,7 +37,8 @@ FaultView::FaultView(MotorFaultsPresenter& motorFaultsPresenter,
                      BatteryFaultsPresenter& batteryFaultsPresenter,
                      I_FaultUi& ui,
                      MotorFaultList motorZeroFaultList,
-                     MotorFaultList motorOneFaultList)
+                     MotorFaultList motorOneFaultList,
+                     BatteryFaultList batteryFaultList)
     : motorFaultsPresenter_(motorFaultsPresenter)
     , batteryFaultsPresenter_(batteryFaultsPresenter)
     , ui_(ui)
@@ -45,41 +46,7 @@ FaultView::FaultView(MotorFaultsPresenter& motorFaultsPresenter,
     , label0Count_(0)
     , motorOneFaultList_(motorOneFaultList)
     , label1Count_(0)
-    , alwaysOnSupplyFault_ ("Always On Supply Fault")
-    , canbusCommunicationsFault_ ("CAN Bus Communications Fault")
-    , chargeLimitEnforcementFault_ ("Charge Limit Enforcement Fault")
-    , chargerSafetyRelayFault_ ("Charger Safety Relay Fault")
-    , currentSensorFault_ ("Current Sensor Fault")
-    , dischargeLimitEnforcementFault_ ("Discharge Limit Enforcement Fault")
-    , fanMonitorFault_ ("Fan Monitor Fault")
-    , highVoltageIsolationFault_ ("High Voltage Isolation Fault")
-    , internalCommununicationFault_ ("Internal Communication Fault")
-    , internalConversionFault_ ("Internal Conversion Fault")
-    , internalLogicFault_ ("Internal Logic Fault")
-    , internalMemoryFault_ ("Internal Memory Fault")
-    , internalThermistorFault_ ("Internal Thermistor Fault")
-    , lowCellVoltageFault_ ("Low Cell Voltage Fault")
-    , openWiringFault_ ("Open Wiring Fault")
-    , packVoltageSensorFault_ ("Pack Voltage Sensor Fault")
-    , powerSupplyFault12V_ ("12V Power Supply Fault")
-    , thermistorFault_ ("Thermistor Fault")
-    , voltageRedundancyFault_ ("Voltage Redundancy Fault")
-    , weakCellFault_ ("Weak Cell Fault")
-    , weakPackFault_ ("Weak Pack Fault")
-    , cclReducedDueToAlternateCurrentLimit_ ("CCL Reduced Due To Alternate Current")
-    , cclReducedDueToChargerLatch_ ("CCL Reduced Due To Charger Latch")
-    , cclReducedDueToHighCellResistance_ ("CCL Reduced Due To High Cell Resistance")
-    , cclReducedDueToHighCellVoltage_ ("CCL Reduced Due To High Cell Voltage")
-    , cclReducedDueToHighPackVoltage_ ("CCL Reduced Due To High Pack Voltage")
-    , cclReducedDueToHighSoc_ ("CCL Reduced Due To High SOC")
-    , cclReducedDueToTemperature_ ("CCL Reduced Due To Temperature")
-    , dclandCclReducedDueToCommunicationFailsafe_ ("DCL and CCL Reduced Due To Communication Fail Safe")
-    , dclandCclReducedDueToVoltageFailsafe_ ("DCL and CCL Reduced Due To Voltage Fail Safe")
-    , dclReducedDueToHighCellResistance_ ("DCL Reduced Due To High Cell Resistance")
-    , dclReducedDueToLowCellVoltage_ ("DCL Reduced Due To Low Cell Voltage")
-    , dclReducedDueToLowPackVoltage_ ("DCL Reduced Due To Low Pack Voltage")
-    , dclReducedDueToLowSoc_ ("DCL Reduced Due To Low SOC")
-    , dclReducedDueToTemperature_ ("DCL Reduced Due To Temperature")
+    , batteryFaultList_(batteryFaultList)
     , labelBCount_ (0)
 {
 
@@ -126,64 +93,37 @@ void FaultView::initializeLabel(QLabel& label, QLayout*& layout, QString& styleS
 void FaultView::initializeLabels(QLayout*& layoutM0, QLayout*& layoutM1, QLayout*& layoutB)
 {
     // Motor 0
-    for(int i = 0; i < motorZeroFaultList_.getErrorLabels().size(); i++)
+    for (int i = 0; i < motorZeroFaultList_.errorLabels().size(); i++)
     {
-        initializeLabel(motorZeroFaultList_.getErrorLabels()[i], layoutM0, ERROR_STYLESHEET);
+        initializeLabel(motorZeroFaultList_.errorLabels()[i], layoutM0, ERROR_STYLESHEET);
     }
 
-    for(int i = 0; i < motorZeroFaultList_.getLimitLabels().size(); i++)
+    for (int i = 0; i < motorZeroFaultList_.limitLabels().size(); i++)
     {
-        initializeLabel(motorZeroFaultList_.getLimitLabels()[i], layoutM0, LIMIT_STYLESHEET);
+        initializeLabel(motorZeroFaultList_.limitLabels()[i], layoutM0, LIMIT_STYLESHEET);
     }
 
     // Motor 1
-    for(int i = 0; i < motorOneFaultList_.getErrorLabels().size(); i++)
+    for (int i = 0; i < motorOneFaultList_.errorLabels().size(); i++)
     {
-        initializeLabel(motorOneFaultList_.getErrorLabels()[i], layoutM1, ERROR_STYLESHEET);
+        initializeLabel(motorOneFaultList_.errorLabels()[i], layoutM1, ERROR_STYLESHEET);
     }
 
-    for(int i = 0; i < motorOneFaultList_.getLimitLabels().size(); i++)
+    for (int i = 0; i < motorOneFaultList_.limitLabels().size(); i++)
     {
-        initializeLabel(motorOneFaultList_.getLimitLabels()[i], layoutM1, LIMIT_STYLESHEET);
+        initializeLabel(motorOneFaultList_.limitLabels()[i], layoutM1, LIMIT_STYLESHEET);
     }
 
     // Battery
-    initializeLabel(alwaysOnSupplyFault_, layoutB, ERROR_STYLESHEET);
-    initializeLabel(canbusCommunicationsFault_, layoutB, ERROR_STYLESHEET);
-    initializeLabel(chargeLimitEnforcementFault_, layoutB, ERROR_STYLESHEET);
-    initializeLabel(chargerSafetyRelayFault_, layoutB, ERROR_STYLESHEET);
-    initializeLabel(currentSensorFault_, layoutB, ERROR_STYLESHEET);
-    initializeLabel(dischargeLimitEnforcementFault_, layoutB, ERROR_STYLESHEET);
-    initializeLabel(fanMonitorFault_, layoutB, ERROR_STYLESHEET);
-    initializeLabel(highVoltageIsolationFault_, layoutB, ERROR_STYLESHEET);
-    initializeLabel(internalCommununicationFault_, layoutB, ERROR_STYLESHEET);
-    initializeLabel(internalConversionFault_, layoutB, ERROR_STYLESHEET);
-    initializeLabel(internalLogicFault_, layoutB, ERROR_STYLESHEET);
-    initializeLabel(internalMemoryFault_, layoutB, ERROR_STYLESHEET);
-    initializeLabel(internalThermistorFault_, layoutB, ERROR_STYLESHEET);
-    initializeLabel(lowCellVoltageFault_, layoutB, ERROR_STYLESHEET);
-    initializeLabel(openWiringFault_, layoutB, ERROR_STYLESHEET);
-    initializeLabel(packVoltageSensorFault_, layoutB, ERROR_STYLESHEET);
-    initializeLabel(powerSupplyFault12V_, layoutB, ERROR_STYLESHEET);
-    initializeLabel(thermistorFault_, layoutB, ERROR_STYLESHEET);
-    initializeLabel(voltageRedundancyFault_, layoutB, ERROR_STYLESHEET);
-    initializeLabel(weakCellFault_, layoutB, ERROR_STYLESHEET);
-    initializeLabel(weakPackFault_, layoutB, ERROR_STYLESHEET);
+    for (int i = 0; i < batteryFaultList_.errorLabels().size(); i++)
+    {
+        initializeLabel(batteryFaultList_.errorLabels()[i], layoutB, ERROR_STYLESHEET);
+    }
 
-    initializeLabel(cclReducedDueToAlternateCurrentLimit_, layoutB, LIMIT_STYLESHEET);
-    initializeLabel(cclReducedDueToChargerLatch_, layoutB, LIMIT_STYLESHEET);
-    initializeLabel(cclReducedDueToHighCellResistance_, layoutB, LIMIT_STYLESHEET);
-    initializeLabel(cclReducedDueToHighCellVoltage_, layoutB, LIMIT_STYLESHEET);
-    initializeLabel(cclReducedDueToHighPackVoltage_, layoutB, LIMIT_STYLESHEET);
-    initializeLabel(cclReducedDueToHighSoc_, layoutB, LIMIT_STYLESHEET);
-    initializeLabel(cclReducedDueToTemperature_, layoutB, LIMIT_STYLESHEET);
-    initializeLabel(dclandCclReducedDueToCommunicationFailsafe_, layoutB, LIMIT_STYLESHEET);
-    initializeLabel(dclandCclReducedDueToVoltageFailsafe_, layoutB, LIMIT_STYLESHEET);
-    initializeLabel(dclReducedDueToHighCellResistance_, layoutB, LIMIT_STYLESHEET);
-    initializeLabel(dclReducedDueToLowCellVoltage_, layoutB, LIMIT_STYLESHEET);
-    initializeLabel(dclReducedDueToLowPackVoltage_, layoutB, LIMIT_STYLESHEET);
-    initializeLabel(dclReducedDueToLowSoc_, layoutB, LIMIT_STYLESHEET);
-    initializeLabel(dclReducedDueToTemperature_, layoutB, LIMIT_STYLESHEET);
+    for (int i = 0; i < batteryFaultList_.limitLabels().size(); i++)
+    {
+        initializeLabel(batteryFaultList_.limitLabels()[i], layoutB, LIMIT_STYLESHEET);
+    }
 }
 
 void FaultView::updateLabel(const bool& receivedValue, QLabel& label, QWidget& contentsWidget, int& labelCount)
@@ -242,9 +182,9 @@ void FaultView::motorZeroErrorFlagsReceived(ErrorFlags motorZeroErrorFlags)
 {
     motorZeroFaultList_.updateErrors(motorZeroErrorFlags);
 
-    for(int i = 0; i < motorZeroFaultList_.getErrorLabels().size(); i++)
+    for (int i = 0; i < motorZeroFaultList_.errorLabels().size(); i++)
     {
-        updateLabel(motorZeroFaultList_.getErrorLabels()[i].isActive(),  motorZeroFaultList_.getErrorLabels()[i], ui_.motor0ContentsWidget(), label0Count_);
+        updateLabel(motorZeroFaultList_.errorLabels()[i].isActive(),  motorZeroFaultList_.errorLabels()[i], ui_.motor0ContentsWidget(), label0Count_);
     }
 }
 
@@ -252,9 +192,9 @@ void FaultView::motorZeroLimitFlagsReceived(LimitFlags motorZeroLimitFlags)
 {
     motorZeroFaultList_.updateLimits(motorZeroLimitFlags);
 
-    for(int i = 0; i < motorZeroFaultList_.getLimitLabels().size(); i++)
+    for (int i = 0; i < motorZeroFaultList_.limitLabels().size(); i++)
     {
-        updateLabel(motorZeroFaultList_.getLimitLabels()[i].isActive(), motorZeroFaultList_.getLimitLabels()[i], ui_.motor0ContentsWidget(), label0Count_);
+        updateLabel(motorZeroFaultList_.limitLabels()[i].isActive(), motorZeroFaultList_.limitLabels()[i], ui_.motor0ContentsWidget(), label0Count_);
     }
 }
 
@@ -262,9 +202,9 @@ void FaultView::motorOneErrorFlagsReceived(ErrorFlags motorOneErrorFlags)
 {
     motorOneFaultList_.updateErrors(motorOneErrorFlags);
 
-    for(int i = 0; i < motorOneFaultList_.getErrorLabels().size(); i++)
+    for (int i = 0; i < motorOneFaultList_.errorLabels().size(); i++)
     {
-        updateLabel(motorOneFaultList_.getErrorLabels()[i].isActive(), motorOneFaultList_.getErrorLabels()[i], ui_.motor1ContentsWidget(), label1Count_);
+        updateLabel(motorOneFaultList_.errorLabels()[i].isActive(), motorOneFaultList_.errorLabels()[i], ui_.motor1ContentsWidget(), label1Count_);
     }
 }
 
@@ -272,51 +212,28 @@ void FaultView::motorOneLimitFlagsReceived(LimitFlags motorOneLimitFlags)
 {
     motorOneFaultList_.updateLimits(motorOneLimitFlags);
 
-    for(int i = 0; i < motorOneFaultList_.getLimitLabels().size(); i++)
+    for (int i = 0; i < motorOneFaultList_.limitLabels().size(); i++)
     {
-        updateLabel(motorOneFaultList_.getLimitLabels()[i].isActive(), motorOneFaultList_.getLimitLabels()[i], ui_.motor1ContentsWidget(), label1Count_);
+        updateLabel(motorOneFaultList_.limitLabels()[i].isActive(), motorOneFaultList_.limitLabels()[i], ui_.motor1ContentsWidget(), label1Count_);
     }
 }
 
 void FaultView::errorFlagsReceived(BatteryErrorFlags batteryErrorFlags)
 {
-    updateLabel(batteryErrorFlags.alwaysOnSupplyFault(), alwaysOnSupplyFault_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryErrorFlags.canbusCommunicationsFault(), canbusCommunicationsFault_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryErrorFlags.chargeLimitEnforcementFault(), chargeLimitEnforcementFault_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryErrorFlags.chargerSafetyRelayFault(), chargerSafetyRelayFault_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryErrorFlags.currentSensorFault(), currentSensorFault_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryErrorFlags.dischargeLimitEnforcementFault(), dischargeLimitEnforcementFault_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryErrorFlags.fanMonitorFault(), fanMonitorFault_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryErrorFlags.highVoltageIsolationFault(), highVoltageIsolationFault_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryErrorFlags.internalCommununicationFault(), internalCommununicationFault_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryErrorFlags.internalConversionFault(), internalConversionFault_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryErrorFlags.internalLogicFault(), internalLogicFault_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryErrorFlags.internalMemoryFault(), internalMemoryFault_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryErrorFlags.internalThermistorFault(), internalThermistorFault_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryErrorFlags.lowCellVoltageFault(), lowCellVoltageFault_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryErrorFlags.openWiringFault(), openWiringFault_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryErrorFlags.packVoltageSensorFault(), packVoltageSensorFault_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryErrorFlags.powerSupplyFault12V(), powerSupplyFault12V_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryErrorFlags.thermistorFault(), thermistorFault_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryErrorFlags.voltageRedundancyFault(), voltageRedundancyFault_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryErrorFlags.weakCellFault(), weakCellFault_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryErrorFlags.weakPackFault(), weakPackFault_, ui_.batteryContentsWidget(), labelBCount_);
+    batteryFaultList_.updateErrors(batteryErrorFlags);
+
+    for (int i = 0; i < batteryFaultList_.errorLabels().size(); i++)
+    {
+        updateLabel(batteryFaultList_.errorLabels()[i].isActive(), batteryFaultList_.errorLabels()[i], ui_.batteryContentsWidget(), labelBCount_);
+    }
 }
 
 void FaultView::limitFlagsReceived(BatteryLimitFlags batteryLimitFlags)
 {
-    updateLabel(batteryLimitFlags.cclReducedDueToAlternateCurrentLimit(), cclReducedDueToAlternateCurrentLimit_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryLimitFlags.cclReducedDueToChargerLatch(), cclReducedDueToChargerLatch_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryLimitFlags.cclReducedDueToHighCellResistance(), cclReducedDueToHighCellResistance_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryLimitFlags.cclReducedDueToHighCellVoltage(), cclReducedDueToHighCellVoltage_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryLimitFlags.cclReducedDueToHighPackVoltage(), cclReducedDueToHighPackVoltage_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryLimitFlags.cclReducedDueToHighSoc(), cclReducedDueToHighSoc_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryLimitFlags.cclReducedDueToTemperature(), cclReducedDueToTemperature_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryLimitFlags.dclandCclReducedDueToCommunicationFailsafe(), dclandCclReducedDueToCommunicationFailsafe_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryLimitFlags.dclandCclReducedDueToVoltageFailsafe(), dclandCclReducedDueToVoltageFailsafe_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryLimitFlags.dclReducedDueToHighCellResistance(), dclReducedDueToHighCellResistance_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryLimitFlags.dclReducedDueToLowCellVoltage(), dclReducedDueToLowCellVoltage_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryLimitFlags.dclReducedDueToLowPackVoltage(), dclReducedDueToLowPackVoltage_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryLimitFlags.dclReducedDueToLowSoc(), dclReducedDueToLowSoc_, ui_.batteryContentsWidget(), labelBCount_);
-    updateLabel(batteryLimitFlags.dclReducedDueToTemperature(), dclReducedDueToTemperature_, ui_.batteryContentsWidget(), labelBCount_);
+    batteryFaultList_.updateLimits(batteryLimitFlags);
+
+    for (int i = 0; i < batteryFaultList_.limitLabels().size(); i++)
+    {
+        updateLabel(batteryFaultList_.limitLabels()[i].isActive(), batteryFaultList_.limitLabels()[i], ui_.batteryContentsWidget(), labelBCount_);
+    }
 }

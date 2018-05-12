@@ -11,6 +11,7 @@
 #include "../../../../PresenterLayer/BatteryFaultsPresenter/BatteryFaultsPresenter.h"
 #include "../../../../PresenterLayer/MotorFaultsPresenter/MotorFaultsPresenter.h"
 #include "../FaultUi/I_FaultUi.h"
+#include "Faults/BatteryFaults/BatteryFaultList.h"
 #include "Faults/MotorFaults/MotorFaultList.h"
 
 class MotorFaultsPresenter;
@@ -25,7 +26,8 @@ public:
               BatteryFaultsPresenter& batteryFaultsPresenter,
               I_FaultUi& ui,
               MotorFaultList motorZeroFaultList,
-              MotorFaultList motorOneFaultList);
+              MotorFaultList motorOneFaultList,
+              BatteryFaultList batteryFaultList);
     ~FaultView();
 
 private:
@@ -49,42 +51,7 @@ private:
     int label1Count_;
 
     // Battery
-    QLabel alwaysOnSupplyFault_;
-    QLabel canbusCommunicationsFault_;
-    QLabel chargeLimitEnforcementFault_;
-    QLabel chargerSafetyRelayFault_;
-    QLabel currentSensorFault_;
-    QLabel dischargeLimitEnforcementFault_;
-    QLabel fanMonitorFault_;
-    QLabel highVoltageIsolationFault_;
-    QLabel internalCommununicationFault_;
-    QLabel internalConversionFault_;
-    QLabel internalLogicFault_;
-    QLabel internalMemoryFault_;
-    QLabel internalThermistorFault_;
-    QLabel lowCellVoltageFault_;
-    QLabel openWiringFault_;
-    QLabel packVoltageSensorFault_;
-    QLabel powerSupplyFault12V_;
-    QLabel thermistorFault_;
-    QLabel voltageRedundancyFault_;
-    QLabel weakCellFault_;
-    QLabel weakPackFault_;
-
-    QLabel cclReducedDueToAlternateCurrentLimit_;
-    QLabel cclReducedDueToChargerLatch_;
-    QLabel cclReducedDueToHighCellResistance_;
-    QLabel cclReducedDueToHighCellVoltage_;
-    QLabel cclReducedDueToHighPackVoltage_;
-    QLabel cclReducedDueToHighSoc_;
-    QLabel cclReducedDueToTemperature_;
-    QLabel dclandCclReducedDueToCommunicationFailsafe_;
-    QLabel dclandCclReducedDueToVoltageFailsafe_;
-    QLabel dclReducedDueToHighCellResistance_;
-    QLabel dclReducedDueToLowCellVoltage_;
-    QLabel dclReducedDueToLowPackVoltage_;
-    QLabel dclReducedDueToLowSoc_;
-    QLabel dclReducedDueToTemperature_;
+    BatteryFaultList batteryFaultList_;
     int labelBCount_;
 
 private slots:

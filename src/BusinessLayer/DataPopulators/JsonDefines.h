@@ -113,7 +113,7 @@ namespace JsonFormat
     const QString BATTERYFAULTS = "BatteryFaults";
 
     const QString BATTERYFAULTS_ERRORFLAGS = "ErrorFlags";
-    const QString BATTERYFAULTS_ERRORFLAGS_INTERNALCOMMUNICATIONFAULT = "InternalCommununicationFault";
+    const QString BATTERYFAULTS_ERRORFLAGS_INTERNALCOMMUNICATIONFAULT = "InternalCommunicationFault";
     const QString BATTERYFAULTS_ERRORFLAGS_INTERNALCONVERSIONFAULT = "InternalConversionFault";
     const QString BATTERYFAULTS_ERRORFLAGS_WEAKCELLFAULT = "WeakCellFault";
     const QString BATTERYFAULTS_ERRORFLAGS_LOWCELLVOLTAGEFAULT = "LowCellVoltageFault";

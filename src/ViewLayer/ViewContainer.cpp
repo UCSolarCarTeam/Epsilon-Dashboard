@@ -66,6 +66,7 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
         tabUi_ = new TabUi();
         MotorFaultList* motorZeroFaultList = new MotorFaultList();
         MotorFaultList* motorOneFaultList = new MotorFaultList();
+        BatteryFaultList* batteryFaultList = new BatteryFaultList();
         overlordWidget_.reset(new OverlordWidget(*batteryUi_, *controlUi_,
                               *homepageUi_, *faultUi_,
                               *motorUi_, *mpptUi_, *tabUi_));
@@ -77,7 +78,8 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
                                        presenterContainer.batteryFaultsPresenter(),
                                        *faultUi_,
                                        *motorZeroFaultList,
-                                       *motorOneFaultList));
+                                       *motorOneFaultList,
+                                       *batteryFaultList));
 
 
         MpptView_.reset(new MpptView(presenterContainer.mpptPresenter(), *mpptUi_));
