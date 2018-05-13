@@ -17,7 +17,9 @@
 #include "DebugDisplay/Tab/TabUi/TabUi.h"
 #include "DebugDisplay/MPPTPage/MPPTUi/MpptUi.h"
 #include "DebugDisplay/MPPTPage/MPPTView/MpptView.h"
+
 ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
+
 {
     if (mode == Mode::DISPLAY)
     {
@@ -50,6 +52,11 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
     else if (mode == Mode::DEBUG)
     {
         batteryUi_ = new BatteryUi();
+
+        ProgressBar_ = new ProgressBar();
+        BatteryView_.reset(new BatteryView(presenterContainer.batteryPresenter(),
+                                           *batteryUi_, *ProgressBar_, presenterContainer.auxBmsPresenter()) );
+
         controlUi_ = new ControlUi();
         homepageUi_ = new HomePageUi();
         faultUi_ = new FaultUi();
@@ -69,7 +76,7 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
 
 
         MpptView_.reset(new MpptView(presenterContainer.mpptPresenter(), *mpptUi_));
-        ControlView_.reset(new ControlView(presenterContainer.driverControlsPresenter(), *controlUi_));
+        ControlView_.reset(new ControlView(presenterContainer.driverControlsPresenter(), presenterContainer.lightsPresenter(), *controlUi_));
         HomePageView_.reset(new HomePageView(*homepageUi_));
     }
 }
