@@ -11,11 +11,17 @@ class ControlUi : public I_ControlUi
 public:
     explicit ControlUi();
     ~ControlUi();
-    QWidget& aliveIndicator();
+    QLabel& aliveIndicator();
+    QLabel& lightsIndicator();
     QLabel& highHeadlightsLabel();
     QLabel& lowHeadlightsLabel();
+    QLabel& lowBeamLabel();
+    QLabel& highBeamLabel();
+    QLabel& headlightsOff();
     QLabel& leftSignalLabel();
     QLabel& rightSignalLabel();
+    QLabel& leftSignalActiveLabel();
+    QLabel& rightSignalActiveLabel();
     QLabel& hazardOnLabel();
     QLabel& interiorOnLabel();
     QLabel& pushToTalkOnLabel();
@@ -26,6 +32,7 @@ public:
     QLabel& volumeUpLabel();
     QLabel& volumeDownLabel();
     QLabel& brakesOnLabel();
+    QLabel& brakesOnActiveLabel();
     QLabel& forwardOnLabel();
     QLabel& reverseOnLabel();
     QLabel& auxOnLabel();
