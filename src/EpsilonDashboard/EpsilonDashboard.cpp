@@ -11,6 +11,13 @@
 #include <QDebug>
 #include <QString>
 
+namespace
+{
+    const char* RACE_QUEUE = "raceQueue";
+    const char* DISPLAY_QUEUE = "displayQueue";
+    const char* DEBUG_QUEUE = "debugQueue";
+}
+
 EpsilonDashboard::EpsilonDashboard(int& argc, char** argv)
     : QApplication(argc, argv)
     , infrastructureContainer_(new InfrastructureContainer())
@@ -31,16 +38,16 @@ EpsilonDashboard::EpsilonDashboard(int& argc, char** argv)
     if (parser.isSet(raceModeOption))
     {
         mode = Mode::RACE;
-        infrastructureContainer_->setQueueName(infrastructureContainer_->getRaceQueueName());
+        infrastructureContainer_->setQueueName(RACE_QUEUE);
     }
     else if (parser.isSet(debugModeOption))
     {
         mode = Mode::DEBUG;
-        infrastructureContainer_->setQueueName(infrastructureContainer_->getDebugQueueName());
+        infrastructureContainer_->setQueueName(DEBUG_QUEUE);
     }
     else
     {
-        infrastructureContainer_->setQueueName(infrastructureContainer_->getDisplayQueueName());
+        infrastructureContainer_->setQueueName(DISPLAY_QUEUE);
     }
 
     viewContainer_.reset(new ViewContainer(*presenterContainer_, mode));
