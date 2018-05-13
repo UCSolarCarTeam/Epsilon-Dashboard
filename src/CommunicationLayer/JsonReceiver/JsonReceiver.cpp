@@ -37,7 +37,8 @@ JsonReceiver::JsonReceiver(AuxBmsPopulator& auxBmsPopulator,
                            MpptPopulator& mpptPopulator,
                            MotorDetailsPopulator& motorDetailsPopulator,
                            MotorFaultsPopulator& motorFaultsPopulator,
-                           I_CommunicationsMonitoringService& communicationsMonitoringService, bool loggingEnabled)
+                           I_CommunicationsMonitoringService& communicationsMonitoringService,
+                           bool loggingEnabled)
     : auxBmsPopulator_(auxBmsPopulator)
     , batteryPopulator_(batteryPopulator)
     , batteryFaultsPopulator_(batteryFaultsPopulator)
