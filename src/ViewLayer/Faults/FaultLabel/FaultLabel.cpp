@@ -2,7 +2,7 @@
 
 FaultLabel::FaultLabel()
     : QLabel("")
-    , color_("")
+    , color_(FaultPriorities::DEFAULT_COLOR)
     , priority_(FaultPriorities::INVALID_PRIORITY)
     , isActive_(false)
 {
@@ -57,6 +57,9 @@ QColor FaultLabel::priorityToColor(FaultPriorities::PRIORITY priority)
 {
     switch (priority)
     {
+        case FaultPriorities::INVALID_PRIORITY:
+            return FaultPriorities::DEFAULT_COLOR;
+
         case FaultPriorities::HIGH_PRIORITY:
             return FaultPriorities::HIGH_PRIORITY_COLOR;
 
@@ -67,5 +70,5 @@ QColor FaultLabel::priorityToColor(FaultPriorities::PRIORITY priority)
             return FaultPriorities::LOW_PRIORITY_COLOR;
     }
 
-    return FaultPriorities::HIGH_PRIORITY_COLOR;
+    return FaultPriorities::DEFAULT_COLOR;
 }
