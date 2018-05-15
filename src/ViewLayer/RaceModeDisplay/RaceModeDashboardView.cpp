@@ -1,5 +1,6 @@
 #include "RaceModeDashboardView.h"
 #include "../../PresenterLayer/BatteryPresenter/BatteryPresenter.h"
+#include "../../PresenterLayer/AuxBmsPresenter/AuxBmsPresenter.h"
 #include "../../PresenterLayer/DriverControlsPresenter/DriverControlsPresenter.h"
 #include "../../PresenterLayer/KeyMotorPresenter/KeyMotorPresenter.h"
 #include "../../PresenterLayer/LightsPresenter/LightsPresenter.h"
@@ -28,6 +29,7 @@ namespace
 
 RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
         BatteryFaultsPresenter& batteryFaultsPresenter,
+        AuxBmsPresenter& auxBmsPresenter,
         DriverControlsPresenter& driverControlsPresenter,
         KeyMotorPresenter& keyMotorPresenter,
         LightsPresenter& lightsPresenter,
@@ -37,6 +39,7 @@ RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
         I_RaceModeDashboardUI& ui)
     : batteryPresenter_(batteryPresenter)
     , batteryFaultsPresenter_(batteryFaultsPresenter)
+    , auxBmsPresenter_(auxBmsPresenter)
     , driverControlsPresenter_(driverControlsPresenter)
     , keyMotorPresenter_(keyMotorPresenter)
     , lightsPresenter_(lightsPresenter)
@@ -51,6 +54,7 @@ RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
 {
     connectBattery(batteryPresenter_);
     connectBatteryFaults(batteryFaultsPresenter_);
+    connectAuxBms(auxBmsPresenter_);
     connectDriverControls(driverControlsPresenter_);
     connectKeyMotor(keyMotorPresenter_);
     connectLights(lightsPresenter_);
@@ -67,13 +71,9 @@ RaceModeDashboardView::~RaceModeDashboardView()
 void RaceModeDashboardView::connectBattery(BatteryPresenter& batteryPresenter)
 {
     connect(&batteryPresenter, SIGNAL(aliveReceived(bool)),
-            this, SLOT(aliveReceived(bool)));
-    connect(&batteryPresenter, SIGNAL(prechargeStateReceived(QString)),
-            this, SLOT(prechargeStateReceived(QString)));
+            this, SLOT(aliveReceived(bool))); 
     connect(&batteryPresenter, SIGNAL(packNetPowerReceived(double)),
-            this, SLOT(packNetPowerReceived(double)));
-    connect(&batteryPresenter, SIGNAL(auxVoltageReceived(int)),
-            this, SLOT(auxVoltageReceived(int)));
+            this, SLOT(packNetPowerReceived(double))); 
     connect(&batteryPresenter, SIGNAL(packStateOfChargeReceived(double)),
             this, SLOT(packStateOfChargeReceived(double)));
     connect(&batteryPresenter, SIGNAL(lowCellVoltageReceived(int)),
@@ -92,6 +92,14 @@ void RaceModeDashboardView::connectBatteryFaults(BatteryFaultsPresenter& battery
             this, SLOT(errorFlagsReceived(BatteryErrorFlags)));
     connect(&batteryFaultsPresenter, SIGNAL(limitFlagsReceived(BatteryLimitFlags)),
             this, SLOT(limitFlagsReceived(BatteryLimitFlags)));
+}
+
+void RaceModeDashboardView::connectAuxBms(AuxBmsPresenter& auxBmsPresenter)
+{
+    connect(&auxBmsPresenter, SIGNAL(prechargeStateReceived(QString)),
+            this, SLOT(prechargeStateReceived(QString)));
+    connect(&auxBmsPresenter, SIGNAL(auxVoltageReceived(int)),
+            this, SLOT(auxVoltageReceived(int)));
 }
 
 void RaceModeDashboardView::connectDriverControls(DriverControlsPresenter& driverControlsPresenter)
@@ -162,7 +170,7 @@ void RaceModeDashboardView::prechargeStateReceived(QString prechargeState)
 void RaceModeDashboardView::packNetPowerReceived(double netPower)
 {
     ui_.netPowerLabel().setText(QString::number(netPower, 'f', 1));
-    ui_.powerOutLabel().setText(QString::number(netPower - ui_.powerInLabel().text().toDouble(), 'f', 1));
+    ui_.powerOutLabel().setText(QString::number(qAbs(netPower - ui_.powerInLabel().text().toDouble()), 'f', 1));
 }
 
 void RaceModeDashboardView::auxVoltageReceived(int auxVoltage)
@@ -286,10 +294,9 @@ void RaceModeDashboardView::rightSignalReceived(bool rightSignal)
 }
 void RaceModeDashboardView::lightAliveReceived(bool)
 {
-    // TODO
+
 }
 
-//TODO
 void RaceModeDashboardView::mpptReceived(int i, Mppt mppt)
 {
     if (i == 0)
@@ -313,7 +320,7 @@ void RaceModeDashboardView::mpptReceived(int i, Mppt mppt)
 void RaceModeDashboardView::mpptPowerReceived(double mpptPower)
 {
     ui_.powerInLabel().setText(QString::number(mpptPower, 'f', 1));
-    ui_.powerOutLabel().setText(QString::number(ui_.netPowerLabel().text().toDouble() - mpptPower, 'f', 1));
+    ui_.powerOutLabel().setText(QString::number(qAbs(ui_.netPowerLabel().text().toDouble() - mpptPower), 'f', 1));
 }
 
 void RaceModeDashboardView::motorZeroErrorFlagsReceived(ErrorFlags flags)

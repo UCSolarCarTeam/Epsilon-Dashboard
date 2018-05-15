@@ -11,6 +11,7 @@
 
 class BatteryPresenter;
 class BatteryFaultsPresenter;
+class AuxBmsPresenter;
 class DriverControlsPresenter;
 class I_RaceModeDashboardUI;
 class KeyMotorPresenter;
@@ -25,6 +26,7 @@ class RaceModeDashboardView : public QObject
 public:
     RaceModeDashboardView(BatteryPresenter& batteryPresenter,
                           BatteryFaultsPresenter& batteryFaultsPresenter,
+                          AuxBmsPresenter& auxBmsPresenter,
                           DriverControlsPresenter& driverControlsPresenter,
                           KeyMotorPresenter& keyMotorPresenter,
                           LightsPresenter& lightsPresenter,
@@ -37,6 +39,7 @@ public:
 private:
     void connectBattery(BatteryPresenter&);
     void connectBatteryFaults(BatteryFaultsPresenter&);
+    void connectAuxBms(AuxBmsPresenter&);
     void connectDriverControls(DriverControlsPresenter&);
     void connectKeyMotor(KeyMotorPresenter&);
     void connectLights(LightsPresenter&);
@@ -46,6 +49,7 @@ private:
 
     BatteryPresenter& batteryPresenter_;
     BatteryFaultsPresenter& batteryFaultsPresenter_;
+    AuxBmsPresenter& auxBmsPresenter_;
     DriverControlsPresenter& driverControlsPresenter_;
     KeyMotorPresenter& keyMotorPresenter_;
     LightsPresenter& lightsPresenter_;
