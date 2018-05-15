@@ -7,11 +7,17 @@ class I_ControlUi: public QWidget
 {
 public:
     virtual ~I_ControlUi() {}
-    virtual QWidget& aliveIndicator() = 0;
+    virtual QLabel& aliveIndicator() = 0;
+    virtual QLabel& lightsIndicator() = 0;
     virtual QLabel& highHeadlightsLabel() = 0;
     virtual QLabel& lowHeadlightsLabel() = 0;
+    virtual QLabel& lowBeamLabel() = 0;
+    virtual QLabel& highBeamLabel() = 0;
+    virtual QLabel& headlightsOff() = 0;
     virtual QLabel& leftSignalLabel() = 0;
     virtual QLabel& rightSignalLabel() = 0;
+    virtual QLabel& leftSignalActiveLabel() = 0;
+    virtual QLabel& rightSignalActiveLabel() = 0;
     virtual QLabel& hazardOnLabel() = 0;
     virtual QLabel& interiorOnLabel() = 0;
     virtual QLabel& pushToTalkOnLabel() = 0;
@@ -22,6 +28,7 @@ public:
     virtual QLabel& volumeUpLabel() = 0;
     virtual QLabel& volumeDownLabel() = 0;
     virtual QLabel& brakesOnLabel() = 0;
+    virtual QLabel& brakesOnActiveLabel() = 0;
     virtual QLabel& forwardOnLabel() = 0;
     virtual QLabel& reverseOnLabel() = 0;
     virtual QLabel& auxOnLabel() = 0;

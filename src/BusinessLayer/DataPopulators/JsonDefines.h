@@ -173,7 +173,7 @@ namespace JsonFormat
     const QString BATTERY_PACKVOLTAGE = "PackVoltage";
     const QString BATTERY_PACKSTATEOFCHARGE = "PackStateOfCharge";
     const QString BATTERY_PACKAMPHOURS = "PackAmphours";
-    const QString BATTERY_PACKDEPTHOFDISCHARGE = "PackDepthofDischarge";
+    const QString BATTERY_PACKDEPTHOFDISCHARGE = "PackDepthOfDischarge";
 
     const QString BATTERY_HIGHTEMPERATURE = "HighTemperature";
     const QString BATTERY_HIGHTHERMISTORID = "HighThermistorId";
