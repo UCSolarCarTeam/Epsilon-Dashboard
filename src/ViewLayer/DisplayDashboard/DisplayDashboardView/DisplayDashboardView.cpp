@@ -170,30 +170,22 @@ void DisplayDashboardView::packStateOfChargeReceived(double packSocPercentage)
     // with a slope and intercept.
 
     // Default colour
-//    int red = RED_INITIAL;
-//    int green = GREEN_INITIAL;
-//    int blue = BLUE_INITIAL;
+    int red = RED_INITIAL;
+    int green = GREEN_INITIAL;
+    int blue = BLUE_INITIAL;
 
-//    // Calculated color
-//    red += int(RED_SLOPE * packSocPercentage);
-//    green += int(GREEN_SLOPE * packSocPercentage);
+    // Calculated color
+    red += int(RED_SLOPE * packSocPercentage);
+    green += int(GREEN_SLOPE * packSocPercentage);
 
-//    QString r = QString::number(red);
-//    QString g = QString::number(green);
-//    QString b = QString::number(blue);
+    QString r = QString::number(red);
+    QString g = QString::number(green);
+    QString b = QString::number(blue);
 
-//    QString rgb = QString("rgb(%1,%2,%3);").arg(r, g, b);
+    QString rgb = QString("rgb(%1,%2,%3);").arg(r, g, b);
 
-//    ui_.stateOfChargeCapacityWidget().setStyleSheet(DEFAULT_STYLESHEET + rgb + "}");
+    ui_.stateOfChargeCapacityWidget().setStyleSheet(DEFAULT_STYLESHEET + rgb + "}");
 }
-/*
-void DisplayDashboardView::prechargeTimerElapsedReceived(bool prechargeTimerElapsed)
-{
-}
-void DisplayDashboardView::prechargeTimerCountReceived(double prechargeTimerCount)
-{
-}
-*/
 void DisplayDashboardView::highTemperatureReceived(int maxCellTemp)
 {
     ui_.maxCellTemperatureLabel().setNum(maxCellTemp);
