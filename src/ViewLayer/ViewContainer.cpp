@@ -25,6 +25,7 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
     {
         DisplayDashboardUI_ = new DisplayDashboardUI();
         DisplayDashboardView_.reset(new DisplayDashboardView(
+                                        presenterContainer.auxBmsPresenter(),
                                         presenterContainer.batteryPresenter(),
                                         presenterContainer.batteryFaultsPresenter(),
                                         presenterContainer.driverControlsPresenter(),

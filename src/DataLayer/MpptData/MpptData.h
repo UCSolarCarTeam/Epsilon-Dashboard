@@ -10,7 +10,6 @@ public:
 
     void setMppt(int i, Mppt mppt);
 
-
 private:
     QList<Mppt> mpptList_;
 };
