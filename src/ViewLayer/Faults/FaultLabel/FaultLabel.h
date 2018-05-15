@@ -17,7 +17,7 @@ public:
 
     QString name() const;
     QColor color() const;
-    int priority() const;
+    FaultPriorities::PRIORITY priority() const;
     bool isActive() const;
 
     void setActive(bool);
@@ -27,6 +27,6 @@ private:
     QColor priorityToColor(FaultPriorities::PRIORITY);
 
     QColor color_;
-    int priority_;
+    FaultPriorities::PRIORITY priority_;
     bool isActive_;
 };

@@ -3,7 +3,7 @@
 FaultLabel::FaultLabel()
     : QLabel("")
     , color_("")
-    , priority_(-1)
+    , priority_(FaultPriorities::INVALID_PRIORITY)
     , isActive_(false)
 {
 }
@@ -38,7 +38,7 @@ QColor FaultLabel::color() const
     return color_;
 }
 
-int FaultLabel::priority() const
+FaultPriorities::PRIORITY FaultLabel::priority() const
 {
     return priority_;
 }
