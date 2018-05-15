@@ -37,19 +37,14 @@ QLabel& RaceModeDashboardUI::batteryFaultsLabel()
     return *ui_->batteryFaultsLabel;
 }
 
-QWidget& RaceModeDashboardUI::motorFaultsWidget()
+QLabel& RaceModeDashboardUI::motorZeroFaultsLabel()
 {
-    return *ui_->motorFaultsWidget;
+    return *ui_->motorZeroFaultsLabel;
 }
 
-QWidget& RaceModeDashboardUI::motorZeroFaultsWidget()
+QLabel& RaceModeDashboardUI::motorOneFaultsLabel()
 {
-    return *ui_->motorZeroFaultsWidget;
-}
-
-QWidget& RaceModeDashboardUI::motorOneFaultsWidget()
-{
-    return *ui_->motorOneFaultsWidget;
+    return *ui_->motorOneFaultsLabel;
 }
 
 QWidget& RaceModeDashboardUI::leftTurnSignalWidget()

@@ -7,6 +7,8 @@
 #include "../../DataLayer/MotorFaultsData/ErrorFlags.h"
 #include "../../DataLayer/MotorFaultsData/LimitFlags.h"
 #include "../../PresenterLayer/BatteryFaultsPresenter/BatteryFaultsPresenter.h"
+#include "Faults/BatteryFaults/BatteryFaultList.h"
+#include "Faults/MotorFaults/MotorFaultList.h"
 
 
 class BatteryPresenter;
@@ -31,7 +33,10 @@ public:
                           MpptPresenter& mpptPresenter,
                           MotorDetailsPresenter& motorDetailsPresenter,
                           MotorFaultsPresenter& motorFaultsPresenter,
-                          I_RaceModeDashboardUI& ui);
+                          I_RaceModeDashboardUI& ui,
+                          MotorFaultList& motorZeroFaultsList,
+                          MotorFaultList& motorOneFaultsList,
+                          BatteryFaultList& batteryFaultsList);
     ~RaceModeDashboardView();
 
 private:
@@ -44,6 +49,9 @@ private:
     void connectMotorDetails(MotorDetailsPresenter&);
     void connectMotorFaults(MotorFaultsPresenter&);
 
+    void updateFaultLabel(QLabel&, FaultLabel);
+
+
     BatteryPresenter& batteryPresenter_;
     BatteryFaultsPresenter& batteryFaultsPresenter_;
     DriverControlsPresenter& driverControlsPresenter_;
@@ -52,13 +60,10 @@ private:
     MpptPresenter& mpptPresenter_;
     MotorDetailsPresenter& motorDetailsPresenter_;
     MotorFaultsPresenter& motorFaultsPresenter_;
-
-    bool motorZeroLimitRecieved_;
-    bool motorZeroErrorRecieved_;
-    bool motorOneLimitRecieved_;
-    bool motorOneErrorRecieved_;
-
     I_RaceModeDashboardUI& ui_;
+    MotorFaultList& motorZeroFaultsList_;
+    MotorFaultList& motorOneFaultsList_;
+    BatteryFaultList& batteryFaultsList_;
 
 private slots:
     // battery data slots
