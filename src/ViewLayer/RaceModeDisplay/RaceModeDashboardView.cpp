@@ -71,9 +71,9 @@ RaceModeDashboardView::~RaceModeDashboardView()
 void RaceModeDashboardView::connectBattery(BatteryPresenter& batteryPresenter)
 {
     connect(&batteryPresenter, SIGNAL(aliveReceived(bool)),
-            this, SLOT(aliveReceived(bool))); 
+            this, SLOT(aliveReceived(bool)));
     connect(&batteryPresenter, SIGNAL(packNetPowerReceived(double)),
-            this, SLOT(packNetPowerReceived(double))); 
+            this, SLOT(packNetPowerReceived(double)));
     connect(&batteryPresenter, SIGNAL(packStateOfChargeReceived(double)),
             this, SLOT(packStateOfChargeReceived(double)));
     connect(&batteryPresenter, SIGNAL(lowCellVoltageReceived(int)),
