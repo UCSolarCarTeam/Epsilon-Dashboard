@@ -2,6 +2,8 @@
 #include "RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.h"
 #include "DisplayDashboard/DisplayDashboardView/DisplayDashboardView.h"
 #include "RaceModeDisplay/RaceModeDashboardView.h"
+#include "Faults/BatteryFaults/BatteryFaultList.h"
+#include "Faults/MotorFaults/MotorFaultList.h"
 #include "../PresenterLayer/PresenterContainer.h"
 #include "ViewContainer.h"
 #include "DebugDisplay/BatteryPage/BatteryUi/BatteryUi.h"
@@ -25,6 +27,7 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
     {
         DisplayDashboardUI_ = new DisplayDashboardUI();
         DisplayDashboardView_.reset(new DisplayDashboardView(
+                                        presenterContainer.auxBmsPresenter(),
                                         presenterContainer.batteryPresenter(),
                                         presenterContainer.batteryFaultsPresenter(),
                                         presenterContainer.driverControlsPresenter(),
@@ -37,6 +40,9 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
     }
     else if (mode == Mode::RACE)
     {
+        MotorFaultList* motorZeroFaultList = new MotorFaultList();
+        MotorFaultList* motorOneFaultList = new MotorFaultList();
+        BatteryFaultList* batteryFaultList = new BatteryFaultList();
         RaceModeDashboardUI_ = new RaceModeDashboardUI();
         RaceModeDashboardView_.reset(new RaceModeDashboardView(
                                          presenterContainer.batteryPresenter(),
@@ -48,7 +54,10 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
                                          presenterContainer.mpptPresenter(),
                                          presenterContainer.motorDetailsPresenter(),
                                          presenterContainer.motorFaultsPresenter(),
-                                         *RaceModeDashboardUI_));
+                                         *RaceModeDashboardUI_,
+                                         *motorZeroFaultList,
+                                         *motorOneFaultList,
+                                         *batteryFaultList));
     }
     else if (mode == Mode::DEBUG)
     {

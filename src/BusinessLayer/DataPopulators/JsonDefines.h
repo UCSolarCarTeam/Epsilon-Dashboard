@@ -113,7 +113,7 @@ namespace JsonFormat
     const QString BATTERYFAULTS = "BatteryFaults";
 
     const QString BATTERYFAULTS_ERRORFLAGS = "ErrorFlags";
-    const QString BATTERYFAULTS_ERRORFLAGS_INTERNALCOMMUNICATIONFAULT = "InternalCommununicationFault";
+    const QString BATTERYFAULTS_ERRORFLAGS_INTERNALCOMMUNICATIONFAULT = "InternalCommunicationFault";
     const QString BATTERYFAULTS_ERRORFLAGS_INTERNALCONVERSIONFAULT = "InternalConversionFault";
     const QString BATTERYFAULTS_ERRORFLAGS_WEAKCELLFAULT = "WeakCellFault";
     const QString BATTERYFAULTS_ERRORFLAGS_LOWCELLVOLTAGEFAULT = "LowCellVoltageFault";
@@ -135,7 +135,7 @@ namespace JsonFormat
     const QString BATTERYFAULTS_ERRORFLAGS_INTERNALTHERMISTORFAULT = "InternalThermistorFault";
     const QString BATTERYFAULTS_ERRORFLAGS_INTERNALLOGICFAULT = "InternalLogicFault";
 
-    const QString BATTERYFAULTS_LIMITSFLAGS = "LimitsFlags";
+    const QString BATTERYFAULTS_LIMITSFLAGS = "LimitFlags";
     const QString BATTERYFAULTS_LIMITSFLAGS_DCLREDUCEDDUETOLOWSOC = "DclReducedDueToLowSoc";
     const QString BATTERYFAULTS_LIMITSFLAGS_DCLREDUCEDDUETOHIGHCELLRESISTANCE = "DclReducedDueToHighCellResistance";
     const QString BATTERYFAULTS_LIMITSFLAGS_DCLREDUCEDDUETOTEMPERATURE = "DclReducedDueToTemperature";
