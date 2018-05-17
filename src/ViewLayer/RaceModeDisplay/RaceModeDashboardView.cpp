@@ -1,5 +1,6 @@
 #include "RaceModeDashboardView.h"
 #include "../../PresenterLayer/BatteryPresenter/BatteryPresenter.h"
+#include "../../PresenterLayer/AuxBmsPresenter/AuxBmsPresenter.h"
 #include "../../PresenterLayer/DriverControlsPresenter/DriverControlsPresenter.h"
 #include "../../PresenterLayer/KeyMotorPresenter/KeyMotorPresenter.h"
 #include "../../PresenterLayer/LightsPresenter/LightsPresenter.h"
@@ -23,10 +24,12 @@ namespace
             QProgressBar::chunk:horizontal{\
             border-radius: 7px;\
             background: ";
+    const QString TEMPERATURE_UNIT = "<sup>o</sup>";
 }
 
 RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
         BatteryFaultsPresenter& batteryFaultsPresenter,
+        AuxBmsPresenter& auxBmsPresenter,
         DriverControlsPresenter& driverControlsPresenter,
         KeyMotorPresenter& keyMotorPresenter,
         LightsPresenter& lightsPresenter,
@@ -39,6 +42,7 @@ RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
         BatteryFaultList& batteryFaultsList)
     : batteryPresenter_(batteryPresenter)
     , batteryFaultsPresenter_(batteryFaultsPresenter)
+    , auxBmsPresenter_(auxBmsPresenter)
     , driverControlsPresenter_(driverControlsPresenter)
     , keyMotorPresenter_(keyMotorPresenter)
     , lightsPresenter_(lightsPresenter)
@@ -52,6 +56,7 @@ RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
 {
     connectBattery(batteryPresenter_);
     connectBatteryFaults(batteryFaultsPresenter_);
+    connectAuxBms(auxBmsPresenter_);
     connectDriverControls(driverControlsPresenter_);
     connectKeyMotor(keyMotorPresenter_);
     connectLights(lightsPresenter_);
@@ -69,10 +74,18 @@ void RaceModeDashboardView::connectBattery(BatteryPresenter& batteryPresenter)
 {
     connect(&batteryPresenter, SIGNAL(aliveReceived(bool)),
             this, SLOT(aliveReceived(bool)));
-    connect(&batteryPresenter, SIGNAL(prechargeStateReceived(QString)),
-            this, SLOT(prechargeStateReceived(QString)));
     connect(&batteryPresenter, SIGNAL(packNetPowerReceived(double)),
             this, SLOT(packNetPowerReceived(double)));
+    connect(&batteryPresenter, SIGNAL(packStateOfChargeReceived(double)),
+            this, SLOT(packStateOfChargeReceived(double)));
+    connect(&batteryPresenter, SIGNAL(lowCellVoltageReceived(int)),
+            this, SLOT(lowCellVoltageReceived(int)));
+    connect(&batteryPresenter, SIGNAL(averageCellVoltageReceived(int)),
+            this, SLOT(averageCellVoltageReceived(int)));
+    connect(&batteryPresenter, SIGNAL(highTemperatureReceived(int)),
+            this, SLOT(highTemperatureReceived(int)));
+    connect(&batteryPresenter, SIGNAL(averageTemperatureReceived(int)),
+            this, SLOT(averageTemperatureReceived(int)));
 }
 
 void RaceModeDashboardView::connectBatteryFaults(BatteryFaultsPresenter& batteryFaultsPresenter)
@@ -81,6 +94,14 @@ void RaceModeDashboardView::connectBatteryFaults(BatteryFaultsPresenter& battery
             this, SLOT(errorFlagsReceived(BatteryErrorFlags)));
     connect(&batteryFaultsPresenter, SIGNAL(limitFlagsReceived(BatteryLimitFlags)),
             this, SLOT(limitFlagsReceived(BatteryLimitFlags)));
+}
+
+void RaceModeDashboardView::connectAuxBms(AuxBmsPresenter& auxBmsPresenter)
+{
+    connect(&auxBmsPresenter, SIGNAL(prechargeStateReceived(QString)),
+            this, SLOT(prechargeStateReceived(QString)));
+    connect(&auxBmsPresenter, SIGNAL(auxVoltageReceived(int)),
+            this, SLOT(auxVoltageReceived(int)));
 }
 
 void RaceModeDashboardView::connectDriverControls(DriverControlsPresenter& driverControlsPresenter)
@@ -163,8 +184,38 @@ void RaceModeDashboardView::prechargeStateReceived(QString prechargeState)
 
 void RaceModeDashboardView::packNetPowerReceived(double netPower)
 {
-    ui_.netPowerLabel().setNum(netPower);
-    ui_.powerOutLabel().setNum(netPower - ui_.powerInLabel().text().toDouble());
+    ui_.netPowerLabel().setText(QString::number(netPower, 'f', 1));
+    ui_.powerOutLabel().setText(QString::number(qAbs(netPower - ui_.powerInLabel().text().toDouble()), 'f', 1));
+}
+
+void RaceModeDashboardView::auxVoltageReceived(int auxVoltage)
+{
+    ui_.auxVoltageLabel().setText(QString::number(auxVoltage, 'f', 2));
+}
+
+void RaceModeDashboardView::packStateOfChargeReceived(double stateOfCharge)
+{
+    ui_.stateOfChargeCapacityWidget().setValue(stateOfCharge);
+}
+
+void RaceModeDashboardView::lowCellVoltageReceived(int lowVoltage)
+{
+    ui_.lowestCellVoltageLabel().setNum(lowVoltage);
+}
+
+void RaceModeDashboardView::averageCellVoltageReceived(int averageVoltage)
+{
+    ui_.avgCellVoltageLabel().setNum(averageVoltage);
+}
+
+void RaceModeDashboardView::highTemperatureReceived(int highTemp)
+{
+    ui_.maxCellTemperatureLabel().setText(QString::number(highTemp) + " " + TEMPERATURE_UNIT);
+}
+
+void RaceModeDashboardView::averageTemperatureReceived(int avgTemp)
+{
+    ui_.avgCellTemperatureLabel().setText(QString::number(avgTemp) + " " + TEMPERATURE_UNIT);
 }
 
 void RaceModeDashboardView::errorFlagsReceived(BatteryErrorFlags batteryErrorFlags)
@@ -190,19 +241,28 @@ void RaceModeDashboardView::resetReceived(bool reset)
 }
 void RaceModeDashboardView::motorSetCurrentReceived(double setCurrent)
 {
-    ui_.setCurrentLabel().setNum(setCurrent);
+    ui_.setCurrentLabel().setText(QString::number(setCurrent, 'f', 3));
 }
 void RaceModeDashboardView::motorActualSpeedReceived(double actualSpeed)
 {
-    ui_.actualSpeedLabel().setNum(actualSpeed);
+    ui_.actualSpeedLabel().setText(QString::number(actualSpeed, 'f', 1));
 }
 void RaceModeDashboardView::motorBusVoltageReceived(double busVoltage)
 {
-    ui_.busVoltageLabel().setNum(busVoltage);
+    ui_.busVoltageLabel().setText(QString::number(busVoltage, 'f', 2));
+    busVoltage_ = busVoltage;
+    setMotorPower();
 }
 void RaceModeDashboardView::motorBusCurrentReceived(double busCurrent)
 {
-    ui_.busCurrentLabel().setNum(busCurrent);
+    ui_.busCurrentLabel().setText(QString::number(busCurrent, 'f', 3));
+    busCurrent_ = busCurrent;
+    setMotorPower();
+}
+
+void RaceModeDashboardView::setMotorPower()
+{
+    ui_.motorPowerLabel().setText(QString::number((busVoltage_ * busCurrent_), 'f', 2));
 }
 
 void RaceModeDashboardView::lowBeamsReceived(bool lowBeams)
@@ -251,18 +311,33 @@ void RaceModeDashboardView::rightSignalReceived(bool rightSignal)
 }
 void RaceModeDashboardView::lightAliveReceived(bool)
 {
-    // TODO
+
 }
 
-//TODO
 void RaceModeDashboardView::mpptReceived(int i, Mppt mppt)
 {
+    if (i == 0)
+    {
+        mpptZeroPower_ = mppt.arrayCurrent() * mppt.arrayVoltage();
+    }
+
+    else if (i == 1)
+    {
+        mpptOnePower_ = mppt.arrayCurrent() * mppt.arrayVoltage();
+    }
+
+    else if (i == 2)
+    {
+        mpptTwoPower_ = mppt.arrayCurrent() * mppt.arrayVoltage();
+    }
+
+    mpptPowerReceived(mpptZeroPower_ + mpptOnePower_ + mpptTwoPower_);
 }
 
 void RaceModeDashboardView::mpptPowerReceived(double mpptPower)
 {
-    ui_.powerInLabel().setNum(mpptPower);
-    ui_.powerOutLabel().setNum(ui_.netPowerLabel().text().toDouble() - mpptPower);
+    ui_.powerInLabel().setText(QString::number(mpptPower, 'f', 1));
+    ui_.powerOutLabel().setText(QString::number(qAbs(ui_.netPowerLabel().text().toDouble() - mpptPower), 'f', 1));
 }
 
 void RaceModeDashboardView::motorZeroErrorFlagsReceived(ErrorFlags flags)

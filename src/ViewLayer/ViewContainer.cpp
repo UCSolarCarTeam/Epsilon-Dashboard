@@ -47,6 +47,7 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
         RaceModeDashboardView_.reset(new RaceModeDashboardView(
                                          presenterContainer.batteryPresenter(),
                                          presenterContainer.batteryFaultsPresenter(),
+                                         presenterContainer.auxBmsPresenter(),
                                          presenterContainer.driverControlsPresenter(),
                                          presenterContainer.keyMotorPresenter(),
                                          presenterContainer.lightsPresenter(),
