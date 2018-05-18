@@ -6,6 +6,7 @@
 #include "../../../DataLayer/MpptData/Mppt.h"
 #include "../../../DataLayer/MotorFaultsData/ErrorFlags.h"
 #include "../../../DataLayer/MotorFaultsData/LimitFlags.h"
+#include "../../../PresenterLayer/AuxBmsPresenter/AuxBmsPresenter.h"
 #include "../../../PresenterLayer/BatteryPresenter/BatteryPresenter.h"
 #include "../../../PresenterLayer/BatteryFaultsPresenter/BatteryFaultsPresenter.h"
 #include "../../../PresenterLayer/DriverControlsPresenter/DriverControlsPresenter.h"
@@ -16,6 +17,7 @@
 #include "../../../PresenterLayer/MotorFaultsPresenter/MotorFaultsPresenter.h"
 #include "../DisplayDashboardUI/I_DisplayDashboardUI.h"
 
+class AuxBmsPresenter;
 class BatteryPresenter;
 class BatteryFaultsPresenter;
 class DriverControlsPresenter;
@@ -30,7 +32,8 @@ class DisplayDashboardView : public QObject
 {
     Q_OBJECT
 public:
-    DisplayDashboardView(BatteryPresenter& batteryPresenter,
+    DisplayDashboardView(AuxBmsPresenter& auxBmsPresenter,
+                         BatteryPresenter& batteryPresenter,
                          BatteryFaultsPresenter& batteryFaultsPresenter,
                          DriverControlsPresenter& driverControlsPresenter,
                          KeyMotorPresenter& keyMotorPresenter,
@@ -42,6 +45,7 @@ public:
     ~DisplayDashboardView();
 
 private:
+    void connectAuxBms(AuxBmsPresenter&);
     void connectBattery(BatteryPresenter&);
     void connectBatteryFaults(BatteryFaultsPresenter&);
     void connectDriverControls(DriverControlsPresenter&);
@@ -51,6 +55,7 @@ private:
     void connectMotorDetails(MotorDetailsPresenter&);
     void connectMotorFaults(MotorFaultsPresenter&);
 
+    AuxBmsPresenter& auxBmsPresenter_;
     BatteryPresenter& batteryPresenter_;
     BatteryFaultsPresenter& batteryFaultsPresenter_;
     DriverControlsPresenter& driverControlsPresenter_;
@@ -62,11 +67,23 @@ private:
 
     I_DisplayDashboardUI& ui_;
 
+    //used in mpptReceived
+    double mpptZeroPower_;
+    double mpptOnePower_;
+    double mpptTwoPower_;
+
 private slots:
+    // auxBms data slots
+    void prechargeStateReceived(QString);
+
     // battery data slots
     void aliveReceived(bool);
-    void prechargeStateReceived(QString);
     void packNetPowerReceived(double);
+    void packStateOfChargeReceived(double);
+    void highTemperatureReceived(int);
+    void lowCellVoltageReceived(int);
+    void averageTemperatureReceived(int);
+    void averageCellVoltageReceived(int);
 
     // battery faults slots
     void errorFlagsReceived(BatteryErrorFlags);
@@ -75,6 +92,7 @@ private slots:
     void resetReceived(bool);
 
     // key motor slots
+    void motorSetPowerReceived(double);
     void motorSetCurrentReceived(double);
     void motorActualSpeedReceived(double);
     void motorBusVoltageReceived(double);
