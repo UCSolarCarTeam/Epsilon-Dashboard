@@ -1,5 +1,6 @@
 #include "RaceModeDashboardView.h"
 #include "../../PresenterLayer/BatteryPresenter/BatteryPresenter.h"
+#include "../../PresenterLayer/AuxBmsPresenter/AuxBmsPresenter.h"
 #include "../../PresenterLayer/DriverControlsPresenter/DriverControlsPresenter.h"
 #include "../../PresenterLayer/KeyMotorPresenter/KeyMotorPresenter.h"
 #include "../../PresenterLayer/LightsPresenter/LightsPresenter.h"
@@ -23,19 +24,25 @@ namespace
             QProgressBar::chunk:horizontal{\
             border-radius: 7px;\
             background: ";
+    const QString TEMPERATURE_UNIT = "<sup>o</sup>";
 }
 
 RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
         BatteryFaultsPresenter& batteryFaultsPresenter,
+        AuxBmsPresenter& auxBmsPresenter,
         DriverControlsPresenter& driverControlsPresenter,
         KeyMotorPresenter& keyMotorPresenter,
         LightsPresenter& lightsPresenter,
         MpptPresenter& mpptPresenter,
         MotorDetailsPresenter& motorDetailsPresenter,
         MotorFaultsPresenter& motorFaultsPresenter,
-        I_RaceModeDashboardUI& ui)
+        I_RaceModeDashboardUI& ui,
+        MotorFaultList& motorZeroFaultsList,
+        MotorFaultList& motorOneFaultsList,
+        BatteryFaultList& batteryFaultsList)
     : batteryPresenter_(batteryPresenter)
     , batteryFaultsPresenter_(batteryFaultsPresenter)
+    , auxBmsPresenter_(auxBmsPresenter)
     , driverControlsPresenter_(driverControlsPresenter)
     , keyMotorPresenter_(keyMotorPresenter)
     , lightsPresenter_(lightsPresenter)
@@ -43,13 +50,13 @@ RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
     , motorDetailsPresenter_(motorDetailsPresenter)
     , motorFaultsPresenter_(motorFaultsPresenter)
     , ui_(ui)
-    , motorZeroLimitRecieved_ (false)
-    , motorZeroErrorRecieved_ (false)
-    , motorOneLimitRecieved_ (false)
-    , motorOneErrorRecieved_ (false)
+    , motorZeroFaultsList_(motorZeroFaultsList)
+    , motorOneFaultsList_(motorOneFaultsList)
+    , batteryFaultsList_(batteryFaultsList)
 {
     connectBattery(batteryPresenter_);
     connectBatteryFaults(batteryFaultsPresenter_);
+    connectAuxBms(auxBmsPresenter_);
     connectDriverControls(driverControlsPresenter_);
     connectKeyMotor(keyMotorPresenter_);
     connectLights(lightsPresenter_);
@@ -67,10 +74,18 @@ void RaceModeDashboardView::connectBattery(BatteryPresenter& batteryPresenter)
 {
     connect(&batteryPresenter, SIGNAL(aliveReceived(bool)),
             this, SLOT(aliveReceived(bool)));
-    connect(&batteryPresenter, SIGNAL(prechargeStateReceived(QString)),
-            this, SLOT(prechargeStateReceived(QString)));
     connect(&batteryPresenter, SIGNAL(packNetPowerReceived(double)),
             this, SLOT(packNetPowerReceived(double)));
+    connect(&batteryPresenter, SIGNAL(packStateOfChargeReceived(double)),
+            this, SLOT(packStateOfChargeReceived(double)));
+    connect(&batteryPresenter, SIGNAL(lowCellVoltageReceived(int)),
+            this, SLOT(lowCellVoltageReceived(int)));
+    connect(&batteryPresenter, SIGNAL(averageCellVoltageReceived(int)),
+            this, SLOT(averageCellVoltageReceived(int)));
+    connect(&batteryPresenter, SIGNAL(highTemperatureReceived(int)),
+            this, SLOT(highTemperatureReceived(int)));
+    connect(&batteryPresenter, SIGNAL(averageTemperatureReceived(int)),
+            this, SLOT(averageTemperatureReceived(int)));
 }
 
 void RaceModeDashboardView::connectBatteryFaults(BatteryFaultsPresenter& batteryFaultsPresenter)
@@ -79,6 +94,14 @@ void RaceModeDashboardView::connectBatteryFaults(BatteryFaultsPresenter& battery
             this, SLOT(errorFlagsReceived(BatteryErrorFlags)));
     connect(&batteryFaultsPresenter, SIGNAL(limitFlagsReceived(BatteryLimitFlags)),
             this, SLOT(limitFlagsReceived(BatteryLimitFlags)));
+}
+
+void RaceModeDashboardView::connectAuxBms(AuxBmsPresenter& auxBmsPresenter)
+{
+    connect(&auxBmsPresenter, SIGNAL(prechargeStateReceived(QString)),
+            this, SLOT(prechargeStateReceived(QString)));
+    connect(&auxBmsPresenter, SIGNAL(auxVoltageReceived(int)),
+            this, SLOT(auxVoltageReceived(int)));
 }
 
 void RaceModeDashboardView::connectDriverControls(DriverControlsPresenter& driverControlsPresenter)
@@ -137,6 +160,19 @@ void RaceModeDashboardView::connectMotorFaults(MotorFaultsPresenter& motorFaults
             this, SLOT(motorOneLimitFlagsReceived(LimitFlags)));
 }
 
+void RaceModeDashboardView::updateFaultLabel(QLabel& dashBoardLabel, FaultLabel faultLabel)
+{
+    if (faultLabel.priority() >= 0)
+    {
+        dashBoardLabel.setStyleSheet("font: 10pt \"Burlingame Pro\";\n color:" + faultLabel.color().name() + ";");
+        dashBoardLabel.setText(faultLabel.text());
+    }
+    else
+    {
+        dashBoardLabel.setText("");
+    }
+}
+
 void RaceModeDashboardView::aliveReceived(bool)
 {
 }
@@ -148,17 +184,49 @@ void RaceModeDashboardView::prechargeStateReceived(QString prechargeState)
 
 void RaceModeDashboardView::packNetPowerReceived(double netPower)
 {
-    ui_.netPowerLabel().setNum(netPower);
-    ui_.powerOutLabel().setNum(netPower - ui_.powerInLabel().text().toDouble());
+    ui_.netPowerLabel().setText(QString::number(netPower, 'f', 1));
+    ui_.powerOutLabel().setText(QString::number(qAbs(netPower - ui_.powerInLabel().text().toDouble()), 'f', 1));
 }
 
-void RaceModeDashboardView::errorFlagsReceived(BatteryErrorFlags)
+void RaceModeDashboardView::auxVoltageReceived(int auxVoltage)
 {
-    // TODO
+    ui_.auxVoltageLabel().setText(QString::number(auxVoltage, 'f', 2));
 }
-void RaceModeDashboardView::limitFlagsReceived(BatteryLimitFlags)
+
+void RaceModeDashboardView::packStateOfChargeReceived(double stateOfCharge)
 {
-    // TODO
+    ui_.stateOfChargeCapacityWidget().setValue(stateOfCharge);
+}
+
+void RaceModeDashboardView::lowCellVoltageReceived(int lowVoltage)
+{
+    ui_.lowestCellVoltageLabel().setNum(lowVoltage);
+}
+
+void RaceModeDashboardView::averageCellVoltageReceived(int averageVoltage)
+{
+    ui_.avgCellVoltageLabel().setNum(averageVoltage);
+}
+
+void RaceModeDashboardView::highTemperatureReceived(int highTemp)
+{
+    ui_.maxCellTemperatureLabel().setText(QString::number(highTemp) + " " + TEMPERATURE_UNIT);
+}
+
+void RaceModeDashboardView::averageTemperatureReceived(int avgTemp)
+{
+    ui_.avgCellTemperatureLabel().setText(QString::number(avgTemp) + " " + TEMPERATURE_UNIT);
+}
+
+void RaceModeDashboardView::errorFlagsReceived(BatteryErrorFlags batteryErrorFlags)
+{
+    batteryFaultsList_.updateErrors(batteryErrorFlags);
+    updateFaultLabel(ui_.batteryFaultsLabel(), batteryFaultsList_.getHighestActivePriorityLabel());
+}
+void RaceModeDashboardView::limitFlagsReceived(BatteryLimitFlags batteryLimitFlags)
+{
+    batteryFaultsList_.updateLimits(batteryLimitFlags);
+    updateFaultLabel(ui_.batteryFaultsLabel(), batteryFaultsList_.getHighestActivePriorityLabel());
 }
 void RaceModeDashboardView::resetReceived(bool reset)
 {
@@ -173,19 +241,28 @@ void RaceModeDashboardView::resetReceived(bool reset)
 }
 void RaceModeDashboardView::motorSetCurrentReceived(double setCurrent)
 {
-    ui_.setCurrentLabel().setNum(setCurrent);
+    ui_.setCurrentLabel().setText(QString::number(setCurrent, 'f', 3));
 }
 void RaceModeDashboardView::motorActualSpeedReceived(double actualSpeed)
 {
-    ui_.actualSpeedLabel().setNum(actualSpeed);
+    ui_.actualSpeedLabel().setText(QString::number(actualSpeed, 'f', 1));
 }
 void RaceModeDashboardView::motorBusVoltageReceived(double busVoltage)
 {
-    ui_.busVoltageLabel().setNum(busVoltage);
+    ui_.busVoltageLabel().setText(QString::number(busVoltage, 'f', 2));
+    busVoltage_ = busVoltage;
+    setMotorPower();
 }
 void RaceModeDashboardView::motorBusCurrentReceived(double busCurrent)
 {
-    ui_.busCurrentLabel().setNum(busCurrent);
+    ui_.busCurrentLabel().setText(QString::number(busCurrent, 'f', 3));
+    busCurrent_ = busCurrent;
+    setMotorPower();
+}
+
+void RaceModeDashboardView::setMotorPower()
+{
+    ui_.motorPowerLabel().setText(QString::number((busVoltage_ * busCurrent_), 'f', 2));
 }
 
 void RaceModeDashboardView::lowBeamsReceived(bool lowBeams)
@@ -234,108 +311,55 @@ void RaceModeDashboardView::rightSignalReceived(bool rightSignal)
 }
 void RaceModeDashboardView::lightAliveReceived(bool)
 {
-    // TODO
+
 }
 
-//TODO
 void RaceModeDashboardView::mpptReceived(int i, Mppt mppt)
 {
+    if (i == 0)
+    {
+        mpptZeroPower_ = mppt.arrayCurrent() * mppt.arrayVoltage();
+    }
+
+    else if (i == 1)
+    {
+        mpptOnePower_ = mppt.arrayCurrent() * mppt.arrayVoltage();
+    }
+
+    else if (i == 2)
+    {
+        mpptTwoPower_ = mppt.arrayCurrent() * mppt.arrayVoltage();
+    }
+
+    mpptPowerReceived(mpptZeroPower_ + mpptOnePower_ + mpptTwoPower_);
 }
 
 void RaceModeDashboardView::mpptPowerReceived(double mpptPower)
 {
-    ui_.powerInLabel().setNum(mpptPower);
-    ui_.powerOutLabel().setNum(ui_.netPowerLabel().text().toDouble() - mpptPower);
+    ui_.powerInLabel().setText(QString::number(mpptPower, 'f', 1));
+    ui_.powerOutLabel().setText(QString::number(qAbs(ui_.netPowerLabel().text().toDouble() - mpptPower), 'f', 1));
 }
 
 void RaceModeDashboardView::motorZeroErrorFlagsReceived(ErrorFlags flags)
 {
-    if (flags.badMotorPositionHallSequence() || flags.configReadError() || flags.dcBusOverVoltage() || flags.desaturationFault()
-            || flags.motorOverSpeed() || flags.railUnderVoltageLockOut() || flags.softwareOverCurrent() || flags.watchdogCausedLastReset())
-    {
-        motorZeroErrorRecieved_ = true;
-        ui_.motorZeroFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineErrorIcon.png) 0 0 0 0 stretch stretch;");
-    }
-    else
-    {
-        motorZeroErrorRecieved_ = false;
-
-        if (motorZeroLimitRecieved_)
-        {
-            ui_.motorZeroFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineLimitIcon.png) 0 0 0 0 stretch stretch;");
-        }
-        else
-        {
-            ui_.motorZeroFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineIcon.png) 0 0 0 0 stretch stretch;");
-        }
-    }
+    motorZeroFaultsList_.updateErrors(flags);
+    updateFaultLabel(ui_.motorZeroFaultsLabel(), motorZeroFaultsList_.getHighestActivePriorityLabel());
 }
 
 void RaceModeDashboardView::motorZeroLimitFlagsReceived(LimitFlags flags)
 {
-    if (flags.busCurrentLimit() || flags.busVoltageLowerLimit() || flags.busVoltageUpperLimit()
-            || flags.motorCurrentLimit() || flags.outputVoltagePwmLimit() || flags.velocityLimit())
-    {
-        motorZeroLimitRecieved_ = true;
-
-        if (!motorZeroErrorRecieved_)
-        {
-            ui_.motorZeroFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineLimitIcon.png) 0 0 0 0 stretch stretch;");
-        }
-    }
-    else
-    {
-        motorZeroLimitRecieved_ = false;
-
-        if (!motorZeroErrorRecieved_)
-        {
-            ui_.motorZeroFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineIcon.png) 0 0 0 0 stretch stretch;");
-        }
-    }
+    motorZeroFaultsList_.updateLimits(flags);
+    updateFaultLabel(ui_.motorZeroFaultsLabel(), motorZeroFaultsList_.getHighestActivePriorityLabel());
 }
 
 void RaceModeDashboardView::motorOneErrorFlagsReceived(ErrorFlags flags)
 {
-    if (flags.badMotorPositionHallSequence() || flags.configReadError() || flags.dcBusOverVoltage() || flags.desaturationFault()
-            || flags.motorOverSpeed() || flags.railUnderVoltageLockOut() || flags.softwareOverCurrent() || flags.watchdogCausedLastReset())
-    {
-        motorOneErrorRecieved_ = true;
-        ui_.motorOneFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineErrorIcon.png) 0 0 0 0 stretch stretch;");
-    }
-    else
-    {
-        motorOneErrorRecieved_ = false;
-
-        if (motorOneLimitRecieved_)
-        {
-            ui_.motorOneFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineLimitIcon.png) 0 0 0 0 stretch stretch;");
-        }
-        else
-        {
-            ui_.motorOneFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineIcon.png) 0 0 0 0 stretch stretch;");
-        }
-    }
+    motorOneFaultsList_.updateErrors(flags);
+    updateFaultLabel(ui_.motorOneFaultsLabel(), motorOneFaultsList_.getHighestActivePriorityLabel());
 }
 
 void RaceModeDashboardView::motorOneLimitFlagsReceived(LimitFlags flags)
 {
-    if (flags.busCurrentLimit() || flags.busVoltageLowerLimit() || flags.busVoltageUpperLimit()
-            || flags.motorCurrentLimit() || flags.outputVoltagePwmLimit() || flags.velocityLimit())
-    {
-        motorOneLimitRecieved_ = true;
-
-        if (!motorOneErrorRecieved_)
-        {
-            ui_.motorOneFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineLimitIcon.png) 0 0 0 0 stretch stretch;");
-        }
-    }
-    else
-    {
-        motorOneLimitRecieved_ = false;
-
-        if (!motorOneErrorRecieved_)
-        {
-            ui_.motorOneFaultsWidget().setStyleSheet("border-image: url(:/Resources/EngineIcon.png) 0 0 0 0 stretch stretch;");
-        }
-    }
+    motorOneFaultsList_.updateLimits(flags);
+    updateFaultLabel(ui_.motorOneFaultsLabel(), motorOneFaultsList_.getHighestActivePriorityLabel());
 }

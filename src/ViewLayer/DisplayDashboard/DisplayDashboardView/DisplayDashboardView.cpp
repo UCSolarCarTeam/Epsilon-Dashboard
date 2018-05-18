@@ -1,4 +1,5 @@
 #include "DisplayDashboardView.h"
+#include <QDebug>
 
 namespace
 {
@@ -17,7 +18,8 @@ namespace
             background: ";
 }
 
-DisplayDashboardView::DisplayDashboardView(BatteryPresenter& batteryPresenter,
+DisplayDashboardView::DisplayDashboardView(AuxBmsPresenter& auxBmsPresenter,
+        BatteryPresenter& batteryPresenter,
         BatteryFaultsPresenter& batteryFaultsPresenter,
         DriverControlsPresenter& driverControlsPresenter,
         KeyMotorPresenter& keyMotorPresenter,
@@ -26,7 +28,8 @@ DisplayDashboardView::DisplayDashboardView(BatteryPresenter& batteryPresenter,
         MotorDetailsPresenter& motorDetailsPresenter,
         MotorFaultsPresenter& motorFaultsPresenter,
         I_DisplayDashboardUI& ui)
-    : batteryPresenter_(batteryPresenter)
+    : auxBmsPresenter_(auxBmsPresenter)
+    , batteryPresenter_(batteryPresenter)
     , batteryFaultsPresenter_(batteryFaultsPresenter)
     , driverControlsPresenter_(driverControlsPresenter)
     , keyMotorPresenter_(keyMotorPresenter)
@@ -36,6 +39,7 @@ DisplayDashboardView::DisplayDashboardView(BatteryPresenter& batteryPresenter,
     , motorFaultsPresenter_(motorFaultsPresenter)
     , ui_(ui)
 {
+    connectAuxBms(auxBmsPresenter_);
     connectBattery(batteryPresenter_);
     connectBatteryFaults(batteryFaultsPresenter_);
     connectDriverControls(driverControlsPresenter_);
@@ -48,7 +52,12 @@ DisplayDashboardView::DisplayDashboardView(BatteryPresenter& batteryPresenter,
     ui_.show();
 }
 DisplayDashboardView::~DisplayDashboardView()
+{}
+
+void DisplayDashboardView::connectAuxBms(AuxBmsPresenter& auxBmsPresenter)
 {
+    connect(&auxBmsPresenter, SIGNAL(prechargeStateReceived(QString)),
+            this, SLOT(prechargeStateReceived(QString)));
 }
 
 void DisplayDashboardView::connectBattery(BatteryPresenter& batteryPresenter)
@@ -56,10 +65,18 @@ void DisplayDashboardView::connectBattery(BatteryPresenter& batteryPresenter)
     // TODO update to new battery data (depends on what should be shown in UI)
     connect(&batteryPresenter, SIGNAL(aliveReceived(bool)),
             this, SLOT(aliveReceived(bool)));
-    connect(&batteryPresenter, SIGNAL(prechargeStateReceived(QString)),
-            this, SLOT(prechargeStateReceived(QString)));
     connect(&batteryPresenter, SIGNAL(packNetPowerReceived(double)),
             this, SLOT(packNetPowerReceived(double)));
+    connect(&batteryPresenter, SIGNAL(packStateOfChargeReceived(double)),
+            this, SLOT(packStateOfChargeReceived(double)));
+    connect(&batteryPresenter, SIGNAL(highTemperatureReceived(int)),
+            this, SLOT(highTemperatureReceived(int)));
+    connect(&batteryPresenter, SIGNAL(lowCellVoltageReceived(int)),
+            this, SLOT(lowCellVoltageReceived(int)));
+    connect(&batteryPresenter, SIGNAL(averageTemperatureReceived(int)),
+            this, SLOT(averageTemperatureReceived(int)));
+    connect(&batteryPresenter, SIGNAL(averageCellVoltageReceived(int)),
+            this, SLOT(averageCellVoltageReceived(int)));
 }
 
 void DisplayDashboardView::connectBatteryFaults(BatteryFaultsPresenter& batteryFaultsPresenter)
@@ -78,6 +95,8 @@ void DisplayDashboardView::connectDriverControls(DriverControlsPresenter& driver
 
 void DisplayDashboardView::connectKeyMotor(KeyMotorPresenter& keyMotorPresenter)
 {
+    connect(&keyMotorPresenter, SIGNAL(motorSetPowerReceived(double)),
+            this, SLOT(motorSetPowerReceived(double)));
     connect(&keyMotorPresenter, SIGNAL(motorSetCurrentReceived(double)),
             this, SLOT(motorSetCurrentReceived(double)));
     connect(&keyMotorPresenter, SIGNAL(motorActualSpeedReceived(double)),
@@ -131,19 +150,18 @@ void DisplayDashboardView::aliveReceived(bool)
 }
 void DisplayDashboardView::prechargeStateReceived(QString prechargeState)
 {
+    ui_.prechargeStateLabel().setText(prechargeState);
 }
 
 void DisplayDashboardView::packNetPowerReceived(double netPower)
 {
-    ui_.netPowerLabel().setNum(netPower);
-    ui_.powerOutLabel().setNum(netPower - ui_.powerInLabel().text().toDouble());
+    ui_.netPowerLabel().setText(QString::number(netPower, 'f', 2));
 }
 
 /*
  * TODO UI has to be updated w.r.t. the changes in the protocol
  */
-/*
-void DisplayDashboardView::packSocPercentageReceived(double packSocPercentage)
+void DisplayDashboardView::packStateOfChargeReceived(double packSocPercentage)
 {
     ui_.stateOfChargeCapacityWidget().setValue(packSocPercentage);
 
@@ -167,32 +185,23 @@ void DisplayDashboardView::packSocPercentageReceived(double packSocPercentage)
     QString rgb = QString("rgb(%1,%2,%3);").arg(r, g, b);
 
     ui_.stateOfChargeCapacityWidget().setStyleSheet(DEFAULT_STYLESHEET + rgb + "}");
-
 }
-void DisplayDashboardView::prechargeTimerElapsedReceived(bool prechargeTimerElapsed)
-{
-}
-void DisplayDashboardView::prechargeTimerCountReceived(double prechargeTimerCount)
-{
-}
-void DisplayDashboardView::cmuMaxCellTempReceived(double maxCellTemp)
+void DisplayDashboardView::highTemperatureReceived(int maxCellTemp)
 {
     ui_.maxCellTemperatureLabel().setNum(maxCellTemp);
 }
-void DisplayDashboardView::cmuLowestCellVoltageReceived(double lowestCellVoltage)
+void DisplayDashboardView::lowCellVoltageReceived(int lowestCellVoltage)
 {
     ui_.lowestCellVoltageLabel().setNum(lowestCellVoltage);
 }
-void DisplayDashboardView::cmuAverageCellTempReceived(double averageCellTemp)
+void DisplayDashboardView::averageTemperatureReceived(int averageCellTemp)
 {
     ui_.avgCellTemperatureLabel().setNum(averageCellTemp);
 }
-void DisplayDashboardView::cmuAverageVoltageReceived(double averageVoltage)
+void DisplayDashboardView::averageCellVoltageReceived(int averageVoltage)
 {
     ui_.avgCellVoltageLabel().setNum(averageVoltage);
 }
-*/
-
 void DisplayDashboardView::errorFlagsReceived(BatteryErrorFlags)
 {
     // TODO
@@ -201,6 +210,7 @@ void DisplayDashboardView::limitFlagsReceived(BatteryLimitFlags)
 {
     // TODO
 }
+
 void DisplayDashboardView::resetReceived(bool reset)
 {
     if (reset)
@@ -212,21 +222,25 @@ void DisplayDashboardView::resetReceived(bool reset)
         ui_.motorResetButtonWidget().setStyleSheet("");
     }
 }
+void DisplayDashboardView::motorSetPowerReceived(double setPower)
+{
+    ui_.motorPowerLabel().setText(QString::number(setPower, 'f', 2));
+}
 void DisplayDashboardView::motorSetCurrentReceived(double setCurrent)
 {
-    ui_.setCurrentLabel().setNum(setCurrent);
+    ui_.setCurrentLabel().setText(QString::number(setCurrent, 'f', 3));
 }
 void DisplayDashboardView::motorActualSpeedReceived(double actualSpeed)
 {
-    ui_.actualSpeedLabel().setNum(actualSpeed);
+    ui_.actualSpeedLabel().setText(QString::number(actualSpeed, 'f', 1));
 }
 void DisplayDashboardView::motorBusVoltageReceived(double busVoltage)
 {
-    ui_.busVoltageLabel().setNum(busVoltage);
+    ui_.busVoltageLabel().setText(QString::number(busVoltage, 'f', 2));
 }
 void DisplayDashboardView::motorBusCurrentReceived(double busCurrent)
 {
-    ui_.busCurrentLabel().setNum(busCurrent);
+    ui_.busCurrentLabel().setText(QString::number(busCurrent, 'f', 3));
 }
 
 void DisplayDashboardView::lowBeamsReceived(bool lowBeams)
@@ -283,22 +297,27 @@ void DisplayDashboardView::mpptReceived(int i, Mppt mppt)
     {
         ui_.array0CurrentLabel().setNum(mppt.arrayCurrent());
         ui_.array0VoltageLabel().setNum(mppt.arrayVoltage());
+        mpptZeroPower_ = mppt.arrayCurrent() * mppt.arrayVoltage();
     }
     else if (i == 1)
     {
         ui_.array1CurrentLabel().setNum(mppt.arrayCurrent());
         ui_.array1VoltageLabel().setNum(mppt.arrayVoltage());
+        mpptOnePower_ = mppt.arrayCurrent() * mppt.arrayVoltage();
     }
     else if (i == 2)
     {
         ui_.array2CurrentLabel().setNum(mppt.arrayCurrent());
         ui_.array2VoltageLabel().setNum(mppt.arrayVoltage());
+        mpptTwoPower_ = mppt.arrayCurrent() * mppt.arrayVoltage();
     }
+
+    mpptPowerReceived(mpptZeroPower_ + mpptOnePower_ + mpptTwoPower_);
 }
 
 void DisplayDashboardView::mpptPowerReceived(double mpptPower)
 {
-    ui_.powerInLabel().setNum(mpptPower);
+    ui_.powerInLabel().setText(QString::number(mpptPower, 'f', 0));
     ui_.powerOutLabel().setNum(ui_.netPowerLabel().text().toDouble() - mpptPower);
 }
 
