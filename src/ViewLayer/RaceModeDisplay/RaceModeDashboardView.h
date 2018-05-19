@@ -54,7 +54,6 @@ private:
 
     void updateFaultLabel(QLabel&, FaultLabel);
 
-
     BatteryPresenter& batteryPresenter_;
     BatteryFaultsPresenter& batteryFaultsPresenter_;
     AuxBmsPresenter& auxBmsPresenter_;

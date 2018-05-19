@@ -25,6 +25,9 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
 {
     if (mode == Mode::DISPLAY)
     {
+        MotorFaultList* motorZeroFaultList = new MotorFaultList();
+        MotorFaultList* motorOneFaultList = new MotorFaultList();
+        BatteryFaultList* batteryFaultList = new BatteryFaultList();
         DisplayDashboardUI_ = new DisplayDashboardUI();
         DisplayDashboardView_.reset(new DisplayDashboardView(
                                         presenterContainer.auxBmsPresenter(),
@@ -36,7 +39,10 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
                                         presenterContainer.mpptPresenter(),
                                         presenterContainer.motorDetailsPresenter(),
                                         presenterContainer.motorFaultsPresenter(),
-                                        *DisplayDashboardUI_));
+                                        *DisplayDashboardUI_,
+                                        *motorZeroFaultList,
+                                        *motorOneFaultList,
+                                        *batteryFaultList));
     }
     else if (mode == Mode::RACE)
     {
