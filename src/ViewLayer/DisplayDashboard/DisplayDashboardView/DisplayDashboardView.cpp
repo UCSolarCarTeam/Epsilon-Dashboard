@@ -151,7 +151,7 @@ void DisplayDashboardView::connectMotorFaults(MotorFaultsPresenter& motorFaultsP
             this, SLOT(motorOneLimitFlagsReceived(LimitFlags)));
 }
 
-void DisplayDashboardView::updateFaultLabel(QLabel & dashboardLabel, FaultLabel faultLabel)
+void DisplayDashboardView::updateFaultLabel(QLabel& dashboardLabel, FaultLabel faultLabel)
 {
     if (faultLabel.priority() >= 0)
     {
