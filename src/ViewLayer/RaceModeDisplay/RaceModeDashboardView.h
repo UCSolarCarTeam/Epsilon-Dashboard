@@ -13,6 +13,7 @@
 
 class BatteryPresenter;
 class BatteryFaultsPresenter;
+class AuxBmsPresenter;
 class DriverControlsPresenter;
 class I_RaceModeDashboardUI;
 class KeyMotorPresenter;
@@ -27,6 +28,7 @@ class RaceModeDashboardView : public QObject
 public:
     RaceModeDashboardView(BatteryPresenter& batteryPresenter,
                           BatteryFaultsPresenter& batteryFaultsPresenter,
+                          AuxBmsPresenter& auxBmsPresenter,
                           DriverControlsPresenter& driverControlsPresenter,
                           KeyMotorPresenter& keyMotorPresenter,
                           LightsPresenter& lightsPresenter,
@@ -42,6 +44,7 @@ public:
 private:
     void connectBattery(BatteryPresenter&);
     void connectBatteryFaults(BatteryFaultsPresenter&);
+    void connectAuxBms(AuxBmsPresenter&);
     void connectDriverControls(DriverControlsPresenter&);
     void connectKeyMotor(KeyMotorPresenter&);
     void connectLights(LightsPresenter&);
@@ -54,6 +57,7 @@ private:
 
     BatteryPresenter& batteryPresenter_;
     BatteryFaultsPresenter& batteryFaultsPresenter_;
+    AuxBmsPresenter& auxBmsPresenter_;
     DriverControlsPresenter& driverControlsPresenter_;
     KeyMotorPresenter& keyMotorPresenter_;
     LightsPresenter& lightsPresenter_;
@@ -65,11 +69,23 @@ private:
     MotorFaultList& motorOneFaultsList_;
     BatteryFaultList& batteryFaultsList_;
 
+    double busCurrent_;
+    double busVoltage_;
+    double mpptZeroPower_;
+    double mpptOnePower_;
+    double mpptTwoPower_;
+
 private slots:
     // battery data slots
     void aliveReceived(bool);
     void prechargeStateReceived(QString);
     void packNetPowerReceived(double);
+    void auxVoltageReceived(int);
+    void packStateOfChargeReceived(double);
+    void lowCellVoltageReceived(int);
+    void averageCellVoltageReceived(int);
+    void highTemperatureReceived(int);
+    void averageTemperatureReceived(int);
 
     // battery faults slots
     void errorFlagsReceived(BatteryErrorFlags);
@@ -99,4 +115,6 @@ private slots:
     void motorZeroLimitFlagsReceived(LimitFlags);
     void motorOneErrorFlagsReceived(ErrorFlags);
     void motorOneLimitFlagsReceived(LimitFlags);
+
+    void setMotorPower();
 };
