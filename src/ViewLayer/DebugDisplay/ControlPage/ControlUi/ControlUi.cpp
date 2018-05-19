@@ -103,11 +103,6 @@ QLabel& ControlUi::prevSongLabel()
     return *ui_->prevSongLabel;
 }
 
-QLabel& ControlUi::playPauseLabel()
-{
-    return *ui_->playPauseLabel;
-}
-
 QLabel& ControlUi::volumeUpLabel()
 {
     return *ui_->volumeUpLabel;
