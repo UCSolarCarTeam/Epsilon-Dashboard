@@ -27,7 +27,10 @@ DisplayDashboardView::DisplayDashboardView(AuxBmsPresenter& auxBmsPresenter,
         MpptPresenter& mpptPresenter,
         MotorDetailsPresenter& motorDetailsPresenter,
         MotorFaultsPresenter& motorFaultsPresenter,
-        I_DisplayDashboardUI& ui)
+        I_DisplayDashboardUI& ui,
+        MotorFaultList& motorZeroFaultsList,
+        MotorFaultList& motorOneFaultsList,
+        BatteryFaultList& batteryFaultsList)
     : auxBmsPresenter_(auxBmsPresenter)
     , batteryPresenter_(batteryPresenter)
     , batteryFaultsPresenter_(batteryFaultsPresenter)
@@ -38,6 +41,9 @@ DisplayDashboardView::DisplayDashboardView(AuxBmsPresenter& auxBmsPresenter,
     , motorDetailsPresenter_(motorDetailsPresenter)
     , motorFaultsPresenter_(motorFaultsPresenter)
     , ui_(ui)
+    , motorZeroFaultsList_(motorZeroFaultsList)
+    , motorOneFaultsList_(motorOneFaultsList)
+    , batteryFaultsList_(batteryFaultsList)
 {
     connectAuxBms(auxBmsPresenter_);
     connectBattery(batteryPresenter_);
@@ -145,6 +151,19 @@ void DisplayDashboardView::connectMotorFaults(MotorFaultsPresenter& motorFaultsP
             this, SLOT(motorOneLimitFlagsReceived(LimitFlags)));
 }
 
+void DisplayDashboardView::updateFaultLabel(QLabel& dashboardLabel, FaultLabel faultLabel)
+{
+    if (faultLabel.priority() >= 0)
+    {
+        dashboardLabel.setStyleSheet("font: 12pt \"Burlingame Pro\";\n color:" + faultLabel.color().name() + ";");
+        dashboardLabel.setText(faultLabel.text());
+    }
+    else
+    {
+        dashboardLabel.setText("");
+    }
+}
+
 void DisplayDashboardView::aliveReceived(bool)
 {
 }
@@ -202,13 +221,15 @@ void DisplayDashboardView::averageCellVoltageReceived(int averageVoltage)
 {
     ui_.avgCellVoltageLabel().setNum(averageVoltage);
 }
-void DisplayDashboardView::errorFlagsReceived(BatteryErrorFlags)
+void DisplayDashboardView::errorFlagsReceived(BatteryErrorFlags batteryErrorFlags)
 {
-    // TODO
+    batteryFaultsList_.updateErrors(batteryErrorFlags);
+    updateFaultLabel(ui_.batteryFaultsLabel(), batteryFaultsList_.getHighestActivePriorityLabel());
 }
-void DisplayDashboardView::limitFlagsReceived(BatteryLimitFlags)
+void DisplayDashboardView::limitFlagsReceived(BatteryLimitFlags batteryLimitFlags)
 {
-    // TODO
+    batteryFaultsList_.updateLimits(batteryLimitFlags);
+    updateFaultLabel(ui_.batteryFaultsLabel(), batteryFaultsList_.getHighestActivePriorityLabel());
 }
 
 void DisplayDashboardView::resetReceived(bool reset)
@@ -323,13 +344,21 @@ void DisplayDashboardView::mpptPowerReceived(double mpptPower)
 
 void DisplayDashboardView::motorZeroErrorFlagsReceived(ErrorFlags motorZeroErrorFlags)
 {
+    motorZeroFaultsList_.updateErrors(motorZeroErrorFlags);
+    updateFaultLabel(ui_.motorZeroFaultsLabel(), motorZeroFaultsList_.getHighestActivePriorityLabel());
 }
 void DisplayDashboardView::motorZeroLimitFlagsReceived(LimitFlags motorZeroLimitFlags)
 {
+    motorZeroFaultsList_.updateLimits(motorZeroLimitFlags);
+    updateFaultLabel(ui_.motorZeroFaultsLabel(), motorZeroFaultsList_.getHighestActivePriorityLabel());
 }
 void DisplayDashboardView::motorOneErrorFlagsReceived(ErrorFlags motorOneErrorFlags)
 {
+    motorOneFaultsList_.updateErrors(motorOneErrorFlags);
+    updateFaultLabel(ui_.motorOneFaultsLabel(), motorOneFaultsList_.getHighestActivePriorityLabel());
 }
 void DisplayDashboardView::motorOneLimitFlagsReceived(LimitFlags motorOneLimitFlags)
 {
+    motorOneFaultsList_.updateLimits(motorOneLimitFlags);
+    updateFaultLabel(ui_.motorOneFaultsLabel(), motorOneFaultsList_.getHighestActivePriorityLabel());
 }
