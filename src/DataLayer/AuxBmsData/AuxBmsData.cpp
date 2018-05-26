@@ -84,7 +84,7 @@ void AuxBmsData::setContactorError(const bool& contactorError)
     emit contactorErrorReceived(contactorError_);
 }
 
-void AuxBmsData::setHighVoltageEnable(const bool &highVoltageEnable)
+void AuxBmsData::setHighVoltageEnable(const bool& highVoltageEnable)
 {
     highVoltageEnable_ = highVoltageEnable;
     emit highVoltageEnableReceived(highVoltageEnable_);
