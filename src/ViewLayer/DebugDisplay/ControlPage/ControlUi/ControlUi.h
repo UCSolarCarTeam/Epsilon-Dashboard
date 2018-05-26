@@ -28,7 +28,6 @@ public:
     QLabel& hornOnLabel();
     QLabel& nextSongLabel();
     QLabel& prevSongLabel();
-    QLabel& playPauseLabel();
     QLabel& volumeUpLabel();
     QLabel& volumeDownLabel();
     QLabel& brakesOnLabel();
