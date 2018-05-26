@@ -41,6 +41,11 @@ bool AuxBmsData::contactorError() const
     return contactorError_;
 }
 
+bool AuxBmsData::highVoltageEnable() const
+{
+    return highVoltageEnable_;
+}
+
 // ------ data setter ------ //
 
 void AuxBmsData::setPrechargeState(const QString& prechargeState)
@@ -77,4 +82,10 @@ void AuxBmsData::setContactorError(const bool& contactorError)
 {
     contactorError_ = contactorError;
     emit contactorErrorRecieved(contactorError_);
+}
+
+void AuxBmsData::setHighVoltageEnable(const bool &highVoltageEnable)
+{
+    highVoltageEnable_ = highVoltageEnable;
+    emit highVoltageEnableRecieved(highVoltageEnable_);
 }

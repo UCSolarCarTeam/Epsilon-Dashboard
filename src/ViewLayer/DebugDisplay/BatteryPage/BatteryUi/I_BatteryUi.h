@@ -69,4 +69,5 @@ public:
     virtual QLabel& strobeBMSLabel() = 0;
     virtual QLabel& allowChargeLabel() = 0;
     virtual QLabel& contactorErrorLabel() = 0;
+    virtual QLabel& highVoltageEnableLabel() = 0;
 };

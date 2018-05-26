@@ -18,7 +18,9 @@ void AuxBmsPresenter::relayAuxBmsData()
     connect(&auxBmsData_, SIGNAL(strobeBmsLightRecieved(const bool&)),
             this, SIGNAL(strobeBmsLightReceived(bool)));
     connect(&auxBmsData_, SIGNAL(allowChargeRecieved(const bool&)),
-            this, SIGNAL(allowChargeReceieved(bool)));
+            this, SIGNAL(allowChargeReceived(bool)));
     connect(&auxBmsData_, SIGNAL(contactorErrorRecieved(const bool&)),
-            this, SIGNAL(contactorErrorReceieved(bool)));
+            this, SIGNAL(contactorErrorReceived(bool)));
+    connect(&auxBmsData_, SIGNAL(highVoltageEnableRecieved(const bool&)),
+            this, SIGNAL(highVoltageReceived(bool)));
 }

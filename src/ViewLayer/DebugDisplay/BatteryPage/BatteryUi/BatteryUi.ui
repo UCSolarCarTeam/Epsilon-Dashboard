@@ -2792,6 +2792,19 @@ border: 1px solid white;</string>
            </property>
           </spacer>
          </item>
+         <item row="4" column="1">
+          <widget class="QLabel" name="highVoltageEnableLabel">
+           <property name="mouseTracking">
+            <bool>true</bool>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(85, 87, 83);</string>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;High Voltage Enable&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
         </layout>
        </widget>
       </item>

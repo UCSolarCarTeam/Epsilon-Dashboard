@@ -134,6 +134,8 @@ void BatteryView::connectAuxBMS(AuxBmsPresenter& auxBMSPresenter)
             this, SLOT(allowChargeReceived(bool)));
     connect(&auxBMSPresenter, SIGNAL(contactorErrorReceieved(bool)),
             this, SLOT(contactorErrorReceived(bool)));
+    connect(&auxBMSPresenter, SIGNAL(highVoltageEnableReceived(bool)),
+            this, SLOT(highVoltageEnableReveived(bool)));
     connect(&auxBMSPresenter, SIGNAL(auxVoltageReceived(const int)),
             this, SLOT(auxVoltageReceived(const int)));
     connect(&auxBMSPresenter, SIGNAL(prechargeStateReceived(const QString)),
@@ -535,5 +537,18 @@ void BatteryView::contactorErrorReceived(bool contactorError)
     else
     {
         ui_.contactorErrorLabel().setStyleSheet(OFF);
+    }
+}
+
+void BatteryView::highVoltageEnablereceived(bool highVoltageEnable)
+{
+
+    if (highVoltageEnable)
+    {
+        ui_.highVoltageEnableLabel().setStyleSheet(ON);
+    }
+    else
+    {
+        ui_.highVoltageEnableLabel().setStyleSheet(OFF);
     }
 }
