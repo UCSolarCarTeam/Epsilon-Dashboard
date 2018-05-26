@@ -32,8 +32,8 @@ signals:
     void prechargeStateReceived(const QString&);
     void auxVoltageReceived(const int&);
     void auxBmsAliveReceived(const bool&);
-    void strobeBmsLightRecieved(const bool&);
-    void allowChargeRecieved(const bool&);
-    void contactorErrorRecieved(const bool&);
-    void highVoltageEnableRecieved(const bool&);
+    void strobeBmsLightReceived(const bool&);
+    void allowChargeReceived(const bool&);
+    void contactorErrorReceived(const bool&);
+    void highVoltageEnableReceived(const bool&);
 };

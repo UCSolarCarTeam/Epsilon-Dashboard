@@ -130,12 +130,12 @@ void BatteryView::connectAuxBMS(AuxBmsPresenter& auxBMSPresenter)
             this, SLOT(auxBmsAliveReceived(bool)));
     connect(&auxBMSPresenter, SIGNAL(strobeBmsLightReceived(bool)),
             this, SLOT(strobeBMSReceived(bool)));
-    connect(&auxBMSPresenter, SIGNAL(allowChargeReceieved(bool)),
+    connect(&auxBMSPresenter, SIGNAL(allowChargeReceived(bool)),
             this, SLOT(allowChargeReceived(bool)));
-    connect(&auxBMSPresenter, SIGNAL(contactorErrorReceieved(bool)),
+    connect(&auxBMSPresenter, SIGNAL(contactorErrorReceived(bool)),
             this, SLOT(contactorErrorReceived(bool)));
     connect(&auxBMSPresenter, SIGNAL(highVoltageEnableReceived(bool)),
-            this, SLOT(highVoltageEnableReveived(bool)));
+            this, SLOT(highVoltageEnableReceived(bool)));
     connect(&auxBMSPresenter, SIGNAL(auxVoltageReceived(const int)),
             this, SLOT(auxVoltageReceived(const int)));
     connect(&auxBMSPresenter, SIGNAL(prechargeStateReceived(const QString)),

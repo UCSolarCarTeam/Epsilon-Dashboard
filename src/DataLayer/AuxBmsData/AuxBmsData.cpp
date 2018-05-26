@@ -69,23 +69,23 @@ void AuxBmsData::setAuxBmsAlive(const bool& auxBmsAlive)
 void AuxBmsData::setStrobeBmsLight(const bool& strobeBmsLight)
 {
     strobeBmsLight_ = strobeBmsLight;
-    emit strobeBmsLightRecieved(strobeBmsLight_);
+    emit strobeBmsLightReceived(strobeBmsLight_);
 }
 
 void AuxBmsData::setAllowCharge(const bool& allowCharge)
 {
     allowCharge_ = allowCharge;
-    emit allowChargeRecieved(allowCharge_);
+    emit allowChargeReceived(allowCharge_);
 }
 
 void AuxBmsData::setContactorError(const bool& contactorError)
 {
     contactorError_ = contactorError;
-    emit contactorErrorRecieved(contactorError_);
+    emit contactorErrorReceived(contactorError_);
 }
 
 void AuxBmsData::setHighVoltageEnable(const bool &highVoltageEnable)
 {
     highVoltageEnable_ = highVoltageEnable;
-    emit highVoltageEnableRecieved(highVoltageEnable_);
+    emit highVoltageEnableReceived(highVoltageEnable_);
 }
