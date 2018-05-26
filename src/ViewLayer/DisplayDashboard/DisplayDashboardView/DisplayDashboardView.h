@@ -16,6 +16,9 @@
 #include "../../../PresenterLayer/MotorDetailsPresenter/MotorDetailsPresenter.h"
 #include "../../../PresenterLayer/MotorFaultsPresenter/MotorFaultsPresenter.h"
 #include "../DisplayDashboardUI/I_DisplayDashboardUI.h"
+#include "Faults/BatteryFaults/BatteryFaultList.h"
+#include "Faults/MotorFaults/MotorFaultList.h"
+
 
 class AuxBmsPresenter;
 class BatteryPresenter;
@@ -41,7 +44,10 @@ public:
                          MpptPresenter& mpptPresenter,
                          MotorDetailsPresenter& motorDetailsPresenter,
                          MotorFaultsPresenter& motorFaultsPresenter,
-                         I_DisplayDashboardUI& ui);
+                         I_DisplayDashboardUI& ui,
+                         MotorFaultList& motorZeroFaultsList,
+                         MotorFaultList& motorOneFaultsList,
+                         BatteryFaultList& batteryFaultsList);
     ~DisplayDashboardView();
 
 private:
@@ -55,6 +61,8 @@ private:
     void connectMotorDetails(MotorDetailsPresenter&);
     void connectMotorFaults(MotorFaultsPresenter&);
 
+    void updateFaultLabel(QLabel&, FaultLabel);
+
     AuxBmsPresenter& auxBmsPresenter_;
     BatteryPresenter& batteryPresenter_;
     BatteryFaultsPresenter& batteryFaultsPresenter_;
@@ -64,8 +72,10 @@ private:
     MpptPresenter& mpptPresenter_;
     MotorDetailsPresenter& motorDetailsPresenter_;
     MotorFaultsPresenter& motorFaultsPresenter_;
-
     I_DisplayDashboardUI& ui_;
+    MotorFaultList& motorZeroFaultsList_;
+    MotorFaultList& motorOneFaultsList_;
+    BatteryFaultList& batteryFaultsList_;
 
     //used in mpptReceived
     double mpptZeroPower_;
