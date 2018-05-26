@@ -774,7 +774,7 @@ color: rgb(100,100,100);
                 </property>
                </widget>
               </item>
-              <item row="2" column="0" colspan="2" alignment="Qt::AlignHCenter">
+              <item row="2" column="0" colspan="2" alignment="Qt::AlignLeft">
                <widget class="QLabel" name="prechargeStateTitleLabel">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
