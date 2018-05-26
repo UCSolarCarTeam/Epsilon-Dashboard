@@ -24,7 +24,6 @@ public:
     virtual QLabel& hornOnLabel() = 0;
     virtual QLabel& nextSongLabel() = 0;
     virtual QLabel& prevSongLabel() = 0;
-    virtual QLabel& playPauseLabel() = 0;
     virtual QLabel& volumeUpLabel() = 0;
     virtual QLabel& volumeDownLabel() = 0;
     virtual QLabel& brakesOnLabel() = 0;
