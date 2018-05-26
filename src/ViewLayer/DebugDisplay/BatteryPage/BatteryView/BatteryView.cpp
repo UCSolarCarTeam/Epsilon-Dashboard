@@ -540,7 +540,7 @@ void BatteryView::contactorErrorReceived(bool contactorError)
     }
 }
 
-void BatteryView::highVoltageEnablereceived(bool highVoltageEnable)
+void BatteryView::highVoltageEnableReceived(bool highVoltageEnable)
 {
 
     if (highVoltageEnable)
