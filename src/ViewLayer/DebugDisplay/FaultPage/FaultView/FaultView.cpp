@@ -4,8 +4,8 @@ namespace
 {
     int HEIGHT = 25;
     int WIDTH = 665;
-    QString ERROR_STYLESHEET = "font: 20px 'Arial';\nfont-weight:500;color:#89c2d3; margin-left: 10px;";
-    QString LIMIT_STYLESHEET = "font: 20px 'Arial';\nfont-weight:500;color:#CCBF14; margin-left: 10px;";
+    QString ERROR_STYLESHEET = "font: 20px 'Arial';\nfont-weight:500;\nmargin-left: 10px;\ncolor:";
+    QString LIMIT_STYLESHEET = "font: 20px 'Arial';\nfont-weight:500;\nmargin-left: 10px;\ncolor:";
     QString SCROLLBAR_STYLESHEET = "QScrollBar:vertical {"
                                    "    background:rgba(83, 83, 84);"
                                    "    width:10px;    "
@@ -81,10 +81,10 @@ FaultView::~FaultView()
 {
 }
 
-void FaultView::initializeLabel(QLabel& label, QLayout*& layout, QString& styleSheet)
+void FaultView::initializeLabel(FaultLabel& label, QLayout*& layout, QString& styleSheet)
 {
     label.resize(WIDTH, HEIGHT);
-    label.setStyleSheet(styleSheet);
+    label.setStyleSheet(styleSheet + label.color().name());
     label.setFixedSize(WIDTH, HEIGHT);
     layout->addWidget(&label);
     label.hide();

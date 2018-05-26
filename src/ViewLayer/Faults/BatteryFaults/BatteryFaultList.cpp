@@ -5,10 +5,6 @@ namespace
     int NUMBER_OF_BATTERY_ERRORS = 21;
     int NUMBER_OF_BATTERY_LIMITS = 14;
     //Battery errors
-    QString FAN_MONITOR_FAULT = "Fan Monitor Fault";
-    QString ALWAYS_ON_SUPPLY_FAULT = "Always-On Supply Fault";
-    QString WEAK_PACK_FAULT = "Weak Pack Fault";
-    QString INTERNAL_MEMORY_FAULT = "Internal Memory Fault";
     QString INTERNAL_COMMUNICATION_FAULT = "Internal Communication Fault";
     QString INTERNAL_CONVERSION_FAULT = "Internal Conversion Fault";
     QString WEAK_CELL_FAULT = "Weak Cell Fault";
@@ -26,10 +22,11 @@ namespace
     QString CHARGER_SAFETY_RELAY_FAULT = "Charger Safety Relay Fault";
     QString INTERNAL_THERMISTOR_FAULT = "Internal Thermistor Fault";
     QString INTERNAL_LOGIC_FAULT = "Internal Logic Fault";
+    QString WEAK_PACK_FAULT = "Weak Pack Fault";
+    QString INTERNAL_MEMORY_FAULT = "Internal Memory Fault";
+    QString FAN_MONITOR_FAULT = "Fan Monitor Fault";
+    QString ALWAYS_ON_SUPPLY_FAULT = "Always-On Supply Fault";
     //Battery limits
-    QString DCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE = "DCL Reduced Due To High Cell Resistance";
-    QString CCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE = "CCL Reduced Due To High Cell Resistance";
-    QString DCL_REDUCED_DUE_TO_LOW_SOC = "DCL Reduced Due To Low SOC";
     QString DCL_REDUCED_DUE_TO_TEMPERATURE = "DCL Reduced Due To Temperature";
     QString DCL_REDUCED_DUE_TO_LOW_CELL_VOLTAGE = "DCL Reduced Due To Low Cell Voltage";
     QString DCL_REDUCED_DUE_TO_LOW_PACK_VOLTAGE = "DCL Reduced Due To Low Pack Voltage";
@@ -41,16 +38,15 @@ namespace
     QString CCL_REDUCED_DUE_TO_HIGH_PACK_VOLTAGE = "CCL Reduced Due To High Pack Voltage";
     QString CCL_REDUCED_DUE_TO_CHARGER_LATCH = "CCL Reduced Due To Charger Latch";
     QString CCL_REDUCED_DUE_TO_ALTERNATE_CURRENT_LIMIT = "CCL Reduced Due To Alternate Current Limit";
+    QString DCL_REDUCED_DUE_TO_LOW_SOC = "DCL Reduced Due To Low SOC";
+    QString DCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE = "DCL Reduced Due To High Cell Resistance";
+    QString CCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE = "CCL Reduced Due To High Cell Resistance";
 }
 
 BatteryFaultList::BatteryFaultList()
     : errorLabels_(
 {
-    FaultLabel(FAN_MONITOR_FAULT, FaultPriorities::LOW_PRIORITY, false)
-    , FaultLabel(ALWAYS_ON_SUPPLY_FAULT, FaultPriorities::LOW_PRIORITY, false)
-    , FaultLabel(WEAK_PACK_FAULT, FaultPriorities::MEDIUM_PRIORITY, false)
-    , FaultLabel(INTERNAL_MEMORY_FAULT, FaultPriorities::MEDIUM_PRIORITY, false)
-    , FaultLabel(INTERNAL_COMMUNICATION_FAULT, FaultPriorities::HIGH_PRIORITY, false)
+    FaultLabel(INTERNAL_COMMUNICATION_FAULT, FaultPriorities::HIGH_PRIORITY, false)
     , FaultLabel(INTERNAL_CONVERSION_FAULT, FaultPriorities::HIGH_PRIORITY, false)
     , FaultLabel(WEAK_CELL_FAULT, FaultPriorities::HIGH_PRIORITY, false)
     , FaultLabel(LOW_CELL_VOLTAGE_FAULT, FaultPriorities::HIGH_PRIORITY, false)
@@ -67,13 +63,14 @@ BatteryFaultList::BatteryFaultList()
     , FaultLabel(CHARGER_SAFETY_RELAY_FAULT, FaultPriorities::HIGH_PRIORITY, false)
     , FaultLabel(INTERNAL_THERMISTOR_FAULT, FaultPriorities::HIGH_PRIORITY, false)
     , FaultLabel(INTERNAL_LOGIC_FAULT, FaultPriorities::HIGH_PRIORITY, false)
+    , FaultLabel(WEAK_PACK_FAULT, FaultPriorities::MEDIUM_PRIORITY, false)
+    , FaultLabel(INTERNAL_MEMORY_FAULT, FaultPriorities::MEDIUM_PRIORITY, false)
+    , FaultLabel(FAN_MONITOR_FAULT, FaultPriorities::LOW_PRIORITY, false)
+    , FaultLabel(ALWAYS_ON_SUPPLY_FAULT, FaultPriorities::LOW_PRIORITY, false)
 })
 , limitLabels_(
 {
-    FaultLabel(DCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE, FaultPriorities::LOW_PRIORITY, false)
-    , FaultLabel(CCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE, FaultPriorities::LOW_PRIORITY, false)
-    , FaultLabel(DCL_REDUCED_DUE_TO_LOW_SOC, FaultPriorities::MEDIUM_PRIORITY, false)
-    , FaultLabel(DCL_REDUCED_DUE_TO_TEMPERATURE, FaultPriorities::HIGH_PRIORITY, false)
+    FaultLabel(DCL_REDUCED_DUE_TO_TEMPERATURE, FaultPriorities::HIGH_PRIORITY, false)
     , FaultLabel(DCL_REDUCED_DUE_TO_LOW_CELL_VOLTAGE, FaultPriorities::HIGH_PRIORITY, false)
     , FaultLabel(DCL_REDUCED_DUE_TO_LOW_PACK_VOLTAGE, FaultPriorities::HIGH_PRIORITY, false)
     , FaultLabel(DCL_AND_CCL_REDUCED_DUE_TO_VOLTAGE_FAILSAFE, FaultPriorities::HIGH_PRIORITY, false)
@@ -84,6 +81,9 @@ BatteryFaultList::BatteryFaultList()
     , FaultLabel(CCL_REDUCED_DUE_TO_HIGH_PACK_VOLTAGE, FaultPriorities::HIGH_PRIORITY, false)
     , FaultLabel(CCL_REDUCED_DUE_TO_CHARGER_LATCH, FaultPriorities::HIGH_PRIORITY, false)
     , FaultLabel(CCL_REDUCED_DUE_TO_ALTERNATE_CURRENT_LIMIT, FaultPriorities::HIGH_PRIORITY, false)
+    , FaultLabel(DCL_REDUCED_DUE_TO_LOW_SOC, FaultPriorities::MEDIUM_PRIORITY, false)
+    , FaultLabel(DCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE, FaultPriorities::LOW_PRIORITY, false)
+    , FaultLabel(CCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE, FaultPriorities::LOW_PRIORITY, false)
 })
 {
 }
