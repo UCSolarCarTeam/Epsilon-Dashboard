@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>683</width>
-    <height>696</height>
+    <height>648</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -26,24 +26,30 @@
    <property name="spacing">
     <number>10</number>
    </property>
-   <item row="3" column="0">
-    <widget class="QWidget" name="temperatureBlock" native="true">
+   <item row="1" column="1" rowspan="2">
+    <widget class="QWidget" name="widget_20" native="true">
      <property name="sizePolicy">
-      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
      <property name="minimumSize">
       <size>
-       <width>325</width>
-       <height>140</height>
+       <width>0</width>
+       <height>250</height>
       </size>
      </property>
-     <property name="styleSheet">
-      <string notr="true">border-radius: 10 px;</string>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>270</height>
+      </size>
      </property>
-     <layout class="QGridLayout" name="gridLayout_4">
+     <layout class="QVBoxLayout" name="verticalLayout_12">
+      <property name="spacing">
+       <number>0</number>
+      </property>
       <property name="leftMargin">
        <number>0</number>
       </property>
@@ -56,253 +62,17 @@
       <property name="bottomMargin">
        <number>0</number>
       </property>
-      <item row="4" column="0">
-       <widget class="QWidget" name="widget_3" native="true">
-        <layout class="QHBoxLayout" name="horizontalLayout_10">
-         <property name="leftMargin">
-          <number>9</number>
-         </property>
-         <property name="topMargin">
-          <number>0</number>
-         </property>
-         <property name="bottomMargin">
-          <number>0</number>
-         </property>
-         <item alignment="Qt::AlignRight">
-          <widget class="QLabel" name="label_34">
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; color:#babdb6;&quot;&gt;Internal&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QWidget" name="widget_18" native="true">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(85, 87, 83);</string>
-           </property>
-           <layout class="QHBoxLayout" name="horizontalLayout_11">
-            <property name="topMargin">
-             <number>0</number>
-            </property>
-            <property name="bottomMargin">
-             <number>0</number>
-            </property>
-            <item alignment="Qt::AlignHCenter">
-             <widget class="QLabel" name="internalTempLabel">
-              <property name="font">
-               <font>
-                <family>Arial</family>
-                <pointsize>12</pointsize>
-                <weight>50</weight>
-                <italic>false</italic>
-                <bold>false</bold>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background: transparent;
-font:12pt &quot;Arial&quot;;
-color:white;</string>
-              </property>
-              <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;15&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;°C&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QWidget" name="widget_9" native="true">
-        <property name="styleSheet">
-         <string notr="true">background-color: rgba(46, 52, 54,150);</string>
-        </property>
-        <layout class="QHBoxLayout" name="horizontalLayout_3">
-         <property name="topMargin">
-          <number>0</number>
-         </property>
-         <property name="bottomMargin">
-          <number>0</number>
-         </property>
-         <item>
-          <widget class="QLabel" name="label_12">
-           <property name="font">
-            <font>
-             <pointsize>12</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background: transparent;</string>
-           </property>
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;Low:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="tempLowLabel">
-           <property name="font">
-            <font>
-             <family>Arial</family>
-             <pointsize>12</pointsize>
-             <weight>50</weight>
-             <italic>false</italic>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background: transparent;
-font:12pt &quot;Arial&quot;;
-color:white;</string>
-           </property>
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;10°C&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer_4">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_15">
-           <property name="styleSheet">
-            <string notr="true">background: transparent;</string>
-           </property>
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; color:#ffffff;&quot;&gt;Thermistor ID:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="tempLowThermistorIDLabel">
-           <property name="styleSheet">
-            <string notr="true">background: transparent;
-font:12pt &quot;Arial&quot;;
-color:white;</string>
-           </property>
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; color:#ffffff;&quot;&gt;# #&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QWidget" name="widget_8" native="true">
-        <property name="styleSheet">
-         <string notr="true">background-color: rgba(46, 52, 54,150);</string>
-        </property>
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
-         <property name="topMargin">
-          <number>0</number>
-         </property>
-         <property name="bottomMargin">
-          <number>0</number>
-         </property>
-         <item>
-          <widget class="QLabel" name="label_7">
-           <property name="font">
-            <font>
-             <pointsize>12</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background: transparent;</string>
-           </property>
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;High:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="tempHighLabel">
-           <property name="font">
-            <font>
-             <family>Arial</family>
-             <pointsize>12</pointsize>
-             <weight>50</weight>
-             <italic>false</italic>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background: transparent;
-font:12pt &quot;Arial&quot;;
-color:white;</string>
-           </property>
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;30&lt;/span&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;°C&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer_5">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_14">
-           <property name="styleSheet">
-            <string notr="true">background: transparent;</string>
-           </property>
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; color:#ffffff;&quot;&gt;Thermistor ID:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="tempHighThermistorIDLabel">
-           <property name="styleSheet">
-            <string notr="true">background: transparent;
-font:12pt &quot;Arial&quot;;
-color:white;</string>
-           </property>
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; color:#ffffff;&quot;&gt;# #&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-      </item>
-      <item row="0" column="0">
-       <widget class="QWidget" name="widget" native="true">
+      <item>
+       <widget class="QWidget" name="widget_21" native="true">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+         <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
-        <property name="minimumSize">
+        <property name="maximumSize">
          <size>
-          <width>0</width>
+          <width>16777215</width>
           <height>30</height>
          </size>
         </property>
@@ -311,7 +81,59 @@ color:white;</string>
 border-top-left-radius:12px;
 border-top-right-radius:12px;</string>
         </property>
-        <layout class="QVBoxLayout" name="verticalLayout_3">
+        <layout class="QVBoxLayout" name="verticalLayout_13">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label_37">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; color:#ffffff;&quot;&gt;BMS Relay Status&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QWidget" name="widget_24" native="true">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>240</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgba(46, 52, 54,150);</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_8">
+         <property name="spacing">
+          <number>0</number>
+         </property>
          <property name="leftMargin">
           <number>0</number>
          </property>
@@ -324,76 +146,255 @@ border-top-right-radius:12px;</string>
          <property name="bottomMargin">
           <number>0</number>
          </property>
-         <item alignment="Qt::AlignHCenter">
-          <widget class="QLabel" name="label_11">
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; color:#ffffff;&quot;&gt;Temperature&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <item>
+          <widget class="QWidget" name="widget_42" native="true">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
            </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>150</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">/*background-color: rgba(46, 52, 54,150);
+*/
+
+background: transparent;</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_16">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>9</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="BmsOn">
+              <property name="font">
+               <font>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(250, 187, 28);
+
+background: transparent;</string>
+              </property>
+              <property name="text">
+               <string>Always On Signal </string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="BmsCharging">
+              <property name="font">
+               <font>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background: transparent;
+color: rgb(250, 187, 28);</string>
+              </property>
+              <property name="text">
+               <string>Charging</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="BmsReady">
+              <property name="font">
+               <font>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background: transparent;
+color: rgb(85, 87, 83);</string>
+              </property>
+              <property name="text">
+               <string>Ready</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="BmsDischargeRelayEnabled">
+              <property name="font">
+               <font>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background: transparent;
+color: rgb(85, 87, 83);</string>
+              </property>
+              <property name="text">
+               <string>Discharge Relay Enabled</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="BmsChargeRelayEnabled">
+              <property name="font">
+               <font>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background: transparent;
+color: rgb(250, 187, 28);</string>
+              </property>
+              <property name="text">
+               <string>Charge Relay Enabled</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="BmsChargerSafetyEnabled">
+              <property name="font">
+               <font>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background: transparent;
+color: rgb(85, 87, 83);</string>
+              </property>
+              <property name="text">
+               <string>Charger Safety Enabled</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </widget>
          </item>
-        </layout>
-       </widget>
-      </item>
-      <item row="3" column="0">
-       <widget class="QWidget" name="widget_14" native="true">
-        <property name="styleSheet">
-         <string notr="true">background-color: rgba(46, 52, 54,150);</string>
-        </property>
-        <layout class="QHBoxLayout" name="horizontalLayout_4">
-         <property name="topMargin">
-          <number>0</number>
-         </property>
-         <property name="bottomMargin">
-          <number>0</number>
-         </property>
          <item>
-          <widget class="QLabel" name="label_13">
-           <property name="font">
-            <font>
-             <pointsize>12</pointsize>
-            </font>
+          <widget class="QWidget" name="widget_46" native="true">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+             <horstretch>0</horstretch>
+             <verstretch>50</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>600</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(46, 52, 54);
+border-top-left-radius:12px;
+border-top-right-radius:12px;</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_14">
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="label_44">
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; color:#ffffff;&quot;&gt;Malfunction Indicator&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QWidget" name="widget_43" native="true">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>60</height>
+            </size>
            </property>
            <property name="styleSheet">
             <string notr="true">background: transparent;</string>
            </property>
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;Avg:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_15">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>9</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="malfunctionIndicatorActive">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>10</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background: transparent;
+color: rgb(250, 187, 28);</string>
+              </property>
+              <property name="text">
+               <string>Malfunction Indicator Active</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="multipurposeInputSignalStatus">
+              <property name="font">
+               <font>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background: transparent;
+color: rgb(85, 87, 83);
+</string>
+              </property>
+              <property name="text">
+               <string>Multi-Purpose Input Signal Status</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="tempAvgLabel">
-           <property name="font">
-            <font>
-             <family>Arial</family>
-             <pointsize>12</pointsize>
-             <weight>50</weight>
-             <italic>false</italic>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background: transparent;
-font:12pt &quot;Arial&quot;;
-color:white;</string>
-           </property>
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;20°C&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer_3">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
          </item>
         </layout>
        </widget>
@@ -1644,6 +1645,62 @@ color: rgb(136, 138, 133);</string>
      </layout>
     </widget>
    </item>
+   <item row="0" column="1">
+    <widget class="QWidget" name="widget_53" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Maximum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>500</width>
+       <height>38</height>
+      </size>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_8">
+      <item>
+       <spacer name="horizontalSpacer_9">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>235</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_58">
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; color:#ffffff;&quot;&gt;Alive&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QWidget" name="aliveWidget" native="true">
+        <property name="maximumSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(211, 215, 207);
+border-radius:10px;
+border: 1px solid white;</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
    <item row="3" column="1">
     <widget class="QWidget" name="voltageBlock" native="true">
      <property name="sizePolicy">
@@ -1655,7 +1712,7 @@ color: rgb(136, 138, 133);</string>
      <property name="minimumSize">
       <size>
        <width>0</width>
-       <height>180</height>
+       <height>160</height>
       </size>
      </property>
      <property name="styleSheet">
@@ -2106,30 +2163,24 @@ color:white;</string>
      </layout>
     </widget>
    </item>
-   <item row="1" column="1" rowspan="2">
-    <widget class="QWidget" name="widget_20" native="true">
+   <item row="3" column="0">
+    <widget class="QWidget" name="temperatureBlock" native="true">
      <property name="sizePolicy">
-      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
      <property name="minimumSize">
       <size>
-       <width>0</width>
-       <height>290</height>
+       <width>325</width>
+       <height>140</height>
       </size>
      </property>
-     <property name="maximumSize">
-      <size>
-       <width>16777215</width>
-       <height>290</height>
-      </size>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 10 px;</string>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout_12">
-      <property name="spacing">
-       <number>0</number>
-      </property>
+     <layout class="QGridLayout" name="gridLayout_4">
       <property name="leftMargin">
        <number>0</number>
       </property>
@@ -2142,17 +2193,253 @@ color:white;</string>
       <property name="bottomMargin">
        <number>0</number>
       </property>
-      <item>
-       <widget class="QWidget" name="widget_21" native="true">
+      <item row="4" column="0">
+       <widget class="QWidget" name="widget_3" native="true">
+        <layout class="QHBoxLayout" name="horizontalLayout_10">
+         <property name="leftMargin">
+          <number>9</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item alignment="Qt::AlignRight">
+          <widget class="QLabel" name="label_34">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; color:#babdb6;&quot;&gt;Internal&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QWidget" name="widget_18" native="true">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(85, 87, 83);</string>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_11">
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item alignment="Qt::AlignHCenter">
+             <widget class="QLabel" name="internalTempLabel">
+              <property name="font">
+               <font>
+                <family>Arial</family>
+                <pointsize>12</pointsize>
+                <weight>50</weight>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background: transparent;
+font:12pt &quot;Arial&quot;;
+color:white;</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;15&lt;/span&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;°C&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QWidget" name="widget_9" native="true">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgba(46, 52, 54,150);</string>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label_12">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background: transparent;</string>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;Low:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="tempLowLabel">
+           <property name="font">
+            <font>
+             <family>Arial</family>
+             <pointsize>12</pointsize>
+             <weight>50</weight>
+             <italic>false</italic>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background: transparent;
+font:12pt &quot;Arial&quot;;
+color:white;</string>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;10°C&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_4">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_15">
+           <property name="styleSheet">
+            <string notr="true">background: transparent;</string>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; color:#ffffff;&quot;&gt;Thermistor ID:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="tempLowThermistorIDLabel">
+           <property name="styleSheet">
+            <string notr="true">background: transparent;
+font:12pt &quot;Arial&quot;;
+color:white;</string>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; color:#ffffff;&quot;&gt;# #&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QWidget" name="widget_8" native="true">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgba(46, 52, 54,150);</string>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label_7">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background: transparent;</string>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;High:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="tempHighLabel">
+           <property name="font">
+            <font>
+             <family>Arial</family>
+             <pointsize>12</pointsize>
+             <weight>50</weight>
+             <italic>false</italic>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background: transparent;
+font:12pt &quot;Arial&quot;;
+color:white;</string>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;30&lt;/span&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;°C&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_5">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_14">
+           <property name="styleSheet">
+            <string notr="true">background: transparent;</string>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; color:#ffffff;&quot;&gt;Thermistor ID:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="tempHighThermistorIDLabel">
+           <property name="styleSheet">
+            <string notr="true">background: transparent;
+font:12pt &quot;Arial&quot;;
+color:white;</string>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; color:#ffffff;&quot;&gt;# #&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QWidget" name="widget" native="true">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
-        <property name="maximumSize">
+        <property name="minimumSize">
          <size>
-          <width>16777215</width>
+          <width>0</width>
           <height>30</height>
          </size>
         </property>
@@ -2161,59 +2448,7 @@ color:white;</string>
 border-top-left-radius:12px;
 border-top-right-radius:12px;</string>
         </property>
-        <layout class="QVBoxLayout" name="verticalLayout_13">
-         <property name="leftMargin">
-          <number>0</number>
-         </property>
-         <property name="topMargin">
-          <number>0</number>
-         </property>
-         <property name="bottomMargin">
-          <number>0</number>
-         </property>
-         <item>
-          <widget class="QLabel" name="label_37">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; color:#ffffff;&quot;&gt;BMS Relay Status&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-      </item>
-      <item>
-       <widget class="QWidget" name="widget_24" native="true">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>260</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgba(46, 52, 54,150);</string>
-        </property>
-        <layout class="QVBoxLayout" name="verticalLayout_8">
-         <property name="spacing">
-          <number>0</number>
-         </property>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
          <property name="leftMargin">
           <number>0</number>
          </property>
@@ -2226,255 +2461,76 @@ border-top-right-radius:12px;</string>
          <property name="bottomMargin">
           <number>0</number>
          </property>
-         <item>
-          <widget class="QWidget" name="widget_42" native="true">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
+         <item alignment="Qt::AlignHCenter">
+          <widget class="QLabel" name="label_11">
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; color:#ffffff;&quot;&gt;Temperature&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>160</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">/*background-color: rgba(46, 52, 54,150);
-*/
-
-background: transparent;</string>
-           </property>
-           <layout class="QVBoxLayout" name="verticalLayout_16">
-            <property name="spacing">
-             <number>0</number>
-            </property>
-            <property name="leftMargin">
-             <number>9</number>
-            </property>
-            <property name="topMargin">
-             <number>0</number>
-            </property>
-            <property name="bottomMargin">
-             <number>0</number>
-            </property>
-            <item>
-             <widget class="QLabel" name="BmsOn">
-              <property name="font">
-               <font>
-                <pointsize>12</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(250, 187, 28);
-
-background: transparent;</string>
-              </property>
-              <property name="text">
-               <string>Always On Signal </string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="BmsCharging">
-              <property name="font">
-               <font>
-                <pointsize>12</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background: transparent;
-color: rgb(250, 187, 28);</string>
-              </property>
-              <property name="text">
-               <string>Charging</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="BmsReady">
-              <property name="font">
-               <font>
-                <pointsize>12</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background: transparent;
-color: rgb(85, 87, 83);</string>
-              </property>
-              <property name="text">
-               <string>Ready</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="BmsDischargeRelayEnabled">
-              <property name="font">
-               <font>
-                <pointsize>12</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background: transparent;
-color: rgb(85, 87, 83);</string>
-              </property>
-              <property name="text">
-               <string>Discharge Relay Enabled</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="BmsChargeRelayEnabled">
-              <property name="font">
-               <font>
-                <pointsize>12</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background: transparent;
-color: rgb(250, 187, 28);</string>
-              </property>
-              <property name="text">
-               <string>Charge Relay Enabled</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="BmsChargerSafetyEnabled">
-              <property name="font">
-               <font>
-                <pointsize>12</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background: transparent;
-color: rgb(85, 87, 83);</string>
-              </property>
-              <property name="text">
-               <string>Charger Safety Enabled</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
           </widget>
          </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QWidget" name="widget_14" native="true">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgba(46, 52, 54,150);</string>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
          <item>
-          <widget class="QWidget" name="widget_46" native="true">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
-             <horstretch>0</horstretch>
-             <verstretch>50</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>600</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(46, 52, 54);
-border-top-left-radius:12px;
-border-top-right-radius:12px;</string>
-           </property>
-           <layout class="QVBoxLayout" name="verticalLayout_14">
-            <property name="topMargin">
-             <number>0</number>
-            </property>
-            <property name="bottomMargin">
-             <number>0</number>
-            </property>
-            <item>
-             <widget class="QLabel" name="label_44">
-              <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; color:#ffffff;&quot;&gt;Malfunction Indicator&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-         </item>
-         <item>
-          <widget class="QWidget" name="widget_43" native="true">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>70</height>
-            </size>
+          <widget class="QLabel" name="label_13">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
            </property>
            <property name="styleSheet">
             <string notr="true">background: transparent;</string>
            </property>
-           <layout class="QVBoxLayout" name="verticalLayout_15">
-            <property name="spacing">
-             <number>0</number>
-            </property>
-            <property name="leftMargin">
-             <number>9</number>
-            </property>
-            <property name="topMargin">
-             <number>9</number>
-            </property>
-            <item>
-             <widget class="QLabel" name="malfunctionIndicatorActive">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>10</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <pointsize>12</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background: transparent;
-color: rgb(250, 187, 28);</string>
-              </property>
-              <property name="text">
-               <string>Malfunction Indicator Active</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="multipurposeInputSignalStatus">
-              <property name="font">
-               <font>
-                <pointsize>12</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background: transparent;
-color: rgb(85, 87, 83);
-</string>
-              </property>
-              <property name="text">
-               <string>Multi-Purpose Input Signal Status</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;Avg:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
           </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="tempAvgLabel">
+           <property name="font">
+            <font>
+             <family>Arial</family>
+             <pointsize>12</pointsize>
+             <weight>50</weight>
+             <italic>false</italic>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background: transparent;
+font:12pt &quot;Arial&quot;;
+color:white;</string>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;20°C&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
          </item>
         </layout>
        </widget>
@@ -2482,7 +2538,7 @@ color: rgb(85, 87, 83);
      </layout>
     </widget>
    </item>
-   <item row="4" column="0" colspan="2">
+   <item row="4" column="0" rowspan="2" colspan="2">
     <widget class="QWidget" name="stateBlock" native="true">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
@@ -2493,7 +2549,7 @@ color: rgb(85, 87, 83);
      <property name="minimumSize">
       <size>
        <width>0</width>
-       <height>70</height>
+       <height>100</height>
       </size>
      </property>
      <property name="styleSheet">
@@ -2664,6 +2720,23 @@ color:white;</string>
          <property name="verticalSpacing">
           <number>0</number>
          </property>
+         <item row="0" column="1">
+          <widget class="QLabel" name="strobeBMSLabel">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>22</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(85, 87, 83);
+</string>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Strobe BMS&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
          <item row="2" column="1">
           <widget class="QLabel" name="contactorErrorLabel">
            <property name="minimumSize">
@@ -2679,6 +2752,57 @@ color:white;</string>
             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Contactor Error&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
           </widget>
+         </item>
+         <item row="0" column="3">
+          <widget class="QLabel" name="label_2">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; color:#ffffff;&quot;&gt;Aux Alive&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLabel" name="allowChargeLabel">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>22</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(85, 87, 83);</string>
+           </property>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Allow Charge&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Fixed</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>50</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
          </item>
          <item row="0" column="4">
           <widget class="QWidget" name="auxBmsAliveWidget" native="true">
@@ -2717,74 +2841,6 @@ border: 1px solid white;</string>
            </property>
           </spacer>
          </item>
-         <item row="0" column="3">
-          <widget class="QLabel" name="label_2">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; color:#ffffff;&quot;&gt;Aux Alive&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="2">
-          <spacer name="horizontalSpacer_2">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeType">
-            <enum>QSizePolicy::Fixed</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>50</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item row="1" column="1">
-          <widget class="QLabel" name="allowChargeLabel">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>22</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color: rgb(85, 87, 83);</string>
-           </property>
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Allow Charge&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <widget class="QLabel" name="strobeBMSLabel">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>22</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color: rgb(85, 87, 83);
-</string>
-           </property>
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Strobe BMS&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-          </widget>
-         </item>
          <item row="3" column="1">
           <widget class="QLabel" name="highVoltageEnableLabel">
            <property name="mouseTracking">
@@ -2799,62 +2855,6 @@ border: 1px solid white;</string>
           </widget>
          </item>
         </layout>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item row="0" column="1">
-    <widget class="QWidget" name="widget_53" native="true">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Fixed" vsizetype="Maximum">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>500</width>
-       <height>38</height>
-      </size>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_8">
-      <item>
-       <spacer name="horizontalSpacer_9">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeType">
-         <enum>QSizePolicy::Fixed</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>235</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_58">
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; color:#ffffff;&quot;&gt;Alive&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QWidget" name="aliveWidget" native="true">
-        <property name="maximumSize">
-         <size>
-          <width>20</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(211, 215, 207);
-border-radius:10px;
-border: 1px solid white;</string>
-        </property>
        </widget>
       </item>
      </layout>
