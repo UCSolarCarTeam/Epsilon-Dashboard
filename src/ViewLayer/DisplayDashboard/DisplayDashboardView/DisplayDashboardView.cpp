@@ -155,7 +155,7 @@ void DisplayDashboardView::updateFaultLabel(QLabel& dashboardLabel, FaultLabel f
 {
     if (faultLabel.priority() >= 0)
     {
-        dashboardLabel.setStyleSheet("font: 12pt \"Burlingame Pro\";\n color:" + faultLabel.color().name() + ";");
+        dashboardLabel.setStyleSheet(QString("font: 12pt \"Burlingame Pro\";\n color:%1").arg(faultLabel.color().name()));
         dashboardLabel.setText(faultLabel.text());
     }
     else

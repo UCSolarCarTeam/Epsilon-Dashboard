@@ -84,7 +84,7 @@ FaultView::~FaultView()
 void FaultView::initializeLabel(FaultLabel& label, QLayout*& layout, QString& styleSheet)
 {
     label.resize(WIDTH, HEIGHT);
-    label.setStyleSheet(styleSheet + label.color().name());
+    label.setStyleSheet(QString("%1%2").arg(styleSheet).arg(label.color().name()));
     label.setFixedSize(WIDTH, HEIGHT);
     layout->addWidget(&label);
     label.hide();

@@ -171,43 +171,43 @@ QVector<FaultLabel>& BatteryFaultList::limitLabels()
 
 void BatteryFaultList::updateErrors(const BatteryErrorFlags& errorFlags)
 {
-    errorLabels_[0].setActive(errorFlags.fanMonitorFault());
-    errorLabels_[1].setActive(errorFlags.alwaysOnSupplyFault());
-    errorLabels_[2].setActive(errorFlags.weakPackFault());
-    errorLabels_[3].setActive(errorFlags.internalMemoryFault());
-    errorLabels_[4].setActive(errorFlags.internalCommununicationFault());
-    errorLabels_[5].setActive(errorFlags.internalConversionFault());
-    errorLabels_[6].setActive(errorFlags.weakCellFault());
-    errorLabels_[7].setActive(errorFlags.lowCellVoltageFault());
-    errorLabels_[8].setActive(errorFlags.openWiringFault());
-    errorLabels_[9].setActive(errorFlags.currentSensorFault());
-    errorLabels_[10].setActive(errorFlags.packVoltageSensorFault());
-    errorLabels_[11].setActive(errorFlags.voltageRedundancyFault());
-    errorLabels_[12].setActive(errorFlags.thermistorFault());
-    errorLabels_[13].setActive(errorFlags.canbusCommunicationsFault());
-    errorLabels_[14].setActive(errorFlags.highVoltageIsolationFault());
-    errorLabels_[15].setActive(errorFlags.powerSupplyFault12V());
-    errorLabels_[16].setActive(errorFlags.chargeLimitEnforcementFault());
-    errorLabels_[17].setActive(errorFlags.dischargeLimitEnforcementFault());
-    errorLabels_[18].setActive(errorFlags.chargerSafetyRelayFault());
-    errorLabels_[19].setActive(errorFlags.internalThermistorFault());
-    errorLabels_[20].setActive(errorFlags.internalLogicFault());
+    errorLabels_[0].setActive(errorFlags.internalCommununicationFault());
+    errorLabels_[1].setActive(errorFlags.internalConversionFault());
+    errorLabels_[2].setActive(errorFlags.weakCellFault());
+    errorLabels_[3].setActive(errorFlags.lowCellVoltageFault());
+    errorLabels_[4].setActive(errorFlags.openWiringFault());
+    errorLabels_[5].setActive(errorFlags.currentSensorFault());
+    errorLabels_[6].setActive(errorFlags.packVoltageSensorFault());
+    errorLabels_[7].setActive(errorFlags.voltageRedundancyFault());
+    errorLabels_[8].setActive(errorFlags.thermistorFault());
+    errorLabels_[9].setActive(errorFlags.canbusCommunicationsFault());
+    errorLabels_[10].setActive(errorFlags.highVoltageIsolationFault());
+    errorLabels_[11].setActive(errorFlags.powerSupplyFault12V());
+    errorLabels_[12].setActive(errorFlags.chargeLimitEnforcementFault());
+    errorLabels_[13].setActive(errorFlags.dischargeLimitEnforcementFault());
+    errorLabels_[14].setActive(errorFlags.chargerSafetyRelayFault());
+    errorLabels_[15].setActive(errorFlags.internalThermistorFault());
+    errorLabels_[16].setActive(errorFlags.internalLogicFault());
+    errorLabels_[17].setActive(errorFlags.weakPackFault());
+    errorLabels_[18].setActive(errorFlags.internalMemoryFault());
+    errorLabels_[19].setActive(errorFlags.fanMonitorFault());
+    errorLabels_[20].setActive(errorFlags.alwaysOnSupplyFault());
 }
 
 void BatteryFaultList::updateLimits(const BatteryLimitFlags& limitFlags)
 {
-    limitLabels_[0].setActive(limitFlags.dclReducedDueToHighCellResistance());
-    limitLabels_[1].setActive(limitFlags.cclReducedDueToHighCellResistance());
-    limitLabels_[2].setActive(limitFlags.dclReducedDueToLowSoc());
-    limitLabels_[3].setActive(limitFlags.dclReducedDueToTemperature());
-    limitLabels_[4].setActive(limitFlags.dclReducedDueToLowCellVoltage());
-    limitLabels_[5].setActive(limitFlags.dclReducedDueToLowPackVoltage());
-    limitLabels_[6].setActive(limitFlags.dclandCclReducedDueToVoltageFailsafe());
-    limitLabels_[7].setActive(limitFlags.dclandCclReducedDueToCommunicationFailsafe());
-    limitLabels_[8].setActive(limitFlags.cclReducedDueToHighSoc());
-    limitLabels_[9].setActive(limitFlags.cclReducedDueToTemperature());
-    limitLabels_[10].setActive(limitFlags.cclReducedDueToHighCellVoltage());
-    limitLabels_[11].setActive(limitFlags.cclReducedDueToHighPackVoltage());
-    limitLabels_[12].setActive(limitFlags.cclReducedDueToChargerLatch());
-    limitLabels_[13].setActive(limitFlags.cclReducedDueToAlternateCurrentLimit());
+    limitLabels_[0].setActive(limitFlags.dclReducedDueToTemperature());
+    limitLabels_[1].setActive(limitFlags.dclReducedDueToLowCellVoltage());
+    limitLabels_[2].setActive(limitFlags.dclReducedDueToLowPackVoltage());
+    limitLabels_[3].setActive(limitFlags.dclandCclReducedDueToVoltageFailsafe());
+    limitLabels_[4].setActive(limitFlags.dclandCclReducedDueToCommunicationFailsafe());
+    limitLabels_[5].setActive(limitFlags.cclReducedDueToHighSoc());
+    limitLabels_[6].setActive(limitFlags.cclReducedDueToTemperature());
+    limitLabels_[7].setActive(limitFlags.cclReducedDueToHighCellVoltage());
+    limitLabels_[8].setActive(limitFlags.cclReducedDueToHighPackVoltage());
+    limitLabels_[9].setActive(limitFlags.cclReducedDueToChargerLatch());
+    limitLabels_[10].setActive(limitFlags.cclReducedDueToAlternateCurrentLimit());
+    limitLabels_[11].setActive(limitFlags.dclReducedDueToLowSoc());
+    limitLabels_[12].setActive(limitFlags.dclReducedDueToHighCellResistance());
+    limitLabels_[13].setActive(limitFlags.cclReducedDueToHighCellResistance());
 }

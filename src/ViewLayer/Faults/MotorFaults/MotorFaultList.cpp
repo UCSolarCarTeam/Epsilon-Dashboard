@@ -131,23 +131,23 @@ QVector<FaultLabel>& MotorFaultList::limitLabels()
 
 void MotorFaultList::updateErrors(const ErrorFlags& errorFlags)
 {
-    errorLabels_[0].setActive(errorFlags.badMotorPositionHallSequence());
-    errorLabels_[1].setActive(errorFlags.watchdogCausedLastReset());
-    errorLabels_[2].setActive(errorFlags.configReadError());
-    errorLabels_[3].setActive(errorFlags.railUnderVoltageLockOut());
-    errorLabels_[4].setActive(errorFlags.motorOverSpeed());
-    errorLabels_[5].setActive(errorFlags.softwareOverCurrent());
-    errorLabels_[6].setActive(errorFlags.dcBusOverVoltage());
-    errorLabels_[7].setActive(errorFlags.desaturationFault());
+    errorLabels_[0].setActive(errorFlags.motorOverSpeed());
+    errorLabels_[1].setActive(errorFlags.softwareOverCurrent());
+    errorLabels_[2].setActive(errorFlags.dcBusOverVoltage());
+    errorLabels_[3].setActive(errorFlags.desaturationFault());
+    errorLabels_[4].setActive(errorFlags.badMotorPositionHallSequence());
+    errorLabels_[5].setActive(errorFlags.watchdogCausedLastReset());
+    errorLabels_[6].setActive(errorFlags.configReadError());
+    errorLabels_[7].setActive(errorFlags.railUnderVoltageLockOut());
 }
 
 void MotorFaultList::updateLimits(const LimitFlags& limitFlags)
 {
-    limitLabels_[0].setActive(limitFlags.velocityLimit());
-    limitLabels_[1].setActive(limitFlags.ipmOrMotorTemperatureLimit());
-    limitLabels_[2].setActive(limitFlags.outputVoltagePwmLimit());
-    limitLabels_[3].setActive(limitFlags.motorCurrentLimit());
-    limitLabels_[4].setActive(limitFlags.busCurrentLimit());
-    limitLabels_[5].setActive(limitFlags.busVoltageUpperLimit());
-    limitLabels_[6].setActive(limitFlags.busVoltageLowerLimit());
+    limitLabels_[0].setActive(limitFlags.outputVoltagePwmLimit());
+    limitLabels_[1].setActive(limitFlags.motorCurrentLimit());
+    limitLabels_[2].setActive(limitFlags.busCurrentLimit());
+    limitLabels_[3].setActive(limitFlags.busVoltageUpperLimit());
+    limitLabels_[4].setActive(limitFlags.busVoltageLowerLimit());
+    limitLabels_[5].setActive(limitFlags.ipmOrMotorTemperatureLimit());
+    limitLabels_[6].setActive(limitFlags.velocityLimit());
 }
