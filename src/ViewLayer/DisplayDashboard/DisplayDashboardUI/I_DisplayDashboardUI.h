@@ -23,7 +23,8 @@ public:
     virtual QLabel& motorPowerLabel() = 0;
 
     virtual QLabel& batteryFaultsLabel() = 0;
-    virtual QLabel& motorFaultsLabel() = 0;
+    virtual QLabel& motorZeroFaultsLabel() = 0;
+    virtual QLabel& motorOneFaultsLabel() = 0;
 
     virtual QWidget& leftTurnSignalWidget() = 0;
     virtual QWidget& rightTurnSignalWidget() = 0;

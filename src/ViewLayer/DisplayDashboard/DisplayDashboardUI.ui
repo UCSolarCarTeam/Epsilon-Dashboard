@@ -533,11 +533,13 @@ background: none;</string>
             <widget class="QLabel" name="batteryFaultsTitleLabel">
              <property name="styleSheet">
               <string notr="true">font: bold 10pt &quot;Arial Unicode MS&quot;;
-padding-top: 45px;
 color: rgb(100,100,100);</string>
              </property>
              <property name="text">
               <string>B A T T E R Y   F A U L T S</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -550,10 +552,17 @@ color: rgb(100,100,100);</string>
               </size>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color: rgb(15,15,15);</string>
+              <string notr="true">font: 12pt &quot;Burlingame Pro&quot;;
+color:white;</string>
              </property>
              <property name="text">
-              <string/>
+              <string>BatteryFaults</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
@@ -579,19 +588,27 @@ color: rgb(100,100,100);</string>
             <number>30</number>
            </property>
            <item>
-            <widget class="QLabel" name="motorFaultsTitleLabel">
+            <widget class="QLabel" name="motorZeroFaultsTitleLabel">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
              <property name="styleSheet">
               <string notr="true">font: bold 10pt &quot;Arial Unicode MS&quot;;
-padding-top:45px;
 color: rgb(100,100,100);</string>
              </property>
              <property name="text">
-              <string>M O T O R   F A U L T S</string>
+              <string>M O T O R   0    F A U L T S</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="motorFaultsLabel">
+            <widget class="QLabel" name="motorZeroFaultsLabel">
              <property name="minimumSize">
               <size>
                <width>300</width>
@@ -599,10 +616,42 @@ color: rgb(100,100,100);</string>
               </size>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color: rgb(15,15,15);</string>
+              <string notr="true">font: 12pt &quot;Burlingame Pro&quot;;
+color:white;</string>
              </property>
              <property name="text">
-              <string/>
+              <string>Motor0</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="motorOneFaultsTitleLabel">
+             <property name="styleSheet">
+              <string notr="true">font: bold 10pt &quot;Arial Unicode MS&quot;;
+color: rgb(100,100,100);</string>
+             </property>
+             <property name="text">
+              <string>M O T O R   1    F A U L T S</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="motorOneFaultsLabel">
+             <property name="styleSheet">
+              <string notr="true">font: 12pt &quot;Burlingame Pro&quot;;
+color:white;</string>
+             </property>
+             <property name="text">
+              <string>Motor1</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
              </property>
             </widget>
            </item>

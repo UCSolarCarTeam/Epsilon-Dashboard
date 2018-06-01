@@ -160,16 +160,16 @@ void RaceModeDashboardView::connectMotorFaults(MotorFaultsPresenter& motorFaults
             this, SLOT(motorOneLimitFlagsReceived(LimitFlags)));
 }
 
-void RaceModeDashboardView::updateFaultLabel(QLabel& dashBoardLabel, FaultLabel faultLabel)
+void RaceModeDashboardView::updateFaultLabel(QLabel& dashboardLabel, FaultLabel faultLabel)
 {
     if (faultLabel.priority() >= 0)
     {
-        dashBoardLabel.setStyleSheet("font: 10pt \"Burlingame Pro\";\n color:" + faultLabel.color().name() + ";");
-        dashBoardLabel.setText(faultLabel.text());
+        dashboardLabel.setStyleSheet(QString("font: 10pt \"Burlingame Pro\";\n color:%1").arg(faultLabel.color().name()));
+        dashboardLabel.setText(faultLabel.text());
     }
     else
     {
-        dashBoardLabel.setText("");
+        dashboardLabel.setText("");
     }
 }
 
