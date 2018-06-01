@@ -728,36 +728,6 @@ border-radius: 10px;
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_12">
                <item>
-                <widget class="QLabel" name="playPauseLabel">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>20</width>
-                   <height>10</height>
-                  </size>
-                 </property>
-                 <property name="baseSize">
-                  <size>
-                   <width>20</width>
-                   <height>10</height>
-                  </size>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">image: url(:/Resource/Pause-Play.png);
-max-width: 20px;
-max-height: 10px;</string>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                </widget>
-               </item>
-               <item>
                 <widget class="QLabel" name="volumeUpLabel">
                  <property name="font">
                   <font>
@@ -964,6 +934,9 @@ border: 1px solid white;</string>
                <property name="layoutDirection">
                 <enum>Qt::LeftToRight</enum>
                </property>
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
                <property name="value">
                 <number>50</number>
                </property>
@@ -1051,7 +1024,7 @@ border: 1px solid white;</string>
              <item>
               <widget class="QProgressBar" name="regenBrakingProgressBar">
                <property name="styleSheet">
-                <string notr="true">value: 36;</string>
+                <string notr="true"/>
                </property>
                <property name="value">
                 <number>24</number>

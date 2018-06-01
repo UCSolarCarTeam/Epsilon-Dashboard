@@ -63,9 +63,14 @@ QLabel& DisplayDashboardUI::batteryFaultsLabel()
     return *ui_->batteryFaultsLabel;
 }
 
-QLabel& DisplayDashboardUI::motorFaultsLabel()
+QLabel& DisplayDashboardUI::motorZeroFaultsLabel()
 {
-    return *ui_->motorFaultsLabel;
+    return *ui_->motorZeroFaultsLabel;
+}
+
+QLabel& DisplayDashboardUI::motorOneFaultsLabel()
+{
+    return *ui_->motorOneFaultsLabel;
 }
 
 QWidget& DisplayDashboardUI::leftTurnSignalWidget()

@@ -25,6 +25,9 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
 {
     if (mode == Mode::DISPLAY)
     {
+        MotorFaultList* motorZeroFaultList = new MotorFaultList();
+        MotorFaultList* motorOneFaultList = new MotorFaultList();
+        BatteryFaultList* batteryFaultList = new BatteryFaultList();
         DisplayDashboardUI_ = new DisplayDashboardUI();
         DisplayDashboardView_.reset(new DisplayDashboardView(
                                         presenterContainer.auxBmsPresenter(),
@@ -36,7 +39,10 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
                                         presenterContainer.mpptPresenter(),
                                         presenterContainer.motorDetailsPresenter(),
                                         presenterContainer.motorFaultsPresenter(),
-                                        *DisplayDashboardUI_));
+                                        *DisplayDashboardUI_,
+                                        *motorZeroFaultList,
+                                        *motorOneFaultList,
+                                        *batteryFaultList));
     }
     else if (mode == Mode::RACE)
     {
@@ -73,6 +79,9 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
         motorUi_ = new MotorUi();
         mpptUi_ = new MpptUi();
         tabUi_ = new TabUi();
+        MotorFaultList* motorZeroFaultList = new MotorFaultList();
+        MotorFaultList* motorOneFaultList = new MotorFaultList();
+        BatteryFaultList* batteryFaultList = new BatteryFaultList();
         overlordWidget_.reset(new OverlordWidget(*batteryUi_, *controlUi_,
                               *homepageUi_, *faultUi_,
                               *motorUi_, *mpptUi_, *tabUi_));
@@ -82,7 +91,10 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
 
         FaultView_.reset(new FaultView(presenterContainer.motorFaultsPresenter(),
                                        presenterContainer.batteryFaultsPresenter(),
-                                       *faultUi_));
+                                       *faultUi_,
+                                       *motorZeroFaultList,
+                                       *motorOneFaultList,
+                                       *batteryFaultList));
 
 
         MpptView_.reset(new MpptView(presenterContainer.mpptPresenter(), *mpptUi_));

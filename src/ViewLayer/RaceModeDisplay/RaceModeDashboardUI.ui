@@ -588,7 +588,7 @@ qproperty-alignment: 'AlignBottom | AlignRight';
         </rect>
        </property>
        <layout class="QGridLayout" name="ActualSpeed">
-        <item row="0" column="1">
+        <item row="2" column="1">
          <widget class="QLabel" name="actualSpeedUnitsLabel">
           <property name="styleSheet">
            <string notr="true">font: 75 bold 14pt &quot;Nimbus Sans L&quot;;
@@ -602,6 +602,53 @@ color: white;</string>
          </widget>
         </item>
         <item row="0" column="0">
+         <widget class="QProgressBar" name="stateOfChargeCapacityWidget">
+          <property name="maximumSize">
+           <size>
+            <width>150</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>LCDMono</family>
+            <pointsize>20</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+            <kerning>true</kerning>
+           </font>
+          </property>
+          <property name="autoFillBackground">
+           <bool>false</bool>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QProgressBar:horizontal {
+border: 1px solid white;
+border-radius: 7px;
+background-color: black;
+text-align: center;
+}
+QProgressBar::chunk:horizontal{
+border-radius: 7px;
+background: rgb(20,180,20);
+}
+QProgressBar:horizontal::font {
+color: white;
+}</string>
+          </property>
+          <property name="value">
+           <number>100</number>
+          </property>
+          <property name="textVisible">
+           <bool>true</bool>
+          </property>
+          <property name="invertedAppearance">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
          <widget class="QLabel" name="actualSpeedLabel">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -646,6 +693,33 @@ color: white;</string>
           </property>
          </widget>
         </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="stateOfChargeTitleLabel">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLabel {
+qproperty-alignment: AlignHCenter;
+color: rgb(100,100,100);
+}
+
+</string>
+          </property>
+          <property name="text">
+           <string>B A T T E R Y</string>
+          </property>
+         </widget>
+        </item>
        </layout>
       </widget>
      </widget>
@@ -663,159 +737,131 @@ color: white;</string>
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>332</width>
-         <height>296</height>
+         <width>334</width>
+         <height>334</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="MainGrid">
         <item row="0" column="0">
          <layout class="QGridLayout" name="BatteryPrecharge">
-          <item row="1" column="0">
-           <widget class="QLabel" name="stateOfChargeTitleLabel">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
+          <item row="1" column="0" colspan="3">
+           <layout class="QVBoxLayout" name="prechargeLayout">
+            <property name="sizeConstraint">
+             <enum>QLayout::SetMinimumSize</enum>
             </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>20</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QLabel {
-qproperty-alignment: AlignHCenter;
-color: rgb(100,100,100);
-}
-
+            <item>
+             <layout class="QGridLayout" name="prechargeRun">
+              <property name="sizeConstraint">
+               <enum>QLayout::SetMinimumSize</enum>
+              </property>
+              <item row="1" column="0">
+               <widget class="QWidget" name="prechargeStateIconWidget" native="true">
+                <property name="minimumSize">
+                 <size>
+                  <width>45</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>45</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">border-image: url(:/Resources/Alive Icon.png) 0 0 0 0 stretch stretch;
 </string>
-            </property>
-            <property name="text">
-             <string>B A T T E R Y</string>
-            </property>
-           </widget>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0" colspan="2" alignment="Qt::AlignLeft">
+               <widget class="QLabel" name="prechargeStateTitleLabel">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Noto Sans [unknown]</family>
+                  <pointsize>12</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(100,100,100);
+</string>
+                </property>
+                <property name="text">
+                 <string>    P R E C H A R G E</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLabel" name="prechargeStateLabel">
+                <property name="font">
+                 <font>
+                  <pointsize>13</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(100,100,100);</string>
+                </property>
+                <property name="text">
+                 <string>RUN</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <spacer name="prechargeSpacer">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Fixed</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>0</width>
+                  <height>10</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+           </layout>
           </item>
-          <item row="0" column="1" rowspan="2" colspan="2">
-           <layout class="QGridLayout" name="prechargeRun">
+          <item row="3" column="0" rowspan="3" colspan="3">
+           <layout class="QGridLayout" name="resetTemperature">
+            <property name="sizeConstraint">
+             <enum>QLayout::SetMinimumSize</enum>
+            </property>
             <item row="0" column="1">
-             <widget class="QLabel" name="prechargeStateLabel">
-              <property name="font">
-               <font>
-                <pointsize>13</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(100,100,100);
-padding-top: 20px;</string>
-              </property>
-              <property name="text">
-               <string>RUN</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0" colspan="2">
-             <widget class="QLabel" name="prechargeStateTitleLabel">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
+             <widget class="QWidget" name="motorResetButtonWidget" native="true">
               <property name="minimumSize">
                <size>
-                <width>0</width>
-                <height>20</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <family>Noto Sans [unknown]</family>
-                <pointsize>12</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(100,100,100);
-padding-bottom: 20px;
-</string>
-              </property>
-              <property name="text">
-               <string>    P R E C H A R G E</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="0">
-             <widget class="QWidget" name="prechargeStateIconWidget" native="true">
-              <property name="minimumSize">
-               <size>
-                <width>45</width>
-                <height>45</height>
+                <width>60</width>
+                <height>52</height>
                </size>
               </property>
               <property name="maximumSize">
                <size>
-                <width>45</width>
-                <height>45</height>
+                <width>60</width>
+                <height>52</height>
                </size>
               </property>
               <property name="styleSheet">
-               <string notr="true">border-image: url(:/Resources/Alive Icon.png) 0 0 0 0 stretch stretch;
-</string>
+               <string notr="true">background: url(:/Resources/MotorResetButton.png);</string>
               </property>
              </widget>
             </item>
-           </layout>
-          </item>
-          <item row="0" column="0">
-           <widget class="QProgressBar" name="stateOfChargeCapacityWidget">
-            <property name="maximumSize">
-             <size>
-              <width>150</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>LCDMono</family>
-              <pointsize>20</pointsize>
-              <weight>50</weight>
-              <italic>false</italic>
-              <bold>false</bold>
-              <kerning>true</kerning>
-             </font>
-            </property>
-            <property name="autoFillBackground">
-             <bool>false</bool>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QProgressBar:horizontal {
-border: 1px solid white;
-border-radius: 7px;
-background-color: black;
-text-align: center;
-}
-QProgressBar::chunk:horizontal{
-border-radius: 7px;
-background: rgb(20,180,20);
-}
-QProgressBar:horizontal::font {
-color: white;
-}</string>
-            </property>
-            <property name="value">
-             <number>100</number>
-            </property>
-            <property name="textVisible">
-             <bool>true</bool>
-            </property>
-            <property name="invertedAppearance">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0" colspan="3">
-           <layout class="QGridLayout" name="resetTemperature">
             <item row="0" column="3">
              <layout class="QGridLayout" name="CellWidget">
               <item row="0" column="1">
@@ -939,17 +985,17 @@ qproperty-alignment: 'AlignHCenter';
                 </item>
                 <item row="0" column="0">
                  <layout class="QGridLayout" name="maxCellTemp">
-                  <item row="1" column="0" colspan="2">
-                   <widget class="QLabel" name="maxCellTemperatureTitleLabel">
+                  <item row="0" column="1">
+                   <widget class="QLabel" name="maxCellTemperatureUnitsLabel">
                     <property name="styleSheet">
                      <string notr="true">QLabel {
 font: 10pt &quot;Burlingame Pro&quot;;
 color: white;
-qproperty-alignment: 'AlignHCenter | AlignBottom';
+qproperty-alignment: 'AlignBottom | AlignLeft';
 }</string>
                     </property>
                     <property name="text">
-                     <string>M A X</string>
+                     <string>C</string>
                     </property>
                    </widget>
                   </item>
@@ -964,17 +1010,17 @@ color:white;</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="0" column="1">
-                   <widget class="QLabel" name="maxCellTemperatureUnitsLabel">
+                  <item row="1" column="0" colspan="2">
+                   <widget class="QLabel" name="maxCellTemperatureTitleLabel">
                     <property name="styleSheet">
                      <string notr="true">QLabel {
 font: 10pt &quot;Burlingame Pro&quot;;
 color: white;
-qproperty-alignment: 'AlignBottom | AlignLeft';
+qproperty-alignment: 'AlignHCenter | AlignBottom';
 }</string>
                     </property>
                     <property name="text">
-                     <string>C</string>
+                     <string>M A X</string>
                     </property>
                    </widget>
                   </item>
@@ -1048,24 +1094,18 @@ background: url(:/Resources/Thermometer.png);
               </property>
              </widget>
             </item>
-            <item row="0" column="1">
-             <widget class="QWidget" name="motorResetButtonWidget" native="true">
-              <property name="minimumSize">
+            <item row="1" column="1">
+             <spacer name="temperatureSpacer">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
                <size>
-                <width>60</width>
-                <height>52</height>
+                <width>20</width>
+                <height>40</height>
                </size>
               </property>
-              <property name="maximumSize">
-               <size>
-                <width>60</width>
-                <height>52</height>
-               </size>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background: url(:/Resources/MotorResetButton.png);</string>
-              </property>
-             </widget>
+             </spacer>
             </item>
            </layout>
           </item>
@@ -1532,7 +1572,24 @@ padding-bottom: -25px;</string>
           <property name="verticalSpacing">
            <number>0</number>
           </property>
-          <item row="3" column="0" alignment="Qt::AlignHCenter">
+          <item row="2" column="0">
+           <widget class="QLabel" name="batteryFaultsTitleLabel">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: bold 10pt &quot;Arial Unicode MS&quot;;
+color: rgb(100,100,100);</string>
+            </property>
+            <property name="text">
+             <string>    B A T T E R Y   F A U L T S</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
            <widget class="QLabel" name="batteryFaultsLabel">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
@@ -1567,44 +1624,10 @@ color:white;</string>
             </property>
            </widget>
           </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="batteryFaultsTitleLabel">
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>20</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">font: bold 10pt &quot;Arial Unicode MS&quot;;
-color: rgb(100,100,100);</string>
-            </property>
-            <property name="text">
-             <string>    B A T T E R Y   F A U L T S</string>
-            </property>
-           </widget>
-          </item>
          </layout>
         </item>
         <item>
          <layout class="QGridLayout" name="motorFaults">
-          <item row="1" column="0">
-           <widget class="QLabel" name="motorFaultsTitleLabel">
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>20</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">font: bold 10pt &quot;Arial Unicode MS&quot;;
-color: rgb(100,100,100);</string>
-            </property>
-            <property name="text">
-             <string>    M O T O R    0    F A U L T S</string>
-            </property>
-           </widget>
-          </item>
           <item row="4" column="0" alignment="Qt::AlignHCenter">
            <widget class="QLabel" name="motorOneFaultsLabel">
             <property name="sizePolicy">
@@ -1619,6 +1642,40 @@ color:white;</string>
             </property>
             <property name="text">
              <string>Motor1</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="motorFaultsTitleLabel_2">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: bold 10pt &quot;Arial Unicode MS&quot;;
+color: rgb(100,100,100);</string>
+            </property>
+            <property name="text">
+             <string>    M O T O R    1    F A U L T S</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="motorFaultsTitleLabel">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: bold 10pt &quot;Arial Unicode MS&quot;;
+color: rgb(100,100,100);</string>
+            </property>
+            <property name="text">
+             <string>    M O T O R    0    F A U L T S</string>
             </property>
            </widget>
           </item>
@@ -1654,23 +1711,6 @@ color:white;</string>
              </size>
             </property>
            </spacer>
-          </item>
-          <item row="3" column="0">
-           <widget class="QLabel" name="motorFaultsTitleLabel_2">
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>20</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">font: bold 10pt &quot;Arial Unicode MS&quot;;
-color: rgb(100,100,100);</string>
-            </property>
-            <property name="text">
-             <string>    M O T O R    1    F A U L T S</string>
-            </property>
-           </widget>
           </item>
          </layout>
         </item>
