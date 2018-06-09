@@ -8,7 +8,6 @@
 #include "../InfrastructureLayer/InfrastructureContainer.h"
 #include "EpsilonDashboard.h"
 
-#include <QDebug>
 #include <QString>
 
 namespace
