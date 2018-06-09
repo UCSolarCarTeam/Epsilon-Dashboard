@@ -4,7 +4,7 @@
 ControlUi::ControlUi() :
     ui_(new Ui::ControlUi)
 {
-    ui_->setupUi(this); 
+    ui_->setupUi(this);
     QPixmap bkgnd(":/Resources/Background.png");
     bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette background;

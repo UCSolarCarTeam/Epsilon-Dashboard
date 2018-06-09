@@ -73,12 +73,12 @@ OverlordWidget::OverlordWidget(I_BatteryUi& batteryUi, \
 
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
     setGeometry(
-            QStyle::alignedRect(
-                Qt::LeftToRight,
-                Qt::AlignRight,
-                size(),
-                QApplication::desktop()->screenGeometry()
-            )
+        QStyle::alignedRect(
+            Qt::LeftToRight,
+            Qt::AlignRight,
+            size(),
+            QApplication::desktop()->screenGeometry()
+        )
     );
     show();
 }
