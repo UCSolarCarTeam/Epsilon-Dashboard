@@ -14,6 +14,8 @@ public:
     QString packetTitle() const;
     QString exchange() const;
     QString queue() const;
+    bool customQueueEnable() const;
+    void setQueueName(QString queueName);
 
 private:
     QSettings settings_ ;
