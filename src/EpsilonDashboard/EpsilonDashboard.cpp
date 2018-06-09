@@ -8,6 +8,7 @@
 #include "../InfrastructureLayer/InfrastructureContainer.h"
 #include "EpsilonDashboard.h"
 
+
 EpsilonDashboard::EpsilonDashboard(int& argc, char** argv)
     : QApplication(argc, argv)
     , infrastructureContainer_(new InfrastructureContainer())
@@ -27,11 +28,13 @@ EpsilonDashboard::EpsilonDashboard(int& argc, char** argv)
     if (parser.isSet(raceModeOption))
     {
         mode = Mode::RACE;
+
     }
 
     if (parser.isSet(debugModeOption))
     {
         mode = Mode::DEBUG;
+
     }
 
     viewContainer_.reset(new ViewContainer(*presenterContainer_, mode));

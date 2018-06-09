@@ -4,7 +4,7 @@
 HomePageUi::HomePageUi() :
     ui_(new Ui::HomePageUi)
 {
-    ui_->setupUi(this);
+    ui_->setupUi(this); 
     QPixmap background(":/Resource/Background.png");
     background = background.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette palette;

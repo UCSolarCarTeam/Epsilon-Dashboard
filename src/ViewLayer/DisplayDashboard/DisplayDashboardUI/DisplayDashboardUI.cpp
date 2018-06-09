@@ -5,7 +5,8 @@ DisplayDashboardUI::DisplayDashboardUI()
     : ui_(new Ui::DisplayDashboardUI)
 {
     ui_->setupUi(this);
-    //QWidget::setWindowFlags(Qt::FramelessWindowHint);
+    setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+    show();
 }
 
 DisplayDashboardUI::~DisplayDashboardUI()

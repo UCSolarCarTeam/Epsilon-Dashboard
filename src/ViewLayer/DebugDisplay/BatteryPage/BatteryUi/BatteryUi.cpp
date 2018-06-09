@@ -5,14 +5,12 @@ BatteryUi::BatteryUi() :
     ui_(new Ui::BatteryUi)
 {
     ui_->setupUi(this);
-    show();
     QPixmap bkgnd(":/Resources/Background.png");
     bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette background;
     background.setBrush(QPalette::Background, bkgnd);
     this->setPalette(background);
 }
-
 
 BatteryUi::~BatteryUi()
 {

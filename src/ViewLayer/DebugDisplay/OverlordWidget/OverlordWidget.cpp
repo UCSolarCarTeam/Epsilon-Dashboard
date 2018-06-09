@@ -7,6 +7,10 @@
 #include "../MotorPage/MotorUi/I_MotorUi.h"
 #include "../MPPTPage/MPPTUi/I_MpptUi.h"
 #include "../Tab/TabUi/I_TabUi.h"
+#include <QStyle>
+#include <QDesktopWidget>
+#include <QApplication>
+
 OverlordWidget::OverlordWidget(I_BatteryUi& batteryUi, \
                                I_ControlUi& controlUi,
                                I_HomePageUi& homepageUi,
@@ -67,6 +71,15 @@ OverlordWidget::OverlordWidget(I_BatteryUi& batteryUi, \
     overlordLayout->setSpacing(0);
     overlordLayout->setSizeConstraint(QLayout::SetNoConstraint);
 
+    setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+    setGeometry(
+            QStyle::alignedRect(
+                Qt::LeftToRight,
+                Qt::AlignRight,
+                size(),
+                QApplication::desktop()->screenGeometry()
+            )
+    );
     show();
 }
 

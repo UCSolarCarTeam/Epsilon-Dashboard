@@ -5,6 +5,8 @@ RaceModeDashboardUI::RaceModeDashboardUI()
     : ui_(new Ui::RaceModeDashboardUI)
 {
     ui_->setupUi(this);
+    setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+    show();
 }
 
 RaceModeDashboardUI::~RaceModeDashboardUI()
