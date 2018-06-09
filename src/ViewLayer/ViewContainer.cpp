@@ -107,6 +107,3 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
 ViewContainer::~ViewContainer()
 {
 }
-
-
-
