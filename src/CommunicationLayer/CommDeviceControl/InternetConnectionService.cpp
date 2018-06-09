@@ -92,7 +92,7 @@ bool InternetConnectionService::connectToDataSource()
     catch (AmqpClient::AmqpException::exception& e)
     {
         qWarning() << "Connection failed, retrying in" << SLEEP_TIME_MILLISECONDS << "ms";
-        connectionRetryTimer_.start(SLEEP_TIME_MILLISECONDS);
+        sleep(SLEEP_TIME_MILLISECONDS / 1000);
         return false;
     }
 
