@@ -8,6 +8,7 @@ class InfrastructureContainer
 public:
     InfrastructureContainer();
     ~InfrastructureContainer();
+    void setQueueName(const char* queueName);
 
     I_Settings& settings();
 

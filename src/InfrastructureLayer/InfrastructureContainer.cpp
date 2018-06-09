@@ -12,6 +12,14 @@ InfrastructureContainer::~InfrastructureContainer()
 {
 }
 
+void InfrastructureContainer::setQueueName(const char* queueName)
+{
+    if (!settings_->customQueueEnable())
+    {
+        settings_->setQueueName(queueName);
+    }
+}
+
 I_Settings& InfrastructureContainer::settings()
 {
     return *settings_;

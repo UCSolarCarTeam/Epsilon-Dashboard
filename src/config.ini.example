@@ -10,3 +10,4 @@ port=5672
 [rabbitMQ]
 exchangeName=hermesExchange
 queueName=dashboardQueue
+customQueueName=false
