@@ -14,10 +14,12 @@ ConnectionController::ConnectionController(QString exchangeName
     {
         InternetConnectionService* internetConnectionService = new InternetConnectionService(exchangeName_, queueName_, ipAddress_, port_);
         internetConnectionService_ = internetConnectionService;
-        while(!connectToDataSource())
+
+        while (!connectToDataSource())
         {
             // Do nothing
         }
+
         channel_ = internetConnectionService->getChannel();
     }
 }
