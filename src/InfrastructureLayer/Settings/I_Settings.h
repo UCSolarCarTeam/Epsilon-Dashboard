@@ -12,4 +12,7 @@ public:
     virtual QString exchange() const = 0;
     virtual QString queue() const = 0;
     virtual bool logging() const = 0;
+    virtual bool customQueueEnable() const = 0;
+
+    virtual void setQueueName(QString queueName) = 0;
 };

@@ -14,6 +14,7 @@ namespace
     const QString EXCHANGE_NAME = "rabbitMQ/exchangeName";
     const QString QUEUE_NAME = "rabbitMQ/queueName";
     const QString LOGGING_ENABLED = "Logging/loggingEnabled";
+    const QString CUSTOM_QUEUE_ENABLE = "rabbitMQ/customQueueName";
 
 }
 
@@ -50,4 +51,13 @@ QString Settings::queue() const
 bool Settings::logging() const
 {
     return settings_.value(LOGGING_ENABLED).toBool();
+}
+bool Settings::customQueueEnable() const
+{
+    return settings_.value(CUSTOM_QUEUE_ENABLE).toBool();
+}
+
+void Settings::setQueueName(QString queueName)
+{
+    settings_.setValue(QUEUE_NAME, queueName);
 }

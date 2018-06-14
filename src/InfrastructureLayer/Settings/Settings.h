@@ -15,6 +15,8 @@ public:
     QString exchange() const;
     QString queue() const;
     bool logging() const;
+    bool customQueueEnable() const;
+    void setQueueName(QString queueName);
 
 private:
     QSettings settings_ ;
