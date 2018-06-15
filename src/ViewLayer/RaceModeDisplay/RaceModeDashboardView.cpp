@@ -164,7 +164,7 @@ void RaceModeDashboardView::updateFaultLabel(QLabel& dashboardLabel, FaultLabel 
 {
     if (faultLabel.priority() >= 0)
     {
-        dashboardLabel.setStyleSheet("font: 10pt \"Burlingame Pro\";\n color:" + faultLabel.color().name() + ";");
+        dashboardLabel.setStyleSheet(QString("font: 10pt \"Burlingame Pro\";\n color:%1").arg(faultLabel.color().name()));
         dashboardLabel.setText(faultLabel.text());
     }
     else

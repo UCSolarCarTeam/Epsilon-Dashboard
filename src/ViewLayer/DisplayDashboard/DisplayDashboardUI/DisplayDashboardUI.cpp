@@ -1,11 +1,22 @@
 #include "DisplayDashboardUI.h"
 #include "ui_DisplayDashboardUI.h"
-
+#include <QApplication>
+#include <QStyle>
+#include <QDesktopWidget>
 DisplayDashboardUI::DisplayDashboardUI()
     : ui_(new Ui::DisplayDashboardUI)
 {
     ui_->setupUi(this);
-    //QWidget::setWindowFlags(Qt::FramelessWindowHint);
+    setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+    setGeometry(
+        QStyle::alignedRect(
+            Qt::LeftToRight,
+            Qt::AlignLeft,
+            size(),
+            QApplication::desktop()->screenGeometry()
+        )
+    );
+    show();
 }
 
 DisplayDashboardUI::~DisplayDashboardUI()
