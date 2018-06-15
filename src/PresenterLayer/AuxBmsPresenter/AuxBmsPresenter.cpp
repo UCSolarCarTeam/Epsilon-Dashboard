@@ -15,10 +15,12 @@ void AuxBmsPresenter::relayAuxBmsData()
             this, SIGNAL(auxVoltageReceived(const int&)));
     connect(&auxBmsData_, SIGNAL(auxBmsAliveReceived(const bool&)),
             this, SIGNAL(auxBmsAliveReceived(bool)));
-    connect(&auxBmsData_, SIGNAL(strobeBmsLightRecieved(const bool&)),
+    connect(&auxBmsData_, SIGNAL(strobeBmsLightReceived(const bool&)),
             this, SIGNAL(strobeBmsLightReceived(bool)));
-    connect(&auxBmsData_, SIGNAL(allowChargeRecieved(const bool&)),
-            this, SIGNAL(allowChargeReceieved(bool)));
-    connect(&auxBmsData_, SIGNAL(contactorErrorRecieved(const bool&)),
-            this, SIGNAL(contactorErrorReceieved(bool)));
+    connect(&auxBmsData_, SIGNAL(allowChargeReceived(const bool&)),
+            this, SIGNAL(allowChargeReceived(bool)));
+    connect(&auxBmsData_, SIGNAL(contactorErrorReceived(const bool&)),
+            this, SIGNAL(contactorErrorReceived(bool)));
+    connect(&auxBmsData_, SIGNAL(highVoltageEnableReceived(const bool&)),
+            this, SIGNAL(highVoltageEnableReceived(bool)));
 }

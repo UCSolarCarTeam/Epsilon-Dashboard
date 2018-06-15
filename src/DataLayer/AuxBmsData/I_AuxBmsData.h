@@ -17,6 +17,7 @@ public:
     virtual bool strobeBmsLight() const = 0;
     virtual bool allowCharge() const = 0;
     virtual bool contactorError() const = 0;
+    virtual bool highVoltageEnable() const = 0;
 
     /* Data "Sets" */
     virtual void setPrechargeState(const QString&) = 0;
@@ -25,12 +26,14 @@ public:
     virtual void setStrobeBmsLight(const bool&) = 0;
     virtual void setAllowCharge(const bool&) = 0;
     virtual void setContactorError(const bool&) = 0;
+    virtual void setHighVoltageEnable(const bool&) = 0;
 
 signals:
     void prechargeStateReceived(const QString&);
     void auxVoltageReceived(const int&);
     void auxBmsAliveReceived(const bool&);
-    void strobeBmsLightRecieved(const bool&);
-    void allowChargeRecieved(const bool&);
-    void contactorErrorRecieved(const bool&);
+    void strobeBmsLightReceived(const bool&);
+    void allowChargeReceived(const bool&);
+    void contactorErrorReceived(const bool&);
+    void highVoltageEnableReceived(const bool&);
 };

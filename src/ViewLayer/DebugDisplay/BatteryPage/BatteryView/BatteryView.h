@@ -70,5 +70,6 @@ private slots:
     void strobeBMSReceived(bool);
     void allowChargeReceived(bool);
     void contactorErrorReceived(bool);
+    void highVoltageEnableReceived(bool);
 
 };

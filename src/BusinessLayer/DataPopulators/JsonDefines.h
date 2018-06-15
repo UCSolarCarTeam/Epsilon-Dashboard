@@ -222,4 +222,5 @@ namespace JsonFormat
     const QString AUXBMS_STROBEBMSLIGHT = "StrobeBmsLight";
     const QString AUXBMS_ALLOWCHARGE = "AllowCharge";
     const QString AUXBMS_CONTACTORERROR = "ContactorError";
+    const QString AUXBMS_HIGHVOLTAGEENABLE = "HighVoltageEnable";
 }

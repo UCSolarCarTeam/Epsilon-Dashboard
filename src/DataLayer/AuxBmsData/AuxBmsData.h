@@ -15,6 +15,7 @@ public:
     bool strobeBmsLight() const;
     bool allowCharge() const;
     bool contactorError() const;
+    bool highVoltageEnable() const;
 
     /* Data setter */
     void setPrechargeState(const QString& prechargeState);
@@ -23,6 +24,7 @@ public:
     void setStrobeBmsLight(const bool& strobeBmsLight);
     void setAllowCharge(const bool& allowCharge);
     void setContactorError(const bool& contactorError);
+    void setHighVoltageEnable(const bool& highVoltageEnable);
 
 private:
     QString prechargeState_;
@@ -31,4 +33,5 @@ private:
     bool strobeBmsLight_;
     bool allowCharge_;
     bool contactorError_;
+    bool highVoltageEnable_;
 };
