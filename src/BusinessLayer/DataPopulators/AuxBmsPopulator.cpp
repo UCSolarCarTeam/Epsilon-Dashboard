@@ -21,4 +21,5 @@ void AuxBmsPopulator::populateData(const QJsonObject& data)
     auxBmsData_.setStrobeBmsLight(value.toObject().value(JsonFormat::AUXBMS_STROBEBMSLIGHT).toBool());
     auxBmsData_.setAllowCharge(value.toObject().value(JsonFormat::AUXBMS_ALLOWCHARGE).toBool());
     auxBmsData_.setContactorError(value.toObject().value(JsonFormat::AUXBMS_CONTACTORERROR).toBool());
+    auxBmsData_.setHighVoltageEnable(value.toObject().value(JsonFormat::AUXBMS_HIGHVOLTAGEENABLE).toBool());
 }

@@ -262,3 +262,7 @@ QLabel& BatteryUi::contactorErrorLabel()
     return *ui_->contactorErrorLabel;
 }
 
+QLabel& BatteryUi::highVoltageEnableLabel()
+{
+    return *ui_->highVoltageEnableLabel;
+}

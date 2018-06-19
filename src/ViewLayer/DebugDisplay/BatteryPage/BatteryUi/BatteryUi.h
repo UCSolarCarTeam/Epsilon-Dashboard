@@ -78,6 +78,7 @@ public:
     QLabel& strobeBMSLabel();
     QLabel& allowChargeLabel();
     QLabel& contactorErrorLabel();
+    QLabel& highVoltageEnableLabel();
 
 private:
     Ui::BatteryUi* ui_;
