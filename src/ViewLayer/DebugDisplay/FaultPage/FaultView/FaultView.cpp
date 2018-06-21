@@ -72,6 +72,7 @@ FaultView::FaultView(MotorFaultsPresenter& motorFaultsPresenter,
     ui_.motor0ContentsWidget().setLayout(layoutM0);
     ui_.motor1ContentsWidget().setLayout(layoutM1);
     ui_.batteryContentsWidget().setLayout(layoutB);
+    ui_.showHistoryLabel().setVisible(false);
 
     connectMotorFaults(motorFaultsPresenter_);
     connectBatteryFaults(batteryFaultsPresenter_);
