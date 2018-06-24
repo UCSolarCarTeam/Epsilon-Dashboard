@@ -13,12 +13,14 @@ int main(int argc, char* argv[])
      * then there is a Lock File already created by another process.
      * Therefore, we issue a warning and close the program
      */
-    if(!lockFile.tryLock(100)){
-        qDebug()<<"An instance of dashboard already exists.\n Quitting...\n";
+    if (!lockFile.tryLock(100))
+    {
+        qDebug() << "An instance of dashboard already exists.\nQuitting...\n";
         return 1;
     }
-    else{
-        qDebug()<<"No other instance of dashboard. Launching dashboard...\n";
+    else
+    {
+        qDebug() << "No other instance of dashboard exists.\nLaunching dashboard...\n";
     }
 
     QScopedPointer<EpsilonDashboard> app;
