@@ -3,24 +3,22 @@
 #include <QLockFile>
 #include <QDebug>
 #include <QDir>
-#include <QMessageBox>
 
 int main(int argc, char* argv[])
 {
-    QLockFile lockFile(QDir::temp().absoluteFilePath("epsilonDashboard.lock"));
+    QString tmpDir = QDir::tempPath();
+    QLockFile lockFile(tmpDir + "/epsilonDashboard.lock");
 
     /* Trying to close the Lock File, if the attempt is unsuccessful for 100 milliseconds,
      * then there is a Lock File already created by another process.
-     * Therefore, we throw a warning and close the program
+     * Therefore, we issue a warning and close the program
      */
-    lockFile.setStaleLockTime(5000);
     if(!lockFile.tryLock(100)){
-        QMessageBox msgBox;
-        msgBox.setIcon(QMessageBox::Warning);
-        msgBox.setText("The application is already running.\n"
-                       "Allowed to run only one instance of the application.");
-        msgBox.exec();
+        qDebug()<<"An instance of dashboard already exists.\n Quitting...\n";
         return 1;
+    }
+    else{
+        qDebug()<<"No other instance of dashboard. Launching dashboard...\n";
     }
 
     QScopedPointer<EpsilonDashboard> app;
