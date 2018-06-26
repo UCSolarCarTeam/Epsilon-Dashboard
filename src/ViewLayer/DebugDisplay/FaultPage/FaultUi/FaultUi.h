@@ -19,8 +19,6 @@ public:
     QScrollArea& motor1ScrollArea();
     QScrollArea& batteryScrollArea();
 
-    QLabel& showHistoryLabel();
-
 private:
     Ui::FaultUi* ui_;
 };

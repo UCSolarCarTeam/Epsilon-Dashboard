@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>683</width>
-    <height>656</height>
+    <height>648</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -128,7 +128,7 @@ border-top-right-radius:12px;</string>
          </size>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgba(45, 45, 45,150);</string>
+         <string notr="true">background-color: rgba(46, 52, 54,150);</string>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_8">
          <property name="spacing">
@@ -1717,7 +1717,7 @@ border: 1px solid white;</string>
      </property>
      <property name="styleSheet">
       <string notr="true">QWidget#voltageBlock{
-background-color: rgba(45, 45, 45,150);
+background-color: rgba(46, 52, 54,150);
 border-radius: 10px;
 }</string>
      </property>
@@ -1792,9 +1792,6 @@ border-top-right-radius:12px;</string>
           <width>0</width>
           <height>160</height>
          </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true"/>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_5">
          <property name="spacing">
@@ -2263,7 +2260,7 @@ color:white;</string>
       <item row="2" column="0">
        <widget class="QWidget" name="widget_9" native="true">
         <property name="styleSheet">
-         <string notr="true">background-color: rgba(45, 45, 45,150);</string>
+         <string notr="true">background-color: rgba(46, 52, 54,150);</string>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_3">
          <property name="topMargin">
@@ -2349,7 +2346,7 @@ color:white;</string>
       <item row="1" column="0">
        <widget class="QWidget" name="widget_8" native="true">
         <property name="styleSheet">
-         <string notr="true">background-color: rgba(45, 45, 45,150);</string>
+         <string notr="true">background-color: rgba(46, 52, 54,150);</string>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <property name="topMargin">
@@ -2477,7 +2474,7 @@ border-top-right-radius:12px;</string>
       <item row="3" column="0">
        <widget class="QWidget" name="widget_14" native="true">
         <property name="styleSheet">
-         <string notr="true">background-color: rgba(45, 45, 45,150);</string>
+         <string notr="true">background-color: rgba(46, 52, 54,150);</string>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_4">
          <property name="topMargin">
@@ -2557,7 +2554,7 @@ color:white;</string>
      </property>
      <property name="styleSheet">
       <string notr="true">QWidget#stateBlock{
-background-color: rgba(45, 45, 45,150);
+background-color: rgba(46, 52, 54,150);
 border-radius: 10px;
 }
 
