@@ -18,4 +18,6 @@ public:
     virtual QScrollArea& motor1ScrollArea() = 0;
     virtual QScrollArea& batteryScrollArea() = 0;
 
+    virtual QLabel& showHistoryLabel() = 0;
+
 };
