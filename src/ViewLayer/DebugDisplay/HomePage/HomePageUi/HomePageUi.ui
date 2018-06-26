@@ -60,8 +60,8 @@
     <property name="verticalSpacing">
      <number>30</number>
     </property>
-    <item row="4" column="0">
-     <widget class="QPushButton" name="batteryButton">
+    <item row="2" column="0">
+     <widget class="QPushButton" name="faultButton">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
         <horstretch>0</horstretch>
@@ -84,11 +84,87 @@ color: white;
 </string>
       </property>
       <property name="text">
-       <string>Battery</string>
+       <string>Faults</string>
       </property>
       <property name="icon">
        <iconset resource="../../../uiresources.qrc">
-        <normaloff>:/Resource/Battery Icon.png</normaloff>:/Resource/Battery Icon.png</iconset>
+        <normaloff>:/Resource/Fault Icon.png</normaloff>:/Resource/Fault Icon.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>40</width>
+        <height>40</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QPushButton" name="controlButton">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton { 
+background-color: rgb(45, 45, 45,150); 
+color: white;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>Control</string>
+      </property>
+      <property name="icon">
+       <iconset resource="../../../uiresources.qrc">
+        <normaloff>:/Resource/Steering Icon.png</normaloff>:/Resource/Steering Icon.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>32</width>
+        <height>32</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QPushButton" name="motorButton">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton { 
+background-color: rgb(45, 45, 45,150); 
+color: white;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>Motor</string>
+      </property>
+      <property name="icon">
+       <iconset resource="../../../uiresources.qrc">
+        <normaloff>:/Resource/Engine Icon.png</normaloff>:/Resource/Engine Icon.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -136,8 +212,8 @@ color: white;
       </property>
      </widget>
     </item>
-    <item row="2" column="0">
-     <widget class="QPushButton" name="faultButton">
+    <item row="4" column="0">
+     <widget class="QPushButton" name="batteryButton">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
         <horstretch>0</horstretch>
@@ -160,92 +236,16 @@ color: white;
 </string>
       </property>
       <property name="text">
-       <string>Faults</string>
+       <string>Battery</string>
       </property>
       <property name="icon">
        <iconset resource="../../../uiresources.qrc">
-        <normaloff>:/Resource/Fault Icon.png</normaloff>:/Resource/Fault Icon.png</iconset>
+        <normaloff>:/Resource/Battery Icon.png</normaloff>:/Resource/Battery Icon.png</iconset>
       </property>
       <property name="iconSize">
        <size>
         <width>40</width>
         <height>40</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="0">
-     <widget class="QPushButton" name="motorButton">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>16</pointsize>
-       </font>
-      </property>
-      <property name="focusPolicy">
-       <enum>Qt::NoFocus</enum>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton { 
-background-color: rgb(45, 45, 45,150); 
-color: white;
-}
-</string>
-      </property>
-      <property name="text">
-       <string>Motor</string>
-      </property>
-      <property name="icon">
-       <iconset resource="../../../uiresources.qrc">
-        <normaloff>:/Resource/Engine Icon.png</normaloff>:/Resource/Engine Icon.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>40</width>
-        <height>40</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QPushButton" name="controlButton">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>16</pointsize>
-       </font>
-      </property>
-      <property name="focusPolicy">
-       <enum>Qt::NoFocus</enum>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton { 
-background-color: rgb(45, 45, 45,150); 
-color: white;
-}
-</string>
-      </property>
-      <property name="text">
-       <string>Control</string>
-      </property>
-      <property name="icon">
-       <iconset resource="../../../uiresources.qrc">
-        <normaloff>:/Resource/Steering Icon.png</normaloff>:/Resource/Steering Icon.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>32</width>
-        <height>32</height>
        </size>
       </property>
      </widget>
