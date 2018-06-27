@@ -15,12 +15,14 @@ int main(int argc, char* argv[])
      */
     if (!lockFile.tryLock(100))
     {
-        qDebug() << "An instance of dashboard already exists." << endl << "Quitting..." << endl;
+        qDebug() << "An instance of dashboard already exists." << endl;
+        qDebug() << "Quitting..." << endl;
         return 1;
     }
     else
     {
-        qDebug() << "No other instance of dashboard exists." << endl"Launching dashboard..." << endl;
+        qDebug() << "No other instance of dashboard exists." << endl;
+        qDebug() << "Launching dashboard..." << endl;
     }
 
     QScopedPointer<EpsilonDashboard> app;
