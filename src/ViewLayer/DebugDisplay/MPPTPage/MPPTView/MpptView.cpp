@@ -20,6 +20,7 @@ MpptView::MpptView(MpptPresenter& mpptPresenter,
     , mpptZeroPower_(0)
     , mpptOnePower_(0)
     , mpptTwoPower_(0)
+    , mpptThreePower_(0)
     , ui_(ui)
 {
     connectMppt(mpptPresenter_);
@@ -94,6 +95,25 @@ void MpptView::mpptReceived(int i, Mppt mppt)
         ui_.mppt2BatteryVoltage().setText(QString::number(mppt.batteryVoltage()) + VOLTAGE_UNIT);
         ui_.mppt2Temperature().setText(QString::number(mppt.temperature()) + TEMPERATURE_UNIT);
     }
+    else if (i == 3)
+    {
+        if (mppt.alive())
+        {
+            ui_.mppt3AliveIndicator().setStyleSheet(MPPT_ALIVE);
+        }
+        else
+        {
+            ui_.mppt3AliveIndicator().setStyleSheet(MPPT_DEAD);
+        }
 
-    ui_.totalArrayPower().setText(QString::number(mpptZeroPower_ + mpptOnePower_ + mpptTwoPower_) + POWER_UNIT);
+        mpptThreePower_ = mppt.arrayCurrent() * mppt.arrayVoltage();
+
+        ui_.mppt3ArrayVoltage().setText(QString::number(mppt.arrayVoltage()) + VOLTAGE_UNIT);
+        ui_.mppt3ArrayCurrent().setText(QString::number(mppt.arrayCurrent()) + CURRENT_UNIT);
+        ui_.mppt3ArrayPower().setText(QString::number(mpptTwoPower_) + POWER_UNIT);
+        ui_.mppt3BatteryVoltage().setText(QString::number(mppt.batteryVoltage()) + VOLTAGE_UNIT);
+        ui_.mppt3Temperature().setText(QString::number(mppt.temperature()) + TEMPERATURE_UNIT);
+    }
+
+    ui_.totalArrayPower().setText(QString::number(mpptZeroPower_ + mpptOnePower_ + mpptTwoPower_ + mpptThreePower_) + POWER_UNIT);
 }
