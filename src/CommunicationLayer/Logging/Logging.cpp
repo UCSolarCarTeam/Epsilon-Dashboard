@@ -1,11 +1,3 @@
-#include <iostream>
-
-#include <QDebug>
-#include <QFile>
-#include <QDate>
-#include <QDir>
-#include <QJsonDocument>
-
 #include "Logging.h"
 
 namespace
@@ -19,13 +11,21 @@ namespace
 Logging::Logging()
 {
     QString todayStr = QDate::currentDate().toString(LOG_DATE_FORMAT);
-    QString logName = LOG_DIR + LOG_NAME + todayStr + LOG_EXT;
+    QString executablePath = QCoreApplication::applicationDirPath();
+
+    if (!executablePath.endsWith("/"))
+    {
+        executablePath.append("/");
+    }
+
+    QString fullLogDirPath = executablePath + LOG_DIR;
+    QString logName = fullLogDirPath + LOG_NAME + todayStr + LOG_EXT;
 
     logFile_.setFileName(logName);
 
-    if (!QDir(LOG_DIR).exists())
+    if (!QDir(fullLogDirPath).exists())
     {
-        QDir().mkdir(LOG_DIR);
+        QDir().mkdir(fullLogDirPath);
     }
 
     if (logFile_.open(QIODevice::WriteOnly | QIODevice::Append))
