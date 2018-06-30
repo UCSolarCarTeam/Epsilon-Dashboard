@@ -16,6 +16,7 @@
 #include "../BusinessLayer/CommunicationsMonitoringService/I_CommunicationsMonitoringService.h"
 
 #include "CommDeviceControl/I_CommDevice.h"
+#include "Logging/Logging.h"
 
 class AuxBmsPopulator;
 class BatteryPopulator;
@@ -27,6 +28,7 @@ class MpptPopulator;
 class MotorDetailsPopulator;
 class MotorFaultsPopulator;
 class I_CommunicationsMonitoringService;
+class Logging;
 
 class JsonReceiver : public I_JsonReceiver
 {
@@ -41,7 +43,8 @@ public:
                  MpptPopulator& mpptPopulator,
                  MotorDetailsPopulator& motorDetailsPopulator,
                  MotorFaultsPopulator& motorFaultsPopulator,
-                 I_CommunicationsMonitoringService& communicationsMonitoringService);
+                 I_CommunicationsMonitoringService& communicationsMonitoringService,
+                 bool loggingEnabled);
     virtual ~JsonReceiver() {}
 
 public slots:
@@ -58,4 +61,6 @@ private:
     MotorDetailsPopulator& motorDetailsPopulator_;
     MotorFaultsPopulator& motorFaultsPopulator_;
     I_CommunicationsMonitoringService& communicationsMonitoringService_;
+    bool loggingEnabled_;
+    Logging* logger_;
 };

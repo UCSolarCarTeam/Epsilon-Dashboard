@@ -17,7 +17,8 @@ HEADERS += \
     JsonReceiver/I_JsonReceiver.h \
     JsonReceiver/JsonReceiver.h \
     CommDeviceControl/InternetConnectionService.h \
-    CommDeviceControl/InternetCommDevice.h
+    CommDeviceControl/InternetCommDevice.h \
+    Logging/Logging.h
 
 SOURCES += \ 
     CommDeviceControl/CommDeviceManager.cpp \
@@ -25,4 +26,5 @@ SOURCES += \
     CommunicationContainer.cpp \
     JsonReceiver/JsonReceiver.cpp \
     CommDeviceControl/InternetConnectionService.cpp \
-    CommDeviceControl/InternetCommDevice.cpp
+    CommDeviceControl/InternetCommDevice.cpp \
+    Logging/Logging.cpp
