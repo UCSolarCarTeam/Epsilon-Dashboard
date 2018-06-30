@@ -30,7 +30,8 @@ public:
                         businessContainer.mpptPopulator(),
                         businessContainer.motorDetailsPopulator(),
                         businessContainer.motorFaultsPopulator(),
-                        businessContainer.communicationsMonitoringService())
+                        businessContainer.communicationsMonitoringService(),
+                        infrastructureContainer.settings().logging())
     {
         QObject::connect(&commDeviceManager_, SIGNAL(dataReceived(QByteArray)), &jsonReceiver_, SLOT(handleIncomingData(QByteArray)));
     }
