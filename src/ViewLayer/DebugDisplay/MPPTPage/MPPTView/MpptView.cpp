@@ -110,7 +110,7 @@ void MpptView::mpptReceived(int i, Mppt mppt)
 
         ui_.mppt3ArrayVoltage().setText(QString::number(mppt.arrayVoltage()) + VOLTAGE_UNIT);
         ui_.mppt3ArrayCurrent().setText(QString::number(mppt.arrayCurrent()) + CURRENT_UNIT);
-        ui_.mppt3ArrayPower().setText(QString::number(mpptTwoPower_) + POWER_UNIT);
+        ui_.mppt3ArrayPower().setText(QString::number(mpptThreePower_) + POWER_UNIT);
         ui_.mppt3BatteryVoltage().setText(QString::number(mppt.batteryVoltage()) + VOLTAGE_UNIT);
         ui_.mppt3Temperature().setText(QString::number(mppt.temperature()) + TEMPERATURE_UNIT);
     }
