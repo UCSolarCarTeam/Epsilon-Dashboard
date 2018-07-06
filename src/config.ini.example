@@ -11,3 +11,6 @@ port=5672
 exchangeName=hermesExchange
 queueName=dashboardQueue
 customQueueName=false
+
+[Logging]
+loggingEnabled=true

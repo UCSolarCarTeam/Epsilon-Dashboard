@@ -12,7 +12,7 @@ RaceModeDashboardUI::RaceModeDashboardUI()
     setGeometry(
         QStyle::alignedRect(
             Qt::LeftToRight,
-            Qt::AlignLeft,
+            Qt::AlignRight,
             size(),
             QApplication::desktop()->screenGeometry()
         )
