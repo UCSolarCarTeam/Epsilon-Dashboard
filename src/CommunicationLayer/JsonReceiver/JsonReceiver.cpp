@@ -37,7 +37,8 @@ JsonReceiver::JsonReceiver(AuxBmsPopulator& auxBmsPopulator,
                            MpptPopulator& mpptPopulator,
                            MotorDetailsPopulator& motorDetailsPopulator,
                            MotorFaultsPopulator& motorFaultsPopulator,
-                           I_CommunicationsMonitoringService& communicationsMonitoringService)
+                           I_CommunicationsMonitoringService& communicationsMonitoringService,
+                           bool loggingEnabled)
     : auxBmsPopulator_(auxBmsPopulator)
     , batteryPopulator_(batteryPopulator)
     , batteryFaultsPopulator_(batteryFaultsPopulator)
@@ -48,6 +49,7 @@ JsonReceiver::JsonReceiver(AuxBmsPopulator& auxBmsPopulator,
     , motorDetailsPopulator_(motorDetailsPopulator)
     , motorFaultsPopulator_(motorFaultsPopulator)
     , communicationsMonitoringService_(communicationsMonitoringService)
+    , loggingEnabled_(loggingEnabled)
 {
     connect(this, SIGNAL(dataReceived(const QJsonObject&)),
             &auxBmsPopulator_, SLOT(populateData(const QJsonObject&)));
@@ -69,6 +71,12 @@ JsonReceiver::JsonReceiver(AuxBmsPopulator& auxBmsPopulator,
             &motorFaultsPopulator_, SLOT(populateData(const QJsonObject&)));
     connect(this, SIGNAL(invalidDataReceived()),
             &communicationsMonitoringService_, SLOT(invalidPacketReceived()));
+
+    if (loggingEnabled_)
+    {
+        Logging* logger = new Logging();
+        logger_ = logger;
+    }
 }
 
 void JsonReceiver::handleIncomingData(const QByteArray& data)
@@ -83,6 +91,11 @@ void JsonReceiver::handleIncomingData(const QByteArray& data)
     }
     else
     {
+        if (loggingEnabled_)
+        {
+            logger_->saveToLog(parsedData);
+        }
+
         emit dataReceived(parsedData);
     }
 }
