@@ -332,8 +332,15 @@ void DisplayDashboardView::mpptReceived(int i, Mppt mppt)
         ui_.array2VoltageLabel().setNum(mppt.arrayVoltage());
         mpptTwoPower_ = mppt.arrayCurrent() * mppt.arrayVoltage();
     }
+    else if (i == 3)
+    {
+        ui_.array3CurrentLabel().setNum(mppt.arrayCurrent());
+        ui_.array3VoltageLabel().setNum(mppt.arrayVoltage());
+        mpptThreePower_ = mppt.arrayCurrent() * mppt.arrayVoltage();
+    }
 
-    mpptPowerReceived(mpptZeroPower_ + mpptOnePower_ + mpptTwoPower_);
+
+    mpptPowerReceived(mpptZeroPower_ + mpptOnePower_ + mpptTwoPower_ + mpptThreePower_);
 }
 
 void DisplayDashboardView::mpptPowerReceived(double mpptPower)
