@@ -330,8 +330,12 @@ void RaceModeDashboardView::mpptReceived(int i, Mppt mppt)
     {
         mpptTwoPower_ = mppt.arrayCurrent() * mppt.arrayVoltage();
     }
+    else if (i == 3)
+    {
+        mpptThreePower_ = mppt.arrayCurrent() * mppt.arrayVoltage();
+    }
 
-    mpptPowerReceived(mpptZeroPower_ + mpptOnePower_ + mpptTwoPower_);
+    mpptPowerReceived(mpptZeroPower_ + mpptOnePower_ + mpptTwoPower_ + mpptThreePower_);
 }
 
 void RaceModeDashboardView::mpptPowerReceived(double mpptPower)

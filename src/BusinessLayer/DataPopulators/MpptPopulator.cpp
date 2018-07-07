@@ -40,6 +40,7 @@ void MpptPopulator::populateData(const QJsonObject& data)
     Mppt mpptZero;
     Mppt mpptOne;
     Mppt mpptTwo;
+    Mppt mpptThree;
     QList<bool> aliveList;
     QList<double> arrayVoltageList;
     QList<double> arrayCurrentList;
@@ -72,7 +73,13 @@ void MpptPopulator::populateData(const QJsonObject& data)
     mpptTwo.setArrayCurrent(arrayCurrentList.value(2));
     mpptTwo.setBatteryVoltage(batteryVoltageList.value(2));
     mpptTwo.setTemperature(temperatureList.value(2));
+    mpptThree.setAlive(aliveList.value(3));
+    mpptThree.setArrayVoltage(arrayVoltageList.value(3));
+    mpptThree.setArrayCurrent(arrayCurrentList.value(3));
+    mpptThree.setBatteryVoltage(batteryVoltageList.value(3));
+    mpptThree.setTemperature(temperatureList.value(3));
     mpptData_.setMppt(0, mpptZero);
     mpptData_.setMppt(1, mpptOne);
     mpptData_.setMppt(2, mpptTwo);
+    mpptData_.setMppt(3, mpptThree);
 }

@@ -26,6 +26,7 @@ private:
     double mpptZeroPower_;
     double mpptOnePower_;
     double mpptTwoPower_;
+    double mpptThreePower_;
 
     I_MpptUi& ui_;
 

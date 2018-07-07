@@ -131,311 +131,6 @@ color: white;</string>
         </layout>
        </widget>
       </item>
-      <item row="1" column="1">
-       <widget class="QWidget" name="arraysWidget" native="true">
-        <property name="styleSheet">
-         <string notr="true"/>
-        </property>
-        <layout class="QGridLayout" name="arraysLayout">
-         <property name="leftMargin">
-          <number>50</number>
-         </property>
-         <property name="topMargin">
-          <number>0</number>
-         </property>
-         <property name="rightMargin">
-          <number>0</number>
-         </property>
-         <property name="bottomMargin">
-          <number>0</number>
-         </property>
-         <property name="spacing">
-          <number>0</number>
-         </property>
-         <item row="0" column="0" colspan="3">
-          <widget class="QLabel" name="arraysTitleLabel">
-           <property name="styleSheet">
-            <string notr="true">QLabel {
-font: bold 10pt &quot;Arial Unicode MS&quot;;
-qproperty-alignment: 'AlignHCenter | AlignBottom';
-color: rgb(100,100,100);
-}
-</string>
-           </property>
-           <property name="text">
-            <string>- A R R A Y S -</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="2">
-          <widget class="QWidget" name="array1Widget" native="true">
-           <property name="minimumSize">
-            <size>
-             <width>124</width>
-             <height>70</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background: url(:/Resources/ArrayOneBackground.png);</string>
-           </property>
-           <layout class="QHBoxLayout" name="horizontalLayout_3">
-            <property name="spacing">
-             <number>0</number>
-            </property>
-            <property name="leftMargin">
-             <number>0</number>
-            </property>
-            <property name="topMargin">
-             <number>0</number>
-            </property>
-            <property name="rightMargin">
-             <number>0</number>
-            </property>
-            <property name="bottomMargin">
-             <number>0</number>
-            </property>
-            <item>
-             <widget class="QLabel" name="array1VoltageLabel">
-              <property name="styleSheet">
-               <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
-color:white;
-background: none;</string>
-              </property>
-              <property name="text">
-               <string>879</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="array1VoltageUnitsLabel">
-              <property name="styleSheet">
-               <string notr="true">color: white;
-background: none;</string>
-              </property>
-              <property name="text">
-               <string>V</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="array1CurrentLabel">
-              <property name="styleSheet">
-               <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
-color:white;
-background: none;</string>
-              </property>
-              <property name="text">
-               <string>879</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="array1CurrentUnitsLabel">
-              <property name="styleSheet">
-               <string notr="true">color: white;
-background: none;</string>
-              </property>
-              <property name="text">
-               <string>A</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-         </item>
-         <item row="2" column="0">
-          <widget class="QWidget" name="array2Widget" native="true">
-           <property name="minimumSize">
-            <size>
-             <width>124</width>
-             <height>70</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>124</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background: url(:/Resources/ArrayTwoBackground.png);</string>
-           </property>
-           <layout class="QHBoxLayout" name="horizontalLayout_5">
-            <property name="spacing">
-             <number>0</number>
-            </property>
-            <property name="leftMargin">
-             <number>0</number>
-            </property>
-            <property name="topMargin">
-             <number>0</number>
-            </property>
-            <property name="rightMargin">
-             <number>0</number>
-            </property>
-            <property name="bottomMargin">
-             <number>0</number>
-            </property>
-            <item>
-             <widget class="QLabel" name="array2VoltageLabel">
-              <property name="styleSheet">
-               <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
-color:white;
-background: none;</string>
-              </property>
-              <property name="text">
-               <string>879</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="array2VoltageUnitsLabel">
-              <property name="styleSheet">
-               <string notr="true">color: white;
-background: none;</string>
-              </property>
-              <property name="text">
-               <string>V</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="array2CurrentLabel">
-              <property name="styleSheet">
-               <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
-color:white;
-background: none;</string>
-              </property>
-              <property name="text">
-               <string>879</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="array2CurrentUnitsLabel">
-              <property name="styleSheet">
-               <string notr="true">color: white;
-background: none;</string>
-              </property>
-              <property name="text">
-               <string>A</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="QWidget" name="array0Widget" native="true">
-           <property name="minimumSize">
-            <size>
-             <width>124</width>
-             <height>70</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>124</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background: url(:/Resources/ArrayZeroBackground.png);</string>
-           </property>
-           <layout class="QHBoxLayout" name="horizontalLayout_4">
-            <property name="spacing">
-             <number>0</number>
-            </property>
-            <property name="leftMargin">
-             <number>0</number>
-            </property>
-            <property name="topMargin">
-             <number>0</number>
-            </property>
-            <property name="rightMargin">
-             <number>0</number>
-            </property>
-            <property name="bottomMargin">
-             <number>0</number>
-            </property>
-            <item>
-             <widget class="QLabel" name="array0VoltageLabel">
-              <property name="styleSheet">
-               <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
-color:white;
-background: none;</string>
-              </property>
-              <property name="text">
-               <string>879</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="array0VoltageUnitsLabel">
-              <property name="styleSheet">
-               <string notr="true">color: white;
-background: none;</string>
-              </property>
-              <property name="text">
-               <string>V</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="array0CurrentLabel">
-              <property name="styleSheet">
-               <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
-color:white;
-background: none;</string>
-              </property>
-              <property name="text">
-               <string>879</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="array0CurrentUnitsLabel">
-              <property name="styleSheet">
-               <string notr="true">color: white;
-background: none;</string>
-              </property>
-              <property name="text">
-               <string>A</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-         </item>
-         <item row="2" column="1">
-          <spacer name="horizontalSpacer_9">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item row="1" column="1">
-          <spacer name="horizontalSpacer_8">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-        </layout>
-       </widget>
-      </item>
       <item row="2" column="0" colspan="6">
        <layout class="QGridLayout" name="leftBottomLayout">
         <property name="leftMargin">
@@ -867,6 +562,378 @@ qproperty-alignment: 'AlignBottom | AlignRight';
          </layout>
         </item>
        </layout>
+      </item>
+      <item row="1" column="1">
+       <widget class="QWidget" name="arraysWidget" native="true">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_7">
+         <item row="0" column="0" colspan="2">
+          <widget class="QLabel" name="arraysTitleLabel">
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+font: bold 10pt &quot;Arial Unicode MS&quot;;
+qproperty-alignment: 'AlignHCenter | AlignBottom';
+color: rgb(100,100,100);
+}
+</string>
+           </property>
+           <property name="text">
+            <string>- A R R A Y S -</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0" rowspan="2" colspan="2">
+          <widget class="QWidget" name="array0Widget" native="true">
+           <property name="minimumSize">
+            <size>
+             <width>124</width>
+             <height>70</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>124</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background: url(:/Resources/ArrayZeroBackground.png);</string>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_4">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="array0VoltageLabel">
+              <property name="styleSheet">
+               <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
+color:white;
+background: none;</string>
+              </property>
+              <property name="text">
+               <string>879</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="array0VoltageUnitsLabel">
+              <property name="styleSheet">
+               <string notr="true">color: white;
+background: none;</string>
+              </property>
+              <property name="text">
+               <string>V</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="array0CurrentLabel">
+              <property name="styleSheet">
+               <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
+color:white;
+background: none;</string>
+              </property>
+              <property name="text">
+               <string>879</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="array0CurrentUnitsLabel">
+              <property name="styleSheet">
+               <string notr="true">color: white;
+background: none;</string>
+              </property>
+              <property name="text">
+               <string>A</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <spacer name="horizontalSpacer_8">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="1" column="3" rowspan="2">
+          <widget class="QWidget" name="array1Widget" native="true">
+           <property name="minimumSize">
+            <size>
+             <width>124</width>
+             <height>70</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background: url(:/Resources/ArrayZeroBackground.png);</string>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="array1VoltageLabel">
+              <property name="styleSheet">
+               <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
+color:white;
+background: none;</string>
+              </property>
+              <property name="text">
+               <string>879</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="array1VoltageUnitsLabel">
+              <property name="styleSheet">
+               <string notr="true">color: white;
+background: none;</string>
+              </property>
+              <property name="text">
+               <string>V</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="array1CurrentLabel">
+              <property name="styleSheet">
+               <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
+color:white;
+background: none;</string>
+              </property>
+              <property name="text">
+               <string>879</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="array1CurrentUnitsLabel">
+              <property name="styleSheet">
+               <string notr="true">color: white;
+background: none;</string>
+              </property>
+              <property name="text">
+               <string>A</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item row="3" column="0" colspan="2">
+          <widget class="QWidget" name="array2Widget" native="true">
+           <property name="minimumSize">
+            <size>
+             <width>124</width>
+             <height>70</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>124</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background: url(:/Resources/ArrayOneBackground.png);</string>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_5">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="array2VoltageLabel">
+              <property name="styleSheet">
+               <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
+color:white;
+background: none;</string>
+              </property>
+              <property name="text">
+               <string>879</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="array2VoltageUnitsLabel">
+              <property name="styleSheet">
+               <string notr="true">color: white;
+background: none;</string>
+              </property>
+              <property name="text">
+               <string>V</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="array2CurrentLabel">
+              <property name="styleSheet">
+               <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
+color:white;
+background: none;</string>
+              </property>
+              <property name="text">
+               <string>879</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="array2CurrentUnitsLabel">
+              <property name="styleSheet">
+               <string notr="true">color: white;
+background: none;</string>
+              </property>
+              <property name="text">
+               <string>A</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item row="3" column="2">
+          <spacer name="horizontalSpacer_9">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="3" column="3">
+          <widget class="QWidget" name="array3Widget" native="true">
+           <property name="minimumSize">
+            <size>
+             <width>124</width>
+             <height>70</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>124</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background: url(:/Resources/ArrayOneBackground.png);</string>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_9">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="array3VoltageLabel">
+              <property name="styleSheet">
+               <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
+color:white;
+background: none;</string>
+              </property>
+              <property name="text">
+               <string>879</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="array3VoltageUnitsLabel">
+              <property name="styleSheet">
+               <string notr="true">color: white;
+background: none;</string>
+              </property>
+              <property name="text">
+               <string>V</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="array3CurrentLabel">
+              <property name="styleSheet">
+               <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
+color:white;
+background: none;</string>
+              </property>
+              <property name="text">
+               <string>879</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="array3CurrentUnitsLabel">
+              <property name="styleSheet">
+               <string notr="true">color: white;
+background: none;</string>
+              </property>
+              <property name="text">
+               <string>A</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </widget>
       </item>
      </layout>
     </widget>
