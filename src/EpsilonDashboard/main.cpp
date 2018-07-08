@@ -22,7 +22,8 @@ int main(int argc, char* argv[])
     }
     else
     {
-        qDebug() << "No other instance of dashboard exists.\nLaunching dashboard...\n";
+        qDebug() << "No other instance of dashboard exists.";
+        qDebug() << "Launching dashboard...";
     }
 
     QScopedPointer<EpsilonDashboard> app;
