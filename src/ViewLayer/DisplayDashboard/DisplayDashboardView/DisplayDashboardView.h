@@ -81,6 +81,7 @@ private:
     double mpptZeroPower_;
     double mpptOnePower_;
     double mpptTwoPower_;
+    double mpptThreePower_;
 
 private slots:
     // auxBms data slots

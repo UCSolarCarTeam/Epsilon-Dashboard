@@ -14,10 +14,12 @@ public:
     virtual QLabel& array0VoltageLabel() = 0;
     virtual QLabel& array1VoltageLabel() = 0;
     virtual QLabel& array2VoltageLabel() = 0;
+    virtual QLabel& array3VoltageLabel() = 0;
 
     virtual QLabel& array0CurrentLabel() = 0;
     virtual QLabel& array1CurrentLabel() = 0;
     virtual QLabel& array2CurrentLabel() = 0;
+    virtual QLabel& array3CurrentLabel() = 0;
 
     virtual QLabel& setCurrentLabel() = 0;
     virtual QLabel& motorPowerLabel() = 0;

@@ -44,6 +44,11 @@ QLabel& DisplayDashboardUI::array2VoltageLabel()
     return *ui_->array2VoltageLabel;
 }
 
+QLabel& DisplayDashboardUI::array3VoltageLabel()
+{
+    return *ui_->array3VoltageLabel;
+}
+
 QLabel& DisplayDashboardUI::array0CurrentLabel()
 {
     return *ui_->array0CurrentLabel;
@@ -57,6 +62,11 @@ QLabel& DisplayDashboardUI::array1CurrentLabel()
 QLabel& DisplayDashboardUI::array2CurrentLabel()
 {
     return *ui_->array2CurrentLabel;
+}
+
+QLabel& DisplayDashboardUI::array3CurrentLabel()
+{
+    return *ui_->array3CurrentLabel;
 }
 
 QLabel& DisplayDashboardUI::setCurrentLabel()
