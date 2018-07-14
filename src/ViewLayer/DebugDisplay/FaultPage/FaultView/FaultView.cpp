@@ -131,7 +131,7 @@ void FaultView::updateLabel(const bool& receivedValue, QLabel& label, QWidget& c
 {
     if (receivedValue)
     {
-        if (!label.isVisible())
+        if (!label.isVisible() && ui_.isVisible())
         {
             labelCount++;
 
