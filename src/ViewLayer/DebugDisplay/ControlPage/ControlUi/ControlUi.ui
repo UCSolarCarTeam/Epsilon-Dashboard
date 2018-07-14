@@ -66,7 +66,8 @@
         </property>
         <property name="styleSheet">
          <string notr="true">QWidget#block0{
-background-color: rgba(85, 87, 83,160);
+/*background-color: rgba(85, 87, 83,160);*/
+background-color: rgba(45, 45, 45,150);
 border-radius: 10px;
 }</string>
         </property>
@@ -637,7 +638,7 @@ border-radius: 10px;
         </property>
         <property name="styleSheet">
          <string notr="true">QWidget#block1{
-background-color: rgba(85, 87, 83,160);
+background-color: rgba(45, 45, 45,150);
 border-radius: 10px;
 }</string>
         </property>
@@ -818,7 +819,7 @@ border-radius: 10px;
         </property>
         <property name="styleSheet">
          <string notr="true">QWidget#block2{
-background-color: rgba(85, 87, 83,160);
+background-color: rgba(45, 45, 45,150);
 border-radius: 10px;
 }</string>
         </property>
