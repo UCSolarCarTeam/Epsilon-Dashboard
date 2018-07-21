@@ -52,6 +52,9 @@ void ControlView::connectDriverControls(DriverControlsPresenter& driverControlsP
     connect(&driverControlsPresenter, SIGNAL(aliveReceived(bool)),
             this, SLOT(aliveReceived(bool)));
 
+    connect(&driverControlsPresenter, SIGNAL(ccsAliveReceived(bool)),
+            this, SLOT(aliveCcs(bool)));
+
     connect(&driverControlsPresenter, SIGNAL(headlightsOffReceived(bool)),
             this, SLOT(headlightsOffReceived(bool)));
 
@@ -139,6 +142,18 @@ void ControlView::aliveLights(bool lights)
     else
     {
         ui_.lightsIndicator().setStyleSheet(OFF);
+    }
+}
+
+void ControlView::aliveCcs(bool ccs)
+{
+    if(ccs)
+    {
+        ui_.ccsAlive().setStyleSheet(ON);
+    }
+    else
+    {
+       ui_.ccsAlive().setStyleSheet(OFF);
     }
 }
 
