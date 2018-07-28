@@ -147,13 +147,13 @@ void ControlView::aliveLights(bool lights)
 
 void ControlView::aliveCcs(bool ccs)
 {
-    if(ccs)
+    if (ccs)
     {
         ui_.ccsAlive().setStyleSheet(ON);
     }
     else
     {
-       ui_.ccsAlive().setStyleSheet(OFF);
+        ui_.ccsAlive().setStyleSheet(OFF);
     }
 }
 
