@@ -29,6 +29,7 @@ private:
 private slots:
     void aliveReceived(bool);
     void aliveLights(bool);
+    void bmsStrobeLightReceived(bool);
 
     void lowHeadlightsReceived(bool);
     void highHeadlightsReceived(bool);

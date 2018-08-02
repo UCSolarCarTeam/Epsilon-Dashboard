@@ -9,6 +9,7 @@ public:
     virtual ~I_ControlUi() {}
     virtual QLabel& aliveIndicator() = 0;
     virtual QLabel& lightsIndicator() = 0;
+    virtual QLabel& bmsStrobeLightOnLabel() = 0;
     virtual QLabel& highHeadlightsLabel() = 0;
     virtual QLabel& lowHeadlightsLabel() = 0;
     virtual QLabel& lowBeamLabel() = 0;

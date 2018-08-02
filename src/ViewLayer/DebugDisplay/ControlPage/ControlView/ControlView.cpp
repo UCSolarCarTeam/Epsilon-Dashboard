@@ -116,6 +116,8 @@ void ControlView::connectLights(LightsPresenter& lightsPresenter)
             this, SLOT(rightLightReceived(bool)));
     connect(&lightsPresenter, SIGNAL(brakesReceived(bool)),
             this, SLOT(brakesLightReceived(bool)));
+    connect(&lightsPresenter, SIGNAL(bmsStrobeLightReceived(bool)),
+            this, SLOT(bmsStrobeLightReceived(bool)));
 }
 
 void ControlView::aliveReceived(bool alive)
@@ -139,6 +141,18 @@ void ControlView::aliveLights(bool lights)
     else
     {
         ui_.lightsIndicator().setStyleSheet(OFF);
+    }
+}
+
+void ControlView::bmsStrobeLightReceived(bool bmsStrobe)
+{
+    if (bmsStrobe)
+    {
+        ui_.bmsStrobeLightOnLabel().setStyleSheet(ON);
+    }
+    else
+    {
+        ui_.bmsStrobeLightOnLabel().setStyleSheet(OFF);
     }
 }
 

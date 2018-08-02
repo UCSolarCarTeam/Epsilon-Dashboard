@@ -27,6 +27,11 @@ QLabel& ControlUi::lightsIndicator()
     return *ui_->lightsIndicator;
 }
 
+QLabel& ControlUi::bmsStrobeLightOnLabel()
+{
+    return *ui_-> bmsStrobeLightOnLabel;
+}
+
 QLabel& ControlUi::highHeadlightsLabel()
 {
     return *ui_->highHeadlightsLabel;
