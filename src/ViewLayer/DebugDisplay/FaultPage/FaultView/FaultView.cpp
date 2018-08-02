@@ -2,8 +2,9 @@
 
 namespace
 {
-    int HEIGHT = 25;
+    int HEIGHT = 30;
     int WIDTH = 665;
+    int LABEL_RESIZE_LIMIT = 5;
     QString ERROR_STYLESHEET = "font: 20px 'Arial';\nfont-weight:500;\nmargin-left: 10px;\ncolor:";
     QString LIMIT_STYLESHEET = "font: 20px 'Arial';\nfont-weight:500;\nmargin-left: 10px;\ncolor:";
     QString SCROLLBAR_STYLESHEET = "QScrollBar:vertical {"
@@ -31,7 +32,6 @@ namespace
                                    "    subcontrol-position: top;"
                                    "    subcontrol-origin: margin;"
                                    "}";
-    int LABEL_RESIZE_LIMIT = 5;
 }
 FaultView::FaultView(MotorFaultsPresenter& motorFaultsPresenter,
                      BatteryFaultsPresenter& batteryFaultsPresenter,
@@ -127,35 +127,27 @@ void FaultView::initializeLabels(QLayout*& layoutM0, QLayout*& layoutM1, QLayout
     }
 }
 
-void FaultView::updateLabel(const bool& receivedValue, QLabel& label, QWidget& contentsWidget, int& labelCount)
+void FaultView::updateLabel(FaultLabel& label)
 {
-    if (receivedValue)
+    if (label.isActive())
     {
-        if (!label.isVisible() && ui_.isVisible())
-        {
-            labelCount++;
-
-            if (labelCount >= LABEL_RESIZE_LIMIT)
-            {
-                contentsWidget.setFixedSize(contentsWidget.width(), contentsWidget.height() + HEIGHT);
-            }
-
-            label.show();
-        }
+        label.show();
     }
     else
     {
-        if (label.isVisible())
-        {
+        label.hide();
+    }
+}
 
-            if (labelCount >= LABEL_RESIZE_LIMIT)
-            {
-                contentsWidget.setFixedSize(contentsWidget.width(), contentsWidget.height() - HEIGHT);
-            }
-
-            labelCount--;
-            label.hide();
-        }
+void FaultView::updateLabelListHeight(QWidget& contentsWidget, int& labelCount)
+{
+    if (labelCount >= LABEL_RESIZE_LIMIT)
+    {
+        contentsWidget.setFixedSize(WIDTH, (LABEL_RESIZE_LIMIT * HEIGHT) + ((labelCount - LABEL_RESIZE_LIMIT) * HEIGHT));
+    }
+    else
+    {
+        contentsWidget.setFixedSize(WIDTH, LABEL_RESIZE_LIMIT * HEIGHT);
     }
 }
 
@@ -182,59 +174,77 @@ void FaultView::connectBatteryFaults(BatteryFaultsPresenter& batteryFaultsPresen
 void FaultView::motorZeroErrorFlagsReceived(ErrorFlags motorZeroErrorFlags)
 {
     motorZeroFaultList_.updateErrors(motorZeroErrorFlags);
+    label0Count_ = motorZeroFaultList_.numberOfActiveLabels();
 
     for (int i = 0; i < motorZeroFaultList_.errorLabels().size(); i++)
     {
-        updateLabel(motorZeroFaultList_.errorLabels()[i].isActive(),  motorZeroFaultList_.errorLabels()[i], ui_.motor0ContentsWidget(), label0Count_);
+        updateLabel(motorZeroFaultList_.errorLabels()[i]);
     }
+
+    updateLabelListHeight(ui_.motor0ContentsWidget(), label0Count_);
 }
 
 void FaultView::motorZeroLimitFlagsReceived(LimitFlags motorZeroLimitFlags)
 {
     motorZeroFaultList_.updateLimits(motorZeroLimitFlags);
+    label0Count_ = motorZeroFaultList_.numberOfActiveLabels();
 
     for (int i = 0; i < motorZeroFaultList_.limitLabels().size(); i++)
     {
-        updateLabel(motorZeroFaultList_.limitLabels()[i].isActive(), motorZeroFaultList_.limitLabels()[i], ui_.motor0ContentsWidget(), label0Count_);
+        updateLabel(motorZeroFaultList_.limitLabels()[i]);
     }
+
+    updateLabelListHeight(ui_.motor0ContentsWidget(), label0Count_);
 }
 
 void FaultView::motorOneErrorFlagsReceived(ErrorFlags motorOneErrorFlags)
 {
     motorOneFaultList_.updateErrors(motorOneErrorFlags);
+    label1Count_ = motorOneFaultList_.numberOfActiveLabels();
 
     for (int i = 0; i < motorOneFaultList_.errorLabels().size(); i++)
     {
-        updateLabel(motorOneFaultList_.errorLabels()[i].isActive(), motorOneFaultList_.errorLabels()[i], ui_.motor1ContentsWidget(), label1Count_);
+        updateLabel(motorOneFaultList_.errorLabels()[i]);
     }
+
+    updateLabelListHeight(ui_.motor1ContentsWidget(), label1Count_);
 }
 
 void FaultView::motorOneLimitFlagsReceived(LimitFlags motorOneLimitFlags)
 {
     motorOneFaultList_.updateLimits(motorOneLimitFlags);
+    label1Count_ = motorOneFaultList_.numberOfActiveLabels();
 
     for (int i = 0; i < motorOneFaultList_.limitLabels().size(); i++)
     {
-        updateLabel(motorOneFaultList_.limitLabels()[i].isActive(), motorOneFaultList_.limitLabels()[i], ui_.motor1ContentsWidget(), label1Count_);
+        updateLabel(motorOneFaultList_.limitLabels()[i]);
     }
+
+    updateLabelListHeight(ui_.motor1ContentsWidget(), label1Count_);
 }
 
 void FaultView::errorFlagsReceived(BatteryErrorFlags batteryErrorFlags)
 {
     batteryFaultList_.updateErrors(batteryErrorFlags);
+    labelBCount_ = batteryFaultList_.numberOfActiveLabels();
 
     for (int i = 0; i < batteryFaultList_.errorLabels().size(); i++)
     {
-        updateLabel(batteryFaultList_.errorLabels()[i].isActive(), batteryFaultList_.errorLabels()[i], ui_.batteryContentsWidget(), labelBCount_);
+        updateLabel(batteryFaultList_.errorLabels()[i]);
     }
+
+    updateLabelListHeight(ui_.batteryContentsWidget(), labelBCount_);
 }
 
 void FaultView::limitFlagsReceived(BatteryLimitFlags batteryLimitFlags)
 {
     batteryFaultList_.updateLimits(batteryLimitFlags);
+    labelBCount_ = batteryFaultList_.numberOfActiveLabels();
 
     for (int i = 0; i < batteryFaultList_.limitLabels().size(); i++)
     {
-        updateLabel(batteryFaultList_.limitLabels()[i].isActive(), batteryFaultList_.limitLabels()[i], ui_.batteryContentsWidget(), labelBCount_);
+        updateLabel(batteryFaultList_.limitLabels()[i]);
     }
+
+    updateLabelListHeight(ui_.batteryContentsWidget(), labelBCount_);
 }
