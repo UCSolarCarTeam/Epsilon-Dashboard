@@ -23,6 +23,8 @@ namespace
     const QString FAN_ON = "background-color: rgb(250, 187, 28);";
     const QString REQUESTED_FAN_ON = "background-color: rgb(64, 161, 191);";
     const QString FAN_OFF = "background-color: grey;";
+
+    const int MV_TO_V = 1000;
 }
 
 BatteryView::BatteryView(BatteryPresenter& batteryPresenter,
@@ -452,7 +454,7 @@ void BatteryView::requestedFanSpeedReceived(int requestedFanSpeed)
 
 void BatteryView::lowCellVoltageReceived(int lowCellVoltage)
 {
-    ui_.lowCellVoltageLabel().setText(QString::number(lowCellVoltage) + " " + MILLI_VOLTAGE_UNIT);
+    ui_.lowCellVoltageLabel().setText(QString::number(lowCellVoltage / MV_TO_V) + " " + VOLTAGE_UNIT);
 }
 
 void BatteryView::lowCellVoltageIdReceived(int lowCellVoltageId)
@@ -462,7 +464,7 @@ void BatteryView::lowCellVoltageIdReceived(int lowCellVoltageId)
 
 void BatteryView::highCellVoltageReceived(int highCellVoltage)
 {
-    ui_.highCellVoltageLabel().setText(QString::number(highCellVoltage) + " " + MILLI_VOLTAGE_UNIT);
+    ui_.highCellVoltageLabel().setText(QString::number(highCellVoltage / MV_TO_V) + " " + VOLTAGE_UNIT);
 }
 
 void BatteryView::highCellVoltageIdReceived(int highCellVoltageId)
@@ -472,7 +474,7 @@ void BatteryView::highCellVoltageIdReceived(int highCellVoltageId)
 
 void BatteryView::averageCellVoltageReceived(int avgCellVoltage)
 {
-    ui_.avgCellVoltageLabel().setText(QString::number(avgCellVoltage) + " " + MILLI_VOLTAGE_UNIT);
+    ui_.avgCellVoltageLabel().setText(QString::number(avgCellVoltage / MV_TO_V) + " " + VOLTAGE_UNIT);
 }
 
 void BatteryView::prechargeStateReceived(QString prechargeState)
