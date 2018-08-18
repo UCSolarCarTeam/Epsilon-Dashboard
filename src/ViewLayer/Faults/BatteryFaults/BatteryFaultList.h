@@ -17,6 +17,7 @@ public:
     QVector<FaultLabel>& limitLabels();
     void updateErrors(const BatteryErrorFlags&);
     void updateLimits(const BatteryLimitFlags&);
+    int numberOfActiveLabels() const;
 
 private:
 

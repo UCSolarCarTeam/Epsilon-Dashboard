@@ -151,3 +151,26 @@ void MotorFaultList::updateLimits(const LimitFlags& limitFlags)
     limitLabels_[5].setActive(limitFlags.ipmOrMotorTemperatureLimit());
     limitLabels_[6].setActive(limitFlags.velocityLimit());
 }
+
+int MotorFaultList::numberOfActiveLabels() const
+{
+    int numberOfLabels = 0;
+
+    for (int i = 0; i < errorLabels_.size(); i++)
+    {
+        if (errorLabels_[i].isActive())
+        {
+            numberOfLabels++;
+        }
+    }
+
+    for (int i = 0; i < limitLabels_.size(); i++)
+    {
+        if (limitLabels_[i].isActive())
+        {
+            numberOfLabels++;
+        }
+    }
+
+    return numberOfLabels;
+}
