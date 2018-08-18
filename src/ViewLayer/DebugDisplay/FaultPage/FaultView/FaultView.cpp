@@ -143,7 +143,7 @@ void FaultView::updateLabelListHeight(QWidget& contentsWidget, int& labelCount)
 {
     if (labelCount >= LABEL_RESIZE_LIMIT)
     {
-        contentsWidget.setFixedSize(WIDTH, (LABEL_RESIZE_LIMIT * HEIGHT) + ((labelCount - LABEL_RESIZE_LIMIT) * HEIGHT));
+        contentsWidget.setFixedSize(WIDTH, labelCount * HEIGHT);
     }
     else
     {
