@@ -454,7 +454,7 @@ void BatteryView::requestedFanSpeedReceived(int requestedFanSpeed)
 
 void BatteryView::lowCellVoltageReceived(int lowCellVoltage)
 {
-    ui_.lowCellVoltageLabel().setText(QString::number(lowCellVoltage / MV_TO_V) + " " + VOLTAGE_UNIT);
+    ui_.lowCellVoltageLabel().setText(QString::number(lowCellVoltage / MV_TO_V, 'f', 3) + " " + VOLTAGE_UNIT);
 }
 
 void BatteryView::lowCellVoltageIdReceived(int lowCellVoltageId)
@@ -464,7 +464,7 @@ void BatteryView::lowCellVoltageIdReceived(int lowCellVoltageId)
 
 void BatteryView::highCellVoltageReceived(int highCellVoltage)
 {
-    ui_.highCellVoltageLabel().setText(QString::number(highCellVoltage / MV_TO_V) + " " + VOLTAGE_UNIT);
+    ui_.highCellVoltageLabel().setText(QString::number(highCellVoltage / MV_TO_V, 'f', 3) + " " + VOLTAGE_UNIT);
 }
 
 void BatteryView::highCellVoltageIdReceived(int highCellVoltageId)
@@ -474,7 +474,7 @@ void BatteryView::highCellVoltageIdReceived(int highCellVoltageId)
 
 void BatteryView::averageCellVoltageReceived(int avgCellVoltage)
 {
-    ui_.avgCellVoltageLabel().setText(QString::number(avgCellVoltage / MV_TO_V) + " " + VOLTAGE_UNIT);
+    ui_.avgCellVoltageLabel().setText(QString::number(avgCellVoltage / MV_TO_V, 'f', 3) + " " + VOLTAGE_UNIT);
 }
 
 void BatteryView::prechargeStateReceived(QString prechargeState)
