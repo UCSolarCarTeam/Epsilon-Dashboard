@@ -245,7 +245,7 @@ void BatteryData::setRequestedFanSpeed(const int& requestedFanSpeed)
     emit requestedFanSpeedReceived(requestedFanSpeed_);
 }
 
-void BatteryData::setLowCellVoltage(const int& lowCellVoltage)
+void BatteryData::setLowCellVoltage(const float& lowCellVoltage)
 {
     lowCellVoltage_ = lowCellVoltage;
     emit lowCellVoltageReceived(lowCellVoltage_);
@@ -257,7 +257,7 @@ void BatteryData::setLowCellVoltageId(const int& lowCellVoltageId)
     emit lowCellVoltageIdReceived(lowCellVoltageId_);
 }
 
-void BatteryData::setHighCellVoltage(const int& highCellVoltage)
+void BatteryData::setHighCellVoltage(const float& highCellVoltage)
 {
     highCellVoltage_ = highCellVoltage;
     emit highCellVoltageReceived(highCellVoltage_);
@@ -269,7 +269,7 @@ void BatteryData::setHighCellVoltageId(const int& highCellVoltageId)
     emit highCellVoltageIdReceived(highCellVoltageId_);
 }
 
-void BatteryData::setAverageCellVoltage(const int& averageCellVoltage)
+void BatteryData::setAverageCellVoltage(const float& averageCellVoltage)
 {
     averageCellVoltage_ = averageCellVoltage;
     emit averageCellVoltageReceived(averageCellVoltage_);

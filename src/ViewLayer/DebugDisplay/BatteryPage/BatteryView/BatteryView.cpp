@@ -106,20 +106,20 @@ void BatteryView::connectBattery(BatteryPresenter& batteryPresenter)
     connect(&batteryPresenter, SIGNAL(requestedFanSpeedReceived(const int)),
             this, SLOT(requestedFanSpeedReceived(const int)));
 
-    connect(&batteryPresenter, SIGNAL(lowCellVoltageReceived(const int)),
-            this, SLOT(lowCellVoltageReceived(const int)));
+    connect(&batteryPresenter, SIGNAL(lowCellVoltageReceived(const float)),
+            this, SLOT(lowCellVoltageReceived(const float)));
 
     connect(&batteryPresenter, SIGNAL(lowCellVoltageIdReceived(const int)),
             this, SLOT(lowCellVoltageIdReceived(const int)));
 
-    connect(&batteryPresenter, SIGNAL(highCellVoltageReceived(const int)),
-            this, SLOT(highCellVoltageReceived(const int)));
+    connect(&batteryPresenter, SIGNAL(highCellVoltageReceived(const float)),
+            this, SLOT(highCellVoltageReceived(const float)));
 
     connect(&batteryPresenter, SIGNAL(highCellVoltageIdReceived(const int)),
             this, SLOT(highCellVoltageIdReceived(const int)));
 
-    connect(&batteryPresenter, SIGNAL(averageCellVoltageReceived(const int)),
-            this, SLOT(averageCellVoltageReceived(const int)));
+    connect(&batteryPresenter, SIGNAL(averageCellVoltageReceived(const float)),
+            this, SLOT(averageCellVoltageReceived(const float)));
 
     connect(&batteryPresenter, SIGNAL(packNetPowerReceived(const double)),
             this, SLOT(packNetPowerReceived(const double)));
@@ -452,7 +452,7 @@ void BatteryView::requestedFanSpeedReceived(int requestedFanSpeed)
     }
 }
 
-void BatteryView::lowCellVoltageReceived(int lowCellVoltage)
+void BatteryView::lowCellVoltageReceived(float lowCellVoltage)
 {
     ui_.lowCellVoltageLabel().setText(QString::number(lowCellVoltage / MV_TO_V, 'f', 3) + " " + VOLTAGE_UNIT);
 }
@@ -462,7 +462,7 @@ void BatteryView::lowCellVoltageIdReceived(int lowCellVoltageId)
     ui_.lowCellVoltageIDLabel().setNum(lowCellVoltageId);
 }
 
-void BatteryView::highCellVoltageReceived(int highCellVoltage)
+void BatteryView::highCellVoltageReceived(float highCellVoltage)
 {
     ui_.highCellVoltageLabel().setText(QString::number(highCellVoltage / MV_TO_V, 'f', 3) + " " + VOLTAGE_UNIT);
 }
@@ -472,7 +472,7 @@ void BatteryView::highCellVoltageIdReceived(int highCellVoltageId)
     ui_.highCellVoltageIDLabel().setNum(highCellVoltageId);
 }
 
-void BatteryView::averageCellVoltageReceived(int avgCellVoltage)
+void BatteryView::averageCellVoltageReceived(float avgCellVoltage)
 {
     ui_.avgCellVoltageLabel().setText(QString::number(avgCellVoltage / MV_TO_V, 'f', 3) + " " + VOLTAGE_UNIT);
 }
