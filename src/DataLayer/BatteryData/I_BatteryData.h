@@ -57,11 +57,11 @@ public:
     virtual void setInternalTemperature(const int&) = 0;
     virtual void setFanSpeed(const int&) = 0;
     virtual void setRequestedFanSpeed(const int&) = 0;
-    virtual void setLowCellVoltage(const int&) = 0;
+    virtual void setLowCellVoltage(const float&) = 0;
     virtual void setLowCellVoltageId(const int&) = 0;
-    virtual void setHighCellVoltage(const int&) = 0;
+    virtual void setHighCellVoltage(const float&) = 0;
     virtual void setHighCellVoltageId(const int&) = 0;
-    virtual void setAverageCellVoltage(const int&) = 0;
+    virtual void setAverageCellVoltage(const float&) = 0;
 
 signals:
     void aliveReceived(const bool& alive);
@@ -82,10 +82,10 @@ signals:
     void internalTemperatureReceived(const int&);
     void fanSpeedReceived(const int&);
     void requestedFanSpeedReceived(const int&);
-    void lowCellVoltageReceived(const int&);
+    void lowCellVoltageReceived(const float&);
     void lowCellVoltageIdReceived(const int&);
-    void highCellVoltageReceived(const int&);
+    void highCellVoltageReceived(const float&);
     void highCellVoltageIdReceived(const int&);
-    void averageCellVoltageReceived(const int&);
+    void averageCellVoltageReceived(const float&);
     void packNetPowerReceived(const double&);
 };

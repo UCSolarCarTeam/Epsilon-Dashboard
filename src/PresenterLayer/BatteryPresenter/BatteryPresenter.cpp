@@ -45,16 +45,16 @@ void BatteryPresenter::relayBatteryData()
             this, SIGNAL(fanSpeedReceived(const int&)));
     connect(&batteryData_, SIGNAL(requestedFanSpeedReceived(const int&)),
             this, SIGNAL(requestedFanSpeedReceived(const int&)));
-    connect(&batteryData_, SIGNAL(lowCellVoltageReceived(const int&)),
-            this, SIGNAL(lowCellVoltageReceived(const int&)));
+    connect(&batteryData_, SIGNAL(lowCellVoltageReceived(const float&)),
+            this, SIGNAL(lowCellVoltageReceived(const float&)));
     connect(&batteryData_, SIGNAL(lowCellVoltageIdReceived(const int&)),
             this, SIGNAL(lowCellVoltageIdReceived(const int&)));
-    connect(&batteryData_, SIGNAL(highCellVoltageReceived(const int&)),
-            this, SIGNAL(highCellVoltageReceived(const int&)));
+    connect(&batteryData_, SIGNAL(highCellVoltageReceived(const float&)),
+            this, SIGNAL(highCellVoltageReceived(const float&)));
     connect(&batteryData_, SIGNAL(highCellVoltageIdReceived(const int&)),
             this, SIGNAL(highCellVoltageIdReceived(const int&)));
-    connect(&batteryData_, SIGNAL(averageCellVoltageReceived(const int&)),
-            this, SIGNAL(averageCellVoltageReceived(const int&)));
+    connect(&batteryData_, SIGNAL(averageCellVoltageReceived(const float&)),
+            this, SIGNAL(averageCellVoltageReceived(const float&)));
     connect(&batteryData_, SIGNAL(packNetPowerReceived(const double&)),
             this, SIGNAL(packNetPowerReceived(const double&)));
     connect(&batteryData_, SIGNAL(packStateOfChargeReceived(const double&)),

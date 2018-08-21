@@ -53,11 +53,11 @@ public:
     void setInternalTemperature(const int& internalTemperature);
     void setFanSpeed(const int& fanSpeed);
     void setRequestedFanSpeed(const int& requestedFanSpeed);
-    void setLowCellVoltage(const int& lowCellVoltage);
+    void setLowCellVoltage(const float& lowCellVoltage);
     void setLowCellVoltageId(const int& lowCellVoltageId);
-    void setHighCellVoltage(const int& highCellVoltage);
+    void setHighCellVoltage(const float& highCellVoltage);
     void setHighCellVoltageId(const int& highCellVoltageId);
-    void setAverageCellVoltage(const int& averageCellVoltage);
+    void setAverageCellVoltage(const float& averageCellVoltage);
 
 private:
     bool alive_;
