@@ -27,3 +27,8 @@ To install these dependencies, run the command:
 ## Config file
 
 Create a copy of the `config.ini.example` file in the `build` directory called `config.ini` and update any necessary settings.
+
+## Tests
+
+Refer to telemetry test tool and hermes readMe to test recieving data to display. 
+
