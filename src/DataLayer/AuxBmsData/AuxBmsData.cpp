@@ -1,6 +1,6 @@
 #include "AuxBmsData.h"
 #include "QDebug"
-
+//gfgfsg
 AuxBmsData::AuxBmsData()
 {
 }
