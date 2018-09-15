@@ -211,3 +211,26 @@ void BatteryFaultList::updateLimits(const BatteryLimitFlags& limitFlags)
     limitLabels_[12].setActive(limitFlags.dclReducedDueToHighCellResistance());
     limitLabels_[13].setActive(limitFlags.cclReducedDueToHighCellResistance());
 }
+
+int BatteryFaultList::numberOfActiveLabels() const
+{
+    int numberOfLabels = 0;
+
+    for (int i = 0; i < errorLabels_.size(); i++)
+    {
+        if (errorLabels_[i].isActive())
+        {
+            numberOfLabels++;
+        }
+    }
+
+    for (int i = 0; i < limitLabels_.size(); i++)
+    {
+        if (limitLabels_[i].isActive())
+        {
+            numberOfLabels++;
+        }
+    }
+
+    return numberOfLabels;
+}

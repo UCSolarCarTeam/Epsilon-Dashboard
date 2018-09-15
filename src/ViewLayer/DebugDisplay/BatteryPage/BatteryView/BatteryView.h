@@ -58,11 +58,11 @@ private slots:
     void internalTemperatureReceived(const int);
     void fanSpeedReceived(const int);
     void requestedFanSpeedReceived(const int);
-    void lowCellVoltageReceived(const int);
+    void lowCellVoltageReceived(const float);
     void lowCellVoltageIdReceived(const int);
-    void highCellVoltageReceived(const int);
+    void highCellVoltageReceived(const float);
     void highCellVoltageIdReceived(const int);
-    void averageCellVoltageReceived(const int);
+    void averageCellVoltageReceived(const float);
     void prechargeStateReceived(const QString);
     void auxVoltageReceived(const int);
     void auxBmsAliveReceived(const bool);
