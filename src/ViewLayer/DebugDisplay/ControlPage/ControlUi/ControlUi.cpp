@@ -32,6 +32,12 @@ QLabel& ControlUi::highHeadlightsLabel()
     return *ui_->highHeadlightsLabel;
 }
 
+QLabel& ControlUi::strobeLightOnLabel(){
+    return *ui_->strobeLightOnLabel;
+}
+QLabel& ControlUi::bMSStrobeLightLabel(){
+    return *ui_->bMSStrobeLightLabel;
+}
 QLabel& ControlUi::lowHeadlightsLabel()
 {
     return *ui_->lowHeadlightsLabel;
@@ -118,6 +124,7 @@ QLabel& ControlUi::brakesOnLabel()
     return *ui_->brakesOnLabel;
 }
 
+
 QLabel& ControlUi::brakesOnActiveLabel()
 {
     return *ui_->brakesOnActiveLabel;
@@ -151,4 +158,9 @@ QProgressBar& ControlUi::accelerationProgressBar()
 QProgressBar& ControlUi::regenBrakingProgressBar()
 {
     return *ui_->regenBrakingProgressBar;
+}
+
+void ControlUi::on_brakesOnActiveLabel_linkActivated(const QString &link)
+{
+
 }
