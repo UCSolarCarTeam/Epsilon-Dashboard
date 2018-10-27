@@ -1070,7 +1070,7 @@ border: 1px solid white;</string>
               </spacer>
              </item>
              <item>
-              <widget class="QLabel" name="bMSStrobeLightLabel">
+              <widget class="QLabel" name="bmsStrobeLightLabel">
                <property name="font">
                 <font>
                  <family>Noto Sans</family>
@@ -1196,7 +1196,7 @@ border: 1px solid white;</string>
                 <string notr="true">color: grey;</string>
                </property>
                <property name="text">
-                <string>strobrLight</string>
+                <string>On</string>
                </property>
               </widget>
              </item>
