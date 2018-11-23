@@ -169,6 +169,27 @@ void DisplayDashboardView::aliveReceived(bool)
 }
 void DisplayDashboardView::prechargeStateReceived(QString prechargeState)
 {
+    if(prechargeState=="CHARGE_ENGAGE")
+    {
+        prechargeState="Charge Engage";
+    }
+    if(prechargeState=="COMMON_ENGAGE")
+    {
+        prechargeState="Common Engage";
+    }
+    if(prechargeState=="DISCHARGE_ENGAGE")
+    {
+        prechargeState="Discharge Engage";
+    }
+    if(prechargeState=="ALL_ENGAGE")
+    {
+        prechargeState="All Engage";
+    }
+    if(prechargeState=="INVALID_STATE")
+    {
+        prechargeState="Invalid State";
+    }
+
     ui_.prechargeStateLabel().setText(prechargeState);
 }
 
