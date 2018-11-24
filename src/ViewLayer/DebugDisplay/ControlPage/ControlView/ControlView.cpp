@@ -93,8 +93,7 @@ void ControlView::connectDriverControls(DriverControlsPresenter& driverControlsP
             this, SLOT(reverseReceived(bool)));
 
     connect(&driverControlsPresenter, SIGNAL(resetReceived(bool)),
-            this, SLOT(rese
-                       tReceived(bool)));
+            this, SLOT(resetReceived(bool)));
 
     connect(&driverControlsPresenter, SIGNAL(accelerationReceived(double)),
             this, SLOT(accelerationReceived(double)));
