@@ -17,6 +17,7 @@ public:
     QVector<FaultLabel>& limitLabels();
     void updateErrors(const ErrorFlags&);
     void updateLimits(const LimitFlags&);
+    int numberOfActiveLabels() const;
 
 private:
 
