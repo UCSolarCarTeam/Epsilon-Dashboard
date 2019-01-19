@@ -17,9 +17,9 @@ ControlUi::~ControlUi()
     delete ui_;
 }
 
-QLabel& ControlUi::aliveIndicator()
+QLabel& ControlUi::driverControlIndicator()
 {
-    return *ui_->aliveIndicator;
+    return *ui_->driverControlOnLabel;
 }
 
 QLabel& ControlUi::lightsIndicator()

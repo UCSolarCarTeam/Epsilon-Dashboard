@@ -122,11 +122,11 @@ void ControlView::aliveReceived(bool alive)
 {
     if (alive)
     {
-        ui_.aliveIndicator().setStyleSheet(ON);
+        ui_.driverControlIndicator().setStyleSheet(ON);
     }
     else
     {
-        ui_.aliveIndicator().setStyleSheet(OFF);
+        ui_.driverControlIndicator().setStyleSheet(OFF);
     }
 }
 
