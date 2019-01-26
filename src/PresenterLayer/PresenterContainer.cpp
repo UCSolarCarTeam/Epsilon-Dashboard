@@ -4,6 +4,7 @@
 #include "AuxBmsPresenter/AuxBmsPresenter.h"
 #include "BatteryPresenter/BatteryPresenter.h"
 #include "BatteryFaultsPresenter/BatteryFaultsPresenter.h"
+#include "CcsPresenter/CcsPresenter.h"
 #include "DriverControlsPresenter/DriverControlsPresenter.h"
 #include "KeyMotorPresenter/KeyMotorPresenter.h"
 #include "LightsPresenter/LightsPresenter.h"
@@ -15,6 +16,7 @@ PresenterContainer::PresenterContainer(DataContainer& dataContainer)
     : auxBmsPresenter_(new AuxBmsPresenter(dataContainer.auxBmsData()))
     , batteryPresenter_(new BatteryPresenter(dataContainer.batteryData()))
     , batteryFaultsPresenter_(new BatteryFaultsPresenter(dataContainer.batteryFaultsData()))
+    , ccsPresenter_(new CcsPresenter(dataContainer.ccsData()))
     , driverControlsPresenter_(new DriverControlsPresenter(dataContainer.driverControlsData()))
     , keyMotorPresenter_(new KeyMotorPresenter(dataContainer.keyMotorData()))
     , lightsPresenter_(new LightsPresenter(dataContainer.lightsData()))
@@ -40,6 +42,10 @@ BatteryPresenter& PresenterContainer::batteryPresenter()
 BatteryFaultsPresenter& PresenterContainer::batteryFaultsPresenter()
 {
     return *batteryFaultsPresenter_;
+}
+CcsPresenter& PresenterContainer::ccsPresenter()
+{
+    return *ccsPresenter_;
 }
 DriverControlsPresenter& PresenterContainer::driverControlsPresenter()
 {

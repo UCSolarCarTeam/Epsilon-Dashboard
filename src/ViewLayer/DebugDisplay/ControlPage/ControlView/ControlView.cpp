@@ -32,13 +32,16 @@ namespace
                               "border: 1px solid white;";
 }
 
-ControlView::ControlView(DriverControlsPresenter& driverControlsPresenter,
+ControlView::ControlView(CcsPresenter& ccsPresenter,
+                         DriverControlsPresenter& driverControlsPresenter,
                          LightsPresenter& lightsPresenter,
                          I_ControlUi& ui)
-    : driverControlsPresenter_(driverControlsPresenter)
+    : ccsPresenter_(ccsPresenter)
+    , driverControlsPresenter_(driverControlsPresenter)
     , lightsPresenter_(lightsPresenter)
     , ui_(ui)
 {
+    connectCcs(ccsPresenter_);
     connectDriverControls(driverControlsPresenter_);
     connectLights(lightsPresenter_);
 }
@@ -47,13 +50,16 @@ ControlView::~ControlView()
 {
 }
 
+void ControlView::connectCcs(CcsPresenter& ccsPresenter)
+{
+    connect(&ccsPresenter, SIGNAL(ccsAliveRecieved(bool)),
+            this, SLOT(ccsAliveRecieved(bool)));
+}
+
 void ControlView::connectDriverControls(DriverControlsPresenter& driverControlsPresenter)
 {
     connect(&driverControlsPresenter, SIGNAL(aliveReceived(bool)),
             this, SLOT(aliveReceived(bool)));
-
-    connect(&driverControlsPresenter, SIGNAL(ccsAliveReceived(bool)),
-            this, SLOT(aliveCcs(bool)));
 
     connect(&driverControlsPresenter, SIGNAL(headlightsOffReceived(bool)),
             this, SLOT(headlightsOffReceived(bool)));
@@ -145,7 +151,7 @@ void ControlView::aliveLights(bool lights)
     }
 }
 
-void ControlView::aliveCcs(bool ccs)
+void ControlView::ccsAliveRecieved(bool ccs)
 {
     if (ccs)
     {

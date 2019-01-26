@@ -6,6 +6,7 @@
 #include "../BusinessLayer/DataPopulators/AuxBmsPopulator.h"
 #include "../BusinessLayer/DataPopulators/BatteryFaultsPopulator.h"
 #include "../BusinessLayer/DataPopulators/BatteryPopulator.h"
+#include "../BusinessLayer/DataPopulators/CcsPopulator.h"
 #include "../BusinessLayer/DataPopulators/DriverControlsPopulator.h"
 #include "../BusinessLayer/DataPopulators/KeyMotorPopulator.h"
 #include "../BusinessLayer/DataPopulators/LightsPopulator.h"
@@ -21,6 +22,7 @@
 class AuxBmsPopulator;
 class BatteryPopulator;
 class BatteryFaultsPopulator;
+class CcsPopulator;
 class DriverControlsPopulator;
 class KeyMotorPopulator;
 class LightsPopulator;
@@ -37,6 +39,7 @@ public:
     JsonReceiver(AuxBmsPopulator& auxBmsPopulator,
                  BatteryPopulator& batteryPopulator,
                  BatteryFaultsPopulator& batteryFaultsPopulator,
+                 CcsPopulator& ccsPopulator,
                  DriverControlsPopulator& driverControlsPopulator,
                  KeyMotorPopulator& keyMotorPopulator,
                  LightsPopulator& lightsPopulator,
@@ -54,6 +57,7 @@ private:
     AuxBmsPopulator& auxBmsPopulator_;
     BatteryPopulator& batteryPopulator_;
     BatteryFaultsPopulator& batteryFaultsPopulator_;
+    CcsPopulator& ccsPopulator_;
     DriverControlsPopulator& driverControlsPopulator_;
     KeyMotorPopulator& keyMotorPopulator_;
     LightsPopulator& lightsPopulator_;
