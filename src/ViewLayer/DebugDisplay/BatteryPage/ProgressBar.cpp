@@ -51,6 +51,6 @@ void ProgressBar::paintEvent(QPaintEvent*)
     QFont font = p.font();
     font.setPointSize(FONT_SIZE);
     p.setFont(font);
-    p.drawText(rectangle, Qt::AlignCenter, QString::number(progress_ * 100,'f',2) + "%");
+    p.drawText(rectangle, Qt::AlignCenter, QString::number(progress_ * 100, 'f', 2) + "%");
 }
 

@@ -479,28 +479,32 @@ void BatteryView::averageCellVoltageReceived(float avgCellVoltage)
 
 void BatteryView::prechargeStateReceived(QString prechargeState)
 {
-    if(QString::compare(prechargeState, "CHARGE_ENGAGED") == 0)
+    if (QString::compare(prechargeState, "CHARGE_ENGAGED") == 0)
     {
         ui_.prechargeStateLabel().setText("Charge Engaged");
     }
-    if(QString::compare(prechargeState, "COMMON_ENGAGED") == 0)
+
+    if (QString::compare(prechargeState, "COMMON_ENGAGED") == 0)
     {
         ui_.prechargeStateLabel().setText("Charge Engaged");
     }
-    if(QString::compare(prechargeState, "DISCHARGE_ENGAGED")==0)
+
+    if (QString::compare(prechargeState, "DISCHARGE_ENGAGED") == 0)
     {
         ui_.prechargeStateLabel().setText("Discharge Engaged");
     }
-    if(QString::compare(prechargeState, "ALL_ENGAGED") ==0)
+
+    if (QString::compare(prechargeState, "ALL_ENGAGED") == 0)
     {
         ui_.prechargeStateLabel().setText("All Engaged");
     }
-    if(QString::compare(prechargeState, "INVALID_STATE") ==0)
+
+    if (QString::compare(prechargeState, "INVALID_STATE") == 0)
     {
         ui_.prechargeStateLabel().setText("Invalid State");
     }
 
-   // ui_.prechargeStateLabel().setText(prechargeState);
+    // ui_.prechargeStateLabel().setText(prechargeState);
 }
 
 void BatteryView::auxVoltageReceived(int auxVoltage)
