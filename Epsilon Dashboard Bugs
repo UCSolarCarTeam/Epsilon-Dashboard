@@ -1,0 +1,57 @@
+DEBUG MODE
+
+1) The 2nd (1st if zero-indexed) square for the fan speed and requested fan speed does not turn blue or orange.
+
+2) Fan Speed and Requested fan speed are not capped in the telemetry test tool(unless they aren't supposed to be capped but it looks like it's supposed to cap out at 6)
+(looks like if the speed is greater than 6 it does nothing though)
+
+3)High Cell, Low Cell, and Average Cell voltages are off by factors of 1000 (unless that's how it's supposed to work)
+
+4)Strobe BMS Light and BMS Strobe Light are both listed under Aux BMS and Lights in the Telem Test Program, but BMS Strobe Light doesn't do anything
+
+5)No way to tell if Motor 1 and Motor 2 are alive, but changes made to Motor Data come through regardless of whether or not they are
+
+6)Alignment of AVG column for Motor Voltage and Current Imaginary is off
+
+7)Glitches occur when changing Alive status between MPPT Numbers. Changes seem to occur on the previous (last used) MPPT Number instead of the one that is currently selected; Simultaneously changing the MPPT number and the Alive status will set that status to the previous MPPT.
+Steps to recreate this glitch:
+
+1. Make sure MPPT 0 and MPPT 1 are both not alive, and you're currently on MPPT 0.
+2. Switch MPPT 0 from not Alive to Alive without switching the MPPT number. You should be able to see the changes immediately and without an error on MPPT 0.
+3. Switch MPPT number from 0 to 1
+4. Switch MPPT 1 from not alive to alive.
+5. Set the data package and send it.
+6. MPPT 0 should now be Alive.
+7. Set the data again, and then send it, without changing anything
+8. MPPT 1 should now be Alive.
+
+It should be noted that changes to anything but the alive status is not affected.
+
+REGULAR MODE
+
+8)arrays 1, 2, 3, and 4 are labelled 1, 2, 1, 2
+
+9)Only one battery fault is displayed when there are multiple
+
+10)Battery Precharge does not align with label It's over in the corner and difficult to see
+
+11)Low and Avg cell voltage does not update and is always at 879
+
+12)Power In and Power Out are displayed on the right side of the dashboard implying it's part of the cell when it should be on the right with the Arrays since it calculates power using Array Voltage and Array Current
+
+13)Net Power is calculated with Battery Information but is in the same area as power that's calcuated with the MPPT arrays. This seems like this can be confusing
+
+14)Low Beams, High Beams, Left Signal, and Right Signal are listed under both Lights and Driver controls under the telemetry test tool but only changing the ones under lights makes any kind of change. In debug mode however, these changes are visible.
+	Changing the left, right and low and high lights under Driver Controls affects the text and lights it up from Orange to Grey. 
+	Changing the left, right and low and high lights under Lights changes the images
+
+RACE MODE
+
+15)Bus Current is rounded to 3 decimals but voltage is only rounded to two. This causes the text to be cut off a bit.
+
+16)The Green Circle next to precharge state doesn't change
+
+17)Low Cell and High Cell voltage still doesn't update and is always at 879
+
+
+
