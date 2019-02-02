@@ -20,7 +20,18 @@ HEADERS += \
     DataPopulators/MotorDetailsPopulator.h \
     DataPopulators/MotorFaultsPopulator.h \
     DataPopulators/JsonDefines.h \
-    DataPopulators/AuxBmsPopulator.h
+    DataPopulators/AuxBmsPopulator.h \
+    DataPopulators/AuxBmsPopulator.h \
+    DataPopulators/BatteryFaultsPopulator.h \
+    DataPopulators/BatteryPopulator.h \
+    DataPopulators/CmuPopulator.h \
+    DataPopulators/DriverControlsPopulator.h \
+    DataPopulators/JsonDefines.h \
+    DataPopulators/KeyMotorPopulator.h \
+    DataPopulators/LightsPopulator.h \
+    DataPopulators/MotorDetailsPopulator.h \
+    DataPopulators/MotorFaultsPopulator.h \
+    DataPopulators/MpptPopulator.h
 
 SOURCES += \ 
     BusinessContainer.cpp \
@@ -33,4 +44,14 @@ SOURCES += \
     DataPopulators/MpptPopulator.cpp \
     DataPopulators/MotorDetailsPopulator.cpp \
     DataPopulators/MotorFaultsPopulator.cpp \
-    DataPopulators/AuxBmsPopulator.cpp
+    DataPopulators/AuxBmsPopulator.cpp \
+    DataPopulators/AuxBmsPopulator.cpp \
+    DataPopulators/BatteryFaultsPopulator.cpp \
+    DataPopulators/BatteryPopulator.cpp \
+    DataPopulators/CmuPopulator.cpp \
+    DataPopulators/DriverControlsPopulator.cpp \
+    DataPopulators/KeyMotorPopulator.cpp \
+    DataPopulators/LightsPopulator.cpp \
+    DataPopulators/MotorDetailsPopulator.cpp \
+    DataPopulators/MotorFaultsPopulator.cpp \
+    DataPopulators/MpptPopulator.cpp

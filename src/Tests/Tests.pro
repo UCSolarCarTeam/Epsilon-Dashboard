@@ -17,7 +17,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-    CommunicationLayer/CommDeviceControl/CommDeviceManagerTest.cpp
+    CommunicationLayer/JsonReceiver/JsonReceiverTest .cpp \
+    CommunicationLayer/JsonReceiver/JsonReceiverTest.cpp
 
 
 !win32 {
@@ -33,5 +34,14 @@ POST_TARGETDEPS += copyfiles
 
 HEADERS += \
     CommunicationLayer/mockcommdevicemanager.h \
-    CommunicationLayer/CommDeviceControl/MockCommDeviceManager.h
+    BusinessLayer/DataPopulators/mockauxbmspopulator.h \
+    BusinessLayer/DataPopulators/mockbatteryfaultspopulator.h \
+    BusinessLayer/DataPopulators/mockbatterypopulator.h \
+    BusinessLayer/DataPopulators/mockdrivercontrolspopulator.h \
+    BusinessLayer/DataPopulators/mockkeymotorpopulator.h \
+    BusinessLayer/DataPopulators/mocklightspopulator.h \
+    BusinessLayer/DataPopulators/mockmpptpopulator.h \
+    BusinessLayer/DataPopulators/mockmotordetailspopulator.h \
+    BusinessLayer/DataPopulators/mockmotorfaultspopulator.h \
+    BusinessLayer/CommunicationsMonitoringService/mocki_communicationsmonitoringservice.h
 
