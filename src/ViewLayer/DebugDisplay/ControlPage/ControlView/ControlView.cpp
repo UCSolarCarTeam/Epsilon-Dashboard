@@ -312,11 +312,14 @@ void ControlView::auxReceived(bool aux)
     }
 }
 
-void ControlView::bmsStrobeLightReceived(bool strobeLight){
-    if (strobeLight){
+void ControlView::bmsStrobeLightReceived(bool strobeLight)
+{
+    if (strobeLight)
+    {
         ui_.strobeLightOnLabel().setStyleSheet(ON);
     }
-    else{
+    else
+    {
         ui_.strobeLightOnLabel().setStyleSheet(OFF);
     }
 
