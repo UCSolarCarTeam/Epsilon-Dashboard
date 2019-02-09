@@ -255,7 +255,7 @@ void RaceModeDashboardView::motorBusVoltageReceived(double busVoltage)
 }
 void RaceModeDashboardView::motorBusCurrentReceived(double busCurrent)
 {
-    ui_.busCurrentLabel().setText(QString::number(busCurrent, 'f', 3));
+    ui_.busCurrentLabel().setText(QString::number(busCurrent, 'f', 2));
     busCurrent_ = busCurrent;
     setMotorPower();
 }
