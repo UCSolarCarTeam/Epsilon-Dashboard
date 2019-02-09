@@ -82,8 +82,8 @@ private slots:
     void packNetPowerReceived(double);
     void auxVoltageReceived(int);
     void packStateOfChargeReceived(double);
-    void lowCellVoltageReceived(int);
-    void averageCellVoltageReceived(int);
+    void lowCellVoltageReceived(float);
+    void averageCellVoltageReceived(float);
     void highTemperatureReceived(int);
     void averageTemperatureReceived(int);
 
