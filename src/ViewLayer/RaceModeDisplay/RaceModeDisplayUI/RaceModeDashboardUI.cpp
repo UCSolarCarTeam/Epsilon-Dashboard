@@ -80,11 +80,6 @@ QProgressBar& RaceModeDashboardUI::stateOfChargeCapacityWidget()
     return *ui_->stateOfChargeCapacityWidget;
 }
 
-QWidget& RaceModeDashboardUI::prechargeStateIconWidget()
-{
-    return *ui_->prechargeStateIconWidget;
-}
-
 QLabel& RaceModeDashboardUI::prechargeStateLabel()
 {
     return *ui_->prechargeStateLabel;
