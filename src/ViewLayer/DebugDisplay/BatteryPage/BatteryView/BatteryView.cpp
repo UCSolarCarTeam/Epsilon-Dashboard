@@ -35,6 +35,13 @@ BatteryView::BatteryView(BatteryPresenter& batteryPresenter,
     , bar_(bar)
     , auxBMSPresenter_(auxBMSPresenter)
 {
+    fanSpeedList_.append(ui_.fanSpeed1());
+    fanSpeedList_.append(ui_.fanSpeed2());
+    fanSpeedList_.append(ui_.fanSpeed3());
+    fanSpeedList_.append(ui_.fanSpeed4());
+    fanSpeedList_.append(ui_.fanSpeed5());
+    fanSpeedList_.append(ui_.fanSpeed6());
+
     connectBattery(batteryPresenter_);
     connectAuxBMS(auxBMSPresenter_);
 }
@@ -306,74 +313,16 @@ void BatteryView::fanSpeedReceived(int fanSpeed)
 {
     ui_.fanSpeedLabel().setNum(fanSpeed);
 
-    if (fanSpeed == 0)
+    for(int i = 0; i < fanSpeedList_.size(); i++)
     {
-        ui_.fanSpeed1().setStyleSheet(FAN_OFF);
-        ui_.fanSpeed2().setStyleSheet(FAN_OFF);
-        ui_.fanSpeed3().setStyleSheet(FAN_OFF);
-        ui_.fanSpeed4().setStyleSheet(FAN_OFF);
-        ui_.fanSpeed5().setStyleSheet(FAN_OFF);
-        ui_.fanSpeed6().setStyleSheet(FAN_OFF);
-    }
-
-    if (fanSpeed == 1)
-    {
-        ui_.fanSpeed1().setStyleSheet(FAN_ON);
-        ui_.fanSpeed1().setStyleSheet(FAN_OFF);
-        ui_.fanSpeed3().setStyleSheet(FAN_OFF);
-        ui_.fanSpeed4().setStyleSheet(FAN_OFF);
-        ui_.fanSpeed5().setStyleSheet(FAN_OFF);
-        ui_.fanSpeed6().setStyleSheet(FAN_OFF);
-    }
-
-    if (fanSpeed == 2)
-    {
-        ui_.fanSpeed1().setStyleSheet(FAN_ON);
-        ui_.fanSpeed1().setStyleSheet(FAN_ON);
-        ui_.fanSpeed3().setStyleSheet(FAN_OFF);
-        ui_.fanSpeed4().setStyleSheet(FAN_OFF);
-        ui_.fanSpeed5().setStyleSheet(FAN_OFF);
-        ui_.fanSpeed6().setStyleSheet(FAN_OFF);
-    }
-
-    if (fanSpeed == 3)
-    {
-        ui_.fanSpeed1().setStyleSheet(FAN_ON);
-        ui_.fanSpeed1().setStyleSheet(FAN_ON);
-        ui_.fanSpeed3().setStyleSheet(FAN_ON);
-        ui_.fanSpeed4().setStyleSheet(FAN_OFF);
-        ui_.fanSpeed5().setStyleSheet(FAN_OFF);
-        ui_.fanSpeed6().setStyleSheet(FAN_OFF);
-    }
-
-    if (fanSpeed == 4)
-    {
-        ui_.fanSpeed1().setStyleSheet(FAN_ON);
-        ui_.fanSpeed1().setStyleSheet(FAN_ON);
-        ui_.fanSpeed3().setStyleSheet(FAN_ON);
-        ui_.fanSpeed4().setStyleSheet(FAN_ON);
-        ui_.fanSpeed5().setStyleSheet(FAN_OFF);
-        ui_.fanSpeed6().setStyleSheet(FAN_OFF);
-    }
-
-    if (fanSpeed == 5)
-    {
-        ui_.fanSpeed1().setStyleSheet(FAN_ON);
-        ui_.fanSpeed1().setStyleSheet(FAN_ON);
-        ui_.fanSpeed3().setStyleSheet(FAN_ON);
-        ui_.fanSpeed4().setStyleSheet(FAN_ON);
-        ui_.fanSpeed5().setStyleSheet(FAN_ON);
-        ui_.fanSpeed6().setStyleSheet(FAN_OFF);
-    }
-
-    if (fanSpeed == 6)
-    {
-        ui_.fanSpeed1().setStyleSheet(FAN_ON);
-        ui_.fanSpeed1().setStyleSheet(FAN_ON);
-        ui_.fanSpeed3().setStyleSheet(FAN_ON);
-        ui_.fanSpeed4().setStyleSheet(FAN_ON);
-        ui_.fanSpeed5().setStyleSheet(FAN_ON);
-        ui_.fanSpeed6().setStyleSheet(FAN_ON);
+        if(i < fanSpeed)
+        {
+            fanSpeedList_[i].setStyleSheet(FAN_ON);
+        }
+        else
+        {
+             fanSpeedList_[i].setStyleSheet(FAN_OFF);
+        }
     }
 }
 
@@ -394,7 +343,7 @@ void BatteryView::requestedFanSpeedReceived(int requestedFanSpeed)
     if (requestedFanSpeed == 1)
     {
         ui_.requestedSpeed1().setStyleSheet(REQUESTED_FAN_ON);
-        ui_.requestedSpeed1().setStyleSheet(FAN_OFF);
+        ui_.requestedSpeed2().setStyleSheet(FAN_OFF);
         ui_.requestedSpeed3().setStyleSheet(FAN_OFF);
         ui_.requestedSpeed4().setStyleSheet(FAN_OFF);
         ui_.requestedSpeed5().setStyleSheet(FAN_OFF);
@@ -404,7 +353,7 @@ void BatteryView::requestedFanSpeedReceived(int requestedFanSpeed)
     if (requestedFanSpeed == 2)
     {
         ui_.requestedSpeed1().setStyleSheet(REQUESTED_FAN_ON);
-        ui_.requestedSpeed1().setStyleSheet(REQUESTED_FAN_ON);
+        ui_.requestedSpeed2().setStyleSheet(REQUESTED_FAN_ON);
         ui_.requestedSpeed3().setStyleSheet(FAN_OFF);
         ui_.requestedSpeed4().setStyleSheet(FAN_OFF);
         ui_.requestedSpeed5().setStyleSheet(FAN_OFF);
@@ -414,7 +363,7 @@ void BatteryView::requestedFanSpeedReceived(int requestedFanSpeed)
     if (requestedFanSpeed == 3)
     {
         ui_.requestedSpeed1().setStyleSheet(REQUESTED_FAN_ON);
-        ui_.requestedSpeed1().setStyleSheet(REQUESTED_FAN_ON);
+        ui_.requestedSpeed2().setStyleSheet(REQUESTED_FAN_ON);
         ui_.requestedSpeed3().setStyleSheet(REQUESTED_FAN_ON);
         ui_.requestedSpeed4().setStyleSheet(FAN_OFF);
         ui_.requestedSpeed5().setStyleSheet(FAN_OFF);
@@ -424,7 +373,7 @@ void BatteryView::requestedFanSpeedReceived(int requestedFanSpeed)
     if (requestedFanSpeed == 4)
     {
         ui_.requestedSpeed1().setStyleSheet(REQUESTED_FAN_ON);
-        ui_.requestedSpeed1().setStyleSheet(REQUESTED_FAN_ON);
+        ui_.requestedSpeed2().setStyleSheet(REQUESTED_FAN_ON);
         ui_.requestedSpeed3().setStyleSheet(REQUESTED_FAN_ON);
         ui_.requestedSpeed4().setStyleSheet(REQUESTED_FAN_ON);
         ui_.requestedSpeed5().setStyleSheet(FAN_OFF);
@@ -434,7 +383,7 @@ void BatteryView::requestedFanSpeedReceived(int requestedFanSpeed)
     if (requestedFanSpeed == 5)
     {
         ui_.requestedSpeed1().setStyleSheet(REQUESTED_FAN_ON);
-        ui_.requestedSpeed1().setStyleSheet(REQUESTED_FAN_ON);
+        ui_.requestedSpeed2().setStyleSheet(REQUESTED_FAN_ON);
         ui_.requestedSpeed3().setStyleSheet(REQUESTED_FAN_ON);
         ui_.requestedSpeed4().setStyleSheet(REQUESTED_FAN_ON);
         ui_.requestedSpeed5().setStyleSheet(REQUESTED_FAN_ON);
@@ -444,7 +393,7 @@ void BatteryView::requestedFanSpeedReceived(int requestedFanSpeed)
     if (requestedFanSpeed == 6)
     {
         ui_.requestedSpeed1().setStyleSheet(REQUESTED_FAN_ON);
-        ui_.requestedSpeed1().setStyleSheet(REQUESTED_FAN_ON);
+        ui_.requestedSpeed2().setStyleSheet(REQUESTED_FAN_ON);
         ui_.requestedSpeed3().setStyleSheet(REQUESTED_FAN_ON);
         ui_.requestedSpeed4().setStyleSheet(REQUESTED_FAN_ON);
         ui_.requestedSpeed5().setStyleSheet(REQUESTED_FAN_ON);
