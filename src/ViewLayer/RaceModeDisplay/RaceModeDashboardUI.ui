@@ -737,7 +737,7 @@ color: rgb(100,100,100);
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>334</width>
+         <width>352</width>
          <height>334</height>
         </rect>
        </property>
@@ -863,112 +863,6 @@ color: rgb(100,100,100);</string>
               </item>
               <item row="1" column="1">
                <layout class="QGridLayout" name="ValueGrid">
-                <item row="1" column="1">
-                 <layout class="QGridLayout" name="avgCellVoltage">
-                  <item row="0" column="0" alignment="Qt::AlignRight">
-                   <widget class="QLabel" name="avgCellVoltageLabel">
-                    <property name="maximumSize">
-                     <size>
-                      <width>55</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
-padding-left: 4px;
-color:white;</string>
-                    </property>
-                    <property name="text">
-                     <string>879</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="1" alignment="Qt::AlignLeft">
-                   <widget class="QLabel" name="avgCellVoltageUnitsLabel">
-                    <property name="styleSheet">
-                     <string notr="true">QLabel {
-font: 10pt &quot;Burlingame Pro&quot;;
-color: white;
-qproperty-alignment: 'AlignBottom | AlignLeft';
-}</string>
-                    </property>
-                    <property name="text">
-                     <string>mV</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="0" colspan="2">
-                   <widget class="QLabel" name="avgCellVoltageTitleLabel">
-                    <property name="styleSheet">
-                     <string notr="true">QLabel {
-font: 10pt &quot;Burlingame Pro&quot;;
-color: white;
-qproperty-alignment: 'AlignHCenter';
-}</string>
-                    </property>
-                    <property name="text">
-                     <string>A V G</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item row="0" column="1">
-                 <layout class="QGridLayout" name="lowestCellVoltage">
-                  <item row="1" column="0" alignment="Qt::AlignRight">
-                   <widget class="QLabel" name="lowestCellVoltageLabel">
-                    <property name="maximumSize">
-                     <size>
-                      <width>55</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
-padding-left: 4px;
-color:white;</string>
-                    </property>
-                    <property name="text">
-                     <string>879</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="1" alignment="Qt::AlignLeft">
-                   <widget class="QLabel" name="lowestCellVoltageUnitsLabel">
-                    <property name="styleSheet">
-                     <string notr="true">QLabel {
-font: 10pt &quot;Burlingame Pro&quot;;
-color: white;
-qproperty-alignment: 'AlignBottom | AlignLeft';
-}</string>
-                    </property>
-                    <property name="text">
-                     <string>mV</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="0" colspan="2">
-                   <widget class="QLabel" name="lowestCellVoltageTitleLabel">
-                    <property name="maximumSize">
-                     <size>
-                      <width>16777215</width>
-                      <height>17</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">QLabel {
-font: 10pt &quot;Burlingame Pro&quot;;
-color: white;
-qproperty-alignment: 'AlignHCenter';
-}</string>
-                    </property>
-                    <property name="text">
-                     <string>L O W</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
                 <item row="0" column="0">
                  <layout class="QGridLayout" name="maxCellTemp">
                   <item row="0" column="1">
@@ -1050,6 +944,112 @@ qproperty-alignment: 'AlignHCenter';
                     </property>
                     <property name="text">
                      <string>A V G</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item row="0" column="1">
+                 <layout class="QGridLayout" name="lowestCellVoltage">
+                  <item row="1" column="1" alignment="Qt::AlignLeft">
+                   <widget class="QLabel" name="lowestCellVoltageUnitsLabel">
+                    <property name="styleSheet">
+                     <string notr="true">QLabel {
+font: 10pt &quot;Burlingame Pro&quot;;
+color: white;
+qproperty-alignment: 'AlignBottom | AlignLeft';
+}</string>
+                    </property>
+                    <property name="text">
+                     <string>V</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="0" colspan="2">
+                   <widget class="QLabel" name="lowestCellVoltageTitleLabel">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>17</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QLabel {
+font: 10pt &quot;Burlingame Pro&quot;;
+color: white;
+qproperty-alignment: 'AlignHCenter';
+}</string>
+                    </property>
+                    <property name="text">
+                     <string>L O W</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="lowestCellVoltageLabel">
+                    <property name="maximumSize">
+                     <size>
+                      <width>55</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
+padding-left: 4px;
+color:white;</string>
+                    </property>
+                    <property name="text">
+                     <string>879</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item row="1" column="1">
+                 <layout class="QGridLayout" name="avgCellVoltage">
+                  <item row="0" column="1" alignment="Qt::AlignLeft">
+                   <widget class="QLabel" name="avgCellVoltageUnitsLabel">
+                    <property name="styleSheet">
+                     <string notr="true">QLabel {
+font: 10pt &quot;Burlingame Pro&quot;;
+color: white;
+qproperty-alignment: 'AlignBottom | AlignLeft';
+}</string>
+                    </property>
+                    <property name="text">
+                     <string>V</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0" colspan="2">
+                   <widget class="QLabel" name="avgCellVoltageTitleLabel">
+                    <property name="styleSheet">
+                     <string notr="true">QLabel {
+font: 10pt &quot;Burlingame Pro&quot;;
+color: white;
+qproperty-alignment: 'AlignHCenter';
+}</string>
+                    </property>
+                    <property name="text">
+                     <string>A V G</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="avgCellVoltageLabel">
+                    <property name="maximumSize">
+                     <size>
+                      <width>55</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
+padding-left: 4px;
+color:white;</string>
+                    </property>
+                    <property name="text">
+                     <string>879</string>
                     </property>
                    </widget>
                   </item>

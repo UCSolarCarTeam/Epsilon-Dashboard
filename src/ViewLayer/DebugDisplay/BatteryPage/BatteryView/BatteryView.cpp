@@ -24,7 +24,7 @@ namespace
     const QString REQUESTED_FAN_ON = "background-color: rgb(64, 161, 191);";
     const QString FAN_OFF = "background-color: grey;";
 
-    const int MV_TO_V = 1000;
+    const float MV_TO_V = 1000;
 }
 
 BatteryView::BatteryView(BatteryPresenter& batteryPresenter,
@@ -454,6 +454,7 @@ void BatteryView::requestedFanSpeedReceived(int requestedFanSpeed)
 
 void BatteryView::lowCellVoltageReceived(float lowCellVoltage)
 {
+
     ui_.lowCellVoltageLabel().setText(QString::number(lowCellVoltage / MV_TO_V, 'f', 3) + " " + VOLTAGE_UNIT);
 }
 

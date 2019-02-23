@@ -25,6 +25,7 @@ namespace
             border-radius: 7px;\
             background: ";
     const QString TEMPERATURE_UNIT = "<sup>o</sup>";
+    const float MV_TO_V = 1000;
 }
 
 RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
@@ -200,12 +201,12 @@ void RaceModeDashboardView::packStateOfChargeReceived(double stateOfCharge)
 
 void RaceModeDashboardView::lowCellVoltageReceived(float lowVoltage)
 {
-    ui_.lowestCellVoltageLabel().setNum(lowVoltage);
+    ui_.lowestCellVoltageLabel().setText(QString::number(lowVoltage/MV_TO_V, 'f', 2));
 }
 
 void RaceModeDashboardView::averageCellVoltageReceived(float averageVoltage)
 {
-    ui_.avgCellVoltageLabel().setNum(averageVoltage);
+    ui_.avgCellVoltageLabel().setText(QString::number(averageVoltage/MV_TO_V, 'f', 2));
 }
 
 void RaceModeDashboardView::highTemperatureReceived(int highTemp)
