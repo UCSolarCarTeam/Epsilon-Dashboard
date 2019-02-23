@@ -10,7 +10,7 @@ class CcsPopulator : public QObject
     Q_OBJECT
 public:
     CcsPopulator(I_CcsData& ccsData);
-    virtual ~CcsPopulator(){}
+    virtual ~CcsPopulator() {}
 
 public slots:
     void populateData(const QJsonObject&);
