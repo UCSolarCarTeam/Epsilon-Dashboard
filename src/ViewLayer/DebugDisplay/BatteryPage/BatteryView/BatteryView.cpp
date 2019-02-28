@@ -35,12 +35,19 @@ BatteryView::BatteryView(BatteryPresenter& batteryPresenter,
     , bar_(bar)
     , auxBMSPresenter_(auxBMSPresenter)
 {
-    fanSpeedList_.append(ui_.fanSpeed1());
-    fanSpeedList_.append(ui_.fanSpeed2());
-    fanSpeedList_.append(ui_.fanSpeed3());
-    fanSpeedList_.append(ui_.fanSpeed4());
-    fanSpeedList_.append(ui_.fanSpeed5());
-    fanSpeedList_.append(ui_.fanSpeed6());
+    fanSpeedList_.append(&ui.fanSpeed1());
+    fanSpeedList_.append(&ui.fanSpeed2());
+    fanSpeedList_.append(&ui.fanSpeed3());
+    fanSpeedList_.append(&ui.fanSpeed4());
+    fanSpeedList_.append(&ui.fanSpeed5());
+    fanSpeedList_.append(&ui.fanSpeed6());
+
+    requestedFanSpeedList_.append(&ui.requestedSpeed1());
+    requestedFanSpeedList_.append(&ui.requestedSpeed2());
+    requestedFanSpeedList_.append(&ui.requestedSpeed3());
+    requestedFanSpeedList_.append(&ui.requestedSpeed4());
+    requestedFanSpeedList_.append(&ui.requestedSpeed5());
+    requestedFanSpeedList_.append(&ui.requestedSpeed6());
 
     connectBattery(batteryPresenter_);
     connectAuxBMS(auxBMSPresenter_);
@@ -313,15 +320,15 @@ void BatteryView::fanSpeedReceived(int fanSpeed)
 {
     ui_.fanSpeedLabel().setNum(fanSpeed);
 
-    for(int i = 0; i < fanSpeedList_.size(); i++)
+    for (int i = 0; i < fanSpeedList_.size(); i++)
     {
-        if(i < fanSpeed)
+        if (i < fanSpeed)
         {
-            fanSpeedList_[i].setStyleSheet(FAN_ON);
+            fanSpeedList_[i]->setStyleSheet(FAN_ON);
         }
         else
         {
-             fanSpeedList_[i].setStyleSheet(FAN_OFF);
+            fanSpeedList_[i]->setStyleSheet(FAN_OFF);
         }
     }
 }
@@ -330,74 +337,16 @@ void BatteryView::requestedFanSpeedReceived(int requestedFanSpeed)
 {
     ui_.requestedFanSpeedLabel().setNum(requestedFanSpeed);
 
-    if (requestedFanSpeed == 0)
+    for (int i = 0; i < fanSpeedList_.size(); i++)
     {
-        ui_.requestedSpeed1().setStyleSheet(FAN_OFF);
-        ui_.requestedSpeed2().setStyleSheet(FAN_OFF);
-        ui_.requestedSpeed3().setStyleSheet(FAN_OFF);
-        ui_.requestedSpeed4().setStyleSheet(FAN_OFF);
-        ui_.requestedSpeed5().setStyleSheet(FAN_OFF);
-        ui_.requestedSpeed6().setStyleSheet(FAN_OFF);
-    }
-
-    if (requestedFanSpeed == 1)
-    {
-        ui_.requestedSpeed1().setStyleSheet(REQUESTED_FAN_ON);
-        ui_.requestedSpeed2().setStyleSheet(FAN_OFF);
-        ui_.requestedSpeed3().setStyleSheet(FAN_OFF);
-        ui_.requestedSpeed4().setStyleSheet(FAN_OFF);
-        ui_.requestedSpeed5().setStyleSheet(FAN_OFF);
-        ui_.requestedSpeed6().setStyleSheet(FAN_OFF);
-    }
-
-    if (requestedFanSpeed == 2)
-    {
-        ui_.requestedSpeed1().setStyleSheet(REQUESTED_FAN_ON);
-        ui_.requestedSpeed2().setStyleSheet(REQUESTED_FAN_ON);
-        ui_.requestedSpeed3().setStyleSheet(FAN_OFF);
-        ui_.requestedSpeed4().setStyleSheet(FAN_OFF);
-        ui_.requestedSpeed5().setStyleSheet(FAN_OFF);
-        ui_.requestedSpeed6().setStyleSheet(FAN_OFF);
-    }
-
-    if (requestedFanSpeed == 3)
-    {
-        ui_.requestedSpeed1().setStyleSheet(REQUESTED_FAN_ON);
-        ui_.requestedSpeed2().setStyleSheet(REQUESTED_FAN_ON);
-        ui_.requestedSpeed3().setStyleSheet(REQUESTED_FAN_ON);
-        ui_.requestedSpeed4().setStyleSheet(FAN_OFF);
-        ui_.requestedSpeed5().setStyleSheet(FAN_OFF);
-        ui_.requestedSpeed6().setStyleSheet(FAN_OFF);
-    }
-
-    if (requestedFanSpeed == 4)
-    {
-        ui_.requestedSpeed1().setStyleSheet(REQUESTED_FAN_ON);
-        ui_.requestedSpeed2().setStyleSheet(REQUESTED_FAN_ON);
-        ui_.requestedSpeed3().setStyleSheet(REQUESTED_FAN_ON);
-        ui_.requestedSpeed4().setStyleSheet(REQUESTED_FAN_ON);
-        ui_.requestedSpeed5().setStyleSheet(FAN_OFF);
-        ui_.requestedSpeed6().setStyleSheet(FAN_OFF);
-    }
-
-    if (requestedFanSpeed == 5)
-    {
-        ui_.requestedSpeed1().setStyleSheet(REQUESTED_FAN_ON);
-        ui_.requestedSpeed2().setStyleSheet(REQUESTED_FAN_ON);
-        ui_.requestedSpeed3().setStyleSheet(REQUESTED_FAN_ON);
-        ui_.requestedSpeed4().setStyleSheet(REQUESTED_FAN_ON);
-        ui_.requestedSpeed5().setStyleSheet(REQUESTED_FAN_ON);
-        ui_.requestedSpeed6().setStyleSheet(FAN_OFF);
-    }
-
-    if (requestedFanSpeed == 6)
-    {
-        ui_.requestedSpeed1().setStyleSheet(REQUESTED_FAN_ON);
-        ui_.requestedSpeed2().setStyleSheet(REQUESTED_FAN_ON);
-        ui_.requestedSpeed3().setStyleSheet(REQUESTED_FAN_ON);
-        ui_.requestedSpeed4().setStyleSheet(REQUESTED_FAN_ON);
-        ui_.requestedSpeed5().setStyleSheet(REQUESTED_FAN_ON);
-        ui_.requestedSpeed6().setStyleSheet(REQUESTED_FAN_ON);
+        if (i < requestedFanSpeed)
+        {
+            requestedFanSpeedList_[i]->setStyleSheet(FAN_ON);
+        }
+        else
+        {
+            requestedFanSpeedList_[i]->setStyleSheet(FAN_OFF);
+        }
     }
 }
 
