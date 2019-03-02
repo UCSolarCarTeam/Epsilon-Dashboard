@@ -28,15 +28,15 @@
 #include "JsonReceiver.h"
 #include "CommDeviceControl/I_CommDevice.h"
 
-JsonReceiver::JsonReceiver(AuxBmsPopulator& auxBmsPopulator,
-                           BatteryPopulator& batteryPopulator,
-                           BatteryFaultsPopulator& batteryFaultsPopulator,
-                           DriverControlsPopulator& driverControlsPopulator,
-                           KeyMotorPopulator& keyMotorPopulator,
-                           LightsPopulator& lightsPopulator,
-                           MpptPopulator& mpptPopulator,
-                           MotorDetailsPopulator& motorDetailsPopulator,
-                           MotorFaultsPopulator& motorFaultsPopulator,
+JsonReceiver::JsonReceiver(I_AuxBmsPopulator& auxBmsPopulator,
+                           I_BatteryPopulator& batteryPopulator,
+                           I_BatteryFaultsPopulator& batteryFaultsPopulator,
+                           I_DriverControlsPopulator& driverControlsPopulator,
+                           I_KeyMotorPopulator& keyMotorPopulator,
+                           I_LightsPopulator& lightsPopulator,
+                           I_MpptPopulator& mpptPopulator,
+                           I_MotorDetailsPopulator& motorDetailsPopulator,
+                           I_MotorFaultsPopulator& motorFaultsPopulator,
                            I_CommunicationsMonitoringService& communicationsMonitoringService,
                            bool loggingEnabled)
     : auxBmsPopulator_(auxBmsPopulator)

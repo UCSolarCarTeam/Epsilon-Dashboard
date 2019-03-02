@@ -1,4 +1,10 @@
-#ifndef MOCKMOTORDETAILSPOPULATOR_H
-#define MOCKMOTORDETAILSPOPULATOR_H
+#pragma once
+#include "gmock/gmock.h"
+#include "../../../BusinessLayer/DataPopulators/MotorDetailsPopulator/I_MotorDetailsPopulator.h"
 
-#endif // MOCKMOTORDETAILSPOPULATOR_H
+class MockMotorDetailsPopulator: public I_MotorDetailsPopulator
+{
+    Q_OBJECT
+    public slots:
+        MOCK_METHOD1(populateData, void(const QJsonObject&));
+};

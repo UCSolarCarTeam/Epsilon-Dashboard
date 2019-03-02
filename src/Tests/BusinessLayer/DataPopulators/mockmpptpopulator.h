@@ -1,4 +1,10 @@
-#ifndef MOCKMPPTPOPULATOR_H
-#define MOCKMPPTPOPULATOR_H
+#pragma once
+#include "gmock/gmock.h"
+#include "../../../BusinessLayer/DataPopulators/MpptPopulator/I_MpptPopulator.h"
 
-#endif // MOCKMPPTPOPULATOR_H
+class MockMpptPopulator: public I_MpptPopulator
+{
+    Q_OBJECT
+    public slots:
+        MOCK_METHOD1(populateData, void(const QJsonObject&));
+};

@@ -1,10 +1,10 @@
 #pragma once
 
 #include <QObject>
-
+#include "I_AuxBmsPopulator.h"
 class I_AuxBmsData;
 
-class AuxBmsPopulator : public QObject
+class AuxBmsPopulator : public I_AuxBmsPopulator
 {
     Q_OBJECT
 public:
@@ -12,7 +12,7 @@ public:
     virtual ~AuxBmsPopulator() {}
 
 public slots:
-    void populateData(const QJsonObject&);
+    virtual void populateData(const QJsonObject&);
 
 private:
     I_AuxBmsData& auxBmsData_;

@@ -16,9 +16,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-        main.cpp \
-    CommunicationLayer/JsonReceiver/JsonReceiverTest .cpp \
-    CommunicationLayer/JsonReceiver/JsonReceiverTest.cpp
+    CommunicationLayer/JsonReceiver/JsonReceiverTest.cpp \
+    testmain.cpp
 
 
 !win32 {
@@ -43,5 +42,5 @@ HEADERS += \
     BusinessLayer/DataPopulators/mockmpptpopulator.h \
     BusinessLayer/DataPopulators/mockmotordetailspopulator.h \
     BusinessLayer/DataPopulators/mockmotorfaultspopulator.h \
-    BusinessLayer/CommunicationsMonitoringService/mocki_communicationsmonitoringservice.h
+    BusinessLayer/CommunicationsMonitoringService/mock_communicationsmonitoringservice.h
 

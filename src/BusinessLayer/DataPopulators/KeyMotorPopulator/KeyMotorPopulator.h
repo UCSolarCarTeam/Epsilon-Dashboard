@@ -26,11 +26,12 @@
 #pragma once
 
 #include "../DataLayer/KeyMotorData/I_KeyMotorData.h"
+#include "I_KeyMotorPopulator.h"
 #include <QObject>
 
 class I_KeyMotorData;
 
-class KeyMotorPopulator : public QObject
+class KeyMotorPopulator : public I_KeyMotorPopulator
 {
     Q_OBJECT
 public:
@@ -38,7 +39,7 @@ public:
     virtual ~KeyMotorPopulator() {}
 
 public slots:
-    void populateData(const QJsonObject&);
+    virtual void populateData(const QJsonObject&);
 
 private:
     I_KeyMotorData& keyMotorData_;

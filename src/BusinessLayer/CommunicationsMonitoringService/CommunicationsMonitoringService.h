@@ -22,6 +22,15 @@ private slots:
     void decrementValidPacketsReceivedInLastMinute();
     void decrementInvalidPacketsReceivedInLastMinute();
 
+signals:
+    virtual void secondsSinceLastPacketReceivedUpdate(int secondsSinceLastPacketReceived);
+    virtual void packetsReceivedInLastMinuteUpdate(int packetsReceivedInLastMinute);
+
+    virtual void secondsSinceLastValidPacketReceivedUpdate(int secondsSinceLastValidPacketReceived);
+    virtual void validPacketsReceivedInLastMinuteUpdate(int validPacketsReceivedInLastMinute);
+
+    virtual void invalidPacketsReceivedInLastMinuteUpdate(int invalidPacketsReceivedInLastMinute);
+
 private:
     QTimer updateTimer_;
     int secondsSinceLastPacketReceived_;

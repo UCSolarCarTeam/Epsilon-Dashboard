@@ -9,45 +9,51 @@
 #include "BusinessLayer/DataPopulators/mockauxbmspopulator.h"
 #include "BusinessLayer/DataPopulators/mockmotordetailspopulator.h"
 #include "BusinessLayer/DataPopulators/mockmpptpopulator.h"
-#include "BusinessLayer/CommunicationsMonitoringService/mocki_communicationsmonitoringservice.h"
-
+#include "BusinessLayer/CommunicationsMonitoringService/mock_communicationsmonitoringservice.h"
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
-#include <QScopedPointer>
+#include <QScopedPointer>(
 
 
 class JsonReceiverTest : public ::testing::Test
 {
-
+protected:
+    QScopedPointer<MockAuxBmsPopulator> auxBmsPopulator_;
+    QScopedPointer<MockBatteryFaultsPopulator> batteryFaultsPopulator_;
+    QScopedPointer<MockBatteryPopulator> batteryPopulator_;
+    QScopedPointer<MockDriverControlsPopulator> driverControlsPopulator_;
+     QScopedPointer<MockKeyMotorPopulator> keyMotorPopulator_;
+     QScopedPointer<MockLightsPopulator> lightsPopulator_;
+    QScopedPointer<MockMotorDetailsPopulator> motorDetailsPopulator_;
+    QScopedPointer<MockMotorFaultsPopulator> motorFaultsPopulator_;
+    QScopedPointer<MockMpptPopulator> mpptPopulator_;
+    QScopedPointer<MockCommuncationMonitoringService> communicationsMonitoringService_;
+    QScopedPointer<JsonReceiver> jasonReceiver_;
 
     virtual void SetUp()
     {
-        auxBmsData_.reset(new MockAuxBmsData());
-        batteryData_.reset(new MockBatteryData());
-        batteryFaultsData_.reset(new MockBatteryFaultsData());
-        driverControlsData_.reset(new MockDriverControlsData());
-        keyMotorData_.reset(new MockKeyMotorData());
-        lightsData_.reset(new MockLightsData());
-        motorDetailsData_.reset(new MockMotorDetailsData());
-        motorFaultsData_.reset(new MockMotorFaultsData());
-        jsonMessageBuilder_.reset(new NiceMock<MockJsonMessageBuilder>());
-        mpptData_.reset(new MockMpptData());
-        messageForwarder_.reset(new MockMessageForwarder());
-        settings_.reset(new MockSettings());
-        EXPECT_CALL(*settings_, forwardPeriod())
-        .WillRepeatedly(Return(FORWARD_INTERVAL_MSEC)); // Action must be set before jsonForwarder constructor
-        EXPECT_CALL(*settings_, packetTitle())
-        .WillRepeatedly(Return(PACKET_TITLE)); // Action must be set before jsonForwarder constructor
-        JsonReceiver(AuxBmsPopulator& auxBmsPopulator,
-                     BatteryPopulator& batteryPopulator,
-                     BatteryFaultsPopulator& batteryFaultsPopulator,
-                     DriverControlsPopulator& driverControlsPopulator,
-                     KeyMotorPopulator& keyMotorPopulator,
-                     LightsPopulator& lightsPopulator,
-                     MpptPopulator& mpptPopulator,
-                     MotorDetailsPopulator& motorDetailsPopulator,
-                     MotorFaultsPopulator& motorFaultsPopulator,
-                     I_CommunicationsMonitoringService& communicationsMonitoringService,
-                     bool loggingEnabled);
-    }
+                auxBmsPopulator_.reset(new MockAuxBmsPopulator());
+                batteryFaultsPopulator_.reset(new MockBatteryFaultsPopulator());
+                batteryPopulator_.reset(new MockBatteryPopulator());
+                driverControlsPopulator_.reset(new MockDriverControlsPopulator());
+                keyMotorPopulator_.reset(new MockKeyMotorPopulator());
+                lightsPopulator_.reset(new MockLightsPopulator());
+                motorDetailsPopulator_.reset(new MockMotorDetailsPopulator());
+                motorFaultsPopulator_.reset(new MockMotorFaultsPopulator());
+                mpptPopulator_.reset(new MockMpptPopulator());
+                communicationsMonitoringService_.reset(new MockCommuncationMonitoringService());
+
+
+                jasonReceiver_.reset(new JsonReceiver(*auxBmsPopulator_,
+                             *batteryPopulator_,
+                             *batteryFaultsPopulator_,
+                             *driverControlsPopulator_,
+                             *keyMotorPopulator_,
+                             *lightsPopulator_,
+                             *mpptPopulator_,
+                             *motorDetailsPopulator_,
+                             *motorFaultsPopulator_,
+                             *communicationsMonitoringService_,
+                             false));
+            }
 };

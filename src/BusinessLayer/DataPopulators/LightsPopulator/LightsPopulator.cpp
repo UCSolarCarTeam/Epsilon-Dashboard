@@ -28,7 +28,7 @@
 
 #include "LightsPopulator.h"
 
-#include "../BusinessLayer/DataPopulators/JsonDefines.h"
+#include "../BusinessLayer/DataPopulators/JsonDefines/JsonDefines.h"
 
 LightsPopulator::LightsPopulator(I_LightsData& lightsData)
     : lightsData_(lightsData)

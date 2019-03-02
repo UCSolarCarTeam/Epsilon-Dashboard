@@ -24,22 +24,21 @@
  */
 
 #pragma once
-
-#include "../DataLayer/MotorDetailsData/I_MotorDetailsData.h"
+#include "I_BatteryPopulator.h"
 #include <QObject>
 
-class I_MotorDetailsData;
+class I_BatteryData;
 
-class MotorDetailsPopulator : public QObject
+class BatteryPopulator : public I_BatteryPopulator
 {
     Q_OBJECT
 public:
-    MotorDetailsPopulator(I_MotorDetailsData& motorDetailsData);
-    virtual ~MotorDetailsPopulator() {}
+    BatteryPopulator(I_BatteryData& batteryData);
+    virtual ~BatteryPopulator() {}
 
 public slots:
-    void populateData(const QJsonObject&);
+    virtual void populateData(const QJsonObject&);
 
 private:
-    I_MotorDetailsData& motorDetailsData_;
+    I_BatteryData& batteryData_;
 };

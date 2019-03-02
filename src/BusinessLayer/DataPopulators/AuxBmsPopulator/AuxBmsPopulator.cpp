@@ -3,7 +3,7 @@
 
 #include "AuxBmsPopulator.h"
 
-#include "../BusinessLayer/DataPopulators/JsonDefines.h"
+#include "../BusinessLayer/DataPopulators/JsonDefines/JsonDefines.h"
 #include "../DataLayer/AuxBmsData/I_AuxBmsData.h"
 
 AuxBmsPopulator::AuxBmsPopulator(I_AuxBmsData& auxBmsData)

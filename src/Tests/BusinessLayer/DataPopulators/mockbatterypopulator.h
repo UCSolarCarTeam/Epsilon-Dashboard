@@ -1,4 +1,10 @@
-#ifndef MOCKBATTERYPOPULATOR_H
-#define MOCKBATTERYPOPULATOR_H
+#pragma once
+#include "gmock/gmock.h"
+#include "../../../BusinessLayer/DataPopulators/BatteryPopulator/BatteryPopulator.h"
 
-#endif // MOCKBATTERYPOPULATOR_H
+class MockBatteryPopulator: public I_BatteryPopulator
+{
+    Q_OBJECT
+    public slots:
+        MOCK_METHOD1(populateData, void(const QJsonObject&));
+};
