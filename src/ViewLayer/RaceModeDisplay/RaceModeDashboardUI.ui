@@ -737,7 +737,7 @@ color: rgb(100,100,100);
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>352</width>
+         <width>442</width>
          <height>334</height>
         </rect>
        </property>
@@ -824,11 +824,45 @@ color: rgb(100,100,100);
             </item>
            </layout>
           </item>
-          <item row="3" column="0" rowspan="3" colspan="3">
+          <item row="3" column="0">
            <layout class="QGridLayout" name="resetTemperature">
             <property name="sizeConstraint">
-             <enum>QLayout::SetMinimumSize</enum>
+             <enum>QLayout::SetMaximumSize</enum>
             </property>
+            <item row="1" column="1">
+             <spacer name="temperatureSpacer">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="0" column="2">
+             <widget class="QWidget" name="thermometerWidget" native="true">
+              <property name="minimumSize">
+               <size>
+                <width>40</width>
+                <height>120</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>40</width>
+                <height>120</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+background: url(:/Resources/Thermometer.png);
+</string>
+              </property>
+             </widget>
+            </item>
             <item row="0" column="1">
              <widget class="QWidget" name="motorResetButtonWidget" native="true">
               <property name="minimumSize">
@@ -849,67 +883,40 @@ color: rgb(100,100,100);
              </widget>
             </item>
             <item row="0" column="3">
-             <layout class="QGridLayout" name="CellWidget">
-              <item row="0" column="1">
-               <widget class="QLabel" name="cellTitleWidget">
-                <property name="styleSheet">
-                 <string notr="true">font: bold 12pt &quot;Arial Unicode MS&quot;;
-color: rgb(100,100,100);</string>
-                </property>
-                <property name="text">
-                 <string>             - C E L L -</string>
-                </property>
-               </widget>
-              </item>
+             <layout class="QGridLayout" name="CellWidget" rowstretch="0,0" columnminimumwidth="0,0">
+              <property name="sizeConstraint">
+               <enum>QLayout::SetMaximumSize</enum>
+              </property>
+              <property name="horizontalSpacing">
+               <number>6</number>
+              </property>
               <item row="1" column="1">
                <layout class="QGridLayout" name="ValueGrid">
-                <item row="0" column="0">
-                 <layout class="QGridLayout" name="maxCellTemp">
-                  <item row="0" column="1">
-                   <widget class="QLabel" name="maxCellTemperatureUnitsLabel">
-                    <property name="styleSheet">
-                     <string notr="true">QLabel {
-font: 10pt &quot;Burlingame Pro&quot;;
-color: white;
-qproperty-alignment: 'AlignBottom | AlignLeft';
-}</string>
-                    </property>
-                    <property name="text">
-                     <string>C</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="0">
-                   <widget class="QLabel" name="maxCellTemperatureLabel">
-                    <property name="styleSheet">
-                     <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
-color:white;</string>
-                    </property>
-                    <property name="text">
-                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;879&lt;span style=&quot; vertical-align:super;&quot;&gt;o&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="0" colspan="2">
-                   <widget class="QLabel" name="maxCellTemperatureTitleLabel">
-                    <property name="styleSheet">
-                     <string notr="true">QLabel {
-font: 10pt &quot;Burlingame Pro&quot;;
-color: white;
-qproperty-alignment: 'AlignHCenter | AlignBottom';
-}</string>
-                    </property>
-                    <property name="text">
-                     <string>M A X</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
+                <property name="sizeConstraint">
+                 <enum>QLayout::SetMaximumSize</enum>
+                </property>
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <property name="horizontalSpacing">
+                 <number>1</number>
+                </property>
+                <property name="verticalSpacing">
+                 <number>6</number>
+                </property>
                 <item row="1" column="0">
                  <layout class="QGridLayout" name="AvgCellTemp">
                   <item row="0" column="0">
                    <widget class="QLabel" name="avgCellTemperatureLabel">
+                    <property name="maximumSize">
+                     <size>
+                      <width>55</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
 color:white;</string>
@@ -951,6 +958,12 @@ qproperty-alignment: 'AlignHCenter';
                 </item>
                 <item row="0" column="1">
                  <layout class="QGridLayout" name="lowestCellVoltage">
+                  <property name="sizeConstraint">
+                   <enum>QLayout::SetMaximumSize</enum>
+                  </property>
+                  <property name="horizontalSpacing">
+                   <number>6</number>
+                  </property>
                   <item row="1" column="1" alignment="Qt::AlignLeft">
                    <widget class="QLabel" name="lowestCellVoltageUnitsLabel">
                     <property name="styleSheet">
@@ -989,7 +1002,7 @@ qproperty-alignment: 'AlignHCenter';
                    <widget class="QLabel" name="lowestCellVoltageLabel">
                     <property name="maximumSize">
                      <size>
-                      <width>55</width>
+                      <width>65</width>
                       <height>16777215</height>
                      </size>
                     </property>
@@ -999,14 +1012,17 @@ padding-left: 4px;
 color:white;</string>
                     </property>
                     <property name="text">
-                     <string>879</string>
+                     <string>8.79</string>
                     </property>
                    </widget>
                   </item>
                  </layout>
                 </item>
                 <item row="1" column="1">
-                 <layout class="QGridLayout" name="avgCellVoltage">
+                 <layout class="QGridLayout" name="avgCellVoltage" rowminimumheight="0,0">
+                  <property name="sizeConstraint">
+                   <enum>QLayout::SetMaximumSize</enum>
+                  </property>
                   <item row="0" column="1" alignment="Qt::AlignLeft">
                    <widget class="QLabel" name="avgCellVoltageUnitsLabel">
                     <property name="styleSheet">
@@ -1055,43 +1071,75 @@ color:white;</string>
                   </item>
                  </layout>
                 </item>
+                <item row="0" column="0">
+                 <layout class="QGridLayout" name="maxCellTemp">
+                  <item row="1" column="0" colspan="2">
+                   <widget class="QLabel" name="maxCellTemperatureTitleLabel">
+                    <property name="styleSheet">
+                     <string notr="true">QLabel {
+font: 10pt &quot;Burlingame Pro&quot;;
+color: white;
+qproperty-alignment: 'AlignHCenter | AlignBottom';
+}</string>
+                    </property>
+                    <property name="text">
+                     <string>M A X</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="maxCellTemperatureLabel">
+                    <property name="maximumSize">
+                     <size>
+                      <width>55</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
+color:white;</string>
+                    </property>
+                    <property name="text">
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;879&lt;span style=&quot; vertical-align:super;&quot;&gt;o&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLabel" name="maxCellTemperatureUnitsLabel">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QLabel {
+font: 10pt &quot;Burlingame Pro&quot;;
+color: white;
+qproperty-alignment: 'AlignBottom | AlignLeft';
+}</string>
+                    </property>
+                    <property name="text">
+                     <string>C</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
                </layout>
               </item>
+              <item row="0" column="1">
+               <widget class="QLabel" name="cellTitleWidget">
+                <property name="styleSheet">
+                 <string notr="true">font: bold 12pt &quot;Arial Unicode MS&quot;;
+color: rgb(100,100,100);</string>
+                </property>
+                <property name="text">
+                 <string>             - C E L L -</string>
+                </property>
+               </widget>
+              </item>
              </layout>
-            </item>
-            <item row="0" column="2">
-             <widget class="QWidget" name="thermometerWidget" native="true">
-              <property name="minimumSize">
-               <size>
-                <width>40</width>
-                <height>120</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>40</width>
-                <height>120</height>
-               </size>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">
-background: url(:/Resources/Thermometer.png);
-</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="1">
-             <spacer name="temperatureSpacer">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>40</height>
-               </size>
-              </property>
-             </spacer>
             </item>
            </layout>
           </item>
