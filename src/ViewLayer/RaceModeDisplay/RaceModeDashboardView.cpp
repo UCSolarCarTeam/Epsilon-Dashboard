@@ -201,12 +201,12 @@ void RaceModeDashboardView::packStateOfChargeReceived(double stateOfCharge)
 
 void RaceModeDashboardView::lowCellVoltageReceived(float lowVoltage)
 {
-    ui_.lowestCellVoltageLabel().setText(QString::number(lowVoltage/MV_TO_V, 'f', 2));
+    ui_.lowestCellVoltageLabel().setText(QString::number(lowVoltage / MV_TO_V, 'f', 2));
 }
 
 void RaceModeDashboardView::averageCellVoltageReceived(float averageVoltage)
 {
-    ui_.avgCellVoltageLabel().setText(QString::number(averageVoltage/MV_TO_V, 'f', 2));
+    ui_.avgCellVoltageLabel().setText(QString::number(averageVoltage / MV_TO_V, 'f', 2));
 }
 
 void RaceModeDashboardView::highTemperatureReceived(int highTemp)

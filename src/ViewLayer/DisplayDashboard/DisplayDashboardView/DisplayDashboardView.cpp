@@ -212,7 +212,7 @@ void DisplayDashboardView::highTemperatureReceived(int maxCellTemp)
 }
 void DisplayDashboardView::lowCellVoltageReceived(float lowestCellVoltage)
 {
-    ui_.lowestCellVoltageLabel().setNum(lowestCellVoltage/MV_TO_V);
+    ui_.lowestCellVoltageLabel().setNum(lowestCellVoltage / MV_TO_V);
 }
 void DisplayDashboardView::averageTemperatureReceived(int averageCellTemp)
 {
@@ -220,7 +220,7 @@ void DisplayDashboardView::averageTemperatureReceived(int averageCellTemp)
 }
 void DisplayDashboardView::averageCellVoltageReceived(float averageVoltage)
 {
-    ui_.avgCellVoltageLabel().setNum(averageVoltage/MV_TO_V);
+    ui_.avgCellVoltageLabel().setNum(averageVoltage / MV_TO_V);
 }
 void DisplayDashboardView::errorFlagsReceived(BatteryErrorFlags batteryErrorFlags)
 {
