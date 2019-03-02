@@ -50,7 +50,26 @@ bool AuxBmsData::highVoltageEnable() const
 
 void AuxBmsData::setPrechargeState(const QString& prechargeState)
 {
-    prechargeState_ = prechargeState;
+    if (QString::compare(prechargeState, "CHARGE_ENGAGED") == 0)
+    {
+        prechargeState_ = "Charge Engaged";
+    }
+    else if (QString::compare(prechargeState, "COMMON_ENGAGED") == 0)
+    {
+        prechargeState_ = "Common Engaged";
+    }
+    else if (QString::compare(prechargeState, "DISCHARGE_ENGAGED") == 0)
+    {
+        prechargeState_ = "Discharge Engaged";
+    }
+    else if (QString::compare(prechargeState, "ALL_ENGAGED") == 0)
+    {
+        prechargeState_ = "All Engaged";
+    }
+
+
+
+
     emit prechargeStateReceived(prechargeState_);
 }
 
@@ -89,3 +108,4 @@ void AuxBmsData::setHighVoltageEnable(const bool& highVoltageEnable)
     highVoltageEnable_ = highVoltageEnable;
     emit highVoltageEnableReceived(highVoltageEnable_);
 }
+
