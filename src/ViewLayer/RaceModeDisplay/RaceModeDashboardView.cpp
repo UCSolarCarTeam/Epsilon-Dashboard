@@ -78,10 +78,10 @@ void RaceModeDashboardView::connectBattery(BatteryPresenter& batteryPresenter)
             this, SLOT(packNetPowerReceived(double)));
     connect(&batteryPresenter, SIGNAL(packStateOfChargeReceived(double)),
             this, SLOT(packStateOfChargeReceived(double)));
-    connect(&batteryPresenter, SIGNAL(lowCellVoltageReceived(int)),
-            this, SLOT(lowCellVoltageReceived(int)));
-    connect(&batteryPresenter, SIGNAL(averageCellVoltageReceived(int)),
-            this, SLOT(averageCellVoltageReceived(int)));
+    connect(&batteryPresenter, SIGNAL(lowCellVoltageReceived(float)),
+            this, SLOT(lowCellVoltageReceived(float)));
+    connect(&batteryPresenter, SIGNAL(averageCellVoltageReceived(float)),
+            this, SLOT(averageCellVoltageReceived(float)));
     connect(&batteryPresenter, SIGNAL(highTemperatureReceived(int)),
             this, SLOT(highTemperatureReceived(int)));
     connect(&batteryPresenter, SIGNAL(averageTemperatureReceived(int)),
@@ -198,12 +198,12 @@ void RaceModeDashboardView::packStateOfChargeReceived(double stateOfCharge)
     ui_.stateOfChargeCapacityWidget().setValue(stateOfCharge);
 }
 
-void RaceModeDashboardView::lowCellVoltageReceived(int lowVoltage)
+void RaceModeDashboardView::lowCellVoltageReceived(float lowVoltage)
 {
     ui_.lowestCellVoltageLabel().setNum(lowVoltage);
 }
 
-void RaceModeDashboardView::averageCellVoltageReceived(int averageVoltage)
+void RaceModeDashboardView::averageCellVoltageReceived(float averageVoltage)
 {
     ui_.avgCellVoltageLabel().setNum(averageVoltage);
 }
@@ -255,7 +255,7 @@ void RaceModeDashboardView::motorBusVoltageReceived(double busVoltage)
 }
 void RaceModeDashboardView::motorBusCurrentReceived(double busCurrent)
 {
-    ui_.busCurrentLabel().setText(QString::number(busCurrent, 'f', 3));
+    ui_.busCurrentLabel().setText(QString::number(busCurrent, 'f', 2));
     busCurrent_ = busCurrent;
     setMotorPower();
 }
