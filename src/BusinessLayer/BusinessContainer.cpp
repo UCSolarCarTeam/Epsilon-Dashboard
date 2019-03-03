@@ -46,47 +46,47 @@ BusinessContainer::~BusinessContainer()
 {
 }
 
-AuxBmsPopulator& BusinessContainer::auxBmsPopulator()
+I_AuxBmsPopulator& BusinessContainer::auxBmsPopulator()
 {
     return impl_->auxBmsPopulator_;
 }
 
-BatteryPopulator& BusinessContainer::batteryPopulator()
+I_BatteryPopulator& BusinessContainer::batteryPopulator()
 {
     return impl_->batteryPopulator_;
 }
 
-BatteryFaultsPopulator& BusinessContainer::batteryFaultsPopulator()
+I_BatteryFaultsPopulator& BusinessContainer::batteryFaultsPopulator()
 {
     return impl_->batteryFaultsPopulator_;
 }
 
-DriverControlsPopulator& BusinessContainer::driverControlsPopulator()
+I_DriverControlsPopulator& BusinessContainer::driverControlsPopulator()
 {
     return impl_->driverControlsPopulator_;
 }
 
-KeyMotorPopulator& BusinessContainer::keyMotorPopulator()
+I_KeyMotorPopulator& BusinessContainer::keyMotorPopulator()
 {
     return impl_->keyMotorPopulator_;
 }
 
-LightsPopulator& BusinessContainer::lightsPopulator()
+I_LightsPopulator& BusinessContainer::lightsPopulator()
 {
     return impl_->lightsPopulator_;
 }
 
-MpptPopulator& BusinessContainer::mpptPopulator()
+I_MpptPopulator& BusinessContainer::mpptPopulator()
 {
     return impl_->mpptPopulator_;
 }
 
-MotorDetailsPopulator& BusinessContainer::motorDetailsPopulator()
+I_MotorDetailsPopulator& BusinessContainer::motorDetailsPopulator()
 {
     return impl_->motorDetailsPopulator_;
 }
 
-MotorFaultsPopulator& BusinessContainer::motorFaultsPopulator()
+I_MotorFaultsPopulator& BusinessContainer::motorFaultsPopulator()
 {
     return impl_->motorFaultsPopulator_;
 }
