@@ -38,6 +38,10 @@ public:
     QLabel& resetOnLabel();
     QProgressBar& accelerationProgressBar();
     QProgressBar& regenBrakingProgressBar();
+    QLabel& bmsStrobeLightLabel();
+    QLabel& strobeLightOnLabel();
+private slots:
+
 private:
     Ui::ControlUi* ui_;
 };
