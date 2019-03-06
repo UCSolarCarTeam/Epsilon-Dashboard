@@ -71,8 +71,6 @@ void AuxBmsData::setPrechargeState(const QString& prechargeState)
         prechargeState_ = "Off";
     }
 
-
-
     emit prechargeStateReceived(prechargeState_);
 }
 
