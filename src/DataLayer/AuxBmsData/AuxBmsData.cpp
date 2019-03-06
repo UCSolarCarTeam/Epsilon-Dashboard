@@ -66,7 +66,10 @@ void AuxBmsData::setPrechargeState(const QString& prechargeState)
     {
         prechargeState_ = "All Engaged";
     }
-
+    else if (QString::compare(prechargeState, "OFF") == 0)
+    {
+        prechargeState_ = "Off";
+    }
 
 
 

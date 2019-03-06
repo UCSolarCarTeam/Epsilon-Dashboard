@@ -169,32 +169,6 @@ void DisplayDashboardView::aliveReceived(bool)
 }
 void DisplayDashboardView::prechargeStateReceived(QString prechargeState)
 {
-
-    if (QString::compare(prechargeState, "CHARGED_ENGAGED") == 0)
-    {
-        prechargeState = "Charge Engaged";
-    }
-
-    if (QString::compare(prechargeState, "DISCHARGED_ENGAGED") == 0)
-    {
-        prechargeState = "Discharge Engaged";
-    }
-
-    if (QString::compare(prechargeState, "ALL_ENGAGED") == 0)
-    {
-        prechargeState = "All Engaged";
-    }
-
-    if (QString::compare(prechargeState, "COMMON_ENGAGED") == 0)
-    {
-        prechargeState = "Common Engaged";
-    }
-
-    if (QString::compare(prechargeState, "INVALID_STATE") == 0)
-    {
-        prechargeState = "Invalid State";
-    }
-
     ui_.prechargeStateLabel().setText(prechargeState);
 }
 
