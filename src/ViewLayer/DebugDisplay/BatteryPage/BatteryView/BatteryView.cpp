@@ -454,7 +454,6 @@ void BatteryView::requestedFanSpeedReceived(int requestedFanSpeed)
 
 void BatteryView::lowCellVoltageReceived(float lowCellVoltage)
 {
-
     ui_.lowCellVoltageLabel().setText(QString::number(lowCellVoltage / MV_TO_V, 'f', 3) + " " + VOLTAGE_UNIT);
 }
 

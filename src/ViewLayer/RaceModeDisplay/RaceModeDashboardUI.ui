@@ -1055,7 +1055,7 @@ qproperty-alignment: 'AlignHCenter';
                    <widget class="QLabel" name="avgCellVoltageLabel">
                     <property name="maximumSize">
                      <size>
-                      <width>55</width>
+                      <width>65</width>
                       <height>16777215</height>
                      </size>
                     </property>
@@ -1065,7 +1065,7 @@ padding-left: 4px;
 color:white;</string>
                     </property>
                     <property name="text">
-                     <string>879</string>
+                     <string>8.79</string>
                     </property>
                    </widget>
                   </item>
