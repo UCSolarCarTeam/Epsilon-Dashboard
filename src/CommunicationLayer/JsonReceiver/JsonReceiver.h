@@ -14,8 +14,8 @@
 #include "../BusinessLayer/DataPopulators/MotorFaultsPopulator/I_MotorFaultsPopulator.h"
 #include "../BusinessLayer/CommunicationsMonitoringService/I_CommunicationsMonitoringService.h"
 
-#include "CommDeviceControl/I_CommDevice.h"
-#include "Logging/Logging.h"
+#include "../CommDeviceControl/I_CommDevice.h"
+#include "../Logging/Logging.h"
 
 class I_AuxBmsPopulator;
 class I_BatteryPopulator;

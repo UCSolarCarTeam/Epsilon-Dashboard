@@ -9,8 +9,6 @@ class MockCommuncationMonitoringService: public I_CommunicationsMonitoringServic
 public:
     MOCK_METHOD0(start, void());
     MOCK_METHOD0(stop, void());
-
-signals:
     MOCK_METHOD1(secondsSinceLastPacketReceivedUpdate, void(int));
     MOCK_METHOD1(packetsReceivedInLastMinuteUpdate, void(int));
     MOCK_METHOD1(secondsSinceLastValidPacketReceivedUpdate, void(int));

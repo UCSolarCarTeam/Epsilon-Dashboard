@@ -57,3 +57,7 @@ protected:
                              false));
             }
 };
+TEST_F(JsonReceiverTest, receivedData)
+{
+ ASSERT_EQ(1,1);
+}
