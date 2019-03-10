@@ -341,7 +341,7 @@ void BatteryView::requestedFanSpeedReceived(int requestedFanSpeed)
     {
         if (i < requestedFanSpeed)
         {
-            requestedFanSpeedList_[i]->setStyleSheet(FAN_ON);
+            requestedFanSpeedList_[i]->setStyleSheet(REQUESTED_FAN_ON);
         }
         else
         {
