@@ -32,6 +32,16 @@ QLabel& ControlUi::highHeadlightsLabel()
     return *ui_->highHeadlightsLabel;
 }
 
+QLabel& ControlUi::strobeLightOnLabel()
+{
+    return *ui_->strobeLightOnLabel;
+}
+
+QLabel& ControlUi::bmsStrobeLightLabel()
+{
+    return *ui_->bmsStrobeLightLabel;
+}
+
 QLabel& ControlUi::lowHeadlightsLabel()
 {
     return *ui_->lowHeadlightsLabel;
@@ -117,6 +127,7 @@ QLabel& ControlUi::brakesOnLabel()
 {
     return *ui_->brakesOnLabel;
 }
+
 
 QLabel& ControlUi::brakesOnActiveLabel()
 {
