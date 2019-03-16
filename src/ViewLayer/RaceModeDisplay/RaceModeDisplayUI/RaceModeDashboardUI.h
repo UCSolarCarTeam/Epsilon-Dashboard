@@ -32,8 +32,6 @@ public:
     QWidget& motorResetButtonWidget();
 
     QProgressBar& stateOfChargeCapacityWidget();
-
-    QWidget& prechargeStateIconWidget();
     QLabel& prechargeStateLabel();
 
     QWidget& lowHeadlightIndicatorWidget();

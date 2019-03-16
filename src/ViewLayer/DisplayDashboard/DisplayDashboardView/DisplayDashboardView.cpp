@@ -16,6 +16,7 @@ namespace
             QProgressBar::chunk:horizontal{\
             border-radius: 7px;\
             background: ";
+    const float MV_TO_V = 1000;
 }
 
 DisplayDashboardView::DisplayDashboardView(AuxBmsPresenter& auxBmsPresenter,
@@ -211,7 +212,7 @@ void DisplayDashboardView::highTemperatureReceived(int maxCellTemp)
 }
 void DisplayDashboardView::lowCellVoltageReceived(float lowestCellVoltage)
 {
-    ui_.lowestCellVoltageLabel().setNum(lowestCellVoltage);
+    ui_.lowestCellVoltageLabel().setNum(lowestCellVoltage / MV_TO_V);
 }
 void DisplayDashboardView::averageTemperatureReceived(int averageCellTemp)
 {
@@ -219,7 +220,7 @@ void DisplayDashboardView::averageTemperatureReceived(int averageCellTemp)
 }
 void DisplayDashboardView::averageCellVoltageReceived(float averageVoltage)
 {
-    ui_.avgCellVoltageLabel().setNum(averageVoltage);
+    ui_.avgCellVoltageLabel().setNum(averageVoltage / MV_TO_V);
 }
 void DisplayDashboardView::errorFlagsReceived(BatteryErrorFlags batteryErrorFlags)
 {

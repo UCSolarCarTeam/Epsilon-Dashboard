@@ -116,6 +116,8 @@ void ControlView::connectLights(LightsPresenter& lightsPresenter)
             this, SLOT(rightLightReceived(bool)));
     connect(&lightsPresenter, SIGNAL(brakesReceived(bool)),
             this, SLOT(brakesLightReceived(bool)));
+    connect(&lightsPresenter, SIGNAL(bmsStrobeLightReceived(bool)),
+            this, SLOT(bmsStrobeLightReceived(bool)));
 }
 
 void ControlView::aliveReceived(bool alive)
@@ -308,6 +310,19 @@ void ControlView::auxReceived(bool aux)
     {
         ui_.auxOnLabel().setStyleSheet(OFF);
     }
+}
+
+void ControlView::bmsStrobeLightReceived(bool strobeLight)
+{
+    if (strobeLight)
+    {
+        ui_.strobeLightOnLabel().setStyleSheet(ON);
+    }
+    else
+    {
+        ui_.strobeLightOnLabel().setStyleSheet(OFF);
+    }
+
 }
 
 void ControlView::prevSongReceived(bool prevSong)
