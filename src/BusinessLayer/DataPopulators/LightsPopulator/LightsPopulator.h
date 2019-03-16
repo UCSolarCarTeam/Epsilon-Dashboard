@@ -25,21 +25,22 @@
 
 #pragma once
 
-#include "../DataLayer/CmuData/I_CmuData.h"
+#include "../DataLayer/LightsData/I_LightsData.h"
+#include "I_LightsPopulator.h"
 #include <QObject>
 
-class I_CmuData;
+class I_LightsData;
 
-class CmuPopulator : public QObject
+class LightsPopulator : public I_LightsPopulator
 {
     Q_OBJECT
 public:
-    CmuPopulator(I_CmuData& cmuData);
-    virtual ~CmuPopulator() {}
+    LightsPopulator(I_LightsData& lightsData);
+    virtual ~LightsPopulator() {}
 
 public slots:
-    void populateData(const QJsonObject&);
+    virtual void populateData(const QJsonObject&);
 
 private:
-    I_CmuData& cmuData_;
+    I_LightsData& lightsData_;
 };

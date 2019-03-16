@@ -25,20 +25,22 @@
 
 #pragma once
 
+#include "../DataLayer/MpptData/I_MpptData.h"
+#include "I_MpptPopulator.h"
 #include <QObject>
 
-class I_BatteryData;
+class I_MpptData;
 
-class BatteryPopulator : public QObject
+class MpptPopulator : public I_MpptPopulator
 {
     Q_OBJECT
 public:
-    BatteryPopulator(I_BatteryData& batteryData);
-    virtual ~BatteryPopulator() {}
+    MpptPopulator(I_MpptData& mpptData);
+    virtual ~MpptPopulator() {}
 
 public slots:
-    void populateData(const QJsonObject&);
+    virtual void populateData(const QJsonObject&);
 
 private:
-    I_BatteryData& batteryData_;
+    I_MpptData& mpptData_;
 };

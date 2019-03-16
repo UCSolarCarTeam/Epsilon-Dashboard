@@ -25,21 +25,22 @@
 
 #pragma once
 
-#include "../DataLayer/DriverControlsData/I_DriverControlsData.h"
+#include "../DataLayer/MotorFaultsData/I_MotorFaultsData.h"
+#include "I_MotorFaultsPopulator.h"
 #include <QObject>
 
-class I_DriverControlsData;
+class I_MotorFaultsData;
 
-class DriverControlsPopulator : public QObject
+class MotorFaultsPopulator : public I_MotorFaultsPopulator
 {
     Q_OBJECT
 public:
-    DriverControlsPopulator(I_DriverControlsData& driverControlsData);
-    virtual ~DriverControlsPopulator() {}
+    MotorFaultsPopulator(I_MotorFaultsData& motorFaultsData);
+    virtual ~MotorFaultsPopulator() {}
 
 public slots:
-    void populateData(const QJsonObject&);
+    virtual void populateData(const QJsonObject&);
 
 private:
-    I_DriverControlsData& driverControlsData_;
+    I_MotorFaultsData& motorFaultsData_;
 };

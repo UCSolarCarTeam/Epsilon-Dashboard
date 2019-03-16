@@ -28,7 +28,7 @@
 
 #include "DriverControlsPopulator.h"
 
-#include "../BusinessLayer/DataPopulators/JsonDefines.h"
+#include "../BusinessLayer/DataPopulators/JsonDefines/JsonDefines.h"
 
 DriverControlsPopulator::DriverControlsPopulator(I_DriverControlsData& driverControlsData)
     : driverControlsData_(driverControlsData)

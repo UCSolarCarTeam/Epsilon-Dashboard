@@ -28,7 +28,7 @@
 
 #include "KeyMotorPopulator.h"
 
-#include "../BusinessLayer/DataPopulators/JsonDefines.h"
+#include "../BusinessLayer/DataPopulators/JsonDefines/JsonDefines.h"
 
 KeyMotorPopulator::KeyMotorPopulator(I_KeyMotorData& keyMotorData)
     : keyMotorData_(keyMotorData)
