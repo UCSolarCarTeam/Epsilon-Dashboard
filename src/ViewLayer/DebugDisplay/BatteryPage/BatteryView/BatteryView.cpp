@@ -375,10 +375,6 @@ void BatteryView::averageCellVoltageReceived(float avgCellVoltage)
     ui_.avgCellVoltageLabel().setText(QString::number(avgCellVoltage / MV_TO_V, 'f', 3) + " " + VOLTAGE_UNIT);
 }
 
-void BatteryView::prechargeStateReceived(QString prechargeState)
-{
-    ui_.prechargeStateLabel().setText(prechargeState);
-}
 
 void BatteryView::auxVoltageReceived(int auxVoltage)
 {
@@ -451,4 +447,10 @@ void BatteryView::highVoltageEnableReceived(bool highVoltageEnable)
     {
         ui_.highVoltageEnableLabel().setStyleSheet(OFF);
     }
+}
+
+
+void BatteryView::prechargeStateReceived(QString prechargeState)
+{
+    ui_.prechargeStateLabel().setText(prechargeState);
 }
