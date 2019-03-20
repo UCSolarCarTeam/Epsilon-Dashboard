@@ -35,4 +35,6 @@ public:
     virtual QLabel& resetOnLabel() = 0;
     virtual QProgressBar& accelerationProgressBar() = 0;
     virtual QProgressBar& regenBrakingProgressBar() = 0;
+    virtual QLabel& bmsStrobeLightLabel() = 0;
+    virtual QLabel& strobeLightOnLabel() = 0;
 };

@@ -25,6 +25,7 @@ namespace
             border-radius: 7px;\
             background: ";
     const QString TEMPERATURE_UNIT = "<sup>o</sup>";
+    const float MV_TO_V = 1000;
 }
 
 RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
@@ -78,10 +79,10 @@ void RaceModeDashboardView::connectBattery(BatteryPresenter& batteryPresenter)
             this, SLOT(packNetPowerReceived(double)));
     connect(&batteryPresenter, SIGNAL(packStateOfChargeReceived(double)),
             this, SLOT(packStateOfChargeReceived(double)));
-    connect(&batteryPresenter, SIGNAL(lowCellVoltageReceived(int)),
-            this, SLOT(lowCellVoltageReceived(int)));
-    connect(&batteryPresenter, SIGNAL(averageCellVoltageReceived(int)),
-            this, SLOT(averageCellVoltageReceived(int)));
+    connect(&batteryPresenter, SIGNAL(lowCellVoltageReceived(float)),
+            this, SLOT(lowCellVoltageReceived(float)));
+    connect(&batteryPresenter, SIGNAL(averageCellVoltageReceived(float)),
+            this, SLOT(averageCellVoltageReceived(float)));
     connect(&batteryPresenter, SIGNAL(highTemperatureReceived(int)),
             this, SLOT(highTemperatureReceived(int)));
     connect(&batteryPresenter, SIGNAL(averageTemperatureReceived(int)),
@@ -198,14 +199,14 @@ void RaceModeDashboardView::packStateOfChargeReceived(double stateOfCharge)
     ui_.stateOfChargeCapacityWidget().setValue(stateOfCharge);
 }
 
-void RaceModeDashboardView::lowCellVoltageReceived(int lowVoltage)
+void RaceModeDashboardView::lowCellVoltageReceived(float lowVoltage)
 {
-    ui_.lowestCellVoltageLabel().setNum(lowVoltage);
+    ui_.lowestCellVoltageLabel().setText(QString::number(lowVoltage / MV_TO_V, 'f', 2));
 }
 
-void RaceModeDashboardView::averageCellVoltageReceived(int averageVoltage)
+void RaceModeDashboardView::averageCellVoltageReceived(float averageVoltage)
 {
-    ui_.avgCellVoltageLabel().setNum(averageVoltage);
+    ui_.avgCellVoltageLabel().setText(QString::number(averageVoltage / MV_TO_V, 'f', 2));
 }
 
 void RaceModeDashboardView::highTemperatureReceived(int highTemp)
@@ -255,7 +256,7 @@ void RaceModeDashboardView::motorBusVoltageReceived(double busVoltage)
 }
 void RaceModeDashboardView::motorBusCurrentReceived(double busCurrent)
 {
-    ui_.busCurrentLabel().setText(QString::number(busCurrent, 'f', 3));
+    ui_.busCurrentLabel().setText(QString::number(busCurrent, 'f', 2));
     busCurrent_ = busCurrent;
     setMotorPower();
 }

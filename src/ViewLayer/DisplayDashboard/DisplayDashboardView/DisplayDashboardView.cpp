@@ -16,6 +16,7 @@ namespace
             QProgressBar::chunk:horizontal{\
             border-radius: 7px;\
             background: ";
+    const float MV_TO_V = 1000;
 }
 
 DisplayDashboardView::DisplayDashboardView(AuxBmsPresenter& auxBmsPresenter,
@@ -77,12 +78,12 @@ void DisplayDashboardView::connectBattery(BatteryPresenter& batteryPresenter)
             this, SLOT(packStateOfChargeReceived(double)));
     connect(&batteryPresenter, SIGNAL(highTemperatureReceived(int)),
             this, SLOT(highTemperatureReceived(int)));
-    connect(&batteryPresenter, SIGNAL(lowCellVoltageReceived(int)),
-            this, SLOT(lowCellVoltageReceived(int)));
+    connect(&batteryPresenter, SIGNAL(lowCellVoltageReceived(float)),
+            this, SLOT(lowCellVoltageReceived(float)));
     connect(&batteryPresenter, SIGNAL(averageTemperatureReceived(int)),
             this, SLOT(averageTemperatureReceived(int)));
-    connect(&batteryPresenter, SIGNAL(averageCellVoltageReceived(int)),
-            this, SLOT(averageCellVoltageReceived(int)));
+    connect(&batteryPresenter, SIGNAL(averageCellVoltageReceived(float)),
+            this, SLOT(averageCellVoltageReceived(float)));
 }
 
 void DisplayDashboardView::connectBatteryFaults(BatteryFaultsPresenter& batteryFaultsPresenter)
@@ -209,17 +210,17 @@ void DisplayDashboardView::highTemperatureReceived(int maxCellTemp)
 {
     ui_.maxCellTemperatureLabel().setNum(maxCellTemp);
 }
-void DisplayDashboardView::lowCellVoltageReceived(int lowestCellVoltage)
+void DisplayDashboardView::lowCellVoltageReceived(float lowestCellVoltage)
 {
-    ui_.lowestCellVoltageLabel().setNum(lowestCellVoltage);
+    ui_.lowestCellVoltageLabel().setNum(lowestCellVoltage / MV_TO_V);
 }
 void DisplayDashboardView::averageTemperatureReceived(int averageCellTemp)
 {
     ui_.avgCellTemperatureLabel().setNum(averageCellTemp);
 }
-void DisplayDashboardView::averageCellVoltageReceived(int averageVoltage)
+void DisplayDashboardView::averageCellVoltageReceived(float averageVoltage)
 {
-    ui_.avgCellVoltageLabel().setNum(averageVoltage);
+    ui_.avgCellVoltageLabel().setNum(averageVoltage / MV_TO_V);
 }
 void DisplayDashboardView::errorFlagsReceived(BatteryErrorFlags batteryErrorFlags)
 {

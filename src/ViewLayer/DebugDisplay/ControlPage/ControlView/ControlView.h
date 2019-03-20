@@ -63,7 +63,7 @@ private slots:
     void forwardReceived(bool);
     void reverseReceived(bool);
     void auxReceived(bool);
-
+    void bmsStrobeLightReceived(bool);
     void resetReceived(bool);
 
     void accelerationReceived(double);

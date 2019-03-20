@@ -26,8 +26,6 @@ public:
     virtual QWidget& motorResetButtonWidget() = 0;
 
     virtual QProgressBar& stateOfChargeCapacityWidget() = 0;
-
-    virtual QWidget& prechargeStateIconWidget() = 0;
     virtual QLabel& prechargeStateLabel() = 0;
 
     virtual QWidget& lowHeadlightIndicatorWidget() = 0;
