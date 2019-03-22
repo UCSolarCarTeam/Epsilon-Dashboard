@@ -7,6 +7,7 @@ class DataContainer;
 class AuxBmsPopulator;
 class BatteryPopulator;
 class BatteryFaultsPopulator;
+class CcsPopulator;
 class DriverControlsPopulator;
 class KeyMotorPopulator;
 class LightsPopulator;
@@ -26,6 +27,7 @@ public:
     AuxBmsPopulator& auxBmsPopulator();
     BatteryPopulator& batteryPopulator();
     BatteryFaultsPopulator& batteryFaultsPopulator();
+    CcsPopulator& ccsPopulator();
     DriverControlsPopulator& driverControlsPopulator();
     KeyMotorPopulator& keyMotorPopulator();
     LightsPopulator& lightsPopulator();

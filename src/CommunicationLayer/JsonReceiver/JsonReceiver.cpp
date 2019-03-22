@@ -31,6 +31,7 @@
 JsonReceiver::JsonReceiver(AuxBmsPopulator& auxBmsPopulator,
                            BatteryPopulator& batteryPopulator,
                            BatteryFaultsPopulator& batteryFaultsPopulator,
+                           CcsPopulator& ccsPopulator,
                            DriverControlsPopulator& driverControlsPopulator,
                            KeyMotorPopulator& keyMotorPopulator,
                            LightsPopulator& lightsPopulator,
@@ -42,6 +43,7 @@ JsonReceiver::JsonReceiver(AuxBmsPopulator& auxBmsPopulator,
     : auxBmsPopulator_(auxBmsPopulator)
     , batteryPopulator_(batteryPopulator)
     , batteryFaultsPopulator_(batteryFaultsPopulator)
+    , ccsPopulator_(ccsPopulator)
     , driverControlsPopulator_(driverControlsPopulator)
     , keyMotorPopulator_(keyMotorPopulator)
     , lightsPopulator_(lightsPopulator)
@@ -57,6 +59,8 @@ JsonReceiver::JsonReceiver(AuxBmsPopulator& auxBmsPopulator,
             &batteryPopulator_, SLOT(populateData(const QJsonObject&)));
     connect(this, SIGNAL(dataReceived(const QJsonObject&)),
             &batteryFaultsPopulator_, SLOT(populateData(const QJsonObject&)));
+    connect(this, SIGNAL(dataReceived(const QJsonObject&)),
+            &ccsPopulator_, SLOT(populateData(const QJsonObject&)));
     connect(this, SIGNAL(dataReceived(const QJsonObject&)),
             &driverControlsPopulator_, SLOT(populateData(const QJsonObject&)));
     connect(this, SIGNAL(dataReceived(const QJsonObject&)),

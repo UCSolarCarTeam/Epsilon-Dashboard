@@ -32,19 +32,28 @@ namespace
                               "border: 1px solid white;";
 }
 
-ControlView::ControlView(DriverControlsPresenter& driverControlsPresenter,
+ControlView::ControlView(CcsPresenter& ccsPresenter,
+                         DriverControlsPresenter& driverControlsPresenter,
                          LightsPresenter& lightsPresenter,
                          I_ControlUi& ui)
-    : driverControlsPresenter_(driverControlsPresenter)
+    : ccsPresenter_(ccsPresenter)
+    , driverControlsPresenter_(driverControlsPresenter)
     , lightsPresenter_(lightsPresenter)
     , ui_(ui)
 {
+    connectCcs(ccsPresenter_);
     connectDriverControls(driverControlsPresenter_);
     connectLights(lightsPresenter_);
 }
 
 ControlView::~ControlView()
 {
+}
+
+void ControlView::connectCcs(CcsPresenter& ccsPresenter)
+{
+    connect(&ccsPresenter, SIGNAL(ccsAliveRecieved(bool)),
+            this, SLOT(ccsAliveRecieved(bool)));
 }
 
 void ControlView::connectDriverControls(DriverControlsPresenter& driverControlsPresenter)
@@ -141,6 +150,18 @@ void ControlView::aliveLights(bool lights)
     else
     {
         ui_.lightsIndicator().setStyleSheet(OFF);
+    }
+}
+
+void ControlView::ccsAliveRecieved(bool ccs)
+{
+    if (ccs)
+    {
+        ui_.ccsAlive().setStyleSheet(ON);
+    }
+    else
+    {
+        ui_.ccsAlive().setStyleSheet(OFF);
     }
 }
 

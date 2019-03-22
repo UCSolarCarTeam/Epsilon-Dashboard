@@ -34,7 +34,36 @@ HEADERS += \
     BatteryFaultsData/BatteryErrorFlags.h \
     BatteryFaultsData/BatteryLimitFlags.h \
     AuxBmsData/AuxBmsData.h \
-    AuxBmsData/I_AuxBmsData.h
+    AuxBmsData/I_AuxBmsData.h \
+    AuxBmsData/AuxBmsData.h \
+    AuxBmsData/I_AuxBmsData.h \
+    BatteryData/BatteryData.h \
+    BatteryData/BmsRelayStatusFlags.h \
+    BatteryData/I_BatteryData.h \
+    BatteryFaultsData/BatteryErrorFlags.h \
+    BatteryFaultsData/BatteryFaultsData.h \
+    BatteryFaultsData/BatteryLimitFlags.h \
+    BatteryFaultsData/I_BatteryFaultsData.h \
+    DriverControlsData/DriverControlsData.h \
+    DriverControlsData/I_DriverControlsData.h \
+    KeyMotorData/I_KeyMotorData.h \
+    KeyMotorData/KeyMotor.h \
+    KeyMotorData/KeyMotorData.h \
+    LightsData/I_LightsData.h \
+    LightsData/LightsData.h \
+    MotorDetailsData/I_MotorDetailsData.h \
+    MotorDetailsData/MotorDetails.h \
+    MotorDetailsData/MotorDetailsData.h \
+    MotorFaultsData/ErrorFlags.h \
+    MotorFaultsData/I_MotorFaultsData.h \
+    MotorFaultsData/LimitFlags.h \
+    MotorFaultsData/MotorFaultsData.h \
+    MpptData/I_MpptData.h \
+    MpptData/Mppt.h \
+    MpptData/MpptData.h \
+    DataContainer.h \
+    CcsData/CcsData.h \
+    CcsData/I_CcsData.h
 
 SOURCES += \ 
     BatteryData/BatteryData.cpp \
@@ -54,4 +83,23 @@ SOURCES += \
     BatteryData/BmsRelayStatusFlags.cpp \
     BatteryFaultsData/BatteryErrorFlags.cpp \
     BatteryFaultsData/BatteryLimitFlags.cpp \
-    AuxBmsData/AuxBmsData.cpp
+    AuxBmsData/AuxBmsData.cpp \
+    AuxBmsData/AuxBmsData.cpp \
+    BatteryData/BatteryData.cpp \
+    BatteryData/BmsRelayStatusFlags.cpp \
+    BatteryFaultsData/BatteryErrorFlags.cpp \
+    BatteryFaultsData/BatteryFaultsData.cpp \
+    BatteryFaultsData/BatteryLimitFlags.cpp \
+    DriverControlsData/DriverControlsData.cpp \
+    KeyMotorData/KeyMotor.cpp \
+    KeyMotorData/KeyMotorData.cpp \
+    LightsData/LightsData.cpp \
+    MotorDetailsData/MotorDetails.cpp \
+    MotorDetailsData/MotorDetailsData.cpp \
+    MotorFaultsData/ErrorFlags.cpp \
+    MotorFaultsData/LimitFlags.cpp \
+    MotorFaultsData/MotorFaultsData.cpp \
+    MpptData/Mppt.cpp \
+    MpptData/MpptData.cpp \
+    DataContainer.cpp \
+    CcsData/CcsData.cpp

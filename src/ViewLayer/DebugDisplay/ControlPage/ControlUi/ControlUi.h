@@ -13,6 +13,7 @@ public:
     ~ControlUi();
     QLabel& aliveIndicator();
     QLabel& lightsIndicator();
+    QLabel& ccsAlive();
     QLabel& highHeadlightsLabel();
     QLabel& lowHeadlightsLabel();
     QLabel& lowBeamLabel();
