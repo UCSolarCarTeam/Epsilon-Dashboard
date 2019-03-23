@@ -1250,7 +1250,7 @@ qproperty-alignment: 'AlignHCenter';
               <string notr="true">color: rgb(100,100,100);</string>
              </property>
              <property name="text">
-              <string>RUN</string>
+              <string>Off</string>
              </property>
             </widget>
            </item>
