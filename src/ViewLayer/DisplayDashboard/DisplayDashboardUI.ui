@@ -1234,8 +1234,15 @@ qproperty-alignment: 'AlignHCenter';
            <property name="spacing">
             <number>0</number>
            </property>
-           <item row="0" column="0">
-            <widget class="QWidget" name="prechargeStateIconWidget" native="true"/>
+           <item row="1" column="1">
+            <widget class="QLabel" name="prechargeStateTitleLabel">
+             <property name="styleSheet">
+              <string notr="true">color: rgb(100,100,100);</string>
+             </property>
+             <property name="text">
+              <string>P R E C H A R G E</string>
+             </property>
+            </widget>
            </item>
            <item row="0" column="1">
             <widget class="QLabel" name="prechargeStateLabel">
@@ -1247,15 +1254,11 @@ qproperty-alignment: 'AlignHCenter';
              </property>
             </widget>
            </item>
-           <item row="1" column="0" colspan="2">
-            <widget class="QLabel" name="prechargeStateTitleLabel">
-             <property name="styleSheet">
-              <string notr="true">color: rgb(100,100,100);</string>
-             </property>
-             <property name="text">
-              <string>P R E C H A R G E</string>
-             </property>
-            </widget>
+           <item row="0" column="0">
+            <widget class="QWidget" name="prechargeStateIconWidget" native="true"/>
+           </item>
+           <item row="1" column="0">
+            <widget class="QWidget" name="prechargeStateIconWidget_2" native="true"/>
            </item>
           </layout>
          </widget>
