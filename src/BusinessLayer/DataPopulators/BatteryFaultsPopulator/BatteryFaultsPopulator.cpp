@@ -28,8 +28,8 @@
 
 #include "BatteryFaultsPopulator.h"
 
-#include "../BusinessLayer/DataPopulators/JsonDefines/JsonDefines.h"
-
+#include "../BusinessLayer/DataPopulators/JsonDefines.h"
+#include "../DataLayer/BatteryFaultsData/I_BatteryFaultsData.h"
 BatteryFaultsPopulator::BatteryFaultsPopulator(I_BatteryFaultsData& batteryFaultsData)
     : batteryFaultsData_(batteryFaultsData)
 {

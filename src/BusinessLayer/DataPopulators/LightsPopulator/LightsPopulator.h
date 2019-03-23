@@ -24,11 +24,7 @@
  */
 
 #pragma once
-
-#include "../DataLayer/LightsData/I_LightsData.h"
 #include "I_LightsPopulator.h"
-#include <QObject>
-
 class I_LightsData;
 
 class LightsPopulator : public I_LightsPopulator
@@ -39,7 +35,7 @@ public:
     virtual ~LightsPopulator() {}
 
 public slots:
-    virtual void populateData(const QJsonObject&);
+    void populateData(const QJsonObject&);
 
 private:
     I_LightsData& lightsData_;

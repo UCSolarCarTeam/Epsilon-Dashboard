@@ -28,8 +28,9 @@
 
 #include "BatteryPopulator.h"
 
-#include "../BusinessLayer/DataPopulators/JsonDefines/JsonDefines.h"
+#include "../BusinessLayer/DataPopulators/JsonDefines.h"
 #include "../DataLayer/BatteryData/I_BatteryData.h"
+#include "../DataLayer/BatteryFaultsData/I_BatteryFaultsData.h"
 
 BatteryPopulator::BatteryPopulator(I_BatteryData& batteryData)
     : batteryData_(batteryData)

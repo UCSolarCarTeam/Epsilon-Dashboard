@@ -25,9 +25,7 @@
 
 #pragma once
 
-#include "../DataLayer/MotorDetailsData/I_MotorDetailsData.h"
 #include "I_MotorDetailsPopulator.h"
-#include <QObject>
 
 class I_MotorDetailsData;
 
@@ -39,7 +37,7 @@ public:
     virtual ~MotorDetailsPopulator() {}
 
 public slots:
-    virtual void populateData(const QJsonObject&);
+    void populateData(const QJsonObject&);
 
 private:
     I_MotorDetailsData& motorDetailsData_;

@@ -28,7 +28,8 @@
 
 #include "MotorFaultsPopulator.h"
 
-#include "../BusinessLayer/DataPopulators/JsonDefines/JsonDefines.h"
+#include "../BusinessLayer/DataPopulators/JsonDefines.h"
+#include "../DataLayer/MotorFaultsData/I_MotorFaultsData.h"
 
 MotorFaultsPopulator::MotorFaultsPopulator(I_MotorFaultsData& motorFaultsData)
     : motorFaultsData_(motorFaultsData)

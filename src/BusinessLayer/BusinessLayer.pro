@@ -15,7 +15,7 @@ HEADERS += \
     DataPopulators/BatteryFaultsPopulator/BatteryFaultsPopulator.h \
     DataPopulators/BatteryPopulator/BatteryPopulator.h \
     DataPopulators/DriverControlsPopulator/DriverControlsPopulator.h \
-    DataPopulators/JsonDefines/JsonDefines.h \
+    DataPopulators/JsonDefines.h \
     DataPopulators/KeyMotorPopulator/KeyMotorPopulator.h \
     DataPopulators/LightsPopulator/LightsPopulator.h \
     DataPopulators/MotorDetailsPopulator/MotorDetailsPopulator.h \

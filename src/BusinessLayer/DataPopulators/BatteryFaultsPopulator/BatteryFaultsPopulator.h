@@ -25,9 +25,7 @@
 
 #pragma once
 
-#include "../DataLayer/BatteryFaultsData/I_BatteryFaultsData.h"
 #include "I_BatteryFaultsPopulator.h"
-#include <QObject>
 
 class I_BatteryFaultsData;
 
@@ -39,7 +37,7 @@ public:
     virtual ~BatteryFaultsPopulator() {}
 
 public slots:
-    virtual void populateData(const QJsonObject&);
+    void populateData(const QJsonObject&);
 
 private:
     I_BatteryFaultsData& batteryFaultsData_;

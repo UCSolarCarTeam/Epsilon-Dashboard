@@ -28,7 +28,8 @@
 
 #include "MpptPopulator.h"
 
-#include "../BusinessLayer/DataPopulators/JsonDefines/JsonDefines.h"
+#include "../BusinessLayer/DataPopulators/JsonDefines.h"
+#include "../DataLayer/MpptData/I_MpptData.h"
 
 MpptPopulator::MpptPopulator(I_MpptData& mpptData)
     : mpptData_(mpptData)

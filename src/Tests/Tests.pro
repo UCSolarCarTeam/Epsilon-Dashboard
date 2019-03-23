@@ -1,6 +1,6 @@
 TEMPLATE = app
 QT += testlib
-CONFIG += testcase
+CONFIG += testcase c++11
 
 LIBS += -L../../build/.lib -lBusinessLayer -lgmock -lViewLayer -lCommunicationLayer -lInfrastructureLayer -lDataLayer -lPresenterLayer
 
@@ -33,14 +33,14 @@ POST_TARGETDEPS += copyfiles
 
 HEADERS += \
     CommunicationLayer/mockcommdevicemanager.h \
-    BusinessLayer/DataPopulators/mockauxbmspopulator.h \
-    BusinessLayer/DataPopulators/mockbatteryfaultspopulator.h \
-    BusinessLayer/DataPopulators/mockbatterypopulator.h \
-    BusinessLayer/DataPopulators/mockdrivercontrolspopulator.h \
-    BusinessLayer/DataPopulators/mockkeymotorpopulator.h \
-    BusinessLayer/DataPopulators/mocklightspopulator.h \
-    BusinessLayer/DataPopulators/mockmpptpopulator.h \
-    BusinessLayer/DataPopulators/mockmotordetailspopulator.h \
-    BusinessLayer/DataPopulators/mockmotorfaultspopulator.h \
-    BusinessLayer/CommunicationsMonitoringService/mock_communicationsmonitoringservice.h
+    BusinessLayer/CommunicationsMonitoringService/MockCommunicationMonitoringService.h \
+    BusinessLayer/DataPopulators/MockAuxBmsPopulator.h \
+    BusinessLayer/DataPopulators/MockBatteryFaultsPopulator.h \
+    BusinessLayer/DataPopulators/MockBatteryPopulator.h \
+    BusinessLayer/DataPopulators/MockDriverControlsPopulator.h \
+    BusinessLayer/DataPopulators/MockKeyMotorPopulator.h \
+    BusinessLayer/DataPopulators/MockLightsPopulator.h \
+    BusinessLayer/DataPopulators/MockMotorDetailsPopulator.h \
+    BusinessLayer/DataPopulators/MockMotorFaultsPopulator.h \
+    BusinessLayer/DataPopulators/MockMpptPopulator.h
 

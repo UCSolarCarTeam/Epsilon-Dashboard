@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QObject>
+#include <QJsonObject>
 class I_BatteryFaultsPopulator : public QObject
 {
     Q_OBJECT

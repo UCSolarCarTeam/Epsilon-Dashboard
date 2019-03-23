@@ -24,9 +24,6 @@
  */
 
 #pragma once
-
-#include "../DataLayer/DriverControlsData/I_DriverControlsData.h"
-#include <QObject>
 #include "I_DriverControlsPopulator.h"
 class I_DriverControlsData;
 
@@ -38,7 +35,7 @@ public:
     virtual ~DriverControlsPopulator() {}
 
 public slots:
-    virtual void populateData(const QJsonObject&);
+    void populateData(const QJsonObject&);
 
 private:
     I_DriverControlsData& driverControlsData_;

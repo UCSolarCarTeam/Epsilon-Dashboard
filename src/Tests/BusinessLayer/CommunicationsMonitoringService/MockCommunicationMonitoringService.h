@@ -4,7 +4,6 @@
 
 class MockCommuncationMonitoringService: public I_CommunicationsMonitoringService
 {
-
     Q_OBJECT
 public:
     MOCK_METHOD0(start, void());

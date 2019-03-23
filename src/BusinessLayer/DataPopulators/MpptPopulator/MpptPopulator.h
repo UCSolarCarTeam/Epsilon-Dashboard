@@ -25,10 +25,7 @@
 
 #pragma once
 
-#include "../DataLayer/MpptData/I_MpptData.h"
 #include "I_MpptPopulator.h"
-#include <QObject>
-
 class I_MpptData;
 
 class MpptPopulator : public I_MpptPopulator
@@ -39,7 +36,7 @@ public:
     virtual ~MpptPopulator() {}
 
 public slots:
-    virtual void populateData(const QJsonObject&);
+    void populateData(const QJsonObject&);
 
 private:
     I_MpptData& mpptData_;

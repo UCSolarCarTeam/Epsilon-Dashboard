@@ -25,7 +25,6 @@
 
 #pragma once
 #include "I_BatteryPopulator.h"
-#include <QObject>
 
 class I_BatteryData;
 
@@ -37,7 +36,7 @@ public:
     virtual ~BatteryPopulator() {}
 
 public slots:
-    virtual void populateData(const QJsonObject&);
+    void populateData(const QJsonObject&);
 
 private:
     I_BatteryData& batteryData_;

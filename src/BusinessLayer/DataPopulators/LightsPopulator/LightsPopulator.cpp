@@ -27,8 +27,8 @@
 #include <QJsonArray>
 
 #include "LightsPopulator.h"
-
-#include "../BusinessLayer/DataPopulators/JsonDefines/JsonDefines.h"
+#include "../DataLayer/LightsData/I_LightsData.h"
+#include "../BusinessLayer/DataPopulators/JsonDefines.h"
 
 LightsPopulator::LightsPopulator(I_LightsData& lightsData)
     : lightsData_(lightsData)
