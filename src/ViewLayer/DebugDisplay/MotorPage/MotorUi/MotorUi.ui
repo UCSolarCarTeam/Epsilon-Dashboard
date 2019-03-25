@@ -44,7 +44,7 @@
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>-407</y>
+        <y>0</y>
         <width>693</width>
         <height>1033</height>
        </rect>
@@ -1899,7 +1899,8 @@ background: transparent;</string>
 background: transparent;</string>
                </property>
                <property name="text">
-                <string>Motor Voltage Imaginary</string>
+                <string>Motor Voltage 
+Imaginary</string>
                </property>
               </widget>
              </item>
@@ -2108,7 +2109,8 @@ background: transparent;</string>
 background: transparent;</string>
                </property>
                <property name="text">
-                <string>Motor Current Imaginary</string>
+                <string>Motor Current 
+Imaginary</string>
                </property>
               </widget>
              </item>
