@@ -34,7 +34,7 @@ private:
 private slots:
     void aliveReceived(bool);
     void aliveLights(bool);
-    void ccsAliveRecieved(bool);
+    void ccsAliveReceived(bool);
 
     void lowHeadlightsReceived(bool);
     void highHeadlightsReceived(bool);
