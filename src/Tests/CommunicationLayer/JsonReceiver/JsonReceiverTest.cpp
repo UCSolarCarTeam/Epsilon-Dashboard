@@ -44,16 +44,16 @@ protected:
 
 
         jsonReceiver_.reset(new JsonReceiver(*auxBmsPopulator_,
-                                              *batteryPopulator_,
-                                              *batteryFaultsPopulator_,
-                                              *driverControlsPopulator_,
-                                              *keyMotorPopulator_,
-                                              *lightsPopulator_,
-                                              *mpptPopulator_,
-                                              *motorDetailsPopulator_,
-                                              *motorFaultsPopulator_,
-                                              *communicationsMonitoringService_,
-                                              false));
+                                             *batteryPopulator_,
+                                             *batteryFaultsPopulator_,
+                                             *driverControlsPopulator_,
+                                             *keyMotorPopulator_,
+                                             *lightsPopulator_,
+                                             *mpptPopulator_,
+                                             *motorDetailsPopulator_,
+                                             *motorFaultsPopulator_,
+                                             *communicationsMonitoringService_,
+                                             false));
     }
 };
 TEST_F(JsonReceiverTest, receivedData)
