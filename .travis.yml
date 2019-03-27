@@ -13,12 +13,8 @@ before_install:
 install:
     - sudo apt-get -qq install g++-4.8 libc6-i386 qt55tools qt55svg qt55webkit qt55serialport
     - PATH="/opt/qt55/bin:$PATH"
-    - qt55-env.sh 
-    - cd /tmp/
-    # install astyle
-    - (wget 'https://s3-us-west-2.amazonaws.com/ucsolarteam.hostedfiles/astyle' && tar -zxvf astyle)
-    - (cd ./astyle/build/gcc && make release && sudo make install && rm astyle -rf)
-    # install googletest and googlemock
+    - qt55-env.sh
+     # install googletest and googlemock
     - git clone https://github.com/google/googletest.git
     - sudo cp -r googletest/googletest/include/gtest /usr/local/include
     - sudo cp -r googletest/googlemock/include/gmock /usr/local/include
@@ -41,6 +37,10 @@ install:
            googletest/src/gtest-all.cc &&
        ar -rv libgmock.a gtest-all.o gmock-all.o)
     - cp googletest/libgmock.a build/.lib/
+    - cd /tmp/
+    # install astyle
+    - (wget 'https://s3-us-west-2.amazonaws.com/ucsolarteam.hostedfiles/astyle' && tar -zxvf astyle)
+    - (cd ./astyle/build/gcc && make release && sudo make install && rm astyle -rf)
     #install rabbitmq-c
     - git clone https://github.com/alanxz/rabbitmq-c
     - (cd rabbitmq-c && sudo cp librabbitmq/*.h /usr/local/include/ && mkdir build && cd build && cmake .. && cmake --build . && sudo cp librabbitmq/librabbitmq.a /usr/local/lib/ && sudo cp librabbitmq/*.so* /usr/local/lib/)
