@@ -11,8 +11,7 @@
 #include "BusinessLayer/DataPopulators/MockMpptPopulator.h"
 #include "BusinessLayer/CommunicationsMonitoringService/MockCommunicationMonitoringService.h"
 #include <gtest/gtest.h>
-#include <gmock/gmock.h>
-#include <QScopedPointer>(
+#include <QScopedPointer>
 
 
 class JsonReceiverTest : public ::testing::Test
@@ -28,7 +27,7 @@ protected:
     QScopedPointer<MockMotorFaultsPopulator> motorFaultsPopulator_;
     QScopedPointer<MockMpptPopulator> mpptPopulator_;
     QScopedPointer<MockCommuncationMonitoringService> communicationsMonitoringService_;
-    QScopedPointer<JsonReceiver> jasonReceiver_;
+    QScopedPointer<JsonReceiver> jsonReceiver_;
 
     virtual void SetUp()
     {
@@ -44,7 +43,7 @@ protected:
         communicationsMonitoringService_.reset(new MockCommuncationMonitoringService());
 
 
-        jasonReceiver_.reset(new JsonReceiver(*auxBmsPopulator_,
+        jsonReceiver_.reset(new JsonReceiver(*auxBmsPopulator_,
                                               *batteryPopulator_,
                                               *batteryFaultsPopulator_,
                                               *driverControlsPopulator_,

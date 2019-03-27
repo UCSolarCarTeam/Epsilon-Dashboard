@@ -1,5 +1,5 @@
 #pragma once
-#include "gmock/gmock.h"
+#include <gmock/gmock.h>
 #include "../BusinessLayer/DataPopulators/AuxBmsPopulator/I_AuxBmsPopulator.h"
 class MockAuxBmsPopulator: public I_AuxBmsPopulator
 {

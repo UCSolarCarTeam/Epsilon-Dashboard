@@ -1,5 +1,5 @@
 #pragma once
-#include "gmock/gmock.h"
+#include <gmock/gmock.h>
 #include "../../../BusinessLayer/DataPopulators/BatteryPopulator/BatteryPopulator.h"
 
 class MockBatteryPopulator: public I_BatteryPopulator

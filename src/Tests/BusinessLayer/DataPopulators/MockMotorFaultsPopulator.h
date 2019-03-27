@@ -1,5 +1,5 @@
 #pragma once
-#include "gmock/gmock.h"
+#include <gmock/gmock.h>
 #include "../../../BusinessLayer/DataPopulators/MotorFaultsPopulator/I_MotorFaultsPopulator.h"
 
 class MockMotorFaultsPopulator: public I_MotorFaultsPopulator

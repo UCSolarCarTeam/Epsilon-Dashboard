@@ -1,5 +1,5 @@
 #pragma once
-#include "gmock/gmock.h"
+#include <gmock/gmock.h>
 #include "../../../BusinessLayer/CommunicationsMonitoringService/I_CommunicationsMonitoringService.h"
 
 class MockCommuncationMonitoringService: public I_CommunicationsMonitoringService
