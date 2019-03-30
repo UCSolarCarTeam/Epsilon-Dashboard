@@ -919,7 +919,8 @@ background: transparent;</string>
                 <string notr="true">color: white;</string>
                </property>
                <property name="text">
-                <string>Voltage Rail 3V Supply (V)</string>
+                <string>Voltage Rail 3V 
+Supply (V)</string>
                </property>
               </widget>
              </item>
@@ -1388,7 +1389,8 @@ background: transparent;</string>
 background: transparent;</string>
                </property>
                <property name="text">
-                <string>Voltage Rail 15V Supply (V)</string>
+                <string>Voltage Rail 15V 
+Supply (V)</string>
                </property>
               </widget>
              </item>
@@ -1988,7 +1990,8 @@ background: transparent;</string>
 background: transparent;</string>
                </property>
                <property name="text">
-                <string>Motor Current Imaginary</string>
+                <string>Motor Current 
+Imaginary (V)</string>
                </property>
               </widget>
              </item>
@@ -2191,7 +2194,8 @@ background: transparent;</string>
 background: transparent;</string>
                </property>
                <property name="text">
-                <string>Voltage Rail 1V Supply (V)</string>
+                <string>Voltage Rail 1V 
+Supply (V)</string>
                </property>
               </widget>
              </item>
@@ -2299,7 +2303,8 @@ background: transparent;</string>
 background: transparent;</string>
                </property>
                <property name="text">
-                <string>Motor Voltage Imaginary</string>
+                <string>Motor Voltage 
+Imaginary (V)</string>
                </property>
               </widget>
              </item>
