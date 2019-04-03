@@ -44,7 +44,7 @@
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>-407</y>
+        <y>0</y>
         <width>693</width>
         <height>1033</height>
        </rect>
@@ -151,7 +151,7 @@
                 <string notr="true">color: white;</string>
                </property>
                <property name="text">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Set Current (A)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Set Current (%)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                </property>
               </widget>
              </item>
@@ -256,7 +256,7 @@ background: transparent;
 </string>
                </property>
                <property name="text">
-                <string>Set Velocity (V)</string>
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Set Velocity (RPM)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                </property>
               </widget>
              </item>
@@ -1291,7 +1291,7 @@ background: transparent;</string>
 </string>
                </property>
                <property name="text">
-                <string>Motor Current Real (V)</string>
+                <string>Motor Current Real (A)</string>
                </property>
               </widget>
              </item>
@@ -1490,7 +1490,7 @@ background: transparent;</string>
 background: transparent;</string>
                </property>
                <property name="text">
-                <string>Phase B Current (Arms)</string>
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Phase B Current (A&lt;span style=&quot; vertical-align:sub;&quot;&gt;rms&lt;/span&gt;)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                </property>
               </widget>
              </item>
@@ -1991,7 +1991,7 @@ background: transparent;</string>
                </property>
                <property name="text">
                 <string>Motor Current 
-Imaginary (V)</string>
+Imaginary (A)</string>
                </property>
               </widget>
              </item>
@@ -2102,7 +2102,7 @@ background: transparent;</string>
                 <string notr="true">color: white;</string>
                </property>
                <property name="text">
-                <string>Phase C Current (Arms)</string>
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Phase C Current (A&lt;span style=&quot; vertical-align:sub;&quot;&gt;rms&lt;/span&gt;)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                </property>
               </widget>
              </item>
