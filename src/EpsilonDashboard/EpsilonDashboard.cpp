@@ -27,8 +27,10 @@ EpsilonDashboard::EpsilonDashboard(int& argc, char** argv)
     QCommandLineParser parser;
     QCommandLineOption raceModeOption("r");
     QCommandLineOption debugModeOption("d");
+    QCommandLineOption windowedMode("w");
     parser.addOption(raceModeOption);
     parser.addOption(debugModeOption);
+    parser.addOption(windowedMode);
 
     parser.process(*this);
     Mode mode = Mode::DISPLAY;
@@ -37,15 +39,31 @@ EpsilonDashboard::EpsilonDashboard(int& argc, char** argv)
     {
         mode = Mode::RACE;
         infrastructureContainer_->setQueueName(RACE_QUEUE);
+
+        if(parser.isSet(windowedMode))
+        {
+            //launch it in windowed mode
+        }
     }
     else if (parser.isSet(debugModeOption))
     {
         mode = Mode::DEBUG;
         infrastructureContainer_->setQueueName(DEBUG_QUEUE);
+
+        if(parser.isSet(windowedMode))
+        {
+            //launch it in windowed mode
+        }
+
     }
     else
     {
         infrastructureContainer_->setQueueName(DISPLAY_QUEUE);
+
+        if(parser.isSet(windowedMode))
+        {
+            //launch it in windowed mode
+        }
     }
 
     viewContainer_.reset(new ViewContainer(*presenterContainer_, mode));

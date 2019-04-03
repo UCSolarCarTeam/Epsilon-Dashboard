@@ -8,7 +8,12 @@ RaceModeDashboardUI::RaceModeDashboardUI()
     : ui_(new Ui::RaceModeDashboardUI)
 {
     ui_->setupUi(this);
-    setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+
+    if("not -w")
+    {
+        setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+    }
+
     setGeometry(
         QStyle::alignedRect(
             Qt::LeftToRight,
