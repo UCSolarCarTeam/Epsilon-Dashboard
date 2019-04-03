@@ -17,6 +17,10 @@ To run the application in debug display mode, run the command:
 To run the application in race mode, add the -r flag at the end:
   `./EpsilonDashboard -r`
 
+## Setting up Google Test and Google Mock
+
+Clone the https://github.com/UCSolarCarTeam/Development-Resources and go into InstallScripts folder and run the googletest-setup.sh to install google test and google mock.
+
 ## Setting up Rabbitmq
 
 In this repo, there are dependencies needed for Rabbitmq before you will be able to build or run anything.
