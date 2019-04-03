@@ -52,8 +52,8 @@ ControlView::~ControlView()
 
 void ControlView::connectCcs(CcsPresenter& ccsPresenter)
 {
-    connect(&ccsPresenter, SIGNAL(ccsAliveRecieved(bool)),
-            this, SLOT(ccsAliveRecieved(bool)));
+    connect(&ccsPresenter, SIGNAL(ccsAliveReceived(bool)),
+            this, SLOT(ccsAliveReceived(bool)));
 }
 
 void ControlView::connectDriverControls(DriverControlsPresenter& driverControlsPresenter)
@@ -153,7 +153,7 @@ void ControlView::aliveLights(bool lights)
     }
 }
 
-void ControlView::ccsAliveRecieved(bool ccs)
+void ControlView::ccsAliveReceived(bool ccs)
 {
     if (ccs)
     {

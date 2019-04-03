@@ -4,7 +4,7 @@
 #include <QDateTime>
 #include <QPixmap>
 
-TabUi::TabUi(QWidget* parent) :
+TabUi::TabUi() :
     ui_(new Ui::TabUi)
 {
     ui_->setupUi(this);

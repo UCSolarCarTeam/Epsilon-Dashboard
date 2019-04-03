@@ -32,12 +32,10 @@ private:
     void connectAuxBMS(AuxBmsPresenter&);
 
     BatteryPresenter& batteryPresenter_;
-
+    I_BatteryUi& ui_;
+    ProgressBar& bar_;
     AuxBmsPresenter& auxBMSPresenter_;
 
-    I_BatteryUi& ui_;
-
-    ProgressBar& bar_;
     QList<QWidget*> fanSpeedList_;
     QList<QWidget*> requestedFanSpeedList_;
 

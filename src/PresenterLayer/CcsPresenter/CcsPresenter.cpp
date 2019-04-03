@@ -10,5 +10,5 @@ CcsPresenter::CcsPresenter(const I_CcsData& ccsData)
 void CcsPresenter::relayCcsData()
 {
     connect(&ccsData_, SIGNAL(ccsAliveReceived(bool)),
-            this, SIGNAL(ccsAliveRecieved(bool)));
+            this, SIGNAL(ccsAliveReceived(bool)));
 }

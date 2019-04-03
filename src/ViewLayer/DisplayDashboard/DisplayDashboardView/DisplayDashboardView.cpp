@@ -138,6 +138,7 @@ void DisplayDashboardView::connectMppt(MpptPresenter& mpptPresenter)
 
 void DisplayDashboardView::connectMotorDetails(MotorDetailsPresenter& motorDetailsPresenter)
 {
+    Q_UNUSED(motorDetailsPresenter);
 }
 
 void DisplayDashboardView::connectMotorFaults(MotorFaultsPresenter& motorFaultsPresenter)
