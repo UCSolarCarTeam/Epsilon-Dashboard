@@ -34,39 +34,27 @@ EpsilonDashboard::EpsilonDashboard(int& argc, char** argv)
 
     parser.process(*this);
     Mode mode = Mode::DISPLAY;
-
+    bool windowed = false;
+    if(parser.isSet(windowedMode))
+    {
+        windowed = true;
+    }
     if (parser.isSet(raceModeOption))
     {
         mode = Mode::RACE;
         infrastructureContainer_->setQueueName(RACE_QUEUE);
-
-        if(parser.isSet(windowedMode))
-        {
-            //launch it in windowed mode
-        }
     }
     else if (parser.isSet(debugModeOption))
     {
         mode = Mode::DEBUG;
         infrastructureContainer_->setQueueName(DEBUG_QUEUE);
-
-        if(parser.isSet(windowedMode))
-        {
-            //launch it in windowed mode
-        }
-
     }
     else
     {
         infrastructureContainer_->setQueueName(DISPLAY_QUEUE);
-
-        if(parser.isSet(windowedMode))
-        {
-            //launch it in windowed mode
-        }
     }
 
-    viewContainer_.reset(new ViewContainer(*presenterContainer_, mode));
+    viewContainer_.reset(new ViewContainer(*presenterContainer_, mode, windowed)); //pass in a third boolean variable
     communicationContainer_.reset(new CommunicationContainer(*businessContainer_, *infrastructureContainer_));
 }
 

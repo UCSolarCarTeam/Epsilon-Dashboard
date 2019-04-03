@@ -50,6 +50,7 @@ public:
     QLabel& powerOutLabel();
     QLabel& netPowerLabel();
 
+    void setNotWindowed();
 
 private:
     Ui::RaceModeDashboardUI* ui_;

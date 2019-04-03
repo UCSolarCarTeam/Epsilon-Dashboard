@@ -32,6 +32,7 @@ public slots:
     void handlefaultButtonClicked();
     void handleMotorButtonClicked();
     void handleMPPTButtonClicked();
+    void setNotWindowed();
 private:
     I_BatteryUi& batteryUi_;
     I_ControlUi& controlUi_;

@@ -8,12 +8,6 @@ RaceModeDashboardUI::RaceModeDashboardUI()
     : ui_(new Ui::RaceModeDashboardUI)
 {
     ui_->setupUi(this);
-
-    if("not -w")
-    {
-        setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
-    }
-
     setGeometry(
         QStyle::alignedRect(
             Qt::LeftToRight,
@@ -28,6 +22,10 @@ RaceModeDashboardUI::RaceModeDashboardUI()
 RaceModeDashboardUI::~RaceModeDashboardUI()
 {
     delete ui_;
+}
+
+void RaceModeDashboardUI::setNotWindowed(){
+    setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
 }
 
 QLabel& RaceModeDashboardUI::actualSpeedLabel()

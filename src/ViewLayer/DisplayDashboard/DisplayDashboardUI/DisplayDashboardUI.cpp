@@ -7,7 +7,6 @@ DisplayDashboardUI::DisplayDashboardUI()
     : ui_(new Ui::DisplayDashboardUI)
 {
     ui_->setupUi(this);
-    setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
     setGeometry(
         QStyle::alignedRect(
             Qt::LeftToRight,
@@ -22,6 +21,10 @@ DisplayDashboardUI::DisplayDashboardUI()
 DisplayDashboardUI::~DisplayDashboardUI()
 {
     delete ui_;
+}
+
+void DisplayDashboardUI::setNotWindowed(){
+    setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
 }
 
 QLabel& DisplayDashboardUI::actualSpeedLabel()

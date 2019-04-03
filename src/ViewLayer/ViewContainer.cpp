@@ -20,7 +20,8 @@
 #include "DebugDisplay/MPPTPage/MPPTUi/MpptUi.h"
 #include "DebugDisplay/MPPTPage/MPPTView/MpptView.h"
 
-ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
+
+ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode, bool windowed)
 
 {
     if (mode == Mode::DISPLAY)
@@ -43,6 +44,10 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
                                         *motorZeroFaultList,
                                         *motorOneFaultList,
                                         *batteryFaultList));
+
+        if(!windowed){
+            DisplayDashboardUI_->setNotWindowed();
+        }
     }
     else if (mode == Mode::RACE)
     {
@@ -64,6 +69,9 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
                                          *motorZeroFaultList,
                                          *motorOneFaultList,
                                          *batteryFaultList));
+        if(!windowed){
+            RaceModeDashboardUI_->setNotWindowed();
+        }
     }
     else if (mode == Mode::DEBUG)
     {
@@ -103,6 +111,10 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
                                            presenterContainer.lightsPresenter(),
                                            *controlUi_));
         HomePageView_.reset(new HomePageView(*homepageUi_));
+
+        if(!windowed){
+            overlordWidget_->setNotWindowed();
+        }
     }
 }
 

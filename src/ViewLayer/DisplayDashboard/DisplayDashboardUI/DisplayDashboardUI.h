@@ -59,6 +59,9 @@ public:
     QLabel& powerOutLabel();
     QLabel& netPowerLabel();
 
+    void setNotWindowed();
+
 private:
     Ui::DisplayDashboardUI* ui_;
+
 };
