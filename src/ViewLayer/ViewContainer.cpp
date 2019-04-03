@@ -98,7 +98,10 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
 
 
         MpptView_.reset(new MpptView(presenterContainer.mpptPresenter(), *mpptUi_));
-        ControlView_.reset(new ControlView(presenterContainer.driverControlsPresenter(), presenterContainer.lightsPresenter(), *controlUi_));
+        ControlView_.reset(new ControlView(presenterContainer.ccsPresenter(),
+                                           presenterContainer.driverControlsPresenter(),
+                                           presenterContainer.lightsPresenter(),
+                                           *controlUi_));
         HomePageView_.reset(new HomePageView(*homepageUi_));
     }
 }

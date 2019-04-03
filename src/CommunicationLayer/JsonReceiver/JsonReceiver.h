@@ -12,6 +12,7 @@
 #include "../BusinessLayer/DataPopulators/MpptPopulator/I_MpptPopulator.h"
 #include "../BusinessLayer/DataPopulators/MotorDetailsPopulator/I_MotorDetailsPopulator.h"
 #include "../BusinessLayer/DataPopulators/MotorFaultsPopulator/I_MotorFaultsPopulator.h"
+#include "../BusinessLayer/DataPopulators/CcsPopulator.h"
 #include "../BusinessLayer/CommunicationsMonitoringService/I_CommunicationsMonitoringService.h"
 
 #include "../CommDeviceControl/I_CommDevice.h"
@@ -26,6 +27,8 @@ class I_LightsPopulator;
 class I_MpptPopulator;
 class I_MotorDetailsPopulator;
 class I_MotorFaultsPopulator;
+
+class CcsPopulator;
 class I_CommunicationsMonitoringService;
 class Logging;
 
@@ -36,6 +39,7 @@ public:
     JsonReceiver(I_AuxBmsPopulator& auxBmsPopulator,
                  I_BatteryPopulator& batteryPopulator,
                  I_BatteryFaultsPopulator& batteryFaultsPopulator,
+                 CcsPopulator& ccsPopulator,
                  I_DriverControlsPopulator& driverControlsPopulator,
                  I_KeyMotorPopulator& keyMotorPopulator,
                  I_LightsPopulator& lightsPopulator,
@@ -59,6 +63,7 @@ private:
     I_MpptPopulator& mpptPopulator_;
     I_MotorDetailsPopulator& motorDetailsPopulator_;
     I_MotorFaultsPopulator& motorFaultsPopulator_;
+    CcsPopulator& ccsPopulator_;
     I_CommunicationsMonitoringService& communicationsMonitoringService_;
     bool loggingEnabled_;
     Logging* logger_;

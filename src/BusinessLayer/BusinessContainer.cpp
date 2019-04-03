@@ -1,6 +1,7 @@
 #include "BusinessContainer.h"
 #include "CommunicationsMonitoringService/CommunicationsMonitoringService.h"
 #include "../DataLayer/DataContainer.h"
+
 #include "DataPopulators/AuxBmsPopulator/AuxBmsPopulator.h"
 #include "DataPopulators/BatteryFaultsPopulator/BatteryFaultsPopulator.h"
 #include "DataPopulators/BatteryPopulator/BatteryPopulator.h"
@@ -10,6 +11,8 @@
 #include "DataPopulators/MpptPopulator/MpptPopulator.h"
 #include "DataPopulators/MotorDetailsPopulator/MotorDetailsPopulator.h"
 #include "DataPopulators/MotorFaultsPopulator/MotorFaultsPopulator.h"
+#include "DataPopulators/CcsPopulator.h"
+
 
 class BusinessContainerPrivate
 {
@@ -18,6 +21,7 @@ public:
         : auxBmsPopulator_(dataContainer.auxBmsData())
         , batteryPopulator_(dataContainer.batteryData())
         , batteryFaultsPopulator_(dataContainer.batteryFaultsData())
+        , ccsPopulator_(dataContainer.ccsData())
         , driverControlsPopulator_(dataContainer.driverControlsData())
         , keyMotorPopulator_(dataContainer.keyMotorData())
         , lightsPopulator_(dataContainer.lightsData())
@@ -29,6 +33,7 @@ public:
     AuxBmsPopulator auxBmsPopulator_;
     BatteryPopulator batteryPopulator_;
     BatteryFaultsPopulator batteryFaultsPopulator_;
+    CcsPopulator ccsPopulator_;
     DriverControlsPopulator driverControlsPopulator_;
     KeyMotorPopulator keyMotorPopulator_;
     LightsPopulator lightsPopulator_;
@@ -59,6 +64,13 @@ I_BatteryPopulator& BusinessContainer::batteryPopulator()
 I_BatteryFaultsPopulator& BusinessContainer::batteryFaultsPopulator()
 {
     return impl_->batteryFaultsPopulator_;
+}
+
+
+
+CcsPopulator& BusinessContainer::ccsPopulator()
+{
+    return impl_->ccsPopulator_;
 }
 
 I_DriverControlsPopulator& BusinessContainer::driverControlsPopulator()

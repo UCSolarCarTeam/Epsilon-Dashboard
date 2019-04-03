@@ -29,8 +29,8 @@ HEADERS += \
     DataPopulators/DriverControlsPopulator/I_DriverControlsPopulator.h \
     DataPopulators/BatteryPopulator/I_BatteryPopulator.h \
     DataPopulators/BatteryFaultsPopulator/I_BatteryFaultsPopulator.h \
-    DataPopulators/AuxBmsPopulator/I_AuxBmsPopulator.h
-
+    DataPopulators/AuxBmsPopulator/I_AuxBmsPopulator.h \
+    DataPopulators/CcsPopulator.h
 
 SOURCES += \ 
     BusinessContainer.cpp \
@@ -44,3 +44,4 @@ SOURCES += \
     DataPopulators/MotorDetailsPopulator/MotorDetailsPopulator.cpp \
     DataPopulators/MotorFaultsPopulator/MotorFaultsPopulator.cpp \
     DataPopulators/MpptPopulator/MpptPopulator.cpp \
+    DataPopulators/CcsPopulator.cpp

@@ -3,6 +3,7 @@
 #include <QLabel>
 
 #include "../../../../DataLayer/DriverControlsData/DriverControlsData.h"
+#include "../../../../PresenterLayer/CcsPresenter/CcsPresenter.h"
 #include "../../../../PresenterLayer/DriverControlsPresenter/DriverControlsPresenter.h"
 #include "../../../../PresenterLayer/LightsPresenter/LightsPresenter.h"
 #include "../../ControlPage/ControlUi/I_ControlUi.h"
@@ -13,14 +14,18 @@ class ControlView : public QObject
 {
     Q_OBJECT
 public:
-    ControlView(DriverControlsPresenter& driverControlsPresenter, LightsPresenter& LightsPresenter,
+    ControlView(CcsPresenter& CcsPresenter,
+                DriverControlsPresenter& driverControlsPresenter,
+                LightsPresenter& LightsPresenter,
                 I_ControlUi& ui);
     ~ControlView();
 
 private:
+    void connectCcs(CcsPresenter&);
     void connectDriverControls(DriverControlsPresenter&);
     void connectLights(LightsPresenter&);
 
+    CcsPresenter& ccsPresenter_;
     DriverControlsPresenter& driverControlsPresenter_;
     LightsPresenter& lightsPresenter_;
 
@@ -29,6 +34,7 @@ private:
 private slots:
     void aliveReceived(bool);
     void aliveLights(bool);
+    void ccsAliveRecieved(bool);
 
     void lowHeadlightsReceived(bool);
     void highHeadlightsReceived(bool);

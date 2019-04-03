@@ -214,7 +214,7 @@ namespace JsonFormat
     const QString LIGHTS_RIGHTSIGNAL = "RightSignal";
     const QString LIGHTS_BMSSTROBELIGHT = "BmsStrobeLight";
 
-    // AuxBmsData
+// AuxBmsData
     const QString AUXBMS = "AuxBms";
     const QString AUXBMS_PRECHARGESTATE = "PrechargeState";
     const QString AUXBMS_AUXVOLTAGE = "AuxVoltage";
@@ -223,4 +223,8 @@ namespace JsonFormat
     const QString AUXBMS_ALLOWCHARGE = "AllowCharge";
     const QString AUXBMS_CONTACTORERROR = "ContactorError";
     const QString AUXBMS_HIGHVOLTAGEENABLE = "HighVoltageEnable";
+
+// Ccs
+    const QString CCS = "Ccs";
+    const QString CCS_ALIVE = "CcsAlive";
 }

@@ -27,6 +27,11 @@ QLabel& ControlUi::lightsIndicator()
     return *ui_->lightsIndicator;
 }
 
+QLabel& ControlUi::ccsAlive()
+{
+    return *ui_->ccsAlive;
+}
+
 QLabel& ControlUi::highHeadlightsLabel()
 {
     return *ui_->highHeadlightsLabel;

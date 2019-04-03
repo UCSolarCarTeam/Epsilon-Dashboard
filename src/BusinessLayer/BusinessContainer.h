@@ -13,6 +13,7 @@ class I_LightsPopulator;
 class I_MpptPopulator;
 class I_MotorDetailsPopulator;
 class I_MotorFaultsPopulator;
+class CcsPopulator;
 class I_CommunicationsMonitoringService;
 
 class BusinessContainerPrivate;
@@ -22,7 +23,6 @@ class BusinessContainer
 public:
     explicit BusinessContainer(DataContainer& dataContainer);
     ~BusinessContainer();
-
     I_AuxBmsPopulator& auxBmsPopulator();
     I_BatteryPopulator& batteryPopulator();
     I_BatteryFaultsPopulator& batteryFaultsPopulator();
@@ -32,6 +32,7 @@ public:
     I_MpptPopulator& mpptPopulator();
     I_MotorDetailsPopulator& motorDetailsPopulator();
     I_MotorFaultsPopulator& motorFaultsPopulator();
+    CcsPopulator& ccsPopulator();
     I_CommunicationsMonitoringService& communicationsMonitoringService();
 private:
     QScopedPointer<I_CommunicationsMonitoringService> communicationsMonitoringService_;
