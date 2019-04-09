@@ -3,6 +3,8 @@
 
 #include <QDesktopWidget>
 #include <QApplication>
+#include <QFontDatabase>
+#include <QDebug>
 
 RaceModeDashboardUI::RaceModeDashboardUI()
     : ui_(new Ui::RaceModeDashboardUI)
@@ -17,6 +19,14 @@ RaceModeDashboardUI::RaceModeDashboardUI()
             QApplication::desktop()->screenGeometry()
         )
     );
+    int LcdFontId = QFontDatabase::addApplicationFont(":/fonts/Resource/fonts/LCD-BOLD.TTF");
+    QString family = QFontDatabase::applicationFontFamilies(LcdFontId).at(0);
+    qDebug() << family;
+    QFont lcd(family, 45, QFont::Bold);
+    actualSpeedLabel().setFont(lcd);
+    QFont lcd2(family, 20, QFont::Bold);
+    stateOfChargeCapacityWidget().setFont(lcd2);
+    ui_->widget->setFont(lcd2);
     show();
 }
 

@@ -437,6 +437,13 @@
     </disabled>
    </palette>
   </property>
+  <property name="font">
+   <font>
+    <family>DejaVu Sans</family>
+    <weight>75</weight>
+    <bold>true</bold>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Race Mode Dashboard</string>
   </property>
@@ -461,6 +468,13 @@
    </property>
    <item>
     <widget class="QWidget" name="widget" native="true">
+     <property name="font">
+      <font>
+       <family>DejaVu Sans</family>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
      <widget class="QWidget" name="TopLeftCorner" native="true">
       <property name="geometry">
        <rect>
@@ -469,6 +483,13 @@
         <width>471</width>
         <height>241</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
       </property>
       <widget class="QWidget" name="gridLayoutWidget_2">
        <property name="geometry">
@@ -484,9 +505,18 @@
          <layout class="QGridLayout" name="setCurrentWidget">
           <item row="1" column="0" colspan="3">
            <widget class="QLabel" name="setCurrentTitleLabel">
+            <property name="font">
+             <font>
+              <family>DejaVu Sans</family>
+              <pointsize>8</pointsize>
+              <weight>75</weight>
+              <italic>false</italic>
+              <bold>true</bold>
+             </font>
+            </property>
             <property name="styleSheet">
              <string notr="true">QLabel {
-font: bold 8pt &quot;Arial Unicode MS&quot;;
+font: bold 8pt;
 qproperty-alignment: AlignHCenter;
 color: rgb(100,100,100);
 }
@@ -500,9 +530,17 @@ color: rgb(100,100,100);
           </item>
           <item row="0" column="2">
            <widget class="QLabel" name="setCurrentUnitsLabel">
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
             <property name="styleSheet">
              <string notr="true">QLabel {
-font: 14pt &quot;Burlingame Pro&quot;;
+font: 14pt;
 color: white;
 qproperty-alignment: 'AlignBottom | AlignLeft';
 }</string>
@@ -514,9 +552,17 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
           </item>
           <item row="0" column="0" colspan="2">
            <widget class="QLabel" name="setCurrentLabel">
+            <property name="font">
+             <font>
+              <pointsize>24</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
             <property name="styleSheet">
              <string notr="true">QLabel {
-font: 24pt &quot;Burlingame Pro&quot;;
+font: 24pt;
 color: white;
 qproperty-alignment: 'AlignBottom | AlignRight';
 }</string>
@@ -532,9 +578,18 @@ qproperty-alignment: 'AlignBottom | AlignRight';
          <layout class="QGridLayout" name="motorPowerWidget">
           <item row="1" column="0" colspan="3">
            <widget class="QLabel" name="motorPowerTitleLabel">
+            <property name="font">
+             <font>
+              <family>DejaVu Sans</family>
+              <pointsize>8</pointsize>
+              <weight>75</weight>
+              <italic>false</italic>
+              <bold>true</bold>
+             </font>
+            </property>
             <property name="styleSheet">
              <string notr="true">QLabel {
-font: bold 8pt &quot;Arial Unicode MS&quot;;
+font: bold 8pt;
 qproperty-alignment: AlignHCenter;
 color: rgb(100,100,100);
 }
@@ -548,9 +603,17 @@ color: rgb(100,100,100);
           </item>
           <item row="0" column="2">
            <widget class="QLabel" name="motorPowerUnitsLabel">
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
             <property name="styleSheet">
              <string notr="true">QLabel {
-font: 14pt &quot;Burlingame Pro&quot;;
+font: 14pt;
 color: white;
 qproperty-alignment: 'AlignBottom | AlignLeft';
 }</string>
@@ -562,9 +625,17 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
           </item>
           <item row="0" column="0" colspan="2">
            <widget class="QLabel" name="motorPowerLabel">
+            <property name="font">
+             <font>
+              <family>DejaVu Sans</family>
+              <pointsize>24</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
             <property name="styleSheet">
              <string notr="true">QLabel {
-font: 24pt &quot;Burlingame Pro&quot;;
 color: white;
 qproperty-alignment: 'AlignBottom | AlignRight';
 }</string>
@@ -590,8 +661,17 @@ qproperty-alignment: 'AlignBottom | AlignRight';
        <layout class="QGridLayout" name="ActualSpeed">
         <item row="2" column="1">
          <widget class="QLabel" name="actualSpeedUnitsLabel">
+          <property name="font">
+           <font>
+            <family>DejaVu Sans</family>
+            <pointsize>14</pointsize>
+            <weight>75</weight>
+            <italic>false</italic>
+            <bold>true</bold>
+           </font>
+          </property>
           <property name="styleSheet">
-           <string notr="true">font: 75 bold 14pt &quot;Nimbus Sans L&quot;;
+           <string notr="true">font: 75 bold 14pt;
 padding-top:60px;
 padding-left: -6px;
 color: white;</string>
@@ -611,7 +691,7 @@ color: white;</string>
           </property>
           <property name="font">
            <font>
-            <family>LCDMono</family>
+            <family>DejaVu Sans</family>
             <pointsize>20</pointsize>
             <weight>50</weight>
             <italic>false</italic>
@@ -664,7 +744,7 @@ color: white;
           </property>
           <property name="font">
            <font>
-            <family>LCDMono</family>
+            <family>DejaVu Sans</family>
             <pointsize>45</pointsize>
             <weight>75</weight>
             <italic>false</italic>
@@ -675,8 +755,7 @@ color: white;
            <bool>false</bool>
           </property>
           <property name="styleSheet">
-           <string notr="true">font: bold 45pt &quot;LCDMono&quot;;
-text-align: right;
+           <string notr="true">text-align: right;
 color: white;</string>
           </property>
           <property name="text">
@@ -707,6 +786,13 @@ color: white;</string>
             <height>20</height>
            </size>
           </property>
+          <property name="font">
+           <font>
+            <family>DejaVu Sans</family>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
           <property name="styleSheet">
            <string notr="true">QLabel {
 qproperty-alignment: AlignHCenter;
@@ -731,6 +817,13 @@ color: rgb(100,100,100);
         <width>331</width>
         <height>251</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
       </property>
       <widget class="QWidget" name="gridLayoutWidget_4">
        <property name="geometry">
@@ -770,8 +863,10 @@ color: rgb(100,100,100);
                 </property>
                 <property name="font">
                  <font>
-                  <family>Noto Sans [unknown]</family>
+                  <family>DejaVu Sans</family>
                   <pointsize>12</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
                  </font>
                 </property>
                 <property name="styleSheet">
@@ -806,7 +901,10 @@ color: rgb(100,100,100);
                <widget class="QLabel" name="prechargeStateLabel">
                 <property name="font">
                  <font>
+                  <family>DejaVu Sans</family>
                   <pointsize>13</pointsize>
+                  <weight>50</weight>
+                  <bold>false</bold>
                  </font>
                 </property>
                 <property name="styleSheet">
@@ -917,8 +1015,17 @@ background: url(:/Resources/Thermometer.png);
                       <height>16777215</height>
                      </size>
                     </property>
+                    <property name="font">
+                     <font>
+                      <family>DejaVu Sans</family>
+                      <pointsize>18</pointsize>
+                      <weight>50</weight>
+                      <italic>false</italic>
+                      <bold>false</bold>
+                     </font>
+                    </property>
                     <property name="styleSheet">
-                     <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
+                     <string notr="true">font: 18pt;
 color:white;</string>
                     </property>
                     <property name="text">
@@ -928,9 +1035,18 @@ color:white;</string>
                   </item>
                   <item row="0" column="1">
                    <widget class="QLabel" name="avgCellTemperatureUnitsLabel">
+                    <property name="font">
+                     <font>
+                      <family>DejaVu Sans</family>
+                      <pointsize>10</pointsize>
+                      <weight>50</weight>
+                      <italic>false</italic>
+                      <bold>false</bold>
+                     </font>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true">QLabel {
-font: 10pt &quot;Burlingame Pro&quot;;
+font: 10pt;
 color: white;
 qproperty-alignment: 'AlignBottom | AlignLeft';
 }</string>
@@ -942,9 +1058,17 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
                   </item>
                   <item row="1" column="0" rowspan="2" colspan="2">
                    <widget class="QLabel" name="avgCellTemperatureTitleLabel">
+                    <property name="font">
+                     <font>
+                      <pointsize>10</pointsize>
+                      <weight>50</weight>
+                      <italic>false</italic>
+                      <bold>false</bold>
+                     </font>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true">QLabel {
-font: 10pt &quot;Burlingame Pro&quot;;
+font: 10pt;
 color: white;
 qproperty-alignment: 'AlignHCenter';
 }</string>
@@ -966,9 +1090,18 @@ qproperty-alignment: 'AlignHCenter';
                   </property>
                   <item row="1" column="1" alignment="Qt::AlignLeft">
                    <widget class="QLabel" name="lowestCellVoltageUnitsLabel">
+                    <property name="font">
+                     <font>
+                      <family>DejaVu Sans</family>
+                      <pointsize>10</pointsize>
+                      <weight>50</weight>
+                      <italic>false</italic>
+                      <bold>false</bold>
+                     </font>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true">QLabel {
-font: 10pt &quot;Burlingame Pro&quot;;
+font: 10pt;
 color: white;
 qproperty-alignment: 'AlignBottom | AlignLeft';
 }</string>
@@ -986,9 +1119,17 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
                       <height>17</height>
                      </size>
                     </property>
+                    <property name="font">
+                     <font>
+                      <pointsize>10</pointsize>
+                      <weight>50</weight>
+                      <italic>false</italic>
+                      <bold>false</bold>
+                     </font>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true">QLabel {
-font: 10pt &quot;Burlingame Pro&quot;;
+font: 10pt;
 color: white;
 qproperty-alignment: 'AlignHCenter';
 }</string>
@@ -1006,8 +1147,17 @@ qproperty-alignment: 'AlignHCenter';
                       <height>16777215</height>
                      </size>
                     </property>
+                    <property name="font">
+                     <font>
+                      <family>DejaVu Sans</family>
+                      <pointsize>18</pointsize>
+                      <weight>50</weight>
+                      <italic>false</italic>
+                      <bold>false</bold>
+                     </font>
+                    </property>
                     <property name="styleSheet">
-                     <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
+                     <string notr="true">font: 18pt;
 padding-left: 4px;
 color:white;</string>
                     </property>
@@ -1019,35 +1169,52 @@ color:white;</string>
                  </layout>
                 </item>
                 <item row="1" column="1">
-                 <layout class="QGridLayout" name="avgCellVoltage" rowminimumheight="0,0">
+                 <layout class="QGridLayout" name="avgCellVoltage">
                   <property name="sizeConstraint">
                    <enum>QLayout::SetMaximumSize</enum>
                   </property>
-                  <item row="0" column="1" alignment="Qt::AlignLeft">
-                   <widget class="QLabel" name="avgCellVoltageUnitsLabel">
-                    <property name="styleSheet">
-                     <string notr="true">QLabel {
-font: 10pt &quot;Burlingame Pro&quot;;
-color: white;
-qproperty-alignment: 'AlignBottom | AlignLeft';
-}</string>
-                    </property>
-                    <property name="text">
-                     <string>V</string>
-                    </property>
-                   </widget>
-                  </item>
                   <item row="1" column="0" colspan="2">
                    <widget class="QLabel" name="avgCellVoltageTitleLabel">
+                    <property name="font">
+                     <font>
+                      <pointsize>10</pointsize>
+                      <weight>50</weight>
+                      <italic>false</italic>
+                      <bold>false</bold>
+                     </font>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true">QLabel {
-font: 10pt &quot;Burlingame Pro&quot;;
+font: 10pt;
 color: white;
 qproperty-alignment: 'AlignHCenter';
 }</string>
                     </property>
                     <property name="text">
                      <string>A V G</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1" alignment="Qt::AlignLeft">
+                   <widget class="QLabel" name="avgCellVoltageUnitsLabel">
+                    <property name="font">
+                     <font>
+                      <family>DejaVu Sans</family>
+                      <pointsize>10</pointsize>
+                      <weight>50</weight>
+                      <italic>false</italic>
+                      <bold>false</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QLabel {
+font: 10pt;
+color: white;
+qproperty-alignment: 'AlignBottom | AlignLeft';
+}</string>
+                    </property>
+                    <property name="text">
+                     <string>V</string>
                     </property>
                    </widget>
                   </item>
@@ -1059,8 +1226,17 @@ qproperty-alignment: 'AlignHCenter';
                       <height>16777215</height>
                      </size>
                     </property>
+                    <property name="font">
+                     <font>
+                      <family>DejaVu Sans</family>
+                      <pointsize>18</pointsize>
+                      <weight>50</weight>
+                      <italic>false</italic>
+                      <bold>false</bold>
+                     </font>
+                    </property>
                     <property name="styleSheet">
-                     <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
+                     <string notr="true">font: 18pt;
 padding-left: 4px;
 color:white;</string>
                     </property>
@@ -1075,9 +1251,17 @@ color:white;</string>
                  <layout class="QGridLayout" name="maxCellTemp">
                   <item row="1" column="0" colspan="2">
                    <widget class="QLabel" name="maxCellTemperatureTitleLabel">
+                    <property name="font">
+                     <font>
+                      <pointsize>10</pointsize>
+                      <weight>50</weight>
+                      <italic>false</italic>
+                      <bold>false</bold>
+                     </font>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true">QLabel {
-font: 10pt &quot;Burlingame Pro&quot;;
+font: 10pt;
 color: white;
 qproperty-alignment: 'AlignHCenter | AlignBottom';
 }</string>
@@ -1095,8 +1279,17 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                       <height>16777215</height>
                      </size>
                     </property>
+                    <property name="font">
+                     <font>
+                      <family>DejaVu Sans</family>
+                      <pointsize>18</pointsize>
+                      <weight>50</weight>
+                      <italic>false</italic>
+                      <bold>false</bold>
+                     </font>
+                    </property>
                     <property name="styleSheet">
-                     <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
+                     <string notr="true">font: 18pt;
 color:white;</string>
                     </property>
                     <property name="text">
@@ -1112,9 +1305,18 @@ color:white;</string>
                       <height>16777215</height>
                      </size>
                     </property>
+                    <property name="font">
+                     <font>
+                      <family>DejaVu Sans</family>
+                      <pointsize>10</pointsize>
+                      <weight>50</weight>
+                      <italic>false</italic>
+                      <bold>false</bold>
+                     </font>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true">QLabel {
-font: 10pt &quot;Burlingame Pro&quot;;
+font: 10pt;
 color: white;
 qproperty-alignment: 'AlignBottom | AlignLeft';
 }</string>
@@ -1130,8 +1332,17 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
               </item>
               <item row="0" column="1">
                <widget class="QLabel" name="cellTitleWidget">
+                <property name="font">
+                 <font>
+                  <family>DejaVu Sans</family>
+                  <pointsize>12</pointsize>
+                  <weight>75</weight>
+                  <italic>false</italic>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="styleSheet">
-                 <string notr="true">font: bold 12pt &quot;Arial Unicode MS&quot;;
+                 <string notr="true">font: bold 12pt;
 color: rgb(100,100,100);</string>
                 </property>
                 <property name="text">
@@ -1157,12 +1368,19 @@ color: rgb(100,100,100);</string>
         <height>221</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <widget class="QWidget" name="gridLayoutWidget_18">
        <property name="geometry">
         <rect>
          <x>-20</x>
          <y>0</y>
-         <width>372</width>
+         <width>411</width>
          <height>231</height>
         </rect>
        </property>
@@ -1171,6 +1389,13 @@ color: rgb(100,100,100);</string>
          <layout class="QGridLayout" name="auxVoltage">
           <item row="1" column="1">
            <widget class="QLabel" name="auxVoltageUnitsLabel">
+            <property name="font">
+             <font>
+              <family>DejaVu Sans</family>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
             <property name="styleSheet">
              <string notr="true">color: rgb(100,100,100);
 padding-bottom: 20px;
@@ -1183,8 +1408,16 @@ padding-left: -4px;</string>
           </item>
           <item row="1" column="0">
            <widget class="QLabel" name="auxVoltageLabel">
+            <property name="font">
+             <font>
+              <pointsize>18</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
             <property name="styleSheet">
-             <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
+             <string notr="true">font: 18pt;
 padding-left: 60px;
 padding-right: -8px;
 padding-bottom: 25px;
@@ -1200,6 +1433,13 @@ color:white;</string>
           </item>
           <item row="0" column="0" colspan="2">
            <widget class="QLabel" name="auxVoltageTitleLabel">
+            <property name="font">
+             <font>
+              <family>DejaVu Sans</family>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
             <property name="styleSheet">
              <string notr="true">color: rgb(100,100,100);
 padding-top: 35px;</string>
@@ -1215,8 +1455,16 @@ padding-top: 35px;</string>
          <layout class="QGridLayout" name="Bus">
           <item row="1" column="2">
            <widget class="QLabel" name="busCurrentLabel">
+            <property name="font">
+             <font>
+              <pointsize>18</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
             <property name="styleSheet">
-             <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
+             <string notr="true">font: 18pt;
 color:white;
 padding-bottom: 25px;
 padding-left: 5px;
@@ -1229,8 +1477,16 @@ padding-right: -7px;</string>
           </item>
           <item row="1" column="0">
            <widget class="QLabel" name="busVoltageLabel">
+            <property name="font">
+             <font>
+              <pointsize>18</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
             <property name="styleSheet">
-             <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
+             <string notr="true">font: 18pt;
 color:white;
 padding-bottom: 25px;
 padding-left: 5px;
@@ -1255,6 +1511,13 @@ padding-left: -4px;</string>
           </item>
           <item row="1" column="1">
            <widget class="QLabel" name="busCurrentUnitsLabel_2">
+            <property name="font">
+             <font>
+              <family>DejaVu Sans</family>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
             <property name="styleSheet">
              <string notr="true">color: rgb(100,100,100);
 padding-bottom: 20px;
@@ -1267,6 +1530,13 @@ padding-left: -4px;</string>
           </item>
           <item row="0" column="1" colspan="2">
            <widget class="QLabel" name="busTitleLabel">
+            <property name="font">
+             <font>
+              <family>DejaVu Sans</family>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
             <property name="styleSheet">
              <string notr="true">color: rgb(100,100,100);
 padding-top: 35px;</string>
@@ -1296,8 +1566,16 @@ padding-top: 35px;</string>
                 <height>0</height>
                </size>
               </property>
+              <property name="font">
+               <font>
+                <pointsize>14</pointsize>
+                <weight>50</weight>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
               <property name="styleSheet">
-               <string notr="true">font: 14pt &quot;Burlingame Pro&quot;;
+               <string notr="true">font: 14pt;
 padding-right: -9px;
 padding-left: 12px;
 color:white;</string>
@@ -1309,6 +1587,13 @@ color:white;</string>
             </item>
             <item row="0" column="1" alignment="Qt::AlignLeft">
              <widget class="QLabel" name="powerInUnitsLabel">
+              <property name="font">
+               <font>
+                <family>DejaVu Sans</family>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
               <property name="styleSheet">
                <string notr="true">color: rgb(100,100,100);</string>
               </property>
@@ -1319,6 +1604,13 @@ color:white;</string>
             </item>
             <item row="2" column="0" colspan="2">
              <widget class="QLabel" name="powerInTitleLabel">
+              <property name="font">
+               <font>
+                <family>DejaVu Sans</family>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
               <property name="styleSheet">
                <string notr="true">color: rgb(100,100,100);</string>
               </property>
@@ -1333,6 +1625,13 @@ color:white;</string>
            <layout class="QGridLayout" name="powerNet">
             <item row="1" column="0" colspan="2">
              <widget class="QLabel" name="netPowerTitleLabel">
+              <property name="font">
+               <font>
+                <family>DejaVu Sans</family>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
               <property name="styleSheet">
                <string notr="true">color: rgb(100,100,100);</string>
               </property>
@@ -1355,8 +1654,16 @@ color:white;</string>
                 <height>0</height>
                </size>
               </property>
+              <property name="font">
+               <font>
+                <pointsize>14</pointsize>
+                <weight>50</weight>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
               <property name="styleSheet">
-               <string notr="true">font: 14pt &quot;Burlingame Pro&quot;;
+               <string notr="true">font: 14pt;
 color:white;</string>
               </property>
               <property name="text">
@@ -1366,6 +1673,13 @@ color:white;</string>
             </item>
             <item row="0" column="1" alignment="Qt::AlignLeft">
              <widget class="QLabel" name="netPowerUnitsLabel">
+              <property name="font">
+               <font>
+                <family>DejaVu Sans</family>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
               <property name="styleSheet">
                <string notr="true">color: rgb(100,100,100);</string>
               </property>
@@ -1380,6 +1694,13 @@ color:white;</string>
            <layout class="QGridLayout" name="powerOut">
             <item row="0" column="1">
              <widget class="QLabel" name="powerOutUnitsLabel">
+              <property name="font">
+               <font>
+                <family>DejaVu Sans</family>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
               <property name="styleSheet">
                <string notr="true">color: rgb(100,100,100);
 padding-right: -44px;</string>
@@ -1391,6 +1712,13 @@ padding-right: -44px;</string>
             </item>
             <item row="1" column="0" colspan="2" alignment="Qt::AlignLeft">
              <widget class="QLabel" name="powerOutTitleLabel">
+              <property name="font">
+               <font>
+                <family>DejaVu Sans</family>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
               <property name="styleSheet">
                <string notr="true">color: rgb(100,100,100);</string>
               </property>
@@ -1413,8 +1741,16 @@ padding-right: -44px;</string>
                 <height>0</height>
                </size>
               </property>
+              <property name="font">
+               <font>
+                <pointsize>14</pointsize>
+                <weight>50</weight>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
               <property name="styleSheet">
-               <string notr="true">font: 14pt &quot;Burlingame Pro&quot;;
+               <string notr="true">font: 14pt;
 padding-right: -9px;
 
 color:white;</string>
@@ -1430,10 +1766,10 @@ color:white;</string>
            <widget class="QLabel" name="powerTitleLabel">
             <property name="font">
              <font>
-              <family>Noto Sans</family>
+              <family>DejaVu Sans</family>
               <pointsize>9</pointsize>
-              <weight>50</weight>
-              <bold>false</bold>
+              <weight>75</weight>
+              <bold>true</bold>
              </font>
             </property>
             <property name="styleSheet">
@@ -1458,6 +1794,13 @@ padding-bottom: -25px;</string>
         <width>451</width>
         <height>241</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>DejaVu Sans</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
       </property>
       <widget class="QWidget" name="gridLayoutWidget_13">
        <property name="geometry">
@@ -1614,8 +1957,17 @@ padding-bottom: -25px;</string>
               <height>20</height>
              </size>
             </property>
+            <property name="font">
+             <font>
+              <family>DejaVu Sans</family>
+              <pointsize>10</pointsize>
+              <weight>75</weight>
+              <italic>false</italic>
+              <bold>true</bold>
+             </font>
+            </property>
             <property name="styleSheet">
-             <string notr="true">font: bold 10pt &quot;Arial Unicode MS&quot;;
+             <string notr="true">font: bold 10pt;
 color: rgb(100,100,100);</string>
             </property>
             <property name="text">
@@ -1643,8 +1995,17 @@ color: rgb(100,100,100);</string>
               <height>16777215</height>
              </size>
             </property>
+            <property name="font">
+             <font>
+              <family>DejaVu Sans</family>
+              <pointsize>11</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
             <property name="styleSheet">
-             <string notr="true">font: 11pt &quot;Burlingame Pro&quot;;
+             <string notr="true">font: 11pt;
 color:white;</string>
             </property>
             <property name="text">
@@ -1670,8 +2031,17 @@ color:white;</string>
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
+            <property name="font">
+             <font>
+              <family>DejaVu Sans</family>
+              <pointsize>11</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
             <property name="styleSheet">
-             <string notr="true">font: 11pt &quot;Burlingame Pro&quot;;
+             <string notr="true">font: 11pt;
 color:white;</string>
             </property>
             <property name="text">
@@ -1687,8 +2057,16 @@ color:white;</string>
               <height>20</height>
              </size>
             </property>
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+              <weight>75</weight>
+              <italic>false</italic>
+              <bold>true</bold>
+             </font>
+            </property>
             <property name="styleSheet">
-             <string notr="true">font: bold 10pt &quot;Arial Unicode MS&quot;;
+             <string notr="true">font: bold 10pt;
 color: rgb(100,100,100);</string>
             </property>
             <property name="text">
@@ -1704,8 +2082,17 @@ color: rgb(100,100,100);</string>
               <height>20</height>
              </size>
             </property>
+            <property name="font">
+             <font>
+              <family>DejaVu Sans</family>
+              <pointsize>10</pointsize>
+              <weight>75</weight>
+              <italic>false</italic>
+              <bold>true</bold>
+             </font>
+            </property>
             <property name="styleSheet">
-             <string notr="true">font: bold 10pt &quot;Arial Unicode MS&quot;;
+             <string notr="true">font: bold 10pt;
 color: rgb(100,100,100);</string>
             </property>
             <property name="text">
@@ -1721,8 +2108,17 @@ color: rgb(100,100,100);</string>
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
+            <property name="font">
+             <font>
+              <family>DejaVu Sans</family>
+              <pointsize>11</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
             <property name="styleSheet">
-             <string notr="true">font: 11pt &quot;Burlingame Pro&quot;;
+             <string notr="true">font: 11pt;
 color:white;</string>
             </property>
             <property name="text">
