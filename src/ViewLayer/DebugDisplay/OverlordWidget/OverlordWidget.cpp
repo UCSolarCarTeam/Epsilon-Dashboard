@@ -81,7 +81,8 @@ OverlordWidget::OverlordWidget(I_BatteryUi& batteryUi, \
     show();
 }
 
-void OverlordWidget::setNotWindowed(){
+void OverlordWidget::setNotWindowed()
+{
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
 }
 

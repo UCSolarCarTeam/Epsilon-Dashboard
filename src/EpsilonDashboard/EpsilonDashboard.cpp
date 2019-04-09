@@ -35,10 +35,12 @@ EpsilonDashboard::EpsilonDashboard(int& argc, char** argv)
     parser.process(*this);
     Mode mode = Mode::DISPLAY;
     bool windowed = false;
-    if(parser.isSet(windowedMode))
+
+    if (parser.isSet(windowedMode))
     {
         windowed = true;
     }
+
     if (parser.isSet(raceModeOption))
     {
         mode = Mode::RACE;

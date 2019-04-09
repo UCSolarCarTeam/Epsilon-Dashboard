@@ -24,7 +24,8 @@ RaceModeDashboardUI::~RaceModeDashboardUI()
     delete ui_;
 }
 
-void RaceModeDashboardUI::setNotWindowed(){
+void RaceModeDashboardUI::setNotWindowed()
+{
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
 }
 

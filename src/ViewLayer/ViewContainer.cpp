@@ -45,7 +45,8 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode, 
                                         *motorOneFaultList,
                                         *batteryFaultList));
 
-        if(!windowed){
+        if (!windowed)
+        {
             DisplayDashboardUI_->setNotWindowed();
         }
     }
@@ -69,7 +70,9 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode, 
                                          *motorZeroFaultList,
                                          *motorOneFaultList,
                                          *batteryFaultList));
-        if(!windowed){
+
+        if (!windowed)
+        {
             RaceModeDashboardUI_->setNotWindowed();
         }
     }
@@ -112,7 +115,8 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode, 
                                            *controlUi_));
         HomePageView_.reset(new HomePageView(*homepageUi_));
 
-        if(!windowed){
+        if (!windowed)
+        {
             overlordWidget_->setNotWindowed();
         }
     }

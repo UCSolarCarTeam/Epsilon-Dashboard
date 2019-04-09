@@ -23,7 +23,8 @@ DisplayDashboardUI::~DisplayDashboardUI()
     delete ui_;
 }
 
-void DisplayDashboardUI::setNotWindowed(){
+void DisplayDashboardUI::setNotWindowed()
+{
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
 }
 
