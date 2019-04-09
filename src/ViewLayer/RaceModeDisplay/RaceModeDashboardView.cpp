@@ -147,6 +147,7 @@ void RaceModeDashboardView::connectMppt(MpptPresenter& mpptPresenter)
 
 void RaceModeDashboardView::connectMotorDetails(MotorDetailsPresenter& motorDetailsPresenter)
 {
+    Q_UNUSED(motorDetailsPresenter);
 }
 
 void RaceModeDashboardView::connectMotorFaults(MotorFaultsPresenter& motorFaultsPresenter)

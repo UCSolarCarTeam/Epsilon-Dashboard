@@ -11,8 +11,6 @@ void DriverControlsPresenter::relayDriverControlsData()
 {
     connect(&driverControlsData_, SIGNAL(aliveReceived(bool)),
             this, SIGNAL(aliveReceived(bool)));
-    connect(&driverControlsData_, SIGNAL(ccsAliveReceived(bool)),
-            this, SIGNAL(ccsAliveReceived(bool)));
     connect(&driverControlsData_, SIGNAL(headlightsOffReceived(bool)),
             this, SIGNAL(headlightsOffReceived(bool)));
     connect(&driverControlsData_, SIGNAL(headlightsLowReceived(bool)),

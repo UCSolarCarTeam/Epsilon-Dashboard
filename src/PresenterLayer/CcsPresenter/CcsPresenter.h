@@ -15,5 +15,5 @@ private:
     const I_CcsData& ccsData_;
 
 signals:
-    void ccsAliveRecieved(bool);
+    void ccsAliveReceived(bool);
 };
