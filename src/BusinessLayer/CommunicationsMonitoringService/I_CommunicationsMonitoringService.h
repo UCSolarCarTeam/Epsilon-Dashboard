@@ -6,16 +6,15 @@ class I_CommunicationsMonitoringService : public QObject
 {
     Q_OBJECT
 public:
-    virtual ~I_CommunicationsMonitoringService() {}
     virtual void start() = 0;
     virtual void stop() = 0;
 
 signals:
-    void secondsSinceLastPacketReceivedUpdate(int secondsSinceLastPacketReceived);
-    void packetsReceivedInLastMinuteUpdate(int packetsReceivedInLastMinute);
+    virtual void secondsSinceLastPacketReceivedUpdate(int secondsSinceLastPacketReceived) = 0;
+    virtual void packetsReceivedInLastMinuteUpdate(int packetsReceivedInLastMinute) = 0;
 
-    void secondsSinceLastValidPacketReceivedUpdate(int secondsSinceLastValidPacketReceived);
-    void validPacketsReceivedInLastMinuteUpdate(int validPacketsReceivedInLastMinute);
+    virtual void secondsSinceLastValidPacketReceivedUpdate(int secondsSinceLastValidPacketReceived) = 0;
+    virtual void validPacketsReceivedInLastMinuteUpdate(int validPacketsReceivedInLastMinute) = 0;
 
-    void invalidPacketsReceivedInLastMinuteUpdate(int invalidPacketsReceivedInLastMinute);
+    virtual void invalidPacketsReceivedInLastMinuteUpdate(int invalidPacketsReceivedInLastMinute) = 0;
 };
