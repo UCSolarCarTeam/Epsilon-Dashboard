@@ -733,6 +733,17 @@ color: white;</string>
                </item>
                <item row="0" column="3">
                 <widget class="QWidget" name="stateOfChargeDetailsWidget" native="true">
+                 <property name="styleSheet">
+                  <string notr="true">QProgressBar:horizontal {
+background:white;
+padding:0px;
+text-align: center;
+}
+QProgressBar:horizontal::font {
+font: 20pt &quot;LCDMono&quot;;
+color: white;
+}</string>
+                 </property>
                  <layout class="QVBoxLayout" name="verticalLayout_14">
                   <item>
                    <widget class="QProgressBar" name="stateOfChargeCapacityWidget">
@@ -771,13 +782,13 @@ text-align: center;
 QProgressBar::chunk:horizontal{
 border-radius: 7px;
 background: rgb(20,180,20);
-}
-QProgressBar:horizontal::font {
-color: white;
 }</string>
                     </property>
                     <property name="value">
                      <number>100</number>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
                     </property>
                     <property name="textVisible">
                      <bool>true</bool>
