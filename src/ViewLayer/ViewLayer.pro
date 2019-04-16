@@ -77,3 +77,6 @@ FORMS += \
     DebugDisplay/Tab/TabUi/TabUi.ui \
     DisplayDashboard/DisplayDashboardUI.ui \
     RaceModeDisplay/RaceModeDashboardUI.ui
+
+RESOURCES += \
+    fontresources.qrc
