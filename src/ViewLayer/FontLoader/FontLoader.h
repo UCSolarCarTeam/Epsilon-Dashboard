@@ -1,12 +1,17 @@
-#ifndef FONTLOADER_H
-#define FONTLOADER_H
+#pragma once
 
 #include <QObject>
+#include <QHash>
+#include <QFont>
 
+enum Font { BURLINGAME, LCD };
 class FontLoader
 {
 public:
     FontLoader();
-};
+    QFont loadFont(Font value);
+    QFont loadFont(Font value, int pointSize, bool bold);
 
-#endif // FONTLOADER_H
+private:
+    QHash<Font, int> fontHash_;
+};

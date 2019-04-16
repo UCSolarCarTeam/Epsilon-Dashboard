@@ -1,6 +1,7 @@
 #pragma once
 
 #include "I_RaceModeDashboardUI.h"
+#include "FontLoader/FontLoader.h"
 
 namespace Ui
 {
@@ -52,4 +53,5 @@ public:
 
 private:
     Ui::RaceModeDashboardUI* ui_;
+    QScopedPointer<FontLoader> fontLoader_;
 };

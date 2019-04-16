@@ -6,6 +6,7 @@
 
 RaceModeDashboardUI::RaceModeDashboardUI()
     : ui_(new Ui::RaceModeDashboardUI)
+    , fontLoader_(new FontLoader())
 {
     ui_->setupUi(this);
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
@@ -17,6 +18,11 @@ RaceModeDashboardUI::RaceModeDashboardUI()
             QApplication::desktop()->screenGeometry()
         )
     );
+    //Font loading
+    QApplication::setFont(fontLoader_->loadFont(Font::BURLINGAME));
+    ui_->actualSpeedLabel->setFont(fontLoader_->loadFont(Font::LCD, 45, true));
+    ui_->stateOfChargeCapacityWidget->setFont(fontLoader_->loadFont(Font::LCD, 20 , false));
+
     show();
 }
 

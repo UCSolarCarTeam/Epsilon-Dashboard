@@ -40,7 +40,8 @@ HEADERS += \
     Faults/MotorFaults/MotorFaultList.h \
     Faults/FaultLabel/FaultLabel.h \
     Faults/BatteryFaults/BatteryFaultList.h \
-    Faults/FaultPriorities/FaultPriorities.h
+    Faults/FaultPriorities/FaultPriorities.h \
+    FontLoader/FontLoader.h
 
 SOURCES += \ 
     DebugDisplay/BatteryPage/BatteryUi/BatteryUi.cpp \
@@ -65,7 +66,8 @@ SOURCES += \
     DebugDisplay/HomePage/HomePageView/HomePageView.cpp \
     Faults/FaultLabel/FaultLabel.cpp \
     Faults/MotorFaults/MotorFaultList.cpp \
-    Faults/BatteryFaults/BatteryFaultList.cpp
+    Faults/BatteryFaults/BatteryFaultList.cpp \
+    FontLoader/FontLoader.cpp
 
 FORMS += \   
     DebugDisplay/BatteryPage/BatteryUi/BatteryUi.ui \
