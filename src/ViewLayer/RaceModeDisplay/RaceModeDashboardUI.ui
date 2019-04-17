@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>877</width>
+    <width>800</width>
     <height>480</height>
    </rect>
   </property>
@@ -1049,7 +1049,7 @@ color: white;</string>
                      </font>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">color: rgb(100,100,100);</string>
+                     <string notr="true">color:white;</string>
                     </property>
                     <property name="text">
                      <string>RUN</string>
@@ -1285,7 +1285,7 @@ color: rgb(100,100,100);</string>
                                    </property>
                                    <property name="font">
                                     <font>
-                                     <pointsize>18</pointsize>
+                                     <pointsize>16</pointsize>
                                      <weight>50</weight>
                                      <bold>false</bold>
                                     </font>
@@ -1419,7 +1419,7 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                                    </property>
                                    <property name="font">
                                     <font>
-                                     <pointsize>18</pointsize>
+                                     <pointsize>16</pointsize>
                                      <weight>50</weight>
                                      <bold>false</bold>
                                     </font>
@@ -1582,7 +1582,7 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                                    </property>
                                    <property name="font">
                                     <font>
-                                     <pointsize>18</pointsize>
+                                     <pointsize>16</pointsize>
                                      <weight>50</weight>
                                      <bold>false</bold>
                                     </font>
@@ -1713,7 +1713,7 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                                    </property>
                                    <property name="font">
                                     <font>
-                                     <pointsize>18</pointsize>
+                                     <pointsize>16</pointsize>
                                      <weight>50</weight>
                                      <bold>false</bold>
                                     </font>
@@ -2401,6 +2401,7 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                     </property>
                     <property name="font">
                      <font>
+                      <pointsize>8</pointsize>
                       <weight>75</weight>
                       <bold>true</bold>
                      </font>
@@ -2457,7 +2458,7 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                       <widget class="QLabel" name="auxVoltageLabel">
                        <property name="font">
                         <font>
-                         <pointsize>18</pointsize>
+                         <pointsize>14</pointsize>
                          <weight>75</weight>
                          <bold>true</bold>
                         </font>
@@ -2557,6 +2558,7 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                     </property>
                     <property name="font">
                      <font>
+                      <pointsize>8</pointsize>
                       <weight>75</weight>
                       <bold>true</bold>
                      </font>
@@ -2615,7 +2617,7 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                          <widget class="QLabel" name="busVoltageLabel">
                           <property name="font">
                            <font>
-                            <pointsize>18</pointsize>
+                            <pointsize>14</pointsize>
                             <weight>75</weight>
                             <bold>true</bold>
                            </font>
@@ -2678,7 +2680,7 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                          <widget class="QLabel" name="busCurrentLabel">
                           <property name="font">
                            <font>
-                            <pointsize>18</pointsize>
+                            <pointsize>14</pointsize>
                             <weight>75</weight>
                             <bold>true</bold>
                            </font>
@@ -3019,7 +3021,7 @@ color:white;</string>
                      <string>BatteryFaults</string>
                     </property>
                     <property name="alignment">
-                     <set>Qt::AlignCenter</set>
+                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
                     </property>
                     <property name="wordWrap">
                      <bool>true</bool>
@@ -3105,7 +3107,7 @@ color:white;</string>
                      <string>Motor0</string>
                     </property>
                     <property name="alignment">
-                     <set>Qt::AlignCenter</set>
+                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
                     </property>
                    </widget>
                   </item>
@@ -3188,7 +3190,7 @@ color:white;</string>
                      <string>Motor1</string>
                     </property>
                     <property name="alignment">
-                     <set>Qt::AlignCenter</set>
+                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
                     </property>
                    </widget>
                   </item>
