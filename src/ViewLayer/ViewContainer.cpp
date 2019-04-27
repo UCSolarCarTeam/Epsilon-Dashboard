@@ -24,6 +24,7 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
 
 {
     Q_INIT_RESOURCE(fontresources);
+
     if (mode == Mode::DISPLAY)
     {
         MotorFaultList* motorZeroFaultList = new MotorFaultList();
