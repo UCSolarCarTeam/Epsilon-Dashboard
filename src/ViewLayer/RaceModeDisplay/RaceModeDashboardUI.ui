@@ -519,71 +519,6 @@
                <property name="spacing">
                 <number>0</number>
                </property>
-               <item row="1" column="2">
-                <widget class="QFrame" name="setCurrentWidget">
-                 <layout class="QGridLayout" name="setCurrentLayout">
-                  <property name="leftMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="topMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="rightMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="bottomMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="spacing">
-                   <number>0</number>
-                  </property>
-                  <item row="1" column="0" colspan="3">
-                   <widget class="QLabel" name="setCurrentTitleLabel">
-                    <property name="styleSheet">
-                     <string notr="true">QLabel {
-font: bold 8pt &quot;Arial Unicode MS&quot;;
-qproperty-alignment: AlignHCenter;
-color: rgb(100,100,100);
-}
-
-</string>
-                    </property>
-                    <property name="text">
-                     <string>S E T   C U R R E N T</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="2">
-                   <widget class="QLabel" name="setCurrentUnitsLabel">
-                    <property name="styleSheet">
-                     <string notr="true">QLabel {
-font: 14pt &quot;Burlingame Pro&quot;;
-color: white;
-qproperty-alignment: 'AlignBottom | AlignLeft';
-}</string>
-                    </property>
-                    <property name="text">
-                     <string>A</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="0" colspan="2">
-                   <widget class="QLabel" name="setCurrentLabel">
-                    <property name="styleSheet">
-                     <string notr="true">QLabel {
-font: 24pt &quot;Burlingame Pro&quot;;
-color: white;
-qproperty-alignment: 'AlignBottom | AlignRight';
-}</string>
-                    </property>
-                    <property name="text">
-                     <string>879</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
                <item row="2" column="2">
                 <widget class="QWidget" name="motorPowerWidget" native="true">
                  <layout class="QGridLayout" name="motorPowerLayout">
@@ -634,6 +569,71 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
                   </item>
                   <item row="0" column="0" colspan="2">
                    <widget class="QLabel" name="motorPowerLabel">
+                    <property name="styleSheet">
+                     <string notr="true">QLabel {
+font: 24pt &quot;Burlingame Pro&quot;;
+color: white;
+qproperty-alignment: 'AlignBottom | AlignRight';
+}</string>
+                    </property>
+                    <property name="text">
+                     <string>879</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <widget class="QWidget" name="setCurrentWidget" native="true">
+                 <layout class="QGridLayout" name="setCurrentLayout">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="spacing">
+                   <number>0</number>
+                  </property>
+                  <item row="1" column="0" colspan="3">
+                   <widget class="QLabel" name="setCurrentTitleLabel">
+                    <property name="styleSheet">
+                     <string notr="true">QLabel {
+font: bold 8pt &quot;Arial Unicode MS&quot;;
+qproperty-alignment: AlignHCenter;
+color: rgb(100,100,100);
+}
+
+</string>
+                    </property>
+                    <property name="text">
+                     <string>S E T   C U R R E N T</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QLabel" name="setCurrentUnitsLabel">
+                    <property name="styleSheet">
+                     <string notr="true">QLabel {
+font: 14pt &quot;Burlingame Pro&quot;;
+color: white;
+qproperty-alignment: 'AlignBottom | AlignLeft';
+}</string>
+                    </property>
+                    <property name="text">
+                     <string>A</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0" colspan="2">
+                   <widget class="QLabel" name="setCurrentLabel">
                     <property name="styleSheet">
                      <string notr="true">QLabel {
 font: 24pt &quot;Burlingame Pro&quot;;
@@ -996,18 +996,12 @@ color: white;</string>
                    <number>0</number>
                   </property>
                   <item>
-                   <widget class="QFrame" name="frame">
+                   <widget class="QWidget" name="widget" native="true">
                     <property name="sizePolicy">
                      <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
                       <horstretch>0</horstretch>
                       <verstretch>0</verstretch>
                      </sizepolicy>
-                    </property>
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Raised</enum>
                     </property>
                     <layout class="QVBoxLayout" name="verticalLayout_16">
                      <property name="leftMargin">
@@ -1572,15 +1566,9 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
              <number>0</number>
             </property>
             <item>
-             <widget class="QFrame" name="arrayPowerWidget">
+             <widget class="QWidget" name="arrayPowerWidget" native="true">
               <property name="styleSheet">
                <string notr="true"/>
-              </property>
-              <property name="frameShape">
-               <enum>QFrame::StyledPanel</enum>
-              </property>
-              <property name="frameShadow">
-               <enum>QFrame::Raised</enum>
               </property>
               <layout class="QHBoxLayout" name="horizontalLayout_8">
                <property name="spacing">
@@ -1599,13 +1587,7 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                 <number>0</number>
                </property>
                <item>
-                <widget class="QFrame" name="powerInWidget">
-                 <property name="frameShape">
-                  <enum>QFrame::StyledPanel</enum>
-                 </property>
-                 <property name="frameShadow">
-                  <enum>QFrame::Raised</enum>
-                 </property>
+                <widget class="QWidget" name="powerInWidget" native="true">
                  <layout class="QVBoxLayout" name="verticalLayout_5">
                   <property name="spacing">
                    <number>10</number>
@@ -1707,13 +1689,7 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                 </widget>
                </item>
                <item>
-                <widget class="QFrame" name="powerOutWidget">
-                 <property name="frameShape">
-                  <enum>QFrame::StyledPanel</enum>
-                 </property>
-                 <property name="frameShadow">
-                  <enum>QFrame::Raised</enum>
-                 </property>
+                <widget class="QWidget" name="powerOutWidget" native="true">
                  <layout class="QVBoxLayout" name="verticalLayout_6">
                   <property name="spacing">
                    <number>10</number>
@@ -1815,13 +1791,7 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                 </widget>
                </item>
                <item>
-                <widget class="QFrame" name="netPowerWidget">
-                 <property name="frameShape">
-                  <enum>QFrame::StyledPanel</enum>
-                 </property>
-                 <property name="frameShadow">
-                  <enum>QFrame::Raised</enum>
-                 </property>
+                <widget class="QWidget" name="netPowerWidget" native="true">
                  <layout class="QVBoxLayout" name="verticalLayout_7">
                   <property name="spacing">
                    <number>10</number>
