@@ -99,11 +99,6 @@ QWidget& RaceModeDashboardUI::highHeadlightIndicatorWidget()
     return *ui_->highHeadlightIndicatorWidget;
 }
 
-QWidget& RaceModeDashboardUI::thermometerWidget()
-{
-    return *ui_->thermometerWidget;
-}
-
 QLabel& RaceModeDashboardUI::maxCellTemperatureLabel()
 {
     return *ui_->maxCellTemperatureLabel;
