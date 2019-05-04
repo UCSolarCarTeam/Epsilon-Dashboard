@@ -585,7 +585,7 @@ color: rgb(100,100,100);
 </string>
                     </property>
                     <property name="text">
-                     <string>S E T   C U R R E N T</string>
+                     <string>M O T O R   P O W E R</string>
                     </property>
                    </widget>
                   </item>
@@ -605,7 +605,7 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
 }</string>
                     </property>
                     <property name="text">
-                     <string>A</string>
+                     <string>W</string>
                     </property>
                    </widget>
                   </item>
@@ -672,7 +672,7 @@ color: rgb(100,100,100);
 </string>
                     </property>
                     <property name="text">
-                     <string>M O T O R   P O W E R</string>
+                     <string>S E T   C U R R E N T</string>
                     </property>
                    </widget>
                   </item>
@@ -692,7 +692,7 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
 }</string>
                     </property>
                     <property name="text">
-                     <string>W</string>
+                     <string>A</string>
                     </property>
                    </widget>
                   </item>
@@ -1120,7 +1120,7 @@ color: white;</string>
                    <number>0</number>
                   </property>
                   <item>
-                   <widget class="QFrame" name="frame">
+                   <widget class="QWidget" name="widget" native="true">
                     <property name="sizePolicy">
                      <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
                       <horstretch>0</horstretch>
@@ -1891,12 +1891,6 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
               </property>
               <property name="styleSheet">
                <string notr="true"/>
-              </property>
-              <property name="frameShape">
-               <enum>QFrame::StyledPanel</enum>
-              </property>
-              <property name="frameShadow">
-               <enum>QFrame::Raised</enum>
               </property>
               <layout class="QHBoxLayout" name="horizontalLayout_8">
                <property name="spacing">
