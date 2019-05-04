@@ -3,10 +3,13 @@
 #include <QApplication>
 #include <QStyle>
 #include <QDesktopWidget>
-DisplayDashboardUI::DisplayDashboardUI()
+DisplayDashboardUI::DisplayDashboardUI(bool windowed )
     : ui_(new Ui::DisplayDashboardUI)
 {
     ui_->setupUi(this);
+    if(!windowed){
+        setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+    }
     setGeometry(
         QStyle::alignedRect(
             Qt::LeftToRight,
@@ -21,11 +24,6 @@ DisplayDashboardUI::DisplayDashboardUI()
 DisplayDashboardUI::~DisplayDashboardUI()
 {
     delete ui_;
-}
-
-void DisplayDashboardUI::setNotWindowed()
-{
-    setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
 }
 
 QLabel& DisplayDashboardUI::actualSpeedLabel()

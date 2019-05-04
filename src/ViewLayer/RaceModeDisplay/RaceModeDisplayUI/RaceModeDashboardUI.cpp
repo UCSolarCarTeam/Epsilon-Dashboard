@@ -4,10 +4,13 @@
 #include <QDesktopWidget>
 #include <QApplication>
 
-RaceModeDashboardUI::RaceModeDashboardUI()
+RaceModeDashboardUI::RaceModeDashboardUI(bool windowed)
     : ui_(new Ui::RaceModeDashboardUI)
 {
     ui_->setupUi(this);
+    if(!windowed){
+        setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+    }
     setGeometry(
         QStyle::alignedRect(
             Qt::LeftToRight,
@@ -24,10 +27,7 @@ RaceModeDashboardUI::~RaceModeDashboardUI()
     delete ui_;
 }
 
-void RaceModeDashboardUI::setNotWindowed()
-{
-    setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
-}
+
 
 QLabel& RaceModeDashboardUI::actualSpeedLabel()
 {

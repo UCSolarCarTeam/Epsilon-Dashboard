@@ -11,7 +11,7 @@ class RaceModeDashboardUI : public I_RaceModeDashboardUI
     Q_OBJECT
 
 public:
-    explicit RaceModeDashboardUI();
+    explicit RaceModeDashboardUI(bool windowed);
     ~RaceModeDashboardUI();
 
 
@@ -49,8 +49,6 @@ public:
     QLabel& powerInLabel();
     QLabel& powerOutLabel();
     QLabel& netPowerLabel();
-
-    void setNotWindowed();
 
 private:
     Ui::RaceModeDashboardUI* ui_;

@@ -11,7 +11,7 @@ class DisplayDashboardUI : public I_DisplayDashboardUI
     Q_OBJECT
 
 public:
-    explicit DisplayDashboardUI();
+    explicit DisplayDashboardUI(bool windowed);
     ~DisplayDashboardUI();
 
     QLabel& actualSpeedLabel();
@@ -58,8 +58,6 @@ public:
     QLabel& powerInLabel();
     QLabel& powerOutLabel();
     QLabel& netPowerLabel();
-
-    void setNotWindowed();
 
 private:
     Ui::DisplayDashboardUI* ui_;

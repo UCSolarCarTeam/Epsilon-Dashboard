@@ -29,7 +29,7 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode, 
         MotorFaultList* motorZeroFaultList = new MotorFaultList();
         MotorFaultList* motorOneFaultList = new MotorFaultList();
         BatteryFaultList* batteryFaultList = new BatteryFaultList();
-        DisplayDashboardUI_ = new DisplayDashboardUI();
+        DisplayDashboardUI_ = new DisplayDashboardUI(windowed);
         DisplayDashboardView_.reset(new DisplayDashboardView(
                                         presenterContainer.auxBmsPresenter(),
                                         presenterContainer.batteryPresenter(),
@@ -44,18 +44,13 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode, 
                                         *motorZeroFaultList,
                                         *motorOneFaultList,
                                         *batteryFaultList));
-
-        if (!windowed)
-        {
-            DisplayDashboardUI_->setNotWindowed();
-        }
     }
     else if (mode == Mode::RACE)
     {
         MotorFaultList* motorZeroFaultList = new MotorFaultList();
         MotorFaultList* motorOneFaultList = new MotorFaultList();
         BatteryFaultList* batteryFaultList = new BatteryFaultList();
-        RaceModeDashboardUI_ = new RaceModeDashboardUI();
+        RaceModeDashboardUI_ = new RaceModeDashboardUI(windowed);
         RaceModeDashboardView_.reset(new RaceModeDashboardView(
                                          presenterContainer.batteryPresenter(),
                                          presenterContainer.batteryFaultsPresenter(),
@@ -70,11 +65,6 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode, 
                                          *motorZeroFaultList,
                                          *motorOneFaultList,
                                          *batteryFaultList));
-
-        if (!windowed)
-        {
-            RaceModeDashboardUI_->setNotWindowed();
-        }
     }
     else if (mode == Mode::DEBUG)
     {

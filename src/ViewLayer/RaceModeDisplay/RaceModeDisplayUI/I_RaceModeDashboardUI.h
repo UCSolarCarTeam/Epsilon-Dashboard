@@ -43,6 +43,4 @@ public:
     virtual QLabel& powerInLabel() = 0;
     virtual QLabel& powerOutLabel() = 0;
     virtual QLabel& netPowerLabel() = 0;
-
-    virtual void setNotWindowed() = 0;
 };
