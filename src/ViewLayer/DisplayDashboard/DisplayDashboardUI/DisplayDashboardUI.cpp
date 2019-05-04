@@ -183,3 +183,8 @@ QLabel& DisplayDashboardUI::netPowerLabel()
 {
     return *ui_->netPowerLabel;
 }
+
+void DisplayDashboardUI::on_array0Widget_customContextMenuRequested(const QPoint &pos)
+{
+
+}

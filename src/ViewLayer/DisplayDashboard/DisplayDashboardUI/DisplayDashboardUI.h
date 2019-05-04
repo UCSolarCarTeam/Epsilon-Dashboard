@@ -59,6 +59,9 @@ public:
     QLabel& powerOutLabel();
     QLabel& netPowerLabel();
 
+private slots:
+    void on_array0Widget_customContextMenuRequested(const QPoint &pos);
+
 private:
     Ui::DisplayDashboardUI* ui_;
 };
