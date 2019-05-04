@@ -85,7 +85,7 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode, 
         BatteryFaultList* batteryFaultList = new BatteryFaultList();
         overlordWidget_.reset(new OverlordWidget(*batteryUi_, *controlUi_,
                               *homepageUi_, *faultUi_,
-                              *motorUi_, *mpptUi_, *tabUi_));
+                              *motorUi_, *mpptUi_, *tabUi_, windowed));
 
         MotorView_.reset(new MotorView( presenterContainer.keyMotorPresenter(),
                                         presenterContainer.motorDetailsPresenter(), *motorUi_));
@@ -104,11 +104,6 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode, 
                                            presenterContainer.lightsPresenter(),
                                            *controlUi_));
         HomePageView_.reset(new HomePageView(*homepageUi_));
-
-        if (!windowed)
-        {
-            overlordWidget_->setNotWindowed();
-        }
     }
 }
 

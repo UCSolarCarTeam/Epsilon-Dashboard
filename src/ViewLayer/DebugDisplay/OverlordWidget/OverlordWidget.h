@@ -22,7 +22,8 @@ public:
                              I_FaultUi& faultUi,
                              I_MotorUi& motorUi,
                              I_MpptUi& mpptUi,
-                             I_TabUi& tabUi);
+                             I_TabUi& tabUi,
+                             bool windowed);
     ~OverlordWidget();
     QStackedWidget* menu_;
 public slots:
@@ -32,7 +33,6 @@ public slots:
     void handlefaultButtonClicked();
     void handleMotorButtonClicked();
     void handleMPPTButtonClicked();
-    void setNotWindowed();
 private:
     I_BatteryUi& batteryUi_;
     I_ControlUi& controlUi_;
