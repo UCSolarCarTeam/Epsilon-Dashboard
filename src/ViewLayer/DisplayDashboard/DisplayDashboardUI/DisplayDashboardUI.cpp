@@ -7,9 +7,12 @@ DisplayDashboardUI::DisplayDashboardUI(bool windowed )
     : ui_(new Ui::DisplayDashboardUI)
 {
     ui_->setupUi(this);
-    if(!windowed){
+
+    if (!windowed)
+    {
         setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
     }
+
     setGeometry(
         QStyle::alignedRect(
             Qt::LeftToRight,
