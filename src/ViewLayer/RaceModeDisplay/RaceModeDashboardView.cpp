@@ -147,6 +147,7 @@ void RaceModeDashboardView::connectMppt(MpptPresenter& mpptPresenter)
 
 void RaceModeDashboardView::connectMotorDetails(MotorDetailsPresenter& motorDetailsPresenter)
 {
+    Q_UNUSED(motorDetailsPresenter);
 }
 
 void RaceModeDashboardView::connectMotorFaults(MotorFaultsPresenter& motorFaultsPresenter)
@@ -197,6 +198,27 @@ void RaceModeDashboardView::auxVoltageReceived(int auxVoltage)
 void RaceModeDashboardView::packStateOfChargeReceived(double stateOfCharge)
 {
     ui_.stateOfChargeCapacityWidget().setValue(stateOfCharge);
+
+    // The rgb values for the progressbar are calculated with the intention of displaying a colour closer to red
+    // for low values and a colour closer to green for higher values. These are calculated using linear equations
+    // with a slope and intercept.
+
+    // Default colour
+    int red = RED_INITIAL;
+    int green = GREEN_INITIAL;
+    int blue = BLUE_INITIAL;
+
+    // Calculated color
+    red += int(RED_SLOPE * stateOfCharge);
+    green += int(GREEN_SLOPE * stateOfCharge);
+
+    QString r = QString::number(red);
+    QString g = QString::number(green);
+    QString b = QString::number(blue);
+
+    QString rgb = QString("rgb(%1,%2,%3);").arg(r, g, b);
+
+    ui_.stateOfChargeCapacityWidget().setStyleSheet(DEFAULT_STYLESHEET + rgb + "}");
 }
 
 void RaceModeDashboardView::lowCellVoltageReceived(float lowVoltage)
