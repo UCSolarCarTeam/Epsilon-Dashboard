@@ -5,6 +5,7 @@
 #include <QDesktopWidget>
 DisplayDashboardUI::DisplayDashboardUI()
     : ui_(new Ui::DisplayDashboardUI)
+    , fontLoader_(new FontLoader())
 {
     ui_->setupUi(this);
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
@@ -16,6 +17,12 @@ DisplayDashboardUI::DisplayDashboardUI()
             QApplication::desktop()->screenGeometry()
         )
     );
+
+    //Font loading
+    QApplication::setFont(fontLoader_->loadFont(Font::BURLINGAME));
+    ui_->actualSpeedLabel->setFont(fontLoader_->loadFont(Font::LCD, 45, true));
+    ui_->stateOfChargeCapacityWidget->setFont(fontLoader_->loadFont(Font::LCD, 20, false));
+
     show();
 }
 
@@ -132,11 +139,6 @@ QWidget& DisplayDashboardUI::lowHeadlightIndicatorWidget()
 QWidget& DisplayDashboardUI::highHeadlightIndicatorWidget()
 {
     return *ui_->highHeadlightIndicatorWidget;
-}
-
-QWidget& DisplayDashboardUI::thermometerWidget()
-{
-    return *ui_->thermometerWidget;
 }
 
 QLabel& DisplayDashboardUI::maxCellTemperatureLabel()

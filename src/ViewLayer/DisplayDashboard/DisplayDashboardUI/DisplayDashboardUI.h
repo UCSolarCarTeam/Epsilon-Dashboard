@@ -1,6 +1,7 @@
 #pragma once
 
 #include "I_DisplayDashboardUI.h"
+#include "FontLoader/FontLoader.h"
 
 namespace Ui
 {
@@ -46,7 +47,6 @@ public:
     QWidget& lowHeadlightIndicatorWidget();
     QWidget& highHeadlightIndicatorWidget();
 
-    QWidget& thermometerWidget();
     QLabel& maxCellTemperatureLabel();
     QLabel& avgCellTemperatureLabel();
     QLabel& lowestCellVoltageLabel();
@@ -61,4 +61,5 @@ public:
 
 private:
     Ui::DisplayDashboardUI* ui_;
+    QScopedPointer<FontLoader> fontLoader_;
 };
