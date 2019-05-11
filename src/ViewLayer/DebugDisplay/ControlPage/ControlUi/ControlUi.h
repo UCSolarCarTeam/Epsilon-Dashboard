@@ -1,5 +1,7 @@
 #pragma once
 #include "I_ControlUi.h"
+#include "FontLoader/FontLoader.h"
+
 namespace Ui
 {
     class ControlUi;
@@ -45,4 +47,5 @@ private slots:
 
 private:
     Ui::ControlUi* ui_;
+    QScopedPointer<FontLoader> fontLoader_;
 };

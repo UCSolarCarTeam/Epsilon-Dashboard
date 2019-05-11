@@ -2,7 +2,8 @@
 #include "ui_MpptUi.h"
 
 MpptUi::MpptUi() :
-    ui_(new Ui::MpptUi)
+    ui_(new Ui::MpptUi),
+    fontLoader_(new FontLoader)
 {
     ui_->setupUi(this);
     QPixmap bkgnd(":/Resources/Background.png");
@@ -10,6 +11,7 @@ MpptUi::MpptUi() :
     QPalette background;
     background.setBrush(QPalette::Background, bkgnd);
     this->setPalette(background);
+    QApplication::setFont(fontLoader_->loadFont(Font::BURLINGAME));
 }
 
 MpptUi::~MpptUi()

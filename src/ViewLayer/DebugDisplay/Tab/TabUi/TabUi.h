@@ -1,5 +1,7 @@
 #pragma once
 #include "I_TabUi.h"
+#include "FontLoader/FontLoader.h"
+
 namespace Ui
 {
     class TabUi;
@@ -20,4 +22,5 @@ private slots:
     void showTime();
 private:
     Ui::TabUi* ui_;
+    QScopedPointer<FontLoader> fontLoader_;
 };

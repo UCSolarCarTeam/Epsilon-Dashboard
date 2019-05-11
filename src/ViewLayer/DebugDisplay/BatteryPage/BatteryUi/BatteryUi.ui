@@ -194,7 +194,6 @@ background: transparent;</string>
               </property>
               <property name="styleSheet">
                <string notr="true">color: rgb(250, 187, 28);
-
 background: transparent;</string>
               </property>
               <property name="text">
@@ -645,9 +644,13 @@ border-top-right-radius:12px;</string>
                      </property>
                      <item alignment="Qt::AlignHCenter">
                       <widget class="QLabel" name="packInfoCurrent">
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                        </font>
+                       </property>
                        <property name="styleSheet">
                         <string notr="true">background: transparent;
-font:12pt &quot;Arial&quot;;
 color:white;</string>
                        </property>
                        <property name="text">
@@ -721,9 +724,13 @@ color:white;</string>
                      </property>
                      <item alignment="Qt::AlignHCenter">
                       <widget class="QLabel" name="packInfoVoltage">
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                        </font>
+                       </property>
                        <property name="styleSheet">
                         <string notr="true">background: transparent;
-font:12pt &quot;Arial&quot;;
 color:white;</string>
                        </property>
                        <property name="text">
@@ -806,9 +813,13 @@ color:white;</string>
                      </property>
                      <item alignment="Qt::AlignHCenter">
                       <widget class="QLabel" name="packInfoAmphours">
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                        </font>
+                       </property>
                        <property name="styleSheet">
                         <string notr="true">background: transparent;
-font:12pt &quot;Arial&quot;;
 color:white;</string>
                        </property>
                        <property name="text">
@@ -902,7 +913,6 @@ color:white;</string>
                        </property>
                        <property name="styleSheet">
                         <string notr="true">background: transparent;
-font:12pt &quot;Arial&quot;;
 color:white;</string>
                        </property>
                        <property name="text">
@@ -987,7 +997,6 @@ color:white;</string>
                        </property>
                        <property name="styleSheet">
                         <string notr="true">background: transparent;
-font:12pt &quot;Arial&quot;;
 color:white;</string>
                        </property>
                        <property name="text">
@@ -1494,6 +1503,9 @@ background-color: rgb(250, 187, 28);</string>
                </property>
                <item>
                 <widget class="QLabel" name="fanVoltageLabel">
+                 <property name="styleSheet">
+                  <string notr="true"/>
+                 </property>
                  <property name="text">
                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;Voltage&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
@@ -1540,9 +1552,13 @@ background-color: rgb(250, 187, 28);</string>
                   </property>
                   <item alignment="Qt::AlignHCenter">
                    <widget class="QLabel" name="fanVoltage">
+                    <property name="font">
+                     <font>
+                      <pointsize>12</pointsize>
+                     </font>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true">background: transparent;
-font:12pt &quot;Arial&quot;;
 color:white;</string>
                     </property>
                     <property name="text">
@@ -1580,9 +1596,13 @@ color:white;</string>
                </item>
                <item>
                 <widget class="QLabel" name="fanSpeedLabel">
+                 <property name="font">
+                  <font>
+                   <pointsize>12</pointsize>
+                  </font>
+                 </property>
                  <property name="styleSheet">
                   <string notr="true">background: transparent;
-font:12pt &quot;Arial&quot;;
 color:white;</string>
                  </property>
                  <property name="text">
@@ -1623,9 +1643,13 @@ color:white;</string>
                </item>
                <item>
                 <widget class="QLabel" name="requestedFanSpeedLabel">
+                 <property name="font">
+                  <font>
+                   <pointsize>12</pointsize>
+                  </font>
+                 </property>
                  <property name="styleSheet">
                   <string notr="true">background: transparent;
-font:12pt &quot;Arial&quot;;
 color: rgb(136, 138, 133);</string>
                  </property>
                  <property name="text">
@@ -1840,8 +1864,7 @@ border-top-right-radius:12px;</string>
               </property>
               <property name="styleSheet">
                <string notr="true">background: transparent;
-color: rgb(250, 187, 28);
-font:12pt &quot;Arial&quot;;</string>
+color: rgb(250, 187, 28);</string>
               </property>
               <property name="text">
                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#fabb1c;&quot;&gt;3 V&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -1861,7 +1884,6 @@ font:12pt &quot;Arial&quot;;</string>
               </property>
               <property name="styleSheet">
                <string notr="true">background: transparent;
-font:12pt &quot;Arial&quot;;
 color:white;</string>
               </property>
               <property name="text">
@@ -1932,8 +1954,7 @@ color:white;</string>
               </property>
               <property name="styleSheet">
                <string notr="true">background: transparent;
-color: rgb(250, 187, 28);
-font:12pt &quot;Arial&quot;;</string>
+color: rgb(250, 187, 28);</string>
               </property>
               <property name="text">
                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#fabb1c;&quot;&gt;1 V&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -1960,7 +1981,6 @@ font:12pt &quot;Arial&quot;;</string>
               </property>
               <property name="styleSheet">
                <string notr="true">background: transparent;
-font:12pt &quot;Arial&quot;;
 color:white;</string>
               </property>
               <property name="text">
@@ -2037,7 +2057,6 @@ color:white;</string>
               <property name="styleSheet">
                <string notr="true">background: transparent;
 color: rgb(250, 187, 28);
-font:12pt &quot;Arial&quot;;
 </string>
               </property>
               <property name="text">
@@ -2136,7 +2155,6 @@ color:white;</string>
               </property>
               <property name="styleSheet">
                <string notr="true">background: transparent;
-font:12pt &quot;Arial&quot;;
 color:white;</string>
               </property>
               <property name="text">
@@ -2246,7 +2264,6 @@ color:white;</string>
               </property>
               <property name="styleSheet">
                <string notr="true">background: transparent;
-font:12pt &quot;Arial&quot;;
 color:white;</string>
               </property>
               <property name="text">
@@ -2300,7 +2317,6 @@ color:white;</string>
            </property>
            <property name="styleSheet">
             <string notr="true">background: transparent;
-font:12pt &quot;Arial&quot;;
 color:white;</string>
            </property>
            <property name="text">
@@ -2333,9 +2349,13 @@ color:white;</string>
          </item>
          <item>
           <widget class="QLabel" name="tempLowThermistorIDLabel">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
            <property name="styleSheet">
             <string notr="true">background: transparent;
-font:12pt &quot;Arial&quot;;
 color:white;</string>
            </property>
            <property name="text">
@@ -2386,7 +2406,6 @@ color:white;</string>
            </property>
            <property name="styleSheet">
             <string notr="true">background: transparent;
-font:12pt &quot;Arial&quot;;
 color:white;</string>
            </property>
            <property name="text">
@@ -2419,9 +2438,13 @@ color:white;</string>
          </item>
          <item>
           <widget class="QLabel" name="tempHighThermistorIDLabel">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
            <property name="styleSheet">
             <string notr="true">background: transparent;
-font:12pt &quot;Arial&quot;;
 color:white;</string>
            </property>
            <property name="text">
@@ -2514,7 +2537,6 @@ border-top-right-radius:12px;</string>
            </property>
            <property name="styleSheet">
             <string notr="true">background: transparent;
-font:12pt &quot;Arial&quot;;
 color:white;</string>
            </property>
            <property name="text">
@@ -2599,10 +2621,15 @@ border-radius: 10px;
              <height>22</height>
             </size>
            </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
            <property name="styleSheet">
             <string notr="true">background: transparent;
 color: rgb(250, 187, 28);
-font:12pt &quot;Arial&quot;;</string>
+</string>
            </property>
            <property name="text">
             <string>Idle</string>
@@ -2647,9 +2674,13 @@ font:12pt &quot;Arial&quot;;</string>
                 <verstretch>0</verstretch>
                </sizepolicy>
               </property>
+              <property name="font">
+               <font>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
               <property name="styleSheet">
                <string notr="true">background: transparent;
-font:12pt &quot;Arial&quot;;
 color:white;</string>
               </property>
               <property name="text">

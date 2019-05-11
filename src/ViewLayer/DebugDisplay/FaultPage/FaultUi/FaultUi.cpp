@@ -1,7 +1,8 @@
 #include "FaultUi.h"
 #include "ui_FaultUi.h"
 FaultUi::FaultUi():
-    ui_(new Ui::FaultUi)
+    ui_(new Ui::FaultUi),
+    fontLoader_(new FontLoader)
 {
     ui_->setupUi(this);
     QPixmap bkgnd(":/Resources/Background.png");
@@ -9,6 +10,7 @@ FaultUi::FaultUi():
     QPalette background;
     background.setBrush(QPalette::Background, bkgnd);
     this->setPalette(background);
+    QApplication::setFont(fontLoader_->loadFont(Font::BURLINGAME));
 }
 
 FaultUi::~FaultUi()

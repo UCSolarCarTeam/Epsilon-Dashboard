@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>683</width>
-    <height>648</height>
+    <height>680</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -34,10 +34,15 @@
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QLabel" name="motor0Label">
+     <property name="font">
+      <font>
+       <pointsize>24</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">font: 24px 'Arial';
-font-weight:500;
-color:white;</string>
+      <string notr="true">color:white;</string>
      </property>
      <property name="text">
       <string>Motor 0</string>
@@ -154,10 +159,17 @@ background-color:rgba(45,45,45,150);
    </item>
    <item>
     <widget class="QLabel" name="motor1Label">
+     <property name="font">
+      <font>
+       <family>Ubuntu</family>
+       <pointsize>24</pointsize>
+       <weight>75</weight>
+       <italic>false</italic>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">font: 24px 'Arial';
-font-weight:500;
-color:white;</string>
+      <string notr="true">color:white;</string>
      </property>
      <property name="text">
       <string>Motor 1</string>
@@ -381,10 +393,15 @@ background-color:rgba(45,45,45,150);
    </item>
    <item>
     <widget class="QLabel" name="batteryLabel">
+     <property name="font">
+      <font>
+       <pointsize>24</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">font: 24px 'Arial';
-font-weight:500;
-color:white;</string>
+      <string notr="true">color:white;</string>
      </property>
      <property name="text">
       <string>Battery</string>
@@ -501,10 +518,13 @@ background-color:rgba(45,45,45,150);
        <height>1000</height>
       </size>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>18</pointsize>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">font: 18px 'Arial';
-font-weight:500;
-color:rgb(186, 186, 186);
+      <string notr="true">color:rgb(186, 186, 186);
 </string>
      </property>
      <property name="text">

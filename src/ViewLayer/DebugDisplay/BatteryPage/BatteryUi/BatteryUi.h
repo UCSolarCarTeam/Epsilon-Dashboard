@@ -3,8 +3,7 @@
 #include <QWidget>
 #include <QProgressBar>
 #include <QLabel>
-
-
+#include "../../../FontLoader/FontLoader.h"
 namespace Ui
 {
     class BatteryUi;
@@ -82,5 +81,6 @@ public:
 
 private:
     Ui::BatteryUi* ui_;
+    QScopedPointer<FontLoader> fontLoader_;
 };
 

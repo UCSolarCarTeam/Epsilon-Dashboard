@@ -1,5 +1,6 @@
 #pragma once
 #include "I_MpptUi.h"
+#include "FontLoader/FontLoader.h"
 
 namespace Ui
 {
@@ -46,5 +47,6 @@ public:
     QLabel& totalArrayPower();
 private:
     Ui::MpptUi* ui_;
+    QScopedPointer<FontLoader> fontLoader_;
 };
 

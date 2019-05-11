@@ -2,7 +2,8 @@
 #include "HomePageUi.h"
 
 HomePageUi::HomePageUi() :
-    ui_(new Ui::HomePageUi)
+    ui_(new Ui::HomePageUi),
+    fontLoader_(new FontLoader)
 {
     ui_->setupUi(this);
     QPixmap background(":/Resource/Background.png");
@@ -10,6 +11,7 @@ HomePageUi::HomePageUi() :
     QPalette palette;
     palette.setBrush(QPalette::Background, background);
     this->setPalette(palette);
+    QApplication::setFont(fontLoader_->loadFont(Font::BURLINGAME));
 }
 
 HomePageUi::~HomePageUi()

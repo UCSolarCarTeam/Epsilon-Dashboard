@@ -1,5 +1,6 @@
 #pragma once
 #include "I_FaultUi.h"
+#include "FontLoader/FontLoader.h"
 namespace Ui
 {
     class FaultUi;
@@ -23,4 +24,5 @@ public:
 
 private:
     Ui::FaultUi* ui_;
+    QScopedPointer<FontLoader> fontLoader_;
 };

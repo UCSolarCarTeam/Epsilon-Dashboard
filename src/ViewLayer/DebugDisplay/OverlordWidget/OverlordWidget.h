@@ -2,7 +2,7 @@
 #include <QWidget>
 #include <QMainWindow>
 #include <QStackedWidget>
-
+#include "FontLoader/FontLoader.h"
 class I_BatteryUi;
 class I_ControlUi;
 class I_HomePageUi;
@@ -40,5 +40,6 @@ private:
     I_MotorUi& motorUi_;
     I_MpptUi& mpptUi_;
     I_TabUi& tabUi_;
+    QScopedPointer<FontLoader> fontLoader_;
 };
 

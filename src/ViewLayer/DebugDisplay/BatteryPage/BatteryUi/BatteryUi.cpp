@@ -3,6 +3,7 @@
 
 BatteryUi::BatteryUi() :
     ui_(new Ui::BatteryUi)
+    , fontLoader_(new FontLoader())
 {
     ui_->setupUi(this);
     QPixmap bkgnd(":/Resources/Background.png");
@@ -10,6 +11,7 @@ BatteryUi::BatteryUi() :
     QPalette background;
     background.setBrush(QPalette::Background, bkgnd);
     this->setPalette(background);
+    QApplication::setFont(fontLoader_->loadFont(Font::BURLINGAME));
 }
 
 BatteryUi::~BatteryUi()
