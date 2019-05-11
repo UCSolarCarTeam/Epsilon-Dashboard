@@ -16,6 +16,7 @@ private:
 
 signals:
     void aliveReceived(bool);
+    void ccsAliveReceived(bool);
     void headlightsOffReceived(bool);
     void headlightsLowReceived(bool);
     void headlightsHighReceived(bool);

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "I_RaceModeDashboardUI.h"
+#include "FontLoader/FontLoader.h"
 
 namespace Ui
 {
@@ -32,14 +33,11 @@ public:
     QWidget& motorResetButtonWidget();
 
     QProgressBar& stateOfChargeCapacityWidget();
-
-    QWidget& prechargeStateIconWidget();
     QLabel& prechargeStateLabel();
 
     QWidget& lowHeadlightIndicatorWidget();
     QWidget& highHeadlightIndicatorWidget();
 
-    QWidget& thermometerWidget();
     QLabel& maxCellTemperatureLabel();
     QLabel& avgCellTemperatureLabel();
     QLabel& lowestCellVoltageLabel();
@@ -55,4 +53,5 @@ public:
 
 private:
     Ui::RaceModeDashboardUI* ui_;
+    QScopedPointer<FontLoader> fontLoader_;
 };

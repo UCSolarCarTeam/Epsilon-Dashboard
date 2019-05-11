@@ -32,19 +32,28 @@ namespace
                               "border: 1px solid white;";
 }
 
-ControlView::ControlView(DriverControlsPresenter& driverControlsPresenter,
+ControlView::ControlView(CcsPresenter& ccsPresenter,
+                         DriverControlsPresenter& driverControlsPresenter,
                          LightsPresenter& lightsPresenter,
                          I_ControlUi& ui)
-    : driverControlsPresenter_(driverControlsPresenter)
+    : ccsPresenter_(ccsPresenter)
+    , driverControlsPresenter_(driverControlsPresenter)
     , lightsPresenter_(lightsPresenter)
     , ui_(ui)
 {
+    connectCcs(ccsPresenter_);
     connectDriverControls(driverControlsPresenter_);
     connectLights(lightsPresenter_);
 }
 
 ControlView::~ControlView()
 {
+}
+
+void ControlView::connectCcs(CcsPresenter& ccsPresenter)
+{
+    connect(&ccsPresenter, SIGNAL(ccsAliveReceived(bool)),
+            this, SLOT(ccsAliveReceived(bool)));
 }
 
 void ControlView::connectDriverControls(DriverControlsPresenter& driverControlsPresenter)
@@ -116,6 +125,8 @@ void ControlView::connectLights(LightsPresenter& lightsPresenter)
             this, SLOT(rightLightReceived(bool)));
     connect(&lightsPresenter, SIGNAL(brakesReceived(bool)),
             this, SLOT(brakesLightReceived(bool)));
+    connect(&lightsPresenter, SIGNAL(bmsStrobeLightReceived(bool)),
+            this, SLOT(bmsStrobeLightReceived(bool)));
 }
 
 void ControlView::aliveReceived(bool alive)
@@ -139,6 +150,18 @@ void ControlView::aliveLights(bool lights)
     else
     {
         ui_.lightsIndicator().setStyleSheet(OFF);
+    }
+}
+
+void ControlView::ccsAliveReceived(bool ccs)
+{
+    if (ccs)
+    {
+        ui_.ccsAlive().setStyleSheet(ON);
+    }
+    else
+    {
+        ui_.ccsAlive().setStyleSheet(OFF);
     }
 }
 
@@ -308,6 +331,19 @@ void ControlView::auxReceived(bool aux)
     {
         ui_.auxOnLabel().setStyleSheet(OFF);
     }
+}
+
+void ControlView::bmsStrobeLightReceived(bool strobeLight)
+{
+    if (strobeLight)
+    {
+        ui_.strobeLightOnLabel().setStyleSheet(ON);
+    }
+    else
+    {
+        ui_.strobeLightOnLabel().setStyleSheet(OFF);
+    }
+
 }
 
 void ControlView::prevSongReceived(bool prevSong)

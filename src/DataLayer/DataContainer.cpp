@@ -1,6 +1,7 @@
 #include "AuxBmsData/AuxBmsData.h"
 #include "BatteryData/BatteryData.h"
 #include "BatteryFaultsData/BatteryFaultsData.h"
+#include "CcsData/CcsData.h"
 #include "DriverControlsData/DriverControlsData.h"
 #include "KeyMotorData/KeyMotorData.h"
 #include "LightsData/LightsData.h"
@@ -13,6 +14,7 @@ DataContainer::DataContainer()
     : auxBmsData_(new AuxBmsData())
     , batteryData_(new BatteryData())
     , batteryFaultsData_(new BatteryFaultsData())
+    , ccsData_(new CcsData())
     , driverControlsData_(new DriverControlsData())
     , keyMotorData_(new KeyMotorData())
     , lightsData_(new LightsData())
@@ -39,6 +41,11 @@ I_BatteryData& DataContainer::batteryData()
 I_BatteryFaultsData& DataContainer::batteryFaultsData()
 {
     return *batteryFaultsData_;
+}
+
+I_CcsData& DataContainer::ccsData()
+{
+    return *ccsData_;
 }
 
 I_DriverControlsData& DataContainer::driverControlsData()

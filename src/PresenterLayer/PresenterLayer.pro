@@ -17,7 +17,8 @@ HEADERS += \
     MotorDetailsPresenter/MotorDetailsPresenter.h \ 
     MotorFaultsPresenter/MotorFaultsPresenter.h \ 
     PresenterContainer.h \  
-    AuxBmsPresenter/AuxBmsPresenter.h
+    AuxBmsPresenter/AuxBmsPresenter.h \
+    CcsPresenter/CcsPresenter.h
 
 SOURCES += \ 
     BatteryPresenter/BatteryPresenter.cpp \
@@ -29,6 +30,7 @@ SOURCES += \
     MotorDetailsPresenter/MotorDetailsPresenter.cpp \
     MotorFaultsPresenter/MotorFaultsPresenter.cpp \
     PresenterContainer.cpp \  
-    AuxBmsPresenter/AuxBmsPresenter.cpp
+    AuxBmsPresenter/AuxBmsPresenter.cpp \
+    CcsPresenter/CcsPresenter.cpp
 
 

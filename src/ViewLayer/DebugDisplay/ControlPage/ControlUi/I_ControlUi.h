@@ -9,6 +9,7 @@ public:
     virtual ~I_ControlUi() {}
     virtual QLabel& driverControlIndicator() = 0;
     virtual QLabel& lightsIndicator() = 0;
+    virtual QLabel& ccsAlive() = 0;
     virtual QLabel& highHeadlightsLabel() = 0;
     virtual QLabel& lowHeadlightsLabel() = 0;
     virtual QLabel& lowBeamLabel() = 0;
@@ -34,4 +35,6 @@ public:
     virtual QLabel& resetOnLabel() = 0;
     virtual QProgressBar& accelerationProgressBar() = 0;
     virtual QProgressBar& regenBrakingProgressBar() = 0;
+    virtual QLabel& bmsStrobeLightLabel() = 0;
+    virtual QLabel& strobeLightOnLabel() = 0;
 };
