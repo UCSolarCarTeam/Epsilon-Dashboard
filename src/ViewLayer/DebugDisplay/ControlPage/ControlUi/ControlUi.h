@@ -11,7 +11,7 @@ class ControlUi : public I_ControlUi
 public:
     explicit ControlUi();
     ~ControlUi();
-    QLabel& driverControlIndicator();
+    QLabel& aliveIndicator();
     QLabel& lightsIndicator();
     QLabel& ccsAlive();
     QLabel& highHeadlightsLabel();

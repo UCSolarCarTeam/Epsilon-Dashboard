@@ -7,7 +7,7 @@ class I_ControlUi: public QWidget
 {
 public:
     virtual ~I_ControlUi() {}
-    virtual QLabel& driverControlIndicator() = 0;
+    virtual QLabel& aliveIndicator() = 0;
     virtual QLabel& lightsIndicator() = 0;
     virtual QLabel& ccsAlive() = 0;
     virtual QLabel& highHeadlightsLabel() = 0;
