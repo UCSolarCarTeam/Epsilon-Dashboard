@@ -11,8 +11,9 @@ class ControlUi : public I_ControlUi
 public:
     explicit ControlUi();
     ~ControlUi();
-    QLabel& driverControlIndicator();
+    QLabel& aliveIndicator();
     QLabel& lightsIndicator();
+    QLabel& ccsAlive();
     QLabel& highHeadlightsLabel();
     QLabel& lowHeadlightsLabel();
     QLabel& lowBeamLabel();
@@ -38,6 +39,10 @@ public:
     QLabel& resetOnLabel();
     QProgressBar& accelerationProgressBar();
     QProgressBar& regenBrakingProgressBar();
+    QLabel& bmsStrobeLightLabel();
+    QLabel& strobeLightOnLabel();
+private slots:
+
 private:
     Ui::ControlUi* ui_;
 };

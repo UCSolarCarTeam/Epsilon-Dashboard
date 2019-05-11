@@ -1,6 +1,8 @@
 #pragma once
 #include <QObject>
 #include <QLabel>
+#include <QList>
+#include <QWidget>
 
 #include "../../../../DataLayer/BatteryData/BatteryData.h"
 #include "../../../../PresenterLayer/BatteryPresenter/BatteryPresenter.h"
@@ -30,13 +32,12 @@ private:
     void connectAuxBMS(AuxBmsPresenter&);
 
     BatteryPresenter& batteryPresenter_;
-
+    I_BatteryUi& ui_;
+    ProgressBar& bar_;
     AuxBmsPresenter& auxBMSPresenter_;
 
-    I_BatteryUi& ui_;
-
-    ProgressBar& bar_;
-
+    QList<QWidget*> fanSpeedList_;
+    QList<QWidget*> requestedFanSpeedList_;
 
 
 private slots:

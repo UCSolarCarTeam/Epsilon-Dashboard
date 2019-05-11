@@ -92,9 +92,9 @@ private slots:
     void packNetPowerReceived(double);
     void packStateOfChargeReceived(double);
     void highTemperatureReceived(int);
-    void lowCellVoltageReceived(int);
+    void lowCellVoltageReceived(float);
     void averageTemperatureReceived(int);
-    void averageCellVoltageReceived(int);
+    void averageCellVoltageReceived(float);
 
     // battery faults slots
     void errorFlagsReceived(BatteryErrorFlags);

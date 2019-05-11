@@ -11,7 +11,8 @@ SUBDIRS = \
     InfrastructureLayer \
     CommunicationLayer \
     DataLayer \
-    EpsilonDashboard
+    EpsilonDashboard \
+    Tests \
 
 DISTFILES += \
     .travis.yml \

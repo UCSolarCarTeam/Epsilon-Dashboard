@@ -24,6 +24,7 @@ public:
         , jsonReceiver_(businessContainer.auxBmsPopulator(),
                         businessContainer.batteryPopulator(),
                         businessContainer.batteryFaultsPopulator(),
+                        businessContainer.ccsPopulator(),
                         businessContainer.driverControlsPopulator(),
                         businessContainer.keyMotorPopulator(),
                         businessContainer.lightsPopulator(),
