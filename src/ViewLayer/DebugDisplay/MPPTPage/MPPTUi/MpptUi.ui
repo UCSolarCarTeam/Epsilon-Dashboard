@@ -145,7 +145,7 @@ background-color:rgba(255, 187, 0, 210 );
         </property>
         <property name="font">
          <font>
-          <pointsize>18</pointsize>
+          <pointsize>14</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -193,7 +193,7 @@ background-color:rgba(56, 56, 56, 200);
         </property>
         <property name="font">
          <font>
-          <pointsize>16</pointsize>
+          <pointsize>13</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -236,7 +236,7 @@ Voltage</string>
         </property>
         <property name="font">
          <font>
-          <pointsize>16</pointsize>
+          <pointsize>13</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -279,7 +279,7 @@ Current</string>
         </property>
         <property name="font">
          <font>
-          <pointsize>16</pointsize>
+          <pointsize>13</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -322,7 +322,7 @@ Power</string>
         </property>
         <property name="font">
          <font>
-          <pointsize>16</pointsize>
+          <pointsize>13</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -359,7 +359,7 @@ Voltage</string>
         </property>
         <property name="font">
          <font>
-          <pointsize>16</pointsize>
+          <pointsize>13</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -370,59 +370,6 @@ Voltage</string>
         </property>
         <property name="margin">
          <number>15</number>
-        </property>
-       </widget>
-       <widget class="QLabel" name="mppt0ArrayVoltage">
-        <property name="geometry">
-         <rect>
-          <x>80</x>
-          <y>100</y>
-          <width>110</width>
-          <height>80</height>
-         </rect>
-        </property>
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>110</width>
-          <height>80</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>110</width>
-          <height>80</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>Arial</family>
-          <pointsize>24</pointsize>
-          <weight>50</weight>
-          <italic>false</italic>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">margin-bottom:7px;
-color:white;</string>
-        </property>
-        <property name="text">
-         <string>100&lt;sub&gt;V&lt;/sub&gt;</string>
-        </property>
-        <property name="textFormat">
-         <enum>Qt::AutoText</enum>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-        </property>
-        <property name="margin">
-         <number>10</number>
         </property>
        </widget>
        <widget class="QLabel" name="mppt0ArrayCurrent">
@@ -454,7 +401,7 @@ color:white;</string>
         </property>
         <property name="font">
          <font>
-          <pointsize>24</pointsize>
+          <pointsize>18</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -503,7 +450,7 @@ color:white;</string>
         </property>
         <property name="font">
          <font>
-          <pointsize>24</pointsize>
+          <pointsize>18</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -552,7 +499,7 @@ color:white;</string>
         </property>
         <property name="font">
          <font>
-          <pointsize>24</pointsize>
+          <pointsize>18</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -595,7 +542,7 @@ color:white;</string>
         </property>
         <property name="font">
          <font>
-          <pointsize>24</pointsize>
+          <pointsize>18</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -642,6 +589,55 @@ border-radius:10px;
 border: 1px solid white;</string>
         </property>
        </widget>
+       <widget class="QLabel" name="mppt0ArrayVoltage">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>100</y>
+          <width>110</width>
+          <height>80</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>110</width>
+          <height>80</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>110</width>
+          <height>80</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>18</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">margin-bottom:7px;
+color:white;</string>
+        </property>
+        <property name="text">
+         <string>100&lt;sub&gt;A&lt;/sub&gt;</string>
+        </property>
+        <property name="textFormat">
+         <enum>Qt::AutoText</enum>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+        <property name="margin">
+         <number>10</number>
+        </property>
+       </widget>
        <zorder>mppt0AliveLabel</zorder>
        <zorder>mppt0Header</zorder>
        <zorder>mppt0ArrayVoltageLabel</zorder>
@@ -649,12 +645,12 @@ border: 1px solid white;</string>
        <zorder>mppt0ArrayPowerLabel</zorder>
        <zorder>mppt0BatteryVoltageLabel</zorder>
        <zorder>mppt0TemperatureLabel</zorder>
-       <zorder>mppt0ArrayVoltage</zorder>
        <zorder>mppt0ArrayCurrent</zorder>
        <zorder>mppt0ArrayPower</zorder>
        <zorder>mppt0BatteryVoltage</zorder>
        <zorder>mppt0Temperature</zorder>
        <zorder>mppt0AliveIndicator</zorder>
+       <zorder>mppt0ArrayVoltage</zorder>
       </widget>
      </item>
      <item>
@@ -759,7 +755,7 @@ background-color:rgba(255, 187, 0, 210);
         </property>
         <property name="font">
          <font>
-          <pointsize>18</pointsize>
+          <pointsize>14</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -807,7 +803,7 @@ background-color:rgba(56, 56, 56, 200);
         </property>
         <property name="font">
          <font>
-          <pointsize>16</pointsize>
+          <pointsize>13</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -850,7 +846,7 @@ Voltage</string>
         </property>
         <property name="font">
          <font>
-          <pointsize>16</pointsize>
+          <pointsize>13</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -893,7 +889,7 @@ Current</string>
         </property>
         <property name="font">
          <font>
-          <pointsize>16</pointsize>
+          <pointsize>13</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -936,7 +932,7 @@ Power</string>
         </property>
         <property name="font">
          <font>
-          <pointsize>16</pointsize>
+          <pointsize>13</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -973,7 +969,7 @@ Voltage</string>
         </property>
         <property name="font">
          <font>
-          <pointsize>16</pointsize>
+          <pointsize>13</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -1015,7 +1011,7 @@ Voltage</string>
         </property>
         <property name="font">
          <font>
-          <pointsize>24</pointsize>
+          <pointsize>18</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -1064,7 +1060,7 @@ color:white;</string>
         </property>
         <property name="font">
          <font>
-          <pointsize>24</pointsize>
+          <pointsize>18</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -1113,7 +1109,7 @@ color:white;</string>
         </property>
         <property name="font">
          <font>
-          <pointsize>24</pointsize>
+          <pointsize>18</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -1162,7 +1158,7 @@ color:white;</string>
         </property>
         <property name="font">
          <font>
-          <pointsize>24</pointsize>
+          <pointsize>18</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -1205,7 +1201,7 @@ color:white;</string>
         </property>
         <property name="font">
          <font>
-          <pointsize>24</pointsize>
+          <pointsize>18</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -1356,7 +1352,7 @@ background-color:rgba(255, 187, 0, 210);
         </property>
         <property name="font">
          <font>
-          <pointsize>18</pointsize>
+          <pointsize>14</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -1404,7 +1400,7 @@ background-color:rgba(56, 56, 56,200);
         </property>
         <property name="font">
          <font>
-          <pointsize>16</pointsize>
+          <pointsize>13</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -1447,7 +1443,7 @@ Voltage</string>
         </property>
         <property name="font">
          <font>
-          <pointsize>16</pointsize>
+          <pointsize>13</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -1490,7 +1486,7 @@ Current</string>
         </property>
         <property name="font">
          <font>
-          <pointsize>16</pointsize>
+          <pointsize>13</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -1533,7 +1529,7 @@ Power</string>
         </property>
         <property name="font">
          <font>
-          <pointsize>16</pointsize>
+          <pointsize>13</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -1570,7 +1566,7 @@ Voltage</string>
         </property>
         <property name="font">
          <font>
-          <pointsize>16</pointsize>
+          <pointsize>13</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -1612,7 +1608,7 @@ Voltage</string>
         </property>
         <property name="font">
          <font>
-          <pointsize>24</pointsize>
+          <pointsize>18</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -1661,7 +1657,7 @@ color:white;</string>
         </property>
         <property name="font">
          <font>
-          <pointsize>24</pointsize>
+          <pointsize>18</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -1710,7 +1706,7 @@ color:white;</string>
         </property>
         <property name="font">
          <font>
-          <pointsize>24</pointsize>
+          <pointsize>18</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -1759,7 +1755,7 @@ color:white;</string>
         </property>
         <property name="font">
          <font>
-          <pointsize>24</pointsize>
+          <pointsize>18</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -1802,7 +1798,7 @@ color:white;</string>
         </property>
         <property name="font">
          <font>
-          <pointsize>24</pointsize>
+          <pointsize>18</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -1870,6 +1866,11 @@ border: 1px solid white;</string>
          <width>165</width>
          <height>550</height>
         </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+        </font>
        </property>
        <property name="styleSheet">
         <string notr="true">QWidget#mppt3{
@@ -1953,7 +1954,7 @@ background-color:rgba(255, 187, 0, 210);
         </property>
         <property name="font">
          <font>
-          <pointsize>18</pointsize>
+          <pointsize>14</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -2001,7 +2002,7 @@ background-color:rgba(56, 56, 56,200);
         </property>
         <property name="font">
          <font>
-          <pointsize>16</pointsize>
+          <pointsize>13</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -2044,7 +2045,7 @@ Voltage</string>
         </property>
         <property name="font">
          <font>
-          <pointsize>16</pointsize>
+          <pointsize>13</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -2087,7 +2088,7 @@ Current</string>
         </property>
         <property name="font">
          <font>
-          <pointsize>16</pointsize>
+          <pointsize>13</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -2130,7 +2131,7 @@ Power</string>
         </property>
         <property name="font">
          <font>
-          <pointsize>16</pointsize>
+          <pointsize>13</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -2167,7 +2168,7 @@ Voltage</string>
         </property>
         <property name="font">
          <font>
-          <pointsize>16</pointsize>
+          <pointsize>13</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -2209,7 +2210,7 @@ Voltage</string>
         </property>
         <property name="font">
          <font>
-          <pointsize>24</pointsize>
+          <pointsize>18</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -2258,7 +2259,7 @@ color:white;</string>
         </property>
         <property name="font">
          <font>
-          <pointsize>24</pointsize>
+          <pointsize>18</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -2307,7 +2308,7 @@ color:white;</string>
         </property>
         <property name="font">
          <font>
-          <pointsize>24</pointsize>
+          <pointsize>18</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -2356,7 +2357,7 @@ color:white;</string>
         </property>
         <property name="font">
          <font>
-          <pointsize>24</pointsize>
+          <pointsize>18</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -2399,7 +2400,7 @@ color:white;</string>
         </property>
         <property name="font">
          <font>
-          <pointsize>24</pointsize>
+          <pointsize>18</pointsize>
          </font>
         </property>
         <property name="styleSheet">
@@ -2498,7 +2499,7 @@ border: 1px solid white;</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>24</pointsize>
+         <pointsize>18</pointsize>
         </font>
        </property>
        <property name="styleSheet">
