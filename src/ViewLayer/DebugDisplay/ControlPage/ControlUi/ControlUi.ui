@@ -1202,7 +1202,6 @@ border: 1px solid white;</string>
           </layout>
          </item>
         </layout>
-        <zorder></zorder>
        </widget>
       </item>
       <item>
