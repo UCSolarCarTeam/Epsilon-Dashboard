@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>877</width>
+    <width>800</width>
     <height>480</height>
    </rect>
   </property>
@@ -461,9 +461,21 @@
    </property>
    <item>
     <widget class="QWidget" name="widget" native="true">
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
        <widget class="QWidget" name="topWidget" native="true">
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
         <layout class="QHBoxLayout" name="horizontalLayout_11">
          <property name="spacing">
           <number>0</number>
@@ -482,6 +494,12 @@
          </property>
          <item>
           <widget class="QWidget" name="topWidgetMainLayout" native="true">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
            <property name="styleSheet">
             <string notr="true"/>
            </property>
@@ -503,6 +521,12 @@
             </property>
             <item>
              <widget class="QWidget" name="motorDetailsWidget" native="true">
+              <property name="font">
+               <font>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
               <layout class="QGridLayout" name="MotorPowerCurrent">
                <property name="leftMargin">
                 <number>0</number>
@@ -521,6 +545,12 @@
                </property>
                <item row="2" column="2">
                 <widget class="QWidget" name="motorPowerWidget" native="true">
+                 <property name="font">
+                  <font>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <layout class="QGridLayout" name="motorPowerLayout">
                   <property name="leftMargin">
                    <number>0</number>
@@ -539,9 +569,15 @@
                   </property>
                   <item row="1" column="0" colspan="3">
                    <widget class="QLabel" name="motorPowerTitleLabel">
+                    <property name="font">
+                     <font>
+                      <pointsize>8</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true">QLabel {
-font: bold 8pt &quot;Arial Unicode MS&quot;;
 qproperty-alignment: AlignHCenter;
 color: rgb(100,100,100);
 }
@@ -549,29 +585,41 @@ color: rgb(100,100,100);
 </string>
                     </property>
                     <property name="text">
-                     <string>M O T O R   P O W E R</string>
+                     <string>S E T   C U R R E N T</string>
                     </property>
                    </widget>
                   </item>
                   <item row="0" column="2">
                    <widget class="QLabel" name="motorPowerUnitsLabel">
+                    <property name="font">
+                     <font>
+                      <pointsize>14</pointsize>
+                      <weight>50</weight>
+                      <bold>false</bold>
+                     </font>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true">QLabel {
-font: 14pt &quot;Burlingame Pro&quot;;
 color: white;
 qproperty-alignment: 'AlignBottom | AlignLeft';
 }</string>
                     </property>
                     <property name="text">
-                     <string>W</string>
+                     <string>A</string>
                     </property>
                    </widget>
                   </item>
                   <item row="0" column="0" colspan="2">
                    <widget class="QLabel" name="motorPowerLabel">
+                    <property name="font">
+                     <font>
+                      <pointsize>24</pointsize>
+                      <weight>50</weight>
+                      <bold>false</bold>
+                     </font>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true">QLabel {
-font: 24pt &quot;Burlingame Pro&quot;;
 color: white;
 qproperty-alignment: 'AlignBottom | AlignRight';
 }</string>
@@ -586,6 +634,12 @@ qproperty-alignment: 'AlignBottom | AlignRight';
                </item>
                <item row="1" column="2">
                 <widget class="QWidget" name="setCurrentWidget" native="true">
+                 <property name="font">
+                  <font>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <layout class="QGridLayout" name="setCurrentLayout">
                   <property name="leftMargin">
                    <number>0</number>
@@ -604,9 +658,15 @@ qproperty-alignment: 'AlignBottom | AlignRight';
                   </property>
                   <item row="1" column="0" colspan="3">
                    <widget class="QLabel" name="setCurrentTitleLabel">
+                    <property name="font">
+                     <font>
+                      <pointsize>8</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true">QLabel {
-font: bold 8pt &quot;Arial Unicode MS&quot;;
 qproperty-alignment: AlignHCenter;
 color: rgb(100,100,100);
 }
@@ -614,29 +674,39 @@ color: rgb(100,100,100);
 </string>
                     </property>
                     <property name="text">
-                     <string>S E T   C U R R E N T</string>
+                     <string>M O T O R   P O W E R</string>
                     </property>
                    </widget>
                   </item>
                   <item row="0" column="2">
                    <widget class="QLabel" name="setCurrentUnitsLabel">
+                    <property name="font">
+                     <font>
+                      <pointsize>14</pointsize>
+                      <weight>50</weight>
+                      <bold>false</bold>
+                     </font>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true">QLabel {
-font: 14pt &quot;Burlingame Pro&quot;;
 color: white;
 qproperty-alignment: 'AlignBottom | AlignLeft';
 }</string>
                     </property>
                     <property name="text">
-                     <string>A</string>
+                     <string>W</string>
                     </property>
                    </widget>
                   </item>
                   <item row="0" column="0" colspan="2">
                    <widget class="QLabel" name="setCurrentLabel">
+                    <property name="font">
+                     <font>
+                      <pointsize>24</pointsize>
+                     </font>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true">QLabel {
-font: 24pt &quot;Burlingame Pro&quot;;
 color: white;
 qproperty-alignment: 'AlignBottom | AlignRight';
 }</string>
@@ -654,6 +724,12 @@ qproperty-alignment: 'AlignBottom | AlignRight';
             </item>
             <item>
              <widget class="QWidget" name="centerWidget" native="true">
+              <property name="font">
+               <font>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
               <property name="styleSheet">
                <string notr="true"/>
               </property>
@@ -675,6 +751,12 @@ qproperty-alignment: 'AlignBottom | AlignRight';
                </property>
                <item row="8" column="0">
                 <spacer name="verticalSpacer">
+                 <property name="font">
+                  <font>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="orientation">
                   <enum>Qt::Vertical</enum>
                  </property>
@@ -702,7 +784,6 @@ qproperty-alignment: 'AlignBottom | AlignRight';
                  </property>
                  <property name="font">
                   <font>
-                   <family>LCDMono</family>
                    <pointsize>45</pointsize>
                    <weight>75</weight>
                    <italic>false</italic>
@@ -713,7 +794,7 @@ qproperty-alignment: 'AlignBottom | AlignRight';
                   <bool>false</bool>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">font: bold 45pt &quot;LCDMono&quot;;
+                  <string notr="true">
 text-align: right;
 color: white;</string>
                  </property>
@@ -733,16 +814,14 @@ color: white;</string>
                </item>
                <item row="0" column="3">
                 <widget class="QWidget" name="stateOfChargeDetailsWidget" native="true">
+                 <property name="font">
+                  <font>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="styleSheet">
-                  <string notr="true">QProgressBar:horizontal {
-background:white;
-padding:0px;
-text-align: center;
-}
-QProgressBar:horizontal::font {
-font: 20pt &quot;LCDMono&quot;;
-color: white;
-}</string>
+                  <string notr="true">color: white;</string>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_14">
                   <item>
@@ -761,7 +840,6 @@ color: white;
                     </property>
                     <property name="font">
                      <font>
-                      <family>LCDMono</family>
                       <pointsize>20</pointsize>
                       <weight>50</weight>
                       <italic>false</italic>
@@ -812,6 +890,12 @@ background: rgb(20,180,20);
                       <height>20</height>
                      </size>
                     </property>
+                    <property name="font">
+                     <font>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true">QLabel {
 qproperty-alignment: AlignHCenter;
@@ -836,8 +920,15 @@ color: rgb(100,100,100);
                    <verstretch>0</verstretch>
                   </sizepolicy>
                  </property>
+                 <property name="font">
+                  <font>
+                   <pointsize>14</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="styleSheet">
-                  <string notr="true">font: 75 bold 14pt &quot;Nimbus Sans L&quot;;
+                  <string notr="true">
 padding-top:60px;
 padding-left: -6px;
 color: white;</string>
@@ -849,6 +940,12 @@ color: white;</string>
                </item>
                <item row="7" column="3">
                 <widget class="QWidget" name="resetButtonWidget" native="true">
+                 <property name="font">
+                  <font>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <layout class="QHBoxLayout" name="horizontalLayout_17">
                   <item>
                    <widget class="QWidget" name="motorResetButtonWidget" native="true">
@@ -863,6 +960,12 @@ color: white;</string>
                       <width>60</width>
                       <height>52</height>
                      </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
                     </property>
                     <property name="styleSheet">
                      <string notr="true">background: url(:/Resources/MotorResetButton.png);</string>
@@ -881,6 +984,12 @@ color: white;</string>
             </item>
             <item>
              <widget class="QWidget" name="batteryDataWidget" native="true">
+              <property name="font">
+               <font>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
               <property name="styleSheet">
                <string notr="true"/>
               </property>
@@ -902,6 +1011,12 @@ color: white;</string>
                </property>
                <item>
                 <widget class="QWidget" name="prechargeInfoWidget" native="true">
+                 <property name="font">
+                  <font>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <layout class="QVBoxLayout" name="verticalLayout_11">
                   <property name="spacing">
                    <number>0</number>
@@ -928,11 +1043,13 @@ color: white;</string>
                     </property>
                     <property name="font">
                      <font>
-                      <pointsize>13</pointsize>
+                      <pointsize>11</pointsize>
+                      <weight>50</weight>
+                      <bold>false</bold>
                      </font>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">color: rgb(100,100,100);</string>
+                     <string notr="true">color:white;</string>
                     </property>
                     <property name="text">
                      <string>RUN</string>
@@ -958,8 +1075,9 @@ color: white;</string>
                     </property>
                     <property name="font">
                      <font>
-                      <family>Noto Sans [unknown]</family>
                       <pointsize>12</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
                      </font>
                     </property>
                     <property name="styleSheet">
@@ -979,6 +1097,12 @@ color: white;</string>
                </item>
                <item>
                 <widget class="QWidget" name="cellIInfoWidget" native="true">
+                 <property name="font">
+                  <font>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <layout class="QHBoxLayout" name="horizontalLayout_18">
                   <property name="spacing">
                    <number>0</number>
@@ -1003,6 +1127,12 @@ color: white;</string>
                       <verstretch>0</verstretch>
                      </sizepolicy>
                     </property>
+                    <property name="font">
+                     <font>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
                     <layout class="QVBoxLayout" name="verticalLayout_16">
                      <property name="leftMargin">
                       <number>0</number>
@@ -1018,8 +1148,15 @@ color: white;</string>
                      </property>
                      <item>
                       <widget class="QLabel" name="cellTitleWidget">
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
                        <property name="styleSheet">
-                        <string notr="true">font: bold 12pt &quot;Arial Unicode MS&quot;;
+                        <string notr="true">
 color: rgb(100,100,100);</string>
                        </property>
                        <property name="text">
@@ -1032,6 +1169,12 @@ color: rgb(100,100,100);</string>
                      </item>
                      <item>
                       <widget class="QWidget" name="cellDataWidget" native="true">
+                       <property name="font">
+                        <font>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
                        <property name="styleSheet">
                         <string notr="true"/>
                        </property>
@@ -1053,6 +1196,12 @@ color: rgb(100,100,100);</string>
                         </property>
                         <item>
                          <widget class="QWidget" name="maxLowWidget" native="true">
+                          <property name="font">
+                           <font>
+                            <weight>75</weight>
+                            <bold>true</bold>
+                           </font>
+                          </property>
                           <property name="styleSheet">
                            <string notr="true"/>
                           </property>
@@ -1074,6 +1223,12 @@ color: rgb(100,100,100);</string>
                            </property>
                            <item>
                             <widget class="QWidget" name="maxCellTempuratureInfo" native="true">
+                             <property name="font">
+                              <font>
+                               <weight>75</weight>
+                               <bold>true</bold>
+                              </font>
+                             </property>
                              <layout class="QVBoxLayout" name="verticalLayout_12">
                               <property name="spacing">
                                <number>0</number>
@@ -1092,6 +1247,12 @@ color: rgb(100,100,100);</string>
                               </property>
                               <item>
                                <widget class="QWidget" name="maxCellTempWidget" native="true">
+                                <property name="font">
+                                 <font>
+                                  <weight>75</weight>
+                                  <bold>true</bold>
+                                 </font>
+                                </property>
                                 <layout class="QHBoxLayout" name="horizontalLayout_13">
                                  <property name="spacing">
                                   <number>0</number>
@@ -1116,8 +1277,15 @@ color: rgb(100,100,100);</string>
                                      <height>16777215</height>
                                     </size>
                                    </property>
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>16</pointsize>
+                                     <weight>50</weight>
+                                     <bold>false</bold>
+                                    </font>
+                                   </property>
                                    <property name="styleSheet">
-                                    <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
+                                    <string notr="true">
 color:white;</string>
                                    </property>
                                    <property name="text">
@@ -1139,9 +1307,16 @@ color:white;</string>
                                      <height>16777215</height>
                                     </size>
                                    </property>
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>10</pointsize>
+                                     <weight>50</weight>
+                                     <bold>false</bold>
+                                    </font>
+                                   </property>
                                    <property name="styleSheet">
                                     <string notr="true">QLabel {
-font: 10pt &quot;Burlingame Pro&quot;;
+
 color: white;
 qproperty-alignment: 'AlignBottom | AlignLeft';
 }</string>
@@ -1152,13 +1327,22 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
                                   </widget>
                                  </item>
                                 </layout>
+                                <zorder>maxCellTemperatureUnitsLabel</zorder>
+                                <zorder>maxCellTemperatureLabel</zorder>
                                </widget>
                               </item>
                               <item>
                                <widget class="QLabel" name="maxCellTemperatureTitleLabel">
+                                <property name="font">
+                                 <font>
+                                  <pointsize>10</pointsize>
+                                  <weight>50</weight>
+                                  <bold>false</bold>
+                                 </font>
+                                </property>
                                 <property name="styleSheet">
                                  <string notr="true">QLabel {
-font: 10pt &quot;Burlingame Pro&quot;;
+
 color: white;
 qproperty-alignment: 'AlignHCenter | AlignBottom';
 }</string>
@@ -1173,6 +1357,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                            </item>
                            <item>
                             <widget class="QWidget" name="lowCellVoltageInfo" native="true">
+                             <property name="font">
+                              <font>
+                               <weight>75</weight>
+                               <bold>true</bold>
+                              </font>
+                             </property>
                              <layout class="QVBoxLayout" name="verticalLayout_20">
                               <property name="spacing">
                                <number>0</number>
@@ -1191,6 +1381,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                               </property>
                               <item>
                                <widget class="QWidget" name="lowestCellVoltageWidget" native="true">
+                                <property name="font">
+                                 <font>
+                                  <weight>75</weight>
+                                  <bold>true</bold>
+                                 </font>
+                                </property>
                                 <layout class="QHBoxLayout" name="horizontalLayout_21">
                                  <property name="spacing">
                                   <number>0</number>
@@ -1215,8 +1411,15 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                                      <height>16777215</height>
                                     </size>
                                    </property>
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>16</pointsize>
+                                     <weight>50</weight>
+                                     <bold>false</bold>
+                                    </font>
+                                   </property>
                                    <property name="styleSheet">
-                                    <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
+                                    <string notr="true">
 color:white;</string>
                                    </property>
                                    <property name="text">
@@ -1238,9 +1441,16 @@ color:white;</string>
                                      <height>16777215</height>
                                     </size>
                                    </property>
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>10</pointsize>
+                                     <weight>50</weight>
+                                     <bold>false</bold>
+                                    </font>
+                                   </property>
                                    <property name="styleSheet">
                                     <string notr="true">QLabel {
-font: 10pt &quot;Burlingame Pro&quot;;
+
 color: white;
 qproperty-alignment: 'AlignBottom | AlignLeft';
 }</string>
@@ -1255,9 +1465,16 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
                               </item>
                               <item>
                                <widget class="QLabel" name="lowCellVoltageTitle">
+                                <property name="font">
+                                 <font>
+                                  <pointsize>10</pointsize>
+                                  <weight>50</weight>
+                                  <bold>false</bold>
+                                 </font>
+                                </property>
                                 <property name="styleSheet">
                                  <string notr="true">QLabel {
-font: 10pt &quot;Burlingame Pro&quot;;
+
 color: white;
 qproperty-alignment: 'AlignHCenter | AlignBottom';
 }</string>
@@ -1275,6 +1492,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                         </item>
                         <item>
                          <widget class="QWidget" name="avgTempVoltageWidget" native="true">
+                          <property name="font">
+                           <font>
+                            <weight>75</weight>
+                            <bold>true</bold>
+                           </font>
+                          </property>
                           <property name="styleSheet">
                            <string notr="true"/>
                           </property>
@@ -1296,6 +1519,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                            </property>
                            <item>
                             <widget class="QWidget" name="avgTempratureInfo" native="true">
+                             <property name="font">
+                              <font>
+                               <weight>75</weight>
+                               <bold>true</bold>
+                              </font>
+                             </property>
                              <layout class="QVBoxLayout" name="verticalLayout_13">
                               <property name="spacing">
                                <number>0</number>
@@ -1314,6 +1543,13 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                               </property>
                               <item>
                                <widget class="QWidget" name="averageTempuratureWidget" native="true">
+                                <property name="font">
+                                 <font>
+                                  <pointsize>18</pointsize>
+                                  <weight>75</weight>
+                                  <bold>true</bold>
+                                 </font>
+                                </property>
                                 <layout class="QHBoxLayout" name="horizontalLayout_14">
                                  <property name="spacing">
                                   <number>0</number>
@@ -1338,8 +1574,15 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                                      <height>16777215</height>
                                     </size>
                                    </property>
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>16</pointsize>
+                                     <weight>50</weight>
+                                     <bold>false</bold>
+                                    </font>
+                                   </property>
                                    <property name="styleSheet">
-                                    <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
+                                    <string notr="true">
 color:white;</string>
                                    </property>
                                    <property name="text">
@@ -1361,8 +1604,15 @@ color:white;</string>
                                      <height>16777215</height>
                                     </size>
                                    </property>
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>10</pointsize>
+                                     <weight>50</weight>
+                                     <bold>false</bold>
+                                    </font>
+                                   </property>
                                    <property name="styleSheet">
-                                    <string notr="true">font: 10pt &quot;Burlingame Pro&quot;;
+                                    <string notr="true">
 color: white;</string>
                                    </property>
                                    <property name="text">
@@ -1371,13 +1621,22 @@ color: white;</string>
                                   </widget>
                                  </item>
                                 </layout>
+                                <zorder>avgCellTemperatureUnit</zorder>
+                                <zorder>avgCellTemperatureLabel</zorder>
                                </widget>
                               </item>
                               <item>
                                <widget class="QLabel" name="averageCellTempTitle">
+                                <property name="font">
+                                 <font>
+                                  <pointsize>10</pointsize>
+                                  <weight>50</weight>
+                                  <bold>false</bold>
+                                 </font>
+                                </property>
                                 <property name="styleSheet">
                                  <string notr="true">QLabel {
-font: 10pt &quot;Burlingame Pro&quot;;
+
 color: white;
 qproperty-alignment: 'AlignHCenter | AlignBottom';
 }</string>
@@ -1392,6 +1651,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                            </item>
                            <item>
                             <widget class="QWidget" name="avgCellInfoWidget" native="true">
+                             <property name="font">
+                              <font>
+                               <weight>75</weight>
+                               <bold>true</bold>
+                              </font>
+                             </property>
                              <layout class="QVBoxLayout" name="verticalLayout_21">
                               <property name="spacing">
                                <number>0</number>
@@ -1410,6 +1675,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                               </property>
                               <item>
                                <widget class="QWidget" name="avgCellVoltageWidget" native="true">
+                                <property name="font">
+                                 <font>
+                                  <weight>75</weight>
+                                  <bold>true</bold>
+                                 </font>
+                                </property>
                                 <layout class="QHBoxLayout" name="horizontalLayout_22">
                                  <property name="spacing">
                                   <number>0</number>
@@ -1434,8 +1705,15 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                                      <height>16777215</height>
                                     </size>
                                    </property>
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>16</pointsize>
+                                     <weight>50</weight>
+                                     <bold>false</bold>
+                                    </font>
+                                   </property>
                                    <property name="styleSheet">
-                                    <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
+                                    <string notr="true">
 color:white;</string>
                                    </property>
                                    <property name="text">
@@ -1457,8 +1735,15 @@ color:white;</string>
                                      <height>16777215</height>
                                     </size>
                                    </property>
+                                   <property name="font">
+                                    <font>
+                                     <pointsize>10</pointsize>
+                                     <weight>50</weight>
+                                     <bold>false</bold>
+                                    </font>
+                                   </property>
                                    <property name="styleSheet">
-                                    <string notr="true">font: 10pt &quot;Burlingame Pro&quot;;
+                                    <string notr="true">
 color: white;</string>
                                    </property>
                                    <property name="text">
@@ -1471,9 +1756,16 @@ color: white;</string>
                               </item>
                               <item>
                                <widget class="QLabel" name="avgCellVoltageTitle">
+                                <property name="font">
+                                 <font>
+                                  <pointsize>10</pointsize>
+                                  <weight>50</weight>
+                                  <bold>false</bold>
+                                 </font>
+                                </property>
                                 <property name="styleSheet">
                                  <string notr="true">QLabel {
-font: 10pt &quot;Burlingame Pro&quot;;
+
 color: white;
 qproperty-alignment: 'AlignHCenter | AlignBottom';
 }</string>
@@ -1494,6 +1786,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                      </item>
                      <item>
                       <spacer name="verticalSpacer_5">
+                       <property name="font">
+                        <font>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
                        <property name="orientation">
                         <enum>Qt::Vertical</enum>
                        </property>
@@ -1525,6 +1823,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
       </item>
       <item>
        <widget class="QWidget" name="bottomWidget" native="true">
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
         <property name="styleSheet">
          <string notr="true"/>
         </property>
@@ -1546,6 +1850,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
          </property>
          <item>
           <widget class="QWidget" name="BottomLeftCorner" native="true">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
            <property name="styleSheet">
             <string notr="true">color:white;</string>
            </property>
@@ -1567,6 +1877,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
             </property>
             <item>
              <widget class="QWidget" name="arrayPowerWidget" native="true">
+              <property name="font">
+               <font>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
               <property name="styleSheet">
                <string notr="true"/>
               </property>
@@ -1588,6 +1904,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                </property>
                <item>
                 <widget class="QWidget" name="powerInWidget" native="true">
+                 <property name="font">
+                  <font>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <layout class="QVBoxLayout" name="verticalLayout_5">
                   <property name="spacing">
                    <number>10</number>
@@ -1606,6 +1928,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                   </property>
                   <item>
                    <widget class="QWidget" name="powerInDataWidget" native="true">
+                    <property name="font">
+                     <font>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
                     <layout class="QHBoxLayout" name="horizontalLayout_5">
                      <property name="spacing">
                       <number>0</number>
@@ -1627,6 +1955,8 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                        <property name="font">
                         <font>
                          <pointsize>14</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
                         </font>
                        </property>
                        <property name="text">
@@ -1645,6 +1975,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                          <verstretch>0</verstretch>
                         </sizepolicy>
                        </property>
+                       <property name="font">
+                        <font>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
                        <property name="styleSheet">
                         <string notr="true">color: rgb(100,100,100);</string>
                        </property>
@@ -1658,6 +1994,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                   </item>
                   <item>
                    <widget class="QLabel" name="powerInTitleLabel">
+                    <property name="font">
+                     <font>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true">color: rgb(100,100,100);</string>
                     </property>
@@ -1671,6 +2013,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                   </item>
                   <item>
                    <spacer name="verticalSpacer_2">
+                    <property name="font">
+                     <font>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
                     <property name="orientation">
                      <enum>Qt::Vertical</enum>
                     </property>
@@ -1690,6 +2038,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                </item>
                <item>
                 <widget class="QWidget" name="powerOutWidget" native="true">
+                 <property name="font">
+                  <font>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <layout class="QVBoxLayout" name="verticalLayout_6">
                   <property name="spacing">
                    <number>10</number>
@@ -1708,6 +2062,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                   </property>
                   <item>
                    <widget class="QWidget" name="powerOutDataWidget" native="true">
+                    <property name="font">
+                     <font>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
                     <layout class="QHBoxLayout" name="horizontalLayout_6">
                      <property name="spacing">
                       <number>0</number>
@@ -1729,6 +2089,8 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                        <property name="font">
                         <font>
                          <pointsize>14</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
                         </font>
                        </property>
                        <property name="text">
@@ -1747,6 +2109,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                          <verstretch>0</verstretch>
                         </sizepolicy>
                        </property>
+                       <property name="font">
+                        <font>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
                        <property name="styleSheet">
                         <string notr="true">color: rgb(100,100,100);</string>
                        </property>
@@ -1760,6 +2128,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                   </item>
                   <item>
                    <widget class="QLabel" name="powerOutTitleLabel">
+                    <property name="font">
+                     <font>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true">color: rgb(100,100,100);</string>
                     </property>
@@ -1773,6 +2147,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                   </item>
                   <item>
                    <spacer name="verticalSpacer_3">
+                    <property name="font">
+                     <font>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
                     <property name="orientation">
                      <enum>Qt::Vertical</enum>
                     </property>
@@ -1792,6 +2172,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                </item>
                <item>
                 <widget class="QWidget" name="netPowerWidget" native="true">
+                 <property name="font">
+                  <font>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <layout class="QVBoxLayout" name="verticalLayout_7">
                   <property name="spacing">
                    <number>10</number>
@@ -1810,6 +2196,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                   </property>
                   <item>
                    <widget class="QWidget" name="netPowerDataWidget" native="true">
+                    <property name="font">
+                     <font>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
                     <layout class="QHBoxLayout" name="horizontalLayout_7">
                      <property name="spacing">
                       <number>0</number>
@@ -1831,6 +2223,8 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                        <property name="font">
                         <font>
                          <pointsize>14</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
                         </font>
                        </property>
                        <property name="text">
@@ -1849,6 +2243,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                          <verstretch>0</verstretch>
                         </sizepolicy>
                        </property>
+                       <property name="font">
+                        <font>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
                        <property name="styleSheet">
                         <string notr="true">color: rgb(100,100,100);</string>
                        </property>
@@ -1862,6 +2262,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                   </item>
                   <item>
                    <widget class="QLabel" name="netPowerTitle">
+                    <property name="font">
+                     <font>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true">color: rgb(100,100,100);</string>
                     </property>
@@ -1875,6 +2281,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                   </item>
                   <item>
                    <spacer name="verticalSpacer_4">
+                    <property name="font">
+                     <font>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
                     <property name="orientation">
                      <enum>Qt::Vertical</enum>
                     </property>
@@ -1897,6 +2309,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
             </item>
             <item>
              <widget class="QWidget" name="AuxBusVoltageWidget" native="true">
+              <property name="font">
+               <font>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
               <property name="styleSheet">
                <string notr="true"/>
               </property>
@@ -1918,6 +2336,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                </property>
                <item>
                 <widget class="QWidget" name="auxVoltageWidget" native="true">
+                 <property name="font">
+                  <font>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="styleSheet">
                   <string notr="true"/>
                  </property>
@@ -1945,6 +2369,13 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                       <verstretch>0</verstretch>
                      </sizepolicy>
                     </property>
+                    <property name="font">
+                     <font>
+                      <pointsize>8</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
                     <property name="layoutDirection">
                      <enum>Qt::LeftToRight</enum>
                     </property>
@@ -1961,12 +2392,24 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                   </item>
                   <item>
                    <widget class="QWidget" name="auxVoltageValuesWidget" native="true">
+                    <property name="font">
+                     <font>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
                     <layout class="QHBoxLayout" name="horizontalLayout_10">
                      <property name="spacing">
                       <number>0</number>
                      </property>
                      <item>
                       <spacer name="horizontalSpacer">
+                       <property name="font">
+                        <font>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
                        <property name="orientation">
                         <enum>Qt::Horizontal</enum>
                        </property>
@@ -1985,7 +2428,9 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                       <widget class="QLabel" name="auxVoltageLabel">
                        <property name="font">
                         <font>
-                         <pointsize>18</pointsize>
+                         <pointsize>14</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
                         </font>
                        </property>
                        <property name="text">
@@ -2004,6 +2449,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                          <verstretch>0</verstretch>
                         </sizepolicy>
                        </property>
+                       <property name="font">
+                        <font>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
                        <property name="styleSheet">
                         <string notr="true">color: rgb(100,100,100);</string>
                        </property>
@@ -2014,6 +2465,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                      </item>
                      <item>
                       <spacer name="horizontalSpacer_2">
+                       <property name="font">
+                        <font>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
                        <property name="orientation">
                         <enum>Qt::Horizontal</enum>
                        </property>
@@ -2036,6 +2493,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                </item>
                <item>
                 <widget class="QWidget" name="busInfoWidget" native="true">
+                 <property name="font">
+                  <font>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <property name="styleSheet">
                   <string notr="true"/>
                  </property>
@@ -2063,6 +2526,13 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                       <verstretch>0</verstretch>
                      </sizepolicy>
                     </property>
+                    <property name="font">
+                     <font>
+                      <pointsize>8</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true">color: rgb(100,100,100);</string>
                     </property>
@@ -2076,6 +2546,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                   </item>
                   <item>
                    <widget class="QWidget" name="busInfoData" native="true">
+                    <property name="font">
+                     <font>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true"/>
                     </property>
@@ -2085,6 +2561,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                      </property>
                      <item>
                       <widget class="QWidget" name="busVoltageData" native="true">
+                       <property name="font">
+                        <font>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
                        <layout class="QHBoxLayout" name="horizontalLayout_20">
                         <property name="spacing">
                          <number>3</number>
@@ -2105,7 +2587,9 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                          <widget class="QLabel" name="busVoltageLabel">
                           <property name="font">
                            <font>
-                            <pointsize>18</pointsize>
+                            <pointsize>14</pointsize>
+                            <weight>75</weight>
+                            <bold>true</bold>
                            </font>
                           </property>
                           <property name="text">
@@ -2121,6 +2605,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                             <verstretch>0</verstretch>
                            </sizepolicy>
                           </property>
+                          <property name="font">
+                           <font>
+                            <weight>75</weight>
+                            <bold>true</bold>
+                           </font>
+                          </property>
                           <property name="styleSheet">
                            <string notr="true">color: rgb(100,100,100);</string>
                           </property>
@@ -2134,6 +2624,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                      </item>
                      <item>
                       <widget class="QWidget" name="busCurrentData" native="true">
+                       <property name="font">
+                        <font>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
                        <layout class="QHBoxLayout" name="horizontalLayout_24">
                         <property name="spacing">
                          <number>3</number>
@@ -2154,7 +2650,9 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                          <widget class="QLabel" name="busCurrentLabel">
                           <property name="font">
                            <font>
-                            <pointsize>18</pointsize>
+                            <pointsize>14</pointsize>
+                            <weight>75</weight>
+                            <bold>true</bold>
                            </font>
                           </property>
                           <property name="text">
@@ -2169,6 +2667,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                             <horstretch>0</horstretch>
                             <verstretch>0</verstretch>
                            </sizepolicy>
+                          </property>
+                          <property name="font">
+                           <font>
+                            <weight>75</weight>
+                            <bold>true</bold>
+                           </font>
                           </property>
                           <property name="styleSheet">
                            <string notr="true">color: rgb(100,100,100);</string>
@@ -2195,6 +2699,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
          </item>
          <item>
           <widget class="QWidget" name="BottomRightWidget" native="true">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
            <property name="styleSheet">
             <string notr="true"/>
            </property>
@@ -2216,6 +2726,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
             </property>
             <item>
              <widget class="QWidget" name="lightIconWidget" native="true">
+              <property name="font">
+               <font>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
               <layout class="QVBoxLayout" name="verticalLayout_2">
                <property name="spacing">
                 <number>0</number>
@@ -2234,6 +2750,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                </property>
                <item>
                 <widget class="QWidget" name="turnSignalWidget" native="true">
+                 <property name="font">
+                  <font>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <layout class="QHBoxLayout" name="horizontalLayout_2">
                   <item>
                    <widget class="QWidget" name="leftTurnSignalWidget" native="true">
@@ -2248,6 +2770,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                       <width>45</width>
                       <height>45</height>
                      </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
                     </property>
                     <property name="styleSheet">
                      <string notr="true">border-image: url(:/Resources/TurnSignalLeft.png);</string>
@@ -2268,6 +2796,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                       <height>45</height>
                      </size>
                     </property>
+                    <property name="font">
+                     <font>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true">border-image: url(:/Resources/TurnSignalRight.png);
 </string>
@@ -2279,6 +2813,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                </item>
                <item>
                 <widget class="QWidget" name="headlightsWidget" native="true">
+                 <property name="font">
+                  <font>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <layout class="QHBoxLayout" name="horizontalLayout_3">
                   <item>
                    <widget class="QWidget" name="lowHeadlightIndicatorWidget" native="true">
@@ -2293,6 +2833,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                       <width>70</width>
                       <height>45</height>
                      </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
                     </property>
                     <property name="styleSheet">
                      <string notr="true">border-image: url(:/Resources/LowHeadlightIndicator.png);</string>
@@ -2313,6 +2859,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                       <height>45</height>
                      </size>
                     </property>
+                    <property name="font">
+                     <font>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
                     <property name="styleSheet">
                      <string notr="true">border-image: url(:/Resources/HighHeadlightIndicator.png);</string>
                     </property>
@@ -2331,6 +2883,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                 <width>0</width>
                 <height>0</height>
                </size>
+              </property>
+              <property name="font">
+               <font>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
               </property>
               <property name="styleSheet">
                <string notr="true"/>
@@ -2353,6 +2911,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                </property>
                <item>
                 <widget class="QWidget" name="batteryFaultsWidget" native="true">
+                 <property name="font">
+                  <font>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <layout class="QVBoxLayout" name="verticalLayout_17">
                   <property name="spacing">
                    <number>6</number>
@@ -2379,7 +2943,6 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                     </property>
                     <property name="font">
                      <font>
-                      <family>Arial Unicode MS</family>
                       <pointsize>10</pointsize>
                       <weight>75</weight>
                       <bold>true</bold>
@@ -2413,15 +2976,22 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                       <height>16777215</height>
                      </size>
                     </property>
+                    <property name="font">
+                     <font>
+                      <pointsize>11</pointsize>
+                      <weight>50</weight>
+                      <bold>false</bold>
+                     </font>
+                    </property>
                     <property name="styleSheet">
-                     <string notr="true">font: 11pt &quot;Burlingame Pro&quot;;
+                     <string notr="true">
 color:white;</string>
                     </property>
                     <property name="text">
                      <string>BatteryFaults</string>
                     </property>
                     <property name="alignment">
-                     <set>Qt::AlignCenter</set>
+                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
                     </property>
                     <property name="wordWrap">
                      <bool>true</bool>
@@ -2433,6 +3003,12 @@ color:white;</string>
                </item>
                <item>
                 <widget class="QWidget" name="motorZeroFaultsWidget" native="true">
+                 <property name="font">
+                  <font>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
                  <layout class="QVBoxLayout" name="verticalLayout_19">
                   <property name="spacing">
                    <number>6</number>
@@ -2459,7 +3035,6 @@ color:white;</string>
                     </property>
                     <property name="font">
                      <font>
-                      <family>Arial Unicode MS</family>
                       <pointsize>10</pointsize>
                       <weight>75</weight>
                       <bold>true</bold>
@@ -2487,15 +3062,22 @@ color:white;</string>
                       <height>0</height>
                      </size>
                     </property>
+                    <property name="font">
+                     <font>
+                      <pointsize>11</pointsize>
+                      <weight>50</weight>
+                      <bold>false</bold>
+                     </font>
+                    </property>
                     <property name="styleSheet">
-                     <string notr="true">font: 11pt &quot;Burlingame Pro&quot;;
+                     <string notr="true">
 color:white;</string>
                     </property>
                     <property name="text">
                      <string>Motor0</string>
                     </property>
                     <property name="alignment">
-                     <set>Qt::AlignCenter</set>
+                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
                     </property>
                    </widget>
                   </item>
@@ -2509,6 +3091,12 @@ color:white;</string>
                    <width>200</width>
                    <height>0</height>
                   </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_22">
                   <property name="spacing">
@@ -2536,7 +3124,6 @@ color:white;</string>
                     </property>
                     <property name="font">
                      <font>
-                      <family>Arial Unicode MS</family>
                       <pointsize>10</pointsize>
                       <weight>75</weight>
                       <bold>true</bold>
@@ -2558,15 +3145,22 @@ color:white;</string>
                       <verstretch>0</verstretch>
                      </sizepolicy>
                     </property>
+                    <property name="font">
+                     <font>
+                      <pointsize>11</pointsize>
+                      <weight>50</weight>
+                      <bold>false</bold>
+                     </font>
+                    </property>
                     <property name="styleSheet">
-                     <string notr="true">font: 11pt &quot;Burlingame Pro&quot;;
+                     <string notr="true">
 color:white;</string>
                     </property>
                     <property name="text">
                      <string>Motor1</string>
                     </property>
                     <property name="alignment">
-                     <set>Qt::AlignCenter</set>
+                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
                     </property>
                    </widget>
                   </item>
