@@ -51,7 +51,7 @@ EpsilonDashboard::EpsilonDashboard(int& argc, char** argv)
     }
     Q_INIT_RESOURCE(fontresources);
 
-    QApplication::setFont(fontLoader_->loadFont(Font::LCD));
+    QApplication::setFont(fontLoader_->loadFont(Font::BURLINGAME));
 
     viewContainer_.reset(new ViewContainer(*presenterContainer_, mode));
     communicationContainer_.reset(new CommunicationContainer(*businessContainer_, *infrastructureContainer_));
