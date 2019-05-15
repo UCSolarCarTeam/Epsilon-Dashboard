@@ -4,13 +4,13 @@
 #include <QDesktopWidget>
 #include <QApplication>
 
-RaceModeDashboardUI::RaceModeDashboardUI(bool windowed)
+RaceModeDashboardUI::RaceModeDashboardUI(bool isWindowed)
     : ui_(new Ui::RaceModeDashboardUI)
     , fontLoader_(new FontLoader())
 {
     ui_->setupUi(this);
 
-    if (!windowed)
+    if (!isWindowed)
     {
         setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
     }

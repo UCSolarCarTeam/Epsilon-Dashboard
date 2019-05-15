@@ -3,12 +3,12 @@
 #include <QApplication>
 #include <QStyle>
 #include <QDesktopWidget>
-DisplayDashboardUI::DisplayDashboardUI(bool windowed )
+DisplayDashboardUI::DisplayDashboardUI(bool isWindowed )
     : ui_(new Ui::DisplayDashboardUI)
 {
     ui_->setupUi(this);
 
-    if (!windowed)
+    if (!isWindowed)
     {
         setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
     }

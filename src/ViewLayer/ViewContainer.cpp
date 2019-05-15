@@ -21,7 +21,7 @@
 #include "DebugDisplay/MPPTPage/MPPTView/MpptView.h"
 
 
-ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode, bool windowed)
+ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode, bool isWindowed)
 
 {
     Q_INIT_RESOURCE(fontresources);
@@ -31,7 +31,7 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode, 
         MotorFaultList* motorZeroFaultList = new MotorFaultList();
         MotorFaultList* motorOneFaultList = new MotorFaultList();
         BatteryFaultList* batteryFaultList = new BatteryFaultList();
-        DisplayDashboardUI_ = new DisplayDashboardUI(windowed);
+        DisplayDashboardUI_ = new DisplayDashboardUI(isWindowed);
         DisplayDashboardView_.reset(new DisplayDashboardView(
                                         presenterContainer.auxBmsPresenter(),
                                         presenterContainer.batteryPresenter(),
@@ -52,7 +52,7 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode, 
         MotorFaultList* motorZeroFaultList = new MotorFaultList();
         MotorFaultList* motorOneFaultList = new MotorFaultList();
         BatteryFaultList* batteryFaultList = new BatteryFaultList();
-        RaceModeDashboardUI_ = new RaceModeDashboardUI(windowed);
+        RaceModeDashboardUI_ = new RaceModeDashboardUI(isWindowed);
         RaceModeDashboardView_.reset(new RaceModeDashboardView(
                                          presenterContainer.batteryPresenter(),
                                          presenterContainer.batteryFaultsPresenter(),
@@ -87,7 +87,7 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode, 
         BatteryFaultList* batteryFaultList = new BatteryFaultList();
         overlordWidget_.reset(new OverlordWidget(*batteryUi_, *controlUi_,
                               *homepageUi_, *faultUi_,
-                              *motorUi_, *mpptUi_, *tabUi_, windowed));
+                              *motorUi_, *mpptUi_, *tabUi_, isWindowed));
 
         MotorView_.reset(new MotorView( presenterContainer.keyMotorPresenter(),
                                         presenterContainer.motorDetailsPresenter(), *motorUi_));

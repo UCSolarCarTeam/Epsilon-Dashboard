@@ -35,7 +35,7 @@ enum class Mode { RACE, DISPLAY, DEBUG };
 class ViewContainer
 {
 public:
-    explicit ViewContainer(PresenterContainer& presenterContainer, Mode mode, bool windowed);
+    explicit ViewContainer(PresenterContainer& presenterContainer, Mode mode, bool isWindowed);
     ~ViewContainer();
 
 private:

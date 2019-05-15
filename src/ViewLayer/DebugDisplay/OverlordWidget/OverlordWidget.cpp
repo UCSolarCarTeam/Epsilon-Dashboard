@@ -18,7 +18,7 @@ OverlordWidget::OverlordWidget(I_BatteryUi& batteryUi, \
                                I_MotorUi& motorUi,
                                I_MpptUi& mpptUi,
                                I_TabUi& tabUi,
-                               bool windowed)
+                               bool isWindowed)
     : batteryUi_(batteryUi)
     , controlUi_(controlUi)
     , homepageUi_(homepageUi)
@@ -72,7 +72,7 @@ OverlordWidget::OverlordWidget(I_BatteryUi& batteryUi, \
     overlordLayout->setSpacing(0);
     overlordLayout->setSizeConstraint(QLayout::SetNoConstraint);
 
-    if (!windowed)
+    if (!isWindowed)
     {
         setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
     }

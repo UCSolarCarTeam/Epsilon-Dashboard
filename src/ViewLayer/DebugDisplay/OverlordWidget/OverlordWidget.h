@@ -23,7 +23,7 @@ public:
                              I_MotorUi& motorUi,
                              I_MpptUi& mpptUi,
                              I_TabUi& tabUi,
-                             bool windowed);
+                             bool isWindowed);
     ~OverlordWidget();
     QStackedWidget* menu_;
 public slots:

@@ -11,7 +11,7 @@ class DisplayDashboardUI : public I_DisplayDashboardUI
     Q_OBJECT
 
 public:
-    explicit DisplayDashboardUI(bool windowed);
+    explicit DisplayDashboardUI(bool isWindowed);
     ~DisplayDashboardUI();
 
     QLabel& actualSpeedLabel();

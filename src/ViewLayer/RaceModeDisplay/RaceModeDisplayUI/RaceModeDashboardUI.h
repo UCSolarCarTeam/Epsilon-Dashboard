@@ -12,7 +12,7 @@ class RaceModeDashboardUI : public I_RaceModeDashboardUI
     Q_OBJECT
 
 public:
-    explicit RaceModeDashboardUI(bool windowed);
+    explicit RaceModeDashboardUI(bool isWindowed);
     ~RaceModeDashboardUI();
 
 
