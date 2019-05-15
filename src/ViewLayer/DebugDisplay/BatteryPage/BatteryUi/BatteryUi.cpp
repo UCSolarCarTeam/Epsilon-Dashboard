@@ -11,7 +11,7 @@ BatteryUi::BatteryUi() :
     QPalette background;
     background.setBrush(QPalette::Background, bkgnd);
     this->setPalette(background);
-    QApplication::setFont(fontLoader_->loadFont(Font::BURLINGAME));
+    QApplication::setFont(fontLoader_->loadFont(Font::LCD));
 }
 
 BatteryUi::~BatteryUi()

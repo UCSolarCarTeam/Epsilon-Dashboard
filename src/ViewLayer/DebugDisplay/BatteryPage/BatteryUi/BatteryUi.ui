@@ -984,7 +984,7 @@ color:white;</string>
                      <property name="bottomMargin">
                       <number>0</number>
                      </property>
-                     <item alignment="Qt::AlignHCenter">
+                     <item>
                       <widget class="QLabel" name="packNetPowerLabel">
                        <property name="font">
                         <font>
@@ -2251,7 +2251,7 @@ color:white;</string>
             <property name="bottomMargin">
              <number>0</number>
             </property>
-            <item alignment="Qt::AlignHCenter">
+            <item>
              <widget class="QLabel" name="internalTempLabel">
               <property name="font">
                <font>

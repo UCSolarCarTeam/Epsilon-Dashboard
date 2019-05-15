@@ -81,7 +81,7 @@ OverlordWidget::OverlordWidget(I_BatteryUi& batteryUi, \
             QApplication::desktop()->screenGeometry()
         )
     );
-    QApplication::setFont(fontLoader_->loadFont(Font::BURLINGAME));
+    QApplication::setFont(fontLoader_->loadFont(Font::LCD));
     show();
 }
 
