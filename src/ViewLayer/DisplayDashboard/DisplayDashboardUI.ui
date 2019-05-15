@@ -262,9 +262,13 @@ color: white;</string>
                <height>0</height>
               </size>
              </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
              <property name="styleSheet">
-              <string notr="true">font: 12pt &quot;Burlingame Pro&quot;;
-color:white;</string>
+              <string notr="true">color:white;</string>
              </property>
              <property name="text">
               <string>BatteryFaults</string>
@@ -332,9 +336,13 @@ color:white;</string>
                <height>0</height>
               </size>
              </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
              <property name="styleSheet">
-              <string notr="true">font: 12pt &quot;Burlingame Pro&quot;;
-color:white;</string>
+              <string notr="true">color:white;</string>
              </property>
              <property name="text">
               <string>Motor0</string>
@@ -366,9 +374,13 @@ color:white;</string>
            </item>
            <item>
             <widget class="QLabel" name="motorOneFaultsLabel">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
              <property name="styleSheet">
-              <string notr="true">font: 12pt &quot;Burlingame Pro&quot;;
-color:white;</string>
+              <string notr="true">color:white;</string>
              </property>
              <property name="text">
               <string>Motor1</string>
@@ -1252,9 +1264,13 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
          </item>
          <item row="1" column="5">
           <widget class="QLabel" name="lowestCellVoltageUnitsLabel">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
            <property name="styleSheet">
             <string notr="true">QLabel {
-font: 10pt &quot;Burlingame Pro&quot;;
 color: white;
 qproperty-alignment: 'AlignBottom | AlignLeft';
 }</string>
@@ -1534,6 +1550,11 @@ qproperty-alignment: 'AlignHCenter';
                <height>16777215</height>
               </size>
              </property>
+             <property name="font">
+              <font>
+               <pointsize>20</pointsize>
+              </font>
+             </property>
              <property name="styleSheet">
               <string notr="true">QProgressBar:horizontal {
 background:white;
@@ -1541,7 +1562,6 @@ padding:0px;
 text-align: center;
 }
 QProgressBar:horizontal::font {
-font: 20pt &quot;LCDMono&quot;;
 color: white;
 }</string>
              </property>
