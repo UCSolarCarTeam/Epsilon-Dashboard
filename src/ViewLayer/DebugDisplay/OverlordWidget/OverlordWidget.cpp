@@ -26,7 +26,6 @@ OverlordWidget::OverlordWidget(I_BatteryUi& batteryUi, \
     , motorUi_(motorUi)
     , mpptUi_(mpptUi)
     , tabUi_(tabUi)
-    , fontLoader_(new FontLoader())
 {
     menu_ = new QStackedWidget();
     menu_->addWidget(&homepageUi_);
@@ -86,7 +85,6 @@ OverlordWidget::OverlordWidget(I_BatteryUi& batteryUi, \
             QApplication::desktop()->screenGeometry()
         )
     );
-    QApplication::setFont(fontLoader_->loadFont(Font::BURLINGAME));
     show();
 }
 

@@ -4,7 +4,7 @@ namespace
 {
     const int FULL_CIRCLE = 5760;
     const int START_ANGLE = 1440;
-    const int FONT_SIZE = 20;
+    const int FONT_SIZE = 16;
     const double RECT_X_LOCATION = 10.0;
     const double RECT_Y_LOCATION = 30.0;
     const double RECT_HEIGHT = 100.0;

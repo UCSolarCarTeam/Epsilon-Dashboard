@@ -5,8 +5,7 @@
 #include <QPixmap>
 
 TabUi::TabUi() :
-    ui_(new Ui::TabUi),
-    fontLoader_(new FontLoader)
+    ui_(new Ui::TabUi)
 {
     ui_->setupUi(this);
     QTimer* timer = new QTimer(this);
@@ -34,7 +33,6 @@ TabUi::TabUi() :
 
     this->setAutoFillBackground(true);
     this->setPalette(background);
-    QApplication::setFont(fontLoader_->loadFont(Font::BURLINGAME));
     this->show();
 }
 TabUi::~TabUi()
