@@ -45,8 +45,3 @@ QScrollArea& FaultUi::batteryScrollArea()
 {
     return *ui_->batteryScrollArea;
 }
-
-QLabel& FaultUi::showHistoryLabel()
-{
-    return *ui_->showHistoryLabel;
-}

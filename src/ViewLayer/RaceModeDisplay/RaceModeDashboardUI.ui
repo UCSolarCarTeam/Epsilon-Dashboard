@@ -567,6 +567,26 @@
                   <property name="spacing">
                    <number>0</number>
                   </property>
+                  <item row="0" column="2">
+                   <widget class="QLabel" name="motorPowerUnitsLabel">
+                    <property name="font">
+                     <font>
+                      <pointsize>14</pointsize>
+                      <weight>50</weight>
+                      <bold>false</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QLabel {
+color: white;
+qproperty-alignment: 'AlignBottom | AlignLeft';
+}</string>
+                    </property>
+                    <property name="text">
+                     <string>W</string>
+                    </property>
+                   </widget>
+                  </item>
                   <item row="1" column="0" colspan="3">
                    <widget class="QLabel" name="motorPowerTitleLabel">
                     <property name="font">
@@ -585,27 +605,7 @@ color: rgb(100,100,100);
 </string>
                     </property>
                     <property name="text">
-                     <string>S E T   C U R R E N T</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="2">
-                   <widget class="QLabel" name="motorPowerUnitsLabel">
-                    <property name="font">
-                     <font>
-                      <pointsize>14</pointsize>
-                      <weight>50</weight>
-                      <bold>false</bold>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">QLabel {
-color: white;
-qproperty-alignment: 'AlignBottom | AlignLeft';
-}</string>
-                    </property>
-                    <property name="text">
-                     <string>A</string>
+                     <string>M O T O R   P O W E R</string>
                     </property>
                    </widget>
                   </item>
@@ -674,7 +674,7 @@ color: rgb(100,100,100);
 </string>
                     </property>
                     <property name="text">
-                     <string>M O T O R   P O W E R</string>
+                     <string>S E T   C U R R E N T</string>
                     </property>
                    </widget>
                   </item>
@@ -694,7 +694,7 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
 }</string>
                     </property>
                     <property name="text">
-                     <string>W</string>
+                     <string>A</string>
                     </property>
                    </widget>
                   </item>

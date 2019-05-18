@@ -109,8 +109,6 @@ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
                                       stop: 0 rgb(100,100,100), stop: 1 black);
 image: url(:/Resources/HomeIcon.png);
 
-font-size: 18px;
-
 border:grey;
 border-bottom: 1px solid white;
 }
@@ -209,7 +207,7 @@ border-bottom: 1px solid white;
            </property>
            <property name="font">
             <font>
-             <pointsize>11</pointsize>
+             <pointsize>18</pointsize>
             </font>
            </property>
            <property name="styleSheet">
@@ -632,8 +630,13 @@ border-bottom: 1px solid white;
           <height>16777215</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>18</pointsize>
+         </font>
+        </property>
         <property name="toolTip">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string/>
         </property>
         <property name="styleSheet">
          <string notr="true">QPushButton{
@@ -642,7 +645,6 @@ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
                                       stop: 0 rgb(60,60,60), stop: 1 rgb(60,60,60));
 
 image-position: 1,1;
-font-size: 18px;
 
 border:grey;
 }
@@ -682,6 +684,11 @@ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
           <height>16777215</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>18</pointsize>
+         </font>
+        </property>
         <property name="styleSheet">
          <string notr="true">QPushButton{
 
@@ -694,8 +701,6 @@ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
 background-position: bottom left;
 
 image-position: 1,1;
-
-font-size: 18px;
 
 border:grey;
 }
@@ -735,6 +740,11 @@ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
           <height>16777215</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>18</pointsize>
+         </font>
+        </property>
         <property name="styleSheet">
          <string notr="true">QPushButton{
 
@@ -743,7 +753,6 @@ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
                                       stop: 0 rgb(60,60,60), stop: 1 rgb(60,60,60));
 
 image-position: 1,1;
-font-size:18px;
 
 border:grey;
 }
@@ -783,6 +792,11 @@ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
           <height>16777215</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>18</pointsize>
+         </font>
+        </property>
         <property name="styleSheet">
          <string notr="true">QPushButton{
 color: rgb(255,255,255);
@@ -790,7 +804,6 @@ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
                                       stop: 0 rgb(60,60,60), stop: 1 rgb(60,60,60));
 
 image-position: 1,1;
-font-size: 18px;
 
 border:grey;
 }
@@ -830,6 +843,11 @@ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
           <height>16777215</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>18</pointsize>
+         </font>
+        </property>
         <property name="styleSheet">
          <string notr="true">QPushButton{
 color: rgb(255,255,255);
@@ -837,7 +855,6 @@ background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
                                       stop: 0 rgb(60,60,60), stop: 1 rgb(60,60,60));
 
 image-position: 1,1;
-font-size: 18px;
 
 border: grey;
 }

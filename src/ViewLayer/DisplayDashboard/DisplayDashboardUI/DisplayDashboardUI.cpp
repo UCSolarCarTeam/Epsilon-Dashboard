@@ -5,12 +5,17 @@
 #include <QDesktopWidget>
 #include "FontLoader/FontLoader.h"
 
-DisplayDashboardUI::DisplayDashboardUI()
+DisplayDashboardUI::DisplayDashboardUI(bool isWindowed )
     : ui_(new Ui::DisplayDashboardUI)
     , fontLoader_(new FontLoader())
 {
     ui_->setupUi(this);
-    setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+
+    if (!isWindowed)
+    {
+        setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+    }
+
     setGeometry(
         QStyle::alignedRect(
             Qt::LeftToRight,
