@@ -29,11 +29,19 @@ EpsilonDashboard::EpsilonDashboard(int& argc, char** argv)
     QCommandLineParser parser;
     QCommandLineOption raceModeOption("r");
     QCommandLineOption debugModeOption("d");
+    QCommandLineOption isWindowedMode("w");
     parser.addOption(raceModeOption);
     parser.addOption(debugModeOption);
+    parser.addOption(isWindowedMode);
 
     parser.process(*this);
     Mode mode = Mode::DISPLAY;
+    bool isWindowed = false;
+
+    if (parser.isSet(isWindowedMode))
+    {
+        isWindowed = true;
+    }
 
     if (parser.isSet(raceModeOption))
     {
@@ -52,9 +60,9 @@ EpsilonDashboard::EpsilonDashboard(int& argc, char** argv)
 
     Q_INIT_RESOURCE(fontresources);
 
-    QApplication::setFont(fontLoader_->loadFont(Font::BURLINGAME));
+    QApplication::setFont(fontLoader_->loadFont(Font::LCD));
 
-    viewContainer_.reset(new ViewContainer(*presenterContainer_, mode));
+    viewContainer_.reset(new ViewContainer(*presenterContainer_, mode, isWindowed)); //pass in a third boolean variable
     communicationContainer_.reset(new CommunicationContainer(*businessContainer_, *infrastructureContainer_));
 }
 
