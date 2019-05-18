@@ -10,7 +10,6 @@ MotorUi::MotorUi():
     QPalette background;
     background.setBrush(QPalette::Background, bkgnd);
     this->setPalette(background);
-    QApplication::setFont(fontLoader_->loadFont(Font::BURLINGAME));
 }
 
 MotorUi::~MotorUi()

@@ -34,7 +34,6 @@ TabUi::TabUi() :
 
     this->setAutoFillBackground(true);
     this->setPalette(background);
-    QApplication::setFont(fontLoader_->loadFont(Font::BURLINGAME));
     this->show();
 }
 TabUi::~TabUi()

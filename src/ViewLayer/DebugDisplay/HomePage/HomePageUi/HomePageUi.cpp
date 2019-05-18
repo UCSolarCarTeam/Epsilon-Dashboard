@@ -11,7 +11,6 @@ HomePageUi::HomePageUi() :
     QPalette palette;
     palette.setBrush(QPalette::Background, background);
     this->setPalette(palette);
-    QApplication::setFont(fontLoader_->loadFont(Font::BURLINGAME));
 }
 
 HomePageUi::~HomePageUi()

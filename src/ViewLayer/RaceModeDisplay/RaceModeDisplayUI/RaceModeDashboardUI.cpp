@@ -19,7 +19,6 @@ RaceModeDashboardUI::RaceModeDashboardUI()
         )
     );
     //Font loading
-    QApplication::setFont(fontLoader_->loadFont(Font::BURLINGAME));
     ui_->actualSpeedLabel->setFont(fontLoader_->loadFont(Font::LCD, 45, true));
     ui_->stateOfChargeCapacityWidget->setFont(fontLoader_->loadFont(Font::LCD, 20, false));
 
