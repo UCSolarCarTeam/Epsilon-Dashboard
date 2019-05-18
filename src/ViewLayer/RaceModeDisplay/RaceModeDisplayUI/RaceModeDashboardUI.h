@@ -50,6 +50,7 @@ public:
     QLabel& powerOutLabel();
     QLabel& netPowerLabel();
 
+    QLabel& driveModeValueLabel();
 private:
     Ui::RaceModeDashboardUI* ui_;
     QScopedPointer<FontLoader> fontLoader_;
