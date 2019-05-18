@@ -49,6 +49,7 @@ EpsilonDashboard::EpsilonDashboard(int& argc, char** argv)
     {
         infrastructureContainer_->setQueueName(DISPLAY_QUEUE);
     }
+
     Q_INIT_RESOURCE(fontresources);
 
     QApplication::setFont(fontLoader_->loadFont(Font::BURLINGAME));
