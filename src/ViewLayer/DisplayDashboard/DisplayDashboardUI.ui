@@ -295,7 +295,7 @@ color:white;</string>
 color: rgb(100,100,100);</string>
              </property>
              <property name="text">
-              <string>M O T O R   0    F A U L T S</string>
+              <string>M O T O R   Left    F A U L T S</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -315,7 +315,7 @@ color: rgb(100,100,100);</string>
 color:white;</string>
              </property>
              <property name="text">
-              <string>Motor0</string>
+              <string>Motor Left</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -329,7 +329,7 @@ color:white;</string>
 color: rgb(100,100,100);</string>
              </property>
              <property name="text">
-              <string>M O T O R   1    F A U L T S</string>
+              <string>M O T O R   Right    F A U L T S</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -343,7 +343,7 @@ color: rgb(100,100,100);</string>
 color:white;</string>
              </property>
              <property name="text">
-              <string>Motor1</string>
+              <string>Motor Right</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>683</width>
-    <height>648</height>
+    <height>654</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -40,7 +40,7 @@ font-weight:500;
 color:white;</string>
      </property>
      <property name="text">
-      <string>Motor 0</string>
+      <string>Motor Left</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -160,7 +160,7 @@ font-weight:500;
 color:white;</string>
      </property>
      <property name="text">
-      <string>Motor 1</string>
+      <string>Motor Right</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>

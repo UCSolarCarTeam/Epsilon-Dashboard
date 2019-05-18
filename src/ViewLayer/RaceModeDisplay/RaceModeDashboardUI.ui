@@ -434,6 +434,7 @@
        </color>
       </brush>
      </colorrole>
+
     </disabled>
    </palette>
   </property>
@@ -1548,7 +1549,7 @@ padding-bottom: -25px;</string>
         <rect>
          <x>200</x>
          <y>0</y>
-         <width>241</width>
+         <width>272</width>
          <height>264</height>
         </rect>
        </property>
@@ -1627,7 +1628,7 @@ color:white;</string>
 color:white;</string>
             </property>
             <property name="text">
-             <string>Motor1</string>
+             <string>Motor Right</string>
             </property>
            </widget>
           </item>
@@ -1644,7 +1645,7 @@ color:white;</string>
 color: rgb(100,100,100);</string>
             </property>
             <property name="text">
-             <string>    M O T O R    1    F A U L T S</string>
+             <string>    R.  M O T O R   F A U L T S</string>
             </property>
            </widget>
           </item>
@@ -1661,7 +1662,7 @@ color: rgb(100,100,100);</string>
 color: rgb(100,100,100);</string>
             </property>
             <property name="text">
-             <string>    M O T O R    0    F A U L T S</string>
+             <string>    L.  M O T O R   F A U L T S</string>
             </property>
            </widget>
           </item>
@@ -1678,7 +1679,7 @@ color: rgb(100,100,100);</string>
 color:white;</string>
             </property>
             <property name="text">
-             <string>Motor0</string>
+             <string>Motor Left</string>
             </property>
            </widget>
           </item>
