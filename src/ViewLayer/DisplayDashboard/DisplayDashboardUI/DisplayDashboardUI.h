@@ -1,7 +1,8 @@
 #pragma once
 
 #include "I_DisplayDashboardUI.h"
-#include "FontLoader/FontLoader.h"
+
+class FontLoader;
 
 namespace Ui
 {

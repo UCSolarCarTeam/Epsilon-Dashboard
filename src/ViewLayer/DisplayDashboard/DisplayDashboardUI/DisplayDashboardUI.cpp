@@ -3,6 +3,8 @@
 #include <QApplication>
 #include <QStyle>
 #include <QDesktopWidget>
+#include "FontLoader/FontLoader.h"
+
 DisplayDashboardUI::DisplayDashboardUI()
     : ui_(new Ui::DisplayDashboardUI)
     , fontLoader_(new FontLoader())
@@ -19,9 +21,8 @@ DisplayDashboardUI::DisplayDashboardUI()
     );
 
     //Font loading
-    QApplication::setFont(fontLoader_->loadFont(Font::BURLINGAME));
     ui_->actualSpeedLabel->setFont(fontLoader_->loadFont(Font::LCD, 45, true));
-    ui_->stateOfChargeCapacityWidget->setFont(fontLoader_->loadFont(Font::BURLINGAME, 20, false));
+    ui_->stateOfChargeCapacityWidget->setFont(fontLoader_->loadFont(Font::LCD, 20, false));
 
     show();
 }
