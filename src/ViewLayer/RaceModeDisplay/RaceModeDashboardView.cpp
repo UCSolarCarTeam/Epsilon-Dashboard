@@ -264,7 +264,7 @@ void RaceModeDashboardView::resetReceived(bool reset)
 }
 void RaceModeDashboardView::motorSetCurrentReceived(double setCurrent)
 {
-    ui_.setCurrentLabel().setText(QString::number(setCurrent, 'f', 3));
+    ui_.setCurrentLabel().setText(QString::number(setCurrent * 100, 'f', 2));
 }
 void RaceModeDashboardView::motorActualSpeedReceived(double actualSpeed)
 {

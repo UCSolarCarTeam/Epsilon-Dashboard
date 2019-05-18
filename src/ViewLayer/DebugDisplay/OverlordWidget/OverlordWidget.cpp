@@ -17,7 +17,8 @@ OverlordWidget::OverlordWidget(I_BatteryUi& batteryUi, \
                                I_FaultUi& faultUi,
                                I_MotorUi& motorUi,
                                I_MpptUi& mpptUi,
-                               I_TabUi& tabUi)
+                               I_TabUi& tabUi,
+                               bool isWindowed)
     : batteryUi_(batteryUi)
     , controlUi_(controlUi)
     , homepageUi_(homepageUi)
@@ -72,7 +73,11 @@ OverlordWidget::OverlordWidget(I_BatteryUi& batteryUi, \
     overlordLayout->setSpacing(0);
     overlordLayout->setSizeConstraint(QLayout::SetNoConstraint);
 
-    setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+    if (!isWindowed)
+    {
+        setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+    }
+
     setGeometry(
         QStyle::alignedRect(
             Qt::LeftToRight,
@@ -87,7 +92,6 @@ OverlordWidget::OverlordWidget(I_BatteryUi& batteryUi, \
 
 OverlordWidget::~OverlordWidget()
 {
-
 }
 
 void OverlordWidget::handleBatteryButtonClicked()

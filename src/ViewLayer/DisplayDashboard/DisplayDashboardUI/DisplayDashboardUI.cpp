@@ -3,11 +3,16 @@
 #include <QApplication>
 #include <QStyle>
 #include <QDesktopWidget>
-DisplayDashboardUI::DisplayDashboardUI()
+DisplayDashboardUI::DisplayDashboardUI(bool isWindowed )
     : ui_(new Ui::DisplayDashboardUI)
 {
     ui_->setupUi(this);
-    setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+
+    if (!isWindowed)
+    {
+        setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+    }
+
     setGeometry(
         QStyle::alignedRect(
             Qt::LeftToRight,
