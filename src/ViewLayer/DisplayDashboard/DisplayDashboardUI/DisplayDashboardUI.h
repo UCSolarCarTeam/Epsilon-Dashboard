@@ -2,6 +2,8 @@
 
 #include "I_DisplayDashboardUI.h"
 
+class FontLoader;
+
 namespace Ui
 {
     class DisplayDashboardUI;
@@ -46,7 +48,6 @@ public:
     QWidget& lowHeadlightIndicatorWidget();
     QWidget& highHeadlightIndicatorWidget();
 
-    QWidget& thermometerWidget();
     QLabel& maxCellTemperatureLabel();
     QLabel& avgCellTemperatureLabel();
     QLabel& lowestCellVoltageLabel();
@@ -64,5 +65,5 @@ private slots:
 
 private:
     Ui::DisplayDashboardUI* ui_;
-
+    QScopedPointer<FontLoader> fontLoader_;
 };

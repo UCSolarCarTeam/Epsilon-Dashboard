@@ -1,6 +1,5 @@
 #pragma once
 #include "I_MotorUi.h"
-
 namespace Ui
 {
     class MotorUi;

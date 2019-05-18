@@ -2,7 +2,6 @@
 #include <QWidget>
 #include <QMainWindow>
 #include <QStackedWidget>
-
 class I_BatteryUi;
 class I_ControlUi;
 class I_HomePageUi;

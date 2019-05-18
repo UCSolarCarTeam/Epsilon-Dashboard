@@ -1,5 +1,6 @@
 #pragma once
 #include "I_FaultUi.h"
+
 namespace Ui
 {
     class FaultUi;
@@ -18,8 +19,6 @@ public:
     QScrollArea& motor0ScrollArea();
     QScrollArea& motor1ScrollArea();
     QScrollArea& batteryScrollArea();
-
-    QLabel& showHistoryLabel();
 
 private:
     Ui::FaultUi* ui_;

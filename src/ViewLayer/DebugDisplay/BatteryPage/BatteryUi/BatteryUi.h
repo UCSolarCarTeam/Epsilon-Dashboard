@@ -3,8 +3,6 @@
 #include <QWidget>
 #include <QProgressBar>
 #include <QLabel>
-
-
 namespace Ui
 {
     class BatteryUi;
