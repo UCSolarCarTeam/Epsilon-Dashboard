@@ -1,6 +1,5 @@
 #pragma once
 #include "I_MotorUi.h"
-#include "FontLoader/FontLoader.h"
 namespace Ui
 {
     class MotorUi;
@@ -76,6 +75,5 @@ public:
     QLabel& slipSpeedRightLabel();
 private:
     Ui::MotorUi* ui_;
-    QScopedPointer<FontLoader> fontLoader_;
 };
 

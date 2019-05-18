@@ -3,7 +3,6 @@
 
 BatteryUi::BatteryUi() :
     ui_(new Ui::BatteryUi)
-    , fontLoader_(new FontLoader())
 {
     ui_->setupUi(this);
     QPixmap bkgnd(":/Resources/Background.png");

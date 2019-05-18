@@ -1,8 +1,7 @@
 #include "FaultUi.h"
 #include "ui_FaultUi.h"
 FaultUi::FaultUi():
-    ui_(new Ui::FaultUi),
-    fontLoader_(new FontLoader)
+    ui_(new Ui::FaultUi)
 {
     ui_->setupUi(this);
     QPixmap bkgnd(":/Resources/Background.png");

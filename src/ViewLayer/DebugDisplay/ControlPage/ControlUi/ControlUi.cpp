@@ -2,8 +2,7 @@
 #include "ui_ControlUi.h"
 
 ControlUi::ControlUi() :
-    ui_(new Ui::ControlUi),
-    fontLoader_(new FontLoader)
+    ui_(new Ui::ControlUi)
 {
     ui_->setupUi(this);
     QPixmap bkgnd(":/Resources/Background.png");

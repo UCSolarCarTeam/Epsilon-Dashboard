@@ -1,7 +1,6 @@
 #pragma once
 
 #include "I_HomePageUi.h"
-#include "FontLoader/FontLoader.h"
 
 namespace Ui
 {
@@ -25,5 +24,4 @@ public:
 
 private:
     Ui::HomePageUi* ui_;
-    QScopedPointer<FontLoader> fontLoader_;
 };

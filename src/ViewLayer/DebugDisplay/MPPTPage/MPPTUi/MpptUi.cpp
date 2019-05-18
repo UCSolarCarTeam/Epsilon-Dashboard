@@ -2,8 +2,7 @@
 #include "ui_MpptUi.h"
 
 MpptUi::MpptUi() :
-    ui_(new Ui::MpptUi),
-    fontLoader_(new FontLoader)
+    ui_(new Ui::MpptUi)
 {
     ui_->setupUi(this);
     QPixmap bkgnd(":/Resources/Background.png");

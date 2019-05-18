@@ -1,5 +1,6 @@
 #include "RaceModeDashboardUI.h"
 #include "ui_RaceModeDashboardUI.h"
+#include "FontLoader/FontLoader.h"
 
 #include <QDesktopWidget>
 #include <QApplication>
