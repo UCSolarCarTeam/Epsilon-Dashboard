@@ -20,15 +20,18 @@
 #include "DebugDisplay/MPPTPage/MPPTUi/MpptUi.h"
 #include "DebugDisplay/MPPTPage/MPPTView/MpptView.h"
 
-ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
+
+ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode, bool isWindowed)
 
 {
+    Q_INIT_RESOURCE(fontresources);
+
     if (mode == Mode::DISPLAY)
     {
         MotorFaultList* motorZeroFaultList = new MotorFaultList();
         MotorFaultList* motorOneFaultList = new MotorFaultList();
         BatteryFaultList* batteryFaultList = new BatteryFaultList();
-        DisplayDashboardUI_ = new DisplayDashboardUI();
+        DisplayDashboardUI_ = new DisplayDashboardUI(isWindowed);
         DisplayDashboardView_.reset(new DisplayDashboardView(
                                         presenterContainer.auxBmsPresenter(),
                                         presenterContainer.batteryPresenter(),
@@ -49,7 +52,7 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
         MotorFaultList* motorZeroFaultList = new MotorFaultList();
         MotorFaultList* motorOneFaultList = new MotorFaultList();
         BatteryFaultList* batteryFaultList = new BatteryFaultList();
-        RaceModeDashboardUI_ = new RaceModeDashboardUI();
+        RaceModeDashboardUI_ = new RaceModeDashboardUI(isWindowed);
         RaceModeDashboardView_.reset(new RaceModeDashboardView(
                                          presenterContainer.batteryPresenter(),
                                          presenterContainer.batteryFaultsPresenter(),
@@ -84,7 +87,7 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
         BatteryFaultList* batteryFaultList = new BatteryFaultList();
         overlordWidget_.reset(new OverlordWidget(*batteryUi_, *controlUi_,
                               *homepageUi_, *faultUi_,
-                              *motorUi_, *mpptUi_, *tabUi_));
+                              *motorUi_, *mpptUi_, *tabUi_, isWindowed));
 
         MotorView_.reset(new MotorView( presenterContainer.keyMotorPresenter(),
                                         presenterContainer.motorDetailsPresenter(), *motorUi_));
@@ -98,7 +101,10 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode)
 
 
         MpptView_.reset(new MpptView(presenterContainer.mpptPresenter(), *mpptUi_));
-        ControlView_.reset(new ControlView(presenterContainer.driverControlsPresenter(), presenterContainer.lightsPresenter(), *controlUi_));
+        ControlView_.reset(new ControlView(presenterContainer.ccsPresenter(),
+                                           presenterContainer.driverControlsPresenter(),
+                                           presenterContainer.lightsPresenter(),
+                                           *controlUi_));
         HomePageView_.reset(new HomePageView(*homepageUi_));
     }
 }

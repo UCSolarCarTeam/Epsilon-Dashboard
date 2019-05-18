@@ -1,15 +1,18 @@
 #include "BusinessContainer.h"
 #include "CommunicationsMonitoringService/CommunicationsMonitoringService.h"
 #include "../DataLayer/DataContainer.h"
-#include "DataPopulators/AuxBmsPopulator.h"
-#include "DataPopulators/BatteryFaultsPopulator.h"
-#include "DataPopulators/BatteryPopulator.h"
-#include "DataPopulators/DriverControlsPopulator.h"
-#include "DataPopulators/KeyMotorPopulator.h"
-#include "DataPopulators/LightsPopulator.h"
-#include "DataPopulators/MpptPopulator.h"
-#include "DataPopulators/MotorDetailsPopulator.h"
-#include "DataPopulators/MotorFaultsPopulator.h"
+
+#include "DataPopulators/AuxBmsPopulator/AuxBmsPopulator.h"
+#include "DataPopulators/BatteryFaultsPopulator/BatteryFaultsPopulator.h"
+#include "DataPopulators/BatteryPopulator/BatteryPopulator.h"
+#include "DataPopulators/DriverControlsPopulator/DriverControlsPopulator.h"
+#include "DataPopulators/KeyMotorPopulator/KeyMotorPopulator.h"
+#include "DataPopulators/LightsPopulator/LightsPopulator.h"
+#include "DataPopulators/MpptPopulator/MpptPopulator.h"
+#include "DataPopulators/MotorDetailsPopulator/MotorDetailsPopulator.h"
+#include "DataPopulators/MotorFaultsPopulator/MotorFaultsPopulator.h"
+#include "DataPopulators/CcsPopulator.h"
+
 
 class BusinessContainerPrivate
 {
@@ -18,6 +21,7 @@ public:
         : auxBmsPopulator_(dataContainer.auxBmsData())
         , batteryPopulator_(dataContainer.batteryData())
         , batteryFaultsPopulator_(dataContainer.batteryFaultsData())
+        , ccsPopulator_(dataContainer.ccsData())
         , driverControlsPopulator_(dataContainer.driverControlsData())
         , keyMotorPopulator_(dataContainer.keyMotorData())
         , lightsPopulator_(dataContainer.lightsData())
@@ -29,6 +33,7 @@ public:
     AuxBmsPopulator auxBmsPopulator_;
     BatteryPopulator batteryPopulator_;
     BatteryFaultsPopulator batteryFaultsPopulator_;
+    CcsPopulator ccsPopulator_;
     DriverControlsPopulator driverControlsPopulator_;
     KeyMotorPopulator keyMotorPopulator_;
     LightsPopulator lightsPopulator_;
@@ -46,47 +51,54 @@ BusinessContainer::~BusinessContainer()
 {
 }
 
-AuxBmsPopulator& BusinessContainer::auxBmsPopulator()
+I_AuxBmsPopulator& BusinessContainer::auxBmsPopulator()
 {
     return impl_->auxBmsPopulator_;
 }
 
-BatteryPopulator& BusinessContainer::batteryPopulator()
+I_BatteryPopulator& BusinessContainer::batteryPopulator()
 {
     return impl_->batteryPopulator_;
 }
 
-BatteryFaultsPopulator& BusinessContainer::batteryFaultsPopulator()
+I_BatteryFaultsPopulator& BusinessContainer::batteryFaultsPopulator()
 {
     return impl_->batteryFaultsPopulator_;
 }
 
-DriverControlsPopulator& BusinessContainer::driverControlsPopulator()
+
+
+CcsPopulator& BusinessContainer::ccsPopulator()
+{
+    return impl_->ccsPopulator_;
+}
+
+I_DriverControlsPopulator& BusinessContainer::driverControlsPopulator()
 {
     return impl_->driverControlsPopulator_;
 }
 
-KeyMotorPopulator& BusinessContainer::keyMotorPopulator()
+I_KeyMotorPopulator& BusinessContainer::keyMotorPopulator()
 {
     return impl_->keyMotorPopulator_;
 }
 
-LightsPopulator& BusinessContainer::lightsPopulator()
+I_LightsPopulator& BusinessContainer::lightsPopulator()
 {
     return impl_->lightsPopulator_;
 }
 
-MpptPopulator& BusinessContainer::mpptPopulator()
+I_MpptPopulator& BusinessContainer::mpptPopulator()
 {
     return impl_->mpptPopulator_;
 }
 
-MotorDetailsPopulator& BusinessContainer::motorDetailsPopulator()
+I_MotorDetailsPopulator& BusinessContainer::motorDetailsPopulator()
 {
     return impl_->motorDetailsPopulator_;
 }
 
-MotorFaultsPopulator& BusinessContainer::motorFaultsPopulator()
+I_MotorFaultsPopulator& BusinessContainer::motorFaultsPopulator()
 {
     return impl_->motorFaultsPopulator_;
 }

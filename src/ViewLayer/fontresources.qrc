@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Resource/fonts/LCD-BOLD.TTF</file>
+        <file>Resource/fonts/BurlingamePro-Light.otf</file>
+    </qresource>
+</RCC>

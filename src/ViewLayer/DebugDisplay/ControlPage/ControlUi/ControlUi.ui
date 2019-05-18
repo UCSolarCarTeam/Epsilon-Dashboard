@@ -550,7 +550,7 @@ border-radius: 10px;
                   <string notr="true">color: white;</string>
                  </property>
                  <property name="text">
-                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; &quot;&gt;Alive&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;Communication&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
                 </widget>
                </item>
@@ -579,17 +579,14 @@ border-radius: 10px;
                 </widget>
                </item>
                <item>
-                <spacer name="horizontalSpacer_12">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
+                <widget class="QLabel" name="ccsAlive">
+                 <property name="styleSheet">
+                  <string notr="true">color: grey;</string>
                  </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
+                 <property name="text">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;CCS&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                  </property>
-                </spacer>
+                </widget>
                </item>
               </layout>
              </item>
@@ -1070,27 +1067,141 @@ border: 1px solid white;</string>
               </spacer>
              </item>
              <item>
-              <spacer name="verticalSpacer_9">
-               <property name="orientation">
-                <enum>Qt::Vertical</enum>
+              <widget class="QLabel" name="bmsStrobeLightLabel">
+               <property name="font">
+                <font>
+                 <family>Noto Sans</family>
+                 <pointsize>14</pointsize>
+                 <weight>50</weight>
+                 <italic>false</italic>
+                 <bold>false</bold>
+                </font>
                </property>
-               <property name="sizeType">
-                <enum>QSizePolicy::Fixed</enum>
+               <property name="styleSheet">
+                <string notr="true">color: white;</string>
                </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>20</width>
-                 <height>76</height>
-                </size>
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;        BMS Strobe light&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                </property>
-              </spacer>
+               <property name="textFormat">
+                <enum>Qt::AutoText</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="strobeLightOnLabel">
+               <property name="palette">
+                <palette>
+                 <active>
+                  <colorrole role="WindowText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>128</red>
+                     <green>128</green>
+                     <blue>128</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="Text">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>128</red>
+                     <green>128</green>
+                     <blue>128</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="ButtonText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>128</red>
+                     <green>128</green>
+                     <blue>128</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                 </active>
+                 <inactive>
+                  <colorrole role="WindowText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>128</red>
+                     <green>128</green>
+                     <blue>128</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="Text">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>128</red>
+                     <green>128</green>
+                     <blue>128</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="ButtonText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>128</red>
+                     <green>128</green>
+                     <blue>128</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                 </inactive>
+                 <disabled>
+                  <colorrole role="WindowText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>128</red>
+                     <green>128</green>
+                     <blue>128</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="Text">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>128</red>
+                     <green>128</green>
+                     <blue>128</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                  <colorrole role="ButtonText">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>128</red>
+                     <green>128</green>
+                     <blue>128</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                 </disabled>
+                </palette>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>13</pointsize>
+                </font>
+               </property>
+               <property name="mouseTracking">
+                <bool>true</bool>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: grey;</string>
+               </property>
+               <property name="text">
+                <string>On</string>
+               </property>
+              </widget>
              </item>
             </layout>
            </item>
           </layout>
          </item>
         </layout>
-        <zorder></zorder>
        </widget>
       </item>
       <item>

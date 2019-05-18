@@ -25,6 +25,7 @@ namespace
             border-radius: 7px;\
             background: ";
     const QString TEMPERATURE_UNIT = "<sup>o</sup>";
+    const float MV_TO_V = 1000;
 }
 
 RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
@@ -146,6 +147,7 @@ void RaceModeDashboardView::connectMppt(MpptPresenter& mpptPresenter)
 
 void RaceModeDashboardView::connectMotorDetails(MotorDetailsPresenter& motorDetailsPresenter)
 {
+    Q_UNUSED(motorDetailsPresenter);
 }
 
 void RaceModeDashboardView::connectMotorFaults(MotorFaultsPresenter& motorFaultsPresenter)
@@ -164,7 +166,7 @@ void RaceModeDashboardView::updateFaultLabel(QLabel& dashboardLabel, FaultLabel 
 {
     if (faultLabel.priority() >= 0)
     {
-        dashboardLabel.setStyleSheet(QString("font: 10pt \"Burlingame Pro\";\n color:%1").arg(faultLabel.color().name()));
+        dashboardLabel.setStyleSheet(QString("color:%1").arg(faultLabel.color().name()));
         dashboardLabel.setText(faultLabel.text());
     }
     else
@@ -196,16 +198,37 @@ void RaceModeDashboardView::auxVoltageReceived(int auxVoltage)
 void RaceModeDashboardView::packStateOfChargeReceived(double stateOfCharge)
 {
     ui_.stateOfChargeCapacityWidget().setValue(stateOfCharge);
+
+    // The rgb values for the progressbar are calculated with the intention of displaying a colour closer to red
+    // for low values and a colour closer to green for higher values. These are calculated using linear equations
+    // with a slope and intercept.
+
+    // Default colour
+    int red = RED_INITIAL;
+    int green = GREEN_INITIAL;
+    int blue = BLUE_INITIAL;
+
+    // Calculated color
+    red += int(RED_SLOPE * stateOfCharge);
+    green += int(GREEN_SLOPE * stateOfCharge);
+
+    QString r = QString::number(red);
+    QString g = QString::number(green);
+    QString b = QString::number(blue);
+
+    QString rgb = QString("rgb(%1,%2,%3);").arg(r, g, b);
+
+    ui_.stateOfChargeCapacityWidget().setStyleSheet(DEFAULT_STYLESHEET + rgb + "}");
 }
 
 void RaceModeDashboardView::lowCellVoltageReceived(float lowVoltage)
 {
-    ui_.lowestCellVoltageLabel().setNum(lowVoltage);
+    ui_.lowestCellVoltageLabel().setText(QString::number(lowVoltage / MV_TO_V, 'f', 2));
 }
 
 void RaceModeDashboardView::averageCellVoltageReceived(float averageVoltage)
 {
-    ui_.avgCellVoltageLabel().setNum(averageVoltage);
+    ui_.avgCellVoltageLabel().setText(QString::number(averageVoltage / MV_TO_V, 'f', 2));
 }
 
 void RaceModeDashboardView::highTemperatureReceived(int highTemp)
@@ -241,7 +264,7 @@ void RaceModeDashboardView::resetReceived(bool reset)
 }
 void RaceModeDashboardView::motorSetCurrentReceived(double setCurrent)
 {
-    ui_.setCurrentLabel().setText(QString::number(setCurrent, 'f', 3));
+    ui_.setCurrentLabel().setText(QString::number(setCurrent * 100, 'f', 2));
 }
 void RaceModeDashboardView::motorActualSpeedReceived(double actualSpeed)
 {
