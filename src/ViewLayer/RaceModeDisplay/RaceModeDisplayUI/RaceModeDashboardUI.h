@@ -1,7 +1,8 @@
 #pragma once
 
 #include "I_RaceModeDashboardUI.h"
-#include "FontLoader/FontLoader.h"
+
+class FontLoader;
 
 namespace Ui
 {

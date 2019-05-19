@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>727</width>
-    <height>1404</height>
+    <height>646</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -44,7 +44,7 @@
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>0</y>
+        <y>-407</y>
         <width>693</width>
         <height>1033</height>
        </rect>
@@ -144,7 +144,7 @@
                </property>
                <property name="font">
                 <font>
-                 <pointsize>12</pointsize>
+                 <pointsize>11</pointsize>
                 </font>
                </property>
                <property name="styleSheet">
@@ -247,7 +247,7 @@ background: transparent;</string>
                </property>
                <property name="font">
                 <font>
-                 <pointsize>12</pointsize>
+                 <pointsize>11</pointsize>
                 </font>
                </property>
                <property name="styleSheet">
@@ -348,7 +348,7 @@ background: transparent;</string>
                </property>
                <property name="font">
                 <font>
-                 <pointsize>12</pointsize>
+                 <pointsize>11</pointsize>
                 </font>
                </property>
                <property name="styleSheet">
@@ -445,7 +445,7 @@ background: transparent;</string>
                </property>
                <property name="font">
                 <font>
-                 <pointsize>12</pointsize>
+                 <pointsize>11</pointsize>
                 </font>
                </property>
                <property name="styleSheet">
@@ -545,7 +545,7 @@ background: transparent;</string>
                </property>
                <property name="font">
                 <font>
-                 <pointsize>12</pointsize>
+                 <pointsize>11</pointsize>
                 </font>
                </property>
                <property name="autoFillBackground">
@@ -815,7 +815,7 @@ background: transparent;</string>
                </property>
                <property name="font">
                 <font>
-                 <pointsize>12</pointsize>
+                 <pointsize>11</pointsize>
                 </font>
                </property>
                <property name="styleSheet">
@@ -912,7 +912,7 @@ background: transparent;</string>
                </property>
                <property name="font">
                 <font>
-                 <pointsize>12</pointsize>
+                 <pointsize>11</pointsize>
                 </font>
                </property>
                <property name="styleSheet">
@@ -1004,7 +1004,7 @@ background: transparent;</string>
                </property>
                <property name="font">
                 <font>
-                 <pointsize>12</pointsize>
+                 <pointsize>11</pointsize>
                 </font>
                </property>
                <property name="styleSheet">
@@ -1095,7 +1095,7 @@ background: transparent;</string>
                </property>
                <property name="font">
                 <font>
-                 <pointsize>12</pointsize>
+                 <pointsize>11</pointsize>
                 </font>
                </property>
                <property name="styleSheet">
@@ -1186,7 +1186,7 @@ background: transparent;</string>
                </property>
                <property name="font">
                 <font>
-                 <pointsize>12</pointsize>
+                 <pointsize>11</pointsize>
                 </font>
                </property>
                <property name="styleSheet">
@@ -1283,7 +1283,7 @@ background: transparent;</string>
                </property>
                <property name="font">
                 <font>
-                 <pointsize>12</pointsize>
+                 <pointsize>11</pointsize>
                 </font>
                </property>
                <property name="styleSheet">
@@ -1381,7 +1381,7 @@ background: transparent;</string>
                </property>
                <property name="font">
                 <font>
-                 <pointsize>12</pointsize>
+                 <pointsize>11</pointsize>
                 </font>
                </property>
                <property name="styleSheet">
@@ -1482,7 +1482,7 @@ background: transparent;</string>
                </property>
                <property name="font">
                 <font>
-                 <pointsize>12</pointsize>
+                 <pointsize>11</pointsize>
                 </font>
                </property>
                <property name="styleSheet">
@@ -1578,7 +1578,7 @@ background: transparent;
                </property>
                <property name="font">
                 <font>
-                 <pointsize>12</pointsize>
+                 <pointsize>11</pointsize>
                 </font>
                </property>
                <property name="styleSheet">
@@ -1672,7 +1672,7 @@ background: transparent;</string>
                </property>
                <property name="font">
                 <font>
-                 <pointsize>12</pointsize>
+                 <pointsize>11</pointsize>
                 </font>
                </property>
                <property name="styleSheet">
@@ -1785,7 +1785,7 @@ background: transparent;</string>
                </property>
                <property name="font">
                 <font>
-                 <pointsize>12</pointsize>
+                 <pointsize>11</pointsize>
                 </font>
                </property>
                <property name="styleSheet">
@@ -1885,7 +1885,7 @@ background: transparent;</string>
                </property>
                <property name="font">
                 <font>
-                 <pointsize>12</pointsize>
+                 <pointsize>11</pointsize>
                 </font>
                </property>
                <property name="styleSheet">
@@ -1982,7 +1982,7 @@ background: transparent;</string>
                </property>
                <property name="font">
                 <font>
-                 <pointsize>12</pointsize>
+                 <pointsize>11</pointsize>
                 </font>
                </property>
                <property name="styleSheet">
@@ -2095,7 +2095,7 @@ background: transparent;</string>
                </property>
                <property name="font">
                 <font>
-                 <pointsize>12</pointsize>
+                 <pointsize>11</pointsize>
                 </font>
                </property>
                <property name="styleSheet">
@@ -2186,7 +2186,7 @@ background: transparent;</string>
                </property>
                <property name="font">
                 <font>
-                 <pointsize>12</pointsize>
+                 <pointsize>11</pointsize>
                 </font>
                </property>
                <property name="styleSheet">
@@ -2295,7 +2295,7 @@ background: transparent;</string>
                </property>
                <property name="font">
                 <font>
-                 <pointsize>12</pointsize>
+                 <pointsize>11</pointsize>
                 </font>
                </property>
                <property name="styleSheet">

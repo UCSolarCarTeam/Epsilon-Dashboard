@@ -1,5 +1,6 @@
 #include "RaceModeDashboardUI.h"
 #include "ui_RaceModeDashboardUI.h"
+#include "FontLoader/FontLoader.h"
 
 #include <QDesktopWidget>
 #include <QApplication>
@@ -24,7 +25,6 @@ RaceModeDashboardUI::RaceModeDashboardUI(bool isWindowed)
         )
     );
     //Font loading
-    QApplication::setFont(fontLoader_->loadFont(Font::BURLINGAME));
     ui_->actualSpeedLabel->setFont(fontLoader_->loadFont(Font::LCD, 45, true));
     ui_->stateOfChargeCapacityWidget->setFont(fontLoader_->loadFont(Font::LCD, 20, false));
 
