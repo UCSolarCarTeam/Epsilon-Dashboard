@@ -53,4 +53,5 @@ public:
     virtual QLabel& powerOutLabel() = 0;
     virtual QLabel& netPowerLabel() = 0;
 
+    virtual QLabel& driveModeValueLabel() = 0;
 };

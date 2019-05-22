@@ -191,3 +191,8 @@ QLabel& DisplayDashboardUI::netPowerLabel()
 {
     return *ui_->netPowerLabel;
 }
+
+QLabel& DisplayDashboardUI::driveModeValueLabel()
+{
+    return *ui_->driveModeValueLabel;
+}
