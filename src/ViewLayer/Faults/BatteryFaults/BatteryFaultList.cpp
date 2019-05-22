@@ -5,8 +5,8 @@ namespace
     int NUMBER_OF_BATTERY_ERRORS = 21;
     int NUMBER_OF_BATTERY_LIMITS = 14;
     //Battery errors
-    QString INTERNAL_COMMUNICATION_FAULT = "Internal Communication Fault";
-    QString INTERNAL_CONVERSION_FAULT = "Internal Conversion Fault";
+    QString INTERNAL_COMMUNICATION_FAULT = "Intern. Comms. Fault";
+    QString INTERNAL_CONVERSION_FAULT = "Intern. Conv. Fault";
     QString WEAK_CELL_FAULT = "Weak Cell Fault";
     QString LOW_CELL_VOLTAGE_FAULT = "Low Cell Voltage Fault";
     QString OPEN_WIRING_FAULT = "Open Wiring Fault";
@@ -20,27 +20,27 @@ namespace
     QString CHARGE_LIMIT_ENFORCEMENT_FAULT = "Charge Limit Enforcement Fault";
     QString DISCHARGE_LIMIT_ENFORCEMENT_FAULT = "Discharge Limit Enforcement Fault";
     QString CHARGER_SAFETY_RELAY_FAULT = "Charger Safety Relay Fault";
-    QString INTERNAL_THERMISTOR_FAULT = "Internal Thermistor Fault";
-    QString INTERNAL_LOGIC_FAULT = "Internal Logic Fault";
+    QString INTERNAL_THERMISTOR_FAULT = "Intern. Thermistor Fault";
+    QString INTERNAL_LOGIC_FAULT = "Intern. Logic Fault";
     QString WEAK_PACK_FAULT = "Weak Pack Fault";
-    QString INTERNAL_MEMORY_FAULT = "Internal Memory Fault";
+    QString INTERNAL_MEMORY_FAULT = "Intern. Memory Fault";
     QString FAN_MONITOR_FAULT = "Fan Monitor Fault";
     QString ALWAYS_ON_SUPPLY_FAULT = "Always-On Supply Fault";
     //Battery limits
-    QString DCL_REDUCED_DUE_TO_TEMPERATURE = "DCL Reduced Due To Temperature";
-    QString DCL_REDUCED_DUE_TO_LOW_CELL_VOLTAGE = "DCL Reduced Due To Low Cell Voltage";
-    QString DCL_REDUCED_DUE_TO_LOW_PACK_VOLTAGE = "DCL Reduced Due To Low Pack Voltage";
-    QString DCL_AND_CCL_REDUCED_DUE_TO_VOLTAGE_FAILSAFE = "DCL and CCL Reduced Due To Voltage Failsafe";
-    QString DCL_AND_CCL_REDUCED_DUE_TO_COMMUNICATION_FAILSAFE = "DCL and CCL Reduced Due To Communication Failsafe";
-    QString CCL_REDUCED_DUE_TO_HIGH_SOC = "CCL Reduced Due To High SOC";
-    QString CCL_REDUCED_DUE_TO_TEMPERATURE = "CCL Reduced Due To Temperature";
-    QString CCL_REDUCED_DUE_TO_HIGH_CELL_VOLTAGE = "CCL Reduced Due To High Cell Voltage";
-    QString CCL_REDUCED_DUE_TO_HIGH_PACK_VOLTAGE = "CCL Reduced Due To High Pack Voltage";
-    QString CCL_REDUCED_DUE_TO_CHARGER_LATCH = "CCL Reduced Due To Charger Latch";
-    QString CCL_REDUCED_DUE_TO_ALTERNATE_CURRENT_LIMIT = "CCL Reduced Due To Alternate Current Limit";
-    QString DCL_REDUCED_DUE_TO_LOW_SOC = "DCL Reduced Due To Low SOC";
-    QString DCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE = "DCL Reduced Due To High Cell Resistance";
-    QString CCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE = "CCL Reduced Due To High Cell Resistance";
+    QString DCL_REDUCED_DUE_TO_TEMPERATURE = "DCL Temperature";
+    QString DCL_REDUCED_DUE_TO_LOW_CELL_VOLTAGE = "DCL Low Cell Voltage";
+    QString DCL_REDUCED_DUE_TO_LOW_PACK_VOLTAGE = "DCL Low Pack Voltage";
+    QString DCL_AND_CCL_REDUCED_DUE_TO_VOLTAGE_FAILSAFE = "DCL CCL Voltage Failsafe";
+    QString DCL_AND_CCL_REDUCED_DUE_TO_COMMUNICATION_FAILSAFE = "DCL CCL Communication Failsafe";
+    QString CCL_REDUCED_DUE_TO_HIGH_SOC = "CCL High SOC";
+    QString CCL_REDUCED_DUE_TO_TEMPERATURE = "CCL Temperature";
+    QString CCL_REDUCED_DUE_TO_HIGH_CELL_VOLTAGE = "CCL High Cell Voltage";
+    QString CCL_REDUCED_DUE_TO_HIGH_PACK_VOLTAGE = "CCL High Pack Voltage";
+    QString CCL_REDUCED_DUE_TO_CHARGER_LATCH = "CCL Charger Latch";
+    QString CCL_REDUCED_DUE_TO_ALTERNATE_CURRENT_LIMIT = "CCL Alternate Current Limit";
+    QString DCL_REDUCED_DUE_TO_LOW_SOC = "DCL Low SOC";
+    QString DCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE = "DCL High Cell Resistance";
+    QString CCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE = "CCL High Cell Resistance";
 }
 
 BatteryFaultList::BatteryFaultList()

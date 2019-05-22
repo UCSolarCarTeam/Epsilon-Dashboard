@@ -2,6 +2,8 @@
 
 #include "I_DisplayDashboardUI.h"
 
+class FontLoader;
+
 namespace Ui
 {
     class DisplayDashboardUI;
@@ -11,7 +13,7 @@ class DisplayDashboardUI : public I_DisplayDashboardUI
     Q_OBJECT
 
 public:
-    explicit DisplayDashboardUI();
+    explicit DisplayDashboardUI(bool isWindowed);
     ~DisplayDashboardUI();
 
     QLabel& actualSpeedLabel();
@@ -46,7 +48,6 @@ public:
     QWidget& lowHeadlightIndicatorWidget();
     QWidget& highHeadlightIndicatorWidget();
 
-    QWidget& thermometerWidget();
     QLabel& maxCellTemperatureLabel();
     QLabel& avgCellTemperatureLabel();
     QLabel& lowestCellVoltageLabel();
@@ -61,4 +62,5 @@ public:
 
 private:
     Ui::DisplayDashboardUI* ui_;
+    QScopedPointer<FontLoader> fontLoader_;
 };

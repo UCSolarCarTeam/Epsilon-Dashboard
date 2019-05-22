@@ -1,14 +1,21 @@
 #include "RaceModeDashboardUI.h"
 #include "ui_RaceModeDashboardUI.h"
+#include "FontLoader/FontLoader.h"
 
 #include <QDesktopWidget>
 #include <QApplication>
 
-RaceModeDashboardUI::RaceModeDashboardUI()
+RaceModeDashboardUI::RaceModeDashboardUI(bool isWindowed)
     : ui_(new Ui::RaceModeDashboardUI)
+    , fontLoader_(new FontLoader())
 {
     ui_->setupUi(this);
-    setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+
+    if (!isWindowed)
+    {
+        setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+    }
+
     setGeometry(
         QStyle::alignedRect(
             Qt::LeftToRight,
@@ -17,6 +24,10 @@ RaceModeDashboardUI::RaceModeDashboardUI()
             QApplication::desktop()->screenGeometry()
         )
     );
+    //Font loading
+    ui_->actualSpeedLabel->setFont(fontLoader_->loadFont(Font::LCD, 45, true));
+    ui_->stateOfChargeCapacityWidget->setFont(fontLoader_->loadFont(Font::LCD, 20, false));
+
     show();
 }
 
@@ -24,6 +35,8 @@ RaceModeDashboardUI::~RaceModeDashboardUI()
 {
     delete ui_;
 }
+
+
 
 QLabel& RaceModeDashboardUI::actualSpeedLabel()
 {

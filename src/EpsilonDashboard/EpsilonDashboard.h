@@ -9,6 +9,7 @@ class BusinessContainer;
 class PresenterContainer;
 class ViewContainer;
 class InfrastructureContainer;
+class FontLoader;
 
 class EpsilonDashboard : public QApplication
 {
@@ -23,5 +24,7 @@ private:
     QScopedPointer<CommunicationContainer> communicationContainer_;
     QScopedPointer<PresenterContainer> presenterContainer_;
     QScopedPointer<ViewContainer> viewContainer_;
+    QScopedPointer<FontLoader> fontLoader_;
+
 
 };

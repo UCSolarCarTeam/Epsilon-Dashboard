@@ -166,7 +166,7 @@ void RaceModeDashboardView::updateFaultLabel(QLabel& dashboardLabel, FaultLabel 
 {
     if (faultLabel.priority() >= 0)
     {
-        dashboardLabel.setStyleSheet(QString("font: 10pt \"Burlingame Pro\";\n color:%1").arg(faultLabel.color().name()));
+        dashboardLabel.setStyleSheet(QString("color:%1").arg(faultLabel.color().name()));
         dashboardLabel.setText(faultLabel.text());
     }
     else
@@ -264,7 +264,7 @@ void RaceModeDashboardView::resetReceived(bool reset)
 }
 void RaceModeDashboardView::motorSetCurrentReceived(double setCurrent)
 {
-    ui_.setCurrentLabel().setText(QString::number(setCurrent, 'f', 3));
+    ui_.setCurrentLabel().setText(QString::number(setCurrent * 100, 'f', 2));
 }
 void RaceModeDashboardView::motorActualSpeedReceived(double actualSpeed)
 {
