@@ -164,7 +164,7 @@ void FaultView::updateMotor1Faults()
     {
         updateLabel(motorOneFaultList_.faultLabels()[i]);
     }
-    updateLabelListHeight(ui_.motor0ContentsWidget(), label1Count_);
+    updateLabelListHeight(ui_.motor1ContentsWidget(), label1Count_);
 }
 
 void FaultView::connectMotorFaults(MotorFaultsPresenter& motorFaultsPresenter)
