@@ -142,6 +142,7 @@ void FaultView::updateBatteryFaults()
     {
         updateLabel(batteryFaultList_.faultLabels()[i]);
     }
+
     updateLabelListHeight(ui_.batteryContentsWidget(), labelBCount_);
 }
 
@@ -153,6 +154,7 @@ void FaultView::updateMotor0Faults()
     {
         updateLabel(motorZeroFaultList_.faultLabels()[i]);
     }
+
     updateLabelListHeight(ui_.motor0ContentsWidget(), label0Count_);
 }
 
@@ -164,6 +166,7 @@ void FaultView::updateMotor1Faults()
     {
         updateLabel(motorOneFaultList_.faultLabels()[i]);
     }
+
     updateLabelListHeight(ui_.motor1ContentsWidget(), label1Count_);
 }
 

@@ -42,7 +42,7 @@ MotorFaultList::MotorFaultList()
     , FaultLabel(IPM_MOTOR_TEMPERATURE_LIMIT, FaultPriorities::MEDIUM_PRIORITY, false)
     , FaultLabel(VELOCITY_LIMIT, FaultPriorities::LOW_PRIORITY, false)
 })
-    , currentFault_(0)
+, currentFault_(0)
 {
 }
 
@@ -55,11 +55,13 @@ FaultLabel MotorFaultList::nextActiveFault()
     for (int i = 0; i < (NUMBER_OF_MOTOR_ERRORS + NUMBER_OF_MOTOR_LIMITS); i++)
     {
         int faultIndex = nextFaultIndex();
-        if(faultLabels_[faultIndex].isActive())
+
+        if (faultLabels_[faultIndex].isActive())
         {
             return faultLabels_[faultIndex];
         }
     }
+
     return FaultLabel();
 }
 

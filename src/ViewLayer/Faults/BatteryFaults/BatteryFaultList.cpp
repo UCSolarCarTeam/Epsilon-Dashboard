@@ -82,7 +82,7 @@ BatteryFaultList::BatteryFaultList()
     , FaultLabel(DCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE, FaultPriorities::LOW_PRIORITY, false)
     , FaultLabel(CCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE, FaultPriorities::LOW_PRIORITY, false)
 })
-    , currentFault_(0)
+, currentFault_(0)
 {
 }
 
@@ -95,11 +95,13 @@ FaultLabel BatteryFaultList::nextActiveFault()
     for (int i = 0; i < (NUMBER_OF_BATTERY_ERRORS + NUMBER_OF_BATTERY_LIMITS); i++)
     {
         int faultIndex = nextFaultIndex();
-        if(faultLabels_[faultIndex].isActive())
+
+        if (faultLabels_[faultIndex].isActive())
         {
             return faultLabels_[faultIndex];
         }
     }
+
     return FaultLabel();
 }
 

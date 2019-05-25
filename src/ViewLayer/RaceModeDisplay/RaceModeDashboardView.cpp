@@ -56,7 +56,7 @@ RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
     , motorZeroFaultsList_(motorZeroFaultsList)
     , motorOneFaultsList_(motorOneFaultsList)
     , batteryFaultsList_(batteryFaultsList)
-    ,faultsTimer_(new QTimer())
+    , faultsTimer_(new QTimer())
 {
     connectBattery(batteryPresenter_);
     connectBatteryFaults(batteryFaultsPresenter_);
