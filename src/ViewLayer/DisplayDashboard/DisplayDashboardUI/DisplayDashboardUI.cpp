@@ -3,8 +3,11 @@
 #include <QApplication>
 #include <QStyle>
 #include <QDesktopWidget>
+#include "FontLoader/FontLoader.h"
+
 DisplayDashboardUI::DisplayDashboardUI(bool isWindowed )
     : ui_(new Ui::DisplayDashboardUI)
+    , fontLoader_(new FontLoader())
 {
     ui_->setupUi(this);
 
@@ -21,6 +24,11 @@ DisplayDashboardUI::DisplayDashboardUI(bool isWindowed )
             QApplication::desktop()->screenGeometry()
         )
     );
+
+    //Font loading
+    ui_->actualSpeedLabel->setFont(fontLoader_->loadFont(Font::LCD, 45, true));
+    ui_->stateOfChargeCapacityWidget->setFont(fontLoader_->loadFont(Font::LCD, 20, false));
+
     show();
 }
 
@@ -139,11 +147,6 @@ QWidget& DisplayDashboardUI::highHeadlightIndicatorWidget()
     return *ui_->highHeadlightIndicatorWidget;
 }
 
-QWidget& DisplayDashboardUI::thermometerWidget()
-{
-    return *ui_->thermometerWidget;
-}
-
 QLabel& DisplayDashboardUI::maxCellTemperatureLabel()
 {
     return *ui_->maxCellTemperatureLabel;
@@ -187,4 +190,9 @@ QLabel& DisplayDashboardUI::powerOutLabel()
 QLabel& DisplayDashboardUI::netPowerLabel()
 {
     return *ui_->netPowerLabel;
+}
+
+QLabel& DisplayDashboardUI::driveModeValueLabel()
+{
+    return *ui_->driveModeValueLabel;
 }

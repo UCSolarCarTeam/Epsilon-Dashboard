@@ -41,7 +41,6 @@ public:
     virtual QWidget& lowHeadlightIndicatorWidget() = 0;
     virtual QWidget& highHeadlightIndicatorWidget() = 0;
 
-    virtual QWidget& thermometerWidget() = 0;
     virtual QLabel& maxCellTemperatureLabel() = 0;
     virtual QLabel& avgCellTemperatureLabel() = 0;
     virtual QLabel& lowestCellVoltageLabel() = 0;
@@ -54,4 +53,5 @@ public:
     virtual QLabel& powerOutLabel() = 0;
     virtual QLabel& netPowerLabel() = 0;
 
+    virtual QLabel& driveModeValueLabel() = 0;
 };
