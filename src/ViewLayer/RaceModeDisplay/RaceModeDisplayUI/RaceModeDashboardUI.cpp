@@ -153,3 +153,8 @@ QLabel& RaceModeDashboardUI::netPowerLabel()
     return *ui_->netPowerLabel;
 }
 
+QLabel& RaceModeDashboardUI::driveModeValueLabel()
+{
+    return *ui_->driveModeValueLabel;
+}
+

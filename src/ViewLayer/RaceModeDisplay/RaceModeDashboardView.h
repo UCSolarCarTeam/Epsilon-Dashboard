@@ -55,6 +55,7 @@ private:
     void connectMotorFaults(MotorFaultsPresenter&);
 
     void updateFaultLabel(QLabel&, FaultLabel);
+    void updateDriveStateLabel();
 
     BatteryPresenter& batteryPresenter_;
     BatteryFaultsPresenter& batteryFaultsPresenter_;
@@ -78,6 +79,10 @@ private:
     double mpptThreePower_;
     QScopedPointer<QTimer> faultsTimer_;
 
+    bool aux_;
+    bool forward_;
+    bool reverse_;
+
 private slots:
     // battery data slots
     void aliveReceived(bool);
@@ -94,7 +99,11 @@ private slots:
     void errorFlagsReceived(BatteryErrorFlags);
     void limitFlagsReceived(BatteryLimitFlags);
 
+    // driver controls slots
     void resetReceived(bool);
+    void auxReceived(bool);
+    void forwardReceived(bool);
+    void reverseReceived(bool);
 
     // key motor slots
     void motorSetCurrentReceived(double);

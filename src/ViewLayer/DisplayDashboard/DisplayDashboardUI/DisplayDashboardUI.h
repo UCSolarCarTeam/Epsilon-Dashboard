@@ -60,6 +60,8 @@ public:
     QLabel& powerOutLabel();
     QLabel& netPowerLabel();
 
+    QLabel& driveModeValueLabel();
+
 private:
     Ui::DisplayDashboardUI* ui_;
     QScopedPointer<FontLoader> fontLoader_;

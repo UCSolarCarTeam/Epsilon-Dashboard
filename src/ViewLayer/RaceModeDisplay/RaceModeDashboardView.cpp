@@ -116,6 +116,12 @@ void RaceModeDashboardView::connectDriverControls(DriverControlsPresenter& drive
 {
     connect(&driverControlsPresenter, SIGNAL(resetReceived(bool)),
             this, SLOT(resetReceived(bool)));
+    connect(&driverControlsPresenter, SIGNAL(auxReceived(bool)),
+            this, SLOT(auxReceived(bool)));
+    connect(&driverControlsPresenter, SIGNAL(forwardReceived(bool)),
+            this, SLOT(forwardReceived(bool)));
+    connect(&driverControlsPresenter, SIGNAL(reverseReceived(bool)),
+            this, SLOT(reverseReceived(bool)));
 }
 
 void RaceModeDashboardView::connectKeyMotor(KeyMotorPresenter& keyMotorPresenter)
@@ -179,6 +185,26 @@ void RaceModeDashboardView::updateFaultLabel(QLabel& dashboardLabel, FaultLabel 
     else
     {
         dashboardLabel.setText("");
+    }
+}
+
+void RaceModeDashboardView::updateDriveStateLabel()
+{
+    if (forward_ && !(reverse_ || aux_))
+    {
+        ui_.driveModeValueLabel().setText("Drive");
+    }
+    else if (reverse_ && !(forward_ || aux_))
+    {
+        ui_.driveModeValueLabel().setText("Reverse");
+    }
+    else if (aux_ && !(forward_ || reverse_))
+    {
+        ui_.driveModeValueLabel().setText("Neutral");
+    }
+    else
+    {
+        ui_.driveModeValueLabel().setText("Invalid Mode");
     }
 }
 
@@ -266,6 +292,24 @@ void RaceModeDashboardView::resetReceived(bool reset)
     {
         ui_.motorResetButtonWidget().setStyleSheet("");
     }
+}
+
+void RaceModeDashboardView::auxReceived(bool aux)
+{
+    aux_ = aux;
+    updateDriveStateLabel();
+}
+
+void RaceModeDashboardView::forwardReceived(bool forward)
+{
+    forward_ = forward;
+    updateDriveStateLabel();
+}
+
+void RaceModeDashboardView::reverseReceived(bool reverse)
+{
+    reverse_ = reverse;
+    updateDriveStateLabel();
 }
 void RaceModeDashboardView::motorSetCurrentReceived(double setCurrent)
 {
