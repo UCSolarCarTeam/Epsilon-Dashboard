@@ -2,6 +2,7 @@
 
 #include <QObject>
 #include <QLabel>
+#include <QScopedPointer>
 
 #include "../../../DataLayer/MpptData/Mppt.h"
 #include "../../../DataLayer/MotorFaultsData/ErrorFlags.h"
@@ -30,6 +31,7 @@ class LightsPresenter;
 class MpptPresenter;
 class MotorDetailsPresenter;
 class MotorFaultsPresenter;
+class QTimer;
 
 class DisplayDashboardView : public QObject
 {
@@ -82,6 +84,7 @@ private:
     double mpptOnePower_;
     double mpptTwoPower_;
     double mpptThreePower_;
+    QScopedPointer<QTimer> faultsTimer_;
 
 private slots:
     // auxBms data slots
@@ -125,4 +128,8 @@ private slots:
     void motorZeroLimitFlagsReceived(LimitFlags);
     void motorOneErrorFlagsReceived(ErrorFlags);
     void motorOneLimitFlagsReceived(LimitFlags);
+
+    void updateBatteryFaults();
+    void updateMotor0Faults();
+    void updateMotor1Faults();
 };

@@ -1,5 +1,6 @@
 #include "DisplayDashboardView.h"
 #include <QDebug>
+#include <QTimer>
 
 namespace
 {
@@ -17,6 +18,7 @@ namespace
             border-radius: 7px;\
             background: ";
     const float MV_TO_V = 1000;
+    const int FAULT_UPDATE_PERIOD = 1500;
 }
 
 DisplayDashboardView::DisplayDashboardView(AuxBmsPresenter& auxBmsPresenter,
@@ -45,6 +47,7 @@ DisplayDashboardView::DisplayDashboardView(AuxBmsPresenter& auxBmsPresenter,
     , motorZeroFaultsList_(motorZeroFaultsList)
     , motorOneFaultsList_(motorOneFaultsList)
     , batteryFaultsList_(batteryFaultsList)
+    , faultsTimer_(new QTimer())
 {
     connectAuxBms(auxBmsPresenter_);
     connectBattery(batteryPresenter_);
@@ -56,6 +59,10 @@ DisplayDashboardView::DisplayDashboardView(AuxBmsPresenter& auxBmsPresenter,
     connectMotorDetails(motorDetailsPresenter_);
     connectMotorFaults(motorFaultsPresenter_);
     //ui_.showMaximized();
+    connect(faultsTimer_.data(), SIGNAL(timeout()), this, SLOT(updateBatteryFaults()));
+    connect(faultsTimer_.data(), SIGNAL(timeout()), this, SLOT(updateMotor0Faults()));
+    connect(faultsTimer_.data(), SIGNAL(timeout()), this, SLOT(updateMotor1Faults()));
+    faultsTimer_->start(FAULT_UPDATE_PERIOD);
     ui_.show();
 }
 DisplayDashboardView::~DisplayDashboardView()
@@ -352,20 +359,31 @@ void DisplayDashboardView::mpptPowerReceived(double mpptPower)
 void DisplayDashboardView::motorZeroErrorFlagsReceived(ErrorFlags motorZeroErrorFlags)
 {
     motorZeroFaultsList_.updateErrors(motorZeroErrorFlags);
-    //updateFaultLabel(ui_.motorZeroFaultsLabel(), motorZeroFaultsList_.getHighestActivePriorityLabel());
 }
 void DisplayDashboardView::motorZeroLimitFlagsReceived(LimitFlags motorZeroLimitFlags)
 {
     motorZeroFaultsList_.updateLimits(motorZeroLimitFlags);
-    //updateFaultLabel(ui_.motorZeroFaultsLabel(), motorZeroFaultsList_.getHighestActivePriorityLabel());
 }
 void DisplayDashboardView::motorOneErrorFlagsReceived(ErrorFlags motorOneErrorFlags)
 {
     motorOneFaultsList_.updateErrors(motorOneErrorFlags);
-    //updateFaultLabel(ui_.motorOneFaultsLabel(), motorOneFaultsList_.getHighestActivePriorityLabel());
 }
 void DisplayDashboardView::motorOneLimitFlagsReceived(LimitFlags motorOneLimitFlags)
 {
     motorOneFaultsList_.updateLimits(motorOneLimitFlags);
-   //updateFaultLabel(ui_.motorOneFaultsLabel(), motorOneFaultsList_.getHighestActivePriorityLabel());
+}
+
+void DisplayDashboardView::updateBatteryFaults()
+{
+    updateFaultLabel(ui_.batteryFaultsLabel(), batteryFaultsList_.nextActiveFault());
+}
+
+void DisplayDashboardView::updateMotor0Faults()
+{
+    updateFaultLabel(ui_.motorZeroFaultsLabel(), motorZeroFaultsList_.nextActiveFault());
+}
+
+void DisplayDashboardView::updateMotor1Faults()
+{
+    updateFaultLabel(ui_.motorOneFaultsLabel(), motorOneFaultsList_.nextActiveFault());
 }
