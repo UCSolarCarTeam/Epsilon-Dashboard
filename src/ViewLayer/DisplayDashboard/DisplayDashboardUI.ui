@@ -107,9 +107,13 @@
          </item>
          <item>
           <widget class="QLabel" name="actualSpeedLabel">
+           <property name="font">
+            <font>
+             <pointsize>72</pointsize>
+            </font>
+           </property>
            <property name="styleSheet">
-            <string notr="true">font: bold 72pt &quot;LCDMono&quot;;
-color: white;</string>
+            <string notr="true">color: white;</string>
            </property>
            <property name="text">
             <string>000</string>
@@ -118,9 +122,15 @@ color: white;</string>
          </item>
          <item>
           <widget class="QLabel" name="actualSpeedUnitsLabel">
+           <property name="font">
+            <font>
+             <pointsize>18</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
            <property name="styleSheet">
-            <string notr="true">font: 75 bold 18pt &quot;Nimbus Sans L&quot;;
-padding-top:60px;
+            <string notr="true">padding-top:60px;
 color: white;</string>
            </property>
            <property name="text">
@@ -226,9 +236,15 @@ color: white;</string>
            </property>
            <item>
             <widget class="QLabel" name="batteryFaultsTitleLabel">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="styleSheet">
-              <string notr="true">font: bold 10pt &quot;Arial Unicode MS&quot;;
-color: rgb(100,100,100);</string>
+              <string notr="true">color: rgb(100,100,100);</string>
              </property>
              <property name="text">
               <string>B A T T E R Y   F A U L T S</string>
@@ -246,9 +262,13 @@ color: rgb(100,100,100);</string>
                <height>0</height>
               </size>
              </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
              <property name="styleSheet">
-              <string notr="true">font: 12pt &quot;Burlingame Pro&quot;;
-color:white;</string>
+              <string notr="true">color:white;</string>
              </property>
              <property name="text">
               <string>BatteryFaults</string>
@@ -290,9 +310,15 @@ color:white;</string>
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="styleSheet">
-              <string notr="true">font: bold 10pt &quot;Arial Unicode MS&quot;;
-color: rgb(100,100,100);</string>
+              <string notr="true">color: rgb(100,100,100);</string>
              </property>
              <property name="text">
               <string>M O T O R   0    F A U L T S</string>
@@ -310,9 +336,13 @@ color: rgb(100,100,100);</string>
                <height>0</height>
               </size>
              </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
              <property name="styleSheet">
-              <string notr="true">font: 12pt &quot;Burlingame Pro&quot;;
-color:white;</string>
+              <string notr="true">color:white;</string>
              </property>
              <property name="text">
               <string>Motor0</string>
@@ -324,9 +354,15 @@ color:white;</string>
            </item>
            <item>
             <widget class="QLabel" name="motorOneFaultsTitleLabel">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="styleSheet">
-              <string notr="true">font: bold 10pt &quot;Arial Unicode MS&quot;;
-color: rgb(100,100,100);</string>
+              <string notr="true">color: rgb(100,100,100);</string>
              </property>
              <property name="text">
               <string>M O T O R   1    F A U L T S</string>
@@ -338,9 +374,13 @@ color: rgb(100,100,100);</string>
            </item>
            <item>
             <widget class="QLabel" name="motorOneFaultsLabel">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
              <property name="styleSheet">
-              <string notr="true">font: 12pt &quot;Burlingame Pro&quot;;
-color:white;</string>
+              <string notr="true">color:white;</string>
              </property>
              <property name="text">
               <string>Motor1</string>
@@ -392,9 +432,13 @@ color:white;</string>
            </property>
            <item row="0" column="0" colspan="2">
             <widget class="QLabel" name="motorPowerLabel">
+             <property name="font">
+              <font>
+               <pointsize>24</pointsize>
+              </font>
+             </property>
              <property name="styleSheet">
               <string notr="true">QLabel {
-font: 24pt &quot;Burlingame Pro&quot;;
 color: white;
 qproperty-alignment: 'AlignBottom | AlignRight';
 }</string>
@@ -406,9 +450,13 @@ qproperty-alignment: 'AlignBottom | AlignRight';
            </item>
            <item row="0" column="2">
             <widget class="QLabel" name="motorPowerUnitsLabel">
+             <property name="font">
+              <font>
+               <pointsize>14</pointsize>
+              </font>
+             </property>
              <property name="styleSheet">
               <string notr="true">QLabel {
-font: 14pt &quot;Burlingame Pro&quot;;
 color: white;
 qproperty-alignment: 'AlignBottom | AlignLeft';
 }</string>
@@ -420,9 +468,15 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
            </item>
            <item row="1" column="0" colspan="3">
             <widget class="QLabel" name="motorPowerTitleLabel">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="styleSheet">
               <string notr="true">QLabel {
-font: bold 10pt &quot;Arial Unicode MS&quot;;
 qproperty-alignment: AlignHCenter;
 color: rgb(100,100,100);
 }</string>
@@ -455,9 +509,13 @@ color: rgb(100,100,100);
            </property>
            <item row="0" column="2">
             <widget class="QLabel" name="setCurrentUnitsLabel">
+             <property name="font">
+              <font>
+               <pointsize>14</pointsize>
+              </font>
+             </property>
              <property name="styleSheet">
               <string notr="true">QLabel {
-font: 14pt &quot;Burlingame Pro&quot;;
 color: white;
 qproperty-alignment: 'AlignBottom | AlignLeft';
 }</string>
@@ -469,9 +527,15 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
            </item>
            <item row="1" column="0" colspan="3">
             <widget class="QLabel" name="setCurrentTitleLabel">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="styleSheet">
               <string notr="true">QLabel {
-font: bold 10pt &quot;Arial Unicode MS&quot;;
 qproperty-alignment: AlignHCenter;
 color: rgb(100,100,100);
 }
@@ -485,9 +549,13 @@ color: rgb(100,100,100);
            </item>
            <item row="0" column="0" colspan="2">
             <widget class="QLabel" name="setCurrentLabel">
+             <property name="font">
+              <font>
+               <pointsize>24</pointsize>
+              </font>
+             </property>
              <property name="styleSheet">
               <string notr="true">QLabel {
-font: 24pt &quot;Burlingame Pro&quot;;
 color: white;
 qproperty-alignment: 'AlignBottom | AlignRight';
 }</string>
@@ -571,9 +639,15 @@ qproperty-alignment: 'AlignBottom | AlignRight';
         <layout class="QGridLayout" name="gridLayout_7">
          <item row="0" column="0" colspan="2">
           <widget class="QLabel" name="arraysTitleLabel">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
            <property name="styleSheet">
             <string notr="true">QLabel {
-font: bold 10pt &quot;Arial Unicode MS&quot;;
 qproperty-alignment: 'AlignHCenter | AlignBottom';
 color: rgb(100,100,100);
 }
@@ -619,9 +693,13 @@ color: rgb(100,100,100);
             </property>
             <item>
              <widget class="QLabel" name="array0VoltageLabel">
+              <property name="font">
+               <font>
+                <pointsize>18</pointsize>
+               </font>
+              </property>
               <property name="styleSheet">
-               <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
-color:white;
+               <string notr="true">color:white;
 background: none;</string>
               </property>
               <property name="text">
@@ -642,9 +720,13 @@ background: none;</string>
             </item>
             <item>
              <widget class="QLabel" name="array0CurrentLabel">
+              <property name="font">
+               <font>
+                <pointsize>18</pointsize>
+               </font>
+              </property>
               <property name="styleSheet">
-               <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
-color:white;
+               <string notr="true">color:white;
 background: none;</string>
               </property>
               <property name="text">
@@ -713,10 +795,14 @@ background: none;</string>
              <number>0</number>
             </property>
             <item>
-             <widget class="QLabel" name="array2VoltageLabel">
+             <widget class="QLabel" name="array1VoltageLabel">
+              <property name="font">
+               <font>
+                <pointsize>18</pointsize>
+               </font>
+              </property>
               <property name="styleSheet">
-               <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
-color:white;
+               <string notr="true">color:white;
 background: none;</string>
               </property>
               <property name="text">
@@ -736,10 +822,14 @@ background: none;</string>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="array2CurrentLabel">
+             <widget class="QLabel" name="array1CurrentLabel">
+              <property name="font">
+               <font>
+                <pointsize>18</pointsize>
+               </font>
+              </property>
               <property name="styleSheet">
-               <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
-color:white;
+               <string notr="true">color:white;
 background: none;</string>
               </property>
               <property name="text">
@@ -808,10 +898,14 @@ background: none;</string>
              <number>0</number>
             </property>
             <item>
-             <widget class="QLabel" name="array3VoltageLabel">
+             <widget class="QLabel" name="array2VoltageLabel">
+              <property name="font">
+               <font>
+                <pointsize>18</pointsize>
+               </font>
+              </property>
               <property name="styleSheet">
-               <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
-color:white;
+               <string notr="true">color:white;
 background: none;</string>
               </property>
               <property name="text">
@@ -831,10 +925,14 @@ background: none;</string>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="array3CurrentLabel">
+             <widget class="QLabel" name="array2CurrentLabel">
+              <property name="font">
+               <font>
+                <pointsize>18</pointsize>
+               </font>
+              </property>
               <property name="styleSheet">
-               <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
-color:white;
+               <string notr="true">color:white;
 background: none;</string>
               </property>
               <property name="text">
@@ -884,10 +982,14 @@ background: none;</string>
              <number>0</number>
             </property>
             <item>
-             <widget class="QLabel" name="array1VoltageLabel">
+             <widget class="QLabel" name="array3VoltageLabel">
+              <property name="font">
+               <font>
+                <pointsize>18</pointsize>
+               </font>
+              </property>
               <property name="styleSheet">
-               <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
-color:white;
+               <string notr="true">color:white;
 background: none;</string>
               </property>
               <property name="text">
@@ -907,10 +1009,14 @@ background: none;</string>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="array1CurrentLabel">
+             <widget class="QLabel" name="array3CurrentLabel">
+              <property name="font">
+               <font>
+                <pointsize>18</pointsize>
+               </font>
+              </property>
               <property name="styleSheet">
-               <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
-color:white;
+               <string notr="true">color:white;
 background: none;</string>
               </property>
               <property name="text">
@@ -988,9 +1094,15 @@ background: none;</string>
          </property>
          <item row="0" column="0" colspan="6">
           <widget class="QLabel" name="cellTitleWidget">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
            <property name="styleSheet">
-            <string notr="true">font: bold 10pt &quot;Arial Unicode MS&quot;;
-text-align:center;
+            <string notr="true">text-align:center;
 color: rgb(100,100,100);</string>
            </property>
            <property name="text">
@@ -1000,9 +1112,13 @@ color: rgb(100,100,100);</string>
          </item>
          <item row="5" column="1">
           <widget class="QLabel" name="avgCellTemperatureTitleLabel">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
            <property name="styleSheet">
             <string notr="true">QLabel {
-font: 10pt &quot;Burlingame Pro&quot;;
 color: white;
 qproperty-alignment: 'AlignHCenter';
 }</string>
@@ -1014,9 +1130,13 @@ qproperty-alignment: 'AlignHCenter';
          </item>
          <item row="4" column="4">
           <widget class="QLabel" name="avgCellVoltageLabel">
+           <property name="font">
+            <font>
+             <pointsize>18</pointsize>
+            </font>
+           </property>
            <property name="styleSheet">
-            <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
-color:white;</string>
+            <string notr="true">color:white;</string>
            </property>
            <property name="text">
             <string>879</string>
@@ -1025,9 +1145,13 @@ color:white;</string>
          </item>
          <item row="4" column="2">
           <widget class="QLabel" name="avgCellTemperatureUnitsLabel">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
            <property name="styleSheet">
             <string notr="true">QLabel {
-font: 10pt &quot;Burlingame Pro&quot;;
 color: white;
 qproperty-alignment: 'AlignBottom | AlignLeft';
 }</string>
@@ -1039,9 +1163,15 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
          </item>
          <item row="1" column="1">
           <widget class="QLabel" name="maxCellTemperatureTitleLabel">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
            <property name="styleSheet">
             <string notr="true">QLabel {
-font: 10pt &quot;Burlingame Pro&quot;;
 color: white;
 qproperty-alignment: 'AlignHCenter | AlignBottom';
 }</string>
@@ -1053,9 +1183,13 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
          </item>
          <item row="2" column="4">
           <widget class="QLabel" name="lowestCellVoltageTitleLabel">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
            <property name="styleSheet">
             <string notr="true">QLabel {
-font: 10pt &quot;Burlingame Pro&quot;;
 color: white;
 qproperty-alignment: 'AlignHCenter';
 }</string>
@@ -1067,9 +1201,13 @@ qproperty-alignment: 'AlignHCenter';
          </item>
          <item row="2" column="1">
           <widget class="QLabel" name="maxCellTemperatureLabel">
+           <property name="font">
+            <font>
+             <pointsize>18</pointsize>
+            </font>
+           </property>
            <property name="styleSheet">
-            <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
-color:white;</string>
+            <string notr="true">color:white;</string>
            </property>
            <property name="text">
             <string>879</string>
@@ -1078,9 +1216,13 @@ color:white;</string>
          </item>
          <item row="2" column="2">
           <widget class="QLabel" name="maxCellTemperatureUnitsLabel">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
            <property name="styleSheet">
             <string notr="true">QLabel {
-font: 10pt &quot;Burlingame Pro&quot;;
 color: white;
 qproperty-alignment: 'AlignBottom | AlignLeft';
 }</string>
@@ -1092,9 +1234,13 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
          </item>
          <item row="1" column="4">
           <widget class="QLabel" name="lowestCellVoltageLabel">
+           <property name="font">
+            <font>
+             <pointsize>18</pointsize>
+            </font>
+           </property>
            <property name="styleSheet">
-            <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
-color:white;</string>
+            <string notr="true">color:white;</string>
            </property>
            <property name="text">
             <string>879</string>
@@ -1103,9 +1249,13 @@ color:white;</string>
          </item>
          <item row="4" column="1">
           <widget class="QLabel" name="avgCellTemperatureLabel">
+           <property name="font">
+            <font>
+             <pointsize>18</pointsize>
+            </font>
+           </property>
            <property name="styleSheet">
-            <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
-color:white;</string>
+            <string notr="true">color:white;</string>
            </property>
            <property name="text">
             <string>879</string>
@@ -1114,9 +1264,13 @@ color:white;</string>
          </item>
          <item row="1" column="5">
           <widget class="QLabel" name="lowestCellVoltageUnitsLabel">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
            <property name="styleSheet">
             <string notr="true">QLabel {
-font: 10pt &quot;Burlingame Pro&quot;;
 color: white;
 qproperty-alignment: 'AlignBottom | AlignLeft';
 }</string>
@@ -1128,9 +1282,13 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
          </item>
          <item row="4" column="5">
           <widget class="QLabel" name="avgCellVoltageUnitsLabel">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
            <property name="styleSheet">
             <string notr="true">QLabel {
-font: 10pt &quot;Burlingame Pro&quot;;
 color: white;
 qproperty-alignment: 'AlignBottom | AlignLeft';
 }</string>
@@ -1142,9 +1300,13 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
          </item>
          <item row="5" column="4">
           <widget class="QLabel" name="avgCellVoltageTitleLabel">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
            <property name="styleSheet">
             <string notr="true">QLabel {
-font: 10pt &quot;Burlingame Pro&quot;;
 color: white;
 qproperty-alignment: 'AlignHCenter';
 }</string>
@@ -1161,25 +1323,6 @@ qproperty-alignment: 'AlignHCenter';
              <width>50</width>
              <height>0</height>
             </size>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0" rowspan="5">
-          <widget class="QWidget" name="thermometerWidget" native="true">
-           <property name="minimumSize">
-            <size>
-             <width>40</width>
-             <height>120</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>40</width>
-             <height>120</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background: url(:/Resources/Thermometer.png);</string>
            </property>
           </widget>
          </item>
@@ -1234,21 +1377,15 @@ qproperty-alignment: 'AlignHCenter';
            <property name="spacing">
             <number>0</number>
            </property>
-           <item row="0" column="0">
-            <widget class="QWidget" name="prechargeStateIconWidget" native="true"/>
-           </item>
-           <item row="0" column="1">
-            <widget class="QLabel" name="prechargeStateLabel">
-             <property name="styleSheet">
-              <string notr="true">color: rgb(100,100,100);</string>
-             </property>
-             <property name="text">
-              <string>RUN</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0" colspan="2">
+           <item row="1" column="1" alignment="Qt::AlignHCenter">
             <widget class="QLabel" name="prechargeStateTitleLabel">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="styleSheet">
               <string notr="true">color: rgb(100,100,100);</string>
              </property>
@@ -1256,6 +1393,29 @@ qproperty-alignment: 'AlignHCenter';
               <string>P R E C H A R G E</string>
              </property>
             </widget>
+           </item>
+           <item row="0" column="1" alignment="Qt::AlignHCenter">
+            <widget class="QLabel" name="prechargeStateLabel">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(100,100,100);</string>
+             </property>
+             <property name="text">
+              <string>Off</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QWidget" name="prechargeStateIconWidget" native="true"/>
+           </item>
+           <item row="1" column="0">
+            <widget class="QWidget" name="prechargeStateIconWidget_2" native="true"/>
            </item>
           </layout>
          </widget>
@@ -1280,9 +1440,13 @@ qproperty-alignment: 'AlignHCenter';
            </property>
            <item row="1" column="0">
             <widget class="QLabel" name="busVoltageLabel">
+             <property name="font">
+              <font>
+               <pointsize>18</pointsize>
+              </font>
+             </property>
              <property name="styleSheet">
-              <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
-color:white;</string>
+              <string notr="true">color:white;</string>
              </property>
              <property name="text">
               <string>879</string>
@@ -1291,6 +1455,11 @@ color:white;</string>
            </item>
            <item row="1" column="1">
             <widget class="QLabel" name="busVoltageUnitsLabel">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
              <property name="styleSheet">
               <string notr="true">color: rgb(100,100,100);</string>
              </property>
@@ -1301,9 +1470,13 @@ color:white;</string>
            </item>
            <item row="1" column="2">
             <widget class="QLabel" name="busCurrentLabel">
+             <property name="font">
+              <font>
+               <pointsize>18</pointsize>
+              </font>
+             </property>
              <property name="styleSheet">
-              <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
-color:white;</string>
+              <string notr="true">color:white;</string>
              </property>
              <property name="text">
               <string>879</string>
@@ -1312,6 +1485,11 @@ color:white;</string>
            </item>
            <item row="1" column="3">
             <widget class="QLabel" name="busCurrentUnitsLabel">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
              <property name="styleSheet">
               <string notr="true">color: rgb(100,100,100);</string>
              </property>
@@ -1322,6 +1500,13 @@ color:white;</string>
            </item>
            <item row="0" column="0" colspan="4">
             <widget class="QLabel" name="busTitleLabel">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="styleSheet">
               <string notr="true">color: rgb(100,100,100);</string>
              </property>
@@ -1365,6 +1550,11 @@ color:white;</string>
                <height>16777215</height>
               </size>
              </property>
+             <property name="font">
+              <font>
+               <pointsize>20</pointsize>
+              </font>
+             </property>
              <property name="styleSheet">
               <string notr="true">QProgressBar:horizontal {
 background:white;
@@ -1372,7 +1562,6 @@ padding:0px;
 text-align: center;
 }
 QProgressBar:horizontal::font {
-font: 20pt &quot;LCDMono&quot;;
 color: white;
 }</string>
              </property>
@@ -1439,6 +1628,13 @@ background: rgb(20,180,20);
            </item>
            <item>
             <widget class="QLabel" name="stateOfChargeTitleLabel">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="styleSheet">
               <string notr="true">QLabel {
 qproperty-alignment: AlignHCenter;
@@ -1522,9 +1718,13 @@ color: rgb(100,100,100);
              </property>
              <item row="0" column="0">
               <widget class="QLabel" name="powerInLabel">
+               <property name="font">
+                <font>
+                 <pointsize>18</pointsize>
+                </font>
+               </property>
                <property name="styleSheet">
-                <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
-color:white;</string>
+                <string notr="true">color:white;</string>
                </property>
                <property name="text">
                 <string>879</string>
@@ -1533,9 +1733,13 @@ color:white;</string>
              </item>
              <item row="0" column="2">
               <widget class="QLabel" name="powerOutLabel">
+               <property name="font">
+                <font>
+                 <pointsize>18</pointsize>
+                </font>
+               </property>
                <property name="styleSheet">
-                <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
-color:white;</string>
+                <string notr="true">color:white;</string>
                </property>
                <property name="text">
                 <string>879</string>
@@ -1544,6 +1748,11 @@ color:white;</string>
              </item>
              <item row="0" column="3">
               <widget class="QLabel" name="powerOutUnitsLabel">
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
                <property name="styleSheet">
                 <string notr="true">color: rgb(100,100,100);</string>
                </property>
@@ -1554,6 +1763,11 @@ color:white;</string>
              </item>
              <item row="0" column="1">
               <widget class="QLabel" name="powerInUnitsLabel">
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
                <property name="styleSheet">
                 <string notr="true">color: rgb(100,100,100);</string>
                </property>
@@ -1564,6 +1778,11 @@ color:white;</string>
              </item>
              <item row="1" column="0" colspan="2">
               <widget class="QLabel" name="powerInTitleLabel">
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
                <property name="styleSheet">
                 <string notr="true">color: rgb(100,100,100);</string>
                </property>
@@ -1574,6 +1793,11 @@ color:white;</string>
              </item>
              <item row="1" column="2" colspan="2">
               <widget class="QLabel" name="powerOutTitleLabel">
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
                <property name="styleSheet">
                 <string notr="true">color: rgb(100,100,100);</string>
                </property>
@@ -1586,6 +1810,11 @@ color:white;</string>
            </item>
            <item row="5" column="0" colspan="4">
             <widget class="QLabel" name="netPowerTitleLabel">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
              <property name="styleSheet">
               <string notr="true">color: rgb(100,100,100);</string>
              </property>
@@ -1596,9 +1825,13 @@ color:white;</string>
            </item>
            <item row="4" column="0" colspan="2">
             <widget class="QLabel" name="netPowerLabel">
+             <property name="font">
+              <font>
+               <pointsize>18</pointsize>
+              </font>
+             </property>
              <property name="styleSheet">
-              <string notr="true">font: 18pt &quot;Burlingame Pro&quot;;
-color:white;</string>
+              <string notr="true">color:white;</string>
              </property>
              <property name="text">
               <string>879</string>
@@ -1607,6 +1840,11 @@ color:white;</string>
            </item>
            <item row="4" column="2" colspan="2">
             <widget class="QLabel" name="netPowerUnitsLabel">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
              <property name="styleSheet">
               <string notr="true">color: rgb(100,100,100);</string>
              </property>
@@ -1617,6 +1855,13 @@ color:white;</string>
            </item>
            <item row="0" column="0" colspan="4">
             <widget class="QLabel" name="powerTitleLabel">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="styleSheet">
               <string notr="true">color: rgb(100,100,100);</string>
              </property>

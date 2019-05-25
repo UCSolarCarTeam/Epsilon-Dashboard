@@ -28,20 +28,22 @@
 #include "JsonReceiver.h"
 #include "CommDeviceControl/I_CommDevice.h"
 
-JsonReceiver::JsonReceiver(AuxBmsPopulator& auxBmsPopulator,
-                           BatteryPopulator& batteryPopulator,
-                           BatteryFaultsPopulator& batteryFaultsPopulator,
-                           DriverControlsPopulator& driverControlsPopulator,
-                           KeyMotorPopulator& keyMotorPopulator,
-                           LightsPopulator& lightsPopulator,
-                           MpptPopulator& mpptPopulator,
-                           MotorDetailsPopulator& motorDetailsPopulator,
-                           MotorFaultsPopulator& motorFaultsPopulator,
+JsonReceiver::JsonReceiver(I_AuxBmsPopulator& auxBmsPopulator,
+                           I_BatteryPopulator& batteryPopulator,
+                           I_BatteryFaultsPopulator& batteryFaultsPopulator,
+                           CcsPopulator& ccsPopulator,
+                           I_DriverControlsPopulator& driverControlsPopulator,
+                           I_KeyMotorPopulator& keyMotorPopulator,
+                           I_LightsPopulator& lightsPopulator,
+                           I_MpptPopulator& mpptPopulator,
+                           I_MotorDetailsPopulator& motorDetailsPopulator,
+                           I_MotorFaultsPopulator& motorFaultsPopulator,
                            I_CommunicationsMonitoringService& communicationsMonitoringService,
                            bool loggingEnabled)
     : auxBmsPopulator_(auxBmsPopulator)
     , batteryPopulator_(batteryPopulator)
     , batteryFaultsPopulator_(batteryFaultsPopulator)
+    , ccsPopulator_(ccsPopulator)
     , driverControlsPopulator_(driverControlsPopulator)
     , keyMotorPopulator_(keyMotorPopulator)
     , lightsPopulator_(lightsPopulator)
@@ -57,6 +59,8 @@ JsonReceiver::JsonReceiver(AuxBmsPopulator& auxBmsPopulator,
             &batteryPopulator_, SLOT(populateData(const QJsonObject&)));
     connect(this, SIGNAL(dataReceived(const QJsonObject&)),
             &batteryFaultsPopulator_, SLOT(populateData(const QJsonObject&)));
+    connect(this, SIGNAL(dataReceived(const QJsonObject&)),
+            &ccsPopulator_, SLOT(populateData(const QJsonObject&)));
     connect(this, SIGNAL(dataReceived(const QJsonObject&)),
             &driverControlsPopulator_, SLOT(populateData(const QJsonObject&)));
     connect(this, SIGNAL(dataReceived(const QJsonObject&)),

@@ -1,5 +1,6 @@
 #pragma once
 #include "I_ControlUi.h"
+
 namespace Ui
 {
     class ControlUi;
@@ -13,6 +14,7 @@ public:
     ~ControlUi();
     QLabel& aliveIndicator();
     QLabel& lightsIndicator();
+    QLabel& ccsAlive();
     QLabel& highHeadlightsLabel();
     QLabel& lowHeadlightsLabel();
     QLabel& lowBeamLabel();
@@ -38,6 +40,10 @@ public:
     QLabel& resetOnLabel();
     QProgressBar& accelerationProgressBar();
     QProgressBar& regenBrakingProgressBar();
+    QLabel& bmsStrobeLightLabel();
+    QLabel& strobeLightOnLabel();
+private slots:
+
 private:
     Ui::ControlUi* ui_;
 };

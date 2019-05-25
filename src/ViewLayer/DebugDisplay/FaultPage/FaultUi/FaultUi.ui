@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>683</width>
-    <height>648</height>
+    <height>642</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -33,11 +33,16 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QLabel" name="motor0Label">
+    <widget class="QLabel" name="motor1Label">
+     <property name="font">
+      <font>
+       <pointsize>20</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">font: 24px 'Arial';
-font-weight:500;
-color:white;</string>
+      <string notr="true">color:white;</string>
      </property>
      <property name="text">
       <string>Motor 0</string>
@@ -58,13 +63,13 @@ color:white;</string>
      <property name="minimumSize">
       <size>
        <width>665</width>
-       <height>162</height>
+       <height>150</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
        <width>665</width>
-       <height>162</height>
+       <height>150</height>
       </size>
      </property>
      <property name="autoFillBackground">
@@ -100,7 +105,7 @@ color:white;</string>
         <x>0</x>
         <y>0</y>
         <width>665</width>
-        <height>162</height>
+        <height>150</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -112,13 +117,13 @@ color:white;</string>
       <property name="minimumSize">
        <size>
         <width>665</width>
-        <height>162</height>
+        <height>150</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
         <width>665</width>
-        <height>162</height>
+        <height>150</height>
        </size>
       </property>
       <property name="autoFillBackground">
@@ -153,11 +158,16 @@ background-color:rgba(45,45,45,150);
     </widget>
    </item>
    <item>
-    <widget class="QLabel" name="motor1Label">
+    <widget class="QLabel" name="motor0Label">
+     <property name="font">
+      <font>
+       <pointsize>20</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">font: 24px 'Arial';
-font-weight:500;
-color:white;</string>
+      <string notr="true">color:white;</string>
      </property>
      <property name="text">
       <string>Motor 1</string>
@@ -178,13 +188,13 @@ color:white;</string>
      <property name="minimumSize">
       <size>
        <width>665</width>
-       <height>162</height>
+       <height>150</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
        <width>665</width>
-       <height>162</height>
+       <height>150</height>
       </size>
      </property>
      <property name="palette">
@@ -333,7 +343,7 @@ color:white;</string>
         <x>0</x>
         <y>0</y>
         <width>665</width>
-        <height>162</height>
+        <height>150</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -345,13 +355,13 @@ color:white;</string>
       <property name="minimumSize">
        <size>
         <width>665</width>
-        <height>162</height>
+        <height>150</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
         <width>665</width>
-        <height>162</height>
+        <height>150</height>
        </size>
       </property>
       <property name="styleSheet">
@@ -381,10 +391,15 @@ background-color:rgba(45,45,45,150);
    </item>
    <item>
     <widget class="QLabel" name="batteryLabel">
+     <property name="font">
+      <font>
+       <pointsize>20</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">font: 24px 'Arial';
-font-weight:500;
-color:white;</string>
+      <string notr="true">color:white;</string>
      </property>
      <property name="text">
       <string>Battery</string>
@@ -485,34 +500,6 @@ background-color:rgba(45,45,45,150);
        </property>
       </layout>
      </widget>
-    </widget>
-   </item>
-   <item>
-    <widget class="QLabel" name="showHistoryLabel">
-     <property name="minimumSize">
-      <size>
-       <width>100</width>
-       <height>30</height>
-      </size>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>1000</width>
-       <height>1000</height>
-      </size>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 18px 'Arial';
-font-weight:500;
-color:rgb(186, 186, 186);
-</string>
-     </property>
-     <property name="text">
-      <string>Show history</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
     </widget>
    </item>
   </layout>

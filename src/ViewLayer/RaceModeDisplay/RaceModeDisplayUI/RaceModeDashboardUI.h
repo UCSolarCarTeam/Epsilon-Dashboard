@@ -2,6 +2,8 @@
 
 #include "I_RaceModeDashboardUI.h"
 
+class FontLoader;
+
 namespace Ui
 {
     class RaceModeDashboardUI;
@@ -11,7 +13,7 @@ class RaceModeDashboardUI : public I_RaceModeDashboardUI
     Q_OBJECT
 
 public:
-    explicit RaceModeDashboardUI();
+    explicit RaceModeDashboardUI(bool isWindowed);
     ~RaceModeDashboardUI();
 
 
@@ -37,7 +39,6 @@ public:
     QWidget& lowHeadlightIndicatorWidget();
     QWidget& highHeadlightIndicatorWidget();
 
-    QWidget& thermometerWidget();
     QLabel& maxCellTemperatureLabel();
     QLabel& avgCellTemperatureLabel();
     QLabel& lowestCellVoltageLabel();
@@ -50,7 +51,7 @@ public:
     QLabel& powerOutLabel();
     QLabel& netPowerLabel();
 
-
 private:
     Ui::RaceModeDashboardUI* ui_;
+    QScopedPointer<FontLoader> fontLoader_;
 };
