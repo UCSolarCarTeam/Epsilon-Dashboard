@@ -352,20 +352,20 @@ void DisplayDashboardView::mpptPowerReceived(double mpptPower)
 void DisplayDashboardView::motorZeroErrorFlagsReceived(ErrorFlags motorZeroErrorFlags)
 {
     motorZeroFaultsList_.updateErrors(motorZeroErrorFlags);
-    updateFaultLabel(ui_.motorZeroFaultsLabel(), motorZeroFaultsList_.getHighestActivePriorityLabel());
+    //updateFaultLabel(ui_.motorZeroFaultsLabel(), motorZeroFaultsList_.getHighestActivePriorityLabel());
 }
 void DisplayDashboardView::motorZeroLimitFlagsReceived(LimitFlags motorZeroLimitFlags)
 {
     motorZeroFaultsList_.updateLimits(motorZeroLimitFlags);
-    updateFaultLabel(ui_.motorZeroFaultsLabel(), motorZeroFaultsList_.getHighestActivePriorityLabel());
+    //updateFaultLabel(ui_.motorZeroFaultsLabel(), motorZeroFaultsList_.getHighestActivePriorityLabel());
 }
 void DisplayDashboardView::motorOneErrorFlagsReceived(ErrorFlags motorOneErrorFlags)
 {
     motorOneFaultsList_.updateErrors(motorOneErrorFlags);
-    updateFaultLabel(ui_.motorOneFaultsLabel(), motorOneFaultsList_.getHighestActivePriorityLabel());
+    //updateFaultLabel(ui_.motorOneFaultsLabel(), motorOneFaultsList_.getHighestActivePriorityLabel());
 }
 void DisplayDashboardView::motorOneLimitFlagsReceived(LimitFlags motorOneLimitFlags)
 {
     motorOneFaultsList_.updateLimits(motorOneLimitFlags);
-    updateFaultLabel(ui_.motorOneFaultsLabel(), motorOneFaultsList_.getHighestActivePriorityLabel());
+   //updateFaultLabel(ui_.motorOneFaultsLabel(), motorOneFaultsList_.getHighestActivePriorityLabel());
 }

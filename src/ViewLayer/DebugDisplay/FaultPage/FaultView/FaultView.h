@@ -38,6 +38,8 @@ private:
     void updateLabel(FaultLabel& label);
     void updateLabelListHeight(QWidget& contentsWidget, int& labelCount);
     void updateBatteryFaults();
+    void updateMotor0Faults();
+    void updateMotor1Faults();
 
     MotorFaultsPresenter& motorFaultsPresenter_;
     BatteryFaultsPresenter& batteryFaultsPresenter_;

@@ -12,17 +12,16 @@ public:
 
     ~MotorFaultList();
 
-    FaultLabel getHighestActivePriorityLabel() const;
-    QVector<FaultLabel>& errorLabels();
-    QVector<FaultLabel>& limitLabels();
+    FaultLabel nextActiveFault();
+    QVector<FaultLabel>& faultLabels();
     void updateErrors(const ErrorFlags&);
     void updateLimits(const LimitFlags&);
     int numberOfActiveLabels() const;
 
 private:
 
-    FaultLabel determineHighestActivePriorityLabel() const;
+    int nextFaultIndex();
 
-    QVector<FaultLabel> errorLabels_;
-    QVector<FaultLabel> limitLabels_;
+    QVector<FaultLabel> faultLabels_;
+    int currentFault_;
 };

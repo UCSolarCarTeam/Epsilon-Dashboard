@@ -2972,8 +2972,8 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>16777215</width>
-                      <height>16777215</height>
+                      <width>200</width>
+                      <height>40</height>
                      </size>
                     </property>
                     <property name="font">
@@ -3059,7 +3059,13 @@ color:white;</string>
                     <property name="minimumSize">
                      <size>
                       <width>200</width>
-                      <height>0</height>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
                      </size>
                     </property>
                     <property name="font">
@@ -3078,6 +3084,9 @@ color:white;</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                    </property>
+                    <property name="wordWrap">
+                     <bool>true</bool>
                     </property>
                    </widget>
                   </item>
@@ -3145,6 +3154,18 @@ color:white;</string>
                       <verstretch>0</verstretch>
                      </sizepolicy>
                     </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
                     <property name="font">
                      <font>
                       <pointsize>11</pointsize>
@@ -3161,6 +3182,9 @@ color:white;</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                    </property>
+                    <property name="wordWrap">
+                     <bool>true</bool>
                     </property>
                    </widget>
                   </item>

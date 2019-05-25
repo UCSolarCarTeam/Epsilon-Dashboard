@@ -122,4 +122,6 @@ private slots:
     void setMotorPower();
 
     void updateBatteryFaults();
+    void updateMotor0Faults();
+    void updateMotor1Faults();
 };
