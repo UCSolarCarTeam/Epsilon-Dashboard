@@ -255,7 +255,7 @@ void DisplayDashboardView::motorSetCurrentReceived(double setCurrent)
 }
 void DisplayDashboardView::motorActualSpeedReceived(double actualSpeed)
 {
-    ui_.actualSpeedLabel().setText(QString::number(actualSpeed, 'f', 1));
+    ui_.actualSpeedLabel().setText(QString::number(qAbs(actualSpeed), 'f', 1));
 }
 void DisplayDashboardView::motorBusVoltageReceived(double busVoltage)
 {
