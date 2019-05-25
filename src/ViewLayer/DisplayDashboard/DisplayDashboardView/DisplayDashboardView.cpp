@@ -98,6 +98,12 @@ void DisplayDashboardView::connectDriverControls(DriverControlsPresenter& driver
 {
     connect(&driverControlsPresenter, SIGNAL(resetReceived(bool)),
             this, SLOT(resetReceived(bool)));
+    connect(&driverControlsPresenter, SIGNAL(brakesReceived(bool)),
+            this, SLOT(brakesReceived(bool)));
+    connect(&driverControlsPresenter, SIGNAL(forwardReceived(bool)),
+            this, SLOT(forwardReceived(bool)));
+    connect(&driverControlsPresenter, SIGNAL(reverseReceived(bool)),
+            this, SLOT(reverseReceived(bool)));
 }
 
 void DisplayDashboardView::connectKeyMotor(KeyMotorPresenter& keyMotorPresenter)
@@ -163,6 +169,26 @@ void DisplayDashboardView::updateFaultLabel(QLabel& dashboardLabel, FaultLabel f
     else
     {
         dashboardLabel.setText("");
+    }
+}
+
+void DisplayDashboardView::updateDriveStateLabel()
+{
+    if (forward_ && !(reverse_ || aux_))
+    {
+        ui_.driveModeValueLabel().setText("Drive");
+    }
+    else if (reverse_ && !(forward_ || aux_))
+    {
+        ui_.driveModeValueLabel().setText("Reverse");
+    }
+    else if (aux_ && !(forward_ || reverse_))
+    {
+        ui_.driveModeValueLabel().setText("Neutral");
+    }
+    else
+    {
+        ui_.driveModeValueLabel().setText("Invalid Mode");
     }
 }
 
@@ -245,6 +271,25 @@ void DisplayDashboardView::resetReceived(bool reset)
         ui_.motorResetButtonWidget().setStyleSheet("");
     }
 }
+
+void DisplayDashboardView::auxReceived(bool aux)
+{
+    aux_ = aux;
+    updateDriveStateLabel();
+}
+
+void DisplayDashboardView::forwardReceived(bool forward)
+{
+    forward_ = forward;
+    updateDriveStateLabel();
+}
+
+void DisplayDashboardView::reverseReceived(bool reverse)
+{
+    reverse_ = reverse;
+    updateDriveStateLabel();
+}
+
 void DisplayDashboardView::motorSetPowerReceived(double setPower)
 {
     ui_.motorPowerLabel().setText(QString::number(setPower, 'f', 2));
