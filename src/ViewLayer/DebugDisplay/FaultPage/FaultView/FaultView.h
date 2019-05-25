@@ -37,6 +37,7 @@ private:
     void initializeLabels(QLayout*& layoutM0, QLayout*& layoutM1, QLayout*& layoutB);
     void updateLabel(FaultLabel& label);
     void updateLabelListHeight(QWidget& contentsWidget, int& labelCount);
+    void updateBatteryFaults();
 
     MotorFaultsPresenter& motorFaultsPresenter_;
     BatteryFaultsPresenter& batteryFaultsPresenter_;

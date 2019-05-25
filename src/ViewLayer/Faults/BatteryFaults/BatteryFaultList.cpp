@@ -37,14 +37,14 @@ namespace
     QString CCL_REDUCED_DUE_TO_HIGH_CELL_VOLTAGE = "CCL High Cell Voltage";
     QString CCL_REDUCED_DUE_TO_HIGH_PACK_VOLTAGE = "CCL High Pack Voltage";
     QString CCL_REDUCED_DUE_TO_CHARGER_LATCH = "CCL Charger Latch";
-    QString CCL_REDUCED_DUE_TO_ALTERNATE_CURRENT_LIMIT = "CCL Alternate Current Limit";
+    QString CCL_REDUCED_DUE_TO_ALTERNATE_CURRENT_LIMIT = "CCL Alternate Current";
     QString DCL_REDUCED_DUE_TO_LOW_SOC = "DCL Low SOC";
     QString DCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE = "DCL High Cell Resistance";
     QString CCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE = "CCL High Cell Resistance";
 }
 
 BatteryFaultList::BatteryFaultList()
-    : errorLabels_(
+    : faultLabels_(
 {
     FaultLabel(INTERNAL_COMMUNICATION_FAULT, FaultPriorities::HIGH_PRIORITY, false)
     , FaultLabel(INTERNAL_CONVERSION_FAULT, FaultPriorities::HIGH_PRIORITY, false)
@@ -67,10 +67,7 @@ BatteryFaultList::BatteryFaultList()
     , FaultLabel(INTERNAL_MEMORY_FAULT, FaultPriorities::MEDIUM_PRIORITY, false)
     , FaultLabel(FAN_MONITOR_FAULT, FaultPriorities::LOW_PRIORITY, false)
     , FaultLabel(ALWAYS_ON_SUPPLY_FAULT, FaultPriorities::LOW_PRIORITY, false)
-})
-, limitLabels_(
-{
-    FaultLabel(DCL_REDUCED_DUE_TO_TEMPERATURE, FaultPriorities::HIGH_PRIORITY, false)
+    , FaultLabel(DCL_REDUCED_DUE_TO_TEMPERATURE, FaultPriorities::HIGH_PRIORITY, false)
     , FaultLabel(DCL_REDUCED_DUE_TO_LOW_CELL_VOLTAGE, FaultPriorities::HIGH_PRIORITY, false)
     , FaultLabel(DCL_REDUCED_DUE_TO_LOW_PACK_VOLTAGE, FaultPriorities::HIGH_PRIORITY, false)
     , FaultLabel(DCL_AND_CCL_REDUCED_DUE_TO_VOLTAGE_FAILSAFE, FaultPriorities::HIGH_PRIORITY, false)
@@ -85,6 +82,7 @@ BatteryFaultList::BatteryFaultList()
     , FaultLabel(DCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE, FaultPriorities::LOW_PRIORITY, false)
     , FaultLabel(CCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE, FaultPriorities::LOW_PRIORITY, false)
 })
+    , currentFault_(0)
 {
 }
 
@@ -92,145 +90,86 @@ BatteryFaultList::~BatteryFaultList()
 {
 }
 
-FaultLabel BatteryFaultList::determineHighestActivePriorityLabel() const
+FaultLabel BatteryFaultList::nextActiveFault()
 {
-    int highestPriorityErrorIndex = -1;
-
-    for (int i = 0; i < NUMBER_OF_BATTERY_ERRORS; i++)
+    for (int i = 0; i < (NUMBER_OF_BATTERY_ERRORS + NUMBER_OF_BATTERY_LIMITS); i++)
     {
-        if (errorLabels_[i].isActive())
+        int faultIndex = nextFaultIndex();
+        if(faultLabels_[faultIndex].isActive())
         {
-            if (highestPriorityErrorIndex == -1)
-            {
-                highestPriorityErrorIndex = i;
-            }
-            else if (errorLabels_[i].priority() < errorLabels_[highestPriorityErrorIndex].priority())
-            {
-                highestPriorityErrorIndex = i;
-            }
+            return faultLabels_[faultIndex];
         }
     }
-
-    int highestPriorityLimitIndex = -1;
-
-    for (int i = 0; i < NUMBER_OF_BATTERY_LIMITS; i++)
-    {
-        if (limitLabels_[i].isActive())
-        {
-            if (highestPriorityLimitIndex == -1)
-            {
-                highestPriorityLimitIndex = i;
-            }
-            else if (limitLabels_[i].priority() < limitLabels_[highestPriorityLimitIndex].priority())
-            {
-                highestPriorityLimitIndex = i;
-            }
-        }
-    }
-
-    //Returns the FaultLabel with the highest priority, where 0 is the highest priority, 1 is the second highest etc.
-    if (highestPriorityErrorIndex == -1 && highestPriorityLimitIndex == -1)
-    {
-        return FaultLabel();
-    }
-    else if (highestPriorityErrorIndex > -1 && highestPriorityLimitIndex == -1)
-    {
-        return errorLabels_[highestPriorityErrorIndex];
-    }
-    else if (highestPriorityErrorIndex == -1 && highestPriorityLimitIndex > -1)
-    {
-        return limitLabels_[highestPriorityLimitIndex];
-    }
-    else
-    {
-        if (errorLabels_[highestPriorityErrorIndex].priority() <= limitLabels_[highestPriorityLimitIndex].priority())
-        {
-            return errorLabels_[highestPriorityErrorIndex];
-        }
-        else
-        {
-            return limitLabels_[highestPriorityLimitIndex];
-        }
-    }
+    return FaultLabel();
 }
 
-FaultLabel BatteryFaultList::getHighestActivePriorityLabel() const
+QVector<FaultLabel>& BatteryFaultList::faultLabels()
 {
-    return determineHighestActivePriorityLabel();
-}
-
-QVector<FaultLabel>& BatteryFaultList::errorLabels()
-{
-    return errorLabels_;
-}
-
-QVector<FaultLabel>& BatteryFaultList::limitLabels()
-{
-    return limitLabels_;
+    return faultLabels_;
 }
 
 void BatteryFaultList::updateErrors(const BatteryErrorFlags& errorFlags)
 {
-    errorLabels_[0].setActive(errorFlags.internalCommununicationFault());
-    errorLabels_[1].setActive(errorFlags.internalConversionFault());
-    errorLabels_[2].setActive(errorFlags.weakCellFault());
-    errorLabels_[3].setActive(errorFlags.lowCellVoltageFault());
-    errorLabels_[4].setActive(errorFlags.openWiringFault());
-    errorLabels_[5].setActive(errorFlags.currentSensorFault());
-    errorLabels_[6].setActive(errorFlags.packVoltageSensorFault());
-    errorLabels_[7].setActive(errorFlags.voltageRedundancyFault());
-    errorLabels_[8].setActive(errorFlags.thermistorFault());
-    errorLabels_[9].setActive(errorFlags.canbusCommunicationsFault());
-    errorLabels_[10].setActive(errorFlags.highVoltageIsolationFault());
-    errorLabels_[11].setActive(errorFlags.powerSupplyFault12V());
-    errorLabels_[12].setActive(errorFlags.chargeLimitEnforcementFault());
-    errorLabels_[13].setActive(errorFlags.dischargeLimitEnforcementFault());
-    errorLabels_[14].setActive(errorFlags.chargerSafetyRelayFault());
-    errorLabels_[15].setActive(errorFlags.internalThermistorFault());
-    errorLabels_[16].setActive(errorFlags.internalLogicFault());
-    errorLabels_[17].setActive(errorFlags.weakPackFault());
-    errorLabels_[18].setActive(errorFlags.internalMemoryFault());
-    errorLabels_[19].setActive(errorFlags.fanMonitorFault());
-    errorLabels_[20].setActive(errorFlags.alwaysOnSupplyFault());
+    faultLabels_[0].setActive(errorFlags.internalCommununicationFault());
+    faultLabels_[1].setActive(errorFlags.internalConversionFault());
+    faultLabels_[2].setActive(errorFlags.weakCellFault());
+    faultLabels_[3].setActive(errorFlags.lowCellVoltageFault());
+    faultLabels_[4].setActive(errorFlags.openWiringFault());
+    faultLabels_[5].setActive(errorFlags.currentSensorFault());
+    faultLabels_[6].setActive(errorFlags.packVoltageSensorFault());
+    faultLabels_[7].setActive(errorFlags.voltageRedundancyFault());
+    faultLabels_[8].setActive(errorFlags.thermistorFault());
+    faultLabels_[9].setActive(errorFlags.canbusCommunicationsFault());
+    faultLabels_[10].setActive(errorFlags.highVoltageIsolationFault());
+    faultLabels_[11].setActive(errorFlags.powerSupplyFault12V());
+    faultLabels_[12].setActive(errorFlags.chargeLimitEnforcementFault());
+    faultLabels_[13].setActive(errorFlags.dischargeLimitEnforcementFault());
+    faultLabels_[14].setActive(errorFlags.chargerSafetyRelayFault());
+    faultLabels_[15].setActive(errorFlags.internalThermistorFault());
+    faultLabels_[16].setActive(errorFlags.internalLogicFault());
+    faultLabels_[17].setActive(errorFlags.weakPackFault());
+    faultLabels_[18].setActive(errorFlags.internalMemoryFault());
+    faultLabels_[19].setActive(errorFlags.fanMonitorFault());
+    faultLabels_[20].setActive(errorFlags.alwaysOnSupplyFault());
 }
 
 void BatteryFaultList::updateLimits(const BatteryLimitFlags& limitFlags)
 {
-    limitLabels_[0].setActive(limitFlags.dclReducedDueToTemperature());
-    limitLabels_[1].setActive(limitFlags.dclReducedDueToLowCellVoltage());
-    limitLabels_[2].setActive(limitFlags.dclReducedDueToLowPackVoltage());
-    limitLabels_[3].setActive(limitFlags.dclandCclReducedDueToVoltageFailsafe());
-    limitLabels_[4].setActive(limitFlags.dclandCclReducedDueToCommunicationFailsafe());
-    limitLabels_[5].setActive(limitFlags.cclReducedDueToHighSoc());
-    limitLabels_[6].setActive(limitFlags.cclReducedDueToTemperature());
-    limitLabels_[7].setActive(limitFlags.cclReducedDueToHighCellVoltage());
-    limitLabels_[8].setActive(limitFlags.cclReducedDueToHighPackVoltage());
-    limitLabels_[9].setActive(limitFlags.cclReducedDueToChargerLatch());
-    limitLabels_[10].setActive(limitFlags.cclReducedDueToAlternateCurrentLimit());
-    limitLabels_[11].setActive(limitFlags.dclReducedDueToLowSoc());
-    limitLabels_[12].setActive(limitFlags.dclReducedDueToHighCellResistance());
-    limitLabels_[13].setActive(limitFlags.cclReducedDueToHighCellResistance());
+    faultLabels_[0 + NUMBER_OF_BATTERY_ERRORS].setActive(limitFlags.dclReducedDueToTemperature());
+    faultLabels_[1 + NUMBER_OF_BATTERY_ERRORS].setActive(limitFlags.dclReducedDueToLowCellVoltage());
+    faultLabels_[2 + NUMBER_OF_BATTERY_ERRORS].setActive(limitFlags.dclReducedDueToLowPackVoltage());
+    faultLabels_[3 + NUMBER_OF_BATTERY_ERRORS].setActive(limitFlags.dclandCclReducedDueToVoltageFailsafe());
+    faultLabels_[4 + NUMBER_OF_BATTERY_ERRORS].setActive(limitFlags.dclandCclReducedDueToCommunicationFailsafe());
+    faultLabels_[5 + NUMBER_OF_BATTERY_ERRORS].setActive(limitFlags.cclReducedDueToHighSoc());
+    faultLabels_[6 + NUMBER_OF_BATTERY_ERRORS].setActive(limitFlags.cclReducedDueToTemperature());
+    faultLabels_[7 + NUMBER_OF_BATTERY_ERRORS].setActive(limitFlags.cclReducedDueToHighCellVoltage());
+    faultLabels_[8 + NUMBER_OF_BATTERY_ERRORS].setActive(limitFlags.cclReducedDueToHighPackVoltage());
+    faultLabels_[9 + NUMBER_OF_BATTERY_ERRORS].setActive(limitFlags.cclReducedDueToChargerLatch());
+    faultLabels_[10 + NUMBER_OF_BATTERY_ERRORS].setActive(limitFlags.cclReducedDueToAlternateCurrentLimit());
+    faultLabels_[11 + NUMBER_OF_BATTERY_ERRORS].setActive(limitFlags.dclReducedDueToLowSoc());
+    faultLabels_[12 + NUMBER_OF_BATTERY_ERRORS].setActive(limitFlags.dclReducedDueToHighCellResistance());
+    faultLabels_[13 + NUMBER_OF_BATTERY_ERRORS].setActive(limitFlags.cclReducedDueToHighCellResistance());
 }
 
 int BatteryFaultList::numberOfActiveLabels() const
 {
     int numberOfLabels = 0;
 
-    for (int i = 0; i < errorLabels_.size(); i++)
+    for (int i = 0; i < faultLabels_.size(); i++)
     {
-        if (errorLabels_[i].isActive())
-        {
-            numberOfLabels++;
-        }
-    }
-
-    for (int i = 0; i < limitLabels_.size(); i++)
-    {
-        if (limitLabels_[i].isActive())
+        if (faultLabels_[i].isActive())
         {
             numberOfLabels++;
         }
     }
 
     return numberOfLabels;
+}
+
+int BatteryFaultList::nextFaultIndex()
+{
+    int currentFault = currentFault_;
+    currentFault_++;
+    currentFault_ %= (NUMBER_OF_BATTERY_ERRORS + NUMBER_OF_BATTERY_LIMITS);
+    return currentFault;
 }

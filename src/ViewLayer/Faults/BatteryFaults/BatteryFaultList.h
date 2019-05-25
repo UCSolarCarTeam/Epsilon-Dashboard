@@ -12,17 +12,16 @@ public:
 
     ~BatteryFaultList();
 
-    FaultLabel getHighestActivePriorityLabel() const;
-    QVector<FaultLabel>& errorLabels();
-    QVector<FaultLabel>& limitLabels();
+    FaultLabel nextActiveFault();
+    QVector<FaultLabel>& faultLabels();
     void updateErrors(const BatteryErrorFlags&);
     void updateLimits(const BatteryLimitFlags&);
     int numberOfActiveLabels() const;
 
 private:
 
-    FaultLabel determineHighestActivePriorityLabel() const;
+    int nextFaultIndex();
 
-    QVector<FaultLabel> errorLabels_;
-    QVector<FaultLabel> limitLabels_;
+    QVector<FaultLabel> faultLabels_;
+    int currentFault_;
 };

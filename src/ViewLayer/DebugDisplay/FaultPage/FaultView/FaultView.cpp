@@ -7,6 +7,7 @@ namespace
     int LABEL_RESIZE_LIMIT = 5;
     QString ERROR_STYLESHEET = "font: 20px 'Arial';\nfont-weight:500;\nmargin-left: 10px;\ncolor:";
     QString LIMIT_STYLESHEET = "font: 20px 'Arial';\nfont-weight:500;\nmargin-left: 10px;\ncolor:";
+    QString FAULT_STYLESHEET = "font: 20px 'Arial';\nfont-weight:500;\nmargin-left: 10px;\ncolor:";
     QString SCROLLBAR_STYLESHEET = "QScrollBar:vertical {"
                                    "    background:rgba(83, 83, 84);"
                                    "    width:10px;    "
@@ -115,14 +116,9 @@ void FaultView::initializeLabels(QLayout*& layoutM0, QLayout*& layoutM1, QLayout
     }
 
     // Battery
-    for (int i = 0; i < batteryFaultList_.errorLabels().size(); i++)
+    for (int i = 0; i < batteryFaultList_.faultLabels().size(); i++)
     {
-        initializeLabel(batteryFaultList_.errorLabels()[i], layoutB, ERROR_STYLESHEET);
-    }
-
-    for (int i = 0; i < batteryFaultList_.limitLabels().size(); i++)
-    {
-        initializeLabel(batteryFaultList_.limitLabels()[i], layoutB, LIMIT_STYLESHEET);
+        initializeLabel(batteryFaultList_.faultLabels()[i], layoutB, FAULT_STYLESHEET);
     }
 }
 
@@ -148,6 +144,17 @@ void FaultView::updateLabelListHeight(QWidget& contentsWidget, int& labelCount)
     {
         contentsWidget.setFixedSize(WIDTH, LABEL_RESIZE_LIMIT * HEIGHT);
     }
+}
+
+void FaultView::updateBatteryFaults()
+{
+    labelBCount_ = batteryFaultList_.numberOfActiveLabels();
+
+    for (int i = 0; i < batteryFaultList_.faultLabels().size(); i++)
+    {
+        updateLabel(batteryFaultList_.faultLabels()[i]);
+    }
+    updateLabelListHeight(ui_.batteryContentsWidget(), labelBCount_);
 }
 
 void FaultView::connectMotorFaults(MotorFaultsPresenter& motorFaultsPresenter)
@@ -225,25 +232,11 @@ void FaultView::motorOneLimitFlagsReceived(LimitFlags motorOneLimitFlags)
 void FaultView::errorFlagsReceived(BatteryErrorFlags batteryErrorFlags)
 {
     batteryFaultList_.updateErrors(batteryErrorFlags);
-    labelBCount_ = batteryFaultList_.numberOfActiveLabels();
-
-    for (int i = 0; i < batteryFaultList_.errorLabels().size(); i++)
-    {
-        updateLabel(batteryFaultList_.errorLabels()[i]);
-    }
-
-    updateLabelListHeight(ui_.batteryContentsWidget(), labelBCount_);
+    updateBatteryFaults();
 }
 
 void FaultView::limitFlagsReceived(BatteryLimitFlags batteryLimitFlags)
 {
     batteryFaultList_.updateLimits(batteryLimitFlags);
-    labelBCount_ = batteryFaultList_.numberOfActiveLabels();
-
-    for (int i = 0; i < batteryFaultList_.limitLabels().size(); i++)
-    {
-        updateLabel(batteryFaultList_.limitLabels()[i]);
-    }
-
-    updateLabelListHeight(ui_.batteryContentsWidget(), labelBCount_);
+    updateBatteryFaults();
 }

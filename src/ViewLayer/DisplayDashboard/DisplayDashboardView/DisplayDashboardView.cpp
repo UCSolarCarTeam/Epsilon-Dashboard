@@ -226,12 +226,10 @@ void DisplayDashboardView::averageCellVoltageReceived(float averageVoltage)
 void DisplayDashboardView::errorFlagsReceived(BatteryErrorFlags batteryErrorFlags)
 {
     batteryFaultsList_.updateErrors(batteryErrorFlags);
-    updateFaultLabel(ui_.batteryFaultsLabel(), batteryFaultsList_.getHighestActivePriorityLabel());
 }
 void DisplayDashboardView::limitFlagsReceived(BatteryLimitFlags batteryLimitFlags)
 {
     batteryFaultsList_.updateLimits(batteryLimitFlags);
-    updateFaultLabel(ui_.batteryFaultsLabel(), batteryFaultsList_.getHighestActivePriorityLabel());
 }
 
 void DisplayDashboardView::resetReceived(bool reset)
