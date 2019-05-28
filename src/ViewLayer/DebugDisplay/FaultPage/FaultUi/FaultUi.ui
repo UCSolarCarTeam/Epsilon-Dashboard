@@ -45,7 +45,7 @@
       <string notr="true">color:white;</string>
      </property>
      <property name="text">
-      <string>Motor 0</string>
+      <string>Motor Left</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -170,7 +170,7 @@ background-color:rgba(45,45,45,150);
       <string notr="true">color:white;</string>
      </property>
      <property name="text">
-      <string>Motor 1</string>
+      <string>Motor Right</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
