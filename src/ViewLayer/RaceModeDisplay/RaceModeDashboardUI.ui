@@ -599,7 +599,7 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
                     <property name="styleSheet">
                      <string notr="true">QLabel {
 qproperty-alignment: AlignHCenter;
-color: rgb(100,100,100);
+color: rgb(0,255,0);
 }
 
 </string>
@@ -668,7 +668,7 @@ qproperty-alignment: 'AlignBottom | AlignRight';
                     <property name="styleSheet">
                      <string notr="true">QLabel {
 qproperty-alignment: AlignHCenter;
-color: rgb(100,100,100);
+color: rgb(0,255,0);
 }
 
 </string>
@@ -925,7 +925,7 @@ background: rgb(20,180,20);
                     <property name="styleSheet">
                      <string notr="true">QLabel {
 qproperty-alignment: AlignHCenter;
-color: rgb(100,100,100);
+color: rgb(0,255,0);
 }
 
 </string>
@@ -1024,7 +1024,7 @@ color: rgb(100,100,100);
                     <property name="styleSheet">
                      <string notr="true">QLabel {
 qproperty-alignment: AlignHCenter;
-color: rgb(100,100,100);
+color: rgb(0,255,0);
 }
 
 </string>
@@ -1144,7 +1144,7 @@ color: rgb(100,100,100);
                      </font>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">color: rgb(100,100,100);
+                     <string notr="true">color: rgb(0,255,0);
 </string>
                     </property>
                     <property name="text">
@@ -1220,7 +1220,7 @@ color: rgb(100,100,100);
                        </property>
                        <property name="styleSheet">
                         <string notr="true">
-color: rgb(100,100,100);</string>
+color: rgb(0,255,0);</string>
                        </property>
                        <property name="text">
                         <string>- C E L L -</string>
@@ -2045,7 +2045,7 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                         </font>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">color: rgb(100,100,100);</string>
+                        <string notr="true">color: rgb(0,255,0);</string>
                        </property>
                        <property name="text">
                         <string>W</string>
@@ -2064,7 +2064,7 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                      </font>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">color: rgb(100,100,100);</string>
+                     <string notr="true">color: rgb(0,255,0);</string>
                     </property>
                     <property name="text">
                      <string>I N</string>
@@ -2179,7 +2179,7 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                         </font>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">color: rgb(100,100,100);</string>
+                        <string notr="true">color: rgb(0,255,0);</string>
                        </property>
                        <property name="text">
                         <string>W</string>
@@ -2198,7 +2198,7 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                      </font>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">color: rgb(100,100,100);</string>
+                     <string notr="true">color: rgb(0,255,0);</string>
                     </property>
                     <property name="text">
                      <string>O U T</string>
@@ -2313,7 +2313,7 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                         </font>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">color: rgb(100,100,100);</string>
+                        <string notr="true">color: rgb(0,255,0);</string>
                        </property>
                        <property name="text">
                         <string>W</string>
@@ -2332,7 +2332,7 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                      </font>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">color: rgb(100,100,100);</string>
+                     <string notr="true">color: rgb(0,255,0);</string>
                     </property>
                     <property name="text">
                      <string>N E T</string>
@@ -2443,7 +2443,7 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                      <enum>Qt::LeftToRight</enum>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">color: rgb(100,100,100);</string>
+                     <string notr="true">color: rgb(0,255,0);</string>
                     </property>
                     <property name="text">
                      <string>- A U X   V O L T A G E -</string>
@@ -2519,7 +2519,7 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                         </font>
                        </property>
                        <property name="styleSheet">
-                        <string notr="true">color: rgb(100,100,100);</string>
+                        <string notr="true">color: rgb(0,255,0);</string>
                        </property>
                        <property name="text">
                         <string>V</string>
@@ -2597,7 +2597,7 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                      </font>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">color: rgb(100,100,100);</string>
+                     <string notr="true">color: rgb(0,255,0);</string>
                     </property>
                     <property name="text">
                      <string> - B U S -</string>
@@ -2675,7 +2675,7 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                            </font>
                           </property>
                           <property name="styleSheet">
-                           <string notr="true">color: rgb(100,100,100);</string>
+                           <string notr="true">color: rgb(0,255,0);</string>
                           </property>
                           <property name="text">
                            <string>V</string>
@@ -2738,7 +2738,7 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                            </font>
                           </property>
                           <property name="styleSheet">
-                           <string notr="true">color: rgb(100,100,100);</string>
+                           <string notr="true">color: rgb(0,255,0);</string>
                           </property>
                           <property name="text">
                            <string>A</string>
@@ -3012,7 +3012,7 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                      </font>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">color: rgb(100,100,100);</string>
+                     <string notr="true">color: rgb(0,255,0);</string>
                     </property>
                     <property name="text">
                      <string>B A T T E R Y   F A U L T S</string>
@@ -3104,7 +3104,7 @@ color:white;</string>
                      </font>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">color: rgb(100,100,100);</string>
+                     <string notr="true">color: rgb(0,255,0);</string>
                     </property>
                     <property name="text">
                      <string>M O T O R  0  F A U L T S</string>
@@ -3193,7 +3193,7 @@ color:white;</string>
                      </font>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">color: rgb(100,100,100);</string>
+                     <string notr="true">color: rgb(0,255,0);</string>
                     </property>
                     <property name="text">
                      <string>M O T O R  1  F A U L T S</string>
