@@ -2067,7 +2067,7 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                      <string notr="true">color: rgb(100,100,100);</string>
                     </property>
                     <property name="text">
-                     <string>I N</string>
+                     <string>ARRAY</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
@@ -2147,65 +2147,7 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                      <property name="bottomMargin">
                       <number>0</number>
                      </property>
-                     <item>
-                      <widget class="QLabel" name="powerOutLabel">
-                       <property name="font">
-                        <font>
-                         <pointsize>14</pointsize>
-                         <weight>75</weight>
-                         <bold>true</bold>
-                        </font>
-                       </property>
-                       <property name="text">
-                        <string>000</string>
-                       </property>
-                       <property name="alignment">
-                        <set>Qt::AlignCenter</set>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLabel" name="powerOutUnit">
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <property name="font">
-                        <font>
-                         <weight>75</weight>
-                         <bold>true</bold>
-                        </font>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">color: rgb(100,100,100);</string>
-                       </property>
-                       <property name="text">
-                        <string>W</string>
-                       </property>
-                      </widget>
-                     </item>
                     </layout>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QLabel" name="powerOutTitleLabel">
-                    <property name="font">
-                     <font>
-                      <weight>75</weight>
-                      <bold>true</bold>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">color: rgb(100,100,100);</string>
-                    </property>
-                    <property name="text">
-                     <string>O U T</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignCenter</set>
-                    </property>
                    </widget>
                   </item>
                   <item>
@@ -2335,7 +2277,7 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                      <string notr="true">color: rgb(100,100,100);</string>
                     </property>
                     <property name="text">
-                     <string>N E T</string>
+                     <string>BATTERY</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>

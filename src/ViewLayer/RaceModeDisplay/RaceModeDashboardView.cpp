@@ -213,7 +213,6 @@ void RaceModeDashboardView::prechargeStateReceived(QString prechargeState)
 void RaceModeDashboardView::packNetPowerReceived(double netPower)
 {
     ui_.netPowerLabel().setText(QString::number(netPower, 'f', 1));
-    ui_.powerOutLabel().setText(QString::number(qAbs(netPower - ui_.powerInLabel().text().toDouble()), 'f', 1));
 }
 
 void RaceModeDashboardView::auxVoltageReceived(int auxVoltage)
@@ -408,7 +407,6 @@ void RaceModeDashboardView::mpptReceived(int i, Mppt mppt)
 void RaceModeDashboardView::mpptPowerReceived(double mpptPower)
 {
     ui_.powerInLabel().setText(QString::number(mpptPower, 'f', 1));
-    ui_.powerOutLabel().setText(QString::number(qAbs(ui_.netPowerLabel().text().toDouble() - mpptPower), 'f', 1));
 }
 
 void RaceModeDashboardView::motorZeroErrorFlagsReceived(ErrorFlags flags)

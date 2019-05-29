@@ -393,7 +393,6 @@ void DisplayDashboardView::mpptReceived(int i, Mppt mppt)
 void DisplayDashboardView::mpptPowerReceived(double mpptPower)
 {
     ui_.powerInLabel().setText(QString::number(mpptPower, 'f', 0));
-    ui_.powerOutLabel().setNum(ui_.netPowerLabel().text().toDouble() - mpptPower);
 }
 
 void DisplayDashboardView::motorZeroErrorFlagsReceived(ErrorFlags motorZeroErrorFlags)

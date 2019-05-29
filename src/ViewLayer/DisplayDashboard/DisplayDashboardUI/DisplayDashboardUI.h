@@ -57,7 +57,6 @@ public:
     QLabel& busCurrentLabel();
 
     QLabel& powerInLabel();
-    QLabel& powerOutLabel();
     QLabel& netPowerLabel();
 
     QLabel& driveModeValueLabel();

@@ -1705,36 +1705,6 @@ color: rgb(100,100,100);
                </property>
               </widget>
              </item>
-             <item row="0" column="2">
-              <widget class="QLabel" name="powerOutLabel">
-               <property name="font">
-                <font>
-                 <pointsize>18</pointsize>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color:white;</string>
-               </property>
-               <property name="text">
-                <string>879</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="3">
-              <widget class="QLabel" name="powerOutUnitsLabel">
-               <property name="font">
-                <font>
-                 <pointsize>10</pointsize>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color: rgb(100,100,100);</string>
-               </property>
-               <property name="text">
-                <string>W</string>
-               </property>
-              </widget>
-             </item>
              <item row="0" column="1">
               <widget class="QLabel" name="powerInUnitsLabel">
                <property name="font">
@@ -1761,22 +1731,7 @@ color: rgb(100,100,100);
                 <string notr="true">color: rgb(100,100,100);</string>
                </property>
                <property name="text">
-                <string>I N</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="2" colspan="2">
-              <widget class="QLabel" name="powerOutTitleLabel">
-               <property name="font">
-                <font>
-                 <pointsize>10</pointsize>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color: rgb(100,100,100);</string>
-               </property>
-               <property name="text">
-                <string>O U T</string>
+                <string>ARRAY</string>
                </property>
               </widget>
              </item>
@@ -1793,7 +1748,7 @@ color: rgb(100,100,100);
               <string notr="true">color: rgb(100,100,100);</string>
              </property>
              <property name="text">
-              <string>N E T</string>
+              <string>BATTERY</string>
              </property>
             </widget>
            </item>

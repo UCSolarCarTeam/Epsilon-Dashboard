@@ -182,11 +182,6 @@ QLabel& DisplayDashboardUI::powerInLabel()
     return *ui_->powerInLabel;
 }
 
-QLabel& DisplayDashboardUI::powerOutLabel()
-{
-    return *ui_->powerOutLabel;
-}
-
 QLabel& DisplayDashboardUI::netPowerLabel()
 {
     return *ui_->netPowerLabel;

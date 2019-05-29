@@ -143,11 +143,6 @@ QLabel& RaceModeDashboardUI::powerInLabel()
     return *ui_->powerInLabel;
 }
 
-QLabel& RaceModeDashboardUI::powerOutLabel()
-{
-    return *ui_->powerOutLabel;
-}
-
 QLabel& RaceModeDashboardUI::netPowerLabel()
 {
     return *ui_->netPowerLabel;
