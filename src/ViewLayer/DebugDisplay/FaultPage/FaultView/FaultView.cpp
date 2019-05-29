@@ -5,8 +5,7 @@ namespace
     int HEIGHT = 30;
     int WIDTH = 665;
     int LABEL_RESIZE_LIMIT = 5;
-    QString ERROR_STYLESHEET = "font: 20px 'Arial';\nfont-weight:500;\nmargin-left: 10px;\ncolor:";
-    QString LIMIT_STYLESHEET = "font: 20px 'Arial';\nfont-weight:500;\nmargin-left: 10px;\ncolor:";
+    QString FAULT_STYLESHEET = "font: 20px 'Arial';\nfont-weight:500;\nmargin-left: 10px;\ncolor:";
     QString SCROLLBAR_STYLESHEET = "QScrollBar:vertical {"
                                    "    background:rgba(83, 83, 84);"
                                    "    width:10px;    "
@@ -93,36 +92,21 @@ void FaultView::initializeLabel(FaultLabel& label, QLayout*& layout, QString& st
 void FaultView::initializeLabels(QLayout*& layoutM0, QLayout*& layoutM1, QLayout*& layoutB)
 {
     // Motor 0
-    for (int i = 0; i < motorZeroFaultList_.errorLabels().size(); i++)
+    for (int i = 0; i < motorZeroFaultList_.faultLabels().size(); i++)
     {
-        initializeLabel(motorZeroFaultList_.errorLabels()[i], layoutM0, ERROR_STYLESHEET);
-    }
-
-    for (int i = 0; i < motorZeroFaultList_.limitLabels().size(); i++)
-    {
-        initializeLabel(motorZeroFaultList_.limitLabels()[i], layoutM0, LIMIT_STYLESHEET);
+        initializeLabel(motorZeroFaultList_.faultLabels()[i], layoutM0, FAULT_STYLESHEET);
     }
 
     // Motor 1
-    for (int i = 0; i < motorOneFaultList_.errorLabels().size(); i++)
+    for (int i = 0; i < motorOneFaultList_.faultLabels().size(); i++)
     {
-        initializeLabel(motorOneFaultList_.errorLabels()[i], layoutM1, ERROR_STYLESHEET);
-    }
-
-    for (int i = 0; i < motorOneFaultList_.limitLabels().size(); i++)
-    {
-        initializeLabel(motorOneFaultList_.limitLabels()[i], layoutM1, LIMIT_STYLESHEET);
+        initializeLabel(motorOneFaultList_.faultLabels()[i], layoutM1, FAULT_STYLESHEET);
     }
 
     // Battery
-    for (int i = 0; i < batteryFaultList_.errorLabels().size(); i++)
+    for (int i = 0; i < batteryFaultList_.faultLabels().size(); i++)
     {
-        initializeLabel(batteryFaultList_.errorLabels()[i], layoutB, ERROR_STYLESHEET);
-    }
-
-    for (int i = 0; i < batteryFaultList_.limitLabels().size(); i++)
-    {
-        initializeLabel(batteryFaultList_.limitLabels()[i], layoutB, LIMIT_STYLESHEET);
+        initializeLabel(batteryFaultList_.faultLabels()[i], layoutB, FAULT_STYLESHEET);
     }
 }
 
@@ -150,6 +134,42 @@ void FaultView::updateLabelListHeight(QWidget& contentsWidget, int& labelCount)
     }
 }
 
+void FaultView::updateBatteryFaults()
+{
+    labelBCount_ = batteryFaultList_.numberOfActiveLabels();
+
+    for (int i = 0; i < batteryFaultList_.faultLabels().size(); i++)
+    {
+        updateLabel(batteryFaultList_.faultLabels()[i]);
+    }
+
+    updateLabelListHeight(ui_.batteryContentsWidget(), labelBCount_);
+}
+
+void FaultView::updateMotor0Faults()
+{
+    label0Count_ = motorZeroFaultList_.numberOfActiveLabels();
+
+    for (int i = 0; i < motorZeroFaultList_.faultLabels().size(); i++)
+    {
+        updateLabel(motorZeroFaultList_.faultLabels()[i]);
+    }
+
+    updateLabelListHeight(ui_.motor0ContentsWidget(), label0Count_);
+}
+
+void FaultView::updateMotor1Faults()
+{
+    label1Count_ = motorOneFaultList_.numberOfActiveLabels();
+
+    for (int i = 0; i < motorOneFaultList_.faultLabels().size(); i++)
+    {
+        updateLabel(motorOneFaultList_.faultLabels()[i]);
+    }
+
+    updateLabelListHeight(ui_.motor1ContentsWidget(), label1Count_);
+}
+
 void FaultView::connectMotorFaults(MotorFaultsPresenter& motorFaultsPresenter)
 {
     connect(&motorFaultsPresenter, SIGNAL(motorZeroErrorFlagsReceived(ErrorFlags)),
@@ -173,77 +193,35 @@ void FaultView::connectBatteryFaults(BatteryFaultsPresenter& batteryFaultsPresen
 void FaultView::motorZeroErrorFlagsReceived(ErrorFlags motorZeroErrorFlags)
 {
     motorZeroFaultList_.updateErrors(motorZeroErrorFlags);
-    label0Count_ = motorZeroFaultList_.numberOfActiveLabels();
-
-    for (int i = 0; i < motorZeroFaultList_.errorLabels().size(); i++)
-    {
-        updateLabel(motorZeroFaultList_.errorLabels()[i]);
-    }
-
-    updateLabelListHeight(ui_.motor0ContentsWidget(), label0Count_);
+    updateMotor0Faults();
 }
 
 void FaultView::motorZeroLimitFlagsReceived(LimitFlags motorZeroLimitFlags)
 {
     motorZeroFaultList_.updateLimits(motorZeroLimitFlags);
-    label0Count_ = motorZeroFaultList_.numberOfActiveLabels();
-
-    for (int i = 0; i < motorZeroFaultList_.limitLabels().size(); i++)
-    {
-        updateLabel(motorZeroFaultList_.limitLabels()[i]);
-    }
-
-    updateLabelListHeight(ui_.motor0ContentsWidget(), label0Count_);
+    updateMotor0Faults();
 }
 
 void FaultView::motorOneErrorFlagsReceived(ErrorFlags motorOneErrorFlags)
 {
     motorOneFaultList_.updateErrors(motorOneErrorFlags);
-    label1Count_ = motorOneFaultList_.numberOfActiveLabels();
-
-    for (int i = 0; i < motorOneFaultList_.errorLabels().size(); i++)
-    {
-        updateLabel(motorOneFaultList_.errorLabels()[i]);
-    }
-
-    updateLabelListHeight(ui_.motor1ContentsWidget(), label1Count_);
+    updateMotor1Faults();
 }
 
 void FaultView::motorOneLimitFlagsReceived(LimitFlags motorOneLimitFlags)
 {
     motorOneFaultList_.updateLimits(motorOneLimitFlags);
-    label1Count_ = motorOneFaultList_.numberOfActiveLabels();
-
-    for (int i = 0; i < motorOneFaultList_.limitLabels().size(); i++)
-    {
-        updateLabel(motorOneFaultList_.limitLabels()[i]);
-    }
-
-    updateLabelListHeight(ui_.motor1ContentsWidget(), label1Count_);
+    updateMotor1Faults();
 }
 
 void FaultView::errorFlagsReceived(BatteryErrorFlags batteryErrorFlags)
 {
     batteryFaultList_.updateErrors(batteryErrorFlags);
-    labelBCount_ = batteryFaultList_.numberOfActiveLabels();
-
-    for (int i = 0; i < batteryFaultList_.errorLabels().size(); i++)
-    {
-        updateLabel(batteryFaultList_.errorLabels()[i]);
-    }
-
-    updateLabelListHeight(ui_.batteryContentsWidget(), labelBCount_);
+    updateBatteryFaults();
 }
 
 void FaultView::limitFlagsReceived(BatteryLimitFlags batteryLimitFlags)
 {
     batteryFaultList_.updateLimits(batteryLimitFlags);
-    labelBCount_ = batteryFaultList_.numberOfActiveLabels();
-
-    for (int i = 0; i < batteryFaultList_.limitLabels().size(); i++)
-    {
-        updateLabel(batteryFaultList_.limitLabels()[i]);
-    }
-
-    updateLabelListHeight(ui_.batteryContentsWidget(), labelBCount_);
+    updateBatteryFaults();
 }

@@ -1,3 +1,4 @@
+#include <QTimer>
 #include "RaceModeDashboardView.h"
 #include "../../PresenterLayer/BatteryPresenter/BatteryPresenter.h"
 #include "../../PresenterLayer/AuxBmsPresenter/AuxBmsPresenter.h"
@@ -26,6 +27,7 @@ namespace
             background: ";
     const QString TEMPERATURE_UNIT = "<sup>o</sup>";
     const float MV_TO_V = 1000;
+    const int FAULT_UPDATE_PERIOD = 1500;
 }
 
 RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
@@ -54,6 +56,7 @@ RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
     , motorZeroFaultsList_(motorZeroFaultsList)
     , motorOneFaultsList_(motorOneFaultsList)
     , batteryFaultsList_(batteryFaultsList)
+    , faultsTimer_(new QTimer())
 {
     connectBattery(batteryPresenter_);
     connectBatteryFaults(batteryFaultsPresenter_);
@@ -65,6 +68,10 @@ RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
     connectMotorDetails(motorDetailsPresenter_);
     connectMotorFaults(motorFaultsPresenter_);
     //ui_.showMaximized();
+    connect(faultsTimer_.data(), SIGNAL(timeout()), this, SLOT(updateBatteryFaults()));
+    connect(faultsTimer_.data(), SIGNAL(timeout()), this, SLOT(updateMotor0Faults()));
+    connect(faultsTimer_.data(), SIGNAL(timeout()), this, SLOT(updateMotor1Faults()));
+    faultsTimer_->start(FAULT_UPDATE_PERIOD);
     ui_.show();
 }
 RaceModeDashboardView::~RaceModeDashboardView()
@@ -270,12 +277,10 @@ void RaceModeDashboardView::averageTemperatureReceived(int avgTemp)
 void RaceModeDashboardView::errorFlagsReceived(BatteryErrorFlags batteryErrorFlags)
 {
     batteryFaultsList_.updateErrors(batteryErrorFlags);
-    updateFaultLabel(ui_.batteryFaultsLabel(), batteryFaultsList_.getHighestActivePriorityLabel());
 }
 void RaceModeDashboardView::limitFlagsReceived(BatteryLimitFlags batteryLimitFlags)
 {
     batteryFaultsList_.updateLimits(batteryLimitFlags);
-    updateFaultLabel(ui_.batteryFaultsLabel(), batteryFaultsList_.getHighestActivePriorityLabel());
 }
 void RaceModeDashboardView::resetReceived(bool reset)
 {
@@ -414,23 +419,34 @@ void RaceModeDashboardView::mpptPowerReceived(double mpptPower)
 void RaceModeDashboardView::motorZeroErrorFlagsReceived(ErrorFlags flags)
 {
     motorZeroFaultsList_.updateErrors(flags);
-    updateFaultLabel(ui_.motorZeroFaultsLabel(), motorZeroFaultsList_.getHighestActivePriorityLabel());
 }
 
 void RaceModeDashboardView::motorZeroLimitFlagsReceived(LimitFlags flags)
 {
     motorZeroFaultsList_.updateLimits(flags);
-    updateFaultLabel(ui_.motorZeroFaultsLabel(), motorZeroFaultsList_.getHighestActivePriorityLabel());
 }
 
 void RaceModeDashboardView::motorOneErrorFlagsReceived(ErrorFlags flags)
 {
     motorOneFaultsList_.updateErrors(flags);
-    updateFaultLabel(ui_.motorOneFaultsLabel(), motorOneFaultsList_.getHighestActivePriorityLabel());
 }
 
 void RaceModeDashboardView::motorOneLimitFlagsReceived(LimitFlags flags)
 {
     motorOneFaultsList_.updateLimits(flags);
-    updateFaultLabel(ui_.motorOneFaultsLabel(), motorOneFaultsList_.getHighestActivePriorityLabel());
+}
+
+void RaceModeDashboardView::updateBatteryFaults()
+{
+    updateFaultLabel(ui_.batteryFaultsLabel(), batteryFaultsList_.nextActiveFault());
+}
+
+void RaceModeDashboardView::updateMotor0Faults()
+{
+    updateFaultLabel(ui_.motorZeroFaultsLabel(), motorZeroFaultsList_.nextActiveFault());
+}
+
+void RaceModeDashboardView::updateMotor1Faults()
+{
+    updateFaultLabel(ui_.motorOneFaultsLabel(), motorOneFaultsList_.nextActiveFault());
 }
