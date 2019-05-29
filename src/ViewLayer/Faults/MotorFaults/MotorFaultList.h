@@ -19,9 +19,6 @@ public:
     int numberOfActiveLabels() const;
 
 private:
-
-    int nextFaultIndex();
-
     QVector<FaultLabel> faultLabels_;
     int currentFault_;
 };

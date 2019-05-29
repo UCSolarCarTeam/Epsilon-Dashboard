@@ -94,7 +94,9 @@ FaultLabel BatteryFaultList::nextActiveFault()
 {
     for (int i = 0; i < (NUMBER_OF_BATTERY_ERRORS + NUMBER_OF_BATTERY_LIMITS); i++)
     {
-        int faultIndex = nextFaultIndex();
+        int faultIndex = currentFault_;
+        currentFault_++;
+        currentFault_ %= (NUMBER_OF_BATTERY_ERRORS + NUMBER_OF_BATTERY_LIMITS);
 
         if (faultLabels_[faultIndex].isActive())
         {
@@ -166,12 +168,4 @@ int BatteryFaultList::numberOfActiveLabels() const
     }
 
     return numberOfLabels;
-}
-
-int BatteryFaultList::nextFaultIndex()
-{
-    int currentFault = currentFault_;
-    currentFault_++;
-    currentFault_ %= (NUMBER_OF_BATTERY_ERRORS + NUMBER_OF_BATTERY_LIMITS);
-    return currentFault;
 }
