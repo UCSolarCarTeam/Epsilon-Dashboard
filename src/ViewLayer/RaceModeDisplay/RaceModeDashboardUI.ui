@@ -434,6 +434,7 @@
        </color>
       </brush>
      </colorrole>
+
     </disabled>
    </palette>
   </property>
@@ -2977,8 +2978,8 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                     </property>
                     <property name="maximumSize">
                      <size>
-                      <width>16777215</width>
-                      <height>16777215</height>
+                      <width>200</width>
+                      <height>40</height>
                      </size>
                     </property>
                     <property name="font">
@@ -3049,7 +3050,7 @@ color:white;</string>
                      <string notr="true">color: rgb(100,100,100);</string>
                     </property>
                     <property name="text">
-                     <string>M O T O R  0  F A U L T S</string>
+                     <string>L. M O T O R   F A U L T S</string>
                     </property>
                    </widget>
                   </item>
@@ -3064,7 +3065,13 @@ color:white;</string>
                     <property name="minimumSize">
                      <size>
                       <width>200</width>
-                      <height>0</height>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
                      </size>
                     </property>
                     <property name="font">
@@ -3083,6 +3090,9 @@ color:white;</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                    </property>
+                    <property name="wordWrap">
+                     <bool>true</bool>
                     </property>
                    </widget>
                   </item>
@@ -3138,7 +3148,7 @@ color:white;</string>
                      <string notr="true">color: rgb(100,100,100);</string>
                     </property>
                     <property name="text">
-                     <string>M O T O R  1  F A U L T S</string>
+                     <string>R. M O T O R   F A U L T S</string>
                     </property>
                    </widget>
                   </item>
@@ -3149,6 +3159,18 @@ color:white;</string>
                       <horstretch>0</horstretch>
                       <verstretch>0</verstretch>
                      </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
                     </property>
                     <property name="font">
                      <font>
@@ -3166,6 +3188,9 @@ color:white;</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                    </property>
+                    <property name="wordWrap">
+                     <bool>true</bool>
                     </property>
                    </widget>
                   </item>

@@ -2,6 +2,7 @@
 
 #include <QObject>
 #include <QLabel>
+#include <QScopedPointer>
 
 #include "../../DataLayer/MpptData/Mppt.h"
 #include "../../DataLayer/MotorFaultsData/ErrorFlags.h"
@@ -21,6 +22,7 @@ class LightsPresenter;
 class MpptPresenter;
 class MotorDetailsPresenter;
 class MotorFaultsPresenter;
+class QTimer;
 
 class RaceModeDashboardView : public QObject
 {
@@ -75,6 +77,7 @@ private:
     double mpptOnePower_;
     double mpptTwoPower_;
     double mpptThreePower_;
+    QScopedPointer<QTimer> faultsTimer_;
 
     bool aux_;
     bool forward_;
@@ -126,4 +129,8 @@ private slots:
     void motorOneLimitFlagsReceived(LimitFlags);
 
     void setMotorPower();
+
+    void updateBatteryFaults();
+    void updateMotor0Faults();
+    void updateMotor1Faults();
 };
