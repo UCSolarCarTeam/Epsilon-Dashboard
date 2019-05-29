@@ -525,6 +525,24 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
              </property>
             </widget>
            </item>
+           <item row="0" column="0" colspan="2">
+            <widget class="QLabel" name="setCurrentLabel">
+             <property name="font">
+              <font>
+               <pointsize>24</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+color: white;
+qproperty-alignment: 'AlignBottom | AlignRight';
+}</string>
+             </property>
+             <property name="text">
+              <string>879</string>
+             </property>
+            </widget>
+           </item>
            <item row="1" column="0" colspan="3">
             <widget class="QLabel" name="setCurrentTitleLabel">
              <property name="font">
@@ -544,24 +562,6 @@ color: rgb(100,100,100);
              </property>
              <property name="text">
               <string>S E T   C U R R E N T</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="0" colspan="2">
-            <widget class="QLabel" name="setCurrentLabel">
-             <property name="font">
-              <font>
-               <pointsize>24</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">QLabel {
-color: white;
-qproperty-alignment: 'AlignBottom | AlignRight';
-}</string>
-             </property>
-             <property name="text">
-              <string>879</string>
              </property>
             </widget>
            </item>
@@ -1074,7 +1074,7 @@ background: none;</string>
       <property name="spacing">
        <number>0</number>
       </property>
-      <item row="2" column="1" colspan="6">
+      <item row="2" column="3" colspan="6">
        <widget class="QWidget" name="cellWidget" native="true">
         <layout class="QGridLayout" name="gridLayout_3" rowstretch="0,0,0,0,0,0">
          <property name="leftMargin">
@@ -1342,7 +1342,7 @@ qproperty-alignment: 'AlignHCenter';
         </layout>
        </widget>
       </item>
-      <item row="0" column="0" colspan="8">
+      <item row="0" column="0" colspan="10">
        <layout class="QGridLayout" name="gridLayout_14">
         <property name="leftMargin">
          <number>9</number>
@@ -1653,33 +1653,7 @@ color: rgb(100,100,100);
         </item>
        </layout>
       </item>
-      <item row="2" column="0">
-       <spacer name="horizontalSpacer_6">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="2" column="7">
-       <spacer name="horizontalSpacer_7">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="3" column="0" colspan="8">
+      <item row="3" column="0" colspan="10">
        <layout class="QGridLayout" name="rightBottomLayout">
         <property name="topMargin">
          <number>0</number>
@@ -2003,6 +1977,96 @@ color: rgb(100,100,100);
            </widget>
           </item>
          </layout>
+        </item>
+       </layout>
+      </item>
+      <item row="2" column="9">
+       <spacer name="horizontalSpacer_7">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="2" column="2">
+       <spacer name="horizontalSpacer_10">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="2" column="0">
+       <spacer name="horizontalSpacer_6">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="2" column="1">
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QLabel" name="driveModeValueLabel">
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLabel {
+color: white;
+qproperty-alignment: 'AlignHCenter | AlignBottom';
+}</string>
+          </property>
+          <property name="text">
+           <string>Drive</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="driveModeTitleLabel">
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLabel {
+qproperty-alignment: AlignHCenter;
+color: rgb(100,100,100);
+}
+</string>
+          </property>
+          <property name="text">
+           <string>D R I V E  M O D E</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
