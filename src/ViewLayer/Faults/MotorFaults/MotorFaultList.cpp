@@ -53,7 +53,7 @@ MotorFaultList::~MotorFaultList()
 FaultLabel MotorFaultList::nextActiveFault()
 {
     for (int i = 0; i < (NUMBER_OF_MOTOR_ERRORS + NUMBER_OF_MOTOR_LIMITS); i++)
-    {   
+    {
         int faultIndex = currentFault_;
         currentFault_++;
         currentFault_ %= (NUMBER_OF_MOTOR_ERRORS + NUMBER_OF_MOTOR_LIMITS);
