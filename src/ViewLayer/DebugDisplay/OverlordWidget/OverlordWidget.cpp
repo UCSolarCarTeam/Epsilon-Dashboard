@@ -76,6 +76,7 @@ OverlordWidget::OverlordWidget(I_BatteryUi& batteryUi, \
     {
         setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
     }
+
     setFixedSize(size());
 
     setGeometry(
