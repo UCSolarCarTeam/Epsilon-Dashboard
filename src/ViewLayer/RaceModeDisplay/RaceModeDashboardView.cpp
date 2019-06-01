@@ -217,9 +217,9 @@ void RaceModeDashboardView::prechargeStateReceived(QString prechargeState)
     ui_.prechargeStateLabel().setText(prechargeState);
 }
 
-void RaceModeDashboardView::packBatteryPowerReceived(double BatteryPower)
+void RaceModeDashboardView::packBatteryPowerReceived(double batteryPower)
 {
-    ui_.batteryPowerLabel().setText(QString::number(BatteryPower, 'f', 1));
+    ui_.batteryPowerLabel().setText(QString::number(batteryPower, 'f', 1));
 }
 
 void RaceModeDashboardView::auxVoltageReceived(int auxVoltage)

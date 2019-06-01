@@ -1690,6 +1690,21 @@ color: rgb(100,100,100);
              <property name="spacing">
               <number>0</number>
              </property>
+             <item row="1" column="0" colspan="2">
+              <widget class="QLabel" name="arrayPowerTitleLabel">
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: rgb(100,100,100);</string>
+               </property>
+               <property name="text">
+                <string>A R R A Y</string>
+               </property>
+              </widget>
+             </item>
              <item row="0" column="0">
               <widget class="QLabel" name="arrayPowerLabel">
                <property name="font">
@@ -1720,39 +1735,9 @@ color: rgb(100,100,100);
                </property>
               </widget>
              </item>
-             <item row="1" column="0" colspan="2">
-              <widget class="QLabel" name="arrayPowerTitleLabel">
-               <property name="font">
-                <font>
-                 <pointsize>10</pointsize>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color: rgb(100,100,100);</string>
-               </property>
-               <property name="text">
-                <string>ARRAY</string>
-               </property>
-              </widget>
-             </item>
             </layout>
            </item>
-           <item row="5" column="0" colspan="4">
-            <widget class="QLabel" name="netPowerTitleLabel">
-             <property name="font">
-              <font>
-               <pointsize>10</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: rgb(100,100,100);</string>
-             </property>
-             <property name="text">
-              <string>BATTERY</string>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="0" colspan="2">
+           <item row="6" column="0">
             <widget class="QLabel" name="batteryPowerLabel">
              <property name="font">
               <font>
@@ -1767,8 +1752,8 @@ color: rgb(100,100,100);
              </property>
             </widget>
            </item>
-           <item row="4" column="2" colspan="2">
-            <widget class="QLabel" name="netPowerUnitsLabel">
+           <item row="7" column="0" colspan="4">
+            <widget class="QLabel" name="netPowerTitleLabel">
              <property name="font">
               <font>
                <pointsize>10</pointsize>
@@ -1778,7 +1763,7 @@ color: rgb(100,100,100);
               <string notr="true">color: rgb(100,100,100);</string>
              </property>
              <property name="text">
-              <string>W</string>
+              <string>B A T T E R Y</string>
              </property>
             </widget>
            </item>
@@ -1796,6 +1781,21 @@ color: rgb(100,100,100);
              </property>
              <property name="text">
               <string>- P O W E R -</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="2">
+            <widget class="QLabel" name="netPowerUnitsLabel">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(100,100,100);</string>
+             </property>
+             <property name="text">
+              <string>W</string>
              </property>
             </widget>
            </item>
