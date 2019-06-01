@@ -97,7 +97,7 @@ private slots:
 
     // battery data slots
     void aliveReceived(bool);
-    void packNetPowerReceived(double);
+    void packBatteryPowerReceived(double);
     void packStateOfChargeReceived(double);
     void highTemperatureReceived(int);
     void lowCellVoltageReceived(float);

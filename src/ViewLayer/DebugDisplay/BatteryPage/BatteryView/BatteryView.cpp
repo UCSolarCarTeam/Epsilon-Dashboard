@@ -135,8 +135,8 @@ void BatteryView::connectBattery(BatteryPresenter& batteryPresenter)
     connect(&batteryPresenter, SIGNAL(averageCellVoltageReceived(const float)),
             this, SLOT(averageCellVoltageReceived(const float)));
 
-    connect(&batteryPresenter, SIGNAL(packNetPowerReceived(const double)),
-            this, SLOT(packNetPowerReceived(const double)));
+    connect(&batteryPresenter, SIGNAL(packBatteryPowerReceived(const double)),
+            this, SLOT(packBatteryPowerReceived(const double)));
     ui_.progressBarContainer().addWidget(&bar_);
 }
 
@@ -393,9 +393,9 @@ void BatteryView::auxBmsAliveReceived(bool auxBmsAlive)
     }
 }
 
-void BatteryView::packNetPowerReceived(double packNetPower)
+void BatteryView::packBatteryPowerReceived(double packBatteryPower)
 {
-    ui_.packNetPower().setText(QString::number(packNetPower, 'f', 2) + " " + POWER_UNIT);
+    ui_.packBatteryPower().setText(QString::number(packBatteryPower, 'f', 2) + " " + POWER_UNIT);
 }
 
 void BatteryView::strobeBMSReceived(bool strobe)

@@ -36,7 +36,7 @@ public:
     virtual int highCellVoltage() const = 0;
     virtual int highCellVoltageId() const = 0;
     virtual int averageCellVoltage() const = 0;
-    virtual double packNetPower() const = 0;
+    virtual double packBatteryPower() const = 0;
 
     /* Data "Sets" */
     virtual void setAlive(const bool& alive) = 0;
@@ -87,5 +87,5 @@ signals:
     void highCellVoltageReceived(const float&);
     void highCellVoltageIdReceived(const int&);
     void averageCellVoltageReceived(const float&);
-    void packNetPowerReceived(const double&);
+    void packBatteryPowerReceived(const double&);
 };

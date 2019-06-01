@@ -1686,12 +1686,12 @@ color: rgb(100,100,100);
             <number>0</number>
            </property>
            <item row="1" column="0" colspan="4">
-            <layout class="QGridLayout" name="powerInOutLayout">
+            <layout class="QGridLayout" name="arrayPowerOutLayout">
              <property name="spacing">
               <number>0</number>
              </property>
              <item row="0" column="0">
-              <widget class="QLabel" name="powerInLabel">
+              <widget class="QLabel" name="arrayPowerLabel">
                <property name="font">
                 <font>
                  <pointsize>18</pointsize>
@@ -1706,7 +1706,7 @@ color: rgb(100,100,100);
               </widget>
              </item>
              <item row="0" column="1">
-              <widget class="QLabel" name="powerInUnitsLabel">
+              <widget class="QLabel" name="arrayPowerUnitsLabel">
                <property name="font">
                 <font>
                  <pointsize>10</pointsize>
@@ -1721,7 +1721,7 @@ color: rgb(100,100,100);
               </widget>
              </item>
              <item row="1" column="0" colspan="2">
-              <widget class="QLabel" name="powerInTitleLabel">
+              <widget class="QLabel" name="arrayPowerTitleLabel">
                <property name="font">
                 <font>
                  <pointsize>10</pointsize>
@@ -1753,7 +1753,7 @@ color: rgb(100,100,100);
             </widget>
            </item>
            <item row="4" column="0" colspan="2">
-            <widget class="QLabel" name="netPowerLabel">
+            <widget class="QLabel" name="batteryPowerLabel">
              <property name="font">
               <font>
                <pointsize>18</pointsize>

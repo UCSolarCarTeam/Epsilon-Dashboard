@@ -49,8 +49,8 @@ public:
     virtual QLabel& busVoltageLabel() = 0;
     virtual QLabel& busCurrentLabel() = 0;
 
-    virtual QLabel& powerInLabel() = 0;
-    virtual QLabel& netPowerLabel() = 0;
+    virtual QLabel& arrayPowerLabel() = 0;
+    virtual QLabel& batteryPowerLabel() = 0;
 
     virtual QLabel& driveModeValueLabel() = 0;
 };

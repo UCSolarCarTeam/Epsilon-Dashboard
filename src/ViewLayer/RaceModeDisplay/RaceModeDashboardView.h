@@ -87,7 +87,7 @@ private slots:
     // battery data slots
     void aliveReceived(bool);
     void prechargeStateReceived(QString);
-    void packNetPowerReceived(double);
+    void packBatteryPowerReceived(double);
     void auxVoltageReceived(int);
     void packStateOfChargeReceived(double);
     void lowCellVoltageReceived(float);

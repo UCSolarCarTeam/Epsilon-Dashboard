@@ -79,8 +79,8 @@ void DisplayDashboardView::connectBattery(BatteryPresenter& batteryPresenter)
     // TODO update to new battery data (depends on what should be shown in UI)
     connect(&batteryPresenter, SIGNAL(aliveReceived(bool)),
             this, SLOT(aliveReceived(bool)));
-    connect(&batteryPresenter, SIGNAL(packNetPowerReceived(double)),
-            this, SLOT(packNetPowerReceived(double)));
+    connect(&batteryPresenter, SIGNAL(packBatteryPowerReceived(double)),
+            this, SLOT(packBatteryPowerReceived(double)));
     connect(&batteryPresenter, SIGNAL(packStateOfChargeReceived(double)),
             this, SLOT(packStateOfChargeReceived(double)));
     connect(&batteryPresenter, SIGNAL(highTemperatureReceived(int)),
@@ -207,9 +207,9 @@ void DisplayDashboardView::prechargeStateReceived(QString prechargeState)
     ui_.prechargeStateLabel().setText(prechargeState);
 }
 
-void DisplayDashboardView::packNetPowerReceived(double netPower)
+void DisplayDashboardView::packBatteryPowerReceived(double BatteryPower)
 {
-    ui_.netPowerLabel().setText(QString::number(netPower, 'f', 2));
+    ui_.batteryPowerLabel().setText(QString::number(BatteryPower, 'f', 2));
 }
 
 /*
@@ -397,7 +397,7 @@ void DisplayDashboardView::mpptReceived(int i, Mppt mppt)
 
 void DisplayDashboardView::mpptPowerReceived(double mpptPower)
 {
-    ui_.powerInLabel().setText(QString::number(mpptPower, 'f', 0));
+    ui_.arrayPowerLabel().setText(QString::number(mpptPower, 'f', 0));
 }
 
 void DisplayDashboardView::motorZeroErrorFlagsReceived(ErrorFlags motorZeroErrorFlags)

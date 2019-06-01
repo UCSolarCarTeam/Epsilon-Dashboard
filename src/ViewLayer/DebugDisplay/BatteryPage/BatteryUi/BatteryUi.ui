@@ -1383,7 +1383,7 @@ color:white;</string>
                       <number>0</number>
                      </property>
                      <item alignment="Qt::AlignHCenter">
-                      <widget class="QLabel" name="packNetPowerLabel">
+                      <widget class="QLabel" name="packbatteryPowerLabel">
                        <property name="enabled">
                         <bool>true</bool>
                        </property>

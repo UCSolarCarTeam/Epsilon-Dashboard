@@ -138,14 +138,14 @@ QLabel& RaceModeDashboardUI::busCurrentLabel()
     return *ui_->busCurrentLabel;
 }
 
-QLabel& RaceModeDashboardUI::powerInLabel()
+QLabel& RaceModeDashboardUI::arrayPowerLabel()
 {
-    return *ui_->powerInLabel;
+    return *ui_->arrayPowerLabel;
 }
 
-QLabel& RaceModeDashboardUI::netPowerLabel()
+QLabel& RaceModeDashboardUI::batteryPowerLabel()
 {
-    return *ui_->netPowerLabel;
+    return *ui_->batteryPowerLabel;
 }
 
 QLabel& RaceModeDashboardUI::driveModeValueLabel()

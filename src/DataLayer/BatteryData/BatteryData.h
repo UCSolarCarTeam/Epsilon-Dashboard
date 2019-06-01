@@ -32,7 +32,7 @@ public:
     int highCellVoltage() const;
     int highCellVoltageId() const;
     int averageCellVoltage() const;
-    double packNetPower() const;
+    double packBatteryPower() const;
 
     /* Data setter */
     void setAlive(const bool& alive);
@@ -83,6 +83,6 @@ private:
     int highCellVoltage_;
     int highCellVoltageId_;
     int averageCellVoltage_;
-    double packNetPower_; // calculated based on pack current and voltage
+    double packBatteryPower_; // calculated based on pack current and voltage
 };
 
