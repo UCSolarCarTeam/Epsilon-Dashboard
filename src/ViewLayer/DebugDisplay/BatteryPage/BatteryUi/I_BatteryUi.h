@@ -15,7 +15,7 @@ public:
     virtual QLabel& packInfoVoltage() = 0;
     virtual QLabel& packInfoAmphours() = 0;
     virtual QLabel& packInfoDepthofDischarge() = 0;
-    virtual QLabel& packBatteryPower() = 0;
+    virtual QLabel& packNetPower() = 0;
 
     virtual QLabel& BmsOn() = 0;
     virtual QLabel& BmsCharging() = 0;

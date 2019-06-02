@@ -126,7 +126,7 @@ int BatteryData::averageCellVoltage() const
     return averageCellVoltage_;
 }
 
-double BatteryData::packBatteryPower() const
+double BatteryData::packNetPower() const
 {
     return packBatteryPower_;
 }

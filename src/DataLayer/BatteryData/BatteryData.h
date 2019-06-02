@@ -32,7 +32,7 @@ public:
     int highCellVoltage() const;
     int highCellVoltageId() const;
     int averageCellVoltage() const;
-    double packBatteryPower() const;
+    double packNetPower() const;
 
     /* Data setter */
     void setAlive(const bool& alive);

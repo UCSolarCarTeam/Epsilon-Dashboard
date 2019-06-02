@@ -393,9 +393,9 @@ void BatteryView::auxBmsAliveReceived(bool auxBmsAlive)
     }
 }
 
-void BatteryView::packBatteryPowerReceived(double packBatteryPower)
+void BatteryView::packBatteryPowerReceived(double packNetPower)
 {
-    ui_.packBatteryPower().setText(QString::number(packBatteryPower, 'f', 2) + " " + POWER_UNIT);
+    ui_.packNetPower().setText(QString::number(packNetPower, 'f', 2) + " " + POWER_UNIT);
 }
 
 void BatteryView::strobeBMSReceived(bool strobe)
