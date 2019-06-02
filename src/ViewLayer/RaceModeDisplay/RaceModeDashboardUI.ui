@@ -2099,6 +2099,8 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                       <widget class="QLabel" name="powerInTitleLabel">
                        <property name="font">
                         <font>
+                         <family>Noto Sans [unknown]</family>
+                         <pointsize>8</pointsize>
                          <weight>75</weight>
                          <bold>true</bold>
                         </font>
@@ -2252,6 +2254,8 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                    <widget class="QLabel" name="netPowerTitle">
                     <property name="font">
                      <font>
+                      <family>Noto Sans [unknown]</family>
+                      <pointsize>8</pointsize>
                       <weight>75</weight>
                       <bold>true</bold>
                      </font>
