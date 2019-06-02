@@ -207,9 +207,9 @@ void DisplayDashboardView::prechargeStateReceived(QString prechargeState)
     ui_.prechargeStateLabel().setText(prechargeState);
 }
 
-void DisplayDashboardView::packNetPowerReceived(double netPower)
+void DisplayDashboardView::packNetPowerReceived(double batteryPower)
 {
-    ui_.netPowerLabel().setText(QString::number(netPower, 'f', 2));
+    ui_.batteryPowerLabel().setText(QString::number(batteryPower, 'f', 2));
 }
 
 /*
@@ -397,8 +397,7 @@ void DisplayDashboardView::mpptReceived(int i, Mppt mppt)
 
 void DisplayDashboardView::mpptPowerReceived(double mpptPower)
 {
-    ui_.powerInLabel().setText(QString::number(mpptPower, 'f', 0));
-    ui_.powerOutLabel().setNum(ui_.netPowerLabel().text().toDouble() - mpptPower);
+    ui_.arrayPowerLabel().setText(QString::number(mpptPower, 'f', 0));
 }
 
 void DisplayDashboardView::motorZeroErrorFlagsReceived(ErrorFlags motorZeroErrorFlags)

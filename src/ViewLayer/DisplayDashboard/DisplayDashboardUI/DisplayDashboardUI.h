@@ -56,9 +56,8 @@ public:
     QLabel& busVoltageLabel();
     QLabel& busCurrentLabel();
 
-    QLabel& powerInLabel();
-    QLabel& powerOutLabel();
-    QLabel& netPowerLabel();
+    QLabel& arrayPowerLabel();
+    QLabel& batteryPowerLabel();
 
     QLabel& driveModeValueLabel();
 

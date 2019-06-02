@@ -177,19 +177,14 @@ QLabel& DisplayDashboardUI::busCurrentLabel()
     return *ui_->busCurrentLabel;
 }
 
-QLabel& DisplayDashboardUI::powerInLabel()
+QLabel& DisplayDashboardUI::arrayPowerLabel()
 {
-    return *ui_->powerInLabel;
+    return *ui_->arrayPowerLabel;
 }
 
-QLabel& DisplayDashboardUI::powerOutLabel()
+QLabel& DisplayDashboardUI::batteryPowerLabel()
 {
-    return *ui_->powerOutLabel;
-}
-
-QLabel& DisplayDashboardUI::netPowerLabel()
-{
-    return *ui_->netPowerLabel;
+    return *ui_->batteryPowerLabel;
 }
 
 QLabel& DisplayDashboardUI::driveModeValueLabel()
