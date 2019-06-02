@@ -83,6 +83,6 @@ private:
     int highCellVoltage_;
     int highCellVoltageId_;
     int averageCellVoltage_;
-    double packBatteryPower_; // calculated based on pack current and voltage
+    double packNetPower_; // calculated based on pack current and voltage
 };
 

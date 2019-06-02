@@ -128,7 +128,7 @@ int BatteryData::averageCellVoltage() const
 
 double BatteryData::packNetPower() const
 {
-    return packBatteryPower_;
+    return packNetPower_;
 }
 
 // ------ data setter ------ //
@@ -166,17 +166,17 @@ void BatteryData::setFanVoltage(const double& fanVoltage)
 void BatteryData::setPackCurrent(const double& packCurrent)
 {
     packCurrent_ = packCurrent;
-    packBatteryPower_ = packVoltage_ * packCurrent;
+    packNetPower_ = packVoltage_ * packCurrent;
     emit packCurrentReceived(packCurrent_);
-    emit packBatteryPowerReceived(packBatteryPower_);
+    emit packNetPowerReceived(packNetPower_);
 }
 
 void BatteryData::setPackVoltage(const double& packVoltage)
 {
     packVoltage_ = packVoltage;
-    packBatteryPower_ = packVoltage * packCurrent_;
+    packNetPower_ = packVoltage * packCurrent_;
     emit packVoltageReceived(packVoltage_);
-    emit packBatteryPowerReceived(packBatteryPower_);
+    emit packNetPowerReceived(packNetPower_);
 }
 
 void BatteryData::setPackStateOfCharge(const double& packStateOfCharge)

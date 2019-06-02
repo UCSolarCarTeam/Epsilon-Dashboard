@@ -44,7 +44,7 @@ QLabel& BatteryUi::packInfoDepthofDischarge()
 
 QLabel& BatteryUi::packNetPower()
 {
-    return *ui_->packbatteryPowerLabel;
+    return *ui_->packNetPowerLabel;
 }
 
 QLabel& BatteryUi::BmsOn()

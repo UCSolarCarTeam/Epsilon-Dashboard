@@ -82,8 +82,8 @@ void RaceModeDashboardView::connectBattery(BatteryPresenter& batteryPresenter)
 {
     connect(&batteryPresenter, SIGNAL(aliveReceived(bool)),
             this, SLOT(aliveReceived(bool)));
-    connect(&batteryPresenter, SIGNAL(packBatteryPowerReceived(double)),
-            this, SLOT(packBatteryPowerReceived(double)));
+    connect(&batteryPresenter, SIGNAL(packNetPowerReceived(double)),
+            this, SLOT(packNetPowerReceived(double)));
     connect(&batteryPresenter, SIGNAL(packStateOfChargeReceived(double)),
             this, SLOT(packStateOfChargeReceived(double)));
     connect(&batteryPresenter, SIGNAL(lowCellVoltageReceived(float)),
@@ -217,7 +217,7 @@ void RaceModeDashboardView::prechargeStateReceived(QString prechargeState)
     ui_.prechargeStateLabel().setText(prechargeState);
 }
 
-void RaceModeDashboardView::packBatteryPowerReceived(double batteryPower)
+void RaceModeDashboardView::packNetPowerReceived(double batteryPower)
 {
     ui_.batteryPowerLabel().setText(QString::number(batteryPower, 'f', 1));
 }

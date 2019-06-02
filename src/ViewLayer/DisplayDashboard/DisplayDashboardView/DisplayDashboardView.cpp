@@ -79,8 +79,8 @@ void DisplayDashboardView::connectBattery(BatteryPresenter& batteryPresenter)
     // TODO update to new battery data (depends on what should be shown in UI)
     connect(&batteryPresenter, SIGNAL(aliveReceived(bool)),
             this, SLOT(aliveReceived(bool)));
-    connect(&batteryPresenter, SIGNAL(packBatteryPowerReceived(double)),
-            this, SLOT(packBatteryPowerReceived(double)));
+    connect(&batteryPresenter, SIGNAL(packNetPowerReceived(double)),
+            this, SLOT(packNetPowerReceived(double)));
     connect(&batteryPresenter, SIGNAL(packStateOfChargeReceived(double)),
             this, SLOT(packStateOfChargeReceived(double)));
     connect(&batteryPresenter, SIGNAL(highTemperatureReceived(int)),
@@ -207,7 +207,7 @@ void DisplayDashboardView::prechargeStateReceived(QString prechargeState)
     ui_.prechargeStateLabel().setText(prechargeState);
 }
 
-void DisplayDashboardView::packBatteryPowerReceived(double BatteryPower)
+void DisplayDashboardView::packNetPowerReceived(double BatteryPower)
 {
     ui_.batteryPowerLabel().setText(QString::number(BatteryPower, 'f', 2));
 }

@@ -67,7 +67,7 @@ private slots:
     void prechargeStateReceived(const QString);
     void auxVoltageReceived(const int);
     void auxBmsAliveReceived(const bool);
-    void packBatteryPowerReceived(const double);
+    void packNetPowerReceived(const double);
     void strobeBMSReceived(bool);
     void allowChargeReceived(bool);
     void contactorErrorReceived(bool);

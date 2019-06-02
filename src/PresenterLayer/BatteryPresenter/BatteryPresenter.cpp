@@ -55,8 +55,8 @@ void BatteryPresenter::relayBatteryData()
             this, SIGNAL(highCellVoltageIdReceived(const int&)));
     connect(&batteryData_, SIGNAL(averageCellVoltageReceived(const float&)),
             this, SIGNAL(averageCellVoltageReceived(const float&)));
-    connect(&batteryData_, SIGNAL(packBatteryPowerReceived(const double&)),
-            this, SIGNAL(packBatteryPowerReceived(const double&)));
+    connect(&batteryData_, SIGNAL(packNetPowerReceived(const double&)),
+            this, SIGNAL(packNetPowerReceived(const double&)));
     connect(&batteryData_, SIGNAL(packStateOfChargeReceived(const double&)),
             this, SIGNAL(packStateOfChargeReceived(const double&)));
 }

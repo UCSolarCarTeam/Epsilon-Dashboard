@@ -40,5 +40,5 @@ signals:
     void highCellVoltageReceived(const float&);
     void highCellVoltageIdReceived(const int&);
     void averageCellVoltageReceived(const float&);
-    void packBatteryPowerReceived(const double&);
+    void packNetPowerReceived(const double&);
 };
