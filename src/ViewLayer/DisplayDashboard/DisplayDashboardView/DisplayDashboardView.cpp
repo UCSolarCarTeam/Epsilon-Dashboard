@@ -207,9 +207,9 @@ void DisplayDashboardView::prechargeStateReceived(QString prechargeState)
     ui_.prechargeStateLabel().setText(prechargeState);
 }
 
-void DisplayDashboardView::packNetPowerReceived(double BatteryPower)
+void DisplayDashboardView::packNetPowerReceived(double batteryPower)
 {
-    ui_.batteryPowerLabel().setText(QString::number(BatteryPower, 'f', 2));
+    ui_.batteryPowerLabel().setText(QString::number(batteryPower, 'f', 2));
 }
 
 /*
