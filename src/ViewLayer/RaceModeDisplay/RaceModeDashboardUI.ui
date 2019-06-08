@@ -443,22 +443,7 @@
   <property name="styleSheet">
    <string notr="true">background-color: black;</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_23">
-   <property name="spacing">
-    <number>0</number>
-   </property>
-   <property name="leftMargin">
-    <number>0</number>
-   </property>
-   <property name="topMargin">
-    <number>0</number>
-   </property>
-   <property name="rightMargin">
-    <number>0</number>
-   </property>
-   <property name="bottomMargin">
-    <number>0</number>
-   </property>
+  <layout class="QVBoxLayout" name="verticalLayout_15">
    <item>
     <widget class="QWidget" name="widget" native="true">
      <property name="font">
@@ -469,14 +454,17 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QWidget" name="topWidget" native="true">
+       <widget class="QWidget" name="TopWidget" native="true">
         <property name="font">
          <font>
           <weight>75</weight>
           <bold>true</bold>
          </font>
         </property>
-        <layout class="QHBoxLayout" name="horizontalLayout_11">
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_15">
          <property name="spacing">
           <number>0</number>
          </property>
@@ -493,7 +481,210 @@
           <number>0</number>
          </property>
          <item>
-          <widget class="QWidget" name="topWidgetMainLayout" native="true">
+          <widget class="QWidget" name="motorDetailsWidget" native="true">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <layout class="QGridLayout" name="MotorPowerCurrent">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item row="2" column="2">
+             <widget class="QWidget" name="motorPowerWidget" native="true">
+              <property name="font">
+               <font>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <layout class="QGridLayout" name="motorPowerLayout">
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <item row="0" column="2">
+                <widget class="QLabel" name="motorPowerUnitsLabel">
+                 <property name="font">
+                  <font>
+                   <pointsize>14</pointsize>
+                   <weight>50</weight>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QLabel {
+color: white;
+qproperty-alignment: 'AlignBottom | AlignLeft';
+}</string>
+                 </property>
+                 <property name="text">
+                  <string>W</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0" colspan="3">
+                <widget class="QLabel" name="motorPowerTitleLabel">
+                 <property name="font">
+                  <font>
+                   <pointsize>12</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QLabel {
+qproperty-alignment: AlignHCenter;
+color: rgb(100,100,100);
+}
+
+</string>
+                 </property>
+                 <property name="text">
+                  <string>- M O T O R   P O W E R  -</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0" colspan="2">
+                <widget class="QLabel" name="motorPowerLabel">
+                 <property name="font">
+                  <font>
+                   <pointsize>24</pointsize>
+                   <weight>50</weight>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QLabel {
+color: white;
+qproperty-alignment: 'AlignBottom | AlignRight';
+}</string>
+                 </property>
+                 <property name="text">
+                  <string>879</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="2">
+             <widget class="QWidget" name="setCurrentWidget" native="true">
+              <property name="font">
+               <font>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <layout class="QGridLayout" name="setCurrentLayout">
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <item row="0" column="2">
+                <widget class="QLabel" name="setCurrentUnitsLabel">
+                 <property name="font">
+                  <font>
+                   <pointsize>14</pointsize>
+                   <weight>50</weight>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QLabel {
+color: white;
+qproperty-alignment: 'AlignBottom | AlignLeft';
+}</string>
+                 </property>
+                 <property name="text">
+                  <string>A</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0" colspan="2">
+                <widget class="QLabel" name="setCurrentLabel">
+                 <property name="font">
+                  <font>
+                   <pointsize>24</pointsize>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QLabel {
+color: white;
+qproperty-alignment: 'AlignBottom | AlignRight';
+}</string>
+                 </property>
+                 <property name="text">
+                  <string>879</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0" colspan="3">
+                <widget class="QLabel" name="setCurrentTitleLabel">
+                 <property name="font">
+                  <font>
+                   <pointsize>12</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QLabel {
+qproperty-alignment: AlignHCenter;
+color: rgb(100,100,100);
+}
+
+</string>
+                 </property>
+                 <property name="text">
+                  <string>- S E T   C U R R E N T -</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QWidget" name="centerWidget" native="true">
            <property name="font">
             <font>
              <weight>75</weight>
@@ -503,7 +694,436 @@
            <property name="styleSheet">
             <string notr="true"/>
            </property>
-           <layout class="QHBoxLayout" name="horizontalLayout_15">
+           <layout class="QGridLayout" name="gridLayout">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item row="8" column="0">
+             <spacer name="verticalSpacer">
+              <property name="font">
+               <font>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="7" column="0">
+             <widget class="QWidget" name="lightIconWidget" native="true">
+              <property name="font">
+               <font>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_2">
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <item>
+                <widget class="QWidget" name="turnSignalWidget" native="true">
+                 <property name="font">
+                  <font>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <layout class="QHBoxLayout" name="horizontalLayout_2">
+                  <item>
+                   <widget class="QWidget" name="leftTurnSignalWidget" native="true">
+                    <property name="minimumSize">
+                     <size>
+                      <width>45</width>
+                      <height>45</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>45</width>
+                      <height>45</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">border-image: url(:/Resources/TurnSignalLeft.png);</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QWidget" name="rightTurnSignalWidget" native="true">
+                    <property name="minimumSize">
+                     <size>
+                      <width>45</width>
+                      <height>45</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>45</width>
+                      <height>45</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">border-image: url(:/Resources/TurnSignalRight.png);
+</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
+                <widget class="QWidget" name="headlightsWidget" native="true">
+                 <property name="font">
+                  <font>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <layout class="QHBoxLayout" name="horizontalLayout_3">
+                  <item>
+                   <widget class="QWidget" name="lowHeadlightIndicatorWidget" native="true">
+                    <property name="minimumSize">
+                     <size>
+                      <width>70</width>
+                      <height>45</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>70</width>
+                      <height>45</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">border-image: url(:/Resources/LowHeadlightIndicator.png);</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QWidget" name="highHeadlightIndicatorWidget" native="true">
+                    <property name="minimumSize">
+                     <size>
+                      <width>70</width>
+                      <height>45</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>70</width>
+                      <height>45</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">border-image: url(:/Resources/HighHeadlightIndicator.png);</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
+                <spacer name="verticalSpacer_3">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>50</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QWidget" name="driveModeWidget" native="true">
+              <layout class="QVBoxLayout" name="verticalLayout_24">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="driveModeTitleLabel">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <pointsize>12</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QLabel {
+qproperty-alignment: AlignHCenter;
+color: rgb(100,100,100);
+}
+
+</string>
+                 </property>
+                 <property name="text">
+                  <string>- D R I V E  M O D E - </string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="driveModeValueLabel">
+                 <property name="font">
+                  <font>
+                   <pointsize>11</pointsize>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color:white;
+</string>
+                 </property>
+                 <property name="text">
+                  <string>DRIVE</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="7" column="3">
+             <widget class="QWidget" name="resetButtonWidget" native="true">
+              <property name="font">
+               <font>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout_17">
+               <item>
+                <widget class="QWidget" name="motorResetButtonWidget" native="true">
+                 <property name="minimumSize">
+                  <size>
+                   <width>60</width>
+                   <height>52</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>60</width>
+                   <height>52</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background: url(:/Resources/MotorResetButton.png);</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="0" column="3">
+             <widget class="QWidget" name="stateOfChargeDetailsWidget" native="true">
+              <property name="font">
+               <font>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: white;</string>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_14">
+               <property name="spacing">
+                <number>12</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="stateOfChargeTitleLabel">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <pointsize>12</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QLabel {
+qproperty-alignment: AlignHCenter;
+color: rgb(100,100,100);
+}
+
+</string>
+                 </property>
+                 <property name="text">
+                  <string>- B A T T E R Y -</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QProgressBar" name="stateOfChargeCapacityWidget">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <pointsize>20</pointsize>
+                   <weight>50</weight>
+                   <italic>false</italic>
+                   <bold>false</bold>
+                   <kerning>true</kerning>
+                  </font>
+                 </property>
+                 <property name="autoFillBackground">
+                  <bool>false</bool>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QProgressBar:horizontal {
+border: 1px solid white;
+border-radius: 7px;
+background-color: black;
+text-align: center;
+}
+QProgressBar::chunk:horizontal{
+border-radius: 7px;
+background: rgb(20,180,20);
+}</string>
+                 </property>
+                 <property name="value">
+                  <number>100</number>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                 <property name="textVisible">
+                  <bool>true</bool>
+                 </property>
+                 <property name="invertedAppearance">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QWidget" name="batteryDataWidget" native="true">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_4">
             <property name="spacing">
              <number>0</number>
             </property>
@@ -520,14 +1140,17 @@
              <number>0</number>
             </property>
             <item>
-             <widget class="QWidget" name="motorDetailsWidget" native="true">
+             <widget class="QWidget" name="prechargeInfoWidget" native="true">
               <property name="font">
                <font>
                 <weight>75</weight>
                 <bold>true</bold>
                </font>
               </property>
-              <layout class="QGridLayout" name="MotorPowerCurrent">
+              <layout class="QVBoxLayout" name="verticalLayout_11">
+               <property name="spacing">
+                <number>0</number>
+               </property>
                <property name="leftMargin">
                 <number>0</number>
                </property>
@@ -538,221 +1161,12 @@
                 <number>0</number>
                </property>
                <property name="bottomMargin">
-                <number>0</number>
+                <number>20</number>
                </property>
-               <property name="spacing">
-                <number>0</number>
-               </property>
-               <item row="2" column="2">
-                <widget class="QWidget" name="motorPowerWidget" native="true">
-                 <property name="font">
-                  <font>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <layout class="QGridLayout" name="motorPowerLayout">
-                  <property name="leftMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="topMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="rightMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="bottomMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="spacing">
-                   <number>0</number>
-                  </property>
-                  <item row="0" column="2">
-                   <widget class="QLabel" name="motorPowerUnitsLabel">
-                    <property name="font">
-                     <font>
-                      <pointsize>14</pointsize>
-                      <weight>50</weight>
-                      <bold>false</bold>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">QLabel {
-color: white;
-qproperty-alignment: 'AlignBottom | AlignLeft';
-}</string>
-                    </property>
-                    <property name="text">
-                     <string>W</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="0" colspan="3">
-                   <widget class="QLabel" name="motorPowerTitleLabel">
-                    <property name="font">
-                     <font>
-                      <pointsize>8</pointsize>
-                      <weight>75</weight>
-                      <bold>true</bold>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">QLabel {
-qproperty-alignment: AlignHCenter;
-color: rgb(100,100,100);
-}
-
-</string>
-                    </property>
-                    <property name="text">
-                     <string>M O T O R   P O W E R</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="0" colspan="2">
-                   <widget class="QLabel" name="motorPowerLabel">
-                    <property name="font">
-                     <font>
-                      <pointsize>24</pointsize>
-                      <weight>50</weight>
-                      <bold>false</bold>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">QLabel {
-color: white;
-qproperty-alignment: 'AlignBottom | AlignRight';
-}</string>
-                    </property>
-                    <property name="text">
-                     <string>879</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-               <item row="1" column="2">
-                <widget class="QWidget" name="setCurrentWidget" native="true">
-                 <property name="font">
-                  <font>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <layout class="QGridLayout" name="setCurrentLayout">
-                  <property name="leftMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="topMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="rightMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="bottomMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="spacing">
-                   <number>0</number>
-                  </property>
-                  <item row="1" column="0" colspan="3">
-                   <widget class="QLabel" name="setCurrentTitleLabel">
-                    <property name="font">
-                     <font>
-                      <pointsize>8</pointsize>
-                      <weight>75</weight>
-                      <bold>true</bold>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">QLabel {
-qproperty-alignment: AlignHCenter;
-color: rgb(100,100,100);
-}
-
-</string>
-                    </property>
-                    <property name="text">
-                     <string>S E T   C U R R E N T</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="2">
-                   <widget class="QLabel" name="setCurrentUnitsLabel">
-                    <property name="font">
-                     <font>
-                      <pointsize>14</pointsize>
-                      <weight>50</weight>
-                      <bold>false</bold>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">QLabel {
-color: white;
-qproperty-alignment: 'AlignBottom | AlignLeft';
-}</string>
-                    </property>
-                    <property name="text">
-                     <string>A</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="0" colspan="2">
-                   <widget class="QLabel" name="setCurrentLabel">
-                    <property name="font">
-                     <font>
-                      <pointsize>24</pointsize>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">QLabel {
-color: white;
-qproperty-alignment: 'AlignBottom | AlignRight';
-}</string>
-                    </property>
-                    <property name="text">
-                     <string>879</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
-            <item>
-             <widget class="QWidget" name="centerWidget" native="true">
-              <property name="font">
-               <font>
-                <weight>75</weight>
-                <bold>true</bold>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true"/>
-              </property>
-              <layout class="QGridLayout" name="gridLayout">
-               <property name="leftMargin">
-                <number>0</number>
-               </property>
-               <property name="topMargin">
-                <number>0</number>
-               </property>
-               <property name="rightMargin">
-                <number>0</number>
-               </property>
-               <property name="bottomMargin">
-                <number>0</number>
-               </property>
-               <property name="spacing">
-                <number>0</number>
-               </property>
-               <item row="7" column="0">
-                <widget class="QLabel" name="actualSpeedLabel">
+               <item>
+                <widget class="QLabel" name="prechargeStateTitleLabel">
                  <property name="sizePolicy">
-                  <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
                    <horstretch>0</horstretch>
                    <verstretch>0</verstretch>
                   </sizepolicy>
@@ -760,303 +1174,67 @@ qproperty-alignment: 'AlignBottom | AlignRight';
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
-                   <height>0</height>
+                   <height>20</height>
                   </size>
                  </property>
                  <property name="font">
                   <font>
-                   <pointsize>45</pointsize>
+                   <pointsize>12</pointsize>
                    <weight>75</weight>
-                   <italic>false</italic>
                    <bold>true</bold>
                   </font>
                  </property>
-                 <property name="autoFillBackground">
-                  <bool>false</bool>
-                 </property>
                  <property name="styleSheet">
-                  <string notr="true">
-text-align: right;
-color: white;</string>
+                  <string notr="true">color: rgb(100,100,100);
+</string>
                  </property>
                  <property name="text">
-                  <string>000.0</string>
-                 </property>
-                 <property name="textFormat">
-                  <enum>Qt::PlainText</enum>
-                 </property>
-                 <property name="scaledContents">
-                  <bool>false</bool>
+                  <string>- P R E C H A R G E -</string>
                  </property>
                  <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
                </item>
-               <item row="8" column="0">
-                <spacer name="verticalSpacer">
-                 <property name="font">
-                  <font>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="orientation">
-                  <enum>Qt::Vertical</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>20</width>
-                   <height>40</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item row="7" column="1">
-                <widget class="QLabel" name="actualSpeedUnitsLabel">
+               <item>
+                <widget class="QLabel" name="prechargeStateLabel">
                  <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
                    <horstretch>0</horstretch>
                    <verstretch>0</verstretch>
                   </sizepolicy>
                  </property>
                  <property name="font">
                   <font>
-                   <pointsize>14</pointsize>
-                   <weight>75</weight>
-                   <bold>true</bold>
+                   <pointsize>11</pointsize>
+                   <weight>50</weight>
+                   <bold>false</bold>
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">
-padding-top:60px;
-padding-left: -6px;
-color: white;</string>
+                  <string notr="true">color:white;
+margin-top:20px;</string>
                  </property>
                  <property name="text">
-                  <string>KM/H</string>
+                  <string>RUN</string>
                  </property>
-                </widget>
-               </item>
-               <item row="0" column="3">
-                <widget class="QWidget" name="stateOfChargeDetailsWidget" native="true">
-                 <property name="font">
-                  <font>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">color: white;</string>
-                 </property>
-                 <layout class="QVBoxLayout" name="verticalLayout_14">
-                  <item>
-                   <widget class="QProgressBar" name="stateOfChargeCapacityWidget">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>16777215</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <pointsize>20</pointsize>
-                      <weight>50</weight>
-                      <italic>false</italic>
-                      <bold>false</bold>
-                      <kerning>true</kerning>
-                     </font>
-                    </property>
-                    <property name="autoFillBackground">
-                     <bool>false</bool>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">QProgressBar:horizontal {
-border: 1px solid white;
-border-radius: 7px;
-background-color: black;
-text-align: center;
-}
-QProgressBar::chunk:horizontal{
-border-radius: 7px;
-background: rgb(20,180,20);
-}</string>
-                    </property>
-                    <property name="value">
-                     <number>100</number>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignCenter</set>
-                    </property>
-                    <property name="textVisible">
-                     <bool>true</bool>
-                    </property>
-                    <property name="invertedAppearance">
-                     <bool>false</bool>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QLabel" name="stateOfChargeTitleLabel">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>20</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <weight>75</weight>
-                      <bold>true</bold>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">QLabel {
-qproperty-alignment: AlignHCenter;
-color: rgb(100,100,100);
-}
-
-</string>
-                    </property>
-                    <property name="text">
-                     <string>B A T T E R Y</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-               <item row="7" column="3">
-                <widget class="QWidget" name="resetButtonWidget" native="true">
-                 <property name="font">
-                  <font>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <layout class="QHBoxLayout" name="horizontalLayout_17">
-                  <item>
-                   <widget class="QWidget" name="motorResetButtonWidget" native="true">
-                    <property name="minimumSize">
-                     <size>
-                      <width>60</width>
-                      <height>52</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>60</width>
-                      <height>52</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <weight>75</weight>
-                      <bold>true</bold>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">background: url(:/Resources/MotorResetButton.png);</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-               <item row="0" column="0">
-                <widget class="QWidget" name="driveModeWidget" native="true">
-                 <layout class="QVBoxLayout" name="verticalLayout_24">
-                  <property name="spacing">
-                   <number>0</number>
-                  </property>
-                  <property name="leftMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="topMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="rightMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="bottomMargin">
-                   <number>50</number>
-                  </property>
-                  <item>
-                   <widget class="QLabel" name="driveModeValueLabel">
-                    <property name="font">
-                     <font>
-                      <pointsize>11</pointsize>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">color:white;
-</string>
-                    </property>
-                    <property name="text">
-                     <string>Drive</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QLabel" name="driveModeTitleLabel">
-                    <property name="font">
-                     <font>
-                      <pointsize>12</pointsize>
-                      <weight>75</weight>
-                      <bold>true</bold>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">QLabel {
-qproperty-alignment: AlignHCenter;
-color: rgb(100,100,100);
-}
-
-</string>
-                    </property>
-                    <property name="text">
-                     <string>D R I V E  M O D E</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
                 </widget>
                </item>
               </layout>
-              <zorder>stateOfChargeDetailsWidget</zorder>
-              <zorder>actualSpeedUnitsLabel</zorder>
-              <zorder>resetButtonWidget</zorder>
-              <zorder>actualSpeedLabel</zorder>
-              <zorder>driveModeWidget</zorder>
              </widget>
             </item>
             <item>
-             <widget class="QWidget" name="batteryDataWidget" native="true">
+             <widget class="QWidget" name="cellIInfoWidget" native="true">
               <property name="font">
                <font>
                 <weight>75</weight>
                 <bold>true</bold>
                </font>
               </property>
-              <property name="styleSheet">
-               <string notr="true"/>
-              </property>
-              <layout class="QVBoxLayout" name="verticalLayout_4">
+              <layout class="QHBoxLayout" name="horizontalLayout_18">
                <property name="spacing">
                 <number>0</number>
                </property>
@@ -1073,17 +1251,20 @@ color: rgb(100,100,100);
                 <number>0</number>
                </property>
                <item>
-                <widget class="QWidget" name="prechargeInfoWidget" native="true">
+                <widget class="QWidget" name="widget" native="true">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
                  <property name="font">
                   <font>
                    <weight>75</weight>
                    <bold>true</bold>
                   </font>
                  </property>
-                 <layout class="QVBoxLayout" name="verticalLayout_11">
-                  <property name="spacing">
-                   <number>0</number>
-                  </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_16">
                   <property name="leftMargin">
                    <number>0</number>
                   </property>
@@ -1094,48 +1275,10 @@ color: rgb(100,100,100);
                    <number>0</number>
                   </property>
                   <property name="bottomMargin">
-                   <number>25</number>
+                   <number>0</number>
                   </property>
                   <item>
-                   <widget class="QLabel" name="prechargeStateLabel">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <pointsize>11</pointsize>
-                      <weight>50</weight>
-                      <bold>false</bold>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">color:white;</string>
-                    </property>
-                    <property name="text">
-                     <string>RUN</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QLabel" name="prechargeStateTitleLabel">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>20</height>
-                     </size>
-                    </property>
+                   <widget class="QLabel" name="cellTitleWidget">
                     <property name="font">
                      <font>
                       <pointsize>12</pointsize>
@@ -1144,59 +1287,32 @@ color: rgb(100,100,100);
                      </font>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">color: rgb(100,100,100);
-</string>
+                     <string notr="true">
+color: rgb(100,100,100);</string>
                     </property>
                     <property name="text">
-                     <string>P R E C H A R G E</string>
+                     <string>- C E L L -</string>
                     </property>
                     <property name="alignment">
-                     <set>Qt::AlignCenter</set>
+                     <set>Qt::AlignHCenter|Qt::AlignTop</set>
                     </property>
                    </widget>
                   </item>
-                 </layout>
-                </widget>
-               </item>
-               <item>
-                <widget class="QWidget" name="cellIInfoWidget" native="true">
-                 <property name="font">
-                  <font>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <layout class="QHBoxLayout" name="horizontalLayout_18">
-                  <property name="spacing">
-                   <number>0</number>
-                  </property>
-                  <property name="leftMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="topMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="rightMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="bottomMargin">
-                   <number>0</number>
-                  </property>
                   <item>
-                   <widget class="QWidget" name="widget" native="true">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
+                   <widget class="QWidget" name="cellDataWidget" native="true">
                     <property name="font">
                      <font>
                       <weight>75</weight>
                       <bold>true</bold>
                      </font>
                     </property>
-                    <layout class="QVBoxLayout" name="verticalLayout_16">
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <layout class="QVBoxLayout" name="verticalLayout_18">
+                     <property name="spacing">
+                      <number>10</number>
+                     </property>
                      <property name="leftMargin">
                       <number>0</number>
                      </property>
@@ -1210,28 +1326,7 @@ color: rgb(100,100,100);
                       <number>0</number>
                      </property>
                      <item>
-                      <widget class="QLabel" name="cellTitleWidget">
-                       <property name="font">
-                        <font>
-                         <pointsize>12</pointsize>
-                         <weight>75</weight>
-                         <bold>true</bold>
-                        </font>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">
-color: rgb(100,100,100);</string>
-                       </property>
-                       <property name="text">
-                        <string>- C E L L -</string>
-                       </property>
-                       <property name="alignment">
-                        <set>Qt::AlignCenter</set>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QWidget" name="cellDataWidget" native="true">
+                      <widget class="QWidget" name="maxLowWidget" native="true">
                        <property name="font">
                         <font>
                          <weight>75</weight>
@@ -1241,9 +1336,9 @@ color: rgb(100,100,100);</string>
                        <property name="styleSheet">
                         <string notr="true"/>
                        </property>
-                       <layout class="QVBoxLayout" name="verticalLayout_18">
+                       <layout class="QHBoxLayout" name="horizontalLayout_19">
                         <property name="spacing">
-                         <number>10</number>
+                         <number>0</number>
                         </property>
                         <property name="leftMargin">
                          <number>0</number>
@@ -1258,17 +1353,14 @@ color: rgb(100,100,100);</string>
                          <number>0</number>
                         </property>
                         <item>
-                         <widget class="QWidget" name="maxLowWidget" native="true">
+                         <widget class="QWidget" name="maxCellTempuratureInfo" native="true">
                           <property name="font">
                            <font>
                             <weight>75</weight>
                             <bold>true</bold>
                            </font>
                           </property>
-                          <property name="styleSheet">
-                           <string notr="true"/>
-                          </property>
-                          <layout class="QHBoxLayout" name="horizontalLayout_19">
+                          <layout class="QVBoxLayout" name="verticalLayout_12">
                            <property name="spacing">
                             <number>0</number>
                            </property>
@@ -1285,148 +1377,35 @@ color: rgb(100,100,100);</string>
                             <number>0</number>
                            </property>
                            <item>
-                            <widget class="QWidget" name="maxCellTempuratureInfo" native="true">
+                            <widget class="QLabel" name="maxCellTemperatureTitleLabel">
                              <property name="font">
                               <font>
-                               <weight>75</weight>
-                               <bold>true</bold>
+                               <pointsize>10</pointsize>
+                               <weight>50</weight>
+                               <bold>false</bold>
                               </font>
                              </property>
-                             <layout class="QVBoxLayout" name="verticalLayout_12">
-                              <property name="spacing">
-                               <number>0</number>
-                              </property>
-                              <property name="leftMargin">
-                               <number>0</number>
-                              </property>
-                              <property name="topMargin">
-                               <number>0</number>
-                              </property>
-                              <property name="rightMargin">
-                               <number>0</number>
-                              </property>
-                              <property name="bottomMargin">
-                               <number>0</number>
-                              </property>
-                              <item>
-                               <widget class="QWidget" name="maxCellTempWidget" native="true">
-                                <property name="font">
-                                 <font>
-                                  <weight>75</weight>
-                                  <bold>true</bold>
-                                 </font>
-                                </property>
-                                <layout class="QHBoxLayout" name="horizontalLayout_13">
-                                 <property name="spacing">
-                                  <number>0</number>
-                                 </property>
-                                 <property name="leftMargin">
-                                  <number>0</number>
-                                 </property>
-                                 <property name="topMargin">
-                                  <number>0</number>
-                                 </property>
-                                 <property name="rightMargin">
-                                  <number>0</number>
-                                 </property>
-                                 <property name="bottomMargin">
-                                  <number>0</number>
-                                 </property>
-                                 <item>
-                                  <widget class="QLabel" name="maxCellTemperatureLabel">
-                                   <property name="maximumSize">
-                                    <size>
-                                     <width>55</width>
-                                     <height>16777215</height>
-                                    </size>
-                                   </property>
-                                   <property name="font">
-                                    <font>
-                                     <pointsize>16</pointsize>
-                                     <weight>50</weight>
-                                     <bold>false</bold>
-                                    </font>
-                                   </property>
-                                   <property name="styleSheet">
-                                    <string notr="true">
-color:white;</string>
-                                   </property>
-                                   <property name="text">
-                                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;879&lt;span style=&quot; vertical-align:super;&quot;&gt;o&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item>
-                                  <widget class="QLabel" name="maxCellTemperatureUnitsLabel">
-                                   <property name="sizePolicy">
-                                    <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                                     <horstretch>0</horstretch>
-                                     <verstretch>0</verstretch>
-                                    </sizepolicy>
-                                   </property>
-                                   <property name="maximumSize">
-                                    <size>
-                                     <width>16777215</width>
-                                     <height>16777215</height>
-                                    </size>
-                                   </property>
-                                   <property name="font">
-                                    <font>
-                                     <pointsize>10</pointsize>
-                                     <weight>50</weight>
-                                     <bold>false</bold>
-                                    </font>
-                                   </property>
-                                   <property name="styleSheet">
-                                    <string notr="true">QLabel {
-
-color: white;
-qproperty-alignment: 'AlignBottom | AlignLeft';
-}</string>
-                                   </property>
-                                   <property name="text">
-                                    <string>C</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                </layout>
-                                <zorder>maxCellTemperatureUnitsLabel</zorder>
-                                <zorder>maxCellTemperatureLabel</zorder>
-                               </widget>
-                              </item>
-                              <item>
-                               <widget class="QLabel" name="maxCellTemperatureTitleLabel">
-                                <property name="font">
-                                 <font>
-                                  <pointsize>10</pointsize>
-                                  <weight>50</weight>
-                                  <bold>false</bold>
-                                 </font>
-                                </property>
-                                <property name="styleSheet">
-                                 <string notr="true">QLabel {
+                             <property name="styleSheet">
+                              <string notr="true">QLabel {
 
 color: white;
 qproperty-alignment: 'AlignHCenter | AlignBottom';
 }</string>
-                                </property>
-                                <property name="text">
-                                 <string>M A X</string>
-                                </property>
-                               </widget>
-                              </item>
-                             </layout>
+                             </property>
+                             <property name="text">
+                              <string>M A X</string>
+                             </property>
                             </widget>
                            </item>
                            <item>
-                            <widget class="QWidget" name="lowCellVoltageInfo" native="true">
+                            <widget class="QWidget" name="maxCellTempWidget" native="true">
                              <property name="font">
                               <font>
                                <weight>75</weight>
                                <bold>true</bold>
                               </font>
                              </property>
-                             <layout class="QVBoxLayout" name="verticalLayout_20">
+                             <layout class="QHBoxLayout" name="horizontalLayout_13">
                               <property name="spacing">
                                <number>0</number>
                               </property>
@@ -1443,91 +1422,43 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                                <number>0</number>
                               </property>
                               <item>
-                               <widget class="QWidget" name="lowestCellVoltageWidget" native="true">
+                               <widget class="QLabel" name="maxCellTemperatureLabel">
+                                <property name="maximumSize">
+                                 <size>
+                                  <width>55</width>
+                                  <height>16777215</height>
+                                 </size>
+                                </property>
                                 <property name="font">
                                  <font>
-                                  <weight>75</weight>
-                                  <bold>true</bold>
+                                  <pointsize>16</pointsize>
+                                  <weight>50</weight>
+                                  <bold>false</bold>
                                  </font>
                                 </property>
-                                <layout class="QHBoxLayout" name="horizontalLayout_21">
-                                 <property name="spacing">
-                                  <number>0</number>
-                                 </property>
-                                 <property name="leftMargin">
-                                  <number>0</number>
-                                 </property>
-                                 <property name="topMargin">
-                                  <number>0</number>
-                                 </property>
-                                 <property name="rightMargin">
-                                  <number>0</number>
-                                 </property>
-                                 <property name="bottomMargin">
-                                  <number>0</number>
-                                 </property>
-                                 <item>
-                                  <widget class="QLabel" name="lowestCellVoltageLabel">
-                                   <property name="maximumSize">
-                                    <size>
-                                     <width>55</width>
-                                     <height>16777215</height>
-                                    </size>
-                                   </property>
-                                   <property name="font">
-                                    <font>
-                                     <pointsize>16</pointsize>
-                                     <weight>50</weight>
-                                     <bold>false</bold>
-                                    </font>
-                                   </property>
-                                   <property name="styleSheet">
-                                    <string notr="true">
+                                <property name="styleSheet">
+                                 <string notr="true">
 color:white;</string>
-                                   </property>
-                                   <property name="text">
-                                    <string>879</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item>
-                                  <widget class="QLabel" name="lowestCellVoltageUnit">
-                                   <property name="sizePolicy">
-                                    <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                                     <horstretch>0</horstretch>
-                                     <verstretch>0</verstretch>
-                                    </sizepolicy>
-                                   </property>
-                                   <property name="maximumSize">
-                                    <size>
-                                     <width>16777215</width>
-                                     <height>16777215</height>
-                                    </size>
-                                   </property>
-                                   <property name="font">
-                                    <font>
-                                     <pointsize>10</pointsize>
-                                     <weight>50</weight>
-                                     <bold>false</bold>
-                                    </font>
-                                   </property>
-                                   <property name="styleSheet">
-                                    <string notr="true">QLabel {
-
-color: white;
-qproperty-alignment: 'AlignBottom | AlignLeft';
-}</string>
-                                   </property>
-                                   <property name="text">
-                                    <string>V</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                </layout>
+                                </property>
+                                <property name="text">
+                                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;879&lt;span style=&quot; vertical-align:super;&quot;&gt;o&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                </property>
                                </widget>
                               </item>
                               <item>
-                               <widget class="QLabel" name="lowCellVoltageTitle">
+                               <widget class="QLabel" name="maxCellTemperatureUnitsLabel">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <property name="maximumSize">
+                                 <size>
+                                  <width>16777215</width>
+                                  <height>16777215</height>
+                                 </size>
+                                </property>
                                 <property name="font">
                                  <font>
                                   <pointsize>10</pointsize>
@@ -1539,32 +1470,31 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
                                  <string notr="true">QLabel {
 
 color: white;
-qproperty-alignment: 'AlignHCenter | AlignBottom';
+qproperty-alignment: 'AlignBottom | AlignLeft';
 }</string>
                                 </property>
                                 <property name="text">
-                                 <string>L O W</string>
+                                 <string>C</string>
                                 </property>
                                </widget>
                               </item>
                              </layout>
+                             <zorder>maxCellTemperatureUnitsLabel</zorder>
+                             <zorder>maxCellTemperatureLabel</zorder>
                             </widget>
                            </item>
                           </layout>
                          </widget>
                         </item>
                         <item>
-                         <widget class="QWidget" name="avgTempVoltageWidget" native="true">
+                         <widget class="QWidget" name="lowCellVoltageInfo" native="true">
                           <property name="font">
                            <font>
                             <weight>75</weight>
                             <bold>true</bold>
                            </font>
                           </property>
-                          <property name="styleSheet">
-                           <string notr="true"/>
-                          </property>
-                          <layout class="QHBoxLayout" name="horizontalLayout_23">
+                          <layout class="QVBoxLayout" name="verticalLayout_20">
                            <property name="spacing">
                             <number>0</number>
                            </property>
@@ -1581,146 +1511,35 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                             <number>0</number>
                            </property>
                            <item>
-                            <widget class="QWidget" name="avgTempratureInfo" native="true">
+                            <widget class="QLabel" name="lowCellVoltageTitle">
                              <property name="font">
                               <font>
-                               <weight>75</weight>
-                               <bold>true</bold>
+                               <pointsize>10</pointsize>
+                               <weight>50</weight>
+                               <bold>false</bold>
                               </font>
                              </property>
-                             <layout class="QVBoxLayout" name="verticalLayout_13">
-                              <property name="spacing">
-                               <number>0</number>
-                              </property>
-                              <property name="leftMargin">
-                               <number>0</number>
-                              </property>
-                              <property name="topMargin">
-                               <number>0</number>
-                              </property>
-                              <property name="rightMargin">
-                               <number>0</number>
-                              </property>
-                              <property name="bottomMargin">
-                               <number>0</number>
-                              </property>
-                              <item>
-                               <widget class="QWidget" name="averageTempuratureWidget" native="true">
-                                <property name="font">
-                                 <font>
-                                  <pointsize>18</pointsize>
-                                  <weight>75</weight>
-                                  <bold>true</bold>
-                                 </font>
-                                </property>
-                                <layout class="QHBoxLayout" name="horizontalLayout_14">
-                                 <property name="spacing">
-                                  <number>0</number>
-                                 </property>
-                                 <property name="leftMargin">
-                                  <number>0</number>
-                                 </property>
-                                 <property name="topMargin">
-                                  <number>0</number>
-                                 </property>
-                                 <property name="rightMargin">
-                                  <number>0</number>
-                                 </property>
-                                 <property name="bottomMargin">
-                                  <number>0</number>
-                                 </property>
-                                 <item>
-                                  <widget class="QLabel" name="avgCellTemperatureLabel">
-                                   <property name="maximumSize">
-                                    <size>
-                                     <width>55</width>
-                                     <height>16777215</height>
-                                    </size>
-                                   </property>
-                                   <property name="font">
-                                    <font>
-                                     <pointsize>16</pointsize>
-                                     <weight>50</weight>
-                                     <bold>false</bold>
-                                    </font>
-                                   </property>
-                                   <property name="styleSheet">
-                                    <string notr="true">
-color:white;</string>
-                                   </property>
-                                   <property name="text">
-                                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;879&lt;span style=&quot; vertical-align:super;&quot;&gt;o&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item>
-                                  <widget class="QLabel" name="avgCellTemperatureUnit">
-                                   <property name="sizePolicy">
-                                    <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                                     <horstretch>0</horstretch>
-                                     <verstretch>0</verstretch>
-                                    </sizepolicy>
-                                   </property>
-                                   <property name="maximumSize">
-                                    <size>
-                                     <width>16777215</width>
-                                     <height>16777215</height>
-                                    </size>
-                                   </property>
-                                   <property name="font">
-                                    <font>
-                                     <pointsize>10</pointsize>
-                                     <weight>50</weight>
-                                     <bold>false</bold>
-                                    </font>
-                                   </property>
-                                   <property name="styleSheet">
-                                    <string notr="true">
-color: white;</string>
-                                   </property>
-                                   <property name="text">
-                                    <string>C</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                </layout>
-                                <zorder>avgCellTemperatureUnit</zorder>
-                                <zorder>avgCellTemperatureLabel</zorder>
-                               </widget>
-                              </item>
-                              <item>
-                               <widget class="QLabel" name="averageCellTempTitle">
-                                <property name="font">
-                                 <font>
-                                  <pointsize>10</pointsize>
-                                  <weight>50</weight>
-                                  <bold>false</bold>
-                                 </font>
-                                </property>
-                                <property name="styleSheet">
-                                 <string notr="true">QLabel {
+                             <property name="styleSheet">
+                              <string notr="true">QLabel {
 
 color: white;
 qproperty-alignment: 'AlignHCenter | AlignBottom';
 }</string>
-                                </property>
-                                <property name="text">
-                                 <string>A V G</string>
-                                </property>
-                               </widget>
-                              </item>
-                             </layout>
+                             </property>
+                             <property name="text">
+                              <string>L O W</string>
+                             </property>
                             </widget>
                            </item>
                            <item>
-                            <widget class="QWidget" name="avgCellInfoWidget" native="true">
+                            <widget class="QWidget" name="lowestCellVoltageWidget" native="true">
                              <property name="font">
                               <font>
                                <weight>75</weight>
                                <bold>true</bold>
                               </font>
                              </property>
-                             <layout class="QVBoxLayout" name="verticalLayout_21">
+                             <layout class="QHBoxLayout" name="horizontalLayout_21">
                               <property name="spacing">
                                <number>0</number>
                               </property>
@@ -1737,88 +1556,43 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                                <number>0</number>
                               </property>
                               <item>
-                               <widget class="QWidget" name="avgCellVoltageWidget" native="true">
+                               <widget class="QLabel" name="lowestCellVoltageLabel">
+                                <property name="maximumSize">
+                                 <size>
+                                  <width>55</width>
+                                  <height>16777215</height>
+                                 </size>
+                                </property>
                                 <property name="font">
                                  <font>
-                                  <weight>75</weight>
-                                  <bold>true</bold>
+                                  <pointsize>16</pointsize>
+                                  <weight>50</weight>
+                                  <bold>false</bold>
                                  </font>
                                 </property>
-                                <layout class="QHBoxLayout" name="horizontalLayout_22">
-                                 <property name="spacing">
-                                  <number>0</number>
-                                 </property>
-                                 <property name="leftMargin">
-                                  <number>0</number>
-                                 </property>
-                                 <property name="topMargin">
-                                  <number>0</number>
-                                 </property>
-                                 <property name="rightMargin">
-                                  <number>0</number>
-                                 </property>
-                                 <property name="bottomMargin">
-                                  <number>0</number>
-                                 </property>
-                                 <item>
-                                  <widget class="QLabel" name="avgCellVoltageLabel">
-                                   <property name="maximumSize">
-                                    <size>
-                                     <width>55</width>
-                                     <height>16777215</height>
-                                    </size>
-                                   </property>
-                                   <property name="font">
-                                    <font>
-                                     <pointsize>16</pointsize>
-                                     <weight>50</weight>
-                                     <bold>false</bold>
-                                    </font>
-                                   </property>
-                                   <property name="styleSheet">
-                                    <string notr="true">
+                                <property name="styleSheet">
+                                 <string notr="true">
 color:white;</string>
-                                   </property>
-                                   <property name="text">
-                                    <string>879</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                 <item>
-                                  <widget class="QLabel" name="avgCellVoltageUnit">
-                                   <property name="sizePolicy">
-                                    <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                                     <horstretch>0</horstretch>
-                                     <verstretch>0</verstretch>
-                                    </sizepolicy>
-                                   </property>
-                                   <property name="maximumSize">
-                                    <size>
-                                     <width>16777215</width>
-                                     <height>16777215</height>
-                                    </size>
-                                   </property>
-                                   <property name="font">
-                                    <font>
-                                     <pointsize>10</pointsize>
-                                     <weight>50</weight>
-                                     <bold>false</bold>
-                                    </font>
-                                   </property>
-                                   <property name="styleSheet">
-                                    <string notr="true">
-color: white;</string>
-                                   </property>
-                                   <property name="text">
-                                    <string>V</string>
-                                   </property>
-                                  </widget>
-                                 </item>
-                                </layout>
+                                </property>
+                                <property name="text">
+                                 <string>879</string>
+                                </property>
                                </widget>
                               </item>
                               <item>
-                               <widget class="QLabel" name="avgCellVoltageTitle">
+                               <widget class="QLabel" name="lowestCellVoltageUnit">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <property name="maximumSize">
+                                 <size>
+                                  <width>16777215</width>
+                                  <height>16777215</height>
+                                 </size>
+                                </property>
                                 <property name="font">
                                  <font>
                                   <pointsize>10</pointsize>
@@ -1830,11 +1604,11 @@ color: white;</string>
                                  <string notr="true">QLabel {
 
 color: white;
-qproperty-alignment: 'AlignHCenter | AlignBottom';
+qproperty-alignment: 'AlignBottom | AlignLeft';
 }</string>
                                 </property>
                                 <property name="text">
-                                 <string>A V G</string>
+                                 <string>V</string>
                                 </property>
                                </widget>
                               </item>
@@ -1848,29 +1622,320 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                       </widget>
                      </item>
                      <item>
-                      <spacer name="verticalSpacer_5">
+                      <widget class="QWidget" name="avgTempVoltageWidget" native="true">
                        <property name="font">
                         <font>
                          <weight>75</weight>
                          <bold>true</bold>
                         </font>
                        </property>
-                       <property name="orientation">
-                        <enum>Qt::Vertical</enum>
+                       <property name="styleSheet">
+                        <string notr="true"/>
                        </property>
-                       <property name="sizeType">
-                        <enum>QSizePolicy::Preferred</enum>
-                       </property>
-                       <property name="sizeHint" stdset="0">
-                        <size>
-                         <width>20</width>
-                         <height>40</height>
-                        </size>
-                       </property>
-                      </spacer>
+                       <layout class="QHBoxLayout" name="horizontalLayout_23">
+                        <property name="spacing">
+                         <number>0</number>
+                        </property>
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                        <item>
+                         <widget class="QWidget" name="avgTempratureInfo" native="true">
+                          <property name="font">
+                           <font>
+                            <weight>75</weight>
+                            <bold>true</bold>
+                           </font>
+                          </property>
+                          <layout class="QVBoxLayout" name="verticalLayout_13">
+                           <property name="spacing">
+                            <number>0</number>
+                           </property>
+                           <property name="leftMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="topMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="rightMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="bottomMargin">
+                            <number>0</number>
+                           </property>
+                           <item>
+                            <widget class="QLabel" name="averageCellTempTitle">
+                             <property name="font">
+                              <font>
+                               <pointsize>10</pointsize>
+                               <weight>50</weight>
+                               <bold>false</bold>
+                              </font>
+                             </property>
+                             <property name="styleSheet">
+                              <string notr="true">QLabel {
+
+color: white;
+qproperty-alignment: 'AlignHCenter | AlignBottom';
+}</string>
+                             </property>
+                             <property name="text">
+                              <string>A V G</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QWidget" name="averageTempuratureWidget" native="true">
+                             <property name="font">
+                              <font>
+                               <pointsize>18</pointsize>
+                               <weight>75</weight>
+                               <bold>true</bold>
+                              </font>
+                             </property>
+                             <layout class="QHBoxLayout" name="horizontalLayout_14">
+                              <property name="spacing">
+                               <number>0</number>
+                              </property>
+                              <property name="leftMargin">
+                               <number>0</number>
+                              </property>
+                              <property name="topMargin">
+                               <number>0</number>
+                              </property>
+                              <property name="rightMargin">
+                               <number>0</number>
+                              </property>
+                              <property name="bottomMargin">
+                               <number>0</number>
+                              </property>
+                              <item>
+                               <widget class="QLabel" name="avgCellTemperatureLabel">
+                                <property name="maximumSize">
+                                 <size>
+                                  <width>55</width>
+                                  <height>16777215</height>
+                                 </size>
+                                </property>
+                                <property name="font">
+                                 <font>
+                                  <pointsize>16</pointsize>
+                                  <weight>50</weight>
+                                  <bold>false</bold>
+                                 </font>
+                                </property>
+                                <property name="styleSheet">
+                                 <string notr="true">
+color:white;</string>
+                                </property>
+                                <property name="text">
+                                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;879&lt;span style=&quot; vertical-align:super;&quot;&gt;o&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QLabel" name="avgCellTemperatureUnit">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <property name="maximumSize">
+                                 <size>
+                                  <width>16777215</width>
+                                  <height>16777215</height>
+                                 </size>
+                                </property>
+                                <property name="font">
+                                 <font>
+                                  <pointsize>10</pointsize>
+                                  <weight>50</weight>
+                                  <bold>false</bold>
+                                 </font>
+                                </property>
+                                <property name="styleSheet">
+                                 <string notr="true">
+color: white;</string>
+                                </property>
+                                <property name="text">
+                                 <string>C</string>
+                                </property>
+                               </widget>
+                              </item>
+                             </layout>
+                             <zorder>avgCellTemperatureUnit</zorder>
+                             <zorder>avgCellTemperatureLabel</zorder>
+                            </widget>
+                           </item>
+                          </layout>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QWidget" name="avgCellInfoWidget" native="true">
+                          <property name="font">
+                           <font>
+                            <weight>75</weight>
+                            <bold>true</bold>
+                           </font>
+                          </property>
+                          <layout class="QVBoxLayout" name="verticalLayout_21">
+                           <property name="spacing">
+                            <number>0</number>
+                           </property>
+                           <property name="leftMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="topMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="rightMargin">
+                            <number>0</number>
+                           </property>
+                           <property name="bottomMargin">
+                            <number>0</number>
+                           </property>
+                           <item>
+                            <widget class="QLabel" name="avgCellVoltageTitle">
+                             <property name="font">
+                              <font>
+                               <pointsize>10</pointsize>
+                               <weight>50</weight>
+                               <bold>false</bold>
+                              </font>
+                             </property>
+                             <property name="styleSheet">
+                              <string notr="true">QLabel {
+
+color: white;
+qproperty-alignment: 'AlignHCenter | AlignBottom';
+}</string>
+                             </property>
+                             <property name="text">
+                              <string>A V G</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QWidget" name="avgCellVoltageWidget" native="true">
+                             <property name="font">
+                              <font>
+                               <weight>75</weight>
+                               <bold>true</bold>
+                              </font>
+                             </property>
+                             <layout class="QHBoxLayout" name="horizontalLayout_22">
+                              <property name="spacing">
+                               <number>0</number>
+                              </property>
+                              <property name="leftMargin">
+                               <number>0</number>
+                              </property>
+                              <property name="topMargin">
+                               <number>0</number>
+                              </property>
+                              <property name="rightMargin">
+                               <number>0</number>
+                              </property>
+                              <property name="bottomMargin">
+                               <number>0</number>
+                              </property>
+                              <item>
+                               <widget class="QLabel" name="avgCellVoltageLabel">
+                                <property name="maximumSize">
+                                 <size>
+                                  <width>55</width>
+                                  <height>16777215</height>
+                                 </size>
+                                </property>
+                                <property name="font">
+                                 <font>
+                                  <pointsize>16</pointsize>
+                                  <weight>50</weight>
+                                  <bold>false</bold>
+                                 </font>
+                                </property>
+                                <property name="styleSheet">
+                                 <string notr="true">
+color:white;</string>
+                                </property>
+                                <property name="text">
+                                 <string>879</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QLabel" name="avgCellVoltageUnit">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <property name="maximumSize">
+                                 <size>
+                                  <width>16777215</width>
+                                  <height>16777215</height>
+                                 </size>
+                                </property>
+                                <property name="font">
+                                 <font>
+                                  <pointsize>10</pointsize>
+                                  <weight>50</weight>
+                                  <bold>false</bold>
+                                 </font>
+                                </property>
+                                <property name="styleSheet">
+                                 <string notr="true">
+color: white;</string>
+                                </property>
+                                <property name="text">
+                                 <string>V</string>
+                                </property>
+                               </widget>
+                              </item>
+                             </layout>
+                            </widget>
+                           </item>
+                          </layout>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
                      </item>
                     </layout>
                    </widget>
+                  </item>
+                  <item>
+                   <spacer name="verticalSpacer_5">
+                    <property name="font">
+                     <font>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="orientation">
+                     <enum>Qt::Vertical</enum>
+                    </property>
+                    <property name="sizeType">
+                     <enum>QSizePolicy::Preferred</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>20</width>
+                      <height>35</height>
+                     </size>
+                    </property>
+                   </spacer>
                   </item>
                  </layout>
                 </widget>
@@ -1885,34 +1950,413 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
        </widget>
       </item>
       <item>
-       <widget class="QWidget" name="bottomWidget" native="true">
-        <property name="font">
-         <font>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true"/>
-        </property>
-        <layout class="QHBoxLayout" name="horizontalLayout_9">
-         <property name="spacing">
-          <number>0</number>
-         </property>
-         <property name="leftMargin">
-          <number>0</number>
-         </property>
-         <property name="topMargin">
-          <number>0</number>
-         </property>
-         <property name="rightMargin">
-          <number>0</number>
-         </property>
-         <property name="bottomMargin">
-          <number>0</number>
-         </property>
+       <widget class="QWidget" name="BottomWidget" native="true">
+        <layout class="QHBoxLayout" name="VerticalLayout">
          <item>
           <widget class="QWidget" name="BottomLeftCorner" native="true">
+           <layout class="QHBoxLayout" name="BottomLeftWidget">
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="actualSpeedLabel">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>45</pointsize>
+                <weight>75</weight>
+                <italic>false</italic>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="autoFillBackground">
+               <bool>false</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+text-align: right;
+color: white;</string>
+              </property>
+              <property name="text">
+               <string>000.0</string>
+              </property>
+              <property name="textFormat">
+               <enum>Qt::PlainText</enum>
+              </property>
+              <property name="scaledContents">
+               <bool>false</bool>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="actualSpeedUnitsLabel">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>14</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+padding-top:60px;
+padding-left: -6px;
+color: white;</string>
+              </property>
+              <property name="text">
+               <string>KM/H</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QWidget" name="faultsWidget" native="true">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_3">
+               <property name="spacing">
+                <number>10</number>
+               </property>
+               <property name="sizeConstraint">
+                <enum>QLayout::SetMinimumSize</enum>
+               </property>
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <item>
+                <widget class="QWidget" name="batteryFaultsWidget" native="true">
+                 <property name="font">
+                  <font>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_17">
+                  <property name="spacing">
+                   <number>6</number>
+                  </property>
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="batteryFaultsTitleLabel">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <pointsize>10</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(100,100,100);</string>
+                    </property>
+                    <property name="text">
+                     <string>- B A T T E R Y   F A U L T S - </string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="batteryFaultsLabel">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <pointsize>11</pointsize>
+                      <weight>50</weight>
+                      <bold>false</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">
+color:white;</string>
+                    </property>
+                    <property name="text">
+                     <string>BatteryFaults</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                    </property>
+                    <property name="wordWrap">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
+                <widget class="QWidget" name="motorZeroFaultsWidget" native="true">
+                 <property name="font">
+                  <font>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_19">
+                  <property name="spacing">
+                   <number>6</number>
+                  </property>
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="motorZeroFaultsTitleLabel">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <pointsize>10</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(100,100,100);</string>
+                    </property>
+                    <property name="text">
+                     <string>- L. M O T O R   F A U L T S -</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="motorZeroFaultsLabel">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <pointsize>11</pointsize>
+                      <weight>50</weight>
+                      <bold>false</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">
+color:white;</string>
+                    </property>
+                    <property name="text">
+                     <string>Motor0</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                    </property>
+                    <property name="wordWrap">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
+                <widget class="QWidget" name="motortOneFaultsWidget" native="true">
+                 <property name="minimumSize">
+                  <size>
+                   <width>200</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_22">
+                  <property name="spacing">
+                   <number>6</number>
+                  </property>
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="motorOneFaultsTitleLabel">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <pointsize>10</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(100,100,100);</string>
+                    </property>
+                    <property name="text">
+                     <string>- R. M O T O R   F A U L T S -</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="motorOneFaultsLabel">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>200</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <pointsize>11</pointsize>
+                      <weight>50</weight>
+                      <bold>false</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">
+color:white;</string>
+                    </property>
+                    <property name="text">
+                     <string>Motor1</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                    </property>
+                    <property name="wordWrap">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QWidget" name="BottomRightCorner" native="true">
            <property name="font">
             <font>
              <weight>75</weight>
@@ -1999,7 +2443,7 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                     </property>
                     <layout class="QVBoxLayout" name="verticalLayout_5">
                      <property name="spacing">
-                      <number>10</number>
+                      <number>0</number>
                      </property>
                      <property name="leftMargin">
                       <number>0</number>
@@ -2013,6 +2457,32 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                      <property name="bottomMargin">
                       <number>0</number>
                      </property>
+                     <item>
+                      <widget class="QLabel" name="powerInTitleLabel">
+                       <property name="maximumSize">
+                        <size>
+                         <width>16777215</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>10</pointsize>
+                         <weight>75</weight>
+                         <bold>true</bold>
+                        </font>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">color: rgb(100,100,100);</string>
+                       </property>
+                       <property name="text">
+                        <string>- A R R A Y  P O W E R -</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
                      <item>
                       <widget class="QWidget" name="powerInDataWidget" native="true">
                        <property name="font">
@@ -2055,6 +2525,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                         </item>
                         <item>
                          <widget class="QLabel" name="arrayPowerLabel">
+                          <property name="maximumSize">
+                           <size>
+                            <width>16777215</width>
+                            <height>40</height>
+                           </size>
+                          </property>
                           <property name="font">
                            <font>
                             <pointsize>14</pointsize>
@@ -2095,48 +2571,6 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                        </layout>
                       </widget>
                      </item>
-                     <item>
-                      <widget class="QLabel" name="powerInTitleLabel">
-                       <property name="font">
-                        <font>
-                         <pointsize>8</pointsize>
-                         <weight>75</weight>
-                         <bold>true</bold>
-                        </font>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">color: rgb(100,100,100);</string>
-                       </property>
-                       <property name="text">
-                        <string>A R R A Y  P O W E R</string>
-                       </property>
-                       <property name="alignment">
-                        <set>Qt::AlignCenter</set>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <spacer name="verticalSpacer_2">
-                       <property name="font">
-                        <font>
-                         <weight>75</weight>
-                         <bold>true</bold>
-                        </font>
-                       </property>
-                       <property name="orientation">
-                        <enum>Qt::Vertical</enum>
-                       </property>
-                       <property name="sizeType">
-                        <enum>QSizePolicy::Minimum</enum>
-                       </property>
-                       <property name="sizeHint" stdset="0">
-                        <size>
-                         <width>20</width>
-                         <height>40</height>
-                        </size>
-                       </property>
-                      </spacer>
-                     </item>
                     </layout>
                    </widget>
                   </item>
@@ -2153,10 +2587,10 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_7">
                   <property name="spacing">
-                   <number>10</number>
+                   <number>0</number>
                   </property>
                   <property name="leftMargin">
-                   <number>0</number>
+                   <number>10</number>
                   </property>
                   <property name="topMargin">
                    <number>0</number>
@@ -2167,6 +2601,32 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                   <property name="bottomMargin">
                    <number>0</number>
                   </property>
+                  <item>
+                   <widget class="QLabel" name="netPowerTitle">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <pointsize>10</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(100,100,100);</string>
+                    </property>
+                    <property name="text">
+                     <string>- B A T T E R Y  P O W E R -</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
                   <item>
                    <widget class="QWidget" name="netPowerDataWidget" native="true">
                     <property name="font">
@@ -2249,48 +2709,6 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                     </layout>
                    </widget>
                   </item>
-                  <item>
-                   <widget class="QLabel" name="netPowerTitle">
-                    <property name="font">
-                     <font>
-                      <pointsize>8</pointsize>
-                      <weight>75</weight>
-                      <bold>true</bold>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">color: rgb(100,100,100);</string>
-                    </property>
-                    <property name="text">
-                     <string>B A T T E R Y  P O W E R</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <spacer name="verticalSpacer_4">
-                    <property name="font">
-                     <font>
-                      <weight>75</weight>
-                      <bold>true</bold>
-                     </font>
-                    </property>
-                    <property name="orientation">
-                     <enum>Qt::Vertical</enum>
-                    </property>
-                    <property name="sizeType">
-                     <enum>QSizePolicy::Minimum</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>20</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
                  </layout>
                 </widget>
                </item>
@@ -2361,7 +2779,7 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                     </property>
                     <property name="font">
                      <font>
-                      <pointsize>8</pointsize>
+                      <pointsize>10</pointsize>
                       <weight>75</weight>
                       <bold>true</bold>
                      </font>
@@ -2390,6 +2808,9 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                     </property>
                     <layout class="QHBoxLayout" name="horizontalLayout_10">
                      <property name="spacing">
+                      <number>0</number>
+                     </property>
+                     <property name="leftMargin">
                       <number>0</number>
                      </property>
                      <item>
@@ -2518,7 +2939,7 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                     </property>
                     <property name="font">
                      <font>
-                      <pointsize>8</pointsize>
+                      <pointsize>10</pointsize>
                       <weight>75</weight>
                       <bold>true</bold>
                      </font>
@@ -2527,7 +2948,7 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                      <string notr="true">color: rgb(100,100,100);</string>
                     </property>
                     <property name="text">
-                     <string> - B U S -</string>
+                     <string>- B U S -</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
@@ -2536,6 +2957,12 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                   </item>
                   <item>
                    <widget class="QWidget" name="busInfoData" native="true">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
                     <property name="font">
                      <font>
                       <weight>75</weight>
@@ -2584,6 +3011,9 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                           </property>
                           <property name="text">
                            <string>879</string>
+                          </property>
+                          <property name="alignment">
+                           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                           </property>
                          </widget>
                         </item>
@@ -2648,6 +3078,9 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                           <property name="text">
                            <string>879</string>
                           </property>
+                          <property name="alignment">
+                           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                          </property>
                          </widget>
                         </item>
                         <item>
@@ -2676,506 +3109,6 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                       </widget>
                      </item>
                     </layout>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-         </item>
-         <item>
-          <widget class="QWidget" name="BottomRightWidget" native="true">
-           <property name="font">
-            <font>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true"/>
-           </property>
-           <layout class="QHBoxLayout" name="horizontalLayout_4">
-            <property name="spacing">
-             <number>0</number>
-            </property>
-            <property name="leftMargin">
-             <number>0</number>
-            </property>
-            <property name="topMargin">
-             <number>0</number>
-            </property>
-            <property name="rightMargin">
-             <number>0</number>
-            </property>
-            <property name="bottomMargin">
-             <number>0</number>
-            </property>
-            <item>
-             <widget class="QWidget" name="lightIconWidget" native="true">
-              <property name="font">
-               <font>
-                <weight>75</weight>
-                <bold>true</bold>
-               </font>
-              </property>
-              <layout class="QVBoxLayout" name="verticalLayout_2">
-               <property name="spacing">
-                <number>0</number>
-               </property>
-               <property name="leftMargin">
-                <number>0</number>
-               </property>
-               <property name="topMargin">
-                <number>0</number>
-               </property>
-               <property name="rightMargin">
-                <number>0</number>
-               </property>
-               <property name="bottomMargin">
-                <number>0</number>
-               </property>
-               <item>
-                <widget class="QWidget" name="turnSignalWidget" native="true">
-                 <property name="font">
-                  <font>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <layout class="QHBoxLayout" name="horizontalLayout_2">
-                  <item>
-                   <widget class="QWidget" name="leftTurnSignalWidget" native="true">
-                    <property name="minimumSize">
-                     <size>
-                      <width>45</width>
-                      <height>45</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>45</width>
-                      <height>45</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <weight>75</weight>
-                      <bold>true</bold>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">border-image: url(:/Resources/TurnSignalLeft.png);</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QWidget" name="rightTurnSignalWidget" native="true">
-                    <property name="minimumSize">
-                     <size>
-                      <width>45</width>
-                      <height>45</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>45</width>
-                      <height>45</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <weight>75</weight>
-                      <bold>true</bold>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">border-image: url(:/Resources/TurnSignalRight.png);
-</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-               <item>
-                <widget class="QWidget" name="headlightsWidget" native="true">
-                 <property name="font">
-                  <font>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <layout class="QHBoxLayout" name="horizontalLayout_3">
-                  <item>
-                   <widget class="QWidget" name="lowHeadlightIndicatorWidget" native="true">
-                    <property name="minimumSize">
-                     <size>
-                      <width>70</width>
-                      <height>45</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>70</width>
-                      <height>45</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <weight>75</weight>
-                      <bold>true</bold>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">border-image: url(:/Resources/LowHeadlightIndicator.png);</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QWidget" name="highHeadlightIndicatorWidget" native="true">
-                    <property name="minimumSize">
-                     <size>
-                      <width>70</width>
-                      <height>45</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>70</width>
-                      <height>45</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <weight>75</weight>
-                      <bold>true</bold>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">border-image: url(:/Resources/HighHeadlightIndicator.png);</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
-            <item>
-             <widget class="QWidget" name="faultsWidget" native="true">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>0</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <weight>75</weight>
-                <bold>true</bold>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true"/>
-              </property>
-              <layout class="QVBoxLayout" name="verticalLayout_3">
-               <property name="spacing">
-                <number>10</number>
-               </property>
-               <property name="leftMargin">
-                <number>0</number>
-               </property>
-               <property name="topMargin">
-                <number>0</number>
-               </property>
-               <property name="rightMargin">
-                <number>0</number>
-               </property>
-               <property name="bottomMargin">
-                <number>0</number>
-               </property>
-               <item>
-                <widget class="QWidget" name="batteryFaultsWidget" native="true">
-                 <property name="font">
-                  <font>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <layout class="QVBoxLayout" name="verticalLayout_17">
-                  <property name="spacing">
-                   <number>6</number>
-                  </property>
-                  <property name="leftMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="topMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="rightMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="bottomMargin">
-                   <number>0</number>
-                  </property>
-                  <item>
-                   <widget class="QLabel" name="batteryFaultsTitleLabel">
-                    <property name="maximumSize">
-                     <size>
-                      <width>16777215</width>
-                      <height>20</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <pointsize>10</pointsize>
-                      <weight>75</weight>
-                      <bold>true</bold>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">color: rgb(100,100,100);</string>
-                    </property>
-                    <property name="text">
-                     <string>B A T T E R Y   F A U L T S</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QLabel" name="batteryFaultsLabel">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="minimumSize">
-                     <size>
-                      <width>200</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>200</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <pointsize>11</pointsize>
-                      <weight>50</weight>
-                      <bold>false</bold>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">
-color:white;</string>
-                    </property>
-                    <property name="text">
-                     <string>BatteryFaults</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                    </property>
-                    <property name="wordWrap">
-                     <bool>true</bool>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-               <item>
-                <widget class="QWidget" name="motorZeroFaultsWidget" native="true">
-                 <property name="font">
-                  <font>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <layout class="QVBoxLayout" name="verticalLayout_19">
-                  <property name="spacing">
-                   <number>6</number>
-                  </property>
-                  <property name="leftMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="topMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="rightMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="bottomMargin">
-                   <number>0</number>
-                  </property>
-                  <item>
-                   <widget class="QLabel" name="motorZeroFaultsTitleLabel">
-                    <property name="maximumSize">
-                     <size>
-                      <width>16777215</width>
-                      <height>20</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <pointsize>10</pointsize>
-                      <weight>75</weight>
-                      <bold>true</bold>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">color: rgb(100,100,100);</string>
-                    </property>
-                    <property name="text">
-                     <string>L. M O T O R   F A U L T S</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QLabel" name="motorZeroFaultsLabel">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="minimumSize">
-                     <size>
-                      <width>200</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>200</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <pointsize>11</pointsize>
-                      <weight>50</weight>
-                      <bold>false</bold>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">
-color:white;</string>
-                    </property>
-                    <property name="text">
-                     <string>Motor0</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                    </property>
-                    <property name="wordWrap">
-                     <bool>true</bool>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-               <item>
-                <widget class="QWidget" name="motortOneFaultsWidget" native="true">
-                 <property name="minimumSize">
-                  <size>
-                   <width>200</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <weight>75</weight>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <layout class="QVBoxLayout" name="verticalLayout_22">
-                  <property name="spacing">
-                   <number>6</number>
-                  </property>
-                  <property name="leftMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="topMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="rightMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="bottomMargin">
-                   <number>0</number>
-                  </property>
-                  <item>
-                   <widget class="QLabel" name="motorOneFaultsTitleLabel">
-                    <property name="maximumSize">
-                     <size>
-                      <width>16777215</width>
-                      <height>20</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <pointsize>10</pointsize>
-                      <weight>75</weight>
-                      <bold>true</bold>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">color: rgb(100,100,100);</string>
-                    </property>
-                    <property name="text">
-                     <string>R. M O T O R   F A U L T S</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QLabel" name="motorOneFaultsLabel">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="minimumSize">
-                     <size>
-                      <width>200</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>200</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <pointsize>11</pointsize>
-                      <weight>50</weight>
-                      <bold>false</bold>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">
-color:white;</string>
-                    </property>
-                    <property name="text">
-                     <string>Motor1</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                    </property>
-                    <property name="wordWrap">
-                     <bool>true</bool>
-                    </property>
                    </widget>
                   </item>
                  </layout>
