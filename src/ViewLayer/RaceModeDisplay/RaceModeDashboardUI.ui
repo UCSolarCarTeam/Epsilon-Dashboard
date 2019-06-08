@@ -2050,7 +2050,7 @@ color: white;</string>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_3">
                <property name="spacing">
-                <number>9</number>
+                <number>0</number>
                </property>
                <property name="sizeConstraint">
                 <enum>QLayout::SetMinimumSize</enum>
@@ -2380,7 +2380,7 @@ color:white;</string>
              <number>0</number>
             </property>
             <property name="bottomMargin">
-             <number>0</number>
+             <number>9</number>
             </property>
             <item>
              <widget class="QWidget" name="arrayPowerWidget" native="true">
