@@ -2050,7 +2050,7 @@ color: white;</string>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_3">
                <property name="spacing">
-                <number>10</number>
+                <number>9</number>
                </property>
                <property name="sizeConstraint">
                 <enum>QLayout::SetMinimumSize</enum>
@@ -2542,7 +2542,7 @@ color:white;</string>
                            <string>000</string>
                           </property>
                           <property name="alignment">
-                           <set>Qt::AlignCenter</set>
+                           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
                           </property>
                          </widget>
                         </item>
@@ -2680,7 +2680,7 @@ color:white;</string>
                         <string>000</string>
                        </property>
                        <property name="alignment">
-                        <set>Qt::AlignCenter</set>
+                        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
                        </property>
                       </widget>
                      </item>
@@ -3013,7 +3013,7 @@ color:white;</string>
                            <string>879</string>
                           </property>
                           <property name="alignment">
-                           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                           <set>Qt::AlignCenter</set>
                           </property>
                          </widget>
                         </item>
@@ -3079,7 +3079,7 @@ color:white;</string>
                            <string>879</string>
                           </property>
                           <property name="alignment">
-                           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                           <set>Qt::AlignCenter</set>
                           </property>
                          </widget>
                         </item>
