@@ -1157,7 +1157,7 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
 }</string>
            </property>
            <property name="text">
-            <string>C</string>
+            <string>°C</string>
            </property>
           </widget>
          </item>
@@ -1228,7 +1228,7 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
 }</string>
            </property>
            <property name="text">
-            <string>C</string>
+            <string>°C</string>
            </property>
           </widget>
          </item>
