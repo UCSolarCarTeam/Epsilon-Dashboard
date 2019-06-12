@@ -548,6 +548,26 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
                  </property>
                 </widget>
                </item>
+               <item row="0" column="0" colspan="2">
+                <widget class="QLabel" name="motorPowerLabel">
+                 <property name="font">
+                  <font>
+                   <pointsize>24</pointsize>
+                   <weight>50</weight>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QLabel {
+color: white;
+qproperty-alignment: 'AlignBottom | AlignRight';
+}</string>
+                 </property>
+                 <property name="text">
+                  <string>879</string>
+                 </property>
+                </widget>
+               </item>
                <item row="1" column="0" colspan="3">
                 <widget class="QLabel" name="motorPowerTitleLabel">
                  <property name="font">
@@ -567,26 +587,6 @@ color: rgb(100,100,100);
                  </property>
                  <property name="text">
                   <string>- M O T O R   P O W E R  -</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="0" colspan="2">
-                <widget class="QLabel" name="motorPowerLabel">
-                 <property name="font">
-                  <font>
-                   <pointsize>24</pointsize>
-                   <weight>50</weight>
-                   <bold>false</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel {
-color: white;
-qproperty-alignment: 'AlignBottom | AlignRight';
-}</string>
-                 </property>
-                 <property name="text">
-                  <string>879</string>
                  </property>
                 </widget>
                </item>
@@ -866,19 +866,6 @@ color: rgb(100,100,100);
                  </layout>
                 </widget>
                </item>
-               <item>
-                <spacer name="verticalSpacer_3">
-                 <property name="orientation">
-                  <enum>Qt::Vertical</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>20</width>
-                   <height>50</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
               </layout>
              </widget>
             </item>
@@ -939,7 +926,7 @@ color: rgb(100,100,100);
                   <string>- D R I V E  M O D E - </string>
                  </property>
                  <property name="alignment">
-                  <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+                  <set>Qt::AlignHCenter</set>
                  </property>
                 </widget>
                </item>
@@ -2077,7 +2064,7 @@ color: white;</string>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_17">
                   <property name="spacing">
-                   <number>6</number>
+                   <number>0</number>
                   </property>
                   <property name="leftMargin">
                    <number>0</number>
@@ -2142,8 +2129,7 @@ color: white;</string>
                      </font>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">
-color:white;</string>
+                     <string notr="true">color:white;</string>
                     </property>
                     <property name="text">
                      <string>BatteryFaults</string>
@@ -2169,7 +2155,7 @@ color:white;</string>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_19">
                   <property name="spacing">
-                   <number>6</number>
+                   <number>0</number>
                   </property>
                   <property name="leftMargin">
                    <number>0</number>
@@ -2234,8 +2220,7 @@ color:white;</string>
                      </font>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">
-color:white;</string>
+                     <string notr="true">color:white;</string>
                     </property>
                     <property name="text">
                      <string>Motor0</string>
@@ -2267,7 +2252,7 @@ color:white;</string>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_22">
                   <property name="spacing">
-                   <number>6</number>
+                   <number>0</number>
                   </property>
                   <property name="leftMargin">
                    <number>0</number>
@@ -2332,8 +2317,7 @@ color:white;</string>
                      </font>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">
-color:white;</string>
+                     <string notr="true">color:white;</string>
                     </property>
                     <property name="text">
                      <string>Motor1</string>
@@ -2380,7 +2364,7 @@ color:white;</string>
              <number>0</number>
             </property>
             <property name="bottomMargin">
-             <number>9</number>
+             <number>64</number>
             </property>
             <item>
              <widget class="QWidget" name="arrayPowerWidget" native="true">
@@ -2462,7 +2446,7 @@ color:white;</string>
                        <property name="maximumSize">
                         <size>
                          <width>16777215</width>
-                         <height>20</height>
+                         <height>15</height>
                         </size>
                        </property>
                        <property name="font">
@@ -2606,7 +2590,7 @@ color:white;</string>
                     <property name="maximumSize">
                      <size>
                       <width>16777215</width>
-                      <height>20</height>
+                      <height>15</height>
                      </size>
                     </property>
                     <property name="font">
@@ -2777,6 +2761,12 @@ color:white;</string>
                       <verstretch>0</verstretch>
                      </sizepolicy>
                     </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>15</height>
+                     </size>
+                    </property>
                     <property name="font">
                      <font>
                       <pointsize>10</pointsize>
@@ -2936,6 +2926,12 @@ color:white;</string>
                       <horstretch>0</horstretch>
                       <verstretch>0</verstretch>
                      </sizepolicy>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>15</height>
+                     </size>
                     </property>
                     <property name="font">
                      <font>
