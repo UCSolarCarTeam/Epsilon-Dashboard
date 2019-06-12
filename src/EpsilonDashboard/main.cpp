@@ -6,6 +6,10 @@
 
 int main(int argc, char* argv[])
 {
+#if QT_VERSION >= 0x050600
+    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+#endif
+
     QString tmpDir = QDir::tempPath();
     QLockFile lockFile(tmpDir + "/epsilonDashboard.lock");
 
