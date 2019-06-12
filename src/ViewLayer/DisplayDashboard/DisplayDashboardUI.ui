@@ -1404,7 +1404,7 @@ qproperty-alignment: 'AlignHCenter';
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">color: rgb(100,100,100);</string>
+              <string notr="true">color: rgb(255,255,255);</string>
              </property>
              <property name="text">
               <string>Off</string>
