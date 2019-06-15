@@ -1410,7 +1410,7 @@ background: none;</string>
             </size>
            </property>
            <property name="styleSheet">
-            <string notr="true">background: url(:/Resources/ArrayOneBackground.png);</string>
+            <string notr="true">background: url(:/Resources/ArrayThreeBackground.png);</string>
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout_9">
             <property name="spacing">
