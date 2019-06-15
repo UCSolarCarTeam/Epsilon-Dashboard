@@ -105,8 +105,6 @@ void DisplayDashboardView::connectDriverControls(DriverControlsPresenter& driver
 {
     connect(&driverControlsPresenter, SIGNAL(resetReceived(bool)),
             this, SLOT(resetReceived(bool)));
-    connect(&driverControlsPresenter, SIGNAL(brakesReceived(bool)),
-            this, SLOT(brakesReceived(bool)));
     connect(&driverControlsPresenter, SIGNAL(forwardReceived(bool)),
             this, SLOT(forwardReceived(bool)));
     connect(&driverControlsPresenter, SIGNAL(reverseReceived(bool)),
