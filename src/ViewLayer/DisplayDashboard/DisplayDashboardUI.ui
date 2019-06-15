@@ -1151,10 +1151,7 @@ qproperty-alignment: 'AlignHCenter';
             </font>
            </property>
            <property name="styleSheet">
-            <string notr="true">QLabel {
-color: rgb(230, 230, 170);
-qproperty-alignment: 'AlignBottom | AlignLeft';
-}</string>
+            <string notr="true">color: white;</string>
            </property>
            <property name="text">
             <string>C</string>
@@ -1222,10 +1219,7 @@ qproperty-alignment: 'AlignHCenter';
             </font>
            </property>
            <property name="styleSheet">
-            <string notr="true">QLabel {
-color: rgb(230, 230, 170);
-qproperty-alignment: 'AlignBottom | AlignLeft';
-}</string>
+            <string notr="true">color: white;</string>
            </property>
            <property name="text">
             <string>C</string>
@@ -1270,10 +1264,7 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
             </font>
            </property>
            <property name="styleSheet">
-            <string notr="true">QLabel {
-color: rgb(230, 230, 170);
-qproperty-alignment: 'AlignBottom | AlignLeft';
-}</string>
+            <string notr="true">color: white;</string>
            </property>
            <property name="text">
             <string>V</string>
@@ -1288,10 +1279,7 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
             </font>
            </property>
            <property name="styleSheet">
-            <string notr="true">QLabel {
-color: rgb(230, 230, 170);
-qproperty-alignment: 'AlignBottom | AlignLeft';
-}</string>
+            <string notr="true">color: white;</string>
            </property>
            <property name="text">
             <string>V</string>
@@ -1461,7 +1449,7 @@ qproperty-alignment: 'AlignHCenter';
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">color: rgb(230, 230, 170);</string>
+              <string notr="true">color: white;</string>
              </property>
              <property name="text">
               <string>V</string>
@@ -1476,7 +1464,7 @@ qproperty-alignment: 'AlignHCenter';
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">color:white;</string>
+              <string notr="true">color: white;</string>
              </property>
              <property name="text">
               <string>879</string>
@@ -1859,7 +1847,7 @@ color: rgb(230, 230, 170);
                 </font>
                </property>
                <property name="styleSheet">
-                <string notr="true">color: rgb(230, 230, 170);</string>
+                <string notr="true">color: white;</string>
                </property>
                <property name="text">
                 <string>W</string>
@@ -1923,7 +1911,7 @@ color: rgb(230, 230, 170);
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">color: rgb(230, 230, 170);</string>
+              <string notr="true">color: white;</string>
              </property>
              <property name="text">
               <string>W</string>
