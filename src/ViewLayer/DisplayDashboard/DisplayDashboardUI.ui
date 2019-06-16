@@ -1154,7 +1154,7 @@ qproperty-alignment: 'AlignHCenter';
             <string notr="true">color: white;</string>
            </property>
            <property name="text">
-            <string>C</string>
+            <string>°C</string>
            </property>
           </widget>
          </item>
@@ -1222,7 +1222,7 @@ qproperty-alignment: 'AlignHCenter';
             <string notr="true">color: white;</string>
            </property>
            <property name="text">
-            <string>C</string>
+            <string>°C</string>
            </property>
           </widget>
          </item>
