@@ -13,8 +13,12 @@ public:
 
     virtual QLabel& auxVoltageLabel() = 0;
 
-    virtual QLabel& setCurrentLabel() = 0;
-    virtual QLabel& motorPowerLabel() = 0;
+    virtual QLabel& motorZeroSetCurrentLabel() = 0;
+    virtual QLabel& motorOneSetCurrentLabel() = 0;
+    virtual QLabel& motorZeroPowerLabel() = 0;
+    virtual QLabel& motorZeroPowerUnitsLabel() = 0;
+    virtual QLabel& motorOnePowerLabel() = 0;
+    virtual QLabel& motorOnePowerUnitsLabel() = 0;
 
     virtual QLabel& batteryFaultsLabel() = 0;
     virtual QLabel& motorZeroFaultsLabel() = 0;
@@ -34,10 +38,12 @@ public:
     virtual QLabel& maxCellTemperatureLabel() = 0;
     virtual QLabel& avgCellTemperatureLabel() = 0;
     virtual QLabel& lowestCellVoltageLabel() = 0;
-    virtual QLabel& avgCellVoltageLabel() = 0;
+    virtual QLabel& highCellVoltageLabel() = 0;
 
-    virtual QLabel& busVoltageLabel() = 0;
-    virtual QLabel& busCurrentLabel() = 0;
+    virtual QLabel& motorZeroBusVoltageLabel() = 0;
+    virtual QLabel& motorOneBusVoltageLabel() = 0;
+    virtual QLabel& motorZeroBusCurrentLabel() = 0;
+    virtual QLabel& motorOneBusCurrentLabel() = 0;
 
     virtual QLabel& arrayPowerLabel() = 0;
     virtual QLabel& batteryPowerLabel() = 0;

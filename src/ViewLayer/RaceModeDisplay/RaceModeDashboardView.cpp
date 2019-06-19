@@ -8,6 +8,8 @@
 #include "../../PresenterLayer/MpptPresenter/MpptPresenter.h"
 #include "../../PresenterLayer/MotorDetailsPresenter/MotorDetailsPresenter.h"
 #include "../../PresenterLayer/MotorFaultsPresenter/MotorFaultsPresenter.h"
+#include "../../PresenterLayer/BatteryFaultsPresenter/BatteryFaultsPresenter.h"
+#include "../../PresenterLayer/KeyMotorPresenter/KeyMotorPresenter.h"
 #include "../RaceModeDisplay/RaceModeDisplayUI/I_RaceModeDashboardUI.h"
 
 namespace
@@ -88,8 +90,8 @@ void RaceModeDashboardView::connectBattery(BatteryPresenter& batteryPresenter)
             this, SLOT(packStateOfChargeReceived(double)));
     connect(&batteryPresenter, SIGNAL(lowCellVoltageReceived(float)),
             this, SLOT(lowCellVoltageReceived(float)));
-    connect(&batteryPresenter, SIGNAL(averageCellVoltageReceived(float)),
-            this, SLOT(averageCellVoltageReceived(float)));
+    connect(&batteryPresenter, SIGNAL(highCellVoltageReceived(float)),
+            this, SLOT(highCellVoltageReceived(float)));
     connect(&batteryPresenter, SIGNAL(highTemperatureReceived(int)),
             this, SLOT(highTemperatureReceived(int)));
     connect(&batteryPresenter, SIGNAL(averageTemperatureReceived(int)),
@@ -126,14 +128,16 @@ void RaceModeDashboardView::connectDriverControls(DriverControlsPresenter& drive
 
 void RaceModeDashboardView::connectKeyMotor(KeyMotorPresenter& keyMotorPresenter)
 {
-    connect(&keyMotorPresenter, SIGNAL(motorSetCurrentReceived(double)),
-            this, SLOT(motorSetCurrentReceived(double)));
     connect(&keyMotorPresenter, SIGNAL(motorActualSpeedReceived(double)),
             this, SLOT(motorActualSpeedReceived(double)));
-    connect(&keyMotorPresenter, SIGNAL(motorBusVoltageReceived(double)),
-            this, SLOT(motorBusVoltageReceived(double)));
-    connect(&keyMotorPresenter, SIGNAL(motorBusCurrentReceived(double)),
-            this, SLOT(motorBusCurrentReceived(double)));
+    connect(&keyMotorPresenter, SIGNAL(motorZeroBusPowerReceived(double)),
+            this, SLOT(motorZeroBusPowerReceived(double)));
+    connect(&keyMotorPresenter, SIGNAL(motorOneBusPowerReceived(double)),
+            this, SLOT(motorOneBusPowerReceived(double)));
+    connect(&keyMotorPresenter, SIGNAL(motorZeroReceived(KeyMotor)),
+            this, SLOT(motorZeroReceived(KeyMotor)));
+    connect(&keyMotorPresenter, SIGNAL(motorOneReceived(KeyMotor)),
+            this, SLOT(motorOneReceived(KeyMotor)));
 }
 
 void RaceModeDashboardView::connectLights(LightsPresenter& lightsPresenter)
@@ -258,9 +262,9 @@ void RaceModeDashboardView::lowCellVoltageReceived(float lowVoltage)
     ui_.lowestCellVoltageLabel().setText(QString::number(lowVoltage / MV_TO_V, 'f', 2));
 }
 
-void RaceModeDashboardView::averageCellVoltageReceived(float averageVoltage)
+void RaceModeDashboardView::highCellVoltageReceived(float highCellVoltage)
 {
-    ui_.avgCellVoltageLabel().setText(QString::number(averageVoltage / MV_TO_V, 'f', 2));
+    ui_.highCellVoltageLabel().setText(QString::number(highCellVoltage / MV_TO_V, 'f', 2));
 }
 
 void RaceModeDashboardView::highTemperatureReceived(int highTemp)
@@ -310,30 +314,50 @@ void RaceModeDashboardView::reverseReceived(bool reverse)
     reverse_ = reverse;
     updateDriveStateLabel();
 }
-void RaceModeDashboardView::motorSetCurrentReceived(double setCurrent)
+void RaceModeDashboardView::motorZeroReceived(KeyMotor motorZero)
 {
-    ui_.setCurrentLabel().setText(QString::number(setCurrent * 100, 'f', 2));
+    ui_.motorZeroSetCurrentLabel().setNum(motorZero.setCurrent());
+    ui_.motorZeroBusCurrentLabel().setNum(motorZero.busCurrent());
+    ui_.motorZeroBusVoltageLabel().setNum(motorZero.busVoltage());
+}
+
+void RaceModeDashboardView::motorOneReceived(KeyMotor motorOne)
+{
+    ui_.motorOneSetCurrentLabel().setNum(motorOne.setCurrent());
+    ui_.motorOneBusCurrentLabel().setNum(motorOne.busCurrent());
+    ui_.motorOneBusVoltageLabel().setNum(motorOne.busVoltage());
 }
 void RaceModeDashboardView::motorActualSpeedReceived(double actualSpeed)
 {
     ui_.actualSpeedLabel().setText(QString::number(qAbs(actualSpeed), 'f', 1));
 }
-void RaceModeDashboardView::motorBusVoltageReceived(double busVoltage)
+void RaceModeDashboardView::motorZeroBusPowerReceived(double motorPower)
 {
-    ui_.busVoltageLabel().setText(QString::number(busVoltage, 'f', 2));
-    busVoltage_ = busVoltage;
-    setMotorPower();
-}
-void RaceModeDashboardView::motorBusCurrentReceived(double busCurrent)
-{
-    ui_.busCurrentLabel().setText(QString::number(busCurrent, 'f', 2));
-    busCurrent_ = busCurrent;
-    setMotorPower();
-}
+    if (motorPower > 1000.0)
+    {
+        motorPower = motorPower / 1000;
+        ui_.motorZeroPowerUnitsLabel().setText("kW");
+    }
+    else
+    {
+        ui_.motorZeroPowerUnitsLabel().setText("W");
+    }
 
-void RaceModeDashboardView::setMotorPower()
+    ui_.motorZeroPowerLabel().setText(QString::number(motorPower, 'f', 2));
+}
+void RaceModeDashboardView::motorOneBusPowerReceived(double motorPower)
 {
-    ui_.motorPowerLabel().setText(QString::number((busVoltage_ * busCurrent_), 'f', 2));
+    if (motorPower > 1000.0)
+    {
+        motorPower = motorPower / 1000;
+        ui_.motorOnePowerUnitsLabel().setText("kW");
+    }
+    else
+    {
+        ui_.motorOnePowerUnitsLabel().setText("W");
+    }
+
+    ui_.motorOnePowerLabel().setText(QString::number(motorPower, 'f', 2));
 }
 
 void RaceModeDashboardView::lowBeamsReceived(bool lowBeams)
