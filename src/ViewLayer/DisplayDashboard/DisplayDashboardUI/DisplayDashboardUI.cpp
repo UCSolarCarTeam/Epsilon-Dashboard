@@ -82,14 +82,34 @@ QLabel& DisplayDashboardUI::array3CurrentLabel()
     return *ui_->array3CurrentLabel;
 }
 
-QLabel& DisplayDashboardUI::setCurrentLabel()
+QLabel& DisplayDashboardUI::motorZeroSetCurrentLabel()
 {
-    return *ui_->setCurrentLabel;
+    return *ui_->motorZeroSetCurrentLabel;
 }
 
-QLabel& DisplayDashboardUI::motorPowerLabel()
+QLabel& DisplayDashboardUI::motorOneSetCurrentLabel()
 {
-    return *ui_->motorPowerLabel;
+    return *ui_->motorOneSetCurrentLabel;
+}
+
+QLabel& DisplayDashboardUI::motorZeroPowerLabel()
+{
+    return *ui_->motorZeroPowerLabel;
+}
+
+QLabel& DisplayDashboardUI::motorZeroPowerUnitsLabel()
+{
+    return *ui_->motorZeroPowerUnitsLabel;
+}
+
+QLabel& DisplayDashboardUI::motorOnePowerLabel()
+{
+    return *ui_->motorOnePowerLabel;
+}
+
+QLabel& DisplayDashboardUI::motorOnePowerUnitsLabel()
+{
+    return *ui_->motorOnePowerUnitsLabel;
 }
 
 QLabel& DisplayDashboardUI::batteryFaultsLabel()
@@ -167,14 +187,24 @@ QLabel& DisplayDashboardUI::avgCellVoltageLabel()
     return *ui_->avgCellVoltageLabel;
 }
 
-QLabel& DisplayDashboardUI::busVoltageLabel()
+QLabel& DisplayDashboardUI::motorZeroBusVoltageLabel()
 {
-    return *ui_->busVoltageLabel;
+    return *ui_->motorZeroBusVoltageLabel;
 }
 
-QLabel& DisplayDashboardUI::busCurrentLabel()
+QLabel& DisplayDashboardUI::motorOneBusVoltageLabel()
 {
-    return *ui_->busCurrentLabel;
+    return *ui_->motorOneBusVoltageLabel;
+}
+
+QLabel& DisplayDashboardUI::motorZeroBusCurrentLabel()
+{
+    return *ui_->motorZeroBusCurrentLabel;
+}
+
+QLabel& DisplayDashboardUI::motorOneBusCurrentLabel()
+{
+    return *ui_->motorOneBusCurrentLabel;
 }
 
 QLabel& DisplayDashboardUI::arrayPowerLabel()
