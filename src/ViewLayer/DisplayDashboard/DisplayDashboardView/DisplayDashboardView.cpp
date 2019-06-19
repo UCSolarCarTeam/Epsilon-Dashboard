@@ -105,6 +105,8 @@ void DisplayDashboardView::connectDriverControls(DriverControlsPresenter& driver
 {
     connect(&driverControlsPresenter, SIGNAL(resetReceived(bool)),
             this, SLOT(resetReceived(bool)));
+    connect(&driverControlsPresenter, SIGNAL(brakesReceived(bool)),
+            this, SLOT(brakesReceived(bool)));
     connect(&driverControlsPresenter, SIGNAL(forwardReceived(bool)),
             this, SLOT(forwardReceived(bool)));
     connect(&driverControlsPresenter, SIGNAL(reverseReceived(bool)),
@@ -113,16 +115,24 @@ void DisplayDashboardView::connectDriverControls(DriverControlsPresenter& driver
 
 void DisplayDashboardView::connectKeyMotor(KeyMotorPresenter& keyMotorPresenter)
 {
-    connect(&keyMotorPresenter, SIGNAL(motorSetPowerReceived(double)),
-            this, SLOT(motorSetPowerReceived(double)));
-    connect(&keyMotorPresenter, SIGNAL(motorSetCurrentReceived(double)),
-            this, SLOT(motorSetCurrentReceived(double)));
+    connect(&keyMotorPresenter, SIGNAL(motorZeroSetPowerReceived(double)),
+            this, SLOT(motorZeroSetPowerReceived(double)));
+    connect(&keyMotorPresenter, SIGNAL(motorOneSetPowerReceived(double)),
+            this, SLOT(motorOneSetPowerReceived(double)));
+    connect(&keyMotorPresenter, SIGNAL(motorZeroSetCurrentReceived(double)),
+            this, SLOT(motorZeroSetCurrentReceived(double)));
+    connect(&keyMotorPresenter, SIGNAL(motorOneSetCurrentReceived(double)),
+            this, SLOT(motorOneSetCurrentReceived(double)));
     connect(&keyMotorPresenter, SIGNAL(motorActualSpeedReceived(double)),
             this, SLOT(motorActualSpeedReceived(double)));
-    connect(&keyMotorPresenter, SIGNAL(motorBusVoltageReceived(double)),
-            this, SLOT(motorBusVoltageReceived(double)));
-    connect(&keyMotorPresenter, SIGNAL(motorBusCurrentReceived(double)),
-            this, SLOT(motorBusCurrentReceived(double)));
+    connect(&keyMotorPresenter, SIGNAL(motorZeroBusVoltageReceived(double)),
+            this, SLOT(motorZeroBusVoltageReceived(double)));
+    connect(&keyMotorPresenter, SIGNAL(motorOneBusVoltageReceived(double)),
+            this, SLOT(motorOneBusVoltageReceived(double)));
+    connect(&keyMotorPresenter, SIGNAL(motorZeroBusCurrentReceived(double)),
+            this, SLOT(motorZeroBusCurrentReceived(double)));
+    connect(&keyMotorPresenter, SIGNAL(motorOneBusCurrentReceived(double)),
+            this, SLOT(motorOneBusCurrentReceived(double)));
 }
 
 void DisplayDashboardView::connectLights(LightsPresenter& lightsPresenter)
@@ -293,27 +303,42 @@ void DisplayDashboardView::reverseReceived(bool reverse)
     updateDriveStateLabel();
 }
 
-void DisplayDashboardView::motorSetPowerReceived(double setPower)
+void DisplayDashboardView::motorZeroSetPowerReceived(double setPower)
 {
-    ui_.motorPowerLabel().setText(QString::number(setPower, 'f', 2));
+    ui_.motorZeroPowerLabel().setText(QString::number(setPower, 'f', 2));
 }
-void DisplayDashboardView::motorSetCurrentReceived(double setCurrent)
+void DisplayDashboardView::motorOneSetPowerReceived(double setPower)
 {
-    ui_.setCurrentLabel().setText(QString::number(setCurrent, 'f', 3));
+    ui_.motorOnePowerLabel().setText(QString::number(setPower, 'f', 2));
+}
+void DisplayDashboardView::motorZeroSetCurrentReceived(double setCurrent)
+{
+    ui_.motorZeroSetCurrentLabel().setText(QString::number(setCurrent, 'f', 3));
+}
+void DisplayDashboardView::motorOneSetCurrentReceived(double setCurrent)
+{
+    ui_.motorOneSetCurrentLabel().setText(QString::number(setCurrent, 'f', 3));
 }
 void DisplayDashboardView::motorActualSpeedReceived(double actualSpeed)
 {
     ui_.actualSpeedLabel().setText(QString::number(qAbs(actualSpeed), 'f', 1));
 }
-void DisplayDashboardView::motorBusVoltageReceived(double busVoltage)
+void DisplayDashboardView::motorZeroBusVoltageReceived(double busVoltage)
 {
-    ui_.busVoltageLabel().setText(QString::number(busVoltage, 'f', 2));
+    ui_.motorZeroBusVoltageLabel().setText(QString::number(busVoltage, 'f', 2));
 }
-void DisplayDashboardView::motorBusCurrentReceived(double busCurrent)
+void DisplayDashboardView::motorOneBusVoltageReceived(double busVoltage)
 {
-    ui_.busCurrentLabel().setText(QString::number(busCurrent, 'f', 3));
+    ui_.motorOneBusVoltageLabel().setText(QString::number(busVoltage, 'f', 2));
 }
-
+void DisplayDashboardView::motorZeroBusCurrentReceived(double busCurrent)
+{
+    ui_.motorZeroBusCurrentLabel().setText(QString::number(busCurrent, 'f', 3));
+}
+void DisplayDashboardView::motorOneBusCurrentReceived(double busCurrent)
+{
+    ui_.motorOneBusCurrentLabel().setText(QString::number(busCurrent, 'f', 3));
+}
 void DisplayDashboardView::lowBeamsReceived(bool lowBeams)
 {
     if (lowBeams)
