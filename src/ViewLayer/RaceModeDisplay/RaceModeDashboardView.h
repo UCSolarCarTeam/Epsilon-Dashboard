@@ -106,10 +106,13 @@ private slots:
     void reverseReceived(bool);
 
     // key motor slots
-    void motorSetCurrentReceived(double);
+    void motorZeroSetCurrentReceived(double);
+    void motorOneSetCurrentReceived(double);
     void motorActualSpeedReceived(double);
-    void motorBusVoltageReceived(double);
-    void motorBusCurrentReceived(double);
+    void motorZeroBusVoltageReceived(double);
+    void motorOneBusVoltageReceived(double);
+    void motorZeroBusCurrentReceived(double);
+    void motorOneBusCurrentReceived(double);
 
     // lights slots
     void lowBeamsReceived(bool);
@@ -128,7 +131,8 @@ private slots:
     void motorOneErrorFlagsReceived(ErrorFlags);
     void motorOneLimitFlagsReceived(LimitFlags);
 
-    void setMotorPower();
+    void setMotorZeroPower();
+    void setMotorOnePower();
 
     void updateBatteryFaults();
     void updateMotor0Faults();

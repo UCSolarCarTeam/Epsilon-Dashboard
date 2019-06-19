@@ -126,14 +126,20 @@ void RaceModeDashboardView::connectDriverControls(DriverControlsPresenter& drive
 
 void RaceModeDashboardView::connectKeyMotor(KeyMotorPresenter& keyMotorPresenter)
 {
-    connect(&keyMotorPresenter, SIGNAL(motorSetCurrentReceived(double)),
-            this, SLOT(motorSetCurrentReceived(double)));
+    connect(&keyMotorPresenter, SIGNAL(motorZeroSetCurrentReceived(double)),
+            this, SLOT(motorZeroSetCurrentReceived(double)));
+    connect(&keyMotorPresenter, SIGNAL(motorOneSetCurrentReceived(double)),
+            this, SLOT(motorOneSetCurrentReceived(double)));
     connect(&keyMotorPresenter, SIGNAL(motorActualSpeedReceived(double)),
             this, SLOT(motorActualSpeedReceived(double)));
-    connect(&keyMotorPresenter, SIGNAL(motorBusVoltageReceived(double)),
-            this, SLOT(motorBusVoltageReceived(double)));
-    connect(&keyMotorPresenter, SIGNAL(motorBusCurrentReceived(double)),
-            this, SLOT(motorBusCurrentReceived(double)));
+    connect(&keyMotorPresenter, SIGNAL(motorZeroBusVoltageReceived(double)),
+            this, SLOT(motorZeroBusVoltageReceived(double)));
+    connect(&keyMotorPresenter, SIGNAL(motorOneBusVoltageReceived(double)),
+            this, SLOT(motorOneBusVoltageReceived(double)));
+    connect(&keyMotorPresenter, SIGNAL(motorZeroBusCurrentReceived(double)),
+            this, SLOT(motorZeroBusCurrentReceived(double)));
+    connect(&keyMotorPresenter, SIGNAL(motorOneBusCurrentReceived(double)),
+            this, SLOT(motorOneBusCurrentReceived(double)));
 }
 
 void RaceModeDashboardView::connectLights(LightsPresenter& lightsPresenter)
@@ -310,30 +316,51 @@ void RaceModeDashboardView::reverseReceived(bool reverse)
     reverse_ = reverse;
     updateDriveStateLabel();
 }
-void RaceModeDashboardView::motorSetCurrentReceived(double setCurrent)
+void RaceModeDashboardView::motorZeroSetCurrentReceived(double setCurrent)
 {
-    ui_.setCurrentLabel().setText(QString::number(setCurrent * 100, 'f', 2));
+    ui_.motorZeroSetCurrentLabel().setText(QString::number(setCurrent * 100, 'f', 2));
+}
+void RaceModeDashboardView::motorOneSetCurrentReceived(double setCurrent)
+{
+    ui_.motorOneSetCurrentLabel().setText(QString::number(setCurrent * 100, 'f', 2));
 }
 void RaceModeDashboardView::motorActualSpeedReceived(double actualSpeed)
 {
     ui_.actualSpeedLabel().setText(QString::number(qAbs(actualSpeed), 'f', 1));
 }
-void RaceModeDashboardView::motorBusVoltageReceived(double busVoltage)
+void RaceModeDashboardView::motorZeroBusVoltageReceived(double busVoltage)
 {
-    ui_.busVoltageLabel().setText(QString::number(busVoltage, 'f', 2));
+    ui_.motorZeroBusVoltageLabel().setText(QString::number(busVoltage, 'f', 2));
     busVoltage_ = busVoltage;
-    setMotorPower();
+    setMotorZeroPower();
 }
-void RaceModeDashboardView::motorBusCurrentReceived(double busCurrent)
+void RaceModeDashboardView::motorOneBusVoltageReceived(double busVoltage)
 {
-    ui_.busCurrentLabel().setText(QString::number(busCurrent, 'f', 2));
+    ui_.motorOneBusVoltageLabel().setText(QString::number(busVoltage, 'f', 2));
+    busVoltage_ = busVoltage;
+    setMotorOnePower();
+}
+void RaceModeDashboardView::motorZeroBusCurrentReceived(double busCurrent)
+{
+    ui_.motorZeroBusCurrentLabel().setText(QString::number(busCurrent, 'f', 2));
     busCurrent_ = busCurrent;
-    setMotorPower();
+    setMotorZeroPower();
+}
+void RaceModeDashboardView::motorOneBusCurrentReceived(double busCurrent)
+{
+    ui_.motorOneBusCurrentLabel().setText(QString::number(busCurrent, 'f', 2));
+    busCurrent_ = busCurrent;
+    setMotorOnePower();
 }
 
-void RaceModeDashboardView::setMotorPower()
+void RaceModeDashboardView::setMotorZeroPower()
 {
-    ui_.motorPowerLabel().setText(QString::number((busVoltage_ * busCurrent_), 'f', 2));
+    ui_.motorZeroPowerLabel().setText(QString::number((busVoltage_ * busCurrent_), 'f', 2));
+}
+
+void RaceModeDashboardView::setMotorOnePower()
+{
+    ui_.motorOnePowerLabel().setText(QString::number((busVoltage_ * busCurrent_), 'f', 2));
 }
 
 void RaceModeDashboardView::lowBeamsReceived(bool lowBeams)

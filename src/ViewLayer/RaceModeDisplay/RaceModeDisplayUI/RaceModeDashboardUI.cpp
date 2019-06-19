@@ -48,14 +48,24 @@ QLabel& RaceModeDashboardUI::auxVoltageLabel()
     return *ui_->auxVoltageLabel;
 }
 
-QLabel& RaceModeDashboardUI::setCurrentLabel()
+QLabel& RaceModeDashboardUI::motorZeroSetCurrentLabel()
 {
-    return *ui_->setCurrentLabel;
+    return *ui_->motorZeroSetCurrentLabel;
 }
 
-QLabel& RaceModeDashboardUI::motorPowerLabel()
+QLabel& RaceModeDashboardUI::motorOneSetCurrentLabel()
 {
-    return *ui_->motorPowerLabel;
+    return *ui_->motorOneSetCurrentLabel;
+}
+
+QLabel& RaceModeDashboardUI::motorZeroPowerLabel()
+{
+    return *ui_->motorZeroPowerLabel;
+}
+
+QLabel& RaceModeDashboardUI::motorOnePowerLabel()
+{
+    return *ui_->motorOnePowerLabel;
 }
 
 QLabel& RaceModeDashboardUI::batteryFaultsLabel()
@@ -128,14 +138,24 @@ QLabel& RaceModeDashboardUI::avgCellVoltageLabel()
     return *ui_->avgCellVoltageLabel;
 }
 
-QLabel& RaceModeDashboardUI::busVoltageLabel()
+QLabel& RaceModeDashboardUI::motorZeroBusVoltageLabel()
 {
-    return *ui_->busVoltageLabel;
+    return *ui_->motorZeroBusVoltageLabel;
 }
 
-QLabel& RaceModeDashboardUI::busCurrentLabel()
+QLabel& RaceModeDashboardUI::motorOneBusVoltageLabel()
 {
-    return *ui_->busCurrentLabel;
+    return *ui_->motorOneBusVoltageLabel;
+}
+
+QLabel& RaceModeDashboardUI::motorZeroBusCurrentLabel()
+{
+    return *ui_->motorZeroBusCurrentLabel;
+}
+
+QLabel& RaceModeDashboardUI::motorOneBusCurrentLabel()
+{
+    return *ui_->motorOneBusCurrentLabel;
 }
 
 QLabel& RaceModeDashboardUI::arrayPowerLabel()

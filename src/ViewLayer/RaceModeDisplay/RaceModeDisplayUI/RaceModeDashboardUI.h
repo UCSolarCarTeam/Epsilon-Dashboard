@@ -21,8 +21,10 @@ public:
 
     QLabel& auxVoltageLabel();
 
-    QLabel& setCurrentLabel();
-    QLabel& motorPowerLabel();
+    QLabel& motorZeroSetCurrentLabel();
+    QLabel& motorOneSetCurrentLabel();
+    QLabel& motorZeroPowerLabel();
+    QLabel& motorOnePowerLabel();
 
     QLabel& batteryFaultsLabel();
     QLabel& motorZeroFaultsLabel();
@@ -44,8 +46,10 @@ public:
     QLabel& lowestCellVoltageLabel();
     QLabel& avgCellVoltageLabel();
 
-    QLabel& busVoltageLabel();
-    QLabel& busCurrentLabel();
+    QLabel& motorZeroBusVoltageLabel();
+    QLabel& motorOneBusVoltageLabel();
+    QLabel& motorZeroBusCurrentLabel();
+    QLabel& motorOneBusCurrentLabel();
 
     QLabel& arrayPowerLabel();
     QLabel& batteryPowerLabel();
