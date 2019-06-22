@@ -249,7 +249,7 @@ color: white;</string>
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">color: rgb(100,100,100);</string>
+              <string notr="true">color: rgb(230, 230, 170);</string>
              </property>
              <property name="text">
               <string>B A T T E R Y   F A U L T S</string>
@@ -323,7 +323,7 @@ color: white;</string>
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">color: rgb(100,100,100);</string>
+              <string notr="true">color: rgb(230, 230, 170);</string>
              </property>
              <property name="text">
               <string>L E F T  M O T O R  F A U L T S</string>
@@ -367,7 +367,7 @@ color: white;</string>
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">color: rgb(100,100,100);</string>
+              <string notr="true">color: rgb(230, 230, 170);</string>
              </property>
              <property name="text">
               <string>R I G H T  M O T O R  F A U L T S</string>
@@ -453,7 +453,7 @@ color: white;</string>
              <property name="styleSheet">
               <string notr="true">QLabel {
 qproperty-alignment: AlignHCenter;
-color: rgb(100,100,100);
+color: rgb(230, 230, 170);
 }</string>
              </property>
              <property name="text">
@@ -491,7 +491,7 @@ color: rgb(100,100,100);
              <property name="styleSheet">
               <string notr="true">QLabel {
 qproperty-alignment: AlignHCenter;
-color: rgb(100,100,100);
+color: rgb(230, 230, 170);
 }</string>
              </property>
              <property name="text">
@@ -883,7 +883,7 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
              <property name="styleSheet">
               <string notr="true">QLabel {
 qproperty-alignment: AlignHCenter;
-color: rgb(100,100,100);
+color: rgb(230, 230, 170);
 }
 
 </string>
@@ -905,7 +905,7 @@ color: rgb(100,100,100);
              <property name="styleSheet">
               <string notr="true">QLabel {
 qproperty-alignment: AlignHCenter;
-color: rgb(100,100,100);
+color: rgb(230, 230, 170);
 }
 
 </string>
@@ -970,7 +970,7 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
                 <string>A</string>
                </property>
                <property name="alignment">
-                <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+                <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
                </property>
               </widget>
              </item>
@@ -1054,7 +1054,7 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
            <property name="styleSheet">
             <string notr="true">QLabel {
 qproperty-alignment: 'AlignHCenter | AlignBottom';
-color: rgb(100,100,100);
+color: rgb(230, 230, 170);
 }
 </string>
            </property>
@@ -1481,7 +1481,7 @@ background: none;</string>
       </property>
       <item row="2" column="3" colspan="6">
        <widget class="QWidget" name="cellWidget" native="true">
-        <layout class="QGridLayout" name="gridLayout_3" rowstretch="0,0,0,0,0,0">
+        <layout class="QGridLayout" name="gridLayout_3" rowstretch="0,0,0,0,0,0,0">
          <property name="leftMargin">
           <number>0</number>
          </property>
@@ -1507,15 +1507,14 @@ background: none;</string>
             </font>
            </property>
            <property name="styleSheet">
-            <string notr="true">text-align:center;
-color: rgb(100,100,100);</string>
+            <string notr="true">color: rgb(230, 230, 170);</string>
            </property>
            <property name="text">
             <string>- C E L L -</string>
            </property>
           </widget>
          </item>
-         <item row="5" column="1">
+         <item row="6" column="1">
           <widget class="QLabel" name="avgCellTemperatureTitleLabel">
            <property name="font">
             <font>
@@ -1524,7 +1523,7 @@ color: rgb(100,100,100);</string>
            </property>
            <property name="styleSheet">
             <string notr="true">QLabel {
-color: white;
+color: rgb(230, 230, 170);
 qproperty-alignment: 'AlignHCenter';
 }</string>
            </property>
@@ -1533,7 +1532,7 @@ qproperty-alignment: 'AlignHCenter';
            </property>
           </widget>
          </item>
-         <item row="4" column="4">
+         <item row="5" column="4">
           <widget class="QLabel" name="avgCellVoltageLabel">
            <property name="font">
             <font>
@@ -1548,7 +1547,7 @@ qproperty-alignment: 'AlignHCenter';
            </property>
           </widget>
          </item>
-         <item row="4" column="2">
+         <item row="5" column="2">
           <widget class="QLabel" name="avgCellTemperatureUnitsLabel">
            <property name="font">
             <font>
@@ -1566,45 +1565,7 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
            </property>
           </widget>
          </item>
-         <item row="1" column="1">
-          <widget class="QLabel" name="maxCellTemperatureTitleLabel">
-           <property name="font">
-            <font>
-             <pointsize>10</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QLabel {
-color: white;
-qproperty-alignment: 'AlignHCenter | AlignBottom';
-}</string>
-           </property>
-           <property name="text">
-            <string>M A X</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="4">
-          <widget class="QLabel" name="lowestCellVoltageTitleLabel">
-           <property name="font">
-            <font>
-             <pointsize>10</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QLabel {
-color: white;
-qproperty-alignment: 'AlignHCenter';
-}</string>
-           </property>
-           <property name="text">
-            <string>L O W</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="1">
+         <item row="3" column="1">
           <widget class="QLabel" name="maxCellTemperatureLabel">
            <property name="font">
             <font>
@@ -1619,7 +1580,7 @@ qproperty-alignment: 'AlignHCenter';
            </property>
           </widget>
          </item>
-         <item row="2" column="2">
+         <item row="3" column="2">
           <widget class="QLabel" name="maxCellTemperatureUnitsLabel">
            <property name="font">
             <font>
@@ -1637,22 +1598,7 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
            </property>
           </widget>
          </item>
-         <item row="1" column="4">
-          <widget class="QLabel" name="lowestCellVoltageLabel">
-           <property name="font">
-            <font>
-             <pointsize>18</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color:white;</string>
-           </property>
-           <property name="text">
-            <string>879</string>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="1">
+         <item row="5" column="1">
           <widget class="QLabel" name="avgCellTemperatureLabel">
            <property name="font">
             <font>
@@ -1667,25 +1613,7 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
            </property>
           </widget>
          </item>
-         <item row="1" column="5">
-          <widget class="QLabel" name="lowestCellVoltageUnitsLabel">
-           <property name="font">
-            <font>
-             <pointsize>10</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QLabel {
-color: white;
-qproperty-alignment: 'AlignBottom | AlignLeft';
-}</string>
-           </property>
-           <property name="text">
-            <string>V</string>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="5">
+         <item row="5" column="5">
           <widget class="QLabel" name="avgCellVoltageUnitsLabel">
            <property name="font">
             <font>
@@ -1703,7 +1631,7 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
            </property>
           </widget>
          </item>
-         <item row="5" column="4">
+         <item row="6" column="4">
           <widget class="QLabel" name="avgCellVoltageTitleLabel">
            <property name="font">
             <font>
@@ -1712,7 +1640,7 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
            </property>
            <property name="styleSheet">
             <string notr="true">QLabel {
-color: white;
+color: rgb(230, 230, 170);
 qproperty-alignment: 'AlignHCenter';
 }</string>
            </property>
@@ -1721,7 +1649,7 @@ qproperty-alignment: 'AlignHCenter';
            </property>
           </widget>
          </item>
-         <item row="1" column="3" rowspan="5">
+         <item row="1" column="3" rowspan="6">
           <widget class="QWidget" name="widget" native="true">
            <property name="minimumSize">
             <size>
@@ -1731,7 +1659,7 @@ qproperty-alignment: 'AlignHCenter';
            </property>
           </widget>
          </item>
-         <item row="3" column="1" colspan="2">
+         <item row="4" column="1" colspan="2">
           <spacer name="verticalSpacer">
            <property name="orientation">
             <enum>Qt::Vertical</enum>
@@ -1743,6 +1671,77 @@ qproperty-alignment: 'AlignHCenter';
             </size>
            </property>
           </spacer>
+         </item>
+         <item row="2" column="4">
+          <widget class="QLabel" name="lowestCellVoltageTitleLabel">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+color: rgb(230, 230, 170);
+qproperty-alignment: 'AlignHCenter';
+}</string>
+           </property>
+           <property name="text">
+            <string>L O W</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="4">
+          <widget class="QLabel" name="lowestCellVoltageLabel">
+           <property name="font">
+            <font>
+             <pointsize>18</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color:white;</string>
+           </property>
+           <property name="text">
+            <string>879</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="5">
+          <widget class="QLabel" name="lowestCellVoltageUnitsLabel">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+color: white;
+qproperty-alignment: 'AlignBottom | AlignLeft';
+}</string>
+           </property>
+           <property name="text">
+            <string>V</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLabel" name="maxCellTemperatureTitleLabel">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+color: rgb(230, 230, 170);
+qproperty-alignment: 'AlignHCenter | AlignBottom';
+}</string>
+           </property>
+           <property name="text">
+            <string>M A X</string>
+           </property>
+          </widget>
          </item>
         </layout>
        </widget>
@@ -1792,7 +1791,7 @@ qproperty-alignment: 'AlignHCenter';
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">color: rgb(100,100,100);</string>
+              <string notr="true">color: rgb(230, 230, 170);</string>
              </property>
              <property name="text">
               <string>P R E C H A R G E</string>
@@ -1896,7 +1895,7 @@ qproperty-alignment: 'AlignHCenter';
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">color: rgb(100,100,100);</string>
+              <string notr="true">color: white;</string>
              </property>
              <property name="text">
               <string>V</string>
@@ -1926,7 +1925,7 @@ qproperty-alignment: 'AlignHCenter';
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">color: rgb(100,100,100);</string>
+              <string notr="true">color: white;</string>
              </property>
              <property name="text">
               <string>A</string>
@@ -1943,7 +1942,7 @@ qproperty-alignment: 'AlignHCenter';
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">color: rgb(100,100,100);</string>
+              <string notr="true">color: rgb(230, 230, 170);</string>
              </property>
              <property name="text">
               <string>- B U S -</string>
@@ -1953,7 +1952,7 @@ qproperty-alignment: 'AlignHCenter';
            <item row="3" column="1">
             <widget class="QLabel" name="busMotorOneLabel">
              <property name="styleSheet">
-              <string notr="true">color: rgb(100,100,100);</string>
+              <string notr="true">color: rgb(230, 230, 170);</string>
              </property>
              <property name="text">
               <string>M O T O R  1</string>
@@ -1968,7 +1967,7 @@ qproperty-alignment: 'AlignHCenter';
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">color: rgb(100,100,100);</string>
+              <string notr="true">color: white;</string>
              </property>
              <property name="text">
               <string>V</string>
@@ -1983,7 +1982,7 @@ qproperty-alignment: 'AlignHCenter';
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">color: rgb(100,100,100);</string>
+              <string notr="true">color: white;</string>
              </property>
              <property name="text">
               <string>A</string>
@@ -1993,7 +1992,7 @@ qproperty-alignment: 'AlignHCenter';
            <item row="1" column="1">
             <widget class="QLabel" name="busMotorZeroLabel">
              <property name="styleSheet">
-              <string notr="true">color: rgb(100,100,100);</string>
+              <string notr="true">color: rgb(230, 230, 170);</string>
              </property>
              <property name="text">
               <string>M O T O R  0</string>
@@ -2123,7 +2122,7 @@ background: rgb(20,180,20);
              <property name="styleSheet">
               <string notr="true">QLabel {
 qproperty-alignment: AlignHCenter;
-color: rgb(100,100,100);
+color: rgb(230, 230, 170);
 }
 
 </string>
@@ -2314,7 +2313,7 @@ color: rgb(100,100,100);
                 </font>
                </property>
                <property name="styleSheet">
-                <string notr="true">color: rgb(100,100,100);</string>
+                <string notr="true">color: rgb(230, 230, 170);</string>
                </property>
                <property name="text">
                 <string>A R R A Y</string>
@@ -2344,7 +2343,7 @@ color: rgb(100,100,100);
                 </font>
                </property>
                <property name="styleSheet">
-                <string notr="true">color: rgb(100,100,100);</string>
+                <string notr="true">color: white;</string>
                </property>
                <property name="text">
                 <string>W</string>
@@ -2376,7 +2375,7 @@ color: rgb(100,100,100);
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">color: rgb(100,100,100);</string>
+              <string notr="true">color: rgb(230, 230, 170);</string>
              </property>
              <property name="text">
               <string>B A T T E R Y</string>
@@ -2393,7 +2392,7 @@ color: rgb(100,100,100);
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">color: rgb(100,100,100);</string>
+              <string notr="true">color: rgb(230, 230, 170);</string>
              </property>
              <property name="text">
               <string>- P O W E R -</string>
@@ -2408,7 +2407,7 @@ color: rgb(100,100,100);
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">color: rgb(100,100,100);</string>
+              <string notr="true">color: white;</string>
              </property>
              <property name="text">
               <string>W</string>
@@ -2499,7 +2498,7 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
           <property name="styleSheet">
            <string notr="true">QLabel {
 qproperty-alignment: AlignHCenter;
-color: rgb(100,100,100);
+color: rgb(230, 230, 170);
 }
 </string>
           </property>

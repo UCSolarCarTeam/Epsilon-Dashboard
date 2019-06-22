@@ -562,7 +562,7 @@ color: rgb(230, 230, 170);
                     </font>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">color: white;</string>
+                    <string notr="true">color: rgb(230, 230, 170);</string>
                    </property>
                    <property name="text">
                     <string>M O T O R  0</string>
@@ -641,7 +641,7 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
                     </font>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">color: white;</string>
+                    <string notr="true">color: rgb(230, 230, 170);</string>
                    </property>
                    <property name="text">
                     <string>M O T O R  1</string>
@@ -762,7 +762,7 @@ color: rgb(230, 230, 170);
                     </font>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">color: white;</string>
+                    <string notr="true">color: rgb(230, 230, 170);</string>
                    </property>
                    <property name="text">
                     <string>M O T O R  0</string>
@@ -824,7 +824,7 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
                     </font>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">color: white;</string>
+                    <string notr="true">color: rgb(230, 230, 170);</string>
                    </property>
                    <property name="text">
                     <string>M O T O R  1</string>
@@ -3158,7 +3158,7 @@ color: white;</string>
                        </font>
                       </property>
                       <property name="styleSheet">
-                       <string notr="true">color: white;</string>
+                       <string notr="true">color: rgb(230, 230, 170);</string>
                       </property>
                       <property name="text">
                        <string>M O T O R  0</string>
@@ -3503,6 +3503,9 @@ color: white;</string>
                         <weight>75</weight>
                         <bold>true</bold>
                        </font>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">color: rgb(230, 230, 170);</string>
                       </property>
                       <property name="text">
                        <string>M O T O R  1</string>
