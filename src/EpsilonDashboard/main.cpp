@@ -32,10 +32,11 @@ int main(int argc, char* argv[])
 
     QScopedPointer<EpsilonDashboard> app;
     app.reset(new EpsilonDashboard(argc, argv));
+
     QPixmap pixmap(":/Resources/Bill.png");
-        QSplashScreen splash(pixmap);
-        splash.show();
-//        splash.finish(app->activePopupWidget());
-        QTimer::singleShot(5000, &splash, SLOT(close()));
+    QSplashScreen splash(pixmap);
+    splash.show();
+    QTimer::singleShot(5000, &splash, SLOT(close()));
+
     return app->exec();
 }
