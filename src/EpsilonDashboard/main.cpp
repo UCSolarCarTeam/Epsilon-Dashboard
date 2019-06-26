@@ -3,6 +3,10 @@
 #include <QLockFile>
 #include <QDebug>
 #include <QDir>
+#include <QPixmap>
+#include <QSplashScreen>
+#include <QMainWindow>
+#include <QTimer>
 
 int main(int argc, char* argv[])
 {
@@ -28,5 +32,11 @@ int main(int argc, char* argv[])
 
     QScopedPointer<EpsilonDashboard> app;
     app.reset(new EpsilonDashboard(argc, argv));
+
+    QPixmap pixmap(":/Resources/Bill.png");
+    QSplashScreen splash(pixmap);
+    splash.show();
+    QTimer::singleShot(5000, &splash, SLOT(close()));
+
     return app->exec();
 }
