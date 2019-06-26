@@ -78,6 +78,8 @@ RaceModeDashboardView::~RaceModeDashboardView()
 {
 }
 
+
+
 void RaceModeDashboardView::connectBattery(BatteryPresenter& batteryPresenter)
 {
     connect(&batteryPresenter, SIGNAL(aliveReceived(bool)),
@@ -126,20 +128,8 @@ void RaceModeDashboardView::connectDriverControls(DriverControlsPresenter& drive
 
 void RaceModeDashboardView::connectKeyMotor(KeyMotorPresenter& keyMotorPresenter)
 {
-    connect(&keyMotorPresenter, SIGNAL(motorZeroSetCurrentReceived(double)),
-            this, SLOT(motorZeroSetCurrentReceived(double)));
-    connect(&keyMotorPresenter, SIGNAL(motorOneSetCurrentReceived(double)),
-            this, SLOT(motorOneSetCurrentReceived(double)));
     connect(&keyMotorPresenter, SIGNAL(motorActualSpeedReceived(double)),
             this, SLOT(motorActualSpeedReceived(double)));
-    connect(&keyMotorPresenter, SIGNAL(motorZeroBusVoltageReceived(double)),
-            this, SLOT(motorZeroBusVoltageReceived(double)));
-    connect(&keyMotorPresenter, SIGNAL(motorOneBusVoltageReceived(double)),
-            this, SLOT(motorOneBusVoltageReceived(double)));
-    connect(&keyMotorPresenter, SIGNAL(motorZeroBusCurrentReceived(double)),
-            this, SLOT(motorZeroBusCurrentReceived(double)));
-    connect(&keyMotorPresenter, SIGNAL(motorOneBusCurrentReceived(double)),
-            this, SLOT(motorOneBusCurrentReceived(double)));
 }
 
 void RaceModeDashboardView::connectLights(LightsPresenter& lightsPresenter)
@@ -316,6 +306,7 @@ void RaceModeDashboardView::reverseReceived(bool reverse)
     reverse_ = reverse;
     updateDriveStateLabel();
 }
+/*
 void RaceModeDashboardView::motorZeroSetCurrentReceived(double setCurrent)
 {
     ui_.motorZeroSetCurrentLabel().setText(QString::number(setCurrent * 100, 'f', 2));
@@ -324,6 +315,7 @@ void RaceModeDashboardView::motorOneSetCurrentReceived(double setCurrent)
 {
     ui_.motorOneSetCurrentLabel().setText(QString::number(setCurrent * 100, 'f', 2));
 }
+*/
 void RaceModeDashboardView::motorActualSpeedReceived(double actualSpeed)
 {
     ui_.actualSpeedLabel().setText(QString::number(qAbs(actualSpeed), 'f', 1));

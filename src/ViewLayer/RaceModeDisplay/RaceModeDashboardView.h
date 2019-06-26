@@ -106,8 +106,6 @@ private slots:
     void reverseReceived(bool);
 
     // key motor slots
-    void motorZeroSetCurrentReceived(double);
-    void motorOneSetCurrentReceived(double);
     void motorActualSpeedReceived(double);
     void motorZeroBusVoltageReceived(double);
     void motorOneBusVoltageReceived(double);

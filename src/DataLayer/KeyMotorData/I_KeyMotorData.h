@@ -19,13 +19,14 @@ public:
 signals:
     void motorZeroReceived(KeyMotor);
     void motorOneReceived(KeyMotor);
-    void motorZeroSetPowerReceived(double);
-    void motorOneSetPowerReceived(double);
-    void motorZeroSetCurrentReceived(double);
-    void motorOneSetCurrentReceived(double);
+
+    void motorZeroBusPowerReceived(double);
+    void motorOneBusPowerReceived(double);
+
+    void motorSetPowerReceived(double);
+    void motorSetCurrentReceived(double);
+    void motorBusVoltageReceived(double);
+    void motorBusCurrentReceived(double);
+
     void motorActualSpeedReceived(double);
-    void motorZeroBusVoltageReceived(double);
-    void motorOneBusVoltageReceived(double);
-    void motorZeroBusCurrentReceived(double);
-    void motorOneBusCurrentReceived(double);
 };
