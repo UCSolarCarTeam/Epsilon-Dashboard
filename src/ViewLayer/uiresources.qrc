@@ -41,6 +41,5 @@
         <file>../Resources/TurnSignalRightOff.png</file>
         <file>../Resources/LowHeadlightOff.png</file>
         <file>../Resources/HighHeadlightOff.png</file>
-        <file>../Resources/Bill.png</file>
     </qresource>
 </RCC>
