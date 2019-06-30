@@ -36,7 +36,7 @@ public:
     virtual QLabel& maxCellTemperatureLabel() = 0;
     virtual QLabel& avgCellTemperatureLabel() = 0;
     virtual QLabel& lowestCellVoltageLabel() = 0;
-    virtual QLabel& avgCellVoltageLabel() = 0;
+    virtual QLabel& highCellVoltageLabel() = 0;
 
     virtual QLabel& motorZeroBusVoltageLabel() = 0;
     virtual QLabel& motorOneBusVoltageLabel() = 0;

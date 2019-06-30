@@ -44,7 +44,7 @@ public:
     QLabel& maxCellTemperatureLabel();
     QLabel& avgCellTemperatureLabel();
     QLabel& lowestCellVoltageLabel();
-    QLabel& avgCellVoltageLabel();
+    QLabel& highCellVoltageLabel();
 
     QLabel& motorZeroBusVoltageLabel();
     QLabel& motorOneBusVoltageLabel();

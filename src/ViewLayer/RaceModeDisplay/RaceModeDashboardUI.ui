@@ -1519,7 +1519,7 @@ margin-top:20px;</string>
                        <property name="styleSheet">
                         <string notr="true"/>
                        </property>
-                       <layout class="QHBoxLayout" name="horizontalLayout_19">
+                       <layout class="QHBoxLayout" name="horizontalLayout">
                         <property name="spacing">
                          <number>0</number>
                         </property>
@@ -1670,14 +1670,14 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
                          </widget>
                         </item>
                         <item>
-                         <widget class="QWidget" name="lowCellVoltageInfo" native="true">
+                         <widget class="QWidget" name="highCellInfoWidget" native="true">
                           <property name="font">
                            <font>
                             <weight>75</weight>
                             <bold>true</bold>
                            </font>
                           </property>
-                          <layout class="QVBoxLayout" name="verticalLayout_20">
+                          <layout class="QVBoxLayout" name="verticalLayout_21">
                            <property name="spacing">
                             <number>0</number>
                            </property>
@@ -1694,7 +1694,7 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
                             <number>0</number>
                            </property>
                            <item>
-                            <widget class="QLabel" name="lowCellVoltageTitle">
+                            <widget class="QLabel" name="highCellVoltageTitle">
                              <property name="font">
                               <font>
                                <pointsize>10</pointsize>
@@ -1710,19 +1710,19 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
 }</string>
                              </property>
                              <property name="text">
-                              <string>L O W</string>
+                              <string>H I G H</string>
                              </property>
                             </widget>
                            </item>
                            <item>
-                            <widget class="QWidget" name="lowestCellVoltageWidget" native="true">
+                            <widget class="QWidget" name="highCellVoltageWidget" native="true">
                              <property name="font">
                               <font>
                                <weight>75</weight>
                                <bold>true</bold>
                               </font>
                              </property>
-                             <layout class="QHBoxLayout" name="horizontalLayout_21">
+                             <layout class="QHBoxLayout" name="horizontalLayout_22">
                               <property name="spacing">
                                <number>0</number>
                               </property>
@@ -1739,7 +1739,7 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                                <number>0</number>
                               </property>
                               <item>
-                               <widget class="QLabel" name="lowestCellVoltageLabel">
+                               <widget class="QLabel" name="highCellVoltageLabel">
                                 <property name="maximumSize">
                                  <size>
                                   <width>55</width>
@@ -1763,7 +1763,7 @@ color:white;</string>
                                </widget>
                               </item>
                               <item>
-                               <widget class="QLabel" name="lowestCellVoltageUnit">
+                               <widget class="QLabel" name="highCellVoltageUnit">
                                 <property name="sizePolicy">
                                  <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
                                   <horstretch>0</horstretch>
@@ -1784,11 +1784,8 @@ color:white;</string>
                                  </font>
                                 </property>
                                 <property name="styleSheet">
-                                 <string notr="true">QLabel {
-
-color: white;
-qproperty-alignment: 'AlignBottom | AlignLeft';
-}</string>
+                                 <string notr="true">
+color: white;</string>
                                 </property>
                                 <property name="text">
                                  <string>V</string>
@@ -1815,7 +1812,7 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
                        <property name="styleSheet">
                         <string notr="true"/>
                        </property>
-                       <layout class="QHBoxLayout" name="horizontalLayout_23">
+                       <layout class="QHBoxLayout" name="horizontalLayout_4">
                         <property name="spacing">
                          <number>0</number>
                         </property>
@@ -1838,6 +1835,9 @@ qproperty-alignment: 'AlignBottom | AlignLeft';
                             <weight>75</weight>
                             <bold>true</bold>
                            </font>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true"/>
                           </property>
                           <layout class="QVBoxLayout" name="verticalLayout_13">
                            <property name="spacing">
@@ -1964,14 +1964,14 @@ color: white;</string>
                          </widget>
                         </item>
                         <item>
-                         <widget class="QWidget" name="avgCellInfoWidget" native="true">
+                         <widget class="QWidget" name="lowCellVoltageInfo" native="true">
                           <property name="font">
                            <font>
                             <weight>75</weight>
                             <bold>true</bold>
                            </font>
                           </property>
-                          <layout class="QVBoxLayout" name="verticalLayout_21">
+                          <layout class="QVBoxLayout" name="verticalLayout_20">
                            <property name="spacing">
                             <number>0</number>
                            </property>
@@ -1988,7 +1988,7 @@ color: white;</string>
                             <number>0</number>
                            </property>
                            <item>
-                            <widget class="QLabel" name="avgCellVoltageTitle">
+                            <widget class="QLabel" name="lowCellVoltageTitle">
                              <property name="font">
                               <font>
                                <pointsize>10</pointsize>
@@ -2004,19 +2004,19 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
 }</string>
                              </property>
                              <property name="text">
-                              <string>A V G</string>
+                              <string>L O W</string>
                              </property>
                             </widget>
                            </item>
                            <item>
-                            <widget class="QWidget" name="avgCellVoltageWidget" native="true">
+                            <widget class="QWidget" name="lowestCellVoltageWidget" native="true">
                              <property name="font">
                               <font>
                                <weight>75</weight>
                                <bold>true</bold>
                               </font>
                              </property>
-                             <layout class="QHBoxLayout" name="horizontalLayout_22">
+                             <layout class="QHBoxLayout" name="horizontalLayout_21">
                               <property name="spacing">
                                <number>0</number>
                               </property>
@@ -2033,7 +2033,7 @@ qproperty-alignment: 'AlignHCenter | AlignBottom';
                                <number>0</number>
                               </property>
                               <item>
-                               <widget class="QLabel" name="avgCellVoltageLabel">
+                               <widget class="QLabel" name="lowestCellVoltageLabel">
                                 <property name="maximumSize">
                                  <size>
                                   <width>55</width>
@@ -2057,7 +2057,7 @@ color:white;</string>
                                </widget>
                               </item>
                               <item>
-                               <widget class="QLabel" name="avgCellVoltageUnit">
+                               <widget class="QLabel" name="lowestCellVoltageUnit">
                                 <property name="sizePolicy">
                                  <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
                                   <horstretch>0</horstretch>
@@ -2078,8 +2078,11 @@ color:white;</string>
                                  </font>
                                 </property>
                                 <property name="styleSheet">
-                                 <string notr="true">
-color: white;</string>
+                                 <string notr="true">QLabel {
+
+color: white;
+qproperty-alignment: 'AlignBottom | AlignLeft';
+}</string>
                                 </property>
                                 <property name="text">
                                  <string>V</string>

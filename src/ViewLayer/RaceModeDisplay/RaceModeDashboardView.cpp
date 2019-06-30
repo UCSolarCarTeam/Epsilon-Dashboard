@@ -88,8 +88,8 @@ void RaceModeDashboardView::connectBattery(BatteryPresenter& batteryPresenter)
             this, SLOT(packStateOfChargeReceived(double)));
     connect(&batteryPresenter, SIGNAL(lowCellVoltageReceived(float)),
             this, SLOT(lowCellVoltageReceived(float)));
-    connect(&batteryPresenter, SIGNAL(averageCellVoltageReceived(float)),
-            this, SLOT(averageCellVoltageReceived(float)));
+    connect(&batteryPresenter, SIGNAL(highCellVoltageReceived(float)),
+            this, SLOT(highCellVoltageReceived(float)));
     connect(&batteryPresenter, SIGNAL(highTemperatureReceived(int)),
             this, SLOT(highTemperatureReceived(int)));
     connect(&batteryPresenter, SIGNAL(averageTemperatureReceived(int)),
@@ -264,9 +264,9 @@ void RaceModeDashboardView::lowCellVoltageReceived(float lowVoltage)
     ui_.lowestCellVoltageLabel().setText(QString::number(lowVoltage / MV_TO_V, 'f', 2));
 }
 
-void RaceModeDashboardView::averageCellVoltageReceived(float averageVoltage)
+void RaceModeDashboardView::highCellVoltageReceived(float highCellVoltage)
 {
-    ui_.avgCellVoltageLabel().setText(QString::number(averageVoltage / MV_TO_V, 'f', 2));
+    ui_.highCellVoltageLabel().setText(QString::number(highCellVoltage / MV_TO_V, 'f', 2));
 }
 
 void RaceModeDashboardView::highTemperatureReceived(int highTemp)

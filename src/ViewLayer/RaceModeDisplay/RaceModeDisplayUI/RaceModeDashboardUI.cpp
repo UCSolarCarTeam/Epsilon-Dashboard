@@ -133,9 +133,9 @@ QLabel& RaceModeDashboardUI::lowestCellVoltageLabel()
     return *ui_->lowestCellVoltageLabel;
 }
 
-QLabel& RaceModeDashboardUI::avgCellVoltageLabel()
+QLabel& RaceModeDashboardUI::highCellVoltageLabel()
 {
-    return *ui_->avgCellVoltageLabel;
+    return *ui_->highCellVoltageLabel;
 }
 
 QLabel& RaceModeDashboardUI::motorZeroBusVoltageLabel()
