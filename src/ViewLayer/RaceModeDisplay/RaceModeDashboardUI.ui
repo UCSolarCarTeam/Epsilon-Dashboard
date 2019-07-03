@@ -549,6 +549,9 @@ color: rgb(230, 230, 170);
                  <property name="text">
                   <string>- M O T O R   P O W E R  -</string>
                  </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
                 </widget>
                </item>
                <item row="1" column="0">
@@ -748,6 +751,9 @@ color: rgb(230, 230, 170);
                  </property>
                  <property name="text">
                   <string>- S E T   C U R R E N T -</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
                </item>
@@ -2927,6 +2933,12 @@ color: white;</string>
                </property>
                <item>
                 <widget class="QWidget" name="auxVoltageWidget" native="true">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
                  <property name="font">
                   <font>
                    <weight>75</weight>
@@ -2989,6 +3001,12 @@ color: white;</string>
                   </item>
                   <item>
                    <widget class="QWidget" name="auxVoltageValuesWidget" native="true">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
                     <property name="font">
                      <font>
                       <weight>75</weight>
@@ -3390,6 +3408,12 @@ color: white;</string>
                           </property>
                           <item>
                            <widget class="QLabel" name="motorZeroBusVoltageLabel">
+                            <property name="sizePolicy">
+                             <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                             </sizepolicy>
+                            </property>
                             <property name="font">
                              <font>
                               <pointsize>14</pointsize>
@@ -3456,6 +3480,12 @@ color: white;</string>
                           </property>
                           <item>
                            <widget class="QLabel" name="motorZeroBusCurrentLabel">
+                            <property name="sizePolicy">
+                             <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                             </sizepolicy>
+                            </property>
                             <property name="font">
                              <font>
                               <pointsize>14</pointsize>
@@ -3519,97 +3549,139 @@ color: white;</string>
                      </widget>
                     </item>
                     <item>
-                     <layout class="QHBoxLayout" name="motorOneBusInfoData">
-                      <item>
-                       <layout class="QHBoxLayout" name="horizontalLayout_40">
-                        <item>
-                         <widget class="QLabel" name="motorOneBusVoltageLabel">
-                          <property name="sizePolicy">
-                           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                            <horstretch>0</horstretch>
-                            <verstretch>0</verstretch>
-                           </sizepolicy>
+                     <widget class="QWidget" name="motorOneBusInfoData_2" native="true">
+                      <layout class="QHBoxLayout" name="motorOneBusInfoData">
+                       <item>
+                        <widget class="QWidget" name="motorOneBusCurrentData" native="true">
+                         <property name="font">
+                          <font>
+                           <weight>75</weight>
+                           <bold>true</bold>
+                          </font>
+                         </property>
+                         <layout class="QHBoxLayout" name="horizontalLayout_40">
+                          <property name="spacing">
+                           <number>10</number>
                           </property>
-                          <property name="font">
-                           <font>
-                            <pointsize>14</pointsize>
-                            <weight>50</weight>
-                            <bold>false</bold>
-                           </font>
+                          <property name="leftMargin">
+                           <number>9</number>
                           </property>
-                          <property name="text">
-                           <string>879</string>
+                          <property name="topMargin">
+                           <number>9</number>
                           </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QLabel" name="motorOneBusVoltageUnitLabel">
-                          <property name="sizePolicy">
-                           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                            <horstretch>0</horstretch>
-                            <verstretch>0</verstretch>
-                           </sizepolicy>
+                          <property name="rightMargin">
+                           <number>9</number>
                           </property>
-                          <property name="font">
-                           <font>
-                            <weight>50</weight>
-                            <bold>false</bold>
-                           </font>
+                          <property name="bottomMargin">
+                           <number>9</number>
                           </property>
-                          <property name="text">
-                           <string>V</string>
+                          <item>
+                           <widget class="QLabel" name="motorOneBusVoltageLabel">
+                            <property name="sizePolicy">
+                             <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                             </sizepolicy>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <pointsize>14</pointsize>
+                              <weight>50</weight>
+                              <bold>false</bold>
+                             </font>
+                            </property>
+                            <property name="text">
+                             <string>879</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLabel" name="motorOneBusVoltageUnitLabel">
+                            <property name="sizePolicy">
+                             <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                             </sizepolicy>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <weight>50</weight>
+                              <bold>false</bold>
+                             </font>
+                            </property>
+                            <property name="text">
+                             <string>V</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QWidget" name="motorOneBusVoltageData" native="true">
+                         <layout class="QHBoxLayout" name="horizontalLayout_39">
+                          <property name="spacing">
+                           <number>3</number>
                           </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </item>
-                      <item>
-                       <layout class="QHBoxLayout" name="horizontalLayout_39">
-                        <item>
-                         <widget class="QLabel" name="motorOneBusCurrentLabel">
-                          <property name="sizePolicy">
-                           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                            <horstretch>0</horstretch>
-                            <verstretch>0</verstretch>
-                           </sizepolicy>
+                          <property name="leftMargin">
+                           <number>0</number>
                           </property>
-                          <property name="font">
-                           <font>
-                            <pointsize>14</pointsize>
-                            <weight>50</weight>
-                            <bold>false</bold>
-                           </font>
+                          <property name="topMargin">
+                           <number>0</number>
                           </property>
-                          <property name="text">
-                           <string>879</string>
+                          <property name="rightMargin">
+                           <number>0</number>
                           </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QLabel" name="motorOneBusCurrentUnitLabel">
-                          <property name="sizePolicy">
-                           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                            <horstretch>0</horstretch>
-                            <verstretch>0</verstretch>
-                           </sizepolicy>
+                          <property name="bottomMargin">
+                           <number>0</number>
                           </property>
-                          <property name="font">
-                           <font>
-                            <weight>50</weight>
-                            <bold>false</bold>
-                           </font>
-                          </property>
-                          <property name="styleSheet">
-                           <string notr="true">color:white;</string>
-                          </property>
-                          <property name="text">
-                           <string>A</string>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </item>
-                     </layout>
+                          <item>
+                           <widget class="QLabel" name="motorOneBusCurrentLabel">
+                            <property name="sizePolicy">
+                             <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                             </sizepolicy>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <pointsize>14</pointsize>
+                              <weight>50</weight>
+                              <bold>false</bold>
+                             </font>
+                            </property>
+                            <property name="text">
+                             <string>879</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLabel" name="motorOneBusCurrentUnitLabel">
+                            <property name="sizePolicy">
+                             <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                              <horstretch>0</horstretch>
+                              <verstretch>0</verstretch>
+                             </sizepolicy>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <weight>50</weight>
+                              <bold>false</bold>
+                             </font>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">color:white;</string>
+                            </property>
+                            <property name="text">
+                             <string>A</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
                     </item>
                    </layout>
                   </item>
