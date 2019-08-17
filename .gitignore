@@ -13,3 +13,4 @@ build*
 *.o
 *.stash
 *moc_*
+src/Tests/target_wrapper.sh
