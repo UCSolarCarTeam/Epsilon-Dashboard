@@ -16,11 +16,13 @@ MotorUi::~MotorUi()
     delete ui_;
 }
 
-QWidget& MotorUi::leftAliveWidget(){
+QWidget& MotorUi::leftAliveWidget()
+{
     return *ui_->leftAliveWidget;
 }
 
-QWidget& MotorUi::rightAliveWidget(){
+QWidget& MotorUi::rightAliveWidget()
+{
     return *ui_->rightAliveWidget;
 }
 
