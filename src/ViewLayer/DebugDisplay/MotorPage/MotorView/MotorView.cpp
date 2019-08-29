@@ -1,5 +1,15 @@
 #include "MotorView.h"
 
+namespace
+{
+const QString MOTOR_ALIVE = "background-color:rgb(93, 234, 140); \
+                          border-radius:8px; \
+                          border: 1px solid white;";
+const QString MOTOR_DEAD = "background-color:rgb(147, 147, 147); \
+                         border-radius:8px; \
+                         border: 1px solid white;";
+}
+
 MotorView::MotorView(KeyMotorPresenter& keyMotorPresenter, MotorDetailsPresenter& motorDetailsPresenter,
                      I_MotorUi& ui)
     : keyMotorPresenter_(keyMotorPresenter)
@@ -27,6 +37,10 @@ void MotorView::connectMotor(KeyMotorPresenter& keyMotorPresenter, MotorDetailsP
             this, SLOT(motorBusVoltageReceived(double)));
     connect(&keyMotorPresenter, SIGNAL(motorBusCurrentReceived(double)),
             this, SLOT(motorBusCurrentReceived(double)));
+    connect(&keyMotorPresenter, SIGNAL(motorZeroAlive(bool)),
+            this, SLOT(leftAliveRecieved(bool)));
+    connect(&keyMotorPresenter, SIGNAL(motorOneAlive(bool)),
+            this, SLOT(rightAliveRecieved(bool)));
 
     connect(&motorDetailsPresenter, SIGNAL(motorZeroDetailsReceived(MotorDetails)),
             this, SLOT(motorZeroDetailsReceived(MotorDetails)));
@@ -34,6 +48,27 @@ void MotorView::connectMotor(KeyMotorPresenter& keyMotorPresenter, MotorDetailsP
             this, SLOT(motorOneDetailsReceived(MotorDetails)));
 }
 
+void MotorView::leftAliveRecieved(bool alive){
+    if(alive)
+    {
+        ui_.leftAliveWidget().setStyleSheet(MOTOR_ALIVE);
+    }
+    else
+    {
+         ui_.leftAliveWidget().setStyleSheet(MOTOR_DEAD);
+    }
+}
+
+void MotorView::rightAliveRecieved(bool alive){
+    if(alive)
+    {
+        ui_.rightAliveWidget().setStyleSheet(MOTOR_ALIVE);
+    }
+    else
+    {
+         ui_.rightAliveWidget().setStyleSheet(MOTOR_DEAD);
+    }
+}
 
 void MotorView::motorZeroReceived(KeyMotor motorZero)
 {

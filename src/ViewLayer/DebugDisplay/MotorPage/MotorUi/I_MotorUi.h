@@ -7,6 +7,8 @@ class I_MotorUi: public QWidget
 {
 public:
     virtual ~I_MotorUi() {}
+    virtual QWidget& leftAliveWidget() = 0;
+    virtual QWidget& rightAliveWidget() = 0;
     virtual QLabel& setCurrentLeftLabel() = 0;
     virtual QLabel& setCurrentAvgLabel() = 0;
     virtual QLabel& setCurrentRightLabel() = 0;

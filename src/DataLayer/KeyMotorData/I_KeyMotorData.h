@@ -24,4 +24,6 @@ signals:
     void motorActualSpeedReceived(double);
     void motorBusVoltageReceived(double);
     void motorBusCurrentReceived(double);
+    void motorZeroAlive(bool);
+    void motorOneAlive(bool);
 };

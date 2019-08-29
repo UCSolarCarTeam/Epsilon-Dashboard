@@ -16,6 +16,14 @@ MotorUi::~MotorUi()
     delete ui_;
 }
 
+QWidget& MotorUi::leftAliveWidget(){
+    return *ui_->leftAliveWidget;
+}
+
+QWidget& MotorUi::rightAliveWidget(){
+    return *ui_->rightAliveWidget;
+}
+
 QLabel& MotorUi::setCurrentLeftLabel()
 {
     return *ui_->setCurrentLeftLabel;

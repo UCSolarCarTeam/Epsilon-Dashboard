@@ -66,6 +66,8 @@ private slots:
 
     void motorZeroReceived(KeyMotor);
     void motorOneReceived(KeyMotor);
+    void leftAliveRecieved(bool);
+    void rightAliveRecieved(bool);
     void motorSetCurrentReceived(double);
     void motorActualSpeedReceived(double);
     void motorBusVoltageReceived(double);

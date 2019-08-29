@@ -26,6 +26,7 @@ void KeyMotorData::setMotorZero(KeyMotor motorZero)
     emit motorActualSpeedReceived((motorZero_.vehicleVelocity() + motorOne_.vehicleVelocity()) / 2);
     emit motorBusVoltageReceived((motorZero_.busVoltage() + motorOne_.busVoltage()) / 2);
     emit motorBusCurrentReceived((motorZero_.busCurrent() + motorOne_.busCurrent()) / 2);
+    emit motorZeroAlive(motorZero.alive());
 }
 void KeyMotorData::setMotorOne(KeyMotor motorOne)
 {
@@ -36,4 +37,5 @@ void KeyMotorData::setMotorOne(KeyMotor motorOne)
     emit motorActualSpeedReceived((motorZero_.vehicleVelocity() + motorOne_.vehicleVelocity()) / 2);
     emit motorBusVoltageReceived((motorZero_.busVoltage() + motorOne_.busVoltage()) / 2);
     emit motorBusCurrentReceived((motorZero_.busCurrent() + motorOne_.busCurrent()) / 2);
+    emit motorOneAlive(motorOne.alive());
 }

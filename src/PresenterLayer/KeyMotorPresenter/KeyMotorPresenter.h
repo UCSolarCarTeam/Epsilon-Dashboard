@@ -17,6 +17,8 @@ private:
 signals:
     void motorZeroReceived(KeyMotor);
     void motorOneReceived(KeyMotor);
+    void motorZeroAlive(bool);
+    void motorOneAlive(bool);
     void motorSetPowerReceived(double);
     void motorSetCurrentReceived(double);
     void motorActualSpeedReceived(double);
