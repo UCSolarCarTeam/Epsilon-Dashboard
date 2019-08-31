@@ -43,7 +43,6 @@ JsonReceiver::JsonReceiver(I_AuxBmsPopulator& auxBmsPopulator,
     : auxBmsPopulator_(auxBmsPopulator)
     , batteryPopulator_(batteryPopulator)
     , batteryFaultsPopulator_(batteryFaultsPopulator)
-    , ccsPopulator_(ccsPopulator)
     , driverControlsPopulator_(driverControlsPopulator)
     , keyMotorPopulator_(keyMotorPopulator)
     , lightsPopulator_(lightsPopulator)
@@ -51,6 +50,7 @@ JsonReceiver::JsonReceiver(I_AuxBmsPopulator& auxBmsPopulator,
     , motorDetailsPopulator_(motorDetailsPopulator)
     , motorFaultsPopulator_(motorFaultsPopulator)
     , communicationsMonitoringService_(communicationsMonitoringService)
+    , ccsPopulator_(ccsPopulator)
     , loggingEnabled_(loggingEnabled)
 {
     connect(this, SIGNAL(dataReceived(const QJsonObject&)),
