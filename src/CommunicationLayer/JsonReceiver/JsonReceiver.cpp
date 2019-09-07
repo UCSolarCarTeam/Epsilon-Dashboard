@@ -49,8 +49,8 @@ JsonReceiver::JsonReceiver(I_AuxBmsPopulator& auxBmsPopulator,
     , mpptPopulator_(mpptPopulator)
     , motorDetailsPopulator_(motorDetailsPopulator)
     , motorFaultsPopulator_(motorFaultsPopulator)
-    , communicationsMonitoringService_(communicationsMonitoringService)
     , ccsPopulator_(ccsPopulator)
+    , communicationsMonitoringService_(communicationsMonitoringService)
     , loggingEnabled_(loggingEnabled)
 {
     connect(this, SIGNAL(dataReceived(const QJsonObject&)),

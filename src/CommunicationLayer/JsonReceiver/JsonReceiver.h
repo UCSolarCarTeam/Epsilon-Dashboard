@@ -63,8 +63,8 @@ private:
     I_MpptPopulator& mpptPopulator_;
     I_MotorDetailsPopulator& motorDetailsPopulator_;
     I_MotorFaultsPopulator& motorFaultsPopulator_;
-    I_CommunicationsMonitoringService& communicationsMonitoringService_;
     CcsPopulator& ccsPopulator_;
+    I_CommunicationsMonitoringService& communicationsMonitoringService_;
     bool loggingEnabled_;
     Logging* logger_;
 };
