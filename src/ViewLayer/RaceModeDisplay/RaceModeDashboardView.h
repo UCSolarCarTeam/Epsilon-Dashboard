@@ -7,10 +7,9 @@
 #include "../../DataLayer/MpptData/Mppt.h"
 #include "../../DataLayer/MotorFaultsData/ErrorFlags.h"
 #include "../../DataLayer/MotorFaultsData/LimitFlags.h"
-#include "../../PresenterLayer/BatteryFaultsPresenter/BatteryFaultsPresenter.h"
 #include "Faults/BatteryFaults/BatteryFaultList.h"
 #include "Faults/MotorFaults/MotorFaultList.h"
-
+#include "../../DataLayer/KeyMotorData/KeyMotor.h"
 
 class BatteryPresenter;
 class BatteryFaultsPresenter;
@@ -91,7 +90,7 @@ private slots:
     void auxVoltageReceived(int);
     void packStateOfChargeReceived(double);
     void lowCellVoltageReceived(float);
-    void averageCellVoltageReceived(float);
+    void highCellVoltageReceived(float);
     void highTemperatureReceived(int);
     void averageTemperatureReceived(int);
 
@@ -106,10 +105,11 @@ private slots:
     void reverseReceived(bool);
 
     // key motor slots
-    void motorSetCurrentReceived(double);
     void motorActualSpeedReceived(double);
-    void motorBusVoltageReceived(double);
-    void motorBusCurrentReceived(double);
+    void motorZeroReceived(KeyMotor motorZero);
+    void motorOneReceived(KeyMotor motorZero);
+    void motorZeroBusPowerReceived(double motorPower);
+    void motorOneBusPowerReceived(double motorPower);
 
     // lights slots
     void lowBeamsReceived(bool);
@@ -127,8 +127,6 @@ private slots:
     void motorZeroLimitFlagsReceived(LimitFlags);
     void motorOneErrorFlagsReceived(ErrorFlags);
     void motorOneLimitFlagsReceived(LimitFlags);
-
-    void setMotorPower();
 
     void updateBatteryFaults();
     void updateMotor0Faults();

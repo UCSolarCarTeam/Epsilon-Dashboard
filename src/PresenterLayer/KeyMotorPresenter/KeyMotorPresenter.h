@@ -17,9 +17,13 @@ private:
 signals:
     void motorZeroReceived(KeyMotor);
     void motorOneReceived(KeyMotor);
-    void motorSetPowerReceived(double);
+    void motorZeroBusPowerReceived(double);
+    void motorOneBusPowerReceived(double);
+
     void motorSetCurrentReceived(double);
     void motorActualSpeedReceived(double);
+
     void motorBusVoltageReceived(double);
     void motorBusCurrentReceived(double);
+
 };
