@@ -167,9 +167,9 @@ QWidget& DisplayDashboardUI::highHeadlightIndicatorWidget()
     return *ui_->highHeadlightIndicatorWidget;
 }
 
-QLabel& DisplayDashboardUI::maxCellTemperatureLabel()
+QLabel& DisplayDashboardUI::highCellTemperatureLabel()
 {
-    return *ui_->maxCellTemperatureLabel;
+    return *ui_->highCellTemperatureLabel;
 }
 
 QLabel& DisplayDashboardUI::avgCellTemperatureLabel()

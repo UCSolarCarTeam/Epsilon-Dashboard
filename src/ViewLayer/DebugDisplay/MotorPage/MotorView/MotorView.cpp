@@ -1,5 +1,15 @@
 #include "MotorView.h"
 
+namespace
+{
+    const QString MOTOR_ALIVE = "background-color:rgb(93, 234, 140); \
+                          border-radius:8px; \
+                          border: 1px solid white;";
+    const QString MOTOR_DEAD = "background-color:rgb(147, 147, 147); \
+                         border-radius:8px; \
+                         border: 1px solid white;";
+}
+
 MotorView::MotorView(KeyMotorPresenter& keyMotorPresenter, MotorDetailsPresenter& motorDetailsPresenter,
                      I_MotorUi& ui)
     : keyMotorPresenter_(keyMotorPresenter)
@@ -47,6 +57,15 @@ void MotorView::motorZeroReceived(KeyMotor motorZero)
 
     ui_.setVelocityAvgLabel().setNum((motorZero.setVelocity() +
                                       setVelocityRight_) / 2);
+
+    if (motorZero.alive())
+    {
+        ui_.leftAliveWidget().setStyleSheet(MOTOR_ALIVE);
+    }
+    else
+    {
+        ui_.leftAliveWidget().setStyleSheet(MOTOR_DEAD);
+    }
 }
 
 void MotorView::motorOneReceived(KeyMotor motorOne)
@@ -60,6 +79,15 @@ void MotorView::motorOneReceived(KeyMotor motorOne)
 
     ui_.setVelocityAvgLabel().setNum((motorOne.setVelocity() +
                                       setVelocityLeft_) / 2);
+
+    if (motorOne.alive())
+    {
+        ui_.rightAliveWidget().setStyleSheet(MOTOR_ALIVE);
+    }
+    else
+    {
+        ui_.rightAliveWidget().setStyleSheet(MOTOR_DEAD);
+    }
 }
 
 void MotorView::motorSetCurrentReceived(double setCurrent)

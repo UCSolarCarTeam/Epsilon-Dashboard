@@ -128,9 +128,9 @@ QWidget& RaceModeDashboardUI::highHeadlightIndicatorWidget()
     return *ui_->highHeadlightIndicatorWidget;
 }
 
-QLabel& RaceModeDashboardUI::maxCellTemperatureLabel()
+QLabel& RaceModeDashboardUI::highCellTemperatureLabel()
 {
-    return *ui_->maxCellTemperatureLabel;
+    return *ui_->highCellTemperatureLabel;
 }
 
 QLabel& RaceModeDashboardUI::avgCellTemperatureLabel()
