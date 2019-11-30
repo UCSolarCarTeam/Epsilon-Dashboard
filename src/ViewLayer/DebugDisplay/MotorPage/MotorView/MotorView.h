@@ -63,7 +63,6 @@ private:
     double slipSpeedRight_;
 
 private slots:
-
     void motorZeroReceived(KeyMotor);
     void motorOneReceived(KeyMotor);
     void motorSetCurrentReceived(double);

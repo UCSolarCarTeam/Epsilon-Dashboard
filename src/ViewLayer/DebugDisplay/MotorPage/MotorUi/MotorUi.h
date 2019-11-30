@@ -10,6 +10,8 @@ class MotorUi: public I_MotorUi
 public:
     explicit MotorUi();
     ~MotorUi();
+    QWidget& leftAliveWidget();
+    QWidget& rightAliveWidget();
     QLabel& setCurrentLeftLabel();
     QLabel& setCurrentAvgLabel();
     QLabel& setCurrentRightLabel();
