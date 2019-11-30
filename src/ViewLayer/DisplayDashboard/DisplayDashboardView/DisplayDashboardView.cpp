@@ -252,9 +252,9 @@ void DisplayDashboardView::packStateOfChargeReceived(double packSocPercentage)
 
     ui_.stateOfChargeCapacityWidget().setStyleSheet(DEFAULT_STYLESHEET + rgb + "}");
 }
-void DisplayDashboardView::highTemperatureReceived(int maxCellTemp)
+void DisplayDashboardView::highTemperatureReceived(int highCellTemp)
 {
-    ui_.maxCellTemperatureLabel().setNum(maxCellTemp);
+    ui_.highCellTemperatureLabel().setNum(highCellTemp);
 }
 void DisplayDashboardView::lowCellVoltageReceived(float lowestCellVoltage)
 {
