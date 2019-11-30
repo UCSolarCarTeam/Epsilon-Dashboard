@@ -45,7 +45,7 @@ public:
     virtual QWidget& lowHeadlightIndicatorWidget() = 0;
     virtual QWidget& highHeadlightIndicatorWidget() = 0;
 
-    virtual QLabel& maxCellTemperatureLabel() = 0;
+    virtual QLabel& highCellTemperatureLabel() = 0;
     virtual QLabel& avgCellTemperatureLabel() = 0;
     virtual QLabel& lowestCellVoltageLabel() = 0;
     virtual QLabel& avgCellVoltageLabel() = 0;

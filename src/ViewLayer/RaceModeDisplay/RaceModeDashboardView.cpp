@@ -269,7 +269,7 @@ void RaceModeDashboardView::highCellVoltageReceived(float highCellVoltage)
 
 void RaceModeDashboardView::highTemperatureReceived(int highTemp)
 {
-    ui_.maxCellTemperatureLabel().setText(QString::number(highTemp) + " " + TEMPERATURE_UNIT);
+    ui_.highCellTemperatureLabel().setText(QString::number(highTemp) + " " + TEMPERATURE_UNIT);
 }
 
 void RaceModeDashboardView::averageTemperatureReceived(int avgTemp)

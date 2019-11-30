@@ -43,7 +43,7 @@ public:
     QWidget& lowHeadlightIndicatorWidget();
     QWidget& highHeadlightIndicatorWidget();
 
-    QLabel& maxCellTemperatureLabel();
+    QLabel& highCellTemperatureLabel();
     QLabel& avgCellTemperatureLabel();
     QLabel& lowestCellVoltageLabel();
     QLabel& highCellVoltageLabel();
