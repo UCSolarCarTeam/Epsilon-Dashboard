@@ -27,3 +27,21 @@ To install these dependencies, run the command:
 ## Config file
 
 Create a copy of the `config.ini.example` file in the `build` directory called `config.ini` and update any necessary settings.
+
+## Building via Command Line
+
+Create a new directory for your build & navigate into it:
+
+`mkdir build && cd build`
+
+Call qmake, passing in the directory with the root `EpsilonDashboard.pro` to generate the makefile:
+
+`qmake <path-to-source-pro>`
+
+Later you need to re-run qmake on the project due to a new UI file or a change to a .pro, call:
+
+`make qmake_all`
+
+Build with:
+
+`make -j4`

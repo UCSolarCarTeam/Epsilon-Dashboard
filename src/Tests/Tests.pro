@@ -2,7 +2,14 @@ TEMPLATE = app
 QT += testlib
 CONFIG += testcase c++11
 
-LIBS += -L../../build/.lib -lBusinessLayer -lgmock -lViewLayer -lCommunicationLayer -lInfrastructureLayer -lDataLayer -lPresenterLayer
+LIBS += \
+    -L../ViewLayer/.lib -lViewLayer \
+    -L../CommunicationLayer/.lib -lCommunicationLayer \
+    -L../BusinessLayer/.lib -lBusinessLayer \
+    -L../DataLayer/.lib -lDataLayer \
+    -L../PresenterLayer/.lib -lPresenterLayer \
+    -L../InfrastructureLayer/.lib -lInfrastructureLayer \
+    -L../thirdparty/googletest/.lib -lgmock
 
 SOURCES += \
     CommunicationLayer/JsonReceiver/JsonReceiverTest.cpp \
@@ -13,12 +20,12 @@ SOURCES += \
     QMAKE_CXXFLAGS +=
 }
 
-DESTDIR = ../../build/tests/
+DESTDIR = ../bin/tests/
 
-copyfiles.commands = cp testconfig.ini $${DESTDIR}
+copytestconfig.commands = cp $$PWD/testconfig.ini $${DESTDIR}
 
-QMAKE_EXTRA_TARGETS += copyfiles
-POST_TARGETDEPS += copyfiles
+QMAKE_EXTRA_TARGETS += copytestconfig
+POST_TARGETDEPS += copytestconfig
 
 HEADERS += \
     CommunicationLayer/mockcommdevicemanager.h \
