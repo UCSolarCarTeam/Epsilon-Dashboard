@@ -1,15 +1,26 @@
 TEMPLATE = app
-LIBS += -L../../build/.lib -lViewLayer -lCommunicationLayer -lBusinessLayer -lDataLayer -lPresenterLayer -lInfrastructureLayer
+LIBS += \
+    -L../ViewLayer/.lib -lViewLayer \
+    -L../CommunicationLayer/.lib -lCommunicationLayer \
+    -L../BusinessLayer/.lib -lBusinessLayer \
+    -L../DataLayer/.lib -lDataLayer \
+    -L../PresenterLayer/.lib -lPresenterLayer \
+    -L../InfrastructureLayer/.lib -lInfrastructureLayer
 
 ! include(../common.pri){
     error("Could not find common.pri file!")
 }
 PRE_TARGETDEPS += \
- ../../build/.lib/*
+    ../ViewLayer/.lib/* \
+    ../CommunicationLayer/.lib/* \
+    ../BusinessLayer/.lib/* \
+    ../DataLayer/.lib/* \
+    ../PresenterLayer/.lib/* \
+    ../InfrastructureLayer/.lib/*
 
 TARGET = EpsilonDashboard
 
-DESTDIR = ../../build
+DESTDIR = ../bin
 
 SOURCES += \
     main.cpp \
@@ -36,3 +47,7 @@ DISTFILES += \
     ../Resources/HighHeadlightIndicator.png \
     ../Resources/LowHeadlightIndicator.png \
     ../Resources/SolarCarTeam.png
+
+copyconfigfile.commands = cp $$PWD/../config.ini.example ../bin/config.ini
+QMAKE_EXTRA_TARGETS += copyconfigfile
+POST_TARGETDEPS += copyconfigfile

@@ -18,7 +18,7 @@ before_install:
     - PATH="/opt/qt512/bin:$PATH"
     - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
     - qt512-env.sh
-    - mkdir -p build/.lib/
+    - mkdir -p build/thirdparty/googletest/.lib/
 
 install:
      # install googletest and googlemock
@@ -43,7 +43,7 @@ install:
            -c
            googletest/src/gtest-all.cc &&
        ar -rv libgmock.a gtest-all.o gmock-all.o)
-    - cp googletest/libgmock.a build/.lib/
+    - cp googletest/libgmock.a build/thirdparty/googletest/.lib/
     - cd /tmp/
     # install astyle
     - (wget 'https://s3-us-west-2.amazonaws.com/ucsolarteam.hostedfiles/astyle' && tar -zxvf astyle)
@@ -58,8 +58,8 @@ install:
 
 script: 
     - "! (astyle *.h *.cpp -r --dry-run --options=astylerc --exclude=googletest | grep Formatted)"
-    - cd src
-    - qmake
+    - cd build
+    - qmake ../src/
     - make
     - make check
 
