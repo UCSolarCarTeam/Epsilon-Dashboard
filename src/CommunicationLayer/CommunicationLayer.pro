@@ -1,8 +1,12 @@
 TEMPLATE = lib
-CONFIG += staticlib
+CONFIG += staticlib conan_basic_setup
 
 ! include(../common.pri){
     error("Could not find common.pri file!")
+}
+
+! include(../../build/conanbuildinfo.pri) {
+    error("Could not find conanbuildinfo.pri file!")
 }
 
 DESTDIR = .lib
