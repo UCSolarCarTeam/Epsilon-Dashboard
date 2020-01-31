@@ -14,3 +14,4 @@ build/*
 *.stash
 *moc_*
 src/Tests/target_wrapper.sh
+docker/build/*
