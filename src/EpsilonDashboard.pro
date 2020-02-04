@@ -17,3 +17,5 @@ SUBDIRS = \
 DISTFILES += \
     .travis.yml \
     config.ini
+
+system(cd $$OUT_PWD; conan install .. --build=outdated -s compiler.libcxx="libstdc++11")

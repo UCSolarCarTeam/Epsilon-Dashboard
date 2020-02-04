@@ -1,7 +1,7 @@
 TEMPLATE = app
 QT += testlib
 CONFIG += testcase c++11 conan_basic_setup
-! include(../../build/conanbuildinfo.pri) {
+! include($$OUT_PWD/../conanbuildinfo.pri) {
     error("Could not find conanbuildinfo.pri file!")
 }
 

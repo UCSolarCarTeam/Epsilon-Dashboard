@@ -8,7 +8,7 @@
 Makefile
 release
 .DS_Store
-build/*
+/build*/
 *.TIPBGT
 *.o
 *.stash
