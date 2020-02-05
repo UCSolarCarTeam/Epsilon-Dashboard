@@ -21,17 +21,18 @@ before_install:
     - qt512-env.sh
 
 install:
-    - cd /tmp
     # install conan
     - sudo pip install conan
     - conan remote add conan-dbely https://api.bintray.com/conan/dbely/conan
     # install astyle
+    - cd /tmp
     - (wget 'https://s3-us-west-2.amazonaws.com/ucsolarteam.hostedfiles/astyle' && tar -zxvf astyle)
-    - (cd ./astyle/build/gcc && make release && sudo make install && rm -rf astyle)
+    - (cd ./astyle/build/gcc && make release && sudo make install)
 
 script: 
+    - cd $TRAVIS_BUILD_DIR
     - "! (astyle *.h *.cpp -r --dry-run --options=astylerc | grep Formatted)"
-    - cd build
+    - mkdir build && cd build
     - qmake ../src/
     - make
     - make check
