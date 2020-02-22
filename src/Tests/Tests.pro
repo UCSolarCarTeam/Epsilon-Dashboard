@@ -1,6 +1,9 @@
 TEMPLATE = app
 QT += testlib
-CONFIG += testcase c++11
+CONFIG += testcase c++11 conan_basic_setup
+! include($$OUT_PWD/../conanbuildinfo.pri) {
+    error("Could not find conanbuildinfo.pri file!")
+}
 
 LIBS += \
     -L../ViewLayer/.lib -lViewLayer \
@@ -8,8 +11,7 @@ LIBS += \
     -L../BusinessLayer/.lib -lBusinessLayer \
     -L../DataLayer/.lib -lDataLayer \
     -L../PresenterLayer/.lib -lPresenterLayer \
-    -L../InfrastructureLayer/.lib -lInfrastructureLayer \
-    -L../thirdparty/googletest/.lib -lgmock
+    -L../InfrastructureLayer/.lib -lInfrastructureLayer
 
 SOURCES += \
     CommunicationLayer/JsonReceiver/JsonReceiverTest.cpp \
