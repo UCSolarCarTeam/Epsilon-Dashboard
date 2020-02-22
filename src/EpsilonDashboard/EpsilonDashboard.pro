@@ -16,6 +16,8 @@ CONFIG += conan_basic_setup
     error("Could not find conanbuildinfo.pri file!")
 }
 
+LIBS += -ldl
+
 PRE_TARGETDEPS += \
     ../ViewLayer/.lib/* \
     ../CommunicationLayer/.lib/* \
