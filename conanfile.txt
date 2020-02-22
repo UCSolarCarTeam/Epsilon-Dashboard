@@ -1,0 +1,9 @@
+[requires]
+gtest/1.10.0
+SimpleAmqpClient/2.5.0-pre2@dbely/testing
+
+[generators]
+qmake
+
+[options]
+*:shared=False

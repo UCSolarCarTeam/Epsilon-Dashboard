@@ -19,10 +19,12 @@ To run the application in race mode, add the -r flag at the end:
 
 ## Setting up Rabbitmq
 
-In this repo, there are dependencies needed for Rabbitmq before you will be able to build or run anything.
+In this repo, there are dependencies needed for before you will be able to build or run anything.
 
 To install these dependencies, run the command:
 	`./EpsilonDashboardSetup.sh`
+
+This will install the [RabbitMQ](https://www.rabbitmq.com/) server and the [Conan](https://conan.io/) package manager. See the links for more information.
 
 ## Config file
 
