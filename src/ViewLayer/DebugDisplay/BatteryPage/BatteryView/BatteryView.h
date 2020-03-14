@@ -22,19 +22,16 @@ class BatteryView : public QObject
     Q_OBJECT
 public:
     BatteryView(BatteryPresenter& batteryPresenter,
-                I_BatteryUi& ui, ProgressBar& bar,
-                AuxBmsPresenter& auxBMSPresenter);
+                I_BatteryUi& ui, ProgressBar& bar);
     ~BatteryView();
     void updateProgress(double stateOfCharge);
 
 private:
     void connectBattery(BatteryPresenter&);
-    void connectAuxBMS(AuxBmsPresenter&);
 
     BatteryPresenter& batteryPresenter_;
     I_BatteryUi& ui_;
     ProgressBar& bar_;
-    AuxBmsPresenter& auxBMSPresenter_;
 
     QList<QWidget*> fanSpeedList_;
     QList<QWidget*> requestedFanSpeedList_;
@@ -64,13 +61,6 @@ private slots:
     void highCellVoltageReceived(const float);
     void highCellVoltageIdReceived(const int);
     void averageCellVoltageReceived(const float);
-    void prechargeStateReceived(const QString);
-    void auxVoltageReceived(const int);
-    void auxBmsAliveReceived(const bool);
     void packNetPowerReceived(const double);
-    void strobeBMSReceived(bool);
-    void allowChargeReceived(bool);
-    void contactorErrorReceived(bool);
-    void highVoltageEnableReceived(bool);
 
 };

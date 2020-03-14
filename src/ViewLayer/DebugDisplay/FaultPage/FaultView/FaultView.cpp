@@ -7,7 +7,7 @@ namespace
     int LABEL_RESIZE_LIMIT = 5;
     QString FAULT_STYLESHEET = "font: 20px 'Arial';\nfont-weight:500;\nmargin-left: 10px;\ncolor:";
     QString SCROLLBAR_STYLESHEET = "QScrollBar:vertical {"
-                                   "    background:rgba(83, 83, 84);"
+                                   "    background:rgb(83, 83, 84);"
                                    "    width:10px;    "
                                    "    margin: 0px 0px 0px 0px;"
                                    "}"

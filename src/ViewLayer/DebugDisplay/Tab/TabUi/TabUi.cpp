@@ -26,6 +26,8 @@ TabUi::TabUi() :
     ui_->faultButton->setIconSize(QSize(33, 33));
     ui_->mpptButton->setIcon(QIcon(":/Resources/MPPTIcon.png"));
     ui_->mpptButton->setIconSize(QSize(38, 40));
+    ui_->auxBmsButton->setIcon(QIcon(":/Resources/GearIcon.png"));
+    ui_->auxBmsButton->setIconSize(QSize(30, 30));
 
     QPixmap pix(":/Resources/SolarCarTeam.png");
     pix = pix.scaled(QSize(20.5, 25));
@@ -63,6 +65,11 @@ QPushButton& TabUi::mpptButton()
 {
     return *ui_->mpptButton;
 }
+QPushButton& TabUi::auxBmsButton()
+{
+    return *ui_->auxBmsButton;
+}
+
 void TabUi::showTime()
 {
     QTime time = QTime::currentTime();

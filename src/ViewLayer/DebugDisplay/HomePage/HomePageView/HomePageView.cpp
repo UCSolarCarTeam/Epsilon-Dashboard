@@ -4,7 +4,7 @@
 namespace
 {
     const QString ON = "background-color: green; color: white;";
-    const QString OFF = "background-color: rgb(45, 45, 45,150); color: white;";
+    const QString OFF = "background-color: rgb(45, 45, 45); color: white;";
     const int INTERVAL = 2000;
 }
 
@@ -16,6 +16,7 @@ HomePageView::HomePageView(I_HomePageUi& ui)
                 << QPixmap(":/Resource/Control.png")
                 << QPixmap(":/Resource/Faults1.png")
                 << QPixmap(":/Resource/Motor.png")
+                << QPixmap(":/Resource/Battery.png")
                 << QPixmap(":/Resource/Battery.png");
     mainTimer = new QTimer(this);
     connectTimer(mainTimer);

@@ -28,7 +28,6 @@ QMAKE_EXTRA_TARGETS += copytestconfig
 POST_TARGETDEPS += copytestconfig
 
 HEADERS += \
-    CommunicationLayer/mockcommdevicemanager.h \
     BusinessLayer/CommunicationsMonitoringService/MockCommunicationMonitoringService.h \
     BusinessLayer/DataPopulators/MockAuxBmsPopulator.h \
     BusinessLayer/DataPopulators/MockBatteryFaultsPopulator.h \

@@ -1,38 +1,44 @@
-#include "DisplayDashboard/DisplayDashboardUI/DisplayDashboardUI.h"
-#include "RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.h"
-#include "DisplayDashboard/DisplayDashboardView/DisplayDashboardView.h"
-#include "RaceModeDisplay/RaceModeDashboardView.h"
-#include "Faults/BatteryFaults/BatteryFaultList.h"
-#include "Faults/MotorFaults/MotorFaultList.h"
-#include "../PresenterLayer/PresenterContainer.h"
 #include "ViewContainer.h"
-#include "DebugDisplay/BatteryPage/BatteryUi/BatteryUi.h"
-#include "DebugDisplay/ControlPage/ControlUi/ControlUi.h"
-#include "DebugDisplay/ControlPage/ControlView/ControlView.h"
-#include "DebugDisplay/HomePage/HomePageUi/HomePageUi.h"
-#include "DebugDisplay/HomePage/HomePageView/HomePageView.h"
-#include "DebugDisplay/FaultPage/FaultUi/FaultUi.h"
-#include "DebugDisplay/FaultPage/FaultView/FaultView.h"
-#include "DebugDisplay/MotorPage/MotorUi/MotorUi.h"
-#include "DebugDisplay/MotorPage/MotorView/MotorView.h"
-#include "DebugDisplay/OverlordWidget/OverlordWidget.h"
-#include "DebugDisplay/Tab/TabUi/TabUi.h"
-#include "DebugDisplay/MPPTPage/MPPTUi/MpptUi.h"
-#include "DebugDisplay/MPPTPage/MPPTView/MpptView.h"
 
+#include "Faults/MotorFaults/MotorFaultList.h"
+#include "Faults/BatteryFaults/BatteryFaultList.h"
+#include "DisplayDashboard/DisplayDashboardUI/DisplayDashboardUI.h"
+#include "DisplayDashboard/DisplayDashboardView/DisplayDashboardView.h"
+#include "../PresenterLayer/PresenterContainer.h"
+#include "RaceModeDisplay/RaceModeDashboardView.h"
+#include "RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.h"
+#include "DebugDisplay/BatteryPage/BatteryUi/BatteryUi.h"
+#include "DebugDisplay/BatteryPage/ProgressBar.h"
+#include "DebugDisplay/BatteryPage/BatteryView/BatteryView.h"
+#include "DebugDisplay/ControlPage/ControlUi/ControlUi.h"
+#include "DebugDisplay/HomePage/HomePageUi/HomePageUi.h"
+#include "DebugDisplay/FaultPage/FaultUi/FaultUi.h"
+#include "DebugDisplay/MotorPage/MotorUi/MotorUi.h"
+#include "DebugDisplay/MPPTPage/MPPTUi/MpptUi.h"
+#include "DebugDisplay/Tab/TabUi/TabUi.h"
+#include "DebugDisplay/AuxBmsPage/AuxBmsUi/AuxBmsUi.h"
+#include "DebugDisplay/OverlordWidget/OverlordWidget.h"
+#include "DebugDisplay/MotorPage/MotorView/MotorView.h"
+#include "DebugDisplay/FaultPage/FaultView/FaultView.h"
+#include "DebugDisplay/MPPTPage/MPPTView/MpptView.h"
+#include "DebugDisplay/ControlPage/ControlView/ControlView.h"
+#include "DebugDisplay/HomePage/HomePageView/HomePageView.h"
+
+#include "DebugDisplay/AuxBmsPage/AuxBmsView/AuxBmsView.h"
 
 ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode, bool isWindowed)
+    :  motorZeroFaultList_(new MotorFaultList)
+    ,  motorOneFaultList_(new MotorFaultList)
+    ,  batteryFaultList_(new BatteryFaultList)
 
 {
     Q_INIT_RESOURCE(fontresources);
 
     if (mode == Mode::DISPLAY)
     {
-        MotorFaultList* motorZeroFaultList = new MotorFaultList();
-        MotorFaultList* motorOneFaultList = new MotorFaultList();
-        BatteryFaultList* batteryFaultList = new BatteryFaultList();
-        DisplayDashboardUI_ = new DisplayDashboardUI(isWindowed);
-        DisplayDashboardView_.reset(new DisplayDashboardView(
+
+        displayDashboardUI_.reset(new DisplayDashboardUI(isWindowed));
+        displayDashboardView_.reset(new DisplayDashboardView(
                                         presenterContainer.auxBmsPresenter(),
                                         presenterContainer.batteryPresenter(),
                                         presenterContainer.batteryFaultsPresenter(),
@@ -42,18 +48,15 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode, 
                                         presenterContainer.mpptPresenter(),
                                         presenterContainer.motorDetailsPresenter(),
                                         presenterContainer.motorFaultsPresenter(),
-                                        *DisplayDashboardUI_,
-                                        *motorZeroFaultList,
-                                        *motorOneFaultList,
-                                        *batteryFaultList));
+                                        *displayDashboardUI_,
+                                        *motorZeroFaultList_,
+                                        *motorOneFaultList_,
+                                        *batteryFaultList_));
     }
     else if (mode == Mode::RACE)
     {
-        MotorFaultList* motorZeroFaultList = new MotorFaultList();
-        MotorFaultList* motorOneFaultList = new MotorFaultList();
-        BatteryFaultList* batteryFaultList = new BatteryFaultList();
-        RaceModeDashboardUI_ = new RaceModeDashboardUI(isWindowed);
-        RaceModeDashboardView_.reset(new RaceModeDashboardView(
+        raceModeDashboardUI_.reset(new RaceModeDashboardUI(isWindowed));
+        raceModeDashboardView_.reset(new RaceModeDashboardView(
                                          presenterContainer.batteryPresenter(),
                                          presenterContainer.batteryFaultsPresenter(),
                                          presenterContainer.auxBmsPresenter(),
@@ -63,49 +66,57 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode, 
                                          presenterContainer.mpptPresenter(),
                                          presenterContainer.motorDetailsPresenter(),
                                          presenterContainer.motorFaultsPresenter(),
-                                         *RaceModeDashboardUI_,
-                                         *motorZeroFaultList,
-                                         *motorOneFaultList,
-                                         *batteryFaultList));
+                                         *raceModeDashboardUI_,
+                                         *motorZeroFaultList_,
+                                         *motorOneFaultList_,
+                                         *batteryFaultList_));
     }
     else if (mode == Mode::DEBUG)
     {
-        batteryUi_ = new BatteryUi();
+        batteryUi_.reset(new BatteryUi);
+        controlUi_.reset(new ControlUi);
+        homepageUi_.reset(new HomePageUi);
+        faultUi_.reset(new FaultUi);
+        motorUi_.reset(new MotorUi);
+        mpptUi_.reset(new MpptUi);
+        tabUi_.reset(new TabUi);
+        auxBmsUi_.reset(new AuxBmsUi);
+        progressBar_.reset(new ProgressBar);
 
-        ProgressBar_ = new ProgressBar();
-        BatteryView_.reset(new BatteryView(presenterContainer.batteryPresenter(),
-                                           *batteryUi_, *ProgressBar_, presenterContainer.auxBmsPresenter()) );
+        overlordWidget_.reset(new OverlordWidget
+                              (
+                                  *batteryUi_,
+                                  *controlUi_,
+                                  *homepageUi_,
+                                  *faultUi_,
+                                  *motorUi_,
+                                  *mpptUi_,
+                                  *tabUi_,
+                                  *auxBmsUi_,
+                                  isWindowed
+                              ));
 
-        controlUi_ = new ControlUi();
-        homepageUi_ = new HomePageUi();
-        faultUi_ = new FaultUi();
-        motorUi_ = new MotorUi();
-        mpptUi_ = new MpptUi();
-        tabUi_ = new TabUi();
-        MotorFaultList* motorZeroFaultList = new MotorFaultList();
-        MotorFaultList* motorOneFaultList = new MotorFaultList();
-        BatteryFaultList* batteryFaultList = new BatteryFaultList();
-        overlordWidget_.reset(new OverlordWidget(*batteryUi_, *controlUi_,
-                              *homepageUi_, *faultUi_,
-                              *motorUi_, *mpptUi_, *tabUi_, isWindowed));
-
-        MotorView_.reset(new MotorView( presenterContainer.keyMotorPresenter(),
+        batteryView_.reset(new BatteryView(presenterContainer.batteryPresenter(),
+                                           *batteryUi_,
+                                           *progressBar_) );
+        motorView_.reset(new MotorView( presenterContainer.keyMotorPresenter(),
                                         presenterContainer.motorDetailsPresenter(), *motorUi_));
 
-        FaultView_.reset(new FaultView(presenterContainer.motorFaultsPresenter(),
+        faultView_.reset(new FaultView(presenterContainer.motorFaultsPresenter(),
                                        presenterContainer.batteryFaultsPresenter(),
                                        *faultUi_,
-                                       *motorZeroFaultList,
-                                       *motorOneFaultList,
-                                       *batteryFaultList));
+                                       *motorZeroFaultList_,
+                                       *motorOneFaultList_,
+                                       *batteryFaultList_));
 
-
-        MpptView_.reset(new MpptView(presenterContainer.mpptPresenter(), *mpptUi_));
-        ControlView_.reset(new ControlView(presenterContainer.ccsPresenter(),
+        auxBmsView_.reset(new AuxBmsView(presenterContainer.auxBmsPresenter(),
+                                         *auxBmsUi_));
+        mpptView_.reset(new MpptView(presenterContainer.mpptPresenter(), *mpptUi_));
+        controlView_.reset(new ControlView(presenterContainer.ccsPresenter(),
                                            presenterContainer.driverControlsPresenter(),
                                            presenterContainer.lightsPresenter(),
                                            *controlUi_));
-        HomePageView_.reset(new HomePageView(*homepageUi_));
+        homePageView_.reset(new HomePageView(*homepageUi_));
     }
 }
 

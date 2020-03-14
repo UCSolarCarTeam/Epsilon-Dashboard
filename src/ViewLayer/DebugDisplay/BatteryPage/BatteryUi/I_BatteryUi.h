@@ -60,14 +60,6 @@ public:
 
     virtual QLabel& populatedCellsLabel() = 0;
     virtual QLabel& inputVoltage12VLabel() = 0;
-    virtual QLabel& prechargeStateLabel() = 0;
-    virtual QLabel& auxVoltageLabel() = 0;
 
-    virtual QWidget& auxBmsAliveWidget() = 0;
     virtual QVBoxLayout& progressBarContainer() = 0;
-
-    virtual QLabel& strobeBMSLabel() = 0;
-    virtual QLabel& allowChargeLabel() = 0;
-    virtual QLabel& contactorErrorLabel() = 0;
-    virtual QLabel& highVoltageEnableLabel() = 0;
 };
