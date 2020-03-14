@@ -189,12 +189,6 @@ namespace JsonFormat
     const QString BATTERY_HIGHCELLVOLTAGE = "HighCellVoltage";
     const QString BATTERY_HIGHCELLVOLTAGEID = "HighCellVoltageId";
     const QString BATTERY_AVERAGECELLVOLTAGE = "AverageCellVoltage";
-    const QString BATTERY_PRECHARGESTATE = "PrechargeState";
-    const QString BATTERY_AUXVOLTAGE = "AuxVoltage";
-    const QString BATTERY_AUXBMSALIVE = "AuxBmsAlive";
-    const QString BATTERY_STROBEBMSLIGHT = "StrobeBmsLight";
-    const QString BATTERY_ALLOWCHARGE = "AllowCharge";
-    const QString BATTERY_CONTACTORERROR = "ContactorError";
 
 // MPPT data
     const QString MPPT = "MPPT";
@@ -216,14 +210,28 @@ namespace JsonFormat
 
 // AuxBmsData
     const QString AUXBMS = "AuxBms";
-    const QString AUXBMS_PRECHARGESTATE = "PrechargeState";
-    const QString AUXBMS_AUXVOLTAGE = "AuxVoltage";
-    const QString AUXBMS_AUXBMSALIVE = "AuxBmsAlive";
-    const QString AUXBMS_STROBEBMSLIGHT = "StrobeBmsLight";
-    const QString AUXBMS_ALLOWCHARGE = "AllowCharge";
-    const QString AUXBMS_CONTACTORERROR = "ContactorError";
-    const QString AUXBMS_HIGHVOLTAGEENABLE = "HighVoltageEnable";
-
+    const QString AUXBMS_PRECHARGE_STATE = "PrechargeState";
+    const QString AUXBMS_VOLTAGE = "AuxVoltage";
+    const QString AUXBMS_ALIVE = "AuxBmsAlive";
+    const QString AUXBMS_STROBE_LIGHT = "StrobeBmsLight";
+    const QString AUXBMS_ALLOW_CHARGE = "AllowCharge";
+    const QString AUXBMS_CHARGE_TRIP_HIGH_VOLTAGE = "ChargeTripDueToHighCellVoltage";
+    const QString AUXBMS_CHARGE_TRIP_HIGH_TEMPERATURE_CURRENT = "ChargeTripDueToHighTemperatureAndCurrent";
+    const QString AUXBMS_CHARGE_TRIP_PACK_CURRENT = "ChargeTripDueToPackCurrent";
+    const QString AUXBMS_DISCHARGE_TRIP_PACK_CURRENT = "DischargeTripDueToPackCurrent";
+    const QString AUXBMS_DISCHARGE_TRIP_LOW_VOLTAGE = "DischargeTripDueToLowCellVoltage";
+    const QString AUXBMS_DISCHARGE_TRIP_HIGH_TEMPERATURE_CURRENT = "DischargeTripDueToHighTemperatureAndCurrent";
+    const QString AUXBMS_PROTECTION_TRIP = "ProtectionTrip";
+    const QString AUXBMS_HIGH_VOLTAGE_ENABLE_STATE = "HighVoltageEnableState";
+    const QString AUXBMS_ALLOW_DISCHARGE = "AllowDischarge";
+    const QString AUXBMS_ORION_CAN_RECEIVED_RECENTLY = "OrionCANReceivedRecently";
+    const QString AUXBMS_CHARGE_CONTACTOR_ERROR = "ChargeContactorError";
+    const QString AUXBMS_DISCHARGE_CONTACTOR_ERROR = "DischargeContactorError";
+    const QString AUXBMS_COMMON_CONTACTOR_ERROR = "CommonContactorError";
+    const QString AUXBMS_DISCHARGE_SHOULD_TRIP = "DischargeShouldTrip";
+    const QString AUXBMS_CHARGE_SHOULD_TRIP = "ChargeShouldTrip";
+    const QString AUXBMS_CHARGE_OPEN_BUT_SHOULD_BE_CLOSED = "ChargeOpenButShouldBeClosed";
+    const QString AUXBMS_DISCHARGE_OPEN_BUT_SHOULD_BE_CLOSED = "DischargeOpenButShouldBeClosed";
 // Ccs
     const QString CCS = "Ccs";
     const QString CCS_ALIVE = "CcsAlive";

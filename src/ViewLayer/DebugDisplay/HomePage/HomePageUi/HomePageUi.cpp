@@ -42,6 +42,11 @@ QPushButton& HomePageUi::mpptButton()
     return *ui_->MPPT;
 }
 
+QPushButton& HomePageUi::auxBmsButton()
+{
+    return *ui_->auxBmsButton;
+}
+
 QLabel& HomePageUi::carLabel()
 {
     return *ui_->carLabel;

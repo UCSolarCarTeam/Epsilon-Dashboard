@@ -2,6 +2,7 @@
 #include <QWidget>
 #include <QMainWindow>
 #include <QStackedWidget>
+
 class I_BatteryUi;
 class I_ControlUi;
 class I_HomePageUi;
@@ -9,7 +10,7 @@ class I_FaultUi;
 class I_MotorUi;
 class I_MpptUi;
 class I_TabUi;
-
+class I_AuxBmsUi;
 class OverlordWidget : public QWidget
 {
     Q_OBJECT
@@ -22,6 +23,7 @@ public:
                              I_MotorUi& motorUi,
                              I_MpptUi& mpptUi,
                              I_TabUi& tabUi,
+                             I_AuxBmsUi& auxBmsUi,
                              bool isWindowed);
     ~OverlordWidget();
     QStackedWidget* menu_;
@@ -32,6 +34,8 @@ public slots:
     void handlefaultButtonClicked();
     void handleMotorButtonClicked();
     void handleMPPTButtonClicked();
+    void handleAuxBmsButtonClicked();
+
 private:
     I_BatteryUi& batteryUi_;
     I_ControlUi& controlUi_;
@@ -40,5 +44,6 @@ private:
     I_MotorUi& motorUi_;
     I_MpptUi& mpptUi_;
     I_TabUi& tabUi_;
+    I_AuxBmsUi& auxBmsUi_;
 };
 

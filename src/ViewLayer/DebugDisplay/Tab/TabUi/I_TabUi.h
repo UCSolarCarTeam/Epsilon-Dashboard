@@ -12,4 +12,5 @@ public:
     virtual QPushButton& faultButton() = 0;
     virtual QPushButton& motorButton() = 0;
     virtual QPushButton& mpptButton() = 0;
+    virtual QPushButton& auxBmsButton() = 0;
 };

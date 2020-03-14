@@ -227,42 +227,7 @@ QLabel& BatteryUi::inputVoltage12VLabel()
     return *ui_->inputVoltage12VLabel;
 }
 
-QLabel& BatteryUi::prechargeStateLabel()
-{
-    return *ui_->prechargeStateLabel;
-}
-
-QLabel& BatteryUi::auxVoltageLabel()
-{
-    return *ui_->auxVoltageLabel;
-}
-
-QWidget& BatteryUi::auxBmsAliveWidget()
-{
-    return *ui_->auxBmsAliveWidget;
-}
-
 QVBoxLayout& BatteryUi::progressBarContainer()
 {
     return *ui_->progressBarContainer;
-}
-
-QLabel& BatteryUi::strobeBMSLabel()
-{
-    return *ui_->strobeBMSLabel;
-}
-
-QLabel& BatteryUi::allowChargeLabel()
-{
-    return *ui_->allowChargeLabel;
-}
-
-QLabel& BatteryUi::contactorErrorLabel()
-{
-    return *ui_->contactorErrorLabel;
-}
-
-QLabel& BatteryUi::highVoltageEnableLabel()
-{
-    return *ui_->highVoltageEnableLabel;
 }

@@ -1,23 +1,25 @@
 #include <QVBoxLayout>
 #include "OverlordWidget.h"
-#include "../BatteryPage/BatteryUi/I_BatteryUi.h"
-#include "../ControlPage/ControlUi/I_ControlUi.h"
-#include "../HomePage/HomePageUi/I_HomePageUi.h"
-#include "../FaultPage/FaultUi/I_FaultUi.h"
-#include "../MotorPage/MotorUi/I_MotorUi.h"
-#include "../MPPTPage/MPPTUi/I_MpptUi.h"
-#include "../Tab/TabUi/I_TabUi.h"
+#include "BatteryPage/BatteryUi/I_BatteryUi.h"
+#include "ControlPage/ControlUi/I_ControlUi.h"
+#include "HomePage/HomePageUi/I_HomePageUi.h"
+#include "FaultPage/FaultUi/I_FaultUi.h"
+#include "MotorPage/MotorUi/I_MotorUi.h"
+#include "MPPTPage/MPPTUi/I_MpptUi.h"
+#include "Tab/TabUi/I_TabUi.h"
+#include "AuxBmsPage/AuxBmsUi/I_AuxBmsUi.h"
 #include <QStyle>
 #include <QDesktopWidget>
 #include <QApplication>
 
-OverlordWidget::OverlordWidget(I_BatteryUi& batteryUi, \
+OverlordWidget::OverlordWidget(I_BatteryUi& batteryUi,
                                I_ControlUi& controlUi,
                                I_HomePageUi& homepageUi,
                                I_FaultUi& faultUi,
                                I_MotorUi& motorUi,
                                I_MpptUi& mpptUi,
                                I_TabUi& tabUi,
+                               I_AuxBmsUi& auxBmsUi,
                                bool isWindowed)
     : batteryUi_(batteryUi)
     , controlUi_(controlUi)
@@ -26,6 +28,7 @@ OverlordWidget::OverlordWidget(I_BatteryUi& batteryUi, \
     , motorUi_(motorUi)
     , mpptUi_(mpptUi)
     , tabUi_(tabUi)
+    , auxBmsUi_(auxBmsUi)
 {
     menu_ = new QStackedWidget();
     menu_->addWidget(&homepageUi_);
@@ -34,6 +37,8 @@ OverlordWidget::OverlordWidget(I_BatteryUi& batteryUi, \
     menu_->addWidget(&controlUi_);
     menu_->addWidget(&faultUi_);
     menu_->addWidget(&mpptUi_);
+    menu_->addWidget(&auxBmsUi_);
+
     connect(&homepageUi_.batteryButton(), SIGNAL(clicked()),
             this, SLOT(handleBatteryButtonClicked()));
     connect(&homepageUi_.controlButton(), SIGNAL(clicked()),
@@ -44,12 +49,9 @@ OverlordWidget::OverlordWidget(I_BatteryUi& batteryUi, \
             this, SLOT(handleMotorButtonClicked()));
     connect(&homepageUi_.mpptButton(), SIGNAL(clicked()),
             this, SLOT(handleMPPTButtonClicked()));
-    connect(&tabUi_.homepageButton(), SIGNAL(clicked()),
-            this, SLOT(handleHomepageButtonClicked()));
-    connect(&tabUi_.homepageButton(), SIGNAL(clicked()),
-            this, SLOT(handleHomepageButtonClicked()));
-    connect(&tabUi_.homepageButton(), SIGNAL(clicked()),
-            this, SLOT(handleHomepageButtonClicked()));
+    connect(&homepageUi_.auxBmsButton(), SIGNAL(clicked()),
+            this, SLOT(handleAuxBmsButtonClicked()));
+
     connect(&tabUi_.homepageButton(), SIGNAL(clicked()),
             this, SLOT(handleHomepageButtonClicked()));
     connect(&tabUi_.batteryButton(), SIGNAL(clicked()),
@@ -62,6 +64,9 @@ OverlordWidget::OverlordWidget(I_BatteryUi& batteryUi, \
             this, SLOT(handlefaultButtonClicked()));
     connect(&tabUi_.mpptButton(), SIGNAL(clicked()),
             this, SLOT(handleMPPTButtonClicked()));
+    connect(&tabUi_.auxBmsButton(), SIGNAL(clicked()),
+            this, SLOT(handleAuxBmsButtonClicked()));
+
     resize(683, 768);
     QVBoxLayout* overlordLayout = new QVBoxLayout;
     overlordLayout->setContentsMargins(0, 0, 0, 0);
@@ -152,5 +157,15 @@ void OverlordWidget::handleMPPTButtonClicked()
     }
 
     menu_->setCurrentWidget(&mpptUi_);
+}
+
+void OverlordWidget::handleAuxBmsButtonClicked()
+{
+    if (!tabUi_.isVisible())
+    {
+        tabUi_.show();
+    }
+
+    menu_->setCurrentWidget(&auxBmsUi_);
 }
 
