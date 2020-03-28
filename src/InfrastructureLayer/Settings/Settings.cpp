@@ -11,8 +11,11 @@ namespace
     const QString PORT = "SourceAddress/port";
     const QString DEFAULT_PORT = "5672";
     const QString PACKET_TITLE = "JsonFormat/packetTitle";
+    const QString DEFAULT_PACKET_TITLE = "Gen5";
     const QString EXCHANGE_NAME = "rabbitMQ/exchangeName";
+    const QString DEFAULT_EXCHANGE_NAME = "hermesExchange";
     const QString QUEUE_NAME = "rabbitMQ/queueName";
+    const QString DEFAULT_QUEUE_NAME = "displayQueue";
     const QString LOGGING_ENABLED = "Logging/loggingEnabled";
     const QString CUSTOM_QUEUE_ENABLE = "rabbitMQ/customQueueName";
 
@@ -35,17 +38,17 @@ quint16 Settings::port() const
 
 QString Settings::packetTitle() const
 {
-    return settings_.value(PACKET_TITLE).toString();
+    return settings_.value(PACKET_TITLE, DEFAULT_PACKET_TITLE).toString();
 }
 
 QString Settings::exchange() const
 {
-    return QString(settings_.value(EXCHANGE_NAME).toString());
+    return QString(settings_.value(EXCHANGE_NAME, DEFAULT_EXCHANGE_NAME).toString());
 }
 
 QString Settings::queue() const
 {
-    return QString(settings_.value(QUEUE_NAME).toString());
+    return QString(settings_.value(QUEUE_NAME, DEFAULT_QUEUE_NAME).toString());
 }
 
 bool Settings::logging() const
