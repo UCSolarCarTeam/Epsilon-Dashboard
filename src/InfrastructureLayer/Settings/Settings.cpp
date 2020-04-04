@@ -24,31 +24,34 @@ namespace
 Settings::Settings(QString filepath)
     : settings_(filepath, SETTINGS_FILE_FORMAT)
 {
+    if(settings_.value(IP_ADDRESS).isNull()){
+        setDefaultValue();
+    }
 }
 
 QString Settings::ipAddress() const
 {
-    return QString(settings_.value(IP_ADDRESS, DEFAULT_IP).toString());
+    return QString(settings_.value(IP_ADDRESS).toString());
 }
 
 quint16 Settings::port() const
 {
-    return (quint16)settings_.value(PORT, DEFAULT_PORT).toInt();
+    return (quint16)settings_.value(PORT).toInt();
 }
 
 QString Settings::packetTitle() const
 {
-    return settings_.value(PACKET_TITLE, DEFAULT_PACKET_TITLE).toString();
+    return settings_.value(PACKET_TITLE).toString();
 }
 
 QString Settings::exchange() const
 {
-    return QString(settings_.value(EXCHANGE_NAME, DEFAULT_EXCHANGE_NAME).toString());
+    return QString(settings_.value(EXCHANGE_NAME).toString());
 }
 
 QString Settings::queue() const
 {
-    return QString(settings_.value(QUEUE_NAME, DEFAULT_QUEUE_NAME).toString());
+    return QString(settings_.value(QUEUE_NAME).toString());
 }
 
 bool Settings::logging() const
@@ -63,4 +66,14 @@ bool Settings::customQueueEnable() const
 void Settings::setQueueName(QString queueName)
 {
     settings_.setValue(QUEUE_NAME, queueName);
+}
+
+void Settings::setDefaultValue()
+{
+    settings_.setValue(IP_ADDRESS, DEFAULT_IP);
+    settings_.setValue(PORT, DEFAULT_PORT);
+    settings_.setValue(PACKET_TITLE, DEFAULT_PACKET_TITLE);
+    settings_.setValue(EXCHANGE_NAME, DEFAULT_EXCHANGE_NAME);
+    settings_.setValue(CUSTOM_QUEUE_ENABLE, false);
+    settings_.setValue(LOGGING_ENABLED, true);
 }

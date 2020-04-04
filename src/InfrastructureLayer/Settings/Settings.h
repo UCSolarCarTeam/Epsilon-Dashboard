@@ -1,7 +1,5 @@
 #pragma once
 
-#include <QSettings>
-
 #include "I_Settings.h"
 
 class Settings : public I_Settings
@@ -17,6 +15,7 @@ public:
     bool logging() const;
     bool customQueueEnable() const;
     void setQueueName(QString queueName);
+    void setDefaultValue();
 
 private:
     QSettings settings_ ;
