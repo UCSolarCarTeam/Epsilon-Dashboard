@@ -16,5 +16,4 @@ public:
     virtual bool customQueueEnable() const = 0;
 
     virtual void setQueueName(QString queueName) = 0;
-    virtual void setDefaultValue() = 0;
 };

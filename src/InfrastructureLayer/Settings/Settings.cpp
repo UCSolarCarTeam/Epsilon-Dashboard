@@ -26,7 +26,32 @@ Settings::Settings(QString filepath)
 {
     if (settings_.value(IP_ADDRESS).isNull())
     {
-        setDefaultValue();
+        settings_.setValue(IP_ADDRESS, DEFAULT_IP);
+    }
+
+    if (settings_.value(PORT).isNull())
+    {
+        settings_.setValue(PORT, DEFAULT_PORT);
+    }
+
+    if (settings_.value(PACKET_TITLE).isNull())
+    {
+        settings_.setValue(PACKET_TITLE, DEFAULT_PACKET_TITLE);
+    }
+
+    if (settings_.value(EXCHANGE_NAME).isNull())
+    {
+        settings_.setValue(EXCHANGE_NAME, DEFAULT_EXCHANGE_NAME);
+    }
+
+    if (settings_.value(CUSTOM_QUEUE_ENABLE).isNull())
+    {
+        settings_.setValue(CUSTOM_QUEUE_ENABLE, false);
+    }
+
+    if (settings_.value(LOGGING_ENABLED).isNull())
+    {
+        settings_.setValue(LOGGING_ENABLED, true);
     }
 }
 
@@ -67,14 +92,4 @@ bool Settings::customQueueEnable() const
 void Settings::setQueueName(QString queueName)
 {
     settings_.setValue(QUEUE_NAME, queueName);
-}
-
-void Settings::setDefaultValue()
-{
-    settings_.setValue(IP_ADDRESS, DEFAULT_IP);
-    settings_.setValue(PORT, DEFAULT_PORT);
-    settings_.setValue(PACKET_TITLE, DEFAULT_PACKET_TITLE);
-    settings_.setValue(EXCHANGE_NAME, DEFAULT_EXCHANGE_NAME);
-    settings_.setValue(CUSTOM_QUEUE_ENABLE, false);
-    settings_.setValue(LOGGING_ENABLED, true);
 }

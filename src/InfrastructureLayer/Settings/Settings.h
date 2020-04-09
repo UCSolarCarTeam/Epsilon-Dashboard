@@ -15,7 +15,6 @@ public:
     bool logging() const;
     bool customQueueEnable() const;
     void setQueueName(QString queueName);
-    void setDefaultValue();
 
 private:
     QSettings settings_ ;
