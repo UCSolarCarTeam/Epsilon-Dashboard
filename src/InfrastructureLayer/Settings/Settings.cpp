@@ -24,7 +24,8 @@ namespace
 Settings::Settings(QString filepath)
     : settings_(filepath, SETTINGS_FILE_FORMAT)
 {
-    if(settings_.value(IP_ADDRESS).isNull()){
+    if (settings_.value(IP_ADDRESS).isNull())
+    {
         setDefaultValue();
     }
 }
