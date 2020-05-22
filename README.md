@@ -23,7 +23,7 @@ When first setting up your project with QT creator, you must first add a custom 
 2. In `Build Steps`, select `Add Build Step -> Custom Process Step`
 3. Add the conan command to the step
    - Command: `conan`
-   - Arguments: `install --build=missing compiler.libcxx="libstdc++11"`
+   - Arguments: `install --build=missing -s compiler.libcxx="libstdc++11"`
    - Working Directory: `%{buildDir}`
 4. Move the step to occur as the first step in the process
 
@@ -35,7 +35,7 @@ When first setting up your project with QT creator, you must first add a custom 
 
 2. Install conan dependencies:
 
-	`conan install <path/to/conanfile.txt> --build=missing compiler.libcxx="libstdc++11"`
+	`conan install <path/to/conanfile.txt> --build=missing -s compiler.libcxx="libstdc++11"`
 	
 3. Call qmake, passing in the directory with the root `EpsilonDashboard.pro` to generate the makefile:
 
