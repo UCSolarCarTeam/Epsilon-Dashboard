@@ -185,10 +185,13 @@ void RaceModeDashboardView::updateFaultLabel(QLabel& dashboardLabel, FaultLabel 
     {
         dashboardLabel.setStyleSheet(QString("color:%1").arg(faultLabel.color().name()));
         dashboardLabel.setText(faultLabel.text());
+        //ui_.raceModeDashboard().setStyleSheet("ColorAnimation {to: \"#65b585\"; duration: 1000");
+        ui_.raceModeDashboard().setStyleSheet("background-color:orange");
     }
     else
     {
         dashboardLabel.setText("");
+        ui_.raceModeDashboard().setStyleSheet("background-color:black");
     }
 }
 
@@ -196,19 +199,19 @@ void RaceModeDashboardView::updateDriveStateLabel()
 {
     if (forward_ && !(reverse_ || aux_))
     {
-        ui_.driveModeValueLabel().setText("Drive");
+        ui_.driveModeValueLabel().setText("D"); //Drive
     }
     else if (reverse_ && !(forward_ || aux_))
     {
-        ui_.driveModeValueLabel().setText("Reverse");
+        ui_.driveModeValueLabel().setText("R"); //Reverse
     }
     else if (aux_ && !(forward_ || reverse_))
     {
-        ui_.driveModeValueLabel().setText("Neutral");
+        ui_.driveModeValueLabel().setText("N"); //Neutral
     }
     else
     {
-        ui_.driveModeValueLabel().setText("Invalid Mode");
+        ui_.driveModeValueLabel().setText("Invalid"); //Invalid Mode
     }
 }
 

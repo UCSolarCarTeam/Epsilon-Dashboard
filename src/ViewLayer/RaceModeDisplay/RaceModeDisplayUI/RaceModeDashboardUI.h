@@ -17,6 +17,8 @@ public:
     ~RaceModeDashboardUI();
 
 
+    QWidget& raceModeDashboard();
+
     QLabel& actualSpeedLabel();
 
     QLabel& auxVoltageLabel();

@@ -38,6 +38,10 @@ RaceModeDashboardUI::~RaceModeDashboardUI()
 }
 
 
+QWidget& RaceModeDashboardUI::raceModeDashboard()
+{
+    return *ui_->raceModeDashboard;
+}
 
 QLabel& RaceModeDashboardUI::actualSpeedLabel()
 {

@@ -9,6 +9,8 @@ class I_RaceModeDashboardUI : public QWidget
 public:
     virtual ~I_RaceModeDashboardUI() {}
 
+    virtual QWidget& raceModeDashboard() = 0;
+
     virtual QLabel& actualSpeedLabel() = 0;
 
     virtual QLabel& auxVoltageLabel() = 0;
