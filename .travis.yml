@@ -22,7 +22,9 @@ before_install:
 
 install:
     # install conan
-    - (cd $TRAVIS_BUILD_DIR/ && sudo ./EpsilonDashboardSetup.sh)
+    pip3 install --user conan
+    conan remote add conan-dbely https://api.bintray.com/conan/dbely/conan
+    
     # install astyle
     - cd /tmp
     - (wget 'https://s3-us-west-2.amazonaws.com/ucsolarteam.hostedfiles/astyle' && tar -zxvf astyle)
