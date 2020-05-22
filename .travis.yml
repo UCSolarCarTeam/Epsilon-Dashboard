@@ -22,8 +22,7 @@ before_install:
 
 install:
     # install conan
-    - sudo pip install conan
-    - conan remote add conan-dbely https://api.bintray.com/conan/dbely/conan
+    - (cd $TRAVIS_BUILD_DIR/ && ./EpsilonDashboardSetup.sh)
     # install astyle
     - cd /tmp
     - (wget 'https://s3-us-west-2.amazonaws.com/ucsolarteam.hostedfiles/astyle' && tar -zxvf astyle)
@@ -33,6 +32,7 @@ script:
     - cd $TRAVIS_BUILD_DIR
     - "! (astyle *.h *.cpp -r --dry-run --options=astylerc | grep Formatted)"
     - mkdir build && cd build
+    - conan install .. --build=missing
     - qmake ../src/
     - make
     - make check
