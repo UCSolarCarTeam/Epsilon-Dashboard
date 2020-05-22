@@ -22,7 +22,7 @@ before_install:
 
 install:
     # install conan
-    - (cd $TRAVIS_BUILD_DIR/ && ./EpsilonDashboardSetup.sh)
+    - (cd $TRAVIS_BUILD_DIR/ && sudo ./EpsilonDashboardSetup.sh)
     # install astyle
     - cd /tmp
     - (wget 'https://s3-us-west-2.amazonaws.com/ucsolarteam.hostedfiles/astyle' && tar -zxvf astyle)
