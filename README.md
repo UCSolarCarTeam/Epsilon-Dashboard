@@ -9,7 +9,7 @@ In this repo, there are dependencies needed for before you will be able to build
 
 To install these dependencies, run the setup script:
 
-`sudo ./EpsilonDashboardSetup.sh`
+`./EpsilonDashboardSetup.sh`
 
 This will install the [RabbitMQ](https://www.rabbitmq.com/) server and the [Conan](https://conan.io/) package manager. See the links for more information.
 
@@ -22,8 +22,8 @@ When first setting up your project with QT creator, you must first add a custom 
 1. Navigate to `Projects -> Build`
 2. In `Build Steps`, select `Add Build Step -> Custom Process Step`
 3. Add the conan command to the step
-   - Command: `conan`
-   - Arguments: `install --build=missing -s compiler.libcxx="libstdc++11"`
+   - Command: `$HOME/.local/bin/conan`
+   - Arguments: `install /path/to/conanfile.txt --build=missing -s compiler.libcxx="libstdc++11"`
    - Working Directory: `%{buildDir}`
 4. Move the step to occur as the first step in the process
 
@@ -31,32 +31,35 @@ When first setting up your project with QT creator, you must first add a custom 
 
 1. Create a new directory for your build & navigate into it:
 
-	`mkdir build && cd build`
+    `mkdir build && cd build`
 
-2. Install conan dependencies:
+2. If you were running this on the same terminal you ran the setup script on, reload your environment:
+   `source ~/.profile`
 
-	`conan install <path/to/conanfile.txt> --build=missing -s compiler.libcxx="libstdc++11"`
-	
+3. Install conan dependencies:
+
+    `conan install /path/to/conanfile.txt --build=missing -s compiler.libcxx="libstdc++11"`
+
 3. Call qmake, passing in the directory with the root `EpsilonDashboard.pro` to generate the makefile:
 
-	`qmake <path-to-source-pro>`
+    `qmake /path/to/EpsilonDashboard.pro`
 
 - Later, if you need to re-run qmake on the project due to a new UI file or a change to a .pro, call:
 
-	`make qmake_all`
+    `make qmake_all`
 
-4. Build:
+1. Build:
 
-	`make -j4`
+    `make -j4`
 
-### Cross Compilation
+## Cross Compilation
 
 First, make sure you have followed the [steps](https://github.com/UCSolarCarTeam/Epsilon-Raspberry/tree/master/cross-compile/README.adoc) to set up a cross compilation environment on your computer.
 
 Cross compiling is the same as the above steps, with a few modifications:
 
 1. You must add an additional `-pr=<path/to/rpi_build>` to the `conan install` command.
-   - `conan install <path/to/conanfile.txt> --build=missing -pr=<path/tp/rpi_build>`
+   - `conan install /path/to/conanfile.txt --build=missing -pr=/path/tp/rpi_build`
 2. When calling qmake, it must be the qmake executed that you compiled for cross-compilation (e.g. `~/raspi/qt5/bin/qmake`).
 
 ## Running the Dashboard
@@ -69,13 +72,13 @@ An example can be found in `config.ini.example`, and any necessary settings can 
 ### Switching Modes
 
 There are three different modes for the dashboard: Display mode, Debug Display mode and race mode. The default mode is display mode.
-To run the application in different modes, navigate to the directory where you made the executable file for the dashboard. 
+To run the application in different modes, navigate to the directory where you made the executable file for the dashboard.
 
 To run the application in display mode, run the command:
-	`./EpsilonDashboard`
+    `./EpsilonDashboard`
 
 To run the application in debug display mode, run the command:
-	`./EpsilonDashboard -d`
-  
+    `./EpsilonDashboard -d`
+
 To run the application in race mode, add the -r flag at the end:
   `./EpsilonDashboard -r`
