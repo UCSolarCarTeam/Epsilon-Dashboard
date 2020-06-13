@@ -181,7 +181,7 @@ void RaceModeDashboardView::connectMotorFaults(MotorFaultsPresenter& motorFaults
 
 void RaceModeDashboardView::updateFaultLabel(QLabel& dashboardLabel, FaultLabel faultLabel)
 {
-    if (faultLabel.priority() >= 0)
+    if (faultLabel.priority() >= 0 && faultLabel.isRaceRequired())
     {
         dashboardLabel.setStyleSheet(QString("color:%1").arg(faultLabel.color().name()));
         dashboardLabel.setText(faultLabel.text());
