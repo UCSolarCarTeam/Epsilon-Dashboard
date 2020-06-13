@@ -10,7 +10,7 @@ class FaultLabel : public QLabel
 {
 public:
     FaultLabel();
-    FaultLabel(QString, FaultPriorities::PRIORITY, bool);
+    FaultLabel(QString, FaultPriorities::PRIORITY, bool, bool);
     FaultLabel(const FaultLabel&);
 
     ~FaultLabel();
@@ -19,6 +19,7 @@ public:
     QColor color() const;
     FaultPriorities::PRIORITY priority() const;
     bool isActive() const;
+    bool isRaceRequired() const;
 
     void setActive(bool);
 
@@ -29,4 +30,5 @@ private:
     QColor color_;
     FaultPriorities::PRIORITY priority_;
     bool isActive_;
+    bool isRaceRequired_;
 };

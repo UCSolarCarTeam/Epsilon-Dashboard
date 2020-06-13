@@ -5,14 +5,16 @@ FaultLabel::FaultLabel()
     , color_(FaultPriorities::DEFAULT_COLOR)
     , priority_(FaultPriorities::INVALID_PRIORITY)
     , isActive_(false)
+    , isRaceRequired_(false)
 {
 }
 
-FaultLabel::FaultLabel(QString name, FaultPriorities::PRIORITY priority, bool isActive)
+FaultLabel::FaultLabel(QString name, FaultPriorities::PRIORITY priority, bool isActive, bool isRaceRequired)
     : QLabel(name)
     , color_(priorityToColor(priority))
     , priority_(priority)
     , isActive_(isActive)
+    , isRaceRequired_(isRaceRequired)
 {
 }
 
@@ -21,6 +23,7 @@ FaultLabel::FaultLabel(const FaultLabel& faultLabel)
     , color_(faultLabel.color())
     , priority_(faultLabel.priority())
     , isActive_(faultLabel.isActive())
+    , isRaceRequired_(faultLabel.isRaceRequired())
 {
 }
 
@@ -46,6 +49,11 @@ FaultPriorities::PRIORITY FaultLabel::priority() const
 bool FaultLabel::isActive() const
 {
     return isActive_;
+}
+
+bool FaultLabel::isRaceRequired() const
+{
+    return isRaceRequired_;
 }
 
 void FaultLabel::setActive(bool value)
