@@ -15,12 +15,12 @@
 
 namespace
 {
-    const double RED_SLOPE = -1;
-    const int RED_INITIAL = 220;
-    const double GREEN_SLOPE = 1.7;
-    const int GREEN_INITIAL = 10;
-    const int BLUE_INITIAL = 20;
-    const QString DEFAULT_STYLESHEET = "QProgressBar:horizontal {\
+const double RED_SLOPE = -1;
+const int RED_INITIAL = 220;
+const double GREEN_SLOPE = 1.7;
+const int GREEN_INITIAL = 10;
+const int BLUE_INITIAL = 20;
+const QString DEFAULT_STYLESHEET = "QProgressBar:horizontal {\
             border: 1px solid white;\
             border-radius: 7px;\
             background: black;\
@@ -28,9 +28,9 @@ namespace
             QProgressBar::chunk:horizontal{\
             border-radius: 7px;\
             background: ";
-    const QString TEMPERATURE_UNIT = "<sup>o</sup>";
-    const float MV_TO_V = 1000;
-    const int FAULT_UPDATE_PERIOD = 1500;
+const QString TEMPERATURE_UNIT = "<sup>o</sup>";
+const float MV_TO_V = 1000;
+const int FAULT_UPDATE_PERIOD = 1500;
 }
 
 RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
@@ -390,22 +390,11 @@ void RaceModeDashboardView::lowBeamsReceived(bool lowBeams)
 {
     if (lowBeams)
     {
-        ui_.lowHeadlightIndicatorWidget().setStyleSheet("border-image: url(:/Resources/LowHeadlightIndicator.png) 0 0 0 0 stretch stretch");
+        ui_.lowHeadlightIndicatorWidget().setStyleSheet("border-image: url(:/Resources/LowHeadlightIndicatorRace.png) 0 0 0 0 stretch stretch");
     }
     else
     {
-        ui_.lowHeadlightIndicatorWidget().setStyleSheet("");
-    }
-}
-void RaceModeDashboardView::highBeamsReceived(bool highBeams)
-{
-    if (highBeams)
-    {
-        ui_.highHeadlightIndicatorWidget().setStyleSheet("border-image: url(:/Resources/HighHeadlightIndicator.png) 0 0 0 0 stretch stretch");
-    }
-    else
-    {
-        ui_.highHeadlightIndicatorWidget().setStyleSheet("");
+        ui_.lowHeadlightIndicatorWidget().setStyleSheet("border-image: url(:/Resources/LowHeadlightOffRace.png) 0 0 0 0 stretch stretch");
     }
 }
 void RaceModeDashboardView::leftSignalReceived(bool leftSignal)
