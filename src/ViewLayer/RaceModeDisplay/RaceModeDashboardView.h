@@ -73,8 +73,8 @@ private:
     MotorFaultList& motorOneFaultsList_;
     BatteryFaultList& batteryFaultsList_;
 
-    QPropertyAnimation *backgroundAnimation_;
-    QGraphicsColorizeEffect *fadeEffect_;
+    QPropertyAnimation* backgroundAnimation_;
+    QGraphicsColorizeEffect* fadeEffect_;
 
     double busCurrent_;
     double busVoltage_;
@@ -119,7 +119,6 @@ private slots:
 
     // lights slots
     void lowBeamsReceived(bool);
-    void highBeamsReceived(bool);
     void leftSignalReceived(bool);
     void rightSignalReceived(bool);
     void lightAliveReceived(bool);

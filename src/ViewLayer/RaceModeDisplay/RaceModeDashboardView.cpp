@@ -75,10 +75,10 @@ RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
     connect(faultsTimer_.data(), SIGNAL(timeout()), this, SLOT(updateMotor0Faults()));
     connect(faultsTimer_.data(), SIGNAL(timeout()), this, SLOT(updateMotor1Faults()));
     faultsTimer_->start(FAULT_UPDATE_PERIOD);
-    fadeEffect_= new QGraphicsColorizeEffect(&(ui_.raceModeDashboard()));
+    fadeEffect_ = new QGraphicsColorizeEffect(&(ui_.raceModeDashboard()));
     fadeEffect_->setColor(QColor(0, 0, 0));
     ui_.raceModeDashboard().setGraphicsEffect(fadeEffect_);
-    backgroundAnimation_ = new QPropertyAnimation(fadeEffect_,"color");
+    backgroundAnimation_ = new QPropertyAnimation(fadeEffect_, "color");
     backgroundAnimation_->setDuration(1000);
     backgroundAnimation_->setStartValue(QColor(0, 0, 0));
     backgroundAnimation_->setEndValue(QColor(255, 127, 0));
@@ -153,8 +153,6 @@ void RaceModeDashboardView::connectLights(LightsPresenter& lightsPresenter)
 {
     connect(&lightsPresenter, SIGNAL(lowBeamsReceived(bool)),
             this, SLOT(lowBeamsReceived(bool)));
-    connect(&lightsPresenter, SIGNAL(highBeamsReceived(bool)),
-            this, SLOT(highBeamsReceived(bool)));
     connect(&lightsPresenter, SIGNAL(leftSignalReceived(bool)),
             this, SLOT(leftSignalReceived(bool)));
     connect(&lightsPresenter, SIGNAL(rightSignalReceived(bool)),
@@ -390,22 +388,11 @@ void RaceModeDashboardView::lowBeamsReceived(bool lowBeams)
 {
     if (lowBeams)
     {
-        ui_.lowHeadlightIndicatorWidget().setStyleSheet("border-image: url(:/Resources/LowHeadlightIndicator.png) 0 0 0 0 stretch stretch");
+        ui_.lowHeadlightIndicatorWidget().setStyleSheet("border-image: url(:/Resources/LowHeadlightIndicatorRace.png) 0 0 0 0 stretch stretch");
     }
     else
     {
-        ui_.lowHeadlightIndicatorWidget().setStyleSheet("");
-    }
-}
-void RaceModeDashboardView::highBeamsReceived(bool highBeams)
-{
-    if (highBeams)
-    {
-        ui_.highHeadlightIndicatorWidget().setStyleSheet("border-image: url(:/Resources/HighHeadlightIndicator.png) 0 0 0 0 stretch stretch");
-    }
-    else
-    {
-        ui_.highHeadlightIndicatorWidget().setStyleSheet("");
+        ui_.lowHeadlightIndicatorWidget().setStyleSheet("border-image: url(:/Resources/LowHeadlightOffRace.png) 0 0 0 0 stretch stretch");
     }
 }
 void RaceModeDashboardView::leftSignalReceived(bool leftSignal)

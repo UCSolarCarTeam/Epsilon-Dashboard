@@ -43,7 +43,6 @@ public:
     QLabel& prechargeStateLabel();
 
     QWidget& lowHeadlightIndicatorWidget();
-    QWidget& highHeadlightIndicatorWidget();
 
     QLabel& highCellTemperatureLabel();
     QLabel& avgCellTemperatureLabel();
