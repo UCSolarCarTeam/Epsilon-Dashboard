@@ -3,10 +3,10 @@
 #include "../MotorFaultsResources.h"
 #include <QMap>
 
-class I_FaultList
+class I_MotorFaultList
 {
 public:
-    virtual ~I_FaultList() {};
+    virtual ~I_MotorFaultList() {};
 
     virtual FaultLabel nextActiveFault() = 0;
     virtual QMap<MotorFaults , FaultLabel>& faults() = 0;

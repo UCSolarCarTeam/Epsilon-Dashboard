@@ -36,7 +36,7 @@ HEADERS += \
     DisplayDashboard/DisplayDashboardUI/DisplayDashboardUI.h \
     DisplayDashboard/DisplayDashboardUI/I_DisplayDashboardUI.h \
     DisplayDashboard/DisplayDashboardView/DisplayDashboardView.h \
-    Faults/I_FaultList.h \
+    Faults/I_MotorFaultList.h \
     MotorFaultsResources.h \
     RaceModeDisplay/RaceModeDisplayUI/I_RaceModeDashboardUI.h \
     RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.h \
