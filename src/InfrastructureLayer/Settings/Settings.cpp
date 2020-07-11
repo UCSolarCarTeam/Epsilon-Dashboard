@@ -11,8 +11,11 @@ namespace
     const QString PORT = "SourceAddress/port";
     const QString DEFAULT_PORT = "5672";
     const QString PACKET_TITLE = "JsonFormat/packetTitle";
+    const QString DEFAULT_PACKET_TITLE = "Gen5";
     const QString EXCHANGE_NAME = "rabbitMQ/exchangeName";
+    const QString DEFAULT_EXCHANGE_NAME = "hermesExchange";
     const QString QUEUE_NAME = "rabbitMQ/queueName";
+    const QString DEFAULT_QUEUE_NAME = "displayQueue";
     const QString LOGGING_ENABLED = "Logging/loggingEnabled";
     const QString CUSTOM_QUEUE_ENABLE = "rabbitMQ/customQueueName";
 
@@ -21,16 +24,45 @@ namespace
 Settings::Settings(QString filepath)
     : settings_(filepath, SETTINGS_FILE_FORMAT)
 {
+    if (settings_.value(IP_ADDRESS).isNull())
+    {
+        settings_.setValue(IP_ADDRESS, DEFAULT_IP);
+    }
+
+    if (settings_.value(PORT).isNull())
+    {
+        settings_.setValue(PORT, DEFAULT_PORT);
+    }
+
+    if (settings_.value(PACKET_TITLE).isNull())
+    {
+        settings_.setValue(PACKET_TITLE, DEFAULT_PACKET_TITLE);
+    }
+
+    if (settings_.value(EXCHANGE_NAME).isNull())
+    {
+        settings_.setValue(EXCHANGE_NAME, DEFAULT_EXCHANGE_NAME);
+    }
+
+    if (settings_.value(CUSTOM_QUEUE_ENABLE).isNull())
+    {
+        settings_.setValue(CUSTOM_QUEUE_ENABLE, false);
+    }
+
+    if (settings_.value(LOGGING_ENABLED).isNull())
+    {
+        settings_.setValue(LOGGING_ENABLED, true);
+    }
 }
 
 QString Settings::ipAddress() const
 {
-    return QString(settings_.value(IP_ADDRESS, DEFAULT_IP).toString());
+    return QString(settings_.value(IP_ADDRESS).toString());
 }
 
 quint16 Settings::port() const
 {
-    return (quint16)settings_.value(PORT, DEFAULT_PORT).toInt();
+    return (quint16)settings_.value(PORT).toInt();
 }
 
 QString Settings::packetTitle() const

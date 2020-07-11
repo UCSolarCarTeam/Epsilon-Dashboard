@@ -10,6 +10,14 @@ LIBS += \
 ! include(../common.pri){
     error("Could not find common.pri file!")
 }
+
+CONFIG += conan_basic_setup
+! include($$OUT_PWD/../conanbuildinfo.pri) {
+    error("Could not find conanbuildinfo.pri file!")
+}
+
+LIBS += -ldl
+
 PRE_TARGETDEPS += \
     ../ViewLayer/.lib/* \
     ../CommunicationLayer/.lib/* \

@@ -15,12 +15,13 @@ public:
 
     explicit HomePageUi();
     ~HomePageUi();
-    QPushButton& batteryButton();
-    QPushButton& controlButton();
-    QPushButton& faultButton();
-    QPushButton& motorButton();
-    QPushButton& mpptButton();
-    QLabel& carLabel();
+    QPushButton& batteryButton() override;
+    QPushButton& controlButton() override;
+    QPushButton& faultButton() override;
+    QPushButton& motorButton() override;
+    QPushButton& mpptButton() override;
+    QPushButton& auxBmsButton() override;
+    QLabel& carLabel() override;
 
 private:
     Ui::HomePageUi* ui_;

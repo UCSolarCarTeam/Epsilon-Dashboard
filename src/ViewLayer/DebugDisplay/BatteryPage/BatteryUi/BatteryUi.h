@@ -67,16 +67,8 @@ public:
 
     QLabel& populatedCellsLabel();
     QLabel& inputVoltage12VLabel();
-    QLabel& prechargeStateLabel();
-    QLabel& auxVoltageLabel();
 
-    QWidget& auxBmsAliveWidget();
     QVBoxLayout& progressBarContainer();
-
-    QLabel& strobeBMSLabel();
-    QLabel& allowChargeLabel();
-    QLabel& contactorErrorLabel();
-    QLabel& highVoltageEnableLabel();
 
 private:
     Ui::BatteryUi* ui_;

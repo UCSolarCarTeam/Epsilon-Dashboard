@@ -1,4 +1,5 @@
 #pragma once
+#include <QSettings>
 
 class I_Settings
 {

@@ -1,7 +1,5 @@
 #pragma once
 
-#include <QSettings>
-
 #include "I_Settings.h"
 
 class Settings : public I_Settings

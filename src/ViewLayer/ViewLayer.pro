@@ -6,8 +6,12 @@ CONFIG += staticlib
 }
 
 DESTDIR = .lib
+INCLUDEPATH += DebugDisplay/
 
 HEADERS += \
+    DebugDisplay/AuxBmsPage/AuxBmsUi/AuxBmsUi.h \
+    DebugDisplay/AuxBmsPage/AuxBmsUi/I_AuxBmsUi.h \
+    DebugDisplay/AuxBmsPage/AuxBmsView/AuxBmsView.h \
     DebugDisplay/BatteryPage/BatteryUi/BatteryUi.h \
     DebugDisplay/BatteryPage/BatteryUi/I_BatteryUi.h \
     DebugDisplay/BatteryPage/BatteryView/BatteryView.h \
@@ -43,7 +47,9 @@ HEADERS += \
     Faults/FaultPriorities/FaultPriorities.h \
     FontLoader/FontLoader.h
 
-SOURCES += \ 
+SOURCES += \
+    DebugDisplay/AuxBmsPage/AuxBmsUi/AuxBmsUi.cpp \
+    DebugDisplay/AuxBmsPage/AuxBmsView/AuxBmsView.cpp \
     DebugDisplay/BatteryPage/BatteryUi/BatteryUi.cpp \
     DebugDisplay/BatteryPage/BatteryView/BatteryView.cpp \
     DebugDisplay/BatteryPage/ProgressBar.cpp \
@@ -69,7 +75,8 @@ SOURCES += \
     Faults/BatteryFaults/BatteryFaultList.cpp \
     FontLoader/FontLoader.cpp
 
-FORMS += \   
+FORMS += \
+    DebugDisplay/AuxBmsPage/AuxBmsUi/AuxBmsUi.ui \
     DebugDisplay/BatteryPage/BatteryUi/BatteryUi.ui \
     DebugDisplay/ControlPage/ControlUi/ControlUi.ui \
     DebugDisplay/HomePage/HomePageUi/HomePageUi.ui \
