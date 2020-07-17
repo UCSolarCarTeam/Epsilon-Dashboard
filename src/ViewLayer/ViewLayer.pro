@@ -37,7 +37,8 @@ HEADERS += \
     DisplayDashboard/DisplayDashboardUI/I_DisplayDashboardUI.h \
     DisplayDashboard/DisplayDashboardView/DisplayDashboardView.h \
     Faults/MotorFaults/I_MotorFaultList.h \
-    MotorFaultsResources.h \
+    Faults/MotorFaults/MotorFaultsResources.h \
+    Faults/MotorFaults/MotorFaultsUpdater.h \
     RaceModeDisplay/RaceModeDisplayUI/I_RaceModeDashboardUI.h \
     RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.h \
     ViewContainer.h \
@@ -57,7 +58,8 @@ SOURCES += \
     DebugDisplay/BatteryPage/ProgressBar.cpp \
     DebugDisplay/ControlPage/ControlUi/ControlUi.cpp \
     DebugDisplay/ControlPage/ControlView/ControlView.cpp \
-    DebugDisplay/HomePage/HomePageUi/HomePageUi.cpp\ 
+    DebugDisplay/HomePage/HomePageUi/HomePageUi.cpp\  \
+    Faults/MotorFaults/MotorFaultsUpdater.cpp \
     DebugDisplay/FaultPage/FaultUi/FaultUi.cpp \
     DebugDisplay/MotorPage/MotorUi/MotorUi.cpp \
     DebugDisplay/FaultPage/FaultView/FaultView.cpp \
