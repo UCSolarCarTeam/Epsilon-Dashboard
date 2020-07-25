@@ -87,8 +87,8 @@ To run the application in race mode, add the -r flag at the end:
 
 ### Data Flow
 
-![DataFlow](ArchitectureDiagrams/DataFlow.jpg)
+![DataFlow](ArchitectureDiagrams/DataFlow.jpg "Data Flow")
 
 ### Class Diagram
 
-![ClassDiagram](ArchitectureDiagrams/ClassDiagram.jpg)
+![ClassDiagram](ArchitectureDiagrams/ClassDiagram.jpg "Class Diagram")
