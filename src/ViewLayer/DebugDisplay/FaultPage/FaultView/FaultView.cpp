@@ -92,15 +92,19 @@ void FaultView::initializeLabel(FaultLabel& label, QLayout*& layout, QString& st
 void FaultView::initializeLabels(QLayout*& layoutM0, QLayout*& layoutM1, QLayout*& layoutB)
 {
     // Motor 0
-    for (int i = 0; i < motorZeroFaultList_.faultLabels().size(); i++)
+    QMapIterator<MotorFaults, FaultLabel> i(motorZeroFaultList_.faults());
+    while(i.hasNext())
     {
-        initializeLabel(motorZeroFaultList_.faultLabels()[i], layoutM0, FAULT_STYLESHEET);
+        i.next();
+        initializeLabel(motorZeroFaultList_.faults()[i.key()], layoutM0, FAULT_STYLESHEET);
     }
 
     // Motor 1
-    for (int i = 0; i < motorOneFaultList_.faultLabels().size(); i++)
+    QMapIterator<MotorFaults, FaultLabel> j(motorOneFaultList_.faults());
+    while(j.hasNext())
     {
-        initializeLabel(motorOneFaultList_.faultLabels()[i], layoutM1, FAULT_STYLESHEET);
+        i.next();
+        initializeLabel(motorOneFaultList_.faults()[j.key()], layoutM1, FAULT_STYLESHEET);
     }
 
     // Battery
@@ -148,11 +152,13 @@ void FaultView::updateBatteryFaults()
 
 void FaultView::updateMotor0Faults()
 {
-    label0Count_ = motorZeroFaultList_.numberOfActiveLabels();
+    label0Count_ = motorZeroFaultList_.numberOfActiveFaults();
 
-    for (int i = 0; i < motorZeroFaultList_.faultLabels().size(); i++)
+    QMapIterator<MotorFaults, FaultLabel> i(motorZeroFaultList_.faults());
+    while(i.hasNext())
     {
-        updateLabel(motorZeroFaultList_.faultLabels()[i]);
+        i.next();
+        updateLabel(motorZeroFaultList_.faults()[i.key()]);
     }
 
     updateLabelListHeight(ui_.motor0ContentsWidget(), label0Count_);
@@ -160,11 +166,13 @@ void FaultView::updateMotor0Faults()
 
 void FaultView::updateMotor1Faults()
 {
-    label1Count_ = motorOneFaultList_.numberOfActiveLabels();
+    label1Count_ = motorOneFaultList_.numberOfActiveFaults();
 
-    for (int i = 0; i < motorOneFaultList_.faultLabels().size(); i++)
+    QMapIterator<MotorFaults, FaultLabel> i(motorOneFaultList_.faults());
+    while(i.hasNext())
     {
-        updateLabel(motorOneFaultList_.faultLabels()[i]);
+        i.next();
+        updateLabel(motorOneFaultList_.faults()[i.key()]);
     }
 
     updateLabelListHeight(ui_.motor1ContentsWidget(), label1Count_);
