@@ -58,7 +58,7 @@ SOURCES += \
     DebugDisplay/BatteryPage/ProgressBar.cpp \
     DebugDisplay/ControlPage/ControlUi/ControlUi.cpp \
     DebugDisplay/ControlPage/ControlView/ControlView.cpp \
-    DebugDisplay/HomePage/HomePageUi/HomePageUi.cpp\  \
+    DebugDisplay/HomePage/HomePageUi/HomePageUi.cpp\
     Faults/MotorFaults/MotorFaultsUpdater.cpp \
     DebugDisplay/FaultPage/FaultUi/FaultUi.cpp \
     DebugDisplay/MotorPage/MotorUi/MotorUi.cpp \

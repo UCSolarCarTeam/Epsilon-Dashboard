@@ -1,6 +1,6 @@
 #pragma once
-#include "../FaultLabel/FaultLabel.h"
-#include "../../MotorFaultsResources.h"
+#include "Faults/FaultLabel/FaultLabel.h"
+#include "MotorFaultsResources.h"
 #include <QMap>
 
 class I_MotorFaultList

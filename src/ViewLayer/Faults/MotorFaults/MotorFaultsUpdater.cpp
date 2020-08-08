@@ -2,10 +2,14 @@
 #include "../PresenterLayer/MotorFaultsPresenter/MotorFaultsPresenter.h"
 #include "MotorFaultsResources.h"
 #include "Faults/FaultLabel/FaultLabel.h"
+#include "I_MotorFaultList.h"
 
-MotorFaultsUpdater::MotorFaultsUpdater(const MotorFaultsPresenter &presenter, I_FaultList &faultList)
+MotorFaultsUpdater::MotorFaultsUpdater(const MotorFaultsPresenter &presenter,
+                                       I_MotorFaultList& faultListZero,
+                                       I_MotorFaultList& faultListOne)
     : motorFaultsPresenter_(presenter)
-    , faultList_(faultList)
+    , faultListZero_(faultListZero)
+    , faultListOne_(faultListOne)
 {
     connect(&motorFaultsPresenter_, SIGNAL(motorZeroErrorFlagsReceived(ErrorFlags)),
             this, SLOT(motorZeroErrorFlagsReceived(ErrorFlags)));
@@ -19,7 +23,7 @@ MotorFaultsUpdater::MotorFaultsUpdater(const MotorFaultsPresenter &presenter, I_
 
 void MotorFaultsUpdater::motorZeroErrorFlagsReceived(ErrorFlags motorZeroErrorFlags)
 {
-    QMap<MotorFaults , FaultLabel>& faults = faultList_.faults();
+    QMap<MotorFaults , FaultLabel>& faults = faultListZero_.faults();
     if(faults.contains(MotorFaults::MOTOR_OVER_SPEED))
     {
         faults[MotorFaults::MOTOR_OVER_SPEED].setActive(motorZeroErrorFlags.motorOverSpeed());
@@ -56,7 +60,7 @@ void MotorFaultsUpdater::motorZeroErrorFlagsReceived(ErrorFlags motorZeroErrorFl
 
 void MotorFaultsUpdater::motorZeroLimitFlagsReceived(LimitFlags motorZeroLimitFlags)
 {
-    QMap<MotorFaults , FaultLabel>& faults = faultList_.faults();
+    QMap<MotorFaults , FaultLabel>& faults = faultListZero_.faults();
     if(faults.contains(MotorFaults::OUTPUT_VOLTAGE_PWM_LIMIT))
     {
         faults[MotorFaults::OUTPUT_VOLTAGE_PWM_LIMIT].setActive(motorZeroLimitFlags.outputVoltagePwmLimit());
@@ -89,7 +93,7 @@ void MotorFaultsUpdater::motorZeroLimitFlagsReceived(LimitFlags motorZeroLimitFl
 
 void MotorFaultsUpdater::motorOneErrorFlagsReceived(ErrorFlags motorOneErrorFlags)
 {
-    QMap<MotorFaults , FaultLabel>& faults = faultList_.faults();
+    QMap<MotorFaults , FaultLabel>& faults = faultListOne_.faults();
     if(faults.contains(MotorFaults::MOTOR_OVER_SPEED))
     {
         faults[MotorFaults::MOTOR_OVER_SPEED].setActive(motorOneErrorFlags.motorOverSpeed());
@@ -126,7 +130,7 @@ void MotorFaultsUpdater::motorOneErrorFlagsReceived(ErrorFlags motorOneErrorFlag
 
 void MotorFaultsUpdater::motorOneLimitFlagsReceived(LimitFlags motorOneLimitFlags)
 {
-    QMap<MotorFaults , FaultLabel>& faults = faultList_.faults();
+    QMap<MotorFaults , FaultLabel>& faults = faultListOne_.faults();
     if(faults.contains(MotorFaults::OUTPUT_VOLTAGE_PWM_LIMIT))
     {
         faults[MotorFaults::OUTPUT_VOLTAGE_PWM_LIMIT].setActive(motorOneLimitFlags.outputVoltagePwmLimit());
