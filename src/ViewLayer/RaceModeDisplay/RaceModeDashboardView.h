@@ -3,8 +3,6 @@
 #include <QObject>
 #include <QLabel>
 #include <QScopedPointer>
-#include <QPropertyAnimation>
-#include <QGraphicsColorizeEffect>
 
 #include "../../DataLayer/MpptData/Mppt.h"
 #include "../../DataLayer/MotorFaultsData/ErrorFlags.h"
@@ -24,6 +22,8 @@ class MpptPresenter;
 class MotorDetailsPresenter;
 class MotorFaultsPresenter;
 class QTimer;
+class QPropertyAnimation;
+class QGraphicsColorizeEffect;
 
 class RaceModeDashboardView : public QObject
 {
@@ -56,6 +56,8 @@ private:
     void connectMotorFaults(MotorFaultsPresenter&);
 
     void updateFaultLabel(QLabel&, FaultLabel);
+    void initalizeBackgroundAnimation();
+    void runBackgroundAnimation();
     void reverseBackgroundAnimation();
     void updateDriveStateLabel();
 
@@ -73,8 +75,11 @@ private:
     MotorFaultList& motorOneFaultsList_;
     BatteryFaultList& batteryFaultsList_;
 
-    QPropertyAnimation* backgroundAnimation_;
-    QGraphicsColorizeEffect* fadeEffect_;
+    QScopedPointer<QPropertyAnimation> backgroundAnimation_;
+    QScopedPointer<QGraphicsColorizeEffect> fadeEffect_;
+    int numberOfActiveFaults_;
+    int numberOfPreviousFaults_;
+    int numberOfAnimatedFaults_;
 
     double busCurrent_;
     double busVoltage_;

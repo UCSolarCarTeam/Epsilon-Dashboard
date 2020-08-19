@@ -476,7 +476,7 @@ outline: 1 px solid red;</string>
     <rect>
      <x>9</x>
      <y>9</y>
-     <width>780</width>
+     <width>764</width>
      <height>477</height>
     </rect>
    </property>
@@ -2276,24 +2276,100 @@ outline: 1 px solid red;</string>
               <bold>true</bold>
              </font>
             </property>
-            <layout class="QGridLayout" name="motorPowerLayout">
-             <property name="leftMargin">
-              <number>0</number>
-             </property>
-             <property name="topMargin">
-              <number>0</number>
-             </property>
-             <property name="rightMargin">
-              <number>0</number>
-             </property>
-             <property name="bottomMargin">
-              <number>0</number>
-             </property>
-             <property name="spacing">
-              <number>0</number>
-             </property>
-             <item row="3" column="0" colspan="3">
-              <widget class="QLabel" name="motorPowerTitleLabel">
+            <layout class="QGridLayout" name="gridLayout_9">
+             <item row="1" column="1">
+              <layout class="QVBoxLayout" name="motorOneBusCurrentInfo">
+               <item>
+                <widget class="QLabel" name="motorOneCurrentTitleLabel">
+                 <property name="font">
+                  <font>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color: rgb(230, 230, 170);</string>
+                 </property>
+                 <property name="text">
+                  <string>M O T O R  1</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="motorOneBusCurrentDataInfo">
+                 <item>
+                  <widget class="QLabel" name="motorOneBusCurrentLabel">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>98</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <pointsize>24</pointsize>
+                     <weight>50</weight>
+                     <bold>false</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">color: white;</string>
+                   </property>
+                   <property name="text">
+                    <string>879</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="motorOneBusCurrentUnitLabel">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>33</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <pointsize>14</pointsize>
+                     <weight>50</weight>
+                     <bold>false</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">color: white;</string>
+                   </property>
+                   <property name="text">
+                    <string>A</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </item>
+             <item row="0" column="0" colspan="2">
+              <widget class="QLabel" name="motorBusCurrentTitleLabel">
                <property name="font">
                 <font>
                  <pointsize>12</pointsize>
@@ -2343,14 +2419,14 @@ color: rgb(230, 230, 170);
                  <item>
                   <widget class="QLabel" name="motorZeroBusCurrentLabel">
                    <property name="sizePolicy">
-                    <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                      <horstretch>0</horstretch>
                      <verstretch>0</verstretch>
                     </sizepolicy>
                    </property>
                    <property name="minimumSize">
                     <size>
-                     <width>118</width>
+                     <width>98</width>
                      <height>0</height>
                     </size>
                    </property>
@@ -2408,10 +2484,155 @@ color: rgb(230, 230, 170);
                </item>
               </layout>
              </item>
-             <item row="1" column="2">
-              <layout class="QVBoxLayout" name="motorOneBusCurrentInfo">
+            </layout>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QWidget" name="setCurrentWidget" native="true">
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_8">
+             <item row="0" column="0" colspan="2">
+              <widget class="QWidget" name="setMotor0Motor1Widget" native="true">
+               <layout class="QHBoxLayout" name="horizontalLayout_6">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>0</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
+                <item>
+                 <widget class="QLabel" name="setCurrentTitleLabel">
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLabel {
+qproperty-alignment: AlignHCenter;
+color: rgb(230, 230, 170);
+}
+
+</string>
+                  </property>
+                  <property name="text">
+                   <string>- S E T   C U R R E N T -</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignHCenter</set>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <layout class="QVBoxLayout" name="motorZeroSetCurrentInfo">
                <item>
-                <widget class="QLabel" name="motorOneCurrentTitleLabel">
+                <widget class="QLabel" name="motorZeroSetCurrentTitleLabel">
+                 <property name="font">
+                  <font>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color: rgb(230, 230, 170);</string>
+                 </property>
+                 <property name="text">
+                  <string>M O T O R  0</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="motorZeroSetCurrentDataInfo">
+                 <item>
+                  <widget class="QLabel" name="motorZeroSetCurrentLabel">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>98</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <pointsize>24</pointsize>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">color: white;</string>
+                   </property>
+                   <property name="text">
+                    <string>879</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="motorZeroSetCurrentUnitsLabel">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>33</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <pointsize>14</pointsize>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">color: white;</string>
+                   </property>
+                   <property name="text">
+                    <string>A</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </item>
+             <item row="1" column="1">
+              <layout class="QVBoxLayout" name="motorOneSetCurrentInfo">
+               <item>
+                <widget class="QLabel" name="motorOneSetCurrentTitleLabel">
                  <property name="font">
                   <font>
                    <weight>75</weight>
@@ -2430,27 +2651,24 @@ color: rgb(230, 230, 170);
                 </widget>
                </item>
                <item>
-                <layout class="QHBoxLayout" name="motorOneBusCurrentDataInfo">
+                <layout class="QHBoxLayout" name="motorOneSetCurrentDataInfo">
                  <item>
-                  <widget class="QLabel" name="motorOneBusCurrentLabel">
+                  <widget class="QLabel" name="motorOneSetCurrentLabel">
                    <property name="sizePolicy">
-                    <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                      <horstretch>0</horstretch>
                      <verstretch>0</verstretch>
                     </sizepolicy>
                    </property>
                    <property name="minimumSize">
                     <size>
-                     <width>118</width>
+                     <width>98</width>
                      <height>0</height>
                     </size>
                    </property>
                    <property name="font">
                     <font>
                      <pointsize>24</pointsize>
-                     <weight>50</weight>
-                     <bold>false</bold>
-                     <strikeout>false</strikeout>
                     </font>
                    </property>
                    <property name="styleSheet">
@@ -2465,7 +2683,7 @@ color: rgb(230, 230, 170);
                   </widget>
                  </item>
                  <item>
-                  <widget class="QLabel" name="motorOneBusCurrentUnitLabel">
+                  <widget class="QLabel" name="motorOneSetCurrentUnitsLabel">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
                      <horstretch>0</horstretch>
@@ -2481,8 +2699,6 @@ color: rgb(230, 230, 170);
                    <property name="font">
                     <font>
                      <pointsize>14</pointsize>
-                     <weight>50</weight>
-                     <bold>false</bold>
                     </font>
                    </property>
                    <property name="styleSheet">
@@ -2503,252 +2719,6 @@ color: rgb(230, 230, 170);
             </layout>
            </widget>
           </item>
-          <item row="1" column="2">
-           <widget class="QWidget" name="setCurrentWidget" native="true">
-            <property name="font">
-             <font>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <layout class="QVBoxLayout" name="verticalLayout_23">
-             <property name="spacing">
-              <number>0</number>
-             </property>
-             <property name="leftMargin">
-              <number>0</number>
-             </property>
-             <property name="topMargin">
-              <number>0</number>
-             </property>
-             <property name="rightMargin">
-              <number>0</number>
-             </property>
-             <property name="bottomMargin">
-              <number>0</number>
-             </property>
-             <item>
-              <widget class="QWidget" name="setMotor0Motor1Widget" native="true">
-               <layout class="QHBoxLayout" name="horizontalLayout_6">
-                <property name="spacing">
-                 <number>0</number>
-                </property>
-                <property name="leftMargin">
-                 <number>0</number>
-                </property>
-                <property name="topMargin">
-                 <number>0</number>
-                </property>
-                <property name="rightMargin">
-                 <number>0</number>
-                </property>
-                <property name="bottomMargin">
-                 <number>0</number>
-                </property>
-                <item>
-                 <layout class="QVBoxLayout" name="motorZeroSetCurrentInfo">
-                  <item>
-                   <widget class="QLabel" name="motorZeroSetCurrentTitleLabel">
-                    <property name="font">
-                     <font>
-                      <weight>75</weight>
-                      <bold>true</bold>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">color: rgb(230, 230, 170);</string>
-                    </property>
-                    <property name="text">
-                     <string>M O T O R  0</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <layout class="QHBoxLayout" name="motorZeroSetCurrentDataInfo">
-                    <item>
-                     <widget class="QLabel" name="motorZeroSetCurrentLabel">
-                      <property name="sizePolicy">
-                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
-                       </sizepolicy>
-                      </property>
-                      <property name="font">
-                       <font>
-                        <pointsize>24</pointsize>
-                       </font>
-                      </property>
-                      <property name="layoutDirection">
-                       <enum>Qt::LeftToRight</enum>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">color: white;</string>
-                      </property>
-                      <property name="text">
-                       <string>879</string>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignCenter</set>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLabel" name="motorZeroSetCurrentUnitsLabel">
-                      <property name="sizePolicy">
-                       <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
-                       </sizepolicy>
-                      </property>
-                      <property name="minimumSize">
-                       <size>
-                        <width>33</width>
-                        <height>0</height>
-                       </size>
-                      </property>
-                      <property name="font">
-                       <font>
-                        <pointsize>14</pointsize>
-                        <weight>50</weight>
-                        <bold>false</bold>
-                       </font>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">color: white;</string>
-                      </property>
-                      <property name="text">
-                       <string>A</string>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <layout class="QVBoxLayout" name="motorOneSetCurrentInfo">
-                  <item>
-                   <widget class="QLabel" name="motorOneSetCurrentTitleLabel">
-                    <property name="font">
-                     <font>
-                      <weight>75</weight>
-                      <bold>true</bold>
-                     </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">color: rgb(230, 230, 170);</string>
-                    </property>
-                    <property name="text">
-                     <string>M O T O R  1</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <layout class="QHBoxLayout" name="motorOneSetCurrentDataInfo">
-                    <item>
-                     <widget class="QLabel" name="motorOneSetCurrentLabel">
-                      <property name="sizePolicy">
-                       <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
-                       </sizepolicy>
-                      </property>
-                      <property name="minimumSize">
-                       <size>
-                        <width>118</width>
-                        <height>0</height>
-                       </size>
-                      </property>
-                      <property name="font">
-                       <font>
-                        <pointsize>24</pointsize>
-                       </font>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">color: white;</string>
-                      </property>
-                      <property name="text">
-                       <string>879</string>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignCenter</set>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLabel" name="motorOneSetCurrentUnitsLabel">
-                      <property name="sizePolicy">
-                       <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
-                       </sizepolicy>
-                      </property>
-                      <property name="minimumSize">
-                       <size>
-                        <width>33</width>
-                        <height>0</height>
-                       </size>
-                      </property>
-                      <property name="font">
-                       <font>
-                        <pointsize>14</pointsize>
-                       </font>
-                      </property>
-                      <property name="styleSheet">
-                       <string notr="true">color: white;</string>
-                      </property>
-                      <property name="text">
-                       <string>A</string>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                 </layout>
-                </item>
-               </layout>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="setCurrentTitleLabel">
-               <property name="font">
-                <font>
-                 <pointsize>12</pointsize>
-                 <weight>75</weight>
-                 <bold>true</bold>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QLabel {
-qproperty-alignment: AlignHCenter;
-color: rgb(230, 230, 170);
-}
-
-</string>
-               </property>
-               <property name="text">
-                <string>- S E T   C U R R E N T -</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignHCenter</set>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </item>
          </layout>
         </widget>
        </item>
@@ -2764,109 +2734,6 @@ color: rgb(230, 230, 170);
           <string notr="true"/>
          </property>
          <layout class="QGridLayout" name="gridLayout">
-          <item row="0" column="0">
-           <widget class="QWidget" name="driveModeWidget" native="true">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <layout class="QVBoxLayout" name="verticalLayout_14">
-             <property name="leftMargin">
-              <number>0</number>
-             </property>
-             <property name="topMargin">
-              <number>0</number>
-             </property>
-             <property name="rightMargin">
-              <number>0</number>
-             </property>
-             <item>
-              <widget class="QLabel" name="driveModeTitleLabel">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>20</height>
-                </size>
-               </property>
-               <property name="font">
-                <font>
-                 <pointsize>10</pointsize>
-                 <weight>75</weight>
-                 <bold>true</bold>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QLabel {
-qproperty-alignment: AlignHCenter;
-color: rgb(230, 230, 170);
-}
-
-</string>
-               </property>
-               <property name="text">
-                <string>- D R I V E  M O D E - </string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignHCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <spacer name="verticalSpacer_2">
-               <property name="orientation">
-                <enum>Qt::Vertical</enum>
-               </property>
-               <property name="sizeType">
-                <enum>QSizePolicy::Preferred</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>20</width>
-                 <height>13</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item>
-              <widget class="QLabel" name="driveModeValueLabel">
-               <property name="font">
-                <font>
-                 <pointsize>30</pointsize>
-                 <weight>75</weight>
-                 <italic>false</italic>
-                 <bold>true</bold>
-                 <kerning>true</kerning>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color:white;
-</string>
-               </property>
-               <property name="text">
-                <string>D</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </item>
           <item row="0" column="1">
            <widget class="QWidget" name="stateOfChargeDetailsWidget" native="true">
             <property name="sizePolicy">
@@ -2884,9 +2751,15 @@ color: rgb(230, 230, 170);
             <property name="styleSheet">
              <string notr="true">color: white;</string>
             </property>
-            <layout class="QVBoxLayout" name="verticalLayout_2">
+            <layout class="QVBoxLayout" name="verticalLayout">
+             <property name="leftMargin">
+              <number>9</number>
+             </property>
              <property name="topMargin">
               <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>30</number>
              </property>
              <item>
               <widget class="QLabel" name="stateOfChargeTitleLabel">
@@ -2899,7 +2772,7 @@ color: rgb(230, 230, 170);
                <property name="minimumSize">
                 <size>
                  <width>0</width>
-                 <height>20</height>
+                 <height>0</height>
                 </size>
                </property>
                <property name="font">
@@ -3082,9 +2955,110 @@ color: white;</string>
             </item>
            </layout>
           </item>
+          <item row="0" column="0">
+           <widget class="QWidget" name="driveModeWidget" native="true">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_14">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="driveModeTitleLabel">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+qproperty-alignment: AlignHCenter;
+color: rgb(230, 230, 170);
+}
+
+</string>
+               </property>
+               <property name="text">
+                <string>- D R I V E  M O D E - </string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignHCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="verticalSpacer_2">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Preferred</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>5</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QLabel" name="driveModeValueLabel">
+               <property name="font">
+                <font>
+                 <pointsize>32</pointsize>
+                 <weight>75</weight>
+                 <italic>false</italic>
+                 <bold>true</bold>
+                 <kerning>true</kerning>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color:white;
+</string>
+               </property>
+               <property name="text">
+                <string>D</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignHCenter|Qt::AlignTop</set>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
          </layout>
-         <zorder>stateOfChargeDetailsWidget</zorder>
-         <zorder>driveModeWidget</zorder>
         </widget>
        </item>
        <item>

@@ -26,6 +26,7 @@ RaceModeDashboardUI::RaceModeDashboardUI(bool isWindowed)
         )
     );
     //Font loading
+    ui_->driveModeValueLabel->setFont(fontLoader_->loadFont(Font::LCD, 32, true));
     ui_->actualSpeedLabel->setFont(fontLoader_->loadFont(Font::LCD, 45, true));
     ui_->stateOfChargeCapacityWidget->setFont(fontLoader_->loadFont(Font::LCD, 20, false));
 
