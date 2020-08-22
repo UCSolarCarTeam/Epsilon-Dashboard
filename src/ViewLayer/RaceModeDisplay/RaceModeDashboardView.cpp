@@ -1,5 +1,4 @@
 #include <QTimer>
-#include <QDebug>
 #include <QPropertyAnimation>
 #include <QGraphicsColorizeEffect>
 
@@ -63,8 +62,6 @@ RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
     , motorOneFaultsList_(motorOneFaultsList)
     , batteryFaultsList_(batteryFaultsList)
     , numberOfActiveFaults_(0)
-    , numberOfPreviousFaults_(0)
-    , numberOfAnimatedFaults_(0)
     , faultsTimer_(new QTimer())
 {
     connectBattery(batteryPresenter_);
@@ -77,11 +74,12 @@ RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
     connectMotorDetails(motorDetailsPresenter_);
     connectMotorFaults(motorFaultsPresenter_);
     //ui_.showMaximized();
+    initalizeFaultAnimation();
     connect(faultsTimer_.data(), SIGNAL(timeout()), this, SLOT(updateBatteryFaults()));
     connect(faultsTimer_.data(), SIGNAL(timeout()), this, SLOT(updateMotor0Faults()));
     connect(faultsTimer_.data(), SIGNAL(timeout()), this, SLOT(updateMotor1Faults()));
+    connect(faultsTimer_.data(), SIGNAL(timeout()), this, SLOT(runFaultAnimation()));
     faultsTimer_->start(FAULT_UPDATE_PERIOD);
-    initalizeBackgroundAnimation();
     ui_.show();
 }
 RaceModeDashboardView::~RaceModeDashboardView()
@@ -188,7 +186,6 @@ void RaceModeDashboardView::connectMotorFaults(MotorFaultsPresenter& motorFaults
 
 void RaceModeDashboardView::updateFaultLabel(QLabel& dashboardLabel, FaultLabel faultLabel)
 {
-    runBackgroundAnimation();
     if (faultLabel.priority() >= 0)
     {
         dashboardLabel.setStyleSheet(QString("color:%1").arg(faultLabel.color().name()));
@@ -200,105 +197,37 @@ void RaceModeDashboardView::updateFaultLabel(QLabel& dashboardLabel, FaultLabel 
     }
 }
 
-void RaceModeDashboardView::initalizeBackgroundAnimation()
+void RaceModeDashboardView::initalizeFaultAnimation()
 {
     fadeEffect_.reset(new QGraphicsColorizeEffect(&(ui_.raceModeDashboard())));
     fadeEffect_->setColor(QColor(0, 0, 0));
     ui_.raceModeDashboard().setGraphicsEffect(fadeEffect_.get());
-    backgroundAnimation_.reset(new QPropertyAnimation(fadeEffect_.get(), "color"));
-    backgroundAnimation_->setDuration(FAULT_UPDATE_PERIOD/2 - 50);
-    backgroundAnimation_->setStartValue(QColor(0, 0, 0));
-    backgroundAnimation_->setEndValue(QColor(255, 127, 0));
-    connect(backgroundAnimation_.get(), &QAbstractAnimation::finished, this, &RaceModeDashboardView::reverseBackgroundAnimation);
+    faultAnimation_.reset(new QPropertyAnimation(fadeEffect_.get(), "color"));
+    faultAnimation_->setDuration(FAULT_UPDATE_PERIOD / 2 - 50);
+    faultAnimation_->setStartValue(QColor(0, 0, 0));
+    faultAnimation_->setEndValue(QColor(255, 127, 0));
+    connect(faultAnimation_.get(), &QAbstractAnimation::finished, this, &RaceModeDashboardView::reverseFaultAnimation);
 }
 
-void RaceModeDashboardView::runBackgroundAnimation()
+void RaceModeDashboardView::runFaultAnimation()
 {
-    numberOfPreviousFaults_ = numberOfActiveFaults_;
     numberOfActiveFaults_ = batteryFaultsList_.numberOfActiveLabels() +
                             motorOneFaultsList_.numberOfActiveLabels() +
                             motorZeroFaultsList_.numberOfActiveLabels();
-    qDebug() << numberOfActiveFaults_;
-    qDebug() << numberOfAnimatedFaults_;
-    qDebug() << numberOfPreviousFaults_ << endl;
 
-    /* Hello, I have outlined two possible methods below on how to control
-     * the fault background animation. I'm running into problems since I
-     * switched to making the animation dependent on the number of faults
-     * rather than the labels. Please advise me on how to continue.
-     */
-
-#if 1
-    //METHOD #1
-    /* Method that attempts to flash once for one fault and continously flash for multiple faults.
-     * Issue here is if there is one fault and it gets replaced by another fault
-     * in the same update period, no flash will occur since the number of active faults
-     * is still one over the same update period.
-     */
-    if (numberOfActiveFaults_ > 0 && backgroundAnimation_->state() != QAbstractAnimation::Running)
+    if (numberOfActiveFaults_ > 0 && faultAnimation_->state() != QAbstractAnimation::Running)
     {
-        if (numberOfActiveFaults_ == 1 && numberOfAnimatedFaults_ == 0)
-        {
-            backgroundAnimation_->setDirection(QAbstractAnimation::Forward);
-            backgroundAnimation_->start();
-            numberOfAnimatedFaults_++;
-        }
-        else if (numberOfActiveFaults_ > 1)
-        {
-            backgroundAnimation_->setDirection(QAbstractAnimation::Forward);
-            backgroundAnimation_->start();
-            numberOfAnimatedFaults_++;
-        }
+        faultAnimation_->setDirection(QAbstractAnimation::Forward);
+        faultAnimation_->start();
     }
-    else
-    {
-        numberOfAnimatedFaults_ = 0;
-    }
-#endif
-
-#if 0
-    //METHOD #2
-    /* Method that attempts to flash up to the number of faults.
-     * For example, if there are three faults, there will be three flashes.
-     * Issue here is that if the number of faults is reduced, and new faults
-     * appear in that same update period but there is still less than the number of faults
-     * that were present in the last period, there will be no flash since it is based
-     * on the number of faults rather than the labels themselves.
-     * (ie. On telemetry tool: setting five faults, sending packet, then setting three
-     *      other faults and disabling the same five and sending packet, no flash
-     *      will occur.)
-     */
-    if (numberOfActiveFaults_ > 0)
-    {
-        if (numberOfAnimatedFaults_ < numberOfActiveFaults_ && backgroundAnimation_->state() != QAbstractAnimation::Running)
-        {
-            qDebug() << "ran";
-            backgroundAnimation_->setDirection(QAbstractAnimation::Forward);
-            backgroundAnimation_->start();
-            numberOfAnimatedFaults_++;
-        }
-        else if (numberOfActiveFaults_ < numberOfPreviousFaults_)
-        {
-            qDebug() << "not ran";
-            numberOfAnimatedFaults_ = numberOfActiveFaults_;
-            /* Possibily of another type of flash indicating that
-             * the number of faults reduced?
-             */
-        }
-    }
-    else
-    {
-        numberOfAnimatedFaults_ = 0;
-    }
-#endif
 }
 
-void RaceModeDashboardView::reverseBackgroundAnimation()
+void RaceModeDashboardView::reverseFaultAnimation()
 {
-    if (backgroundAnimation_->direction() != QAbstractAnimation::Backward)
+    if (faultAnimation_->direction() != QAbstractAnimation::Backward)
     {
-        backgroundAnimation_->setDirection(QAbstractAnimation::Backward);
-        backgroundAnimation_->start();
+        faultAnimation_->setDirection(QAbstractAnimation::Backward);
+        faultAnimation_->start();
     }
 }
 
