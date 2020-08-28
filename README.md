@@ -82,3 +82,13 @@ To run the application in debug display mode, run the command:
 
 To run the application in race mode, add the -r flag at the end:
   `./EpsilonDashboard -r`
+
+## Architecture Diagrams
+
+### Data Flow
+
+![DataFlow](ArchitectureDiagrams/DataFlow.png "Data Flow")
+
+### Class Diagram
+
+![ClassDiagram](ArchitectureDiagrams/ClassDiagram.png "Class Diagram")
