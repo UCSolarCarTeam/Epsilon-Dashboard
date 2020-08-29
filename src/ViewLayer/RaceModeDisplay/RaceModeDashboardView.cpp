@@ -61,7 +61,6 @@ RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
     , motorZeroFaultsList_(motorZeroFaultsList)
     , motorOneFaultsList_(motorOneFaultsList)
     , batteryFaultsList_(batteryFaultsList)
-    , numberOfActiveFaults_(0)
     , faultsTimer_(new QTimer())
 {
     connectBattery(batteryPresenter_);
@@ -211,11 +210,11 @@ void RaceModeDashboardView::initalizeFaultAnimation()
 
 void RaceModeDashboardView::runFaultAnimation()
 {
-    numberOfActiveFaults_ = batteryFaultsList_.numberOfActiveLabels() +
-                            motorOneFaultsList_.numberOfActiveLabels() +
-                            motorZeroFaultsList_.numberOfActiveLabels();
+    int numberOfActiveFaults = batteryFaultsList_.numberOfActiveLabels() +
+                               motorOneFaultsList_.numberOfActiveLabels() +
+                               motorZeroFaultsList_.numberOfActiveLabels();
 
-    if (numberOfActiveFaults_ > 0 && faultAnimation_->state() != QAbstractAnimation::Running)
+    if (numberOfActiveFaults > 0 && faultAnimation_->state() != QAbstractAnimation::Running)
     {
         faultAnimation_->setDirection(QAbstractAnimation::Forward);
         faultAnimation_->start();

@@ -76,7 +76,6 @@ private:
 
     QScopedPointer<QPropertyAnimation> faultAnimation_;
     QScopedPointer<QGraphicsColorizeEffect> fadeEffect_;
-    int numberOfActiveFaults_;
 
     double busCurrent_;
     double busVoltage_;
