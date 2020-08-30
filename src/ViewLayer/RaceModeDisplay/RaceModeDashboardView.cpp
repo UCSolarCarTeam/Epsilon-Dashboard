@@ -33,6 +33,8 @@ namespace
     const QString TEMPERATURE_UNIT = "<sup>o</sup>";
     const float MV_TO_V = 1000;
     const int FAULT_UPDATE_PERIOD = 1500;
+    const QColor BACKGROUND_COLOR = QColor(0, 0, 0);
+    const QColor FAULT_ANIMATION_COLOR = QColor(255, 127, 0);
 }
 
 RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
@@ -203,8 +205,8 @@ void RaceModeDashboardView::initalizeFaultAnimation()
     ui_.raceModeDashboard().setGraphicsEffect(fadeEffect_.get());
     faultAnimation_.reset(new QPropertyAnimation(fadeEffect_.get(), "color"));
     faultAnimation_->setDuration(FAULT_UPDATE_PERIOD / 2 - 50);
-    faultAnimation_->setStartValue(QColor(0, 0, 0));
-    faultAnimation_->setEndValue(QColor(255, 127, 0));
+    faultAnimation_->setStartValue(BACKGROUND_COLOR);
+    faultAnimation_->setEndValue(FAULT_ANIMATION_COLOR);
     connect(faultAnimation_.get(), &QAbstractAnimation::finished, this, &RaceModeDashboardView::reverseFaultAnimation);
 }
 
