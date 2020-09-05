@@ -143,8 +143,6 @@ void DisplayDashboardView::connectLights(LightsPresenter& lightsPresenter)
 {
     connect(&lightsPresenter, SIGNAL(lowBeamsReceived(bool)),
             this, SLOT(lowBeamsReceived(bool)));
-    connect(&lightsPresenter, SIGNAL(highBeamsReceived(bool)),
-            this, SLOT(highBeamsReceived(bool)));
     connect(&lightsPresenter, SIGNAL(leftSignalReceived(bool)),
             this, SLOT(leftSignalReceived(bool)));
     connect(&lightsPresenter, SIGNAL(rightSignalReceived(bool)),
@@ -352,17 +350,7 @@ void DisplayDashboardView::lowBeamsReceived(bool lowBeams)
         ui_.lowHeadlightIndicatorWidget().setStyleSheet("");
     }
 }
-void DisplayDashboardView::highBeamsReceived(bool highBeams)
-{
-    if (highBeams)
-    {
-        ui_.highHeadlightIndicatorWidget().setStyleSheet("background: url(:/Resources/HighHeadlightIndicator.png)");
-    }
-    else
-    {
-        ui_.highHeadlightIndicatorWidget().setStyleSheet("");
-    }
-}
+
 void DisplayDashboardView::leftSignalReceived(bool leftSignal)
 {
     if (leftSignal)

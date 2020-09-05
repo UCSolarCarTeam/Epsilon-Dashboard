@@ -11,8 +11,6 @@ void LightsPresenter::relayLightsData()
 {
     connect(&lightsData_, SIGNAL(lowBeamsReceived(bool)),
             this, SIGNAL(lowBeamsReceived(bool)));
-    connect(&lightsData_, SIGNAL(highBeamsReceived(bool)),
-            this, SIGNAL(highBeamsReceived(bool)));
     connect(&lightsData_, SIGNAL(brakesReceived(bool)),
             this, SIGNAL(brakesReceived(bool)));
     connect(&lightsData_, SIGNAL(leftSignalReceived(bool)),
