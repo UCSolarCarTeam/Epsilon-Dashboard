@@ -26,6 +26,7 @@ RaceModeDashboardUI::RaceModeDashboardUI(bool isWindowed)
         )
     );
     //Font loading
+    ui_->driveModeValueLabel->setFont(fontLoader_->loadFont(Font::LCD, 32, true));
     ui_->actualSpeedLabel->setFont(fontLoader_->loadFont(Font::LCD, 45, true));
     ui_->stateOfChargeCapacityWidget->setFont(fontLoader_->loadFont(Font::LCD, 20, false));
 
@@ -38,6 +39,10 @@ RaceModeDashboardUI::~RaceModeDashboardUI()
 }
 
 
+QWidget& RaceModeDashboardUI::raceModeDashboard()
+{
+    return *ui_->raceModeDashboard;
+}
 
 QLabel& RaceModeDashboardUI::actualSpeedLabel()
 {
@@ -121,11 +126,6 @@ QLabel& RaceModeDashboardUI::prechargeStateLabel()
 QWidget& RaceModeDashboardUI::lowHeadlightIndicatorWidget()
 {
     return *ui_->lowHeadlightIndicatorWidget;
-}
-
-QWidget& RaceModeDashboardUI::highHeadlightIndicatorWidget()
-{
-    return *ui_->highHeadlightIndicatorWidget;
 }
 
 QLabel& RaceModeDashboardUI::highCellTemperatureLabel()

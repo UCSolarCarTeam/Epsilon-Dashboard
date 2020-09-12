@@ -1,4 +1,7 @@
 #include <QTimer>
+#include <QPropertyAnimation>
+#include <QGraphicsColorizeEffect>
+
 #include "RaceModeDashboardView.h"
 #include "../../PresenterLayer/BatteryPresenter/BatteryPresenter.h"
 #include "../../PresenterLayer/AuxBmsPresenter/AuxBmsPresenter.h"
@@ -30,6 +33,8 @@ namespace
     const QString TEMPERATURE_UNIT = "<sup>o</sup>";
     const float MV_TO_V = 1000;
     const int FAULT_UPDATE_PERIOD = 1500;
+    const QColor BACKGROUND_COLOR = QColor(0, 0, 0);
+    const QColor FAULT_ANIMATION_COLOR = QColor(255, 127, 0);
 }
 
 RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
@@ -70,9 +75,11 @@ RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
     connectMotorDetails(motorDetailsPresenter_);
     connectMotorFaults(motorFaultsPresenter_);
     //ui_.showMaximized();
+    initalizeFaultAnimation();
     connect(faultsTimer_.data(), SIGNAL(timeout()), this, SLOT(updateBatteryFaults()));
     connect(faultsTimer_.data(), SIGNAL(timeout()), this, SLOT(updateMotor0Faults()));
     connect(faultsTimer_.data(), SIGNAL(timeout()), this, SLOT(updateMotor1Faults()));
+    connect(faultsTimer_.data(), SIGNAL(timeout()), this, SLOT(runFaultAnimation()));
     faultsTimer_->start(FAULT_UPDATE_PERIOD);
     ui_.show();
 }
@@ -144,8 +151,6 @@ void RaceModeDashboardView::connectLights(LightsPresenter& lightsPresenter)
 {
     connect(&lightsPresenter, SIGNAL(lowBeamsReceived(bool)),
             this, SLOT(lowBeamsReceived(bool)));
-    connect(&lightsPresenter, SIGNAL(highBeamsReceived(bool)),
-            this, SLOT(highBeamsReceived(bool)));
     connect(&lightsPresenter, SIGNAL(leftSignalReceived(bool)),
             this, SLOT(leftSignalReceived(bool)));
     connect(&lightsPresenter, SIGNAL(rightSignalReceived(bool)),
@@ -179,6 +184,7 @@ void RaceModeDashboardView::connectMotorFaults(MotorFaultsPresenter& motorFaults
             this, SLOT(motorOneLimitFlagsReceived(LimitFlags)));
 }
 
+
 void RaceModeDashboardView::updateFaultLabel(QLabel& dashboardLabel, FaultLabel faultLabel)
 {
     if (faultLabel.priority() >= 0)
@@ -192,23 +198,57 @@ void RaceModeDashboardView::updateFaultLabel(QLabel& dashboardLabel, FaultLabel 
     }
 }
 
+void RaceModeDashboardView::initalizeFaultAnimation()
+{
+    fadeEffect_.reset(new QGraphicsColorizeEffect(&(ui_.raceModeDashboard())));
+    fadeEffect_->setColor(QColor(0, 0, 0));
+    ui_.raceModeDashboard().setGraphicsEffect(fadeEffect_.get());
+    faultAnimation_.reset(new QPropertyAnimation(fadeEffect_.get(), "color"));
+    faultAnimation_->setDuration(FAULT_UPDATE_PERIOD / 2 - 50);
+    faultAnimation_->setStartValue(BACKGROUND_COLOR);
+    faultAnimation_->setEndValue(FAULT_ANIMATION_COLOR);
+    connect(faultAnimation_.get(), &QAbstractAnimation::finished, this, &RaceModeDashboardView::reverseFaultAnimation);
+}
+
+void RaceModeDashboardView::runFaultAnimation()
+{
+    int numberOfActiveFaults = batteryFaultsList_.numberOfActiveLabels() +
+                               motorOneFaultsList_.numberOfActiveLabels() +
+                               motorZeroFaultsList_.numberOfActiveLabels();
+
+    if (numberOfActiveFaults > 0 && faultAnimation_->state() != QAbstractAnimation::Running)
+    {
+        faultAnimation_->setDirection(QAbstractAnimation::Forward);
+        faultAnimation_->start();
+    }
+}
+
+void RaceModeDashboardView::reverseFaultAnimation()
+{
+    if (faultAnimation_->direction() != QAbstractAnimation::Backward)
+    {
+        faultAnimation_->setDirection(QAbstractAnimation::Backward);
+        faultAnimation_->start();
+    }
+}
+
 void RaceModeDashboardView::updateDriveStateLabel()
 {
     if (forward_ && !(reverse_ || aux_))
     {
-        ui_.driveModeValueLabel().setText("Drive");
+        ui_.driveModeValueLabel().setText("D"); //Drive
     }
     else if (reverse_ && !(forward_ || aux_))
     {
-        ui_.driveModeValueLabel().setText("Reverse");
+        ui_.driveModeValueLabel().setText("R"); //Reverse
     }
     else if (aux_ && !(forward_ || reverse_))
     {
-        ui_.driveModeValueLabel().setText("Neutral");
+        ui_.driveModeValueLabel().setText("N"); //Neutral
     }
     else
     {
-        ui_.driveModeValueLabel().setText("Invalid Mode");
+        ui_.driveModeValueLabel().setText("Invalid"); //Invalid Mode
     }
 }
 
@@ -364,22 +404,11 @@ void RaceModeDashboardView::lowBeamsReceived(bool lowBeams)
 {
     if (lowBeams)
     {
-        ui_.lowHeadlightIndicatorWidget().setStyleSheet("border-image: url(:/Resources/LowHeadlightIndicator.png) 0 0 0 0 stretch stretch");
+        ui_.lowHeadlightIndicatorWidget().setStyleSheet("border-image: url(:/Resources/LowHeadlightIndicatorRace.png) 0 0 0 0 stretch stretch");
     }
     else
     {
-        ui_.lowHeadlightIndicatorWidget().setStyleSheet("");
-    }
-}
-void RaceModeDashboardView::highBeamsReceived(bool highBeams)
-{
-    if (highBeams)
-    {
-        ui_.highHeadlightIndicatorWidget().setStyleSheet("border-image: url(:/Resources/HighHeadlightIndicator.png) 0 0 0 0 stretch stretch");
-    }
-    else
-    {
-        ui_.highHeadlightIndicatorWidget().setStyleSheet("");
+        ui_.lowHeadlightIndicatorWidget().setStyleSheet("border-image: url(:/Resources/LowHeadlightOffRace.png) 0 0 0 0 stretch stretch");
     }
 }
 void RaceModeDashboardView::leftSignalReceived(bool leftSignal)

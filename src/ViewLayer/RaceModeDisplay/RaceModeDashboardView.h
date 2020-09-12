@@ -22,6 +22,8 @@ class MpptPresenter;
 class MotorDetailsPresenter;
 class MotorFaultsPresenter;
 class QTimer;
+class QPropertyAnimation;
+class QGraphicsColorizeEffect;
 
 class RaceModeDashboardView : public QObject
 {
@@ -54,6 +56,8 @@ private:
     void connectMotorFaults(MotorFaultsPresenter&);
 
     void updateFaultLabel(QLabel&, FaultLabel);
+    void initalizeFaultAnimation();
+    void reverseFaultAnimation();
     void updateDriveStateLabel();
 
     BatteryPresenter& batteryPresenter_;
@@ -69,6 +73,9 @@ private:
     MotorFaultList& motorZeroFaultsList_;
     MotorFaultList& motorOneFaultsList_;
     BatteryFaultList& batteryFaultsList_;
+
+    QScopedPointer<QPropertyAnimation> faultAnimation_;
+    QScopedPointer<QGraphicsColorizeEffect> fadeEffect_;
 
     double busCurrent_;
     double busVoltage_;
@@ -113,7 +120,6 @@ private slots:
 
     // lights slots
     void lowBeamsReceived(bool);
-    void highBeamsReceived(bool);
     void leftSignalReceived(bool);
     void rightSignalReceived(bool);
     void lightAliveReceived(bool);
@@ -131,4 +137,5 @@ private slots:
     void updateBatteryFaults();
     void updateMotor0Faults();
     void updateMotor1Faults();
+    void runFaultAnimation();
 };
