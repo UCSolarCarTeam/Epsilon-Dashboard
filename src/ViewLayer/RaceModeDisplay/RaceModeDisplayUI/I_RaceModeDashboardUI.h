@@ -9,6 +9,8 @@ class I_RaceModeDashboardUI : public QWidget
 public:
     virtual ~I_RaceModeDashboardUI() {}
 
+    virtual QWidget& raceModeDashboard() = 0;
+
     virtual QLabel& actualSpeedLabel() = 0;
 
     virtual QLabel& auxVoltageLabel() = 0;
@@ -33,7 +35,6 @@ public:
     virtual QLabel& prechargeStateLabel() = 0;
 
     virtual QWidget& lowHeadlightIndicatorWidget() = 0;
-    virtual QWidget& highHeadlightIndicatorWidget() = 0;
 
     virtual QLabel& highCellTemperatureLabel() = 0;
     virtual QLabel& avgCellTemperatureLabel() = 0;
