@@ -15,7 +15,6 @@
         <file>../Resources/MotorResetButton.png</file>
         <file>../Resources/LowHeadlightIndicator.png</file>
         <file>../Resources/LowHeadlightIndicatorRace.png</file>
-        <file>../Resources/HighHeadlightIndicator.png</file>
         <file>../Resources/ArrayOneBackground.png</file>
         <file>../Resources/ArrayTwoBackground.png</file>
         <file>../Resources/ArrayZeroBackground.png</file>
@@ -42,7 +41,6 @@
         <file>../Resources/TurnSignalRightOff.png</file>
         <file>../Resources/LowHeadlightOff.png</file>
         <file>../Resources/LowHeadlightOffRace.png</file>
-        <file>../Resources/HighHeadlightOff.png</file>
         <file>../Resources/ArrayThreeBackground.png</file>
     </qresource>
 </RCC>

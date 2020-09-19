@@ -13,10 +13,7 @@ bool LightsData::lowBeams() const
 {
     return lowBeams_;
 }
-bool LightsData::highBeams() const
-{
-    return highBeams_;
-}
+
 bool LightsData::brakes() const
 {
     return brakes_;
@@ -43,11 +40,7 @@ void LightsData::setlowBeams(bool lowBeams)
     lowBeams_ = lowBeams;
     emit lowBeamsReceived(lowBeams_);
 }
-void LightsData::sethighBeams(bool highBeams)
-{
-    highBeams_ = highBeams;
-    emit highBeamsReceived(highBeams_);
-}
+
 void LightsData::setbrakes(bool brakes)
 {
     brakes_ = brakes;

@@ -16,7 +16,6 @@ private:
 
 signals:
     void lowBeamsReceived(bool);
-    void highBeamsReceived(bool);
     void brakesReceived(bool);
     void leftSignalReceived(bool);
     void rightSignalReceived(bool);

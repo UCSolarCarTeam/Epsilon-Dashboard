@@ -37,10 +37,8 @@ private slots:
     void ccsAliveReceived(bool);
 
     void lowHeadlightsReceived(bool);
-    void highHeadlightsReceived(bool);
     void headlightsOffReceived(bool);
     void lowBeamsReceived(bool);
-    void highBeamsReceived(bool);
 
     void leftSignalReceived(bool);
     void rightSignalReceived(bool);

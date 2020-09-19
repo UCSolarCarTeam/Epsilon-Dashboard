@@ -162,11 +162,6 @@ QWidget& DisplayDashboardUI::lowHeadlightIndicatorWidget()
     return *ui_->lowHeadlightIndicatorWidget;
 }
 
-QWidget& DisplayDashboardUI::highHeadlightIndicatorWidget()
-{
-    return *ui_->highHeadlightIndicatorWidget;
-}
-
 QLabel& DisplayDashboardUI::highCellTemperatureLabel()
 {
     return *ui_->highCellTemperatureLabel;
