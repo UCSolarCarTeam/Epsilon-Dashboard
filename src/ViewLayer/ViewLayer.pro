@@ -36,7 +36,9 @@ HEADERS += \
     DisplayDashboard/DisplayDashboardUI/DisplayDashboardUI.h \
     DisplayDashboard/DisplayDashboardUI/I_DisplayDashboardUI.h \
     DisplayDashboard/DisplayDashboardView/DisplayDashboardView.h \
+    Faults/FaultPopulator.h \
     Faults/MotorFaults/I_MotorFaultList.h \
+    Faults/MotorFaults/MotorFaultPopulator.h \
     Faults/MotorFaults/MotorFaultsResources.h \
     Faults/MotorFaults/MotorFaultsUpdater.h \
     RaceModeDisplay/RaceModeDisplayUI/I_RaceModeDashboardUI.h \
@@ -59,6 +61,7 @@ SOURCES += \
     DebugDisplay/ControlPage/ControlUi/ControlUi.cpp \
     DebugDisplay/ControlPage/ControlView/ControlView.cpp \
     DebugDisplay/HomePage/HomePageUi/HomePageUi.cpp\
+    Faults/MotorFaults/MotorFaultPopulator.cpp \
     Faults/MotorFaults/MotorFaultsUpdater.cpp \
     DebugDisplay/FaultPage/FaultUi/FaultUi.cpp \
     DebugDisplay/MotorPage/MotorUi/MotorUi.cpp \

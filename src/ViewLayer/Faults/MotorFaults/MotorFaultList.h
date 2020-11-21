@@ -7,7 +7,7 @@
 #include "../DataLayer/MotorFaultsData/LimitFlags.h"
 #include "I_MotorFaultList.h"
 
-class MotorFaultList : I_MotorFaultList
+class MotorFaultList : public I_MotorFaultList
 {
 public:
     MotorFaultList();
@@ -19,7 +19,6 @@ public:
     int numberOfActiveFaults();
 
 private:
-    QVector<FaultLabel> faultLabels_;
     QMap<MotorFaults, FaultLabel> faultList_;
     int currentFault_;
 };

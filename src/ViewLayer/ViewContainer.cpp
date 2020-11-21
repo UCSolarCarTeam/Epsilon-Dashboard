@@ -1,6 +1,7 @@
 #include "ViewContainer.h"
 
 #include "Faults/MotorFaults/MotorFaultList.h"
+#include "Faults/MotorFaults/MotorFaultPopulator.h"
 #include "Faults/BatteryFaults/BatteryFaultList.h"
 #include "DisplayDashboard/DisplayDashboardUI/DisplayDashboardUI.h"
 #include "DisplayDashboard/DisplayDashboardView/DisplayDashboardView.h"
@@ -29,14 +30,14 @@
 ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode, bool isWindowed)
     :  motorZeroFaultList_(new MotorFaultList)
     ,  motorOneFaultList_(new MotorFaultList)
+    ,  motorFaultPopulator_(new MotorFaultPopulator(*motorZeroFaultList_, *motorOneFaultList_))
     ,  batteryFaultList_(new BatteryFaultList)
-
 {
     Q_INIT_RESOURCE(fontresources);
 
     if (mode == Mode::DISPLAY)
     {
-
+        motorFaultPopulator_->populateFaults();
         displayDashboardUI_.reset(new DisplayDashboardUI(isWindowed));
         displayDashboardView_.reset(new DisplayDashboardView(
                                         presenterContainer.auxBmsPresenter(),
@@ -55,6 +56,7 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode, 
     }
     else if (mode == Mode::RACE)
     {
+        motorFaultPopulator_->populateFaults();
         raceModeDashboardUI_.reset(new RaceModeDashboardUI(isWindowed));
         raceModeDashboardView_.reset(new RaceModeDashboardView(
                                          presenterContainer.batteryPresenter(),
@@ -73,6 +75,7 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode, 
     }
     else if (mode == Mode::DEBUG)
     {
+        motorFaultPopulator_->populateFaults();
         batteryUi_.reset(new BatteryUi);
         controlUi_.reset(new ControlUi);
         homepageUi_.reset(new HomePageUi);
