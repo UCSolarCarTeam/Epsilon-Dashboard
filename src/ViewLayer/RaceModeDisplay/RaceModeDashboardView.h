@@ -56,8 +56,8 @@ private:
     void connectMotorFaults(MotorFaultsPresenter&);
 
     void updateFaultLabel(QLabel&, FaultLabel);
-    void initalizeFaultAnimation();
-    void reverseFaultAnimation();
+//    void initalizeFaultAnimation();
+//    void reverseFaultAnimation();
     void updateDriveStateLabel();
 
     BatteryPresenter& batteryPresenter_;
@@ -74,8 +74,8 @@ private:
     MotorFaultList& motorOneFaultsList_;
     BatteryFaultList& batteryFaultsList_;
 
-    QScopedPointer<QPropertyAnimation> faultAnimation_;
-    QScopedPointer<QGraphicsColorizeEffect> fadeEffect_;
+//    QScopedPointer<QPropertyAnimation> faultAnimation_;
+//    QScopedPointer<QGraphicsColorizeEffect> fadeEffect_;
 
     double busCurrent_;
     double busVoltage_;
@@ -137,5 +137,5 @@ private slots:
     void updateBatteryFaults();
     void updateMotor0Faults();
     void updateMotor1Faults();
-    void runFaultAnimation();
+//    void runFaultAnimation();
 };

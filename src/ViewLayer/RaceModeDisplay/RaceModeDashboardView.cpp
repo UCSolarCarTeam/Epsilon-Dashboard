@@ -33,8 +33,11 @@ namespace
     const QString TEMPERATURE_UNIT = "<sup>o</sup>";
     const float MV_TO_V = 1000;
     const int FAULT_UPDATE_PERIOD = 1500;
+
+    /* Commented to remove fault aimation functionality for now along other animation related comments
     const QColor BACKGROUND_COLOR = QColor(0, 0, 0);
     const QColor FAULT_ANIMATION_COLOR = QColor(255, 127, 0);
+    */
 }
 
 RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
@@ -75,11 +78,11 @@ RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
     connectMotorDetails(motorDetailsPresenter_);
     connectMotorFaults(motorFaultsPresenter_);
     //ui_.showMaximized();
-    initalizeFaultAnimation();
+    //initalizeFaultAnimation();
     connect(faultsTimer_.data(), SIGNAL(timeout()), this, SLOT(updateBatteryFaults()));
     connect(faultsTimer_.data(), SIGNAL(timeout()), this, SLOT(updateMotor0Faults()));
     connect(faultsTimer_.data(), SIGNAL(timeout()), this, SLOT(updateMotor1Faults()));
-    connect(faultsTimer_.data(), SIGNAL(timeout()), this, SLOT(runFaultAnimation()));
+    //connect(faultsTimer_.data(), SIGNAL(timeout()), this, SLOT(runFaultAnimation()));
     faultsTimer_->start(FAULT_UPDATE_PERIOD);
     ui_.show();
 }
@@ -198,39 +201,39 @@ void RaceModeDashboardView::updateFaultLabel(QLabel& dashboardLabel, FaultLabel 
     }
 }
 
-void RaceModeDashboardView::initalizeFaultAnimation()
-{
-    fadeEffect_.reset(new QGraphicsColorizeEffect(&(ui_.raceModeDashboard())));
-    fadeEffect_->setColor(QColor(0, 0, 0));
-    ui_.raceModeDashboard().setGraphicsEffect(fadeEffect_.get());
-    faultAnimation_.reset(new QPropertyAnimation(fadeEffect_.get(), "color"));
-    faultAnimation_->setDuration(FAULT_UPDATE_PERIOD / 2 - 50);
-    faultAnimation_->setStartValue(BACKGROUND_COLOR);
-    faultAnimation_->setEndValue(FAULT_ANIMATION_COLOR);
-    connect(faultAnimation_.get(), &QAbstractAnimation::finished, this, &RaceModeDashboardView::reverseFaultAnimation);
-}
+//void RaceModeDashboardView::initalizeFaultAnimation()
+//{
+//    fadeEffect_.reset(new QGraphicsColorizeEffect(&(ui_.raceModeDashboard())));
+//    fadeEffect_->setColor(QColor(0, 0, 0));
+//    ui_.raceModeDashboard().setGraphicsEffect(fadeEffect_.get());
+//    faultAnimation_.reset(new QPropertyAnimation(fadeEffect_.get(), "color"));
+//    faultAnimation_->setDuration(FAULT_UPDATE_PERIOD / 2 - 50);
+//    faultAnimation_->setStartValue(BACKGROUND_COLOR);
+//    faultAnimation_->setEndValue(FAULT_ANIMATION_COLOR);
+//    connect(faultAnimation_.get(), &QAbstractAnimation::finished, this, &RaceModeDashboardView::reverseFaultAnimation);
+//}
 
-void RaceModeDashboardView::runFaultAnimation()
-{
-    int numberOfActiveFaults = batteryFaultsList_.numberOfActiveLabels() +
-                               motorOneFaultsList_.numberOfActiveLabels() +
-                               motorZeroFaultsList_.numberOfActiveLabels();
+//void RaceModeDashboardView::runFaultAnimation()
+//{
+//    int numberOfActiveFaults = batteryFaultsList_.numberOfActiveLabels() +
+//                               motorOneFaultsList_.numberOfActiveLabels() +
+//                               motorZeroFaultsList_.numberOfActiveLabels();
 
-    if (numberOfActiveFaults > 0 && faultAnimation_->state() != QAbstractAnimation::Running)
-    {
-        faultAnimation_->setDirection(QAbstractAnimation::Forward);
-        faultAnimation_->start();
-    }
-}
+//    if (numberOfActiveFaults > 0 && faultAnimation_->state() != QAbstractAnimation::Running)
+//    {
+//        faultAnimation_->setDirection(QAbstractAnimation::Forward);
+//        faultAnimation_->start();
+//    }
+//}
 
-void RaceModeDashboardView::reverseFaultAnimation()
-{
-    if (faultAnimation_->direction() != QAbstractAnimation::Backward)
-    {
-        faultAnimation_->setDirection(QAbstractAnimation::Backward);
-        faultAnimation_->start();
-    }
-}
+//void RaceModeDashboardView::reverseFaultAnimation()
+//{
+//    if (faultAnimation_->direction() != QAbstractAnimation::Backward)
+//    {
+//        faultAnimation_->setDirection(QAbstractAnimation::Backward);
+//        faultAnimation_->start();
+//    }
+//}
 
 void RaceModeDashboardView::updateDriveStateLabel()
 {
