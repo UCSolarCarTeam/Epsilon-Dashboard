@@ -32,6 +32,7 @@ public slots:
 private:
 
     AmqpClient::Channel::ptr_t channel_;
+    AmqpClient::Channel::OpenOpts openOpts_;
     QString exchangeName_;
     QString queueName_;
     QString ipAddress_;

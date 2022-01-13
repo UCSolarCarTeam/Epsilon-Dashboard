@@ -25,6 +25,16 @@ InternetConnectionService::InternetConnectionService(
     QObject::connect(this, SIGNAL(setupChannelSignal()), this, SLOT(connectToDataSource()));
     connectionRetryTimer_.setSingleShot(true);
     connect(&connectionRetryTimer_, SIGNAL(timeout()), this, SLOT(connectToDataSource()));
+
+    //Setting up openOpts
+    AmqpClient::Channel::OpenOpts::BasicAuth auth;
+    auth.password = "guest";
+    auth.username = "guest";
+    openOpts_.host = ipAddress_.toStdString();
+    openOpts_.port = port_;
+    openOpts_.auth = auth;
+    openOpts_.vhost = "/";
+    openOpts_.frame_max = 131072;
 }
 
 InternetConnectionService::~InternetConnectionService()
@@ -38,7 +48,8 @@ void InternetConnectionService::setupChannel()
 
     try
     {
-        channel_ = AmqpClient::Channel::Create(ipAddress_.toStdString(), port_);
+        //channel_ = AmqpClient::Channel::Create(ipAddress_.toStdString(), port_);
+        channel_ = AmqpClient::Channel::Open(openOpts_);
         channel_->DeclareExchange(exchangeName_.toStdString(), AmqpClient::Channel::EXCHANGE_TYPE_FANOUT);
         channel_->DeclareQueue(queueName_.toStdString(), false, false, false, false);
         channel_->BindQueue(queueName_.toStdString(), exchangeName_.toStdString());
