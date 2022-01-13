@@ -17,4 +17,4 @@ sudo apt-get install -y cmake \
 pip3 install --user conan
 echo 'export PATH=$PATH:~/.local/bin/' >> ~/.profile
 source ~/.profile
-conan remote add conan-dbely https://api.bintray.com/conan/dbely/conan
+conan remote add solarCarEpsilon https://datsolarcar.jfrog.io/artifactory/api/conan/epsilon-conan
