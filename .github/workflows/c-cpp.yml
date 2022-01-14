@@ -1,0 +1,26 @@
+name: C/C++ CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v2
+
+    - name: run EpsilonDashboardSetup
+      run: ./EpsilonDashboardSetup.sh
+    
+    
+    - run: mkdir build && cd build
+    - name: install package with conan
+      run: conan install .. --build=missing
+    - run: qmake ../src/
+    - run: make
+    - run: make check
