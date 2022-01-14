@@ -48,7 +48,6 @@ void InternetConnectionService::setupChannel()
 
     try
     {
-        //channel_ = AmqpClient::Channel::Create(ipAddress_.toStdString(), port_);
         channel_ = AmqpClient::Channel::Open(openOpts_);
         channel_->DeclareExchange(exchangeName_.toStdString(), AmqpClient::Channel::EXCHANGE_TYPE_FANOUT);
         channel_->DeclareQueue(queueName_.toStdString(), false, false, false, false);
