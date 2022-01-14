@@ -17,4 +17,9 @@ sudo apt-get install -y cmake \
 pip3 install --user conan
 echo 'export PATH=$PATH:~/.local/bin/' >> ~/.profile
 source ~/.profile
-conan remote add solarCarEpsilon https://datsolarcar.jfrog.io/artifactory/api/conan/epsilon-conan
+conan remote add -f epsilon https://solarcar.jfrog.io/artifactory/api/conan/epsilon-conan
+read -p 'Conan Username: ' username
+read -sp 'Conan Password: ' password
+conan user -p $password -r epsilon $username
+conan config set general.revisions_enabled=1
+
