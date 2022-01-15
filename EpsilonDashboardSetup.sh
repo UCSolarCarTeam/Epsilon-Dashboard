@@ -23,3 +23,7 @@ read -sp 'Conan Password: ' password
 conan user -p $password -r epsilon $username
 conan config set general.revisions_enabled=1
 
+conan remote list | grep conancenter
+if [[ $? -eq 0 ]]; then
+    conan remote remove conancenter
+fi
