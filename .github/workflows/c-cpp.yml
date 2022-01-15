@@ -21,13 +21,13 @@ jobs:
     - run: conan config set general.revisions_enabled=1
     
     - name: Creating build folder
-      run: cd Epsilon-Dashboard && mkdir build && cd build
+      run: mkdir build && cd build
     
     - name: checking file directory
       run: ls ../
     - name: install package with conan
-      run: conan install ../ --build=missing
+      run: conan install ../Epsilon-Dashboard --build=missing
     - name: qmake
-      run: qmake ../src/
+      run: qmake ../Epsilon-Dashboard/src/
     - run: make
     - run: make check
