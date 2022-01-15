@@ -21,7 +21,7 @@ jobs:
     - run: conan config set general.revisions_enabled=1
     
     - name: Creating build folder
-      run: mkdir build && cd build
+      run: cd Epsilon-Dashboard && mkdir build && cd build
     
     - name: checking file directory
       run: ls ../
