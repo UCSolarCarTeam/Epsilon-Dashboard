@@ -26,7 +26,7 @@ jobs:
     - name: checking file directory
       run: ls ../
     - name: install package with conan
-      run: conan install ../Epsilon-Dashboard --build=missing
+      run: conan install ../Epsilon-Dashboard --build=missing -s compiler.libcxx="libstdc++11"
     - name: qmake
       run: qmake ../Epsilon-Dashboard/src/
     - run: make
