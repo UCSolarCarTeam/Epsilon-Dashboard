@@ -15,12 +15,41 @@ jobs:
       uses: jurplel/install-qt-action@v2
 
     - name: run EpsilonDashboardSetup
-      run: ./EpsilonDashboardSetup.sh
+      run: echo 'deb http://www.rabbitmq.com/debian/ testing main' | sudo tee /etc/apt/sources.list.d/rabbitmq.list
+      
+    - name: Install packages
+      run: sudo apt-get install -y cmake \
+        openssl \
+        libssl-dev \
+        libblkid-dev \
+        e2fslibs-dev \
+        libaudit-dev \
+        software-properties-common \
+        build-essential \
+        mesa-common-dev \
+        libgl1-mesa-dev \
+        python3-pip \
+        rabbitmq-server \
+        python3-setuptools
+        
+    - name: Install Conan
+      run: pip3 install --user conan
+    - run: export PATH=$PATH:~/.local/bin/
     
+    - name: add Conan remote
+      run : conan remote add -f epsilon https://solarcar.jfrog.io/artifactory/api/conan/epsilon-conan
+      
+    - run: conan user -p solarcarAction1 -r epsilon action
+    - run : conan config set general.revisions_enabled=1
     
-    - run: mkdir build && cd build
+    - name: Creating build folder
+      run: mkdir build && cd build
+    
+    - name: checking file directory
+      run: ls ../
     - name: install package with conan
-      run: conan install .. --build=missing
-    - run: qmake ../src/
+      run: conan install ../ --build=missing
+    - name: qmake
+      run: qmake ../src/
     - run: make
     - run: make check
