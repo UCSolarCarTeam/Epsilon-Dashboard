@@ -15,10 +15,8 @@ public:
     QLabel& aliveIndicator();
     QLabel& lightsIndicator();
     QLabel& ccsAlive();
-    QLabel& highHeadlightsLabel();
     QLabel& lowHeadlightsLabel();
     QLabel& lowBeamLabel();
-    QLabel& highBeamLabel();
     QLabel& headlightsOff();
     QLabel& leftSignalLabel();
     QLabel& rightSignalLabel();

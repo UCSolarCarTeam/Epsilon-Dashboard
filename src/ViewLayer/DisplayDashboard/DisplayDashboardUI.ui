@@ -2317,25 +2317,6 @@ color: rgb(230, 230, 170);
             </property>
            </widget>
           </item>
-          <item>
-           <widget class="QWidget" name="highHeadlightIndicatorWidget" native="true">
-            <property name="minimumSize">
-             <size>
-              <width>93</width>
-              <height>50</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>93</width>
-              <height>50</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">background: url(:/Resources/HighHeadlightIndicator.png);</string>
-            </property>
-           </widget>
-          </item>
          </layout>
         </item>
         <item row="0" column="5">

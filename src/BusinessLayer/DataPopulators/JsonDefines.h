@@ -202,7 +202,6 @@ namespace JsonFormat
     const QString LIGHTS = "Lights";
     const QString LIGHTS_ALIVE = "Alive";
     const QString LIGHTS_LOWBEAMS = "LowBeams";
-    const QString LIGHTS_HIGHBEAMS = "HighBeams";
     const QString LIGHTS_BRAKES = "Brakes";
     const QString LIGHTS_LEFTSIGNAL = "LeftSignal";
     const QString LIGHTS_RIGHTSIGNAL = "RightSignal";

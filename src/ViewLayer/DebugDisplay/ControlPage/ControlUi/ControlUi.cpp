@@ -32,11 +32,6 @@ QLabel& ControlUi::ccsAlive()
     return *ui_->ccsAlive;
 }
 
-QLabel& ControlUi::highHeadlightsLabel()
-{
-    return *ui_->highHeadlightsLabel;
-}
-
 QLabel& ControlUi::strobeLightOnLabel()
 {
     return *ui_->strobeLightOnLabel;
@@ -55,11 +50,6 @@ QLabel& ControlUi::lowHeadlightsLabel()
 QLabel& ControlUi::lowBeamLabel()
 {
     return *ui_->lowBeamLabel;
-}
-
-QLabel& ControlUi::highBeamLabel()
-{
-    return *ui_->highBeamlabel;
 }
 
 QLabel& ControlUi::headlightsOff()

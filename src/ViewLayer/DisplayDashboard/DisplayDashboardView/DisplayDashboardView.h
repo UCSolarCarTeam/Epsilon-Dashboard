@@ -123,7 +123,6 @@ private slots:
 
     // lights slots
     void lowBeamsReceived(bool);
-    void highBeamsReceived(bool);
     void leftSignalReceived(bool);
     void rightSignalReceived(bool);
     void lightAliveReceived(bool);

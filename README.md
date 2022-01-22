@@ -7,6 +7,8 @@ The Epsilon Dashboard displays information on the screens.
 
 In this repo, there are dependencies needed for before you will be able to build or run anything.
 
+Before proceding with the installation, contact the Visual Communication leads to get your conan account set up.
+
 To install these dependencies, run the setup script:
 
 `./EpsilonDashboardSetup.sh`
@@ -38,11 +40,11 @@ When first setting up your project with QT creator, you must first add a custom 
 
 3. Install conan dependencies:
 
-    `conan install /path/to/conanfile.txt --build=missing -s compiler.libcxx="libstdc++11"`
+    `conan install .. --build=missing -s compiler.libcxx="libstdc++11"`
 
 3. Call qmake, passing in the directory with the root `EpsilonDashboard.pro` to generate the makefile:
 
-    `qmake /path/to/EpsilonDashboard.pro`
+    `qmake ../src/
 
 - Later, if you need to re-run qmake on the project due to a new UI file or a change to a .pro, call:
 
@@ -82,3 +84,13 @@ To run the application in debug display mode, run the command:
 
 To run the application in race mode, add the -r flag at the end:
   `./EpsilonDashboard -r`
+
+## Architecture Diagrams
+
+### Data Flow
+
+![DataFlow](ArchitectureDiagrams/DataFlow.png "Data Flow")
+
+### Class Diagram
+
+![ClassDiagram](ArchitectureDiagrams/ClassDiagram.png "Class Diagram")

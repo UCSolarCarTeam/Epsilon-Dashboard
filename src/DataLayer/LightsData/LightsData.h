@@ -9,7 +9,6 @@ public:
     virtual ~LightsData();
 
     bool lowBeams() const;
-    bool highBeams() const;
     bool brakes() const;
     bool leftSignal() const;
     bool rightSignal() const;
@@ -17,7 +16,6 @@ public:
     bool alive() const;
 
     void setlowBeams(bool lowBeams);
-    void sethighBeams(bool highBeams);
     void setbrakes(bool brakes);
     void setleftSignal(bool leftSignal);
     void setrightSignal(bool rightSignal);
@@ -26,7 +24,6 @@ public:
 
 private:
     bool lowBeams_;
-    bool highBeams_;
     bool brakes_;
     bool leftSignal_;
     bool rightSignal_;

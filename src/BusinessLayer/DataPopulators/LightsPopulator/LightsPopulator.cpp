@@ -40,7 +40,6 @@ void LightsPopulator::populateData(const QJsonObject& data)
     QJsonValue value = data.value(JsonFormat::LIGHTS);
     lightsData_.setAlive(value.toObject().value(JsonFormat::LIGHTS_ALIVE).toBool());
     lightsData_.setlowBeams(value.toObject().value(JsonFormat::LIGHTS_LOWBEAMS).toBool());
-    lightsData_.sethighBeams(value.toObject().value(JsonFormat::LIGHTS_HIGHBEAMS).toBool());
     lightsData_.setbrakes(value.toObject().value(JsonFormat::LIGHTS_BRAKES).toBool());
     lightsData_.setleftSignal(value.toObject().value(JsonFormat::LIGHTS_LEFTSIGNAL).toBool());
     lightsData_.setrightSignal(value.toObject().value(JsonFormat::LIGHTS_RIGHTSIGNAL).toBool());

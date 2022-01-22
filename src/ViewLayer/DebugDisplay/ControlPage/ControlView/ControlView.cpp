@@ -11,10 +11,6 @@ namespace
 
     const QString LOW_BEAMS_OFF = "image: url(:Resources/LowHeadlightOff.png);";
 
-    const QString HIGH_BEAMS_ON = "image: url(:Resources/HighHeadlightIndicator.png);";
-
-    const QString HIGH_BEAMS_OFF = "image: url(:Resources/HighHeadlightOff.png);";
-
     const QString LEFT_ON = "image: url(:Resources/TurnSignalLeft.png);";
 
     const QString LEFT_OFF = "image: url(:Resources/TurnSignalLeftOff.png);";
@@ -66,8 +62,6 @@ void ControlView::connectDriverControls(DriverControlsPresenter& driverControlsP
 
     connect(&driverControlsPresenter, SIGNAL(headlightsLowReceived(bool)),
             this, SLOT(lowHeadlightsReceived(bool)));
-    connect(&driverControlsPresenter, SIGNAL(headlightsHighReceived(bool)),
-            this, SLOT(highHeadlightsReceived(bool)));
 
     connect(&driverControlsPresenter, SIGNAL(signalLeftReceived(bool)),
             this, SLOT(leftSignalReceived(bool)));
@@ -117,8 +111,6 @@ void ControlView::connectLights(LightsPresenter& lightsPresenter)
 
     connect(&lightsPresenter, SIGNAL(lowBeamsReceived(bool)),
             this, SLOT(lowBeamsReceived(bool)));
-    connect(&lightsPresenter, SIGNAL(highBeamsReceived(bool)),
-            this, SLOT(highBeamsReceived(bool)));
     connect(&lightsPresenter, SIGNAL(leftSignalReceived(bool)),
             this, SLOT(leftLightReceived(bool)));
     connect(&lightsPresenter, SIGNAL(rightSignalReceived(bool)),
@@ -177,18 +169,6 @@ void ControlView::lowHeadlightsReceived(bool lowBeams)
     }
 }
 
-void ControlView::highHeadlightsReceived(bool highBeams)
-{
-    if (highBeams)
-    {
-        ui_.highHeadlightsLabel().setStyleSheet(ON);
-    }
-    else
-    {
-        ui_.highHeadlightsLabel().setStyleSheet(OFF);
-    }
-}
-
 void ControlView::lowBeamsReceived(bool lights)
 {
     if (lights)
@@ -198,18 +178,6 @@ void ControlView::lowBeamsReceived(bool lights)
     else
     {
         ui_.lowBeamLabel().setStyleSheet(LOW_BEAMS_OFF);
-    }
-}
-
-void ControlView::highBeamsReceived(bool lights)
-{
-    if (lights)
-    {
-        ui_.highBeamLabel().setStyleSheet(HIGH_BEAMS_ON);
-    }
-    else
-    {
-        ui_.highBeamLabel().setStyleSheet(HIGH_BEAMS_OFF);
     }
 }
 

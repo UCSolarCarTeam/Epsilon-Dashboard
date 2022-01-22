@@ -10,10 +10,8 @@ public:
     virtual QLabel& aliveIndicator() = 0;
     virtual QLabel& lightsIndicator() = 0;
     virtual QLabel& ccsAlive() = 0;
-    virtual QLabel& highHeadlightsLabel() = 0;
     virtual QLabel& lowHeadlightsLabel() = 0;
     virtual QLabel& lowBeamLabel() = 0;
-    virtual QLabel& highBeamLabel() = 0;
     virtual QLabel& headlightsOff() = 0;
     virtual QLabel& leftSignalLabel() = 0;
     virtual QLabel& rightSignalLabel() = 0;
