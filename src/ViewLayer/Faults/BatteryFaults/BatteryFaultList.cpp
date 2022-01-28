@@ -112,6 +112,21 @@ QVector<FaultLabel>& BatteryFaultList::faultLabels()
     return faultLabels_;
 }
 
+QVector<QString>& BatteryFaultList::activeFaultLabels()
+{
+    activeLabels_.clear();
+
+    for (int i = 0; i < (NUMBER_OF_BATTERY_ERRORS + NUMBER_OF_BATTERY_LIMITS); i++)
+    {
+        if (faultLabels_[i].isActive())
+        {
+            activeLabels_.append(faultLabels_[i].name());
+        }
+    }
+
+    return activeLabels_;
+}
+
 void BatteryFaultList::updateErrors(const BatteryErrorFlags& errorFlags)
 {
     faultLabels_[0].setActive(errorFlags.internalCommununicationFault());

@@ -72,6 +72,25 @@ QVector<FaultLabel>& MotorFaultList::faultLabels()
     return faultLabels_;
 }
 
+QVector<QString>& MotorFaultList::activeFaultLabels()
+{
+    activeLabels_.clear();
+
+    for (int i = 0; i < (NUMBER_OF_MOTOR_ERRORS + NUMBER_OF_MOTOR_LIMITS); i++)
+    {
+        int faultIndex = currentFault_;
+        currentFault_++;
+        currentFault_ %= (NUMBER_OF_MOTOR_ERRORS + NUMBER_OF_MOTOR_LIMITS);
+
+        if (faultLabels_[faultIndex].isActive())
+        {
+            activeLabels_.append(faultLabels_[faultIndex].name());
+        }
+    }
+
+    return activeLabels_;
+}
+
 void MotorFaultList::updateErrors(const ErrorFlags& errorFlags)
 {
     faultLabels_[0].setActive(errorFlags.motorOverSpeed());

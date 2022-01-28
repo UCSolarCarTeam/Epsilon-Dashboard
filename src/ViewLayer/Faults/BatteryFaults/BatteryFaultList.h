@@ -14,11 +14,13 @@ public:
 
     FaultLabel nextActiveFault();
     QVector<FaultLabel>& faultLabels();
+    QVector<QString>& activeFaultLabels();
     void updateErrors(const BatteryErrorFlags&);
     void updateLimits(const BatteryLimitFlags&);
     int numberOfActiveLabels() const;
 
 private:
     QVector<FaultLabel> faultLabels_;
+    QVector<QString> activeLabels_;
     int currentFault_;
 };

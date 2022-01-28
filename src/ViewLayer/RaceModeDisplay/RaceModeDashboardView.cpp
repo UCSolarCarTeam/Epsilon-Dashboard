@@ -1,6 +1,8 @@
 #include <QTimer>
 #include <QPropertyAnimation>
 #include <QGraphicsColorizeEffect>
+#include <algorithm>
+#include <QDebug>
 
 #include "RaceModeDashboardView.h"
 #include "../../PresenterLayer/BatteryPresenter/BatteryPresenter.h"
@@ -212,15 +214,89 @@ void RaceModeDashboardView::initalizeFaultAnimation()
 
 void RaceModeDashboardView::runFaultAnimation()
 {
-    int numberOfActiveFaults = batteryFaultsList_.numberOfActiveLabels() +
-                               motorOneFaultsList_.numberOfActiveLabels() +
-                               motorZeroFaultsList_.numberOfActiveLabels();
+    QVector<QString> batteryFaults = batteryFaultsList_.activeFaultLabels();
+    QVector<QString> motorZeroFaults = motorZeroFaultsList_.activeFaultLabels();
+    QVector<QString> motorOneFaults = motorOneFaultsList_.activeFaultLabels();
 
-    if (numberOfActiveFaults > 0 && faultAnimation_->state() != QAbstractAnimation::Running)
+    if (faultAnimation_->state() != QAbstractAnimation::Running && triggerFaultAnimation(batteryFaults, motorZeroFaults, motorOneFaults))
     {
         faultAnimation_->setDirection(QAbstractAnimation::Forward);
         faultAnimation_->start();
     }
+
+    prevBatteryFaults_ = batteryFaults;
+    prevMotorZeroFaults_ = motorZeroFaults;
+    prevMotorOneFaults_ = motorOneFaults;
+}
+
+bool RaceModeDashboardView::triggerFaultAnimation(QVector<QString>& batteryFaults, QVector<QString>& motorZeroFaults, QVector<QString>& motorOneFaults)
+{
+
+//Will remove this comment right before merging
+//    QString str;
+//    for (int i = 0; i < batteryFaults.size(); ++i)
+//    {
+//        if (i > 0)
+//            str += "|||||";
+//        str += batteryFaults[i];
+//    }
+//    qDebug() << str << "\n";
+
+//    str = "";
+//    for (int i = 0; i < prevBatteryFaults_.size(); ++i)
+//    {
+//        if (i > 0)
+//            str += "|||||";
+//        str += prevBatteryFaults_[i];
+//    }
+//    qDebug() << str << "\n";
+
+    if (batteryFaults != prevBatteryFaults_ && !batteryFaults.empty() && !std::includes(prevBatteryFaults_.begin(), prevBatteryFaults_.end(), batteryFaults.begin(), batteryFaults.end()))
+    {
+        if (!prevBatteryFaults_.empty() && prevBatteryFaults_.size() > batteryFaults.size())
+        {
+            if (batteryFaults.back() != prevBatteryFaults_.at(batteryFaults.size() - 1))
+            {
+                    return true;
+            }
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    if (motorZeroFaults != prevBatteryFaults_ && !motorZeroFaults.empty() && !std::includes(prevBatteryFaults_.begin(), prevBatteryFaults_.end(), motorZeroFaults.begin(), motorZeroFaults.end()))
+    {
+        if (!prevBatteryFaults_.empty() && prevBatteryFaults_.size() > motorZeroFaults.size())
+        {
+            if (motorZeroFaults.back() != prevBatteryFaults_.at(motorZeroFaults.size() - 1))
+            {
+                    return true;
+            }
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    if (motorOneFaults != prevBatteryFaults_ && !motorOneFaults.empty() && !std::includes(prevBatteryFaults_.begin(), prevBatteryFaults_.end(), motorOneFaults.begin(), motorOneFaults.end()))
+    {
+        if (!prevBatteryFaults_.empty() && prevBatteryFaults_.size() > motorOneFaults.size())
+        {
+            if (motorOneFaults.back() != prevBatteryFaults_.at(motorOneFaults.size() - 1))
+            {
+                    return true;
+            }
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    return false;
 }
 
 void RaceModeDashboardView::reverseFaultAnimation()
