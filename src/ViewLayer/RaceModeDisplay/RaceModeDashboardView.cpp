@@ -10,10 +10,11 @@
 #include "../../PresenterLayer/LightsPresenter/LightsPresenter.h"
 #include "../../PresenterLayer/MpptPresenter/MpptPresenter.h"
 #include "../../PresenterLayer/MotorDetailsPresenter/MotorDetailsPresenter.h"
-#include "../../PresenterLayer/MotorFaultsPresenter/MotorFaultsPresenter.h"
-#include "../../PresenterLayer/BatteryFaultsPresenter/BatteryFaultsPresenter.h"
 #include "../../PresenterLayer/KeyMotorPresenter/KeyMotorPresenter.h"
 #include "../RaceModeDisplay/RaceModeDisplayUI/I_RaceModeDashboardUI.h"
+#include "Faults/FaultLabel/FaultDisplayData.h"
+#include "Faults/BatteryFaults/I_BatteryFaultList.h"
+#include "Faults/MotorFaults/I_MotorFaultList.h"
 
 namespace
 {
@@ -38,7 +39,6 @@ namespace
 }
 
 RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
-        BatteryFaultsPresenter& batteryFaultsPresenter,
         AuxBmsPresenter& auxBmsPresenter,
         DriverControlsPresenter& driverControlsPresenter,
         KeyMotorPresenter& keyMotorPresenter,
@@ -48,9 +48,8 @@ RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
         I_RaceModeDashboardUI& ui,
         I_MotorFaultList& motorZeroFaultsList,
         I_MotorFaultList& motorOneFaultsList,
-        BatteryFaultList& batteryFaultsList)
+        I_BatteryFaultList& batteryFaultsList)
     : batteryPresenter_(batteryPresenter)
-    , batteryFaultsPresenter_(batteryFaultsPresenter)
     , auxBmsPresenter_(auxBmsPresenter)
     , driverControlsPresenter_(driverControlsPresenter)
     , keyMotorPresenter_(keyMotorPresenter)
@@ -64,7 +63,6 @@ RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
     , faultsTimer_(new QTimer())
 {
     connectBattery(batteryPresenter_);
-    connectBatteryFaults(batteryFaultsPresenter_);
     connectAuxBms(auxBmsPresenter_);
     connectDriverControls(driverControlsPresenter_);
     connectKeyMotor(keyMotorPresenter_);
@@ -100,14 +98,6 @@ void RaceModeDashboardView::connectBattery(BatteryPresenter& batteryPresenter)
             this, SLOT(highTemperatureReceived(int)));
     connect(&batteryPresenter, SIGNAL(averageTemperatureReceived(int)),
             this, SLOT(averageTemperatureReceived(int)));
-}
-
-void RaceModeDashboardView::connectBatteryFaults(BatteryFaultsPresenter& batteryFaultsPresenter)
-{
-    connect(&batteryFaultsPresenter, SIGNAL(errorFlagsReceived(BatteryErrorFlags)),
-            this, SLOT(errorFlagsReceived(BatteryErrorFlags)));
-    connect(&batteryFaultsPresenter, SIGNAL(limitFlagsReceived(BatteryLimitFlags)),
-            this, SLOT(limitFlagsReceived(BatteryLimitFlags)));
 }
 
 void RaceModeDashboardView::connectAuxBms(AuxBmsPresenter& auxBmsPresenter)
@@ -158,8 +148,8 @@ void RaceModeDashboardView::connectLights(LightsPresenter& lightsPresenter)
 
 void RaceModeDashboardView::connectMppt(MpptPresenter& mpptPresenter)
 {
-    connect(&mpptPresenter, SIGNAL(mpptReceived(int, Mppt)),
-            this, SLOT(mpptReceived(int, Mppt)));
+    connect(&mpptPresenter, SIGNAL(mpptReceived(int,Mppt)),
+            this, SLOT(mpptReceived(int,Mppt)));
     connect(&mpptPresenter, SIGNAL(mpptPowerReceived(double)),
             this, SLOT(mpptPowerReceived(double)));
 }
@@ -197,7 +187,7 @@ void RaceModeDashboardView::initalizeFaultAnimation()
 
 void RaceModeDashboardView::runFaultAnimation()
 {
-    int numberOfActiveFaults = batteryFaultsList_.numberOfActiveLabels() +
+    int numberOfActiveFaults = batteryFaultsList_.numberOfActiveFaults() +
                                motorOneFaultsList_.numberOfActiveFaults() +
                                motorZeroFaultsList_.numberOfActiveFaults();
 
@@ -302,14 +292,6 @@ void RaceModeDashboardView::averageTemperatureReceived(int avgTemp)
     ui_.avgCellTemperatureLabel().setText(QString::number(avgTemp) + " " + TEMPERATURE_UNIT);
 }
 
-void RaceModeDashboardView::errorFlagsReceived(BatteryErrorFlags batteryErrorFlags)
-{
-    batteryFaultsList_.updateErrors(batteryErrorFlags);
-}
-void RaceModeDashboardView::limitFlagsReceived(BatteryLimitFlags batteryLimitFlags)
-{
-    batteryFaultsList_.updateLimits(batteryLimitFlags);
-}
 void RaceModeDashboardView::resetReceived(bool reset)
 {
     if (reset)

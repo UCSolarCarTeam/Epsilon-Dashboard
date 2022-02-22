@@ -32,13 +32,11 @@ namespace
                                    "    subcontrol-origin: margin;"
                                    "}";
 }
-FaultView::FaultView(BatteryFaultsPresenter& batteryFaultsPresenter,
-                     I_FaultUi& ui,
+FaultView::FaultView(I_FaultUi& ui,
                      I_MotorFaultList& motorZeroFaultList,
                      I_MotorFaultList& motorOneFaultList,
-                     BatteryFaultList batteryFaultList)
-    : batteryFaultsPresenter_(batteryFaultsPresenter)
-    , ui_(ui)
+                     I_BatteryFaultList& batteryFaultList)
+    : ui_(ui)
     , motorZeroFaultList_(motorZeroFaultList)
     , label0Count_(0)
     , motorOneFaultList_(motorOneFaultList)
@@ -70,7 +68,6 @@ FaultView::FaultView(BatteryFaultsPresenter& batteryFaultsPresenter,
     ui_.motor1ContentsWidget().setLayout(layoutM1);
     ui_.batteryContentsWidget().setLayout(layoutB);
 
-    connectBatteryFaults(batteryFaultsPresenter_);
 }
 
 FaultView::~FaultView()
@@ -99,17 +96,18 @@ void FaultView::initializeLabels(QLayout*& layoutM0, QLayout*& layoutM1, QLayout
     }
 
     // Motor 1
-    QMapIterator<MotorFaults, FaultDisplayData> j(motorOneFaultList_.faults());
-    while(j.hasNext())
+    QMapIterator<MotorFaults, FaultDisplayData> motorOneFaultIterator(motorOneFaultList_.faults());
+    while(motorOneFaultIterator.hasNext())
     {
-        j.next();
-        initializeLabel(motorOneFaultList_.faults()[j.key()], layoutM1, FAULT_STYLESHEET);
+        motorOneFaultIterator.next();
+        initializeLabel(motorOneFaultList_.faults()[motorOneFaultIterator.key()], layoutM1, FAULT_STYLESHEET);
     }
 
-    // Battery
-    for (int i = 0; i < batteryFaultList_.faultLabels().size(); i++)
+    QMapIterator<BatteryFaults, FaultDisplayData> batteryFaultIterator(batteryFaultList_.faults());
+    while(batteryFaultIterator.hasNext())
     {
-        initializeLabel(batteryFaultList_.faultLabels()[i], layoutB, FAULT_STYLESHEET);
+        batteryFaultIterator.next();
+        initializeLabel(batteryFaultList_.faults()[batteryFaultIterator.key()], layoutM1, FAULT_STYLESHEET);
     }
 }
 
@@ -139,11 +137,13 @@ void FaultView::updateLabelListHeight(QWidget& contentsWidget, int& labelCount)
 
 void FaultView::updateBatteryFaults()
 {
-    labelBCount_ = batteryFaultList_.numberOfActiveLabels();
+    labelBCount_ = batteryFaultList_.numberOfActiveFaults();
 
-    for (int i = 0; i < batteryFaultList_.faultLabels().size(); i++)
+    QMapIterator<BatteryFaults, FaultDisplayData> i(batteryFaultList_.faults());
+    while(i.hasNext())
     {
-        updateLabel(batteryFaultList_.faultLabels()[i]);
+        i.next();
+        updateLabel(batteryFaultList_.faults()[i.key()]);
     }
 
     updateLabelListHeight(ui_.batteryContentsWidget(), labelBCount_);
@@ -175,25 +175,4 @@ void FaultView::updateMotor1Faults()
     }
 
     updateLabelListHeight(ui_.motor1ContentsWidget(), label1Count_);
-}
-
-void FaultView::connectBatteryFaults(BatteryFaultsPresenter& batteryFaultsPresenter)
-{
-    connect(&batteryFaultsPresenter, SIGNAL(errorFlagsReceived(BatteryErrorFlags)),
-            this, SLOT(errorFlagsReceived(BatteryErrorFlags)));
-    connect(&batteryFaultsPresenter, SIGNAL(limitFlagsReceived(BatteryLimitFlags)),
-            this, SLOT(limitFlagsReceived(BatteryLimitFlags)));
-}
-
-
-void FaultView::errorFlagsReceived(BatteryErrorFlags batteryErrorFlags)
-{
-    batteryFaultList_.updateErrors(batteryErrorFlags);
-    updateBatteryFaults();
-}
-
-void FaultView::limitFlagsReceived(BatteryLimitFlags batteryLimitFlags)
-{
-    batteryFaultList_.updateLimits(batteryLimitFlags);
-    updateBatteryFaults();
 }

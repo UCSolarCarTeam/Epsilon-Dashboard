@@ -14,23 +14,19 @@
 #include "Faults/BatteryFaults/BatteryFaultList.h"
 #include "Faults/MotorFaults/MotorFaultList.h"
 
-class MotorFaultsPresenter;
-class BatteryFaultsPresenter;
 class I_FaultUi;
 
 class FaultView : public QObject
 {
     Q_OBJECT
 public:
-    FaultView(BatteryFaultsPresenter& batteryFaultsPresenter,
-              I_FaultUi& ui,
+    FaultView(I_FaultUi& ui,
               I_MotorFaultList& motorZeroFaultList,
               I_MotorFaultList& motorOneFaultList,
-              BatteryFaultList batteryFaultList);
+              I_BatteryFaultList& batteryFaultList);
     ~FaultView();
 
 private:
-    void connectBatteryFaults(BatteryFaultsPresenter&);
     void initializeLabel(FaultDisplayData& label, QLayout*& layout, QString& styleSheet);
     void initializeLabels(QLayout*& layoutM0, QLayout*& layoutM1, QLayout*& layoutB);
     void updateLabel(FaultDisplayData& label);
@@ -38,9 +34,6 @@ private:
     void updateBatteryFaults();
     void updateMotor0Faults();
     void updateMotor1Faults();
-
-
-    BatteryFaultsPresenter& batteryFaultsPresenter_;
 
     I_FaultUi& ui_;
 
@@ -55,12 +48,7 @@ private:
     int label1Count_;
 
     // Battery
-    BatteryFaultList batteryFaultList_;
+    I_BatteryFaultList& batteryFaultList_;
     int labelBCount_;
-
-private slots:
-    // battery faults slots
-    void errorFlagsReceived(BatteryErrorFlags);
-    void limitFlagsReceived(BatteryLimitFlags);
 };
 

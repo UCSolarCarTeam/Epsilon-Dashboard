@@ -7,12 +7,9 @@
 #include "../../DataLayer/MpptData/Mppt.h"
 #include "../../DataLayer/MotorFaultsData/ErrorFlags.h"
 #include "../../DataLayer/MotorFaultsData/LimitFlags.h"
-#include "Faults/BatteryFaults/BatteryFaultList.h"
-#include "Faults/MotorFaults/MotorFaultList.h"
 #include "../../DataLayer/KeyMotorData/KeyMotor.h"
 
 class BatteryPresenter;
-class BatteryFaultsPresenter;
 class AuxBmsPresenter;
 class DriverControlsPresenter;
 class I_RaceModeDashboardUI;
@@ -20,17 +17,18 @@ class KeyMotorPresenter;
 class LightsPresenter;
 class MpptPresenter;
 class MotorDetailsPresenter;
-class MotorFaultsPresenter;
 class QTimer;
 class QPropertyAnimation;
 class QGraphicsColorizeEffect;
+class I_BatteryFaultList;
+class I_MotorFaultList;
+class FaultDisplayData;
 
 class RaceModeDashboardView : public QObject
 {
     Q_OBJECT
 public:
     RaceModeDashboardView(BatteryPresenter& batteryPresenter,
-                          BatteryFaultsPresenter& batteryFaultsPresenter,
                           AuxBmsPresenter& auxBmsPresenter,
                           DriverControlsPresenter& driverControlsPresenter,
                           KeyMotorPresenter& keyMotorPresenter,
@@ -40,12 +38,11 @@ public:
                           I_RaceModeDashboardUI& ui,
                           I_MotorFaultList& motorZeroFaultsList,
                           I_MotorFaultList& motorOneFaultsList,
-                          BatteryFaultList& batteryFaultsList);
+                          I_BatteryFaultList& batteryFaultsList);
     ~RaceModeDashboardView();
 
 private:
     void connectBattery(BatteryPresenter&);
-    void connectBatteryFaults(BatteryFaultsPresenter&);
     void connectAuxBms(AuxBmsPresenter&);
     void connectDriverControls(DriverControlsPresenter&);
     void connectKeyMotor(KeyMotorPresenter&);
@@ -58,7 +55,6 @@ private:
     void updateDriveStateLabel();
 
     BatteryPresenter& batteryPresenter_;
-    BatteryFaultsPresenter& batteryFaultsPresenter_;
     AuxBmsPresenter& auxBmsPresenter_;
     DriverControlsPresenter& driverControlsPresenter_;
     KeyMotorPresenter& keyMotorPresenter_;
@@ -68,7 +64,7 @@ private:
     I_RaceModeDashboardUI& ui_;
     I_MotorFaultList& motorZeroFaultsList_;
     I_MotorFaultList& motorOneFaultsList_;
-    BatteryFaultList& batteryFaultsList_;
+    I_BatteryFaultList& batteryFaultsList_;
 
     QScopedPointer<QPropertyAnimation> faultAnimation_;
     QScopedPointer<QGraphicsColorizeEffect> fadeEffect_;
@@ -97,10 +93,6 @@ private slots:
     void highTemperatureReceived(int);
     void averageTemperatureReceived(int);
 
-    // battery faults slots
-    void errorFlagsReceived(BatteryErrorFlags);
-    void limitFlagsReceived(BatteryLimitFlags);
-
     // driver controls slots
     void resetReceived(bool);
     void auxReceived(bool);
@@ -124,6 +116,7 @@ private slots:
     void mpptReceived(int, Mppt);
     void mpptPowerReceived(double);
 
+    // faults slots
     void updateBatteryFaults();
     void updateMotor0Faults();
     void updateMotor1Faults();

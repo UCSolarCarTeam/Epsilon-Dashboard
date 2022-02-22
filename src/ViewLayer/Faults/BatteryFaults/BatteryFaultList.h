@@ -1,11 +1,13 @@
 #pragma once
 
+#include <QMap>
+#include <QMapIterator>
 #include "../DataLayer/BatteryFaultsData/BatteryFaultsData.h"
 #include "../DataLayer/BatteryFaultsData/BatteryLimitFlags.h"
 #include "../FaultLabel/FaultDisplayData.h"
-#include <QVector>
+#include "I_BatteryFaultList.h"
 
-class BatteryFaultList
+class BatteryFaultList : public I_BatteryFaultList
 {
 public:
     BatteryFaultList();
@@ -13,12 +15,10 @@ public:
     ~BatteryFaultList();
 
     FaultDisplayData nextActiveFault();
-    QVector<FaultDisplayData>& faultLabels();
-    void updateErrors(const BatteryErrorFlags&);
-    void updateLimits(const BatteryLimitFlags&);
-    int numberOfActiveLabels() const;
+    QMap<BatteryFaults, FaultDisplayData>& faults();
+    int numberOfActiveFaults() const;
 
 private:
-    QVector<FaultDisplayData> faultLabels_;
-    int currentFault_;
+    QMap<BatteryFaults, FaultDisplayData> faultList_;
+    QMap<BatteryFaults, FaultDisplayData>::iterator  currentFault_;
 };

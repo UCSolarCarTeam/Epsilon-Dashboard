@@ -36,6 +36,10 @@ HEADERS += \
     DisplayDashboard/DisplayDashboardUI/DisplayDashboardUI.h \
     DisplayDashboard/DisplayDashboardUI/I_DisplayDashboardUI.h \
     DisplayDashboard/DisplayDashboardView/DisplayDashboardView.h \
+    Faults/BatteryFaults/BatteryFaultPopulator.h \
+    Faults/BatteryFaults/BatteryFaultsResources.h \
+    Faults/BatteryFaults/BatteryFaultsUpdater.h \
+    Faults/BatteryFaults/I_BatteryFaultList.h \
     Faults/FaultLabel/FaultDisplayData.h \
     Faults/FaultPopulator.h \
     Faults/MotorFaults/I_MotorFaultList.h \
@@ -61,6 +65,8 @@ SOURCES += \
     DebugDisplay/ControlPage/ControlUi/ControlUi.cpp \
     DebugDisplay/ControlPage/ControlView/ControlView.cpp \
     DebugDisplay/HomePage/HomePageUi/HomePageUi.cpp\
+    Faults/BatteryFaults/BatteryFaultPopulator.cpp \
+    Faults/BatteryFaults/BatteryFaultsUpdater.cpp \
     Faults/FaultLabel/FaultDisplayData.cpp \
     Faults/MotorFaults/MotorFaultPopulator.cpp \
     Faults/MotorFaults/MotorFaultsUpdater.cpp \

@@ -23,7 +23,6 @@ namespace
 
 DisplayDashboardView::DisplayDashboardView(AuxBmsPresenter& auxBmsPresenter,
         BatteryPresenter& batteryPresenter,
-        BatteryFaultsPresenter& batteryFaultsPresenter,
         DriverControlsPresenter& driverControlsPresenter,
         KeyMotorPresenter& keyMotorPresenter,
         LightsPresenter& lightsPresenter,
@@ -32,10 +31,9 @@ DisplayDashboardView::DisplayDashboardView(AuxBmsPresenter& auxBmsPresenter,
         I_DisplayDashboardUI& ui,
         I_MotorFaultList& motorZeroFaultsList,
         I_MotorFaultList& motorOneFaultsList,
-        BatteryFaultList& batteryFaultsList)
+        I_BatteryFaultList& batteryFaultsList)
     : auxBmsPresenter_(auxBmsPresenter)
     , batteryPresenter_(batteryPresenter)
-    , batteryFaultsPresenter_(batteryFaultsPresenter)
     , driverControlsPresenter_(driverControlsPresenter)
     , keyMotorPresenter_(keyMotorPresenter)
     , lightsPresenter_(lightsPresenter)
@@ -49,7 +47,6 @@ DisplayDashboardView::DisplayDashboardView(AuxBmsPresenter& auxBmsPresenter,
 {
     connectAuxBms(auxBmsPresenter_);
     connectBattery(batteryPresenter_);
-    connectBatteryFaults(batteryFaultsPresenter_);
     connectDriverControls(driverControlsPresenter_);
     connectKeyMotor(keyMotorPresenter_);
     connectLights(lightsPresenter_);
@@ -104,14 +101,6 @@ void DisplayDashboardView::motorOneReceived(KeyMotor motorOne)
     ui_.motorOneBusVoltageLabel().setNum(motorOne.busVoltage());
 }
 
-void DisplayDashboardView::connectBatteryFaults(BatteryFaultsPresenter& batteryFaultsPresenter)
-{
-    connect(&batteryFaultsPresenter, SIGNAL(errorFlagsReceived(BatteryErrorFlags)),
-            this, SLOT(errorFlagsReceived(BatteryErrorFlags)));
-    connect(&batteryFaultsPresenter, SIGNAL(limitFlagsReceived(BatteryLimitFlags)),
-            this, SLOT(limitFlagsReceived(BatteryLimitFlags)));
-}
-
 void DisplayDashboardView::connectDriverControls(DriverControlsPresenter& driverControlsPresenter)
 {
     connect(&driverControlsPresenter, SIGNAL(resetReceived(bool)),
@@ -150,8 +139,8 @@ void DisplayDashboardView::connectLights(LightsPresenter& lightsPresenter)
 
 void DisplayDashboardView::connectMppt(MpptPresenter& mpptPresenter)
 {
-    connect(&mpptPresenter, SIGNAL(mpptReceived(int, Mppt)),
-            this, SLOT(mpptReceived(int, Mppt)));
+    connect(&mpptPresenter, SIGNAL(mpptReceived(int,Mppt)),
+            this, SLOT(mpptReceived(int,Mppt)));
     connect(&mpptPresenter, SIGNAL(mpptPowerReceived(double)),
             this, SLOT(mpptPowerReceived(double)));
 }
@@ -250,14 +239,6 @@ void DisplayDashboardView::averageTemperatureReceived(int averageCellTemp)
 void DisplayDashboardView::averageCellVoltageReceived(float averageVoltage)
 {
     ui_.avgCellVoltageLabel().setNum(averageVoltage / MV_TO_V);
-}
-void DisplayDashboardView::errorFlagsReceived(BatteryErrorFlags batteryErrorFlags)
-{
-    batteryFaultsList_.updateErrors(batteryErrorFlags);
-}
-void DisplayDashboardView::limitFlagsReceived(BatteryLimitFlags batteryLimitFlags)
-{
-    batteryFaultsList_.updateLimits(batteryLimitFlags);
 }
 
 void DisplayDashboardView::resetReceived(bool reset)

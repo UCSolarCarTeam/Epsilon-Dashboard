@@ -38,7 +38,7 @@ QMap<MotorFaults, FaultDisplayData>& MotorFaultList::faults()
     return faultList_;
 }
 
-int MotorFaultList::numberOfActiveFaults()
+int MotorFaultList::numberOfActiveFaults() const
 {
     int numberOfActiveFaults = 0;
     QMap<MotorFaults, FaultDisplayData>::const_iterator i ;
