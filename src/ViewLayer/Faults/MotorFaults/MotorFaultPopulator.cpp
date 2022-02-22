@@ -31,7 +31,7 @@ void MotorFaultPopulator::populateFaults()
     faultZero.insert(MotorFaults::IPM_MOTOR_TEMPERATURE_LIMIT, FaultDisplayData(motorFaultsTexts[MotorFaults::IPM_MOTOR_TEMPERATURE_LIMIT], FaultPriorities::MEDIUM_PRIORITY, false));
     faultZero.insert(MotorFaults::VELOCITY_LIMIT, FaultDisplayData(motorFaultsTexts[MotorFaults::VELOCITY_LIMIT], FaultPriorities::LOW_PRIORITY, false));
 
-    QMap<MotorFaults, FaultDisplayData>& faultOne = faultListZero_.faults();
+    QMap<MotorFaults, FaultDisplayData>& faultOne = faultListOne_.faults();
     faultOne.insert(MotorFaults::MOTOR_OVER_SPEED, FaultDisplayData(motorFaultsTexts[MotorFaults::MOTOR_OVER_SPEED], FaultPriorities::HIGH_PRIORITY, false));
     faultOne.insert(MotorFaults::SOFTWARE_OVER_CURRENT, FaultDisplayData(motorFaultsTexts[MotorFaults::SOFTWARE_OVER_CURRENT], FaultPriorities::HIGH_PRIORITY, false));
     faultOne.insert(MotorFaults::DC_BUS_OVER_VOLTAGE, FaultDisplayData(motorFaultsTexts[MotorFaults::DC_BUS_OVER_VOLTAGE], FaultPriorities::HIGH_PRIORITY, false));
@@ -65,7 +65,7 @@ void MotorFaultPopulator::populateRaceFaults()
     faultZero.insert(MotorFaults::BUS_VOLTAGE_UPPER_LIMIT, FaultDisplayData(motorFaultsTexts[MotorFaults::BUS_VOLTAGE_UPPER_LIMIT], FaultPriorities::HIGH_PRIORITY, false));
     faultZero.insert(MotorFaults::IPM_MOTOR_TEMPERATURE_LIMIT, FaultDisplayData(motorFaultsTexts[MotorFaults::IPM_MOTOR_TEMPERATURE_LIMIT], FaultPriorities::MEDIUM_PRIORITY, false));
 
-    QMap<MotorFaults, FaultDisplayData>& faultOne = faultListZero_.faults();
+    QMap<MotorFaults, FaultDisplayData>& faultOne = faultListOne_.faults();
     faultOne.insert(MotorFaults::MOTOR_OVER_SPEED, FaultDisplayData(motorFaultsTexts[MotorFaults::MOTOR_OVER_SPEED], FaultPriorities::HIGH_PRIORITY, false));
     faultOne.insert(MotorFaults::DESATURATION_FAULT, FaultDisplayData(motorFaultsTexts[MotorFaults::DESATURATION_FAULT], FaultPriorities::HIGH_PRIORITY, false));
     faultOne.insert(MotorFaults::BAD_MOTOR_POSITION_HALL_SEQUENCE, FaultDisplayData(motorFaultsTexts[MotorFaults::BAD_MOTOR_POSITION_HALL_SEQUENCE], FaultPriorities::MEDIUM_PRIORITY, false));
