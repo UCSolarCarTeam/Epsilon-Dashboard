@@ -45,10 +45,9 @@ public:
                          LightsPresenter& lightsPresenter,
                          MpptPresenter& mpptPresenter,
                          MotorDetailsPresenter& motorDetailsPresenter,
-                         MotorFaultsPresenter& motorFaultsPresenter,
                          I_DisplayDashboardUI& ui,
-                         MotorFaultList& motorZeroFaultsList,
-                         MotorFaultList& motorOneFaultsList,
+                         I_MotorFaultList& motorZeroFaultsList,
+                         I_MotorFaultList& motorOneFaultsList,
                          BatteryFaultList& batteryFaultsList);
     ~DisplayDashboardView();
 
@@ -61,9 +60,7 @@ private:
     void connectLights(LightsPresenter&);
     void connectMppt(MpptPresenter&);
     void connectMotorDetails(MotorDetailsPresenter&);
-    void connectMotorFaults(MotorFaultsPresenter&);
-
-    void updateFaultLabel(QLabel&, FaultLabel);
+    void updateFaultLabel(QLabel&, FaultDisplayData);
     void updateDriveStateLabel();
 
     AuxBmsPresenter& auxBmsPresenter_;
@@ -74,10 +71,9 @@ private:
     LightsPresenter& lightsPresenter_;
     MpptPresenter& mpptPresenter_;
     MotorDetailsPresenter& motorDetailsPresenter_;
-    MotorFaultsPresenter& motorFaultsPresenter_;
     I_DisplayDashboardUI& ui_;
-    MotorFaultList& motorZeroFaultsList_;
-    MotorFaultList& motorOneFaultsList_;
+    I_MotorFaultList& motorZeroFaultsList_;
+    I_MotorFaultList& motorOneFaultsList_;
     BatteryFaultList& batteryFaultsList_;
 
     //used in mpptReceived
@@ -132,10 +128,6 @@ private slots:
     void mpptPowerReceived(double);
 
     // motor faults slots
-    void motorZeroErrorFlagsReceived(ErrorFlags);
-    void motorZeroLimitFlagsReceived(LimitFlags);
-    void motorOneErrorFlagsReceived(ErrorFlags);
-    void motorOneLimitFlagsReceived(LimitFlags);
 
     void updateBatteryFaults();
     void updateMotor0Faults();

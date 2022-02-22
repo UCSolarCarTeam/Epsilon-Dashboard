@@ -2,6 +2,7 @@
 
 #include "Faults/MotorFaults/MotorFaultList.h"
 #include "Faults/MotorFaults/MotorFaultPopulator.h"
+#include "Faults/MotorFaults/MotorFaultsUpdater.h"
 #include "Faults/BatteryFaults/BatteryFaultList.h"
 #include "DisplayDashboard/DisplayDashboardUI/DisplayDashboardUI.h"
 #include "DisplayDashboard/DisplayDashboardView/DisplayDashboardView.h"
@@ -31,6 +32,7 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode, 
     :  motorZeroFaultList_(new MotorFaultList)
     ,  motorOneFaultList_(new MotorFaultList)
     ,  motorFaultPopulator_(new MotorFaultPopulator(*motorZeroFaultList_, *motorOneFaultList_))
+    ,  motorFaultUpdater_(new MotorFaultsUpdater(presenterContainer.motorFaultsPresenter(), *motorZeroFaultList_, *motorOneFaultList_))
     ,  batteryFaultList_(new BatteryFaultList)
 {
     Q_INIT_RESOURCE(fontresources);
@@ -48,7 +50,6 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode, 
                                         presenterContainer.lightsPresenter(),
                                         presenterContainer.mpptPresenter(),
                                         presenterContainer.motorDetailsPresenter(),
-                                        presenterContainer.motorFaultsPresenter(),
                                         *displayDashboardUI_,
                                         *motorZeroFaultList_,
                                         *motorOneFaultList_,
@@ -56,7 +57,7 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode, 
     }
     else if (mode == Mode::RACE)
     {
-        motorFaultPopulator_->populateFaults();
+        motorFaultPopulator_->populateRaceFaults();
         raceModeDashboardUI_.reset(new RaceModeDashboardUI(isWindowed));
         raceModeDashboardView_.reset(new RaceModeDashboardView(
                                          presenterContainer.batteryPresenter(),
@@ -67,7 +68,6 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode, 
                                          presenterContainer.lightsPresenter(),
                                          presenterContainer.mpptPresenter(),
                                          presenterContainer.motorDetailsPresenter(),
-                                         presenterContainer.motorFaultsPresenter(),
                                          *raceModeDashboardUI_,
                                          *motorZeroFaultList_,
                                          *motorOneFaultList_,
@@ -105,8 +105,7 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode, 
         motorView_.reset(new MotorView( presenterContainer.keyMotorPresenter(),
                                         presenterContainer.motorDetailsPresenter(), *motorUi_));
 
-        faultView_.reset(new FaultView(presenterContainer.motorFaultsPresenter(),
-                                       presenterContainer.batteryFaultsPresenter(),
+        faultView_.reset(new FaultView(presenterContainer.batteryFaultsPresenter(),
                                        *faultUi_,
                                        *motorZeroFaultList_,
                                        *motorOneFaultList_,

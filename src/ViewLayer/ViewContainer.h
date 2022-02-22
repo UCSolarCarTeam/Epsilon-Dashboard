@@ -22,6 +22,7 @@ class MotorView;
 class BatteryView;
 class MotorFaultList;
 class FaultPopulator;
+class MotorFaultsUpdater;
 class BatteryFaultList;
 class OverlordWidget;
 class PresenterContainer;
@@ -61,5 +62,6 @@ private:
     QScopedPointer<MotorFaultList> motorZeroFaultList_;
     QScopedPointer<MotorFaultList> motorOneFaultList_;
     QScopedPointer<FaultPopulator> motorFaultPopulator_;
+    QScopedPointer<MotorFaultsUpdater> motorFaultUpdater_;
     QScopedPointer<BatteryFaultList> batteryFaultList_;
 };

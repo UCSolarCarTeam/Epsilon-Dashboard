@@ -2,7 +2,7 @@
 
 #include "../DataLayer/BatteryFaultsData/BatteryFaultsData.h"
 #include "../DataLayer/BatteryFaultsData/BatteryLimitFlags.h"
-#include "../FaultLabel/FaultLabel.h"
+#include "../FaultLabel/FaultDisplayData.h"
 #include <QVector>
 
 class BatteryFaultList
@@ -12,13 +12,13 @@ public:
 
     ~BatteryFaultList();
 
-    FaultLabel nextActiveFault();
-    QVector<FaultLabel>& faultLabels();
+    FaultDisplayData nextActiveFault();
+    QVector<FaultDisplayData>& faultLabels();
     void updateErrors(const BatteryErrorFlags&);
     void updateLimits(const BatteryLimitFlags&);
     int numberOfActiveLabels() const;
 
 private:
-    QVector<FaultLabel> faultLabels_;
+    QVector<FaultDisplayData> faultLabels_;
     int currentFault_;
 };

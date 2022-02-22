@@ -37,10 +37,9 @@ public:
                           LightsPresenter& lightsPresenter,
                           MpptPresenter& mpptPresenter,
                           MotorDetailsPresenter& motorDetailsPresenter,
-                          MotorFaultsPresenter& motorFaultsPresenter,
                           I_RaceModeDashboardUI& ui,
-                          MotorFaultList& motorZeroFaultsList,
-                          MotorFaultList& motorOneFaultsList,
+                          I_MotorFaultList& motorZeroFaultsList,
+                          I_MotorFaultList& motorOneFaultsList,
                           BatteryFaultList& batteryFaultsList);
     ~RaceModeDashboardView();
 
@@ -53,9 +52,7 @@ private:
     void connectLights(LightsPresenter&);
     void connectMppt(MpptPresenter&);
     void connectMotorDetails(MotorDetailsPresenter&);
-    void connectMotorFaults(MotorFaultsPresenter&);
-
-    void updateFaultLabel(QLabel&, FaultLabel);
+    void updateFaultLabel(QLabel&, FaultDisplayData);
     void initalizeFaultAnimation();
     void reverseFaultAnimation();
     void updateDriveStateLabel();
@@ -68,10 +65,9 @@ private:
     LightsPresenter& lightsPresenter_;
     MpptPresenter& mpptPresenter_;
     MotorDetailsPresenter& motorDetailsPresenter_;
-    MotorFaultsPresenter& motorFaultsPresenter_;
     I_RaceModeDashboardUI& ui_;
-    MotorFaultList& motorZeroFaultsList_;
-    MotorFaultList& motorOneFaultsList_;
+    I_MotorFaultList& motorZeroFaultsList_;
+    I_MotorFaultList& motorOneFaultsList_;
     BatteryFaultList& batteryFaultsList_;
 
     QScopedPointer<QPropertyAnimation> faultAnimation_;
@@ -127,12 +123,6 @@ private slots:
     // mppt slots
     void mpptReceived(int, Mppt);
     void mpptPowerReceived(double);
-
-    // motor faults slots
-    void motorZeroErrorFlagsReceived(ErrorFlags);
-    void motorZeroLimitFlagsReceived(LimitFlags);
-    void motorOneErrorFlagsReceived(ErrorFlags);
-    void motorOneLimitFlagsReceived(LimitFlags);
 
     void updateBatteryFaults();
     void updateMotor0Faults();

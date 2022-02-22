@@ -45,10 +45,9 @@ RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
         LightsPresenter& lightsPresenter,
         MpptPresenter& mpptPresenter,
         MotorDetailsPresenter& motorDetailsPresenter,
-        MotorFaultsPresenter& motorFaultsPresenter,
         I_RaceModeDashboardUI& ui,
-        MotorFaultList& motorZeroFaultsList,
-        MotorFaultList& motorOneFaultsList,
+        I_MotorFaultList& motorZeroFaultsList,
+        I_MotorFaultList& motorOneFaultsList,
         BatteryFaultList& batteryFaultsList)
     : batteryPresenter_(batteryPresenter)
     , batteryFaultsPresenter_(batteryFaultsPresenter)
@@ -58,7 +57,6 @@ RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
     , lightsPresenter_(lightsPresenter)
     , mpptPresenter_(mpptPresenter)
     , motorDetailsPresenter_(motorDetailsPresenter)
-    , motorFaultsPresenter_(motorFaultsPresenter)
     , ui_(ui)
     , motorZeroFaultsList_(motorZeroFaultsList)
     , motorOneFaultsList_(motorOneFaultsList)
@@ -73,7 +71,6 @@ RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
     connectLights(lightsPresenter_);
     connectMppt(mpptPresenter_);
     connectMotorDetails(motorDetailsPresenter_);
-    connectMotorFaults(motorFaultsPresenter_);
     //ui_.showMaximized();
     initalizeFaultAnimation();
     connect(faultsTimer_.data(), SIGNAL(timeout()), this, SLOT(updateBatteryFaults()));
@@ -172,25 +169,13 @@ void RaceModeDashboardView::connectMotorDetails(MotorDetailsPresenter& motorDeta
     Q_UNUSED(motorDetailsPresenter);
 }
 
-void RaceModeDashboardView::connectMotorFaults(MotorFaultsPresenter& motorFaultsPresenter)
-{
-    connect(&motorFaultsPresenter, SIGNAL(motorZeroErrorFlagsReceived(ErrorFlags)),
-            this, SLOT(motorZeroErrorFlagsReceived(ErrorFlags)));
-    connect(&motorFaultsPresenter, SIGNAL(motorZeroLimitFlagsReceived(LimitFlags)),
-            this, SLOT(motorZeroLimitFlagsReceived(LimitFlags)));
-    connect(&motorFaultsPresenter, SIGNAL(motorOneErrorFlagsReceived(ErrorFlags)),
-            this, SLOT(motorOneErrorFlagsReceived(ErrorFlags)));
-    connect(&motorFaultsPresenter, SIGNAL(motorOneLimitFlagsReceived(LimitFlags)),
-            this, SLOT(motorOneLimitFlagsReceived(LimitFlags)));
-}
 
-
-void RaceModeDashboardView::updateFaultLabel(QLabel& dashboardLabel, FaultLabel faultLabel)
+void RaceModeDashboardView::updateFaultLabel(QLabel& dashboardLabel, FaultDisplayData faultLabel)
 {
     if (faultLabel.priority() >= 0)
     {
         dashboardLabel.setStyleSheet(QString("color:%1").arg(faultLabel.color().name()));
-        dashboardLabel.setText(faultLabel.text());
+        dashboardLabel.setText(faultLabel.name());
     }
     else
     {
@@ -213,8 +198,8 @@ void RaceModeDashboardView::initalizeFaultAnimation()
 void RaceModeDashboardView::runFaultAnimation()
 {
     int numberOfActiveFaults = batteryFaultsList_.numberOfActiveLabels() +
-                               motorOneFaultsList_.numberOfActiveLabels() +
-                               motorZeroFaultsList_.numberOfActiveLabels();
+                               motorOneFaultsList_.numberOfActiveFaults() +
+                               motorZeroFaultsList_.numberOfActiveFaults();
 
     if (numberOfActiveFaults > 0 && faultAnimation_->state() != QAbstractAnimation::Running)
     {
@@ -465,26 +450,6 @@ void RaceModeDashboardView::mpptReceived(int i, Mppt mppt)
 void RaceModeDashboardView::mpptPowerReceived(double mpptPower)
 {
     ui_.arrayPowerLabel().setText(QString::number(mpptPower, 'f', 1));
-}
-
-void RaceModeDashboardView::motorZeroErrorFlagsReceived(ErrorFlags flags)
-{
-    motorZeroFaultsList_.updateErrors(flags);
-}
-
-void RaceModeDashboardView::motorZeroLimitFlagsReceived(LimitFlags flags)
-{
-    motorZeroFaultsList_.updateLimits(flags);
-}
-
-void RaceModeDashboardView::motorOneErrorFlagsReceived(ErrorFlags flags)
-{
-    motorOneFaultsList_.updateErrors(flags);
-}
-
-void RaceModeDashboardView::motorOneLimitFlagsReceived(LimitFlags flags)
-{
-    motorOneFaultsList_.updateLimits(flags);
 }
 
 void RaceModeDashboardView::updateBatteryFaults()

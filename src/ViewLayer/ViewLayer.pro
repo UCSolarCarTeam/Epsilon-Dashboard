@@ -36,6 +36,7 @@ HEADERS += \
     DisplayDashboard/DisplayDashboardUI/DisplayDashboardUI.h \
     DisplayDashboard/DisplayDashboardUI/I_DisplayDashboardUI.h \
     DisplayDashboard/DisplayDashboardView/DisplayDashboardView.h \
+    Faults/FaultLabel/FaultDisplayData.h \
     Faults/FaultPopulator.h \
     Faults/MotorFaults/I_MotorFaultList.h \
     Faults/MotorFaults/MotorFaultPopulator.h \
@@ -47,7 +48,6 @@ HEADERS += \
     DebugDisplay/HomePage/HomePageView/HomePageView.h \
     RaceModeDisplay/RaceModeDashboardView.h \
     Faults/MotorFaults/MotorFaultList.h \
-    Faults/FaultLabel/FaultLabel.h \
     Faults/BatteryFaults/BatteryFaultList.h \
     Faults/FaultPriorities/FaultPriorities.h \
     FontLoader/FontLoader.h
@@ -61,6 +61,7 @@ SOURCES += \
     DebugDisplay/ControlPage/ControlUi/ControlUi.cpp \
     DebugDisplay/ControlPage/ControlView/ControlView.cpp \
     DebugDisplay/HomePage/HomePageUi/HomePageUi.cpp\
+    Faults/FaultLabel/FaultDisplayData.cpp \
     Faults/MotorFaults/MotorFaultPopulator.cpp \
     Faults/MotorFaults/MotorFaultsUpdater.cpp \
     DebugDisplay/FaultPage/FaultUi/FaultUi.cpp \
@@ -77,7 +78,6 @@ SOURCES += \
     RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.cpp \
     ViewContainer.cpp \
     DebugDisplay/HomePage/HomePageView/HomePageView.cpp \
-    Faults/FaultLabel/FaultLabel.cpp \
     Faults/MotorFaults/MotorFaultList.cpp \
     Faults/BatteryFaults/BatteryFaultList.cpp \
     FontLoader/FontLoader.cpp

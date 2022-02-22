@@ -2,7 +2,7 @@
 
 #include <QVector>
 #include <QMapIterator>
-#include "../FaultLabel/FaultLabel.h"
+#include "../FaultLabel/FaultDisplayData.h"
 #include "../DataLayer/MotorFaultsData/ErrorFlags.h"
 #include "../DataLayer/MotorFaultsData/LimitFlags.h"
 #include "I_MotorFaultList.h"
@@ -14,11 +14,11 @@ public:
 
     ~MotorFaultList();
 
-    FaultLabel nextActiveFault();
-    QMap<MotorFaults, FaultLabel>& faults();
+    FaultDisplayData nextActiveFault();
+    QMap<MotorFaults, FaultDisplayData>& faults();
     int numberOfActiveFaults();
 
 private:
-    QMap<MotorFaults, FaultLabel> faultList_;
-    int currentFault_;
+    QMap<MotorFaults, FaultDisplayData> faultList_;
+    QMap<MotorFaults, FaultDisplayData>::iterator  currentFault_;
 };

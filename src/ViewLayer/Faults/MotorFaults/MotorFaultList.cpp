@@ -1,7 +1,7 @@
 #include "MotorFaultList.h"
 
 MotorFaultList::MotorFaultList()
-    : currentFault_(0)
+    : currentFault_(faultList_.end())
 {
 
 }
@@ -11,38 +11,45 @@ MotorFaultList::~MotorFaultList()
 {
 }
 
-FaultLabel MotorFaultList::nextActiveFault()
+FaultDisplayData MotorFaultList::nextActiveFault()
 {
-    QMapIterator<MotorFaults, FaultLabel> i(faultList_);
-    while(i.hasNext())
+    QMap<MotorFaults, FaultDisplayData>::iterator iterator;
+
+    for(int i = 0; i < faultList_.size(); i ++)
     {
-        i.next();
-        if(faultList_[i.key()].isActive())
+        if(currentFault_ == faultList_.end())
         {
-            return faultList_[i.key()];
+            currentFault_ = faultList_.begin();
+        }
+
+        iterator = currentFault_;
+        ++currentFault_;
+
+        if(iterator.value().isActive())
+        {
+            return iterator.value();
         }
     }
-
-    return FaultLabel();
+    return FaultDisplayData();
 }
-QMap<MotorFaults, FaultLabel>& MotorFaultList::faults()
+
+QMap<MotorFaults, FaultDisplayData>& MotorFaultList::faults()
 {
     return faultList_;
 }
 
 int MotorFaultList::numberOfActiveFaults()
 {
-    int numberOfLabels = 0;
-    QMapIterator<MotorFaults, FaultLabel> i(faultList_);
+    int numberOfActiveFaults = 0;
+    QMap<MotorFaults, FaultDisplayData>::const_iterator i ;
 
-    while(i.hasNext())
+    for(i = faultList_.constBegin(); i != faultList_.constEnd(); ++i)
     {
-        i.next();
-        if(faultList_[i.key()].isActive())
+        if(i.value().isActive())
         {
-            numberOfLabels++;
+            numberOfActiveFaults ++;
         }
     }
 
-    return numberOfLabels;
+    return numberOfActiveFaults;
 }
