@@ -4,7 +4,7 @@
 #include "Faults/FaultLabel/FaultDisplayData.h"
 #include "I_MotorFaultList.h"
 
-MotorFaultsUpdater::MotorFaultsUpdater(const MotorFaultsPresenter &presenter,
+MotorFaultsUpdater::MotorFaultsUpdater(const MotorFaultsPresenter& presenter,
                                        I_MotorFaultList& faultListZero,
                                        I_MotorFaultList& faultListOne)
     : motorFaultsPresenter_(presenter)
@@ -23,36 +23,44 @@ MotorFaultsUpdater::MotorFaultsUpdater(const MotorFaultsPresenter &presenter,
 
 void MotorFaultsUpdater::motorZeroErrorFlagsReceived(ErrorFlags motorZeroErrorFlags)
 {
-    QMap<MotorFaults , FaultDisplayData>& faults = faultListZero_.faults();
-    if(faults.contains(MotorFaults::MOTOR_OVER_SPEED))
+    QMap<MotorFaults, FaultDisplayData>& faults = faultListZero_.faults();
+
+    if (faults.contains(MotorFaults::MOTOR_OVER_SPEED))
     {
         faults[MotorFaults::MOTOR_OVER_SPEED].setActive(motorZeroErrorFlags.motorOverSpeed());
     }
-    if(faults.contains(MotorFaults::SOFTWARE_OVER_CURRENT))
+
+    if (faults.contains(MotorFaults::SOFTWARE_OVER_CURRENT))
     {
         faults[MotorFaults::SOFTWARE_OVER_CURRENT].setActive(motorZeroErrorFlags.softwareOverCurrent());
     }
-    if(faults.contains(MotorFaults::DC_BUS_OVER_VOLTAGE))
+
+    if (faults.contains(MotorFaults::DC_BUS_OVER_VOLTAGE))
     {
         faults[MotorFaults::DC_BUS_OVER_VOLTAGE].setActive(motorZeroErrorFlags.dcBusOverVoltage());
     }
-    if(faults.contains(MotorFaults::BAD_MOTOR_POSITION_HALL_SEQUENCE))
+
+    if (faults.contains(MotorFaults::BAD_MOTOR_POSITION_HALL_SEQUENCE))
     {
         faults[MotorFaults::BAD_MOTOR_POSITION_HALL_SEQUENCE].setActive(motorZeroErrorFlags.badMotorPositionHallSequence());
     }
-    if(faults.contains(MotorFaults::WATCHDOG_CAUSED_LAST_RESET))
+
+    if (faults.contains(MotorFaults::WATCHDOG_CAUSED_LAST_RESET))
     {
         faults[MotorFaults::WATCHDOG_CAUSED_LAST_RESET].setActive(motorZeroErrorFlags.watchdogCausedLastReset());
     }
-    if(faults.contains(MotorFaults::CONFIG_READ_ERROR))
+
+    if (faults.contains(MotorFaults::CONFIG_READ_ERROR))
     {
         faults[MotorFaults::CONFIG_READ_ERROR].setActive(motorZeroErrorFlags.configReadError());
     }
-    if(faults.contains(MotorFaults::RAIL_UNDER_VOLTAGE_LOCK_OUT))
+
+    if (faults.contains(MotorFaults::RAIL_UNDER_VOLTAGE_LOCK_OUT))
     {
         faults[MotorFaults::RAIL_UNDER_VOLTAGE_LOCK_OUT].setActive(motorZeroErrorFlags.railUnderVoltageLockOut());
     }
-    if(faults.contains(MotorFaults::DESATURATION_FAULT))
+
+    if (faults.contains(MotorFaults::DESATURATION_FAULT))
     {
         faults[MotorFaults::DESATURATION_FAULT].setActive(motorZeroErrorFlags.desaturationFault());
     }
@@ -60,32 +68,39 @@ void MotorFaultsUpdater::motorZeroErrorFlagsReceived(ErrorFlags motorZeroErrorFl
 
 void MotorFaultsUpdater::motorZeroLimitFlagsReceived(LimitFlags motorZeroLimitFlags)
 {
-    QMap<MotorFaults , FaultDisplayData>& faults = faultListZero_.faults();
-    if(faults.contains(MotorFaults::OUTPUT_VOLTAGE_PWM_LIMIT))
+    QMap<MotorFaults, FaultDisplayData>& faults = faultListZero_.faults();
+
+    if (faults.contains(MotorFaults::OUTPUT_VOLTAGE_PWM_LIMIT))
     {
         faults[MotorFaults::OUTPUT_VOLTAGE_PWM_LIMIT].setActive(motorZeroLimitFlags.outputVoltagePwmLimit());
     }
-    if(faults.contains(MotorFaults::MOTOR_CURRENT_LIMIT))
+
+    if (faults.contains(MotorFaults::MOTOR_CURRENT_LIMIT))
     {
         faults[MotorFaults::MOTOR_CURRENT_LIMIT].setActive(motorZeroLimitFlags.motorCurrentLimit());
     }
-    if(faults.contains(MotorFaults::VELOCITY_LIMIT))
+
+    if (faults.contains(MotorFaults::VELOCITY_LIMIT))
     {
         faults[MotorFaults::VELOCITY_LIMIT].setActive(motorZeroLimitFlags.velocityLimit());
     }
-    if(faults.contains(MotorFaults::BUS_CURRENT_LIMIT))
+
+    if (faults.contains(MotorFaults::BUS_CURRENT_LIMIT))
     {
         faults[MotorFaults::BUS_CURRENT_LIMIT].setActive(motorZeroLimitFlags.busCurrentLimit());
     }
-    if(faults.contains(MotorFaults::BUS_VOLTAGE_UPPER_LIMIT))
+
+    if (faults.contains(MotorFaults::BUS_VOLTAGE_UPPER_LIMIT))
     {
         faults[MotorFaults::BUS_VOLTAGE_UPPER_LIMIT].setActive(motorZeroLimitFlags.busVoltageUpperLimit());
     }
-    if(faults.contains(MotorFaults::BUS_VOLTAGE_LOWER_LIMIT))
+
+    if (faults.contains(MotorFaults::BUS_VOLTAGE_LOWER_LIMIT))
     {
         faults[MotorFaults::BUS_VOLTAGE_LOWER_LIMIT].setActive(motorZeroLimitFlags.busVoltageLowerLimit());
     }
-    if(faults.contains(MotorFaults::IPM_MOTOR_TEMPERATURE_LIMIT))
+
+    if (faults.contains(MotorFaults::IPM_MOTOR_TEMPERATURE_LIMIT))
     {
         faults[MotorFaults::IPM_MOTOR_TEMPERATURE_LIMIT].setActive(motorZeroLimitFlags.ipmOrMotorTemperatureLimit());
     }
@@ -93,36 +108,44 @@ void MotorFaultsUpdater::motorZeroLimitFlagsReceived(LimitFlags motorZeroLimitFl
 
 void MotorFaultsUpdater::motorOneErrorFlagsReceived(ErrorFlags motorOneErrorFlags)
 {
-    QMap<MotorFaults , FaultDisplayData>& faults = faultListOne_.faults();
-    if(faults.contains(MotorFaults::MOTOR_OVER_SPEED))
+    QMap<MotorFaults, FaultDisplayData>& faults = faultListOne_.faults();
+
+    if (faults.contains(MotorFaults::MOTOR_OVER_SPEED))
     {
         faults[MotorFaults::MOTOR_OVER_SPEED].setActive(motorOneErrorFlags.motorOverSpeed());
     }
-    if(faults.contains(MotorFaults::SOFTWARE_OVER_CURRENT))
+
+    if (faults.contains(MotorFaults::SOFTWARE_OVER_CURRENT))
     {
         faults[MotorFaults::SOFTWARE_OVER_CURRENT].setActive(motorOneErrorFlags.softwareOverCurrent());
     }
-    if(faults.contains(MotorFaults::DC_BUS_OVER_VOLTAGE))
+
+    if (faults.contains(MotorFaults::DC_BUS_OVER_VOLTAGE))
     {
         faults[MotorFaults::DC_BUS_OVER_VOLTAGE].setActive(motorOneErrorFlags.dcBusOverVoltage());
     }
-    if(faults.contains(MotorFaults::BAD_MOTOR_POSITION_HALL_SEQUENCE))
+
+    if (faults.contains(MotorFaults::BAD_MOTOR_POSITION_HALL_SEQUENCE))
     {
         faults[MotorFaults::BAD_MOTOR_POSITION_HALL_SEQUENCE].setActive(motorOneErrorFlags.badMotorPositionHallSequence());
     }
-    if(faults.contains(MotorFaults::WATCHDOG_CAUSED_LAST_RESET))
+
+    if (faults.contains(MotorFaults::WATCHDOG_CAUSED_LAST_RESET))
     {
         faults[MotorFaults::WATCHDOG_CAUSED_LAST_RESET].setActive(motorOneErrorFlags.watchdogCausedLastReset());
     }
-    if(faults.contains(MotorFaults::CONFIG_READ_ERROR))
+
+    if (faults.contains(MotorFaults::CONFIG_READ_ERROR))
     {
         faults[MotorFaults::CONFIG_READ_ERROR].setActive(motorOneErrorFlags.configReadError());
     }
-    if(faults.contains(MotorFaults::RAIL_UNDER_VOLTAGE_LOCK_OUT))
+
+    if (faults.contains(MotorFaults::RAIL_UNDER_VOLTAGE_LOCK_OUT))
     {
         faults[MotorFaults::RAIL_UNDER_VOLTAGE_LOCK_OUT].setActive(motorOneErrorFlags.railUnderVoltageLockOut());
     }
-    if(faults.contains(MotorFaults::DESATURATION_FAULT))
+
+    if (faults.contains(MotorFaults::DESATURATION_FAULT))
     {
         faults[MotorFaults::DESATURATION_FAULT].setActive(motorOneErrorFlags.desaturationFault());
     }
@@ -130,32 +153,39 @@ void MotorFaultsUpdater::motorOneErrorFlagsReceived(ErrorFlags motorOneErrorFlag
 
 void MotorFaultsUpdater::motorOneLimitFlagsReceived(LimitFlags motorOneLimitFlags)
 {
-    QMap<MotorFaults , FaultDisplayData>& faults = faultListOne_.faults();
-    if(faults.contains(MotorFaults::OUTPUT_VOLTAGE_PWM_LIMIT))
+    QMap<MotorFaults, FaultDisplayData>& faults = faultListOne_.faults();
+
+    if (faults.contains(MotorFaults::OUTPUT_VOLTAGE_PWM_LIMIT))
     {
         faults[MotorFaults::OUTPUT_VOLTAGE_PWM_LIMIT].setActive(motorOneLimitFlags.outputVoltagePwmLimit());
     }
-    if(faults.contains(MotorFaults::MOTOR_CURRENT_LIMIT))
+
+    if (faults.contains(MotorFaults::MOTOR_CURRENT_LIMIT))
     {
         faults[MotorFaults::MOTOR_CURRENT_LIMIT].setActive(motorOneLimitFlags.motorCurrentLimit());
     }
-    if(faults.contains(MotorFaults::VELOCITY_LIMIT))
+
+    if (faults.contains(MotorFaults::VELOCITY_LIMIT))
     {
         faults[MotorFaults::VELOCITY_LIMIT].setActive(motorOneLimitFlags.velocityLimit());
     }
-    if(faults.contains(MotorFaults::BUS_CURRENT_LIMIT))
+
+    if (faults.contains(MotorFaults::BUS_CURRENT_LIMIT))
     {
         faults[MotorFaults::BUS_CURRENT_LIMIT].setActive(motorOneLimitFlags.busCurrentLimit());
     }
-    if(faults.contains(MotorFaults::BUS_VOLTAGE_UPPER_LIMIT))
+
+    if (faults.contains(MotorFaults::BUS_VOLTAGE_UPPER_LIMIT))
     {
         faults[MotorFaults::BUS_VOLTAGE_UPPER_LIMIT].setActive(motorOneLimitFlags.busVoltageUpperLimit());
     }
-    if(faults.contains(MotorFaults::BUS_VOLTAGE_LOWER_LIMIT))
+
+    if (faults.contains(MotorFaults::BUS_VOLTAGE_LOWER_LIMIT))
     {
         faults[MotorFaults::BUS_VOLTAGE_LOWER_LIMIT].setActive(motorOneLimitFlags.busVoltageLowerLimit());
     }
-    if(faults.contains(MotorFaults::IPM_MOTOR_TEMPERATURE_LIMIT))
+
+    if (faults.contains(MotorFaults::IPM_MOTOR_TEMPERATURE_LIMIT))
     {
         faults[MotorFaults::IPM_MOTOR_TEMPERATURE_LIMIT].setActive(motorOneLimitFlags.ipmOrMotorTemperatureLimit());
     }

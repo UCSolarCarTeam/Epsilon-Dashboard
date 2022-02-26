@@ -7,7 +7,7 @@ class MotorFaultPopulator : public FaultPopulator
 {
 public:
     MotorFaultPopulator(I_MotorFaultList& faultListZero,
-                            I_MotorFaultList& faultListOne);
+                        I_MotorFaultList& faultListOne);
 
     void populateFaults() override;
     void populateRaceFaults() override;

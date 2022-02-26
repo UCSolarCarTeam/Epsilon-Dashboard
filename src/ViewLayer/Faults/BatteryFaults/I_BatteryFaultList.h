@@ -9,7 +9,7 @@ public:
     virtual ~I_BatteryFaultList() {};
 
     virtual FaultDisplayData nextActiveFault() = 0;
-    virtual QMap<BatteryFaults , FaultDisplayData>& faults() = 0;
+    virtual QMap<BatteryFaults, FaultDisplayData>& faults() = 0;
     virtual int numberOfActiveFaults() const = 0;
 
 };

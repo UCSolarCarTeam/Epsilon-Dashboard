@@ -12,7 +12,7 @@ class BatteryFaultsUpdater : public QObject
     Q_OBJECT
 public:
     BatteryFaultsUpdater(const BatteryFaultsPresenter& presenter,
-                                  I_BatteryFaultList& faultList);
+                         I_BatteryFaultList& faultList);
 
 private slots:
     void errorFlagsReceived(BatteryErrorFlags);

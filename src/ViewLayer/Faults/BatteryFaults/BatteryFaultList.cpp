@@ -13,9 +13,9 @@ FaultDisplayData BatteryFaultList::nextActiveFault()
 {
     QMap<BatteryFaults, FaultDisplayData>::iterator iterator;
 
-    for(int i = 0; i < faultList_.size(); i ++)
+    for (int i = 0; i < faultList_.size(); i ++)
     {
-        if(currentFault_ == faultList_.end())
+        if (currentFault_ == faultList_.end())
         {
             currentFault_ = faultList_.begin();
         }
@@ -23,11 +23,12 @@ FaultDisplayData BatteryFaultList::nextActiveFault()
         iterator = currentFault_;
         ++currentFault_;
 
-        if(iterator.value().isActive())
+        if (iterator.value().isActive())
         {
             return iterator.value();
         }
     }
+
     return FaultDisplayData();
 }
 
@@ -42,9 +43,9 @@ int BatteryFaultList::numberOfActiveFaults() const
 
     QMap<BatteryFaults, FaultDisplayData>::const_iterator i ;
 
-    for(i = faultList_.constBegin(); i != faultList_.constEnd(); ++i)
+    for (i = faultList_.constBegin(); i != faultList_.constEnd(); ++i)
     {
-        if(i.value().isActive())
+        if (i.value().isActive())
         {
             numberOfActiveFaults ++;
         }

@@ -96,7 +96,8 @@ void FaultView::initializeLabels(QLayout*& layoutM0, QLayout*& layoutM1, QLayout
     // Motor 0
     QMap<MotorFaults, FaultDisplayData>& motorZeroFaults = motorZeroFaultList_.faults();
     QMap<MotorFaults, FaultDisplayData>::iterator motorZeroFaultIterator;
-    for(motorZeroFaultIterator = motorZeroFaults.begin(); motorZeroFaultIterator != motorZeroFaults.end(); ++motorZeroFaultIterator)
+
+    for (motorZeroFaultIterator = motorZeroFaults.begin(); motorZeroFaultIterator != motorZeroFaults.end(); ++motorZeroFaultIterator)
     {
         initializeLabel(motorZeroFaultIterator.value(), layoutM0, FAULT_STYLESHEET);
     }
@@ -104,7 +105,8 @@ void FaultView::initializeLabels(QLayout*& layoutM0, QLayout*& layoutM1, QLayout
     // Motor 1
     QMap<MotorFaults, FaultDisplayData>& motorOneFaults = motorOneFaultList_.faults();
     QMap<MotorFaults, FaultDisplayData>::iterator motorOneFaultIterator;
-    for(motorOneFaultIterator = motorOneFaults.begin(); motorOneFaultIterator != motorOneFaults.end(); ++motorOneFaultIterator)
+
+    for (motorOneFaultIterator = motorOneFaults.begin(); motorOneFaultIterator != motorOneFaults.end(); ++motorOneFaultIterator)
     {
         initializeLabel(motorOneFaultIterator.value(), layoutM1, FAULT_STYLESHEET);
     }
@@ -112,7 +114,8 @@ void FaultView::initializeLabels(QLayout*& layoutM0, QLayout*& layoutM1, QLayout
     // Battery
     QMap<BatteryFaults, FaultDisplayData>& batteryFaults = batteryFaultList_.faults();
     QMap<BatteryFaults, FaultDisplayData>::iterator batteryFaultIterator;
-    for(batteryFaultIterator = batteryFaults.begin(); batteryFaultIterator != batteryFaults.end(); ++batteryFaultIterator)
+
+    for (batteryFaultIterator = batteryFaults.begin(); batteryFaultIterator != batteryFaults.end(); ++batteryFaultIterator)
     {
         initializeLabel(batteryFaultIterator.value(), layoutB, FAULT_STYLESHEET);
     }
@@ -148,7 +151,8 @@ void FaultView::updateBatteryFaults()
 
     QMap<BatteryFaults, FaultDisplayData>& batteryFaults = batteryFaultList_.faults();
     QMap<BatteryFaults, FaultDisplayData>::iterator batteryFaultIterator;
-    for(batteryFaultIterator = batteryFaults.begin(); batteryFaultIterator != batteryFaults.end(); ++batteryFaultIterator)
+
+    for (batteryFaultIterator = batteryFaults.begin(); batteryFaultIterator != batteryFaults.end(); ++batteryFaultIterator)
     {
         updateLabel(batteryFaultIterator.value());
     }
@@ -162,7 +166,8 @@ void FaultView::updateMotor0Faults()
 
     QMap<MotorFaults, FaultDisplayData>& motorZeroFaults = motorZeroFaultList_.faults();
     QMap<MotorFaults, FaultDisplayData>::iterator motorZeroFaultIterator;
-    for(motorZeroFaultIterator = motorZeroFaults.begin(); motorZeroFaultIterator != motorZeroFaults.end(); ++motorZeroFaultIterator)
+
+    for (motorZeroFaultIterator = motorZeroFaults.begin(); motorZeroFaultIterator != motorZeroFaults.end(); ++motorZeroFaultIterator)
     {
         updateLabel(motorZeroFaultIterator.value());
     }
@@ -176,7 +181,8 @@ void FaultView::updateMotor1Faults()
 
     QMap<MotorFaults, FaultDisplayData>& motorOneFaults = motorOneFaultList_.faults();
     QMap<MotorFaults, FaultDisplayData>::iterator motorOneFaultIterator;
-    for(motorOneFaultIterator = motorOneFaults.begin(); motorOneFaultIterator != motorOneFaults.end(); ++motorOneFaultIterator)
+
+    for (motorOneFaultIterator = motorOneFaults.begin(); motorOneFaultIterator != motorOneFaults.end(); ++motorOneFaultIterator)
     {
         updateLabel(motorOneFaultIterator.value());
     }

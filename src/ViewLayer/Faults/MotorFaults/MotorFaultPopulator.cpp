@@ -5,7 +5,7 @@
 
 
 MotorFaultPopulator::MotorFaultPopulator(I_MotorFaultList& faultListZero,
-                                         I_MotorFaultList& faultListOne)
+        I_MotorFaultList& faultListOne)
     : faultListZero_(faultListZero)
     , faultListOne_(faultListOne)
 {

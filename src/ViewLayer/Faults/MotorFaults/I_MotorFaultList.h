@@ -9,7 +9,7 @@ public:
     virtual ~I_MotorFaultList() {};
 
     virtual FaultDisplayData nextActiveFault() = 0;
-    virtual QMap<MotorFaults , FaultDisplayData>& faults() = 0;
-    virtual int numberOfActiveFaults() const= 0;
+    virtual QMap<MotorFaults, FaultDisplayData>& faults() = 0;
+    virtual int numberOfActiveFaults() const = 0;
 
 };

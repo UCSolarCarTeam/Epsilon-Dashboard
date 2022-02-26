@@ -21,7 +21,8 @@ enum class MotorFaults
     IPM_MOTOR_TEMPERATURE_LIMIT
 };
 
-const QMap<MotorFaults, QString> motorFaultsTexts = {
+const QMap<MotorFaults, QString> motorFaultsTexts =
+{
     { MotorFaults::MOTOR_OVER_SPEED, "Motor Over Speed" },
     { MotorFaults::SOFTWARE_OVER_CURRENT, "Software Over Current" },
     { MotorFaults::DC_BUS_OVER_VOLTAGE, "DC Bus Over Voltage" },
