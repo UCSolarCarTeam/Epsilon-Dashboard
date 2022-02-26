@@ -5,6 +5,7 @@
 #include <QLayout>
 #include <QDebug>
 #include <QScrollBar>
+#include <QScopedPointer>
 
 #include "../../../../DataLayer/MotorFaultsData/ErrorFlags.h"
 #include "../../../../DataLayer/MotorFaultsData/LimitFlags.h"
@@ -15,6 +16,7 @@
 #include "Faults/MotorFaults/MotorFaultList.h"
 
 class I_FaultUi;
+class QTimer;
 
 class FaultView : public QObject
 {
@@ -31,13 +33,10 @@ private:
     void initializeLabels(QLayout*& layoutM0, QLayout*& layoutM1, QLayout*& layoutB);
     void updateLabel(FaultDisplayData& label);
     void updateLabelListHeight(QWidget& contentsWidget, int& labelCount);
-    void updateBatteryFaults();
-    void updateMotor0Faults();
-    void updateMotor1Faults();
-
     I_FaultUi& ui_;
 
-    QMap<QString, QLabel*> faultLabelList_;
+    QHash<FaultDisplayData*, QLabel*> faultLabelList_;
+    QScopedPointer<QTimer> faultsTimer_;
 
     // Motor 0
     I_MotorFaultList& motorZeroFaultList_;
@@ -50,5 +49,10 @@ private:
     // Battery
     I_BatteryFaultList& batteryFaultList_;
     int labelBCount_;
+
+private slots:
+    void updateBatteryFaults();
+    void updateMotor0Faults();
+    void updateMotor1Faults();
 };
 
