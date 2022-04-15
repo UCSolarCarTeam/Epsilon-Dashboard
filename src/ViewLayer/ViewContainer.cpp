@@ -1,7 +1,11 @@
 #include "ViewContainer.h"
 
 #include "Faults/MotorFaults/MotorFaultList.h"
+#include "Faults/MotorFaults/MotorFaultPopulator.h"
+#include "Faults/MotorFaults/MotorFaultsUpdater.h"
 #include "Faults/BatteryFaults/BatteryFaultList.h"
+#include "Faults/BatteryFaults/BatteryFaultPopulator.h"
+#include "Faults/BatteryFaults/BatteryFaultsUpdater.h"
 #include "DisplayDashboard/DisplayDashboardUI/DisplayDashboardUI.h"
 #include "DisplayDashboard/DisplayDashboardView/DisplayDashboardView.h"
 #include "../PresenterLayer/PresenterContainer.h"
@@ -29,25 +33,27 @@
 ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode, bool isWindowed)
     :  motorZeroFaultList_(new MotorFaultList)
     ,  motorOneFaultList_(new MotorFaultList)
+    ,  motorFaultPopulator_(new MotorFaultPopulator(*motorZeroFaultList_, *motorOneFaultList_))
+    ,  motorFaultUpdater_(new MotorFaultsUpdater(presenterContainer.motorFaultsPresenter(), *motorZeroFaultList_, *motorOneFaultList_))
     ,  batteryFaultList_(new BatteryFaultList)
-
+    ,  batteryFaultPopulator_(new BatteryFaultPopulator(*batteryFaultList_))
+    ,  batteryFaultUpdater_(new BatteryFaultsUpdater(presenterContainer.batteryFaultsPresenter(), *batteryFaultList_))
 {
     Q_INIT_RESOURCE(fontresources);
 
     if (mode == Mode::DISPLAY)
     {
-
+        motorFaultPopulator_->populateFaults();
+        batteryFaultPopulator_->populateFaults();
         displayDashboardUI_.reset(new DisplayDashboardUI(isWindowed));
         displayDashboardView_.reset(new DisplayDashboardView(
                                         presenterContainer.auxBmsPresenter(),
                                         presenterContainer.batteryPresenter(),
-                                        presenterContainer.batteryFaultsPresenter(),
                                         presenterContainer.driverControlsPresenter(),
                                         presenterContainer.keyMotorPresenter(),
                                         presenterContainer.lightsPresenter(),
                                         presenterContainer.mpptPresenter(),
                                         presenterContainer.motorDetailsPresenter(),
-                                        presenterContainer.motorFaultsPresenter(),
                                         *displayDashboardUI_,
                                         *motorZeroFaultList_,
                                         *motorOneFaultList_,
@@ -55,17 +61,17 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode, 
     }
     else if (mode == Mode::RACE)
     {
+        motorFaultPopulator_->populateRaceFaults();
+        batteryFaultPopulator_->populateRaceFaults();
         raceModeDashboardUI_.reset(new RaceModeDashboardUI(isWindowed));
         raceModeDashboardView_.reset(new RaceModeDashboardView(
                                          presenterContainer.batteryPresenter(),
-                                         presenterContainer.batteryFaultsPresenter(),
                                          presenterContainer.auxBmsPresenter(),
                                          presenterContainer.driverControlsPresenter(),
                                          presenterContainer.keyMotorPresenter(),
                                          presenterContainer.lightsPresenter(),
                                          presenterContainer.mpptPresenter(),
                                          presenterContainer.motorDetailsPresenter(),
-                                         presenterContainer.motorFaultsPresenter(),
                                          *raceModeDashboardUI_,
                                          *motorZeroFaultList_,
                                          *motorOneFaultList_,
@@ -73,6 +79,8 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode, 
     }
     else if (mode == Mode::DEBUG)
     {
+        motorFaultPopulator_->populateFaults();
+        batteryFaultPopulator_->populateFaults();
         batteryUi_.reset(new BatteryUi);
         controlUi_.reset(new ControlUi);
         homepageUi_.reset(new HomePageUi);
@@ -102,9 +110,7 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode, 
         motorView_.reset(new MotorView( presenterContainer.keyMotorPresenter(),
                                         presenterContainer.motorDetailsPresenter(), *motorUi_));
 
-        faultView_.reset(new FaultView(presenterContainer.motorFaultsPresenter(),
-                                       presenterContainer.batteryFaultsPresenter(),
-                                       *faultUi_,
+        faultView_.reset(new FaultView(*faultUi_,
                                        *motorZeroFaultList_,
                                        *motorOneFaultList_,
                                        *batteryFaultList_));

@@ -36,13 +36,22 @@ HEADERS += \
     DisplayDashboard/DisplayDashboardUI/DisplayDashboardUI.h \
     DisplayDashboard/DisplayDashboardUI/I_DisplayDashboardUI.h \
     DisplayDashboard/DisplayDashboardView/DisplayDashboardView.h \
+    Faults/BatteryFaults/BatteryFaultPopulator.h \
+    Faults/BatteryFaults/BatteryFaultsResources.h \
+    Faults/BatteryFaults/BatteryFaultsUpdater.h \
+    Faults/BatteryFaults/I_BatteryFaultList.h \
+    Faults/FaultLabel/FaultDisplayData.h \
+    Faults/FaultPopulator.h \
+    Faults/MotorFaults/I_MotorFaultList.h \
+    Faults/MotorFaults/MotorFaultPopulator.h \
+    Faults/MotorFaults/MotorFaultsResources.h \
+    Faults/MotorFaults/MotorFaultsUpdater.h \
     RaceModeDisplay/RaceModeDisplayUI/I_RaceModeDashboardUI.h \
     RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.h \
     ViewContainer.h \
     DebugDisplay/HomePage/HomePageView/HomePageView.h \
     RaceModeDisplay/RaceModeDashboardView.h \
     Faults/MotorFaults/MotorFaultList.h \
-    Faults/FaultLabel/FaultLabel.h \
     Faults/BatteryFaults/BatteryFaultList.h \
     Faults/FaultPriorities/FaultPriorities.h \
     FontLoader/FontLoader.h
@@ -55,7 +64,12 @@ SOURCES += \
     DebugDisplay/BatteryPage/ProgressBar.cpp \
     DebugDisplay/ControlPage/ControlUi/ControlUi.cpp \
     DebugDisplay/ControlPage/ControlView/ControlView.cpp \
-    DebugDisplay/HomePage/HomePageUi/HomePageUi.cpp\ 
+    DebugDisplay/HomePage/HomePageUi/HomePageUi.cpp\
+    Faults/BatteryFaults/BatteryFaultPopulator.cpp \
+    Faults/BatteryFaults/BatteryFaultsUpdater.cpp \
+    Faults/FaultLabel/FaultDisplayData.cpp \
+    Faults/MotorFaults/MotorFaultPopulator.cpp \
+    Faults/MotorFaults/MotorFaultsUpdater.cpp \
     DebugDisplay/FaultPage/FaultUi/FaultUi.cpp \
     DebugDisplay/MotorPage/MotorUi/MotorUi.cpp \
     DebugDisplay/FaultPage/FaultView/FaultView.cpp \
@@ -70,7 +84,6 @@ SOURCES += \
     RaceModeDisplay/RaceModeDisplayUI/RaceModeDashboardUI.cpp \
     ViewContainer.cpp \
     DebugDisplay/HomePage/HomePageView/HomePageView.cpp \
-    Faults/FaultLabel/FaultLabel.cpp \
     Faults/MotorFaults/MotorFaultList.cpp \
     Faults/BatteryFaults/BatteryFaultList.cpp \
     FontLoader/FontLoader.cpp

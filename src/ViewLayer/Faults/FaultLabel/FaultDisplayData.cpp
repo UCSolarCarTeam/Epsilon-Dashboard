@@ -1,59 +1,59 @@
-#include "FaultLabel.h"
+#include "FaultDisplayData.h"
 
-FaultLabel::FaultLabel()
-    : QLabel("")
+FaultDisplayData::FaultDisplayData()
+    : name_("")
     , color_(FaultPriorities::DEFAULT_COLOR)
     , priority_(FaultPriorities::INVALID_PRIORITY)
     , isActive_(false)
 {
 }
 
-FaultLabel::FaultLabel(QString name, FaultPriorities::PRIORITY priority, bool isActive)
-    : QLabel(name)
+FaultDisplayData::FaultDisplayData(QString name, FaultPriorities::PRIORITY priority, bool isActive)
+    : name_(name)
     , color_(priorityToColor(priority))
     , priority_(priority)
     , isActive_(isActive)
 {
 }
 
-FaultLabel::FaultLabel(const FaultLabel& faultLabel)
-    : QLabel(faultLabel.name())
+FaultDisplayData::FaultDisplayData(const FaultDisplayData& faultLabel)
+    : name_(faultLabel.name())
     , color_(faultLabel.color())
     , priority_(faultLabel.priority())
     , isActive_(faultLabel.isActive())
 {
 }
 
-FaultLabel::~FaultLabel()
+FaultDisplayData::~FaultDisplayData()
 {
 }
 
-QString FaultLabel::name() const
+QString FaultDisplayData::name() const
 {
-    return this->text();
+    return name_;
 }
 
-QColor FaultLabel::color() const
+QColor FaultDisplayData::color() const
 {
     return color_;
 }
 
-FaultPriorities::PRIORITY FaultLabel::priority() const
+FaultPriorities::PRIORITY FaultDisplayData::priority() const
 {
     return priority_;
 }
 
-bool FaultLabel::isActive() const
+bool FaultDisplayData::isActive() const
 {
     return isActive_;
 }
 
-void FaultLabel::setActive(bool value)
+void FaultDisplayData::setActive(bool value)
 {
     isActive_ = value;
 }
 
-QColor FaultLabel::priorityToColor(FaultPriorities::PRIORITY priority)
+QColor FaultDisplayData::priorityToColor(FaultPriorities::PRIORITY priority)
 {
     switch (priority)
     {

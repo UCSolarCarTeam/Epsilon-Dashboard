@@ -23,26 +23,22 @@ namespace
 
 DisplayDashboardView::DisplayDashboardView(AuxBmsPresenter& auxBmsPresenter,
         BatteryPresenter& batteryPresenter,
-        BatteryFaultsPresenter& batteryFaultsPresenter,
         DriverControlsPresenter& driverControlsPresenter,
         KeyMotorPresenter& keyMotorPresenter,
         LightsPresenter& lightsPresenter,
         MpptPresenter& mpptPresenter,
         MotorDetailsPresenter& motorDetailsPresenter,
-        MotorFaultsPresenter& motorFaultsPresenter,
         I_DisplayDashboardUI& ui,
-        MotorFaultList& motorZeroFaultsList,
-        MotorFaultList& motorOneFaultsList,
-        BatteryFaultList& batteryFaultsList)
+        I_MotorFaultList& motorZeroFaultsList,
+        I_MotorFaultList& motorOneFaultsList,
+        I_BatteryFaultList& batteryFaultsList)
     : auxBmsPresenter_(auxBmsPresenter)
     , batteryPresenter_(batteryPresenter)
-    , batteryFaultsPresenter_(batteryFaultsPresenter)
     , driverControlsPresenter_(driverControlsPresenter)
     , keyMotorPresenter_(keyMotorPresenter)
     , lightsPresenter_(lightsPresenter)
     , mpptPresenter_(mpptPresenter)
     , motorDetailsPresenter_(motorDetailsPresenter)
-    , motorFaultsPresenter_(motorFaultsPresenter)
     , ui_(ui)
     , motorZeroFaultsList_(motorZeroFaultsList)
     , motorOneFaultsList_(motorOneFaultsList)
@@ -51,13 +47,11 @@ DisplayDashboardView::DisplayDashboardView(AuxBmsPresenter& auxBmsPresenter,
 {
     connectAuxBms(auxBmsPresenter_);
     connectBattery(batteryPresenter_);
-    connectBatteryFaults(batteryFaultsPresenter_);
     connectDriverControls(driverControlsPresenter_);
     connectKeyMotor(keyMotorPresenter_);
     connectLights(lightsPresenter_);
     connectMppt(mpptPresenter_);
     connectMotorDetails(motorDetailsPresenter_);
-    connectMotorFaults(motorFaultsPresenter_);
     //ui_.showMaximized();
     connect(faultsTimer_.data(), SIGNAL(timeout()), this, SLOT(updateBatteryFaults()));
     connect(faultsTimer_.data(), SIGNAL(timeout()), this, SLOT(updateMotor0Faults()));
@@ -105,14 +99,6 @@ void DisplayDashboardView::motorOneReceived(KeyMotor motorOne)
     ui_.motorOneSetCurrentLabel().setNum(motorOne.setCurrent());
     ui_.motorOneBusCurrentLabel().setNum(motorOne.busCurrent());
     ui_.motorOneBusVoltageLabel().setNum(motorOne.busVoltage());
-}
-
-void DisplayDashboardView::connectBatteryFaults(BatteryFaultsPresenter& batteryFaultsPresenter)
-{
-    connect(&batteryFaultsPresenter, SIGNAL(errorFlagsReceived(BatteryErrorFlags)),
-            this, SLOT(errorFlagsReceived(BatteryErrorFlags)));
-    connect(&batteryFaultsPresenter, SIGNAL(limitFlagsReceived(BatteryLimitFlags)),
-            this, SLOT(limitFlagsReceived(BatteryLimitFlags)));
 }
 
 void DisplayDashboardView::connectDriverControls(DriverControlsPresenter& driverControlsPresenter)
@@ -164,24 +150,12 @@ void DisplayDashboardView::connectMotorDetails(MotorDetailsPresenter& motorDetai
     Q_UNUSED(motorDetailsPresenter);
 }
 
-void DisplayDashboardView::connectMotorFaults(MotorFaultsPresenter& motorFaultsPresenter)
-{
-    connect(&motorFaultsPresenter, SIGNAL(motorZeroErrorFlagsReceived(ErrorFlags)),
-            this, SLOT(motorZeroErrorFlagsReceived(ErrorFlags)));
-    connect(&motorFaultsPresenter, SIGNAL(motorZeroLimitFlagsReceived(LimitFlags)),
-            this, SLOT(motorZeroLimitFlagsReceived(LimitFlags)));
-    connect(&motorFaultsPresenter, SIGNAL(motorOneErrorFlagsReceived(ErrorFlags)),
-            this, SLOT(motorOneErrorFlagsReceived(ErrorFlags)));
-    connect(&motorFaultsPresenter, SIGNAL(motorOneLimitFlagsReceived(LimitFlags)),
-            this, SLOT(motorOneLimitFlagsReceived(LimitFlags)));
-}
-
-void DisplayDashboardView::updateFaultLabel(QLabel& dashboardLabel, FaultLabel faultLabel)
+void DisplayDashboardView::updateFaultLabel(QLabel& dashboardLabel, FaultDisplayData faultLabel)
 {
     if (faultLabel.priority() >= 0)
     {
         dashboardLabel.setStyleSheet(QString("color:%1").arg(faultLabel.color().name()));
-        dashboardLabel.setText(faultLabel.text());
+        dashboardLabel.setText(faultLabel.name());
     }
     else
     {
@@ -265,14 +239,6 @@ void DisplayDashboardView::averageTemperatureReceived(int averageCellTemp)
 void DisplayDashboardView::averageCellVoltageReceived(float averageVoltage)
 {
     ui_.avgCellVoltageLabel().setNum(averageVoltage / MV_TO_V);
-}
-void DisplayDashboardView::errorFlagsReceived(BatteryErrorFlags batteryErrorFlags)
-{
-    batteryFaultsList_.updateErrors(batteryErrorFlags);
-}
-void DisplayDashboardView::limitFlagsReceived(BatteryLimitFlags batteryLimitFlags)
-{
-    batteryFaultsList_.updateLimits(batteryLimitFlags);
 }
 
 void DisplayDashboardView::resetReceived(bool reset)
@@ -411,23 +377,6 @@ void DisplayDashboardView::mpptReceived(int i, Mppt mppt)
 void DisplayDashboardView::mpptPowerReceived(double mpptPower)
 {
     ui_.arrayPowerLabel().setText(QString::number(mpptPower, 'f', 0));
-}
-
-void DisplayDashboardView::motorZeroErrorFlagsReceived(ErrorFlags motorZeroErrorFlags)
-{
-    motorZeroFaultsList_.updateErrors(motorZeroErrorFlags);
-}
-void DisplayDashboardView::motorZeroLimitFlagsReceived(LimitFlags motorZeroLimitFlags)
-{
-    motorZeroFaultsList_.updateLimits(motorZeroLimitFlags);
-}
-void DisplayDashboardView::motorOneErrorFlagsReceived(ErrorFlags motorOneErrorFlags)
-{
-    motorOneFaultsList_.updateErrors(motorOneErrorFlags);
-}
-void DisplayDashboardView::motorOneLimitFlagsReceived(LimitFlags motorOneLimitFlags)
-{
-    motorOneFaultsList_.updateLimits(motorOneLimitFlags);
 }
 
 void DisplayDashboardView::updateBatteryFaults()
