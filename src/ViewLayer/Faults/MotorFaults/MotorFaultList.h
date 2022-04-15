@@ -1,26 +1,26 @@
 #pragma once
 
 #include <QVector>
-#include "../FaultLabel/FaultLabel.h"
+#include <QMapIterator>
+#include "../FaultLabel/FaultDisplayData.h"
 #include "../DataLayer/MotorFaultsData/ErrorFlags.h"
 #include "../DataLayer/MotorFaultsData/LimitFlags.h"
+#include "I_MotorFaultList.h"
 
-class MotorFaultList
+class MotorFaultList : public I_MotorFaultList
 {
 public:
     MotorFaultList();
 
     ~MotorFaultList();
 
-    FaultLabel nextActiveFault();
-    QVector<FaultLabel>& faultLabels();
+    FaultDisplayData nextActiveFault();
+    QMap<MotorFaults, FaultDisplayData>& faults();
+    int numberOfActiveFaults();
     QVector<QString>& activeFaultLabels();
-    void updateErrors(const ErrorFlags&);
-    void updateLimits(const LimitFlags&);
-    int numberOfActiveLabels() const;
 
 private:
-    QVector<FaultLabel> faultLabels_;
+    QMap<MotorFaults, FaultDisplayData> faultList_;
+    QMap<MotorFaults, FaultDisplayData>::iterator  currentFault_;
     QVector<QString> activeLabels_;
-    int currentFault_;
 };

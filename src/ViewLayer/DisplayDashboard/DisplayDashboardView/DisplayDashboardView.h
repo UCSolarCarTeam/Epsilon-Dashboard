@@ -17,8 +17,9 @@
 #include "../../../PresenterLayer/MotorDetailsPresenter/MotorDetailsPresenter.h"
 #include "../../../PresenterLayer/MotorFaultsPresenter/MotorFaultsPresenter.h"
 #include "../DisplayDashboardUI/I_DisplayDashboardUI.h"
-#include "Faults/BatteryFaults/BatteryFaultList.h"
-#include "Faults/MotorFaults/MotorFaultList.h"
+#include "Faults/FaultLabel/FaultDisplayData.h"
+#include "Faults/BatteryFaults/I_BatteryFaultList.h"
+#include "Faults/MotorFaults/I_MotorFaultList.h"
 
 
 class AuxBmsPresenter;
@@ -32,6 +33,9 @@ class MpptPresenter;
 class MotorDetailsPresenter;
 class MotorFaultsPresenter;
 class QTimer;
+class I_BatteryFaultList;
+class I_MotorFaultList;
+class FaultDisplayData;
 
 class DisplayDashboardView : public QObject
 {
@@ -39,46 +43,39 @@ class DisplayDashboardView : public QObject
 public:
     DisplayDashboardView(AuxBmsPresenter& auxBmsPresenter,
                          BatteryPresenter& batteryPresenter,
-                         BatteryFaultsPresenter& batteryFaultsPresenter,
                          DriverControlsPresenter& driverControlsPresenter,
                          KeyMotorPresenter& keyMotorPresenter,
                          LightsPresenter& lightsPresenter,
                          MpptPresenter& mpptPresenter,
                          MotorDetailsPresenter& motorDetailsPresenter,
-                         MotorFaultsPresenter& motorFaultsPresenter,
                          I_DisplayDashboardUI& ui,
-                         MotorFaultList& motorZeroFaultsList,
-                         MotorFaultList& motorOneFaultsList,
-                         BatteryFaultList& batteryFaultsList);
+                         I_MotorFaultList& motorZeroFaultsList,
+                         I_MotorFaultList& motorOneFaultsList,
+                         I_BatteryFaultList& batteryFaultsList);
     ~DisplayDashboardView();
 
 private:
     void connectAuxBms(AuxBmsPresenter&);
     void connectBattery(BatteryPresenter&);
-    void connectBatteryFaults(BatteryFaultsPresenter&);
     void connectDriverControls(DriverControlsPresenter&);
     void connectKeyMotor(KeyMotorPresenter&);
     void connectLights(LightsPresenter&);
     void connectMppt(MpptPresenter&);
     void connectMotorDetails(MotorDetailsPresenter&);
-    void connectMotorFaults(MotorFaultsPresenter&);
-
-    void updateFaultLabel(QLabel&, FaultLabel);
+    void updateFaultLabel(QLabel&, FaultDisplayData);
     void updateDriveStateLabel();
 
     AuxBmsPresenter& auxBmsPresenter_;
     BatteryPresenter& batteryPresenter_;
-    BatteryFaultsPresenter& batteryFaultsPresenter_;
     DriverControlsPresenter& driverControlsPresenter_;
     KeyMotorPresenter& keyMotorPresenter_;
     LightsPresenter& lightsPresenter_;
     MpptPresenter& mpptPresenter_;
     MotorDetailsPresenter& motorDetailsPresenter_;
-    MotorFaultsPresenter& motorFaultsPresenter_;
     I_DisplayDashboardUI& ui_;
-    MotorFaultList& motorZeroFaultsList_;
-    MotorFaultList& motorOneFaultsList_;
-    BatteryFaultList& batteryFaultsList_;
+    I_MotorFaultList& motorZeroFaultsList_;
+    I_MotorFaultList& motorOneFaultsList_;
+    I_BatteryFaultList& batteryFaultsList_;
 
     //used in mpptReceived
     double mpptZeroPower_;
@@ -104,10 +101,6 @@ private slots:
     void averageTemperatureReceived(int);
     void averageCellVoltageReceived(float);
 
-    // battery faults slots
-    void errorFlagsReceived(BatteryErrorFlags);
-    void limitFlagsReceived(BatteryLimitFlags);
-
     // driver controls slots
     void resetReceived(bool);
     void auxReceived(bool);
@@ -132,11 +125,6 @@ private slots:
     void mpptPowerReceived(double);
 
     // motor faults slots
-    void motorZeroErrorFlagsReceived(ErrorFlags);
-    void motorZeroLimitFlagsReceived(LimitFlags);
-    void motorOneErrorFlagsReceived(ErrorFlags);
-    void motorOneLimitFlagsReceived(LimitFlags);
-
     void updateBatteryFaults();
     void updateMotor0Faults();
     void updateMotor1Faults();
