@@ -11,5 +11,6 @@ public:
     virtual FaultDisplayData nextActiveFault() = 0;
     virtual QMap<MotorFaults, FaultDisplayData>& faults() = 0;
     virtual int numberOfActiveFaults() = 0;
+    virtual QVector<QString>& activeFaultLabels() = 0;
 
 };
