@@ -52,7 +52,7 @@ private:
     void updateFaultLabel(QLabel&, FaultDisplayData);
     void initalizeFaultAnimation();
     void reverseFaultAnimation();
-    bool triggerFaultAnimation(QVector<QString>& batteryFaults, QVector<QString>& motorZeroFaults, QVector<QString>& motorOneFaults);
+    bool faultAnimationCheck(QVector<QString>& currentFaults, QVector<QString>& prevFaults);
     void updateDriveStateLabel();
 
     BatteryPresenter& batteryPresenter_;

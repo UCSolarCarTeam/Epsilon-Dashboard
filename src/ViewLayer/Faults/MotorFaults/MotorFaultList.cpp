@@ -36,7 +36,17 @@ FaultDisplayData MotorFaultList::nextActiveFault()
 
 QVector<QString>& MotorFaultList::activeFaultLabels()
 {
-    numberOfActiveFaults();
+    activeLabels_.clear();
+
+    QMap<MotorFaults, FaultDisplayData>::const_iterator i ;
+
+    for (i = faultList_.constBegin(); i != faultList_.constEnd(); ++i)
+    {
+        if (i.value().isActive())
+        {
+            activeLabels_.append(i.value().name());
+        }
+    }
     return activeLabels_;
 }
 
@@ -45,9 +55,8 @@ QMap<MotorFaults, FaultDisplayData>& MotorFaultList::faults()
     return faultList_;
 }
 
-int MotorFaultList::numberOfActiveFaults()
+int MotorFaultList::numberOfActiveFaults() const
 {
-    activeLabels_.clear();
     int numberOfActiveFaults = 0;
     QMap<MotorFaults, FaultDisplayData>::const_iterator i ;
 
@@ -56,7 +65,6 @@ int MotorFaultList::numberOfActiveFaults()
         if (i.value().isActive())
         {
             numberOfActiveFaults ++;
-            activeLabels_.append(i.value().name());
         }
     }
 
