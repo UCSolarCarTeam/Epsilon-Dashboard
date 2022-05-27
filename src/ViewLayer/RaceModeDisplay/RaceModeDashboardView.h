@@ -52,6 +52,7 @@ private:
     void updateFaultLabel(QLabel&, FaultDisplayData);
     void initalizeFaultAnimation();
     void reverseFaultAnimation();
+    bool faultAnimationCheck(QVector<QString>& currentFaults, QVector<QString>& prevFaults);
     void updateDriveStateLabel();
 
     BatteryPresenter& batteryPresenter_;
@@ -68,6 +69,9 @@ private:
 
     QScopedPointer<QPropertyAnimation> faultAnimation_;
     QScopedPointer<QGraphicsColorizeEffect> fadeEffect_;
+    QVector<QString> prevMotorOneFaults_;
+    QVector<QString> prevMotorZeroFaults_;
+    QVector<QString> prevBatteryFaults_;
 
     double busCurrent_;
     double busVoltage_;

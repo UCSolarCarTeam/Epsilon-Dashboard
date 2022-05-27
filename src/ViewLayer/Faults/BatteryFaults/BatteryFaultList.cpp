@@ -32,6 +32,22 @@ FaultDisplayData BatteryFaultList::nextActiveFault()
     return FaultDisplayData();
 }
 
+QVector<QString>& BatteryFaultList::activeFaultLabels()
+{
+    activeLabels_.clear();
+
+    QMap<BatteryFaults, FaultDisplayData>::const_iterator i ;
+
+    for (i = faultList_.constBegin(); i != faultList_.constEnd(); ++i)
+    {
+        if (i.value().isActive())
+        {
+            activeLabels_.append(i.value().name());
+        }
+    }
+    return activeLabels_;
+}
+
 QMap<BatteryFaults, FaultDisplayData>& BatteryFaultList::faults()
 {
     return faultList_;

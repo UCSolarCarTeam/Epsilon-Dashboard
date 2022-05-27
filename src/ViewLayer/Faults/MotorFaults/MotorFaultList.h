@@ -17,8 +17,10 @@ public:
     FaultDisplayData nextActiveFault();
     QMap<MotorFaults, FaultDisplayData>& faults();
     int numberOfActiveFaults() const;
+    QVector<QString>& activeFaultLabels();
 
 private:
     QMap<MotorFaults, FaultDisplayData> faultList_;
     QMap<MotorFaults, FaultDisplayData>::iterator  currentFault_;
+    QVector<QString> activeLabels_;
 };

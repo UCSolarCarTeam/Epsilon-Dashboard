@@ -1,6 +1,8 @@
 #include <QTimer>
 #include <QPropertyAnimation>
 #include <QGraphicsColorizeEffect>
+#include <algorithm>
+#include <QDebug>
 
 #include "RaceModeDashboardView.h"
 #include "../../PresenterLayer/BatteryPresenter/BatteryPresenter.h"
@@ -187,15 +189,40 @@ void RaceModeDashboardView::initalizeFaultAnimation()
 
 void RaceModeDashboardView::runFaultAnimation()
 {
-    int numberOfActiveFaults = batteryFaultsList_.numberOfActiveFaults() +
-                               motorOneFaultsList_.numberOfActiveFaults() +
-                               motorZeroFaultsList_.numberOfActiveFaults();
+    QVector<QString> batteryFaults = batteryFaultsList_.activeFaultLabels();
+    QVector<QString> motorZeroFaults = motorZeroFaultsList_.activeFaultLabels();
+    QVector<QString> motorOneFaults = motorOneFaultsList_.activeFaultLabels();
 
-    if (numberOfActiveFaults > 0 && faultAnimation_->state() != QAbstractAnimation::Running)
+    if (faultAnimation_->state() != QAbstractAnimation::Running && (
+        faultAnimationCheck(batteryFaults, prevBatteryFaults_) ||
+        faultAnimationCheck(motorZeroFaults, prevMotorZeroFaults_) ||
+        faultAnimationCheck(motorOneFaults, prevMotorOneFaults_)))
     {
         faultAnimation_->setDirection(QAbstractAnimation::Forward);
         faultAnimation_->start();
     }
+
+    prevBatteryFaults_ = batteryFaults;
+    prevMotorZeroFaults_ = motorZeroFaults;
+    prevMotorOneFaults_ = motorOneFaults;
+}
+
+bool RaceModeDashboardView::faultAnimationCheck(QVector<QString>& currentFaults, QVector<QString>& prevFaults)
+{
+    if (!currentFaults.empty() && !std::includes(prevFaults.begin(), prevFaults.end(), currentFaults.begin(), currentFaults.end()))
+    {
+        if (prevFaults.empty() || prevFaults.size() < currentFaults.size())
+        {
+            return true;
+        }
+
+        if (currentFaults.back() != prevFaults.at(currentFaults.size() - 1))
+        {
+                return true;
+        }
+    }
+
+    return false;
 }
 
 void RaceModeDashboardView::reverseFaultAnimation()
