@@ -6,6 +6,7 @@
 //All DCL & CCL faults are limits
 enum class BatteryFaults
 {
+    //Normal Battery Faults
     INTERNAL_COMMUNICATION_FAULT,
     INTERNAL_CONVERSION_FAULT,
     WEAK_CELL_FAULT,
@@ -40,7 +41,24 @@ enum class BatteryFaults
     CCL_REDUCED_DUE_TO_ALTERNATE_CURRENT_LIMIT,
     DCL_REDUCED_DUE_TO_LOW_SOC,
     DCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE,
-    CCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE
+    CCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE,
+
+
+    //There are 14 Aux BMS Trips
+    CHARGE_CONTACTOR_ERRROR,
+    DISCHARGE_CONTACTOR_ERROR,
+    COMMON_CONTACTOR_ERROR,
+    DISCHARGE_SHOULD_TRIP,
+    CHARGE_SHOULD_TRIP,
+    CHARGE_OPEN_BUT_SHOULD_BE_CLOSED,
+    DISCHARGE_OPEN_BUT_SHOULD_BE_CLOSED,
+    CHARGE_TRIP_DUE_TO_HIGH_CELL_VOLTAGE,
+    CHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT,
+    CHARGE_TRIP_DUE_TO_PACK_CURRENT,
+    DISCHARGE_TRIP_DUE_TO_LOW_CELL_VOLTAGE,
+    DISCHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT,
+    DISCHARGE_TRIP_DUE_TO_PACK_CURRENT,
+    PROTECTION_TRIP
 };
 
 const QMap<BatteryFaults, QString> batteryFaultsText =
@@ -80,4 +98,22 @@ const QMap<BatteryFaults, QString> batteryFaultsText =
     { BatteryFaults::DCL_REDUCED_DUE_TO_LOW_SOC, "DCL Low SOC" },
     { BatteryFaults::DCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE, "DCL High Cell Resistance" },
     { BatteryFaults::CCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE, "CCL High Cell Resistance" }
+};
+
+const QMap<BatteryFaults, QString> auxTripsText =
+{
+    {BatteryFaults::CHARGE_CONTACTOR_ERRROR, "Charge Contactor Error"},
+    {BatteryFaults::DISCHARGE_CONTACTOR_ERROR, "Discharge Contactor Error"},
+    {BatteryFaults::COMMON_CONTACTOR_ERROR, "Common Contactor Error"},
+    {BatteryFaults::DISCHARGE_SHOULD_TRIP, "Discharge Should Trip"},
+    {BatteryFaults::CHARGE_SHOULD_TRIP, "Charge Should Trip"},
+    {BatteryFaults::CHARGE_OPEN_BUT_SHOULD_BE_CLOSED, "Charge Open But Should Be Closed"},
+    {BatteryFaults::DISCHARGE_OPEN_BUT_SHOULD_BE_CLOSED, "Disharge Open But Should Be Closed"},
+    {BatteryFaults::CHARGE_TRIP_DUE_TO_HIGH_CELL_VOLTAGE, "Charge Trip: High Cell Voltage"},
+    {BatteryFaults::CHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT, "Charge Trip: High Temperature and Current"},
+    {BatteryFaults::CHARGE_TRIP_DUE_TO_PACK_CURRENT, "Charge Trip: Pack Current"},
+    {BatteryFaults::DISCHARGE_TRIP_DUE_TO_LOW_CELL_VOLTAGE, "Discharge Trip: Low Cell Voltage"},
+    {BatteryFaults::DISCHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT, "Discharge Trip: High Temperature and Current"},
+    {BatteryFaults::DISCHARGE_TRIP_DUE_TO_PACK_CURRENT, "Discharge Trip: Pack Current"},
+    {BatteryFaults::PROTECTION_TRIP, "Protection Trip"},
 };

@@ -37,7 +37,7 @@ ViewContainer::ViewContainer(PresenterContainer& presenterContainer, Mode mode, 
     ,  motorFaultUpdater_(new MotorFaultsUpdater(presenterContainer.motorFaultsPresenter(), *motorZeroFaultList_, *motorOneFaultList_))
     ,  batteryFaultList_(new BatteryFaultList)
     ,  batteryFaultPopulator_(new BatteryFaultPopulator(*batteryFaultList_))
-    ,  batteryFaultUpdater_(new BatteryFaultsUpdater(presenterContainer.batteryFaultsPresenter(), *batteryFaultList_))
+    ,  batteryFaultUpdater_(new BatteryFaultsUpdater(presenterContainer.batteryFaultsPresenter(), presenterContainer.auxBmsPresenter(), *batteryFaultList_))
 {
     Q_INIT_RESOURCE(fontresources);
 

@@ -12,6 +12,8 @@ BatteryFaultPopulator::BatteryFaultPopulator(I_BatteryFaultList& faultList)
 void BatteryFaultPopulator::populateFaults()
 {
     QMap<BatteryFaults, FaultDisplayData>& faults =  faultList_.faults();
+
+    //Insert Battery Faults
     faults.insert(BatteryFaults::INTERNAL_COMMUNICATION_FAULT, FaultDisplayData(batteryFaultsText[BatteryFaults::INTERNAL_COMMUNICATION_FAULT], FaultPriorities::HIGH_PRIORITY, false));
     faults.insert(BatteryFaults::INTERNAL_CONVERSION_FAULT, FaultDisplayData(batteryFaultsText[BatteryFaults::INTERNAL_CONVERSION_FAULT], FaultPriorities::HIGH_PRIORITY, false));
     faults.insert(BatteryFaults::WEAK_CELL_FAULT, FaultDisplayData(batteryFaultsText[BatteryFaults::WEAK_CELL_FAULT], FaultPriorities::HIGH_PRIORITY, false));
@@ -48,11 +50,28 @@ void BatteryFaultPopulator::populateFaults()
     faults.insert(BatteryFaults::DCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE, FaultDisplayData(batteryFaultsText[BatteryFaults::DCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE], FaultPriorities::LOW_PRIORITY, false));
     faults.insert(BatteryFaults::CCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE, FaultDisplayData(batteryFaultsText[BatteryFaults::CCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE], FaultPriorities::LOW_PRIORITY, false));
 
+    //Insert Aux trips
+    faults.insert(BatteryFaults::CHARGE_CONTACTOR_ERRROR, FaultDisplayData(auxTripsText[BatteryFaults::CHARGE_CONTACTOR_ERRROR], FaultPriorities::HIGH_PRIORITY, false));
+    faults.insert(BatteryFaults::DISCHARGE_CONTACTOR_ERROR, FaultDisplayData(auxTripsText[BatteryFaults::DISCHARGE_CONTACTOR_ERROR], FaultPriorities::HIGH_PRIORITY , false));
+    faults.insert(BatteryFaults::COMMON_CONTACTOR_ERROR, FaultDisplayData(auxTripsText[BatteryFaults::COMMON_CONTACTOR_ERROR], FaultPriorities::HIGH_PRIORITY , false));
+    faults.insert(BatteryFaults::DISCHARGE_SHOULD_TRIP, FaultDisplayData(auxTripsText[BatteryFaults::DISCHARGE_SHOULD_TRIP], FaultPriorities::MEDIUM_PRIORITY , false));
+    faults.insert(BatteryFaults::CHARGE_SHOULD_TRIP, FaultDisplayData(auxTripsText[BatteryFaults::CHARGE_SHOULD_TRIP], FaultPriorities::MEDIUM_PRIORITY , false));
+    faults.insert(BatteryFaults::CHARGE_OPEN_BUT_SHOULD_BE_CLOSED, FaultDisplayData(auxTripsText[BatteryFaults::CHARGE_OPEN_BUT_SHOULD_BE_CLOSED], FaultPriorities::MEDIUM_PRIORITY , false));
+    faults.insert(BatteryFaults::DISCHARGE_OPEN_BUT_SHOULD_BE_CLOSED, FaultDisplayData(auxTripsText[BatteryFaults::DISCHARGE_OPEN_BUT_SHOULD_BE_CLOSED], FaultPriorities::MEDIUM_PRIORITY , false));
+    faults.insert(BatteryFaults::CHARGE_TRIP_DUE_TO_HIGH_CELL_VOLTAGE, FaultDisplayData(auxTripsText[BatteryFaults::CHARGE_TRIP_DUE_TO_HIGH_CELL_VOLTAGE], FaultPriorities::HIGH_PRIORITY , false));
+    faults.insert(BatteryFaults::CHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT, FaultDisplayData(auxTripsText[BatteryFaults::CHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT], FaultPriorities::HIGH_PRIORITY , false));
+    faults.insert(BatteryFaults::CHARGE_TRIP_DUE_TO_PACK_CURRENT, FaultDisplayData(auxTripsText[BatteryFaults::CHARGE_TRIP_DUE_TO_PACK_CURRENT], FaultPriorities::HIGH_PRIORITY , false));
+    faults.insert(BatteryFaults::DISCHARGE_TRIP_DUE_TO_LOW_CELL_VOLTAGE, FaultDisplayData(auxTripsText[BatteryFaults::DISCHARGE_TRIP_DUE_TO_LOW_CELL_VOLTAGE], FaultPriorities::HIGH_PRIORITY , false));
+    faults.insert(BatteryFaults::DISCHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT, FaultDisplayData(auxTripsText[BatteryFaults::DISCHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT], FaultPriorities::HIGH_PRIORITY , false));
+    faults.insert(BatteryFaults::DISCHARGE_TRIP_DUE_TO_PACK_CURRENT, FaultDisplayData(auxTripsText[BatteryFaults::DISCHARGE_TRIP_DUE_TO_PACK_CURRENT], FaultPriorities::HIGH_PRIORITY , false));
+    faults.insert(BatteryFaults::PROTECTION_TRIP, FaultDisplayData(auxTripsText[BatteryFaults::PROTECTION_TRIP], FaultPriorities::HIGH_PRIORITY , false));
 }
 
 void BatteryFaultPopulator::populateRaceFaults()
 {
     QMap<BatteryFaults, FaultDisplayData>& faults =  faultList_.faults();
+
+    //Insert Battery Faults
     faults.insert(BatteryFaults::INTERNAL_COMMUNICATION_FAULT, FaultDisplayData(batteryFaultsText[BatteryFaults::INTERNAL_COMMUNICATION_FAULT], FaultPriorities::HIGH_PRIORITY, false));
     faults.insert(BatteryFaults::INTERNAL_CONVERSION_FAULT, FaultDisplayData(batteryFaultsText[BatteryFaults::INTERNAL_CONVERSION_FAULT], FaultPriorities::HIGH_PRIORITY, false));
     faults.insert(BatteryFaults::WEAK_CELL_FAULT, FaultDisplayData(batteryFaultsText[BatteryFaults::WEAK_CELL_FAULT], FaultPriorities::HIGH_PRIORITY, false));
@@ -88,4 +107,20 @@ void BatteryFaultPopulator::populateRaceFaults()
     faults.insert(BatteryFaults::DCL_REDUCED_DUE_TO_LOW_SOC, FaultDisplayData(batteryFaultsText[BatteryFaults::DCL_REDUCED_DUE_TO_LOW_SOC], FaultPriorities::MEDIUM_PRIORITY, false));
     faults.insert(BatteryFaults::DCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE, FaultDisplayData(batteryFaultsText[BatteryFaults::DCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE], FaultPriorities::LOW_PRIORITY, false));
     faults.insert(BatteryFaults::CCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE, FaultDisplayData(batteryFaultsText[BatteryFaults::CCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE], FaultPriorities::LOW_PRIORITY, false));
+
+    //Insert Aux trips
+    faults.insert(BatteryFaults::CHARGE_CONTACTOR_ERRROR, FaultDisplayData(auxTripsText[BatteryFaults::CHARGE_CONTACTOR_ERRROR], FaultPriorities::HIGH_PRIORITY, false));
+    faults.insert(BatteryFaults::DISCHARGE_CONTACTOR_ERROR, FaultDisplayData(auxTripsText[BatteryFaults::DISCHARGE_CONTACTOR_ERROR], FaultPriorities::HIGH_PRIORITY , false));
+    faults.insert(BatteryFaults::COMMON_CONTACTOR_ERROR, FaultDisplayData(auxTripsText[BatteryFaults::COMMON_CONTACTOR_ERROR], FaultPriorities::HIGH_PRIORITY , false));
+    faults.insert(BatteryFaults::DISCHARGE_SHOULD_TRIP, FaultDisplayData(auxTripsText[BatteryFaults::DISCHARGE_SHOULD_TRIP], FaultPriorities::MEDIUM_PRIORITY , false));
+    faults.insert(BatteryFaults::CHARGE_SHOULD_TRIP, FaultDisplayData(auxTripsText[BatteryFaults::CHARGE_SHOULD_TRIP], FaultPriorities::MEDIUM_PRIORITY , false));
+    faults.insert(BatteryFaults::CHARGE_OPEN_BUT_SHOULD_BE_CLOSED, FaultDisplayData(auxTripsText[BatteryFaults::CHARGE_OPEN_BUT_SHOULD_BE_CLOSED], FaultPriorities::MEDIUM_PRIORITY , false));
+    faults.insert(BatteryFaults::DISCHARGE_OPEN_BUT_SHOULD_BE_CLOSED, FaultDisplayData(auxTripsText[BatteryFaults::DISCHARGE_OPEN_BUT_SHOULD_BE_CLOSED], FaultPriorities::MEDIUM_PRIORITY , false));
+    faults.insert(BatteryFaults::CHARGE_TRIP_DUE_TO_HIGH_CELL_VOLTAGE, FaultDisplayData(auxTripsText[BatteryFaults::CHARGE_TRIP_DUE_TO_HIGH_CELL_VOLTAGE], FaultPriorities::HIGH_PRIORITY , false));
+    faults.insert(BatteryFaults::CHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT, FaultDisplayData(auxTripsText[BatteryFaults::CHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT], FaultPriorities::HIGH_PRIORITY , false));
+    faults.insert(BatteryFaults::CHARGE_TRIP_DUE_TO_PACK_CURRENT, FaultDisplayData(auxTripsText[BatteryFaults::CHARGE_TRIP_DUE_TO_PACK_CURRENT], FaultPriorities::HIGH_PRIORITY , false));
+    faults.insert(BatteryFaults::DISCHARGE_TRIP_DUE_TO_LOW_CELL_VOLTAGE, FaultDisplayData(auxTripsText[BatteryFaults::DISCHARGE_TRIP_DUE_TO_LOW_CELL_VOLTAGE], FaultPriorities::HIGH_PRIORITY , false));
+    faults.insert(BatteryFaults::DISCHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT, FaultDisplayData(auxTripsText[BatteryFaults::DISCHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT], FaultPriorities::HIGH_PRIORITY , false));
+    faults.insert(BatteryFaults::DISCHARGE_TRIP_DUE_TO_PACK_CURRENT, FaultDisplayData(auxTripsText[BatteryFaults::DISCHARGE_TRIP_DUE_TO_PACK_CURRENT], FaultPriorities::HIGH_PRIORITY , false));
+    faults.insert(BatteryFaults::PROTECTION_TRIP, FaultDisplayData(auxTripsText[BatteryFaults::PROTECTION_TRIP], FaultPriorities::HIGH_PRIORITY , false));
 }
