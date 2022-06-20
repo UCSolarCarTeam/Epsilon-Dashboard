@@ -209,35 +209,8 @@ void RaceModeDashboardView::runFaultAnimation()
 
 bool RaceModeDashboardView::faultAnimationCheck(QVector<QString>& currentFaults, QVector<QString>& prevFaults)
 {
-
-//Will remove this comment right before merging
-    QString str;
-    for (int i = 0; i < currentFaults.size(); ++i)
-    {
-        if (i > 0)
-            str += "|||||";
-        str += currentFaults[i];
-    }
-    str = "";
-    for (int i = 0; i < prevFaults.size(); ++i)
-    {
-        if (i > 0)
-            str += "|||||";
-        str += prevFaults[i];
-    }
     if (!currentFaults.empty() && !std::includes(prevFaults.begin(), prevFaults.end(), currentFaults.begin(), currentFaults.end()))
     {
-//        if (!prevFaults.empty() && prevFaults.size() > currentFaults.size())
-//        {
-//            if (currentFaults.back() != prevFaults.at(currentFaults.size() - 1))
-//            {
-//                    return true;
-//            }
-//        }
-//        else
-//        {
-//            return true;
-//        }
         if (prevFaults.empty() || prevFaults.size() < currentFaults.size())
         {
             return true;
