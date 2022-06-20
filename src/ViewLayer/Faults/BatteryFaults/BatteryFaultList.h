@@ -2,6 +2,7 @@
 
 #include <QMap>
 #include <QMapIterator>
+#include <QVector>
 #include "../DataLayer/BatteryFaultsData/BatteryFaultsData.h"
 #include "../DataLayer/BatteryFaultsData/BatteryLimitFlags.h"
 #include "../FaultLabel/FaultDisplayData.h"

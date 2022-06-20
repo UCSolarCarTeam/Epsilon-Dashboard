@@ -377,16 +377,16 @@ void RaceModeDashboardView::reverseReceived(bool reverse)
 }
 void RaceModeDashboardView::motorZeroReceived(KeyMotor motorZero)
 {
-    ui_.motorZeroSetCurrentLabel().setText(QString::number(motorZero.setCurrent(), 'f', 1));
-    ui_.motorZeroBusCurrentLabel().setText(QString::number(motorZero.busCurrent(), 'f', 1));
-    ui_.motorZeroBusVoltageLabel().setText(QString::number(motorZero.busVoltage(), 'f', 2));
+    ui_.motorZeroSetCurrentLabel().setText(QString::number(motorZero.setCurrent(), 'f', 3));
+    ui_.motorZeroBusCurrentLabel().setText(QString::number(motorZero.busCurrent(), 'f', 3));
+    ui_.motorZeroBusVoltageLabel().setText(QString::number(motorZero.busVoltage(), 'f', 1));
 }
 
 void RaceModeDashboardView::motorOneReceived(KeyMotor motorOne)
 {
-    ui_.motorOneSetCurrentLabel().setText(QString::number(motorOne.setCurrent(), 'f', 1));
-    ui_.motorOneBusCurrentLabel().setText(QString::number(motorOne.busCurrent(), 'f', 1));
-    ui_.motorOneBusVoltageLabel().setText(QString::number(motorOne.busVoltage(), 'f', 2));
+    ui_.motorOneSetCurrentLabel().setText(QString::number(motorOne.setCurrent(), 'f', 3));
+    ui_.motorOneBusCurrentLabel().setText(QString::number(motorOne.busCurrent(), 'f', 3));
+    ui_.motorOneBusVoltageLabel().setText(QString::number(motorOne.busVoltage(), 'f', 1));
 }
 void RaceModeDashboardView::motorActualSpeedReceived(double actualSpeed)
 {
