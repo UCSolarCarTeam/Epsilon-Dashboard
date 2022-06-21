@@ -44,7 +44,7 @@ enum class BatteryFaults
     CCL_REDUCED_DUE_TO_HIGH_CELL_RESISTANCE,
 
 
-    //There are 14 Aux BMS Trips
+    //There are 18 Aux BMS Trips
     CHARGE_CONTACTOR_ERRROR,
     DISCHARGE_CONTACTOR_ERROR,
     COMMON_CONTACTOR_ERROR,
@@ -58,7 +58,11 @@ enum class BatteryFaults
     DISCHARGE_TRIP_DUE_TO_LOW_CELL_VOLTAGE,
     DISCHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT,
     DISCHARGE_TRIP_DUE_TO_PACK_CURRENT,
-    PROTECTION_TRIP
+    PROTECTION_TRIP,
+    TRIP_CONTACTOR_DISCONNECTED_UNEXPECTEDLY,
+    TRIP_ORION_MESSAGE_TIMEOUT,
+    DISCHARGE_NOT_CLOSED_HIGH_CURRENT,
+    CHARGE_NOT_CLOSED_HIGH_CURRENT
 };
 
 const QMap<BatteryFaults, QString> batteryFaultsText =
@@ -116,4 +120,8 @@ const QMap<BatteryFaults, QString> auxTripsText =
     {BatteryFaults::DISCHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT, "Discharge Trip: High Temperature and Current"},
     {BatteryFaults::DISCHARGE_TRIP_DUE_TO_PACK_CURRENT, "Discharge Trip: Pack Current"},
     {BatteryFaults::PROTECTION_TRIP, "Protection Trip"},
+    {BatteryFaults::TRIP_CONTACTOR_DISCONNECTED_UNEXPECTEDLY, "AuxBMS Trip: Contactor Disconnected Unexpectedly"},
+    {BatteryFaults::TRIP_ORION_MESSAGE_TIMEOUT, "AuxBMS Trip: Orion Message Timeout"},
+    {BatteryFaults::DISCHARGE_NOT_CLOSED_HIGH_CURRENT, "Discharge Not Closed due to High Current"},
+    {BatteryFaults::CHARGE_NOT_CLOSED_HIGH_CURRENT, "Charge Not Closed due to High Current"}
 };

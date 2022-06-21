@@ -65,6 +65,10 @@ void BatteryFaultPopulator::populateFaults()
     faults.insert(BatteryFaults::DISCHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT, FaultDisplayData(auxTripsText[BatteryFaults::DISCHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT], FaultPriorities::HIGH_PRIORITY , false));
     faults.insert(BatteryFaults::DISCHARGE_TRIP_DUE_TO_PACK_CURRENT, FaultDisplayData(auxTripsText[BatteryFaults::DISCHARGE_TRIP_DUE_TO_PACK_CURRENT], FaultPriorities::HIGH_PRIORITY , false));
     faults.insert(BatteryFaults::PROTECTION_TRIP, FaultDisplayData(auxTripsText[BatteryFaults::PROTECTION_TRIP], FaultPriorities::HIGH_PRIORITY , false));
+    faults.insert(BatteryFaults::TRIP_CONTACTOR_DISCONNECTED_UNEXPECTEDLY, FaultDisplayData(auxTripsText[BatteryFaults::TRIP_CONTACTOR_DISCONNECTED_UNEXPECTEDLY], FaultPriorities::HIGH_PRIORITY , false));
+    faults.insert(BatteryFaults::TRIP_ORION_MESSAGE_TIMEOUT, FaultDisplayData(auxTripsText[BatteryFaults::TRIP_ORION_MESSAGE_TIMEOUT], FaultPriorities::HIGH_PRIORITY , false));
+    faults.insert(BatteryFaults::DISCHARGE_NOT_CLOSED_HIGH_CURRENT, FaultDisplayData(auxTripsText[BatteryFaults::DISCHARGE_NOT_CLOSED_HIGH_CURRENT], FaultPriorities::HIGH_PRIORITY , false));
+    faults.insert(BatteryFaults::CHARGE_NOT_CLOSED_HIGH_CURRENT, FaultDisplayData(auxTripsText[BatteryFaults::CHARGE_NOT_CLOSED_HIGH_CURRENT], FaultPriorities::HIGH_PRIORITY , false));
 }
 
 void BatteryFaultPopulator::populateRaceFaults()
@@ -123,4 +127,8 @@ void BatteryFaultPopulator::populateRaceFaults()
     faults.insert(BatteryFaults::DISCHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT, FaultDisplayData(auxTripsText[BatteryFaults::DISCHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT], FaultPriorities::HIGH_PRIORITY , false));
     faults.insert(BatteryFaults::DISCHARGE_TRIP_DUE_TO_PACK_CURRENT, FaultDisplayData(auxTripsText[BatteryFaults::DISCHARGE_TRIP_DUE_TO_PACK_CURRENT], FaultPriorities::HIGH_PRIORITY , false));
     faults.insert(BatteryFaults::PROTECTION_TRIP, FaultDisplayData(auxTripsText[BatteryFaults::PROTECTION_TRIP], FaultPriorities::HIGH_PRIORITY , false));
+    faults.insert(BatteryFaults::TRIP_CONTACTOR_DISCONNECTED_UNEXPECTEDLY, FaultDisplayData(auxTripsText[BatteryFaults::TRIP_CONTACTOR_DISCONNECTED_UNEXPECTEDLY], FaultPriorities::HIGH_PRIORITY , false));
+    faults.insert(BatteryFaults::TRIP_ORION_MESSAGE_TIMEOUT, FaultDisplayData(auxTripsText[BatteryFaults::TRIP_ORION_MESSAGE_TIMEOUT], FaultPriorities::HIGH_PRIORITY , false));
+    faults.insert(BatteryFaults::DISCHARGE_NOT_CLOSED_HIGH_CURRENT, FaultDisplayData(auxTripsText[BatteryFaults::DISCHARGE_NOT_CLOSED_HIGH_CURRENT], FaultPriorities::HIGH_PRIORITY , false));
+    faults.insert(BatteryFaults::CHARGE_NOT_CLOSED_HIGH_CURRENT, FaultDisplayData(auxTripsText[BatteryFaults::CHARGE_NOT_CLOSED_HIGH_CURRENT], FaultPriorities::HIGH_PRIORITY , false));
 }

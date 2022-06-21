@@ -310,3 +310,22 @@ void BatteryFaultsUpdater::protectionTripReceived(const bool protectionTrip)
     faultList_.faults()[BatteryFaults::PROTECTION_TRIP].setActive(protectionTrip);
 }
 
+void BatteryFaultsUpdater::tripContactorDisconnectedUnexpectedlyReceived(const bool tripContactorDisconnectedUnexpectedly)
+{
+    faultList_.faults()[BatteryFaults::TRIP_CONTACTOR_DISCONNECTED_UNEXPECTEDLY].setActive(tripContactorDisconnectedUnexpectedly);
+}
+
+void BatteryFaultsUpdater::tripOrionMessageTimeoutReceived(const bool tripOrionMessageTimeout)
+{
+    faultList_.faults()[BatteryFaults::TRIP_ORION_MESSAGE_TIMEOUT].setActive(tripOrionMessageTimeout);
+}
+
+void BatteryFaultsUpdater::dischargeNotClosedHighCurrentReceived(const bool dischargeNotClosedHighCurrent)
+{
+   faultList_.faults()[BatteryFaults::DISCHARGE_NOT_CLOSED_HIGH_CURRENT].setActive(dischargeNotClosedHighCurrent);
+}
+
+void BatteryFaultsUpdater::chargeNotClosedHighCurrentReceived(const bool chargeNotClosedHighCurrent)
+{
+    faultList_.faults()[BatteryFaults::CHARGE_NOT_CLOSED_HIGH_CURRENT].setActive(chargeNotClosedHighCurrent);
+}

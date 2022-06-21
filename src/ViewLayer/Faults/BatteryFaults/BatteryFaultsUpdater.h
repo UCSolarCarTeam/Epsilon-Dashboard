@@ -34,6 +34,10 @@ private slots:
     void dischargeTripHighTemperatureCurrentReceived(const bool dischargeTripHighTemperatureCurrent);
     void dischargeTripLowVoltageReceived(const bool dischargeTripLowVoltage);
     void protectionTripReceived(const bool protectionTrip);
+    void tripContactorDisconnectedUnexpectedlyReceived(const bool tripContactorDisconnectedUnexpectedly);
+    void tripOrionMessageTimeoutReceived(const bool tripOrionMessageTimeout);
+    void dischargeNotClosedHighCurrentReceived(const bool dischargeNotClosedHighCurrent);
+    void chargeNotClosedHighCurrentReceived(const bool chargeNotClosedHighCurrent);
 
 private:
     void connectAuxBmsTrips(const AuxBmsPresenter& auxBmsPresenter);
