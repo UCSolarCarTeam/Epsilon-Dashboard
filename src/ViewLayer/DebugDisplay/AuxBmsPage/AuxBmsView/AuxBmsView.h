@@ -35,6 +35,12 @@ private slots:
     void chargeShouldTripReceived(const bool chargeShouldTrip);
     void chargeOpenButShouldBeClosedReceived(const bool chargeOpenButShouldBeClosed);
     void dischargeOpenButShouldBeClosedReceived(const bool dischargeOpenButShouldBeClosed);
+    void tripContactorDisconnectedUnexpectedlyReceived(const bool tripContactorDisconnectedUnexpectedly);
+    void tripOrionMessageTimeoutReceived(const bool tripOrionMessageTimeout);
+    void dischargeNotClosedHighCurrentReceived(const bool dischargeNotClosedHighCurrent);
+    void chargeNotClosedHighCurrentReceived(const bool chargeNotClosedHighCurrent);
+
+
 private:
     void connectAuxBms(AuxBmsPresenter& auxBmsPresenter);
     AuxBmsPresenter& presenter_;

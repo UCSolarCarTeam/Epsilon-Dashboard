@@ -74,7 +74,16 @@ void AuxBmsView::connectAuxBms(AuxBmsPresenter& auxBmsPresenter)
             this, SLOT(chargeOpenButShouldBeClosedReceived(const bool)));
     connect(&auxBmsPresenter, SIGNAL(dischargeOpenButShouldBeClosedReceived(const bool)),
             this, SLOT(dischargeOpenButShouldBeClosedReceived(const bool)));
+    connect(&auxBmsPresenter, SIGNAL(tripContactorDisconnectedUnexpectedlyReceived(const bool)),
+            this, SLOT(tripContactorDisconnectedUnexpectedlyReceived(const bool)));
+    connect(&auxBmsPresenter, SIGNAL(tripOrionMessageTimeoutReceived(const bool)),
+            this, SLOT(tripOrionMessageTimeoutReceived(const bool)));
+    connect(&auxBmsPresenter, SIGNAL(dischargeNotClosedHighCurrentReceived(const bool)),
+            this, SLOT(dischargeNotClosedHighCurrentReceived(const bool)));
+    connect(&auxBmsPresenter, SIGNAL(chargeNotClosedHighCurrentReceived(const bool)),
+            this, SLOT(chargeNotClosedHighCurrentReceived(const bool)));
 }
+
 void AuxBmsView::auxVoltageReceived(const int auxVoltage)
 {
     ui_.voltage().setText(QString::number(auxVoltage) + " " + VOLTAGE_UNIT);
@@ -323,5 +332,53 @@ void AuxBmsView::dischargeOpenButShouldBeClosedReceived(const bool dischargeOpen
     else
     {
         ui_.dischargeOpenButShouldBeClosed().setStyleSheet(OFF);
+    }
+}
+
+void AuxBmsView::tripContactorDisconnectedUnexpectedlyReceived(const bool tripContactorDisconnectedUnexpectedly)
+{
+    if (tripContactorDisconnectedUnexpectedly)
+    {
+        ui_.tripContactorDisconnectedUnexpectedly().setStyleSheet(ON);
+    }
+    else
+    {
+        ui_.tripContactorDisconnectedUnexpectedly().setStyleSheet(OFF);
+    }
+}
+
+void AuxBmsView::tripOrionMessageTimeoutReceived(const bool tripOrionMessageTimeout)
+{
+    if (tripOrionMessageTimeout)
+    {
+        ui_.tripOrionMessageTimeout().setStyleSheet(ON);
+    }
+    else
+    {
+        ui_.tripOrionMessageTimeout().setStyleSheet(OFF);
+    }
+}
+
+void AuxBmsView::dischargeNotClosedHighCurrentReceived(const bool dischargeNotClosedHighCurrent)
+{
+    if (dischargeNotClosedHighCurrent)
+    {
+        ui_.dischargeNotClosedHighCurrent().setStyleSheet(ON);
+    }
+    else
+    {
+        ui_.dischargeNotClosedHighCurrent().setStyleSheet(OFF);
+    }
+}
+
+void AuxBmsView::chargeNotClosedHighCurrentReceived(const bool chargeNotClosedHighCurrent)
+{
+    if (chargeNotClosedHighCurrent)
+    {
+        ui_.chargeNotClosedHighCurrent().setStyleSheet(ON);
+    }
+    else
+    {
+        ui_.chargeNotClosedHighCurrent().setStyleSheet(OFF);
     }
 }

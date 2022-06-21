@@ -353,49 +353,6 @@ border-top-left-radius: 12px;
      <property name="horizontalSpacing">
       <number>12</number>
      </property>
-     <item row="6" column="1">
-      <widget class="QWidget" name="dischargeContactorErrorContainer" native="true">
-       <layout class="QHBoxLayout" name="horizontalLayout_24">
-        <property name="spacing">
-         <number>0</number>
-        </property>
-        <property name="leftMargin">
-         <number>0</number>
-        </property>
-        <property name="topMargin">
-         <number>0</number>
-        </property>
-        <property name="rightMargin">
-         <number>0</number>
-        </property>
-        <property name="bottomMargin">
-         <number>0</number>
-        </property>
-        <item>
-         <widget class="QLabel" name="dischargeContactorError">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>22</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>12</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color: rgb(85, 87, 83);
-</string>
-          </property>
-          <property name="text">
-           <string>Discharge Contactor Error</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-     </item>
      <item row="4" column="0">
       <widget class="QWidget" name="protectionTripContainer" native="true">
        <layout class="QHBoxLayout" name="horizontalLayout_18">
@@ -439,9 +396,9 @@ border-top-left-radius: 12px;
        </layout>
       </widget>
      </item>
-     <item row="5" column="0">
-      <widget class="QWidget" name="allowDischargeContainer" native="true">
-       <layout class="QHBoxLayout" name="horizontalLayout_20">
+     <item row="8" column="1">
+      <widget class="QWidget" name="chargeOpenButShouldBeClosedContainer" native="true">
+       <layout class="QHBoxLayout" name="horizontalLayout_28">
         <property name="spacing">
          <number>0</number>
         </property>
@@ -458,7 +415,7 @@ border-top-left-radius: 12px;
          <number>0</number>
         </property>
         <item>
-         <widget class="QLabel" name="allowDischarge">
+         <widget class="QLabel" name="chargeOpenButShouldBeClosed">
           <property name="minimumSize">
            <size>
             <width>0</width>
@@ -475,16 +432,16 @@ border-top-left-radius: 12px;
 </string>
           </property>
           <property name="text">
-           <string>Allow Discharge</string>
+           <string>Charge Open But Should Be Closed</string>
           </property>
          </widget>
         </item>
        </layout>
       </widget>
      </item>
-     <item row="2" column="0">
-      <widget class="QWidget" name="chargeTripHighVoltageContainer" native="true">
-       <layout class="QHBoxLayout" name="horizontalLayout_14">
+     <item row="9" column="0">
+      <widget class="QWidget" name="dischargeOpenButShouldBeClosedContainer" native="true">
+       <layout class="QHBoxLayout" name="horizontalLayout_29">
         <property name="spacing">
          <number>0</number>
         </property>
@@ -501,7 +458,7 @@ border-top-left-radius: 12px;
          <number>0</number>
         </property>
         <item>
-         <widget class="QLabel" name="chargeTripHighVoltage">
+         <widget class="QLabel" name="dischargeOpenButShouldBeClosed">
           <property name="minimumSize">
            <size>
             <width>0</width>
@@ -518,93 +475,7 @@ border-top-left-radius: 12px;
 </string>
           </property>
           <property name="text">
-           <string>Charge Trip due to High Cell Voltage</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QWidget" name="chargeTripPackCurrentContainer" native="true">
-       <layout class="QHBoxLayout" name="horizontalLayout_16">
-        <property name="spacing">
-         <number>0</number>
-        </property>
-        <property name="leftMargin">
-         <number>0</number>
-        </property>
-        <property name="topMargin">
-         <number>0</number>
-        </property>
-        <property name="rightMargin">
-         <number>0</number>
-        </property>
-        <property name="bottomMargin">
-         <number>0</number>
-        </property>
-        <item>
-         <widget class="QLabel" name="chargeTripPackCurrent">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>22</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>12</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color: rgb(85, 87, 83);
-</string>
-          </property>
-          <property name="text">
-           <string>Charge trip due to Pack Current</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-     </item>
-     <item row="8" column="0">
-      <widget class="QWidget" name="chargeShouldTripContainer" native="true">
-       <layout class="QHBoxLayout" name="horizontalLayout_27">
-        <property name="spacing">
-         <number>0</number>
-        </property>
-        <property name="leftMargin">
-         <number>0</number>
-        </property>
-        <property name="topMargin">
-         <number>0</number>
-        </property>
-        <property name="rightMargin">
-         <number>0</number>
-        </property>
-        <property name="bottomMargin">
-         <number>0</number>
-        </property>
-        <item>
-         <widget class="QLabel" name="chargeShouldTrip">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>22</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>12</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color: rgb(85, 87, 83);
-</string>
-          </property>
-          <property name="text">
-           <string>Charge Should Trip</string>
+           <string>Discharge Open But Should Be Closed</string>
           </property>
          </widget>
         </item>
@@ -653,9 +524,9 @@ border-top-left-radius: 12px;
        </layout>
       </widget>
      </item>
-     <item row="8" column="1">
-      <widget class="QWidget" name="chargeOpenButShouldBeClosedContainer" native="true">
-       <layout class="QHBoxLayout" name="horizontalLayout_28">
+     <item row="6" column="1">
+      <widget class="QWidget" name="dischargeContactorErrorContainer" native="true">
+       <layout class="QHBoxLayout" name="horizontalLayout_24">
         <property name="spacing">
          <number>0</number>
         </property>
@@ -672,7 +543,7 @@ border-top-left-radius: 12px;
          <number>0</number>
         </property>
         <item>
-         <widget class="QLabel" name="chargeOpenButShouldBeClosed">
+         <widget class="QLabel" name="dischargeContactorError">
           <property name="minimumSize">
            <size>
             <width>0</width>
@@ -689,7 +560,53 @@ border-top-left-radius: 12px;
 </string>
           </property>
           <property name="text">
-           <string>Charge Open But Should Be Closed</string>
+           <string>Discharge Contactor Error</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QWidget" name="chargeTripHighTemperatureCurrentContainer" native="true">
+       <layout class="QHBoxLayout" name="horizontalLayout_10">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="chargeTripHighTemperatureCurrent">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(85, 87, 83);
+</string>
+          </property>
+          <property name="text">
+           <string>Charge Trip due to High Temperature and Current</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -742,49 +659,6 @@ border-top-left-radius: 12px;
        </layout>
       </widget>
      </item>
-     <item row="5" column="1">
-      <widget class="QWidget" name="orionCanReceivedRecentlyContainer" native="true">
-       <layout class="QHBoxLayout" name="horizontalLayout_21">
-        <property name="spacing">
-         <number>0</number>
-        </property>
-        <property name="leftMargin">
-         <number>0</number>
-        </property>
-        <property name="topMargin">
-         <number>0</number>
-        </property>
-        <property name="rightMargin">
-         <number>0</number>
-        </property>
-        <property name="bottomMargin">
-         <number>0</number>
-        </property>
-        <item>
-         <widget class="QLabel" name="orionCanReceivedRecently">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>22</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>12</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color: rgb(85, 87, 83);
-</string>
-          </property>
-          <property name="text">
-           <string>Orion CAN Received Recently</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-     </item>
      <item row="0" column="1">
       <widget class="QWidget" name="strobeBmsContainer" native="true">
        <layout class="QHBoxLayout" name="horizontalLayout_12">
@@ -828,6 +702,92 @@ border-top-left-radius: 12px;
        </layout>
       </widget>
      </item>
+     <item row="2" column="0">
+      <widget class="QWidget" name="chargeTripHighVoltageContainer" native="true">
+       <layout class="QHBoxLayout" name="horizontalLayout_14">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="chargeTripHighVoltage">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(85, 87, 83);
+</string>
+          </property>
+          <property name="text">
+           <string>Charge Trip due to High Cell Voltage</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <widget class="QWidget" name="dischargeShouldTripContainer" native="true">
+       <layout class="QHBoxLayout" name="horizontalLayout_26">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="dischargeShouldTrip">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(85, 87, 83);
+</string>
+          </property>
+          <property name="text">
+           <string>Discharge Should Trip</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
      <item row="7" column="0">
       <widget class="QWidget" name="commonContactorErrorContainer" native="true">
        <layout class="QHBoxLayout" name="horizontalLayout_25">
@@ -865,49 +825,6 @@ border-top-left-radius: 12px;
           </property>
           <property name="text">
            <string>Common Contactor Error</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-     </item>
-     <item row="4" column="1">
-      <widget class="QWidget" name="highVoltageEnableStateContainer" native="true">
-       <layout class="QHBoxLayout" name="horizontalLayout_19">
-        <property name="spacing">
-         <number>0</number>
-        </property>
-        <property name="leftMargin">
-         <number>0</number>
-        </property>
-        <property name="topMargin">
-         <number>0</number>
-        </property>
-        <property name="rightMargin">
-         <number>0</number>
-        </property>
-        <property name="bottomMargin">
-         <number>0</number>
-        </property>
-        <item>
-         <widget class="QLabel" name="highVoltageEnableState">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>22</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>12</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">color: rgb(85, 87, 83);
-</string>
-          </property>
-          <property name="text">
-           <string>High Voltage Enable State</string>
           </property>
          </widget>
         </item>
@@ -1003,9 +920,9 @@ border-top-left-radius: 12px;
        </layout>
       </widget>
      </item>
-     <item row="7" column="1">
-      <widget class="QWidget" name="dischargeShouldTripContainer" native="true">
-       <layout class="QHBoxLayout" name="horizontalLayout_26">
+     <item row="8" column="0">
+      <widget class="QWidget" name="chargeShouldTripContainer" native="true">
+       <layout class="QHBoxLayout" name="horizontalLayout_27">
         <property name="spacing">
          <number>0</number>
         </property>
@@ -1022,7 +939,7 @@ border-top-left-radius: 12px;
          <number>0</number>
         </property>
         <item>
-         <widget class="QLabel" name="dischargeShouldTrip">
+         <widget class="QLabel" name="chargeShouldTrip">
           <property name="minimumSize">
            <size>
             <width>0</width>
@@ -1039,7 +956,7 @@ border-top-left-radius: 12px;
 </string>
           </property>
           <property name="text">
-           <string>Discharge Should Trip</string>
+           <string>Charge Should Trip</string>
           </property>
          </widget>
         </item>
@@ -1092,9 +1009,9 @@ border-top-left-radius: 12px;
        </layout>
       </widget>
      </item>
-     <item row="1" column="0">
-      <widget class="QWidget" name="chargeTripHighTemperatureCurrentContainer" native="true">
-       <layout class="QHBoxLayout" name="horizontalLayout_10">
+     <item row="5" column="0">
+      <widget class="QWidget" name="allowDischargeContainer" native="true">
+       <layout class="QHBoxLayout" name="horizontalLayout_20">
         <property name="spacing">
          <number>0</number>
         </property>
@@ -1111,7 +1028,7 @@ border-top-left-radius: 12px;
          <number>0</number>
         </property>
         <item>
-         <widget class="QLabel" name="chargeTripHighTemperatureCurrent">
+         <widget class="QLabel" name="allowDischarge">
           <property name="minimumSize">
            <size>
             <width>0</width>
@@ -1128,7 +1045,265 @@ border-top-left-radius: 12px;
 </string>
           </property>
           <property name="text">
-           <string>Charge Trip due to High Temperature and Current</string>
+           <string>Allow Discharge</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QWidget" name="orionCanReceivedRecentlyContainer" native="true">
+       <layout class="QHBoxLayout" name="horizontalLayout_21">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="orionCanReceivedRecently">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(85, 87, 83);
+</string>
+          </property>
+          <property name="text">
+           <string>Orion CAN Received Recently</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QWidget" name="highVoltageEnableStateContainer" native="true">
+       <layout class="QHBoxLayout" name="horizontalLayout_19">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="highVoltageEnableState">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(85, 87, 83);
+</string>
+          </property>
+          <property name="text">
+           <string>High Voltage Enable State</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item row="10" column="1">
+      <widget class="QWidget" name="chargeNotClosedHighCurrentContainer" native="true">
+       <layout class="QHBoxLayout" name="horizontalLayout_31">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="chargeNotClosedHighCurrent">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(85, 87, 83);
+</string>
+          </property>
+          <property name="text">
+           <string>Charge Not Closed due to High Current</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QWidget" name="chargeTripPackCurrentContainer" native="true">
+       <layout class="QHBoxLayout" name="horizontalLayout_16">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="chargeTripPackCurrent">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(85, 87, 83);
+</string>
+          </property>
+          <property name="text">
+           <string>Charge Trip due to Pack Current</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item row="10" column="0">
+      <widget class="QWidget" name="tripOrionMessageTimeoutContainer" native="true">
+       <layout class="QHBoxLayout" name="horizontalLayout_30">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="tripOrionMessageTimeout">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(85, 87, 83);
+</string>
+          </property>
+          <property name="text">
+           <string>Trip due to Orion Message Timeout</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item row="9" column="1">
+      <widget class="QWidget" name="tripContactorDisconnectedUnexpectedlyContainer" native="true">
+       <layout class="QHBoxLayout" name="horizontalLayout_23">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="tripContactorDisconnectedUnexpectedly">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(85, 87, 83);
+</string>
+          </property>
+          <property name="text">
+           <string>Trip due to Contactor Disconnected Unexpectedly</string>
           </property>
           <property name="wordWrap">
            <bool>true</bool>
@@ -1138,9 +1313,9 @@ border-top-left-radius: 12px;
        </layout>
       </widget>
      </item>
-     <item row="9" column="0">
-      <widget class="QWidget" name="dischargeOpenButShouldBeClosedContainer" native="true">
-       <layout class="QHBoxLayout" name="horizontalLayout_29">
+     <item row="11" column="0">
+      <widget class="QWidget" name="dischargeNotClosedHighCurrentContainer" native="true">
+       <layout class="QHBoxLayout" name="horizontalLayout_32">
         <property name="spacing">
          <number>0</number>
         </property>
@@ -1157,7 +1332,7 @@ border-top-left-radius: 12px;
          <number>0</number>
         </property>
         <item>
-         <widget class="QLabel" name="dischargeOpenButShouldBeClosed">
+         <widget class="QLabel" name="dischargeNotClosedHighCurrent">
           <property name="minimumSize">
            <size>
             <width>0</width>
@@ -1174,7 +1349,7 @@ border-top-left-radius: 12px;
 </string>
           </property>
           <property name="text">
-           <string>Discharge Open But Should Be Closed</string>
+           <string>Discharge Not Closed due to High Current</string>
           </property>
          </widget>
         </item>

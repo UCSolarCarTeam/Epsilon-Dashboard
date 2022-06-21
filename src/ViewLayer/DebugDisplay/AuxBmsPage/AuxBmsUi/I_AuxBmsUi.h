@@ -33,4 +33,8 @@ public:
     virtual QLabel& chargeShouldTrip() = 0;
     virtual QLabel& chargeOpenButShouldBeClosed() = 0;
     virtual QLabel& dischargeOpenButShouldBeClosed() = 0;
+    virtual QLabel& tripContactorDisconnectedUnexpectedly() = 0;
+    virtual QLabel& tripOrionMessageTimeout() = 0;
+    virtual QLabel& dischargeNotClosedHighCurrent() = 0;
+    virtual QLabel& chargeNotClosedHighCurrent() = 0;
 };

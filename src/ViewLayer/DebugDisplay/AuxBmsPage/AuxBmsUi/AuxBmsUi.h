@@ -40,4 +40,8 @@ public:
     QLabel& chargeShouldTrip() override;
     QLabel& chargeOpenButShouldBeClosed() override;
     QLabel& dischargeOpenButShouldBeClosed() override;
+    QLabel& tripContactorDisconnectedUnexpectedly() override;
+    QLabel& tripOrionMessageTimeout() override;
+    QLabel& dischargeNotClosedHighCurrent() override;
+    QLabel& chargeNotClosedHighCurrent() override;
 };

@@ -126,3 +126,23 @@ QLabel& AuxBmsUi::dischargeOpenButShouldBeClosed()
 {
     return *ui_->dischargeOpenButShouldBeClosed;
 }
+
+QLabel& AuxBmsUi::tripContactorDisconnectedUnexpectedly()
+{
+    return *ui_->tripContactorDisconnectedUnexpectedly;
+}
+
+QLabel& AuxBmsUi::tripOrionMessageTimeout()
+{
+    return *ui_->tripOrionMessageTimeout;
+}
+
+QLabel& AuxBmsUi::dischargeNotClosedHighCurrent()
+{
+    return *ui_->dischargeNotClosedHighCurrent;
+}
+
+QLabel& AuxBmsUi::chargeNotClosedHighCurrent()
+{
+    return *ui_->chargeNotClosedHighCurrent;
+}
