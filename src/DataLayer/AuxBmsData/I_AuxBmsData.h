@@ -33,6 +33,12 @@ public:
     virtual bool chargeShouldTrip() const = 0;
     virtual bool chargeOpenButShouldBeClosed() const = 0;
     virtual bool dischargeOpenButShouldBeClosed() const = 0;
+    virtual bool tripContactorDisconnectedUnexpectedly() const = 0;
+    virtual bool tripOrionMessageTimeout() const = 0;
+    virtual bool dischargeNotClosedHighCurrent() const = 0;
+    virtual bool chargeNotClosedHighCurrent() const = 0;
+
+
     /* Data "Sets" */
     virtual void setPrechargeState(const QString&) = 0;
     virtual void setAuxVoltage(const int) = 0;
@@ -56,6 +62,10 @@ public:
     virtual void setChargeShouldTrip(const bool) = 0;
     virtual void setChargeOpenButShouldBeClosed(const bool) = 0;
     virtual void setDischargeOpenButShouldBeClosed(const bool) = 0;
+    virtual void setTripContactorDisconnectedUnexpectedly(const bool) = 0;
+    virtual void setTripOrionMessageTimeout(const bool) = 0;
+    virtual void setDischargeNotClosedHighCurrent(const bool) = 0;
+    virtual void setChargeNotClosedHighCurrent(const bool) = 0;
 
 signals:
     void prechargeStateReceived(const QString&);
@@ -80,4 +90,9 @@ signals:
     void chargeShouldTripReceived(const bool);
     void chargeOpenButShouldBeClosedReceived(const bool);
     void dischargeOpenButShouldBeClosedReceived(const bool);
+    void tripContactorDisconnectedUnexpectedlyReceived(const bool);
+    void tripOrionMessageTimeoutReceived(const bool);
+    void dischargeNotClosedHighCurrentReceived(const bool);
+    void chargeNotClosedHighCurrentReceived(const bool);
+
 };

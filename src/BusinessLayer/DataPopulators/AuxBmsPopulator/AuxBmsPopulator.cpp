@@ -37,4 +37,8 @@ void AuxBmsPopulator::populateData(const QJsonObject& data)
     auxBmsData_.setDischargeTripHighTemperatureCurrent(value.toObject().value(JsonFormat::AUXBMS_DISCHARGE_TRIP_HIGH_TEMPERATURE_CURRENT).toBool());
     auxBmsData_.setDischargeTripPackCurrent(value.toObject().value(JsonFormat::AUXBMS_DISCHARGE_TRIP_PACK_CURRENT).toBool());
     auxBmsData_.setProtectionTrip(value.toObject().value(JsonFormat::AUXBMS_PROTECTION_TRIP).toBool());
+    auxBmsData_.setTripContactorDisconnectedUnexpectedly(value.toObject().value(JsonFormat::AUXBMS_TRIP_CONTACTOR_DISCONNECTED_UNEXPECTEDLY).toBool());
+    auxBmsData_.setTripOrionMessageTimeout(value.toObject().value(JsonFormat::AUXBMS_TRIP_ORION_MESSAGE_TIMEOUT).toBool());
+    auxBmsData_.setChargeNotClosedHighCurrent(value.toObject().value(JsonFormat::AUXBMS_TRIP_CHARGE_NOT_CLOSED_HIGH_CURRENT).toBool());
+    auxBmsData_.setDischargeNotClosedHighCurrent(value.toObject().value(JsonFormat::AUXBMS_TRIP_DISCHARGE_NOT_CLOSED_HIGH_CURRENT).toBool());
 }

@@ -53,4 +53,12 @@ void AuxBmsPresenter::relayAuxBmsData()
             this, SIGNAL(chargeOpenButShouldBeClosedReceived(const bool)));
     connect(&auxBmsData_, SIGNAL(dischargeOpenButShouldBeClosedReceived(const bool)),
             this, SIGNAL(dischargeOpenButShouldBeClosedReceived(const bool)));
+    connect(&auxBmsData_, SIGNAL(tripContactorDisconnectedUnexpectedlyReceived(const bool)),
+            this, SIGNAL(tripContactorDisconnectedUnexpectedlyReceived(const bool)));
+    connect(&auxBmsData_, SIGNAL(tripOrionMessageTimeoutReceived(const bool)),
+            this, SIGNAL(tripOrionMessageTimeoutReceived(const bool)));
+    connect(&auxBmsData_, SIGNAL(dischargeNotClosedHighCurrentReceived(const bool)),
+            this, SIGNAL(dischargeNotClosedHighCurrentReceived(const bool)));
+    connect(&auxBmsData_, SIGNAL(chargeNotClosedHighCurrentReceived(const bool)),
+            this, SIGNAL(chargeNotClosedHighCurrentReceived(const bool)));
 }

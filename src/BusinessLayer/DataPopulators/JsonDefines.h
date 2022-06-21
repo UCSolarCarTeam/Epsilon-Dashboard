@@ -231,6 +231,11 @@ namespace JsonFormat
     const QString AUXBMS_CHARGE_SHOULD_TRIP = "ChargeShouldTrip";
     const QString AUXBMS_CHARGE_OPEN_BUT_SHOULD_BE_CLOSED = "ChargeOpenButShouldBeClosed";
     const QString AUXBMS_DISCHARGE_OPEN_BUT_SHOULD_BE_CLOSED = "DischargeOpenButShouldBeClosed";
+    const QString AUXBMS_TRIP_CONTACTOR_DISCONNECTED_UNEXPECTEDLY = "TripDueToContactorDisconnectedUnexpectedly";
+    const QString AUXBMS_TRIP_ORION_MESSAGE_TIMEOUT = "TripDueToOrionMessageTimeout";
+    const QString AUXBMS_TRIP_DISCHARGE_NOT_CLOSED_HIGH_CURRENT = "DischargeNotClosedDueToHighCurrent";
+    const QString AUXBMS_TRIP_CHARGE_NOT_CLOSED_HIGH_CURRENT = "ChargeNotClosedDueToHighCurrent";
+
 // Ccs
     const QString CCS = "Ccs";
     const QString CCS_ALIVE = "CcsAlive";

@@ -31,6 +31,12 @@ public:
     bool chargeShouldTrip() const override;
     bool chargeOpenButShouldBeClosed() const override;
     bool dischargeOpenButShouldBeClosed() const override;
+    bool tripContactorDisconnectedUnexpectedly() const override;
+    bool tripOrionMessageTimeout() const override;
+    bool dischargeNotClosedHighCurrent() const override;
+    bool chargeNotClosedHighCurrent() const override;
+
+
 
     /* Data setter */
     void setPrechargeState(const QString& prechargeState) override;
@@ -55,6 +61,10 @@ public:
     void setChargeShouldTrip(const bool chargeShouldTrip) override;
     void setChargeOpenButShouldBeClosed(const bool chargeOpenButShouldBeClosed) override;
     void setDischargeOpenButShouldBeClosed(const bool dischargeOpenButShouldBeClosed) override;
+    void setTripContactorDisconnectedUnexpectedly(const bool tripContactorDisconnectedUnexpectedly) override;
+    void setTripOrionMessageTimeout(const bool tripOrionMessageTimeout) override;
+    void setDischargeNotClosedHighCurrent(const bool dischargeNotClosedHighCurrent) override;
+    void setChargeNotClosedHighCurrent(const bool chargeNotClosedHighCurrent) override;
 
 private:
     QString prechargeState_;
@@ -79,4 +89,9 @@ private:
     bool chargeShouldTrip_;
     bool chargeOpenButShouldBeClosed_;
     bool dischargeOpenButShouldBeClosed_;
+    bool tripContactorDisconnectedUnexpectedly_;
+    bool tripOrionMessageTimeout_;
+    bool dischargeNotClosedHighCurrent_;
+    bool chargeNotClosedHighCurrent_;
+
 };

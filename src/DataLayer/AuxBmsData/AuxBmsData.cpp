@@ -121,6 +121,27 @@ bool AuxBmsData::dischargeOpenButShouldBeClosed() const
     return dischargeOpenButShouldBeClosed_;
 }
 
+bool AuxBmsData::tripContactorDisconnectedUnexpectedly() const
+{
+    return tripContactorDisconnectedUnexpectedly_;
+}
+
+bool AuxBmsData::tripOrionMessageTimeout() const
+{
+    return tripOrionMessageTimeout_;
+}
+
+bool AuxBmsData::dischargeNotClosedHighCurrent() const
+{
+    return dischargeContactorError_;
+}
+
+bool AuxBmsData::chargeNotClosedHighCurrent() const
+{
+    return chargeContactorError_;
+}
+
+
 // ------ data setter ------ //
 
 void AuxBmsData::setPrechargeState(const QString& prechargeState)
@@ -274,3 +295,28 @@ void AuxBmsData::setDischargeOpenButShouldBeClosed(const bool dischargeOpenButSh
     dischargeOpenButShouldBeClosed_ = dischargeOpenButShouldBeClosed;
     emit dischargeOpenButShouldBeClosedReceived(dischargeOpenButShouldBeClosed_);
 }
+
+void AuxBmsData::setTripContactorDisconnectedUnexpectedly(const bool tripContactorDisconnectedUnexpectedly)
+{
+    tripContactorDisconnectedUnexpectedly_ = tripContactorDisconnectedUnexpectedly;
+    emit tripContactorDisconnectedUnexpectedlyReceived(tripContactorDisconnectedUnexpectedly_);
+}
+
+void AuxBmsData::setTripOrionMessageTimeout(const bool tripOrionMessageTimeout)
+{
+    tripOrionMessageTimeout_ = tripOrionMessageTimeout;
+    emit tripOrionMessageTimeoutReceived(tripOrionMessageTimeout_);
+}
+
+void AuxBmsData::setDischargeNotClosedHighCurrent(const bool dischargeNotClosedHighCurrent)
+{
+    dischargeNotClosedHighCurrent_ = dischargeNotClosedHighCurrent;
+    emit dischargeNotClosedHighCurrentReceived(dischargeNotClosedHighCurrent_);
+}
+
+void AuxBmsData::setChargeNotClosedHighCurrent(const bool chargeNotClosedHighCurrent)
+{
+    chargeNotClosedHighCurrent_ = chargeNotClosedHighCurrent;
+    emit chargeNotClosedHighCurrentReceived(chargeNotClosedHighCurrent_);
+}
+

@@ -38,4 +38,8 @@ signals:
     void chargeShouldTripReceived(const bool);
     void chargeOpenButShouldBeClosedReceived(const bool);
     void dischargeOpenButShouldBeClosedReceived(const bool);
+    void tripContactorDisconnectedUnexpectedlyReceived(const bool);
+    void tripOrionMessageTimeoutReceived(const bool);
+    void dischargeNotClosedHighCurrentReceived(const bool);
+    void chargeNotClosedHighCurrentReceived(const bool);
 };
