@@ -120,7 +120,7 @@ const QMap<BatteryFaults, QString> auxTripsText =
     {BatteryFaults::DISCHARGE_TRIP_DUE_TO_HIGH_TEMPERATURE_AND_CURRENT, "Discharge Trip: High Temperature and Current"},
     {BatteryFaults::DISCHARGE_TRIP_DUE_TO_PACK_CURRENT, "Discharge Trip: Pack Current"},
     {BatteryFaults::PROTECTION_TRIP, "Protection Trip"},
-    {BatteryFaults::TRIP_CONTACTOR_DISCONNECTED_UNEXPECTEDLY, "AuxBMS Trip: Contactor Disconnected Unexpectedly"},
+    {BatteryFaults::TRIP_CONTACTOR_DISCONNECTED_UNEXPECTEDLY, "AuxBMS Trip: Contactor Disconnected"},
     {BatteryFaults::TRIP_ORION_MESSAGE_TIMEOUT, "AuxBMS Trip: Orion Message Timeout"},
     {BatteryFaults::DISCHARGE_NOT_CLOSED_HIGH_CURRENT, "Discharge Not Closed due to High Current"},
     {BatteryFaults::CHARGE_NOT_CLOSED_HIGH_CURRENT, "Charge Not Closed due to High Current"}

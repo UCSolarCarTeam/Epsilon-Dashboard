@@ -29,15 +29,6 @@ void BatteryFaultsUpdater::connectAuxBmsTrips(const AuxBmsPresenter& auxBmsPrese
             this, SLOT(dischargeContactorErrorReceived(const bool)));
     connect(&auxBmsPresenter, SIGNAL(commonContactorErrorReceived(const bool)),
             this, SLOT(commonContactorErrorReceived(const bool)));
-    connect(&auxBmsPresenter, SIGNAL(dischargeShouldTripReceived(const bool)),
-            this, SLOT(dischargeShouldTripReceived(const bool)));
-    connect(&auxBmsPresenter, SIGNAL(chargeShouldTripReceived(const bool)),
-            this, SLOT(chargeShouldTripReceived(const bool)));
-    connect(&auxBmsPresenter, SIGNAL(chargeOpenButShouldBeClosedReceived(const bool)),
-            this, SLOT(chargeOpenButShouldBeClosedReceived(const bool)));
-    connect(&auxBmsPresenter, SIGNAL(dischargeOpenButShouldBeClosedReceived(const bool)),
-            this, SLOT(dischargeOpenButShouldBeClosedReceived(const bool)));
-
     connect(&auxBmsPresenter, SIGNAL(chargeTripHighTemperatureCurrentReceived(const bool)),
             this, SLOT(chargeTripHighTemperatureCurrentReceived(const bool)));
     connect(&auxBmsPresenter, SIGNAL(chargeTripHighVoltageReceived(const bool)),
@@ -52,6 +43,14 @@ void BatteryFaultsUpdater::connectAuxBmsTrips(const AuxBmsPresenter& auxBmsPrese
             this, SLOT(dischargeTripLowVoltageReceived(const bool)));
     connect(&auxBmsPresenter, SIGNAL(protectionTripReceived(const bool)),
             this, SLOT(protectionTripReceived(const bool)));
+    connect(&auxBmsPresenter, SIGNAL(tripContactorDisconnectedUnexpectedlyReceived(const bool)),
+            this, SLOT(tripContactorDisconnectedUnexpectedlyReceived(const bool)));
+    connect(&auxBmsPresenter, SIGNAL(tripOrionMessageTimeoutReceived(const bool)),
+            this, SLOT(tripOrionMessageTimeoutReceived(const bool)));
+    connect(&auxBmsPresenter, SIGNAL(dischargeNotClosedHighCurrentReceived(const bool)),
+            this, SLOT(dischargeNotClosedHighCurrentReceived(const bool)));
+    connect(&auxBmsPresenter, SIGNAL(chargeNotClosedHighCurrentReceived(const bool)),
+            this, SLOT(chargeNotClosedHighCurrentReceived(const bool)));
 }
 
 void BatteryFaultsUpdater::errorFlagsReceived(BatteryErrorFlags errorFlags)
@@ -253,26 +252,6 @@ void BatteryFaultsUpdater::dischargeContactorErrorReceived(const bool dischargeC
 void BatteryFaultsUpdater::commonContactorErrorReceived(const bool commonContactorError)
 {
     faultList_.faults()[BatteryFaults::COMMON_CONTACTOR_ERROR].setActive(commonContactorError);
-}
-
-void BatteryFaultsUpdater::dischargeShouldTripReceived(const bool dischargeShouldTrip)
-{
-    faultList_.faults()[BatteryFaults::DISCHARGE_SHOULD_TRIP].setActive(dischargeShouldTrip);
-}
-
-void BatteryFaultsUpdater::chargeShouldTripReceived(const bool chargeShouldTrip)
-{
-    faultList_.faults()[BatteryFaults::CHARGE_SHOULD_TRIP].setActive(chargeShouldTrip);
-}
-
-void BatteryFaultsUpdater::chargeOpenButShouldBeClosedReceived(const bool chargeOpenButShouldBeClosed)
-{
-    faultList_.faults()[BatteryFaults::CHARGE_OPEN_BUT_SHOULD_BE_CLOSED].setActive(chargeOpenButShouldBeClosed);
-}
-
-void BatteryFaultsUpdater::dischargeOpenButShouldBeClosedReceived(const bool dischargeOpenButShouldBeClosed)
-{
-    faultList_.faults()[BatteryFaults::DISCHARGE_OPEN_BUT_SHOULD_BE_CLOSED].setActive(dischargeOpenButShouldBeClosed);
 }
 
 void BatteryFaultsUpdater::chargeTripHighTemperatureCurrentReceived(const bool highTemperatureCurrent)
