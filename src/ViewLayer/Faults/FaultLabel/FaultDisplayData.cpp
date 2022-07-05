@@ -1,10 +1,16 @@
 #include "FaultDisplayData.h"
 
+namespace
+{
+    const int KEEP_ALIVE_TIME = 120000;
+}
+
 FaultDisplayData::FaultDisplayData()
     : name_("")
     , color_(FaultPriorities::DEFAULT_COLOR)
     , priority_(FaultPriorities::INVALID_PRIORITY)
     , isActive_(false)
+    , keepAliveTimer_(QElapsedTimer())
 {
 }
 
@@ -13,6 +19,7 @@ FaultDisplayData::FaultDisplayData(QString name, FaultPriorities::PRIORITY prior
     , color_(priorityToColor(priority))
     , priority_(priority)
     , isActive_(isActive)
+    , keepAliveTimer_(QElapsedTimer())
 {
 }
 
@@ -21,7 +28,25 @@ FaultDisplayData::FaultDisplayData(const FaultDisplayData& faultLabel)
     , color_(faultLabel.color())
     , priority_(faultLabel.priority())
     , isActive_(faultLabel.isActive())
+    , keepAliveTimer_(QElapsedTimer())
 {
+}
+
+FaultDisplayData& FaultDisplayData::operator=(const FaultDisplayData& other)
+{
+    // Guard self assignment
+    if (this == &other)
+    {
+        return *this;
+    }
+    else
+    {
+        name_ = other.name();
+        color_ = other.color();
+        priority_ = other.priority();
+        isActive_ = other.isActive();
+    }
+    return *this;
 }
 
 FaultDisplayData::~FaultDisplayData()
@@ -50,7 +75,31 @@ bool FaultDisplayData::isActive() const
 
 void FaultDisplayData::setActive(bool value)
 {
-    isActive_ = value;
+    //When fault is active and the incoming fault is not
+    if(isActive_ && isActive_ != value)
+    {
+        //Check if there is a valid timer
+        if(!keepAliveTimer_.isValid())
+        {
+            keepAliveTimer_.start();
+        }
+        else
+        {
+            //If the time has elapsed
+            if(keepAliveTimer_.elapsed() >= KEEP_ALIVE_TIME)
+            {
+                //Invalidate the timer
+                keepAliveTimer_.invalidate();
+                isActive_ = value;
+            }
+        }
+
+    }
+    else
+    {
+        keepAliveTimer_.invalidate();
+        isActive_ = value;
+    }
 }
 
 QColor FaultDisplayData::priorityToColor(FaultPriorities::PRIORITY priority)

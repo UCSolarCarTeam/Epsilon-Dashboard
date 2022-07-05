@@ -4,6 +4,9 @@
 
 #include <QString>
 #include <QColor>
+#include <QElapsedTimer>
+
+class QElapsedTimer;
 
 class FaultDisplayData
 {
@@ -14,6 +17,7 @@ public:
 
     ~FaultDisplayData();
 
+    FaultDisplayData& operator=(const FaultDisplayData&);
     QString name() const;
     QColor color() const;
     FaultPriorities::PRIORITY priority() const;
@@ -26,4 +30,5 @@ private:
     QColor color_;
     FaultPriorities::PRIORITY priority_;
     bool isActive_;
+    QElapsedTimer keepAliveTimer_;
 };
