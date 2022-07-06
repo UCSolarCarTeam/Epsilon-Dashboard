@@ -85,6 +85,7 @@ namespace JsonFormat
     const QString DRIVERCONTROLS_HORN = "Horn";
     const QString DRIVERCONTROLS_RESET = "Reset";
     const QString DRIVERCONTROLS_AUX = "Aux";
+    const QString DRIVERCONTROLS_LAP = "Lap";
 
 // Motor faults data
     const QString MOTORFAULTS = "MotorFaults";

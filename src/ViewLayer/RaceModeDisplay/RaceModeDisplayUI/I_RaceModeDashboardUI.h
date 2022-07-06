@@ -15,6 +15,8 @@ public:
 
     virtual QLabel& auxVoltageLabel() = 0;
 
+    virtual QLabel& lastLapAverageLabel() = 0;
+
     virtual QLabel& motorZeroSetCurrentLabel() = 0;
     virtual QLabel& motorOneSetCurrentLabel() = 0;
     virtual QLabel& motorZeroPowerLabel() = 0;

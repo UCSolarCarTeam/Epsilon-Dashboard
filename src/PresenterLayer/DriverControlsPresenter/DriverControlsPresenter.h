@@ -37,4 +37,5 @@ signals:
     void hornReceived(bool);
     void resetReceived(bool);
     void auxReceived(bool);
+    void lapReceived(bool);
 };

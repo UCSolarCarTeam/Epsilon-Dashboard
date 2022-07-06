@@ -94,6 +94,11 @@ bool DriverControlsData::aux() const
     return aux_;
 }
 
+bool DriverControlsData::lap() const
+{
+    return lap_;
+}
+
 void DriverControlsData::setAlive(bool alive)
 {
     alive_ = alive;
@@ -198,4 +203,10 @@ void DriverControlsData::setAux(bool aux)
 {
     aux_ = aux;
     emit auxReceived(aux_);
+}
+
+void DriverControlsData::setLap(bool lap)
+{
+    lap_ = lap;
+    emit lapReceived(lap_);
 }

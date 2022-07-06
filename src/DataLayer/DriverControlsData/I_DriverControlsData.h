@@ -30,6 +30,7 @@ public:
     virtual bool pushToTalk() const = 0;
     virtual bool horn() const = 0;
     virtual bool reset() const = 0;
+    virtual bool lap() const = 0;
 
     virtual void setAlive(bool alive) = 0;
     virtual void setHeadlightsOff(bool headlightsOff) = 0;
@@ -52,6 +53,7 @@ public:
     virtual void setPushToTalk(bool pushToTalk) = 0;
     virtual void setHorn(bool horn) = 0;
     virtual void setReset(bool reset) = 0;
+    virtual void setLap(bool lap) = 0;
 
 signals:
     void aliveReceived(bool);
@@ -75,4 +77,5 @@ signals:
     void pushToTalkReceived(bool);
     void hornReceived(bool);
     void resetReceived(bool);
+    void lapReceived(bool);
 };

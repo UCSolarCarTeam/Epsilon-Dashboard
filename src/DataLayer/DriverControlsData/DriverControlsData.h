@@ -29,6 +29,7 @@ public:
     bool horn() const;
     bool reset() const;
     bool aux() const;
+    bool lap() const;
 
     void setAlive(bool alive);
     void setHeadlightsOff(bool headlightsOff);
@@ -51,6 +52,7 @@ public:
     void setHorn(bool horn);
     void setReset(bool reset);
     void setAux(bool aux);
+    void setLap(bool lap);
 
 private:
     bool alive_;
@@ -74,5 +76,6 @@ private:
     bool horn_;
     bool reset_;
     bool aux_;
+    bool lap_;
 };
 

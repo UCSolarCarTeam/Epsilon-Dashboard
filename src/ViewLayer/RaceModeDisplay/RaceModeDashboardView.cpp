@@ -63,6 +63,9 @@ RaceModeDashboardView::RaceModeDashboardView(BatteryPresenter& batteryPresenter,
     , motorOneFaultsList_(motorOneFaultsList)
     , batteryFaultsList_(batteryFaultsList)
     , faultsTimer_(new QTimer())
+    , totalSpeed_(0)
+    , updateCount_(0)
+    , lap_(false)
 {
     connectBattery(batteryPresenter_);
     connectAuxBms(auxBmsPresenter_);
@@ -120,6 +123,8 @@ void RaceModeDashboardView::connectDriverControls(DriverControlsPresenter& drive
             this, SLOT(forwardReceived(bool)));
     connect(&driverControlsPresenter, SIGNAL(reverseReceived(bool)),
             this, SLOT(reverseReceived(bool)));
+    connect(&driverControlsPresenter, SIGNAL(lapReceived(bool)),
+            this, SLOT(lapReceived(bool)));
 }
 
 void RaceModeDashboardView::connectKeyMotor(KeyMotorPresenter& keyMotorPresenter)
@@ -348,6 +353,27 @@ void RaceModeDashboardView::reverseReceived(bool reverse)
     reverse_ = reverse;
     updateDriveStateLabel();
 }
+
+void RaceModeDashboardView::lapReceived(bool lap)
+{
+    //Lap go from false to true
+    if(!lap_ && lap)
+    {
+        double averageSpeed = totalSpeed_/(updateCount_/2);
+        ui_.lastLapAverageLabel().setText(QString::number(qAbs(averageSpeed/1.609344), 'f', 1));
+        totalSpeed_ = 0;
+        updateCount_ = 0;
+        lap_ = lap;
+    }
+    //Lap go from true to false
+    else if(lap_ && !lap)
+    {
+        totalSpeed_ = 0;
+        updateCount_ = 0;
+        lap_ = lap;
+    }
+}
+
 void RaceModeDashboardView::motorZeroReceived(KeyMotor motorZero)
 {
     ui_.motorZeroSetCurrentLabel().setText(QString::number(motorZero.setCurrent(), 'f', 3));
@@ -363,7 +389,12 @@ void RaceModeDashboardView::motorOneReceived(KeyMotor motorOne)
 }
 void RaceModeDashboardView::motorActualSpeedReceived(double actualSpeed)
 {
-    ui_.actualSpeedLabel().setText(QString::number(qAbs(actualSpeed), 'f', 1));
+    updateCount_++;
+    if(updateCount_%2 == 0)
+    {
+        totalSpeed_ += actualSpeed;
+    }
+    ui_.actualSpeedLabel().setText(QString::number(qAbs(actualSpeed/1.609344), 'f', 2));
 }
 void RaceModeDashboardView::motorZeroBusPowerReceived(double motorPower)
 {

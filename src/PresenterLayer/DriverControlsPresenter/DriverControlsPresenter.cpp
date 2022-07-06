@@ -51,4 +51,6 @@ void DriverControlsPresenter::relayDriverControlsData()
             this, SIGNAL(resetReceived(bool)));
     connect(&driverControlsData_, SIGNAL(auxReceived(bool)),
             this, SIGNAL(auxReceived(bool)));
+    connect(&driverControlsData_, SIGNAL(lapReceived(bool)),
+            this, SIGNAL(lapReceived(bool)));
 }

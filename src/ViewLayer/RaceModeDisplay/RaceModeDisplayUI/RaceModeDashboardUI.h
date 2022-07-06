@@ -23,6 +23,8 @@ public:
 
     QLabel& auxVoltageLabel();
 
+    QLabel& lastLapAverageLabel();
+
     QLabel& motorZeroSetCurrentLabel();
     QLabel& motorOneSetCurrentLabel();
     QLabel& motorZeroPowerLabel();

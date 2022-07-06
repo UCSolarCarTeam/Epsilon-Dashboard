@@ -5,6 +5,7 @@
 #include <QStyle>
 #include <QDesktopWidget>
 #include <QApplication>
+//#include <QScreen>
 
 RaceModeDashboardUI::RaceModeDashboardUI(bool isWindowed)
     : ui_(new Ui::RaceModeDashboardUI)
@@ -23,6 +24,7 @@ RaceModeDashboardUI::RaceModeDashboardUI(bool isWindowed)
             Qt::AlignRight,
             size(),
             QApplication::desktop()->screenGeometry()
+            //QGuiApplication::primaryScreen()->geometry()
         )
     );
     //Font loading
@@ -52,6 +54,11 @@ QLabel& RaceModeDashboardUI::actualSpeedLabel()
 QLabel& RaceModeDashboardUI::auxVoltageLabel()
 {
     return *ui_->auxVoltageLabel;
+}
+
+QLabel& RaceModeDashboardUI::lastLapAverageLabel()
+{
+    return *ui_->lastLapAverageLabel;
 }
 
 QLabel& RaceModeDashboardUI::motorZeroSetCurrentLabel()

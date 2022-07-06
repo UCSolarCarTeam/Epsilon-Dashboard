@@ -84,6 +84,9 @@ private:
     bool aux_;
     bool forward_;
     bool reverse_;
+    double totalSpeed_;
+    int updateCount_;\
+    bool lap_;
 
 private slots:
     // battery data slots
@@ -102,6 +105,7 @@ private slots:
     void auxReceived(bool);
     void forwardReceived(bool);
     void reverseReceived(bool);
+    void lapReceived(bool);
 
     // key motor slots
     void motorActualSpeedReceived(double);

@@ -60,4 +60,5 @@ void DriverControlsPopulator::populateData(const QJsonObject& data)
     driverControlsData_.setHorn(value.toObject().value(JsonFormat::DRIVERCONTROLS_HORN).toBool());
     driverControlsData_.setReset(value.toObject().value(JsonFormat::DRIVERCONTROLS_RESET).toBool());
     driverControlsData_.setAux(value.toObject().value(JsonFormat::DRIVERCONTROLS_AUX).toBool());
+    driverControlsData_.setLap(value.toObject().value(JsonFormat::DRIVERCONTROLS_LAP).toBool());
 }
