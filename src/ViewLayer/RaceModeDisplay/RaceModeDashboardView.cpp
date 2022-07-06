@@ -356,8 +356,8 @@ void RaceModeDashboardView::reverseReceived(bool reverse)
 
 void RaceModeDashboardView::lapReceived(bool lap)
 {
-    //Lap go from false to true
-    if(!lap_ && lap)
+    //Lap go from true to false
+    if(lap_ && !lap)
     {
         double averageSpeed = totalSpeed_/(updateCount_/2);
         ui_.lastLapAverageLabel().setText(QString::number(qAbs(averageSpeed/1.609344), 'f', 1));
@@ -365,8 +365,8 @@ void RaceModeDashboardView::lapReceived(bool lap)
         updateCount_ = 0;
         lap_ = lap;
     }
-    //Lap go from true to false
-    else if(lap_ && !lap)
+    //Lap go from false to true
+    else if(!lap_ && lap)
     {
         totalSpeed_ = 0;
         updateCount_ = 0;
