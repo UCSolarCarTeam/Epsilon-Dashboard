@@ -20,7 +20,7 @@ ConnectionController::ConnectionController(QString exchangeName
             // Do nothing
         }
 
-        channel_ = internetConnectionService->getChannel();
+        // channel_ = internetConnectionService->getChannel();
     }
 }
 
@@ -58,7 +58,8 @@ void ConnectionController::disconnectFromConnectionService(I_ConnectionService* 
     disconnect(service, 0, this, 0);
 }
 
-AmqpClient::Channel::ptr_t ConnectionController::getChannel()
+/*AmqpClient::Channel::ptr_t ConnectionController::getChannel()
 {
     return channel_;
 }
+*/

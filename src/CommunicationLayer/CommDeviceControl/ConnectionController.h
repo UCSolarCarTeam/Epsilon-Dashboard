@@ -1,6 +1,6 @@
 #pragma once
 
-#include <SimpleAmqpClient/SimpleAmqpClient.h>
+// #include <SimpleAmqpClient/SimpleAmqpClient.h>
 
 #include "I_ConnectionService.h"
 #include "InternetConnectionService.h"
@@ -17,7 +17,7 @@ public:
     void setDeviceType(CommDefines::Type type);
     bool connectToDataSource();
     void disconnectFromDataSource();
-    AmqpClient::Channel::ptr_t getChannel();
+    // AmqpClient::Channel::ptr_t getChannel();
 
 private:
     void connectToConnectionService(I_ConnectionService* service);
@@ -29,6 +29,6 @@ private:
     QString queueName_;
     QString ipAddress_;
     quint16 port_;
-    AmqpClient::Channel::ptr_t channel_;
+    // AmqpClient::Channel::ptr_t channel_;
     I_ConnectionService* internetConnectionService_;
 };
