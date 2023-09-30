@@ -1,6 +1,6 @@
 #pragma once
 
-#include <SimpleAmqpClient/SimpleAmqpClient.h>
+// #include <SimpleAmqpClient/SimpleAmqpClient.h>
 #include <QHostAddress>
 #include <QString>
 #include <QTimer>
@@ -21,7 +21,7 @@ public:
 
     void setupChannel();
     void disconnectFromDataSource();
-    AmqpClient::Channel::ptr_t getChannel();
+    // AmqpClient::Channel::ptr_t getChannel();
 
 signals:
     void setupChannelSignal();
@@ -31,8 +31,8 @@ public slots:
 
 private:
 
-    AmqpClient::Channel::ptr_t channel_;
-    AmqpClient::Channel::OpenOpts openOpts_;
+    // AmqpClient::Channel::ptr_t channel_;
+    // AmqpClient::Channel::OpenOpts openOpts_;
     QString exchangeName_;
     QString queueName_;
     QString ipAddress_;

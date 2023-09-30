@@ -19,7 +19,7 @@ public:
                                 infrastructureContainer.settings().queue(),
                                 infrastructureContainer.settings().ipAddress(),
                                 infrastructureContainer.settings().port())
-        , commDeviceManager_(connectionController_.getChannel(),
+        , commDeviceManager_(/*connectionController_.getChannel(),*/
                              infrastructureContainer.settings().queue())
         , jsonReceiver_(businessContainer.auxBmsPopulator(),
                         businessContainer.batteryPopulator(),

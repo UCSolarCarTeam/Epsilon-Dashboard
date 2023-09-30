@@ -1,6 +1,5 @@
 [requires]
 gtest/1.10.0
-SimpleAmqpClient/2.6.0
 boost/[>1.69.0]
 
 [generators]

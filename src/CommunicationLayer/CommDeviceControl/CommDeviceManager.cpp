@@ -1,9 +1,9 @@
 #include "CommDeviceManager.h"
 #include <QDebug>
 
-CommDeviceManager::CommDeviceManager(AmqpClient::Channel::ptr_t channel, QString queueName)
+CommDeviceManager::CommDeviceManager(/*AmqpClient::Channel::ptr_t channel,*/ QString queueName)
     : queueName_(queueName)
-    , channel_(channel)
+    //, channel_(channel)
 {
     connectToDevice(CommDefines::Internet);
 }
@@ -18,7 +18,7 @@ void CommDeviceManager::connectToDevice(CommDefines::Type type)
     {
         InternetCommDevice* internetCommDevice = new InternetCommDevice();
         internetCommDevice->setQueueName(queueName_);
-        internetCommDevice->setChannel(channel_);
+       // internetCommDevice->setChannel(channel_);
         connect(internetCommDevice, &InternetCommDevice::dataReceived, this, &CommDeviceManager::handleJsonDataIncoming);
         connect(internetCommDevice, &InternetCommDevice::finished, internetCommDevice, &QObject::deleteLater);
         internetCommDevice->start();
