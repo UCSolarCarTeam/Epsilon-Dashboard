@@ -14,7 +14,7 @@ TabUi::TabUi() :
     QPixmap bkgnd(":/Resources/Background.png");
     bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette background = palette();
-    background.setBrush(QPalette::Background, bkgnd);
+    background.setBrush(QPalette::Window, bkgnd);
 
     ui_->controlButton->setIcon(QIcon(":/Resources/SteeringIcon.png"));
     ui_->controlButton->setIconSize(QSize(30, 30));

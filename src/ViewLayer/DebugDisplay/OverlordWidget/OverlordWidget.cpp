@@ -9,7 +9,7 @@
 #include "Tab/TabUi/I_TabUi.h"
 #include "AuxBmsPage/AuxBmsUi/I_AuxBmsUi.h"
 #include <QStyle>
-#include <QDesktopWidget>
+#include <QScreen>
 #include <QApplication>
 
 OverlordWidget::OverlordWidget(I_BatteryUi& batteryUi,
@@ -89,7 +89,7 @@ OverlordWidget::OverlordWidget(I_BatteryUi& batteryUi,
             Qt::LeftToRight,
             Qt::AlignRight,
             size(),
-            QApplication::desktop()->screenGeometry()
+            QApplication::primaryScreen()->availableGeometry()
         )
     );
     show();

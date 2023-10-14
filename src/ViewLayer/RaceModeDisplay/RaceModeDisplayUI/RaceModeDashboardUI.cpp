@@ -3,7 +3,7 @@
 #include "FontLoader/FontLoader.h"
 
 #include <QStyle>
-#include <QDesktopWidget>
+#include <QScreen>
 #include <QApplication>
 
 RaceModeDashboardUI::RaceModeDashboardUI(bool isWindowed)
@@ -22,7 +22,7 @@ RaceModeDashboardUI::RaceModeDashboardUI(bool isWindowed)
             Qt::LeftToRight,
             Qt::AlignRight,
             size(),
-            QApplication::desktop()->screenGeometry()
+            QApplication::primaryScreen()->availableGeometry()
         )
     );
     //Font loading

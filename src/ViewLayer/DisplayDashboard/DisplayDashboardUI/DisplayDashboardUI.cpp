@@ -2,7 +2,7 @@
 #include "ui_DisplayDashboardUI.h"
 #include <QApplication>
 #include <QStyle>
-#include <QDesktopWidget>
+#include <QScreen>
 #include "FontLoader/FontLoader.h"
 
 DisplayDashboardUI::DisplayDashboardUI(bool isWindowed )
@@ -16,12 +16,13 @@ DisplayDashboardUI::DisplayDashboardUI(bool isWindowed )
         setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
     }
 
+
     setGeometry(
         QStyle::alignedRect(
             Qt::LeftToRight,
             Qt::AlignLeft,
             size(),
-            QApplication::desktop()->screenGeometry()
+            QApplication::primaryScreen()->availableGeometry()
         )
     );
 

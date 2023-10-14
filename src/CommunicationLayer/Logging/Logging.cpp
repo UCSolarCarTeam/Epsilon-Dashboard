@@ -50,6 +50,6 @@ void Logging::saveToLog(QJsonObject jsonData)
     QJsonDocument doc(jsonData);
     QString msg(doc.toJson(QJsonDocument::Compact));
     logStream_ << msg;
-    logStream_ << endl;
+    logStream_ << Qt::endl;
     logStream_.flush();
 }
