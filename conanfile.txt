@@ -1,6 +1,7 @@
 [requires]
 gtest/1.10.0
 boost/[>1.69.0]
+mosquitto/2.0.11
 
 [generators]
 qmake

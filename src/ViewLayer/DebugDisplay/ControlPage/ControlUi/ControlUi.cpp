@@ -8,7 +8,7 @@ ControlUi::ControlUi() :
     QPixmap bkgnd(":/Resources/Background.png");
     bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette background;
-    background.setBrush(QPalette::Background, bkgnd);
+    background.setBrush(QPalette::Window, bkgnd);
     this->setPalette(background);
 }
 

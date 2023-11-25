@@ -13,14 +13,21 @@ namespace
 }
 
 InternetConnectionService::InternetConnectionService(
-    QString exchangeName, QString queueName, QString ipAddress, quint16 port)
-    : exchangeName_(exchangeName), queueName_(queueName), ipAddress_(ipAddress), port_(port), connectionRetryTimer_(new QTimer(this))
+    QString exchangeName
+    ,  QString queueName
+    ,  QString ipAddress
+    ,  quint16 port)
+    : exchangeName_(exchangeName)
+    , queueName_(queueName)
+    , ipAddress_(ipAddress)
+    , port_(port)
+    , connectionRetryTimer_(new QTimer(this))
 {
     QObject::connect(this, SIGNAL(setupChannelSignal()), this, SLOT(connectToDataSource()));
     connectionRetryTimer_.setSingleShot(true);
     connect(&connectionRetryTimer_, SIGNAL(timeout()), this, SLOT(connectToDataSource()));
 
-    // Setting up openOpts
+    //Setting up openOpts
     /*AmqpClient::Channel::OpenOpts::BasicAuth auth;
     auth.password = "guest";
     auth.username = "guest";
@@ -36,67 +43,16 @@ InternetConnectionService::~InternetConnectionService()
 {
 }
 
-void messageCallback(struct mosquitto *mosq, void *userdata, const struct mosquitto_message *message)
-{
-    if (message->payloadlen)
-    {
-        qWarning() << "Topic: " << message->topic << ", Message: " << (char *)message->payload;
-    }
-    else
-    {
-        qWarning() << "Empty message received on topic: " << message->topic;
-    }
-}
 
 void InternetConnectionService::setupChannel()
 {
-    qWarning() << "InternetConnectionService: Attempting to connect to exchange" << exchangeName_ << "at" << ipAddress_ << port_;
+    qWarning() << "InternetConnectionService: Attempting to connect to exchange" << exchangeName_ <<"at" << ipAddress_ << port_;
 
-    int rc;
-    struct mosquitto *mosq;
+    struct mosquitto *mosq = NULL;
 
     mosquitto_lib_init();
-
-    // mosq  = mosquitto_new("test",true,NULL);  //for sending
     mosq = mosquitto_new(NULL, true, NULL);
-    if (!mosq)
-    {
-        qWarning() << "could not make mosquitto";
-        return;
-    }
-
-    mosquitto_message_callback_set(mosq, messageCallback);
-
-    rc = mosquitto_connect(mosq, "localhost", 8888, 60);
-    if (rc != 0)
-    {
-        qWarning() << "COULD NOT CONNECT";
-        mosquitto_destroy(mosq);
-        // return -1;
-        return;
-    }
-
-    qWarning() << "CONNECTED!!!!!!";
-
-    if (mosquitto_subscribe(mosq, NULL, "sender", 1))
-    {
-        qWarning() << "COULD NOT SUB";
-        return;
-    }
-
-    // mosquitto_loop_start(mosq);
-    //  std::this_thread::sleep_for(std::chrono::seconds(2));
-
-    //    std::thread mosquittoThread([&](){
-    mosquitto_loop_forever(mosq, -1, 1);
-    //    });
-
-    //    mosquittoThread.join();
-    // mosquitto_publish(mosq,NULL,"testing",12,"WORK ASSHOLE",0,false);
-
-    // mosquitto_disconnect(mosq);
-    mosquitto_destroy(mosq);
-    mosquitto_lib_cleanup();
+    mosquitto_connect(mosq, brokerAddress_.toStdString(),brokerPort)
 
     /* try
     {
@@ -147,10 +103,10 @@ void InternetConnectionService::setupChannel()
 
 bool InternetConnectionService::connectToDataSource()
 {
-    //  try
-    // {
-    setupChannel();
-    //  }
+  //  try
+  // {
+        setupChannel();
+  //  }
     /*catch (AmqpClient::AmqpException::exception& e)
     {
         qWarning() << "Connection failed, retrying in" << SLEEP_TIME_MILLISECONDS << "ms";

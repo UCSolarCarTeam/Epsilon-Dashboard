@@ -3,12 +3,13 @@
 #include "FontLoader/FontLoader.h"
 
 #include <QStyle>
-#include <QDesktopWidget>
-#include <QApplication>
+// #include <QDesktopWidget>
+// #include <QApplication>
+#include <QGuiApplication>
+#include <QScreen>
 
 RaceModeDashboardUI::RaceModeDashboardUI(bool isWindowed)
-    : ui_(new Ui::RaceModeDashboardUI)
-    , fontLoader_(new FontLoader())
+    : ui_(new Ui::RaceModeDashboardUI), fontLoader_(new FontLoader())
 {
     ui_->setupUi(this);
 
@@ -22,10 +23,8 @@ RaceModeDashboardUI::RaceModeDashboardUI(bool isWindowed)
             Qt::LeftToRight,
             Qt::AlignRight,
             size(),
-            QApplication::desktop()->screenGeometry()
-        )
-    );
-    //Font loading
+            QGuiApplication::primaryScreen()->geometry()));
+    // Font loading
     ui_->driveModeValueLabel->setFont(fontLoader_->loadFont(Font::LCD, 32, true));
     ui_->actualSpeedLabel->setFont(fontLoader_->loadFont(Font::LCD, 45, true));
     ui_->stateOfChargeCapacityWidget->setFont(fontLoader_->loadFont(Font::LCD, 20, false));
@@ -38,148 +37,146 @@ RaceModeDashboardUI::~RaceModeDashboardUI()
     delete ui_;
 }
 
-
-QWidget& RaceModeDashboardUI::raceModeDashboard()
+QWidget &RaceModeDashboardUI::raceModeDashboard()
 {
     return *ui_->raceModeDashboard;
 }
 
-QLabel& RaceModeDashboardUI::actualSpeedLabel()
+QLabel &RaceModeDashboardUI::actualSpeedLabel()
 {
     return *ui_->actualSpeedLabel;
 }
 
-QLabel& RaceModeDashboardUI::auxVoltageLabel()
+QLabel &RaceModeDashboardUI::auxVoltageLabel()
 {
     return *ui_->auxVoltageLabel;
 }
 
-QLabel& RaceModeDashboardUI::motorZeroSetCurrentLabel()
+QLabel &RaceModeDashboardUI::motorZeroSetCurrentLabel()
 {
     return *ui_->motorZeroSetCurrentLabel;
 }
 
-QLabel& RaceModeDashboardUI::motorOneSetCurrentLabel()
+QLabel &RaceModeDashboardUI::motorOneSetCurrentLabel()
 {
     return *ui_->motorOneSetCurrentLabel;
 }
 
-QLabel& RaceModeDashboardUI::motorZeroPowerLabel()
+QLabel &RaceModeDashboardUI::motorZeroPowerLabel()
 {
     return *ui_->motorZeroPowerLabel;
 }
 
-QLabel& RaceModeDashboardUI::motorZeroPowerUnitsLabel()
+QLabel &RaceModeDashboardUI::motorZeroPowerUnitsLabel()
 {
     return *ui_->motorZeroPowerUnitsLabel;
 }
 
-QLabel& RaceModeDashboardUI::motorOnePowerLabel()
+QLabel &RaceModeDashboardUI::motorOnePowerLabel()
 {
     return *ui_->motorOnePowerLabel;
 }
-QLabel& RaceModeDashboardUI::motorOnePowerUnitsLabel()
+QLabel &RaceModeDashboardUI::motorOnePowerUnitsLabel()
 {
     return *ui_->motorOnePowerUnitsLabel;
 }
 
-QLabel& RaceModeDashboardUI::batteryFaultsLabel()
+QLabel &RaceModeDashboardUI::batteryFaultsLabel()
 {
     return *ui_->batteryFaultsLabel;
 }
 
-QLabel& RaceModeDashboardUI::motorZeroFaultsLabel()
+QLabel &RaceModeDashboardUI::motorZeroFaultsLabel()
 {
     return *ui_->motorZeroFaultsLabel;
 }
 
-QLabel& RaceModeDashboardUI::motorOneFaultsLabel()
+QLabel &RaceModeDashboardUI::motorOneFaultsLabel()
 {
     return *ui_->motorOneFaultsLabel;
 }
 
-QWidget& RaceModeDashboardUI::leftTurnSignalWidget()
+QWidget &RaceModeDashboardUI::leftTurnSignalWidget()
 {
     return *ui_->leftTurnSignalWidget;
 }
 
-QWidget& RaceModeDashboardUI::rightTurnSignalWidget()
+QWidget &RaceModeDashboardUI::rightTurnSignalWidget()
 {
     return *ui_->rightTurnSignalWidget;
 }
 
-QWidget& RaceModeDashboardUI::motorResetButtonWidget()
+QWidget &RaceModeDashboardUI::motorResetButtonWidget()
 {
     return *ui_->motorResetButtonWidget;
 }
 
-QProgressBar& RaceModeDashboardUI::stateOfChargeCapacityWidget()
+QProgressBar &RaceModeDashboardUI::stateOfChargeCapacityWidget()
 {
     return *ui_->stateOfChargeCapacityWidget;
 }
 
-QLabel& RaceModeDashboardUI::prechargeStateLabel()
+QLabel &RaceModeDashboardUI::prechargeStateLabel()
 {
     return *ui_->prechargeStateLabel;
 }
 
-QWidget& RaceModeDashboardUI::lowHeadlightIndicatorWidget()
+QWidget &RaceModeDashboardUI::lowHeadlightIndicatorWidget()
 {
     return *ui_->lowHeadlightIndicatorWidget;
 }
 
-QLabel& RaceModeDashboardUI::highCellTemperatureLabel()
+QLabel &RaceModeDashboardUI::highCellTemperatureLabel()
 {
     return *ui_->highCellTemperatureLabel;
 }
 
-QLabel& RaceModeDashboardUI::avgCellTemperatureLabel()
+QLabel &RaceModeDashboardUI::avgCellTemperatureLabel()
 {
     return *ui_->avgCellTemperatureLabel;
 }
 
-QLabel& RaceModeDashboardUI::lowestCellVoltageLabel()
+QLabel &RaceModeDashboardUI::lowestCellVoltageLabel()
 {
     return *ui_->lowestCellVoltageLabel;
 }
 
-QLabel& RaceModeDashboardUI::highCellVoltageLabel()
+QLabel &RaceModeDashboardUI::highCellVoltageLabel()
 {
     return *ui_->highCellVoltageLabel;
 }
 
-QLabel& RaceModeDashboardUI::motorZeroBusVoltageLabel()
+QLabel &RaceModeDashboardUI::motorZeroBusVoltageLabel()
 {
     return *ui_->motorZeroBusVoltageLabel;
 }
 
-QLabel& RaceModeDashboardUI::motorOneBusVoltageLabel()
+QLabel &RaceModeDashboardUI::motorOneBusVoltageLabel()
 {
     return *ui_->motorOneBusVoltageLabel;
 }
 
-QLabel& RaceModeDashboardUI::motorZeroBusCurrentLabel()
+QLabel &RaceModeDashboardUI::motorZeroBusCurrentLabel()
 {
     return *ui_->motorZeroBusCurrentLabel;
 }
 
-QLabel& RaceModeDashboardUI::motorOneBusCurrentLabel()
+QLabel &RaceModeDashboardUI::motorOneBusCurrentLabel()
 {
     return *ui_->motorOneBusCurrentLabel;
 }
 
-QLabel& RaceModeDashboardUI::arrayPowerLabel()
+QLabel &RaceModeDashboardUI::arrayPowerLabel()
 {
     return *ui_->arrayPowerLabel;
 }
 
-QLabel& RaceModeDashboardUI::batteryPowerLabel()
+QLabel &RaceModeDashboardUI::batteryPowerLabel()
 {
     return *ui_->batteryPowerLabel;
 }
 
-QLabel& RaceModeDashboardUI::driveModeValueLabel()
+QLabel &RaceModeDashboardUI::driveModeValueLabel()
 {
     return *ui_->driveModeValueLabel;
 }
-
