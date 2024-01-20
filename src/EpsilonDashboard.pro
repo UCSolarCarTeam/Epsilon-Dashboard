@@ -6,13 +6,16 @@ message(University of Calgary Solar Car Team Epsilon Dashboard)
 
 SUBDIRS = \
     ViewLayer \
-    PresenterLayer \ 
-    BusinessLayer \ 
+    PresenterLayer \
+    BusinessLayer \
     InfrastructureLayer \
     CommunicationLayer \
     DataLayer \
     EpsilonDashboard \
-    Tests \
+
+!macx {
+    SUBDIRS += Tests
+}
 
 DISTFILES += \
     .travis.yml \

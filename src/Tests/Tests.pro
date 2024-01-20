@@ -23,8 +23,10 @@ SOURCES += \
 }
 
 DESTDIR = ../bin/tests/
+!macx {
+    copytestconfig.commands = cp $$PWD/testconfig.ini $${DESTDIR}
+}
 
-copytestconfig.commands = cp $$PWD/testconfig.ini $${DESTDIR}
 
 QMAKE_EXTRA_TARGETS += copytestconfig
 POST_TARGETDEPS += copytestconfig

@@ -56,6 +56,11 @@ DISTFILES += \
     ../Resources/LowHeadlightIndicator.png \
     ../Resources/SolarCarTeam.png
 
-copyconfigfile.commands = cp $$PWD/../config.ini.example ../bin/config.ini
+
+!macx{
+    copyconfigfile.commands = cp $$PWD/../config.ini.example ../bin/config.ini
+}
+
+
 QMAKE_EXTRA_TARGETS += copyconfigfile
 POST_TARGETDEPS += copyconfigfile
